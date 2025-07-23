@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2022年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコンに変更 -->
+                    2022（R4）年　材料力学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2022年度の材料力学入試では、大問【1】で不静定問題（応力と変形）、大問【2】で一端固定他端支持はりのたわみに関する問題が出題されました。材料力学の基本的な概念から応用問題まで、幅広い知識が問われる内容でした。</p>
+                <a href="../../pdfs/question/2022_R4_april/materials_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図1は、壁にピンで固定された剛体棒CDが2本のワイヤーAEとBFで吊り下げられ、先端Dに荷重Pが作用している状況を示しています。</p>
+                        <div class="my-6 text-center">
+                            <img src="../../images/materials_2022_1.png" alt="Problem 1 Diagram" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図1：問題1の説明図</p>
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この問題は不静定問題です。力のつり合い式だけでは解けないため、変形の適合条件を考慮する必要があります。剛体棒の回転によるワイヤーの伸びと、ワイヤーの材料特性による伸びを結びつけて考えましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 上下方向のつり合い式と，点Cまわりのモーメントのつり合い式を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            物体にはたらく力のつり合いを考えます。支持力\(R\)とワイヤーの張力\(T_a, T_b\)を上向き、外力\(P\)を下向きとすると、垂直方向の力のつり合い式は以下のようになります。
+                            <b>力のつり合い式:</b>
+                            $$R + T_a + T_b - P = 0$$
+                        </div>
+                        <div class="solution-step">
+                            次に、点Cを回転の中心としてモーメントのつり合いを考えます。点C周りのモーメントのつり合い式は以下の通りです。
+                            <b>点Cに関するモーメントのつり合い式:</b>
+                            $$a T_a + b T_b - c P = 0$$
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) ワイヤーAEとBFの応力を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            これは不静定問題なので、力のつり合いに加えて変形の適合条件を考慮する必要があります。剛体棒CDが点Cを中心に微小角度 \(\theta\) だけ回転すると、点Aと点Bの変位 \(\delta_a, \delta_b\) はそれぞれワイヤーの伸びに等しくなります。
+                            <b>変位の幾何学的関係：</b>
+                            $$\delta_a = a \theta, \quad \delta_b = b \theta$$
+                        </div>
+                        <div class="solution-step">
+                            一方、ワイヤーの伸びは材料の性質から以下の式で表されます。
+                            $$\delta_a = \frac{T_a l_a}{E_a S_a}, \quad \delta_b = \frac{T_b l_b}{E_b S_b}$$
+                        </div>
+                        <div class="solution-step">
+                            これらの式から \(\theta\) を消去して、変形の適合条件式を得ます。
+                            $$\frac{\delta_a}{a} = \frac{\delta_b}{b} \implies \frac{T_a l_a}{a E_a S_a} = \frac{T_b l_b}{b E_b S_b}$$
+                        </div>
+                        <div class="solution-step">
+                            この式とモーメントのつり合い式 \(a T_a + b T_b = c P\) を連立して、\(T_a\)と\(T_b\)を求めます。<br>
+                            適合条件式から \(T_a\) を \(T_b\) で表すと、
+                            $$T_a = T_b \cdot \frac{a l_b E_a S_a}{b l_a E_b S_b}$$
+                            これをモーメントのつり合い式に代入して、\(T_b\) を求めます。
+                            $$a \left( T_b \frac{a l_b E_a S_a}{b l_a E_b S_b} \right) + b T_b = cP \implies T_b \left( \frac{a^2 l_b E_a S_a}{b l_a E_b S_b} + b \right) = cP$$
+                            $$T_b = \frac{c P b l_a E_b S_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+                            同様に、\(T_a\) は以下のようになります。
+                            $$T_a = \frac{c P a l_b E_a S_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+                        </div>
+                        <div class="solution-step">
+                            応力 \(\sigma\) は力 \(T\) を断面積 \(S\) で割ることで求められるので (\(\sigma = T/S\))、各ワイヤーの応力は次のようになります。
+                            <br><b>ワイヤーAEの応力 \(\sigma_a\):</b>
+                            $$\sigma_a = \frac{T_a}{S_a} = \frac{c P a l_b E_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+                            <br><b>ワイヤーBFの応力 \(\sigma_b\):</b>
+                            $$\sigma_b = \frac{T_b}{S_b} = \frac{c P b l_a E_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) ワイヤーAEとBFの応力の比を求めよ．ただし，縦弾性係数は等しく，\(2a = b\) , \(l_a = 2l_b\) とする．</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            変形の適合条件式を応力で書き直します。
+                            $$\frac{(\sigma_a S_a) l_a}{a E_a S_a} = \frac{(\sigma_b S_b) l_b}{b E_b S_b} \implies \frac{\sigma_a l_a}{a E_a} = \frac{\sigma_b l_b}{b E_b}$$
+                            この式から応力の比を求めると、
+                            $$\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{b E_b l_a}$$
+                        </div>
+                        <div class="solution-step">
+                            問題の条件である \(E_a = E_b\)、 \(b = 2a\)、 \(l_a = 2l_b\) を代入します。
+                            $$\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{(2a) E_a (2l_b)} = \frac{1}{4}$$
+                        </div>
+                        <span class="answer-highlight">答え: 応力 \(\sigma_a\) は \(\sigma_b\) の \(\frac{1}{4}\) 倍になります。</span>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>この不静定問題は、力のつり合い式と変形の適合条件式を連立することで解くことができました。特に、応力の比を求める際には、与えられた条件を正確に代入することが重要です。最終的に応力 \(\sigma_a\) は \(\sigma_b\) の \(\frac{1}{4}\) 倍という結果になりました。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>不静定問題では、力のつり合い式と変形の適合条件式を連立する。</li>
+                            <li>剛体棒の回転による変位と、ワイヤーの伸びの関係を理解する。</li>
+                            <li>応力とひずみの基本法則を適用する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>不静定問題の解法手順をマスターする。</li>
+                            <li>幾何学的関係と物理的関係（フックの法則など）を明確に区別する。</li>
+                            <li>複雑な式の整理と代入を丁寧に行い、計算ミスを防ぐ。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図2は、一端（B）が固定され、他端（A）が支持されたはりに、曲げモーメント \(M_C\) が作用している状況を示しています。</p>
+                        <div class="my-6 text-center">
+                            <img src="../../images/materials_2022_2.png" alt="Problem 2 Diagram" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図2：問題2の説明図</p>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(1) 曲げモーメントとたわみを求めよ</h3>
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>梁のたわみ問題は、曲げモーメントの微分方程式を積分することで解きます。境界条件と連続条件を正確に適用し、積分定数と未知の反力を決定することが重要です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            <b>支持力 \(R_A\) を既知の外力とみなし、点Aを原点としてx軸をとります。</b>
+                        </div>
+                        <div class="solution-step">
+                            <b>曲げモーメント \(M(x)\):</b><br>
+                            区間AC (\(0 \le x \le a\)) と CB (\(a \le x \le l\)) でモーメントの式は異なります。
+                            <ul>
+                                <li><b>区間AC (\(0 \le x \le a\)):</b>
+                                    $$M_{AC}(x) = R_A x$$</li>
+                                <li><b>区間CB (\(a \le x \le l\)):</b>
+                                    $$M_{CB}(x) = R_A x + M_C$$</li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            <b>たわみ \(v(x)\):</b><br>
+                            たわみの基本微分方程式 \(EI \frac{d^2v}{dx^2} = -M(x)\) を積分して、たわみの式を求めます。
+                            <div class="accordion" id="alt-solution-1">
+                                <div class="accordion-header" onclick="toggleAccordion('alt-solution-1')">
+                                    <span>たわみの基礎微分方程式の符号について</span>
+                                    <span class="accordion-arrow">▶</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="mb-2">\(EI \frac{d^2 v}{dx^2} = -M(x)\) : 上向き正（時計回り）</div>
+                                    <div class="mb-2">\(EI \frac{d^2 v}{dx^2} = M(x)\) : 下向き正（反時計回り）</div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><b>区間AC (\(0 \le x \le a\)):</b>
+                                    $$EI \frac{d^2v_{AC}}{dx^2} = -R_A x$$
+                                    $$EI \frac{dv_{AC}}{dx} = -\frac{1}{2} R_A x^2 + C_1$$
+                                    $$EI v_{AC}(x) = -\frac{1}{6} R_A x^3 + C_1 x + C_2$$</li>
+                                <li><b>区間CB (\(a \le x \le l\)):</b>
+                                    $$EI \frac{d^2v_{CB}}{dx^2} = -R_A x - M_C$$
+                                    $$EI \frac{dv_{CB}}{dx} = -\frac{1}{2} R_A x^2 - M_C x + C_3$$
+                                    $$EI v_{CB}(x) = -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + C_3 x + C_4$$</li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            積分定数 (\(C_1, C_2, C_3, C_4\)) は、境界条件と連続条件から決定されます。
+                            <ol>
+                                <li>支持点A (\(x=0\)): たわみはゼロ \(v_{AC}(0) = 0\)</li>
+                                <li>固定端B (\(x=l\)): たわみはゼロ \(v_{CB}(l) = 0\)</li>
+                                <li>固定端B (\(x=l\)): たわみ角はゼロ \(\frac{dv_{CB}}{dx}(l) = 0\)</li>
+                                <li>点C (\(x=a\)): たわみは連続 \(v_{AC}(a) = v_{CB}(a)\)</li>
+                                <li>点C (\(x=a\)): たわみ角は連続 \(\frac{dv_{AC}}{dx}(a) = \frac{dv_{CB}}{dx}(a)\)</li>
+                            </ol>
+                        </div>
+                        <div class="solution-step">
+                            これらの条件を用いて定数を \(R_A, M_C, a, l\) で表し、たわみの式に代入します。
+                            <div class="accordion" id="alt-solution-2">
+                                <div class="accordion-header" onclick="toggleAccordion('alt-solution-2')">
+                                    <span>計算過程</span>
+                                    <span class="accordion-arrow">▶</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="mb-2">
+                                        
+                                        <b>ステップ 1: 条件の適用</b>
+                                        <br><b>\(v_1(x=0) = 0\) の適用</b>
+                                        \(v_1(x)\) の式：
+                                        $$
+                                        EI \cdot v_1(x) = -\frac{1}{6} R_A x^3 + C_1 x + C_2
+                                        $$
+                                        \(x=0\) を代入：
+                                        $$
+                                        EI \cdot v_1(0) = -\frac{1}{6} R_A \cdot 0^3 + C_1 \cdot 0 + C_2 = C_2
+                                        $$
+                                        \(v_1(0) = 0\) より：
+                                        $$
+                                        C_2 = 0
+                                        $$
+                                        \(x=l\) で \(\frac{dv_2}{dx} = 0\) より：
+                                        $$
+                                        -\frac{1}{2} R_A l^2 - M_C l + C_3 = 0
+                                        $$
+                                        $$
+                                        C_3 = \frac{1}{2} R_A l^2 + M_C l \quad \text{(1)}
+                                        $$
+                                        
+                                        <br><b>\(v_2(x=l) = 0\) の適用</b>
+                                        <br><b></b>\(v_2(x)\) の式に \(x=l\) を代入：</b>
+                                        $$
+                                        EI \cdot v_2(l) = -\frac{1}{6} R_A l^3 - \frac{1}{2} M_C l^2 + C_3 l + C_4 = 0
+                                        $$
+                                        式 (1) を代入：
+                                        $$
+                                        -\frac{1}{6} R_A l^3 - \frac{1}{2} M_C l^2 + \left(\frac{1}{2} R_A l^2 + M_C l\right) l + C_4 = 0
+                                        $$
+                                        $$
+                                        -\frac{1}{6} R_A l^3 - \frac{1}{2} M_C l^2 + \frac{1}{2} R_A l^3 + M_C l^2 + C_4 = 0
+                                        $$
+                                        $$
+                                        \left(-\frac{1}{6} + \frac{3}{6}\right) R_A l^3 + \left(-\frac{1}{2} + 1\right) M_C l^2 + C_4 = 0
+                                        $$
+                                        $$
+                                        \frac{1}{3} R_A l^3 + \frac{1}{2} M_C l^2 + C_4 = 0
+                                        $$
+                                        $$
+                                        C_4 = -\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2 \quad \text{(2)}
+                                        $$
+                                        
+                                        <br><b>\(\frac{dv_1}{dx}(x=a) = \frac{dv_2}{dx}(x=a)\) の適用</b>
+                                        <br><b></b>まず、\(v_1(x)\) の式を \(x\) で微分（\(C_2 = 0\)）：</b>
+                                        $$
+                                        \frac{d}{dx}(EI \cdot v_1(x)) = \frac{d}{dx}\left(-\frac{1}{6} R_A x^3 + C_1 x\right) = -\frac{1}{2} R_A x^2 + C_1
+                                        $$
+                                        \(v_2(x)\) の微分は既に求めた：
+                                        $$
+                                        \frac{d}{dx}(EI \cdot v_2(x)) = -\frac{1}{2} R_A x^2 - M_C x + C_3
+                                        $$
+                                        \(x=a\) で等しい：
+                                        $$
+                                        -\frac{1}{2} R_A a^2 + C_1 = -\frac{1}{2} R_A a^2 - M_C a + C_3
+                                        $$
+                                        $$
+                                        C_1 = -M_C a + C_3
+                                        $$
+                                        式 (1) を代入：
+                                        $$
+                                        C_1 = -M_C a + \frac{1}{2} R_A l^2 + M_C l = \frac{1}{2} R_A l^2 + M_C (l - a) \quad \text{(3)}
+                                        $$
+                                        
+                                        <br><b>\(v_1(x=a) = v_2(x=a)\) の適用</b>
+                                        <br><b></b>\(v_1(x)\) の式（\(C_2 = 0\)）：</b>
+                                        $$
+                                        EI \cdot v_1(a) = -\frac{1}{6} R_A a^3 + C_1 a
+                                        $$
+                                        \(v_2(x)\) の式：
+                                        $$
+                                        EI \cdot v_2(a) = -\frac{1}{6} R_A a^3 - \frac{1}{2} M_C a^2 + C_3 a + C_4
+                                        $$
+                                        等しいので：
+                                        $$
+                                        -\frac{1}{6} R_A a^3 + C_1 a = -\frac{1}{6} R_A a^3 - \frac{1}{2} M_C a^2 + C_3 a + C_4
+                                        $$
+                                        $$
+                                        C_1 a = -\frac{1}{2} M_C a^2 + C_3 a + C_4
+                                        $$
+                                        式 (1)、(2)、(3) を代入：
+                                        <br><b></b>左辺：\(C_1 a = \left[\frac{1}{2} R_A l^2 + M_C (l - a)\right] a = \frac{1}{2} R_A l^2 a + M_C a (l - a)\)</b>
+                                        <br><b>右辺：\(-\frac{1}{2} M_C a^2 + C_3 a + C_4 = -\frac{1}{2} M_C a^2 + \left[\frac{1}{2} R_A l^2 + M_C l\right] a + \left[-\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2\right]\)</b>
+                                        $$
+                                        = -\frac{1}{2} M_C a^2 + \frac{1}{2} R_A l^2 a + M_C l a - \frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2
+                                        $$
+                                        等式：
+                                        $$
+                                        \frac{1}{2} R_A l^2 a + M_C a (l - a) = -\frac{1}{2} M_C a^2 + \frac{1}{2} R_A l^2 a + M_C l a - \frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2
+                                        $$
+                                        両辺から \(\frac{1}{2} R_A l^2 a + M_C l a\) を減算：
+                                        $$
+                                        M_C a (l - a) - M_C l a = -\frac{1}{2} M_C a^2 - \frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2
+                                        $$
+                                        $$
+                                        M_C a l - M_C a^2 - M_C l a = -\frac{1}{2} M_C a^2 - \frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2
+                                        $$
+                                        $$
+                                        - M_C a^2 = -\frac{1}{2} M_C a^2 - \frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2
+                                        $$
+                                        移項：
+                                        $$
+                                        - M_C a^2 + \frac{1}{2} M_C a^2 + \frac{1}{3} R_A l^3 + \frac{1}{2} M_C l^2 = 0
+                                        $$
+                                        $$
+                                        -\frac{1}{2} M_C a^2 + \frac{1}{3} R_A l^3 + \frac{1}{2} M_C l^2 = 0
+                                        $$
+                                        分母を払うため 6 を乗算：
+                                        $$
+                                        6 \cdot \left(-\frac{1}{2} M_C a^2\right) + 6 \cdot \left(\frac{1}{3} R_A l^3\right) + 6 \cdot \left(\frac{1}{2} M_C l^2\right) = 0
+                                        $$
+                                        $$
+                                        -3 M_C a^2 + 2 R_A l^3 + 3 M_C l^2 = 0
+                                        $$
+                                        $$
+                                        2 R_A l^3 + 3 M_C (l^2 - a^2) = 0 \quad \text{(4)}
+                                        $$
+                                        
+                                        <b>ステップ 2: 積分定数の消去</b>
+                                        得られた積分定数：
+                                        - \(C_2 = 0\)
+                                        - \(C_3 = \frac{1}{2} R_A l^2 + M_C l\) （式 (1)）
+                                        - \(C_1 = \frac{1}{2} R_A l^2 + M_C (l - a)\) （式 (3)）
+                                        - \(C_4 = -\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2\) （式 (2)）
+                                        
+                                        これらを \(v_1(x)\) と \(v_2(x)\) の式に代入する。
+                                        
+                                        <b>\(v_1(x)\) の式：</b>
+                                        $$
+                                        EI \cdot v_1(x) = -\frac{1}{6} R_A x^3 + C_1 x + C_2 = -\frac{1}{6} R_A x^3 + \left[\frac{1}{2} R_A l^2 + M_C (l - a)\right] x + 0
+                                        $$
+                                        $$
+                                        = R_A \left(-\frac{1}{6} x^3 + \frac{1}{2} l^2 x\right) + M_C (l - a) x
+                                        $$
+                                        
+                                        <br><b>\(v_2(x)\) の式：</b>
+                                        $$
+                                        EI \cdot v_2(x) = -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + C_3 x + C_4
+                                        $$
+                                        $$
+                                        = -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + \left[\frac{1}{2} R_A l^2 + M_C l\right] x + \left[-\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2\right]
+                                        $$
+                                        $$
+                                        = R_A \left(-\frac{1}{6} x^3 + \frac{1}{2} l^2 x - \frac{1}{3} l^3\right) + M_C \left(-\frac{1}{2} x^2 + l x - \frac{1}{2} l^2\right)
+                                        $$
+                                        
+                                        <b>ステップ 3: 解の整理</b>
+                                        積分定数を消去し、解は以下の通りである。ただし、\(R_A\) と \(M_C\) は式 (4) \(2 R_A l^3 + 3 M_C (l^2 - a^2) = 0\) を満たす必要がある。
+                                        
+                                        $$
+                                        \boxed{
+                                        \begin{aligned}
+                                        EI \cdot v_{1}(x) &= R_{A} \left( -\frac{1}{6} x^{3} + \frac{1}{2} l^{2} x \right) + M_{C} (l - a) x \\
+                                        EI \cdot v_{2}(x) &= R_{A} \left( -\frac{1}{6} x^{3} + \frac{1}{2} l^{2} x - \frac{1}{3} l^{3} \right) + M_{C} \left( -\frac{1}{2} x^{2} + l x - \frac{1}{2} l^{2} \right)
+                                        \end{aligned}
+                                        }
+                                        $$
+                                        
+                                        この解は、初期条件と接続条件を満たし、積分定数が消去されている。\(R_A\) と \(M_C\) は任意ではなく、関係式 \(2 R_A l^3 + 3 M_C (l^2 - a^2) = 0\) によって制約される。    
+                                    </div>
+                                </div>
+                            </div>
+                            最終的に、たわみの式は以下のようになります。
+                            <ul>
+                                <li><b>たわみ \(v_{AC}(x)\):</b>
+                                    $$v_{AC}(x) = \frac{1}{EI} \left[ -\frac{1}{6} R_A x^3 + \left( M_C(l-a) + \frac{1}{2}R_A l^2 \right) x \right]$$</li>
+                                <li><b>たわみ \(v_{CB}(x)\):</b>
+                                    $$v_{CB}(x) = \frac{1}{EI} \left[ -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + \frac{1}{2}\left( 2M_C l + R_A l^2 \right) x - \frac{1}{6}(2R_A l + 3M_C ) l^2 \right]$$</li>
+                            </ul>
+                        </div>
+                        <span class="answer-highlight">答え:
+                            <br> \(M_{AC}(x) = R_A x\)
+                            <br> \(M_{CB}(x) = R_A x + M_C\)
+                            <br> \(v_{AC}(x) = \frac{1}{EI} \left[ -\frac{1}{6} R_A x^3 + \left( M_C(l-a) + \frac{1}{2}R_A l^2 \right) x \right]\)
+                            <br> \(v_{CB}(x) = \frac{1}{EI} \left[ -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + \frac{1}{2}\left( 2M_C l + R_A l^2 \right) x - \frac{1}{6}(2R_A l + 3M_C ) l^2 \right]\)</span>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 支持力 \(R_A\) を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            上記で用いた境界条件をすべて適用することで、未知数であった支持力 \(R_A\) を決定できます。積分定数を求める過程で得られる以下の関係式を用います。
+                            $$-\frac{1}{3}R_A l^3 + \frac{M_C}{2}(a^2-l^2) = 0$$
+                            この式を \(R_A\) について解きます。
+                            <ul>
+                                <li><b>支持力 \(R_A\):</b>
+                                    $$R_A = \frac{3 M_C (a^2-l^2)}{2 l^3}$$
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="answer-highlight">答え: 支持力 \(R_A = \frac{3 M_C (a^2-l^2)}{2 l^3}\)</span>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>梁のたわみ問題は、曲げモーメントの微分方程式を解き、境界条件と連続条件を丁寧に適用することが鍵となります。積分定数を一つずつ決定していくことで、最終的に未知の反力やたわみの式を求めることができます。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>梁のたわみに関する微分方程式を理解する。</li>
+                            <li>境界条件と連続条件を正確に設定し、適用する。</li>
+                            <li>積分定数を適切に決定する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>不静定梁の解法手順をマスターする。</li>
+                            <li>曲げモーメント図とたわみ曲線の関係を視覚的に理解する。</li>
+                            <li>計算過程を丁寧に記述し、ミスを防ぐ。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <div class="section-title">ここに2022年度大問3の問題文を記述します。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>ここに2022年度大問3の考え方のヒントを記述します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">ここに2022年度大問3の解答ステップ1を記述します。</li>
+                            <li class="solution-step-list">ここに2022年度大問3の解答ステップ2を記述します。</li>
+                        </ul>
+                        <span class="answer-highlight">答え: ここに2022年度大問3の最終解答を記述します。</span>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul>
+                            <li>ここに2022年度大問3の全体のポイントを記述します。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>ここに2022年度大問3の受験材料力学のチップスを記述します。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>

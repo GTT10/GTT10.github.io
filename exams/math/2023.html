@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2023年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2023（R5）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2023年度の数学入試では、大問【1】で広義積分、大問【2】で微分方程式の同次・非同次形、大問【3】でフーリエ級数と級数の和、大問【4】で行列の階数と連立方程式が出題されました。解析・微分方程式・フーリエ解析・線形代数と、幅広い分野からバランスよく問われています。一つひとつ丁寧に解き方を学んでいきましょう！</p>
+                <a href="../../pdfs/question/2023_R5_april/math_2023_R5_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の広義積分を求めよ。ただし導出過程も示せ。</p>
+                        <div class="math-block">$$\int_{0}^{1} \frac{\log x}{\sqrt{x}} \, dx$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この積分は「広義積分」と呼ばれるタイプで、$x=0$のところで$\log x$と$\sqrt{x}$が無限大に発散してしまうので、慎重に計算する必要があります！<strong>「極限」を使って少しずつ近づけていく</strong>のがポイントです。部分積分とロピタルの定理の合わせ技で解いていきましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず積分区間を $[\varepsilon, 1]$（$\varepsilon$は0に近い小さな正の数）に制限して計算し、最後に $\varepsilon \to 0^+$ の極限を取ります。
+                        </div>
+                        <div class="solution-step">
+                            2. 部分積分の準備をします。$\frac{\log x}{\sqrt{x}} = \log x \cdot x^{-1/2}$ と見て、部分積分を使います。
+                            <div class="math-block">
+                                $f'(x) = x^{-1/2} \rightarrow f(x) = 2x^{1/2}$<br>
+                                $g(x) = \log x \rightarrow g'(x) = \frac{1}{x}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 部分積分を実行します。
+                            <div class="math-block">
+                                $$\int_{\varepsilon}^{1} \frac{\log x}{\sqrt{x}} \, dx = \left[ 2\sqrt{x} \log x \right]_{\varepsilon}^{1} - \int_{\varepsilon}^{1} 2\sqrt{x} \cdot \frac{1}{x} \, dx$$
+                                $$= \left[ 2\sqrt{x} \log x \right]_{\varepsilon}^{1} - 2 \int_{\varepsilon}^{1} x^{-1/2} \, dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 各項を計算します。第1項では $x=1$ で $2 \cdot 1 \cdot \log 1 = 0$、第2項の積分は $\int x^{-1/2} dx = 2x^{1/2}$ なので、
+                            <div class="math-block">
+                                $$= -2\sqrt{\varepsilon}\log\varepsilon - 2(2 - 2\sqrt{\varepsilon}) = -2\sqrt{\varepsilon}\log\varepsilon -4 + 4\sqrt{\varepsilon}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 極限を取ります（$\varepsilon \to 0^+$）。$\lim_{\varepsilon \to 0^+} 4\sqrt{\varepsilon} = 0$ は明らかですが、$\lim_{\varepsilon \to 0^+} \sqrt{\varepsilon} \log \varepsilon$ は「0×∞」型の不定形です。ロピタルの定理を使うと、
+                            <div class="math-block">
+                                $$\lim_{\varepsilon \to 0^+} \frac{\ln \varepsilon}{\varepsilon^{-1/2}} \xrightarrow{\text{ロピタル}} \lim_{\varepsilon \to 0^+} \frac{1/\varepsilon}{-\frac{1}{2}\varepsilon^{-3/2}} = \lim_{\varepsilon \to 0^+} (-2 \varepsilon^{1/2}) = 0$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            6. 最終的に、$-2 \cdot 0 - 4 + 4 \cdot 0 = -4$ となります。
+                        </div>
+                        <span class="answer-highlight">答え: $\int_{0}^{1} \frac{\log x}{\sqrt{x}} \, dx = -4$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>広義積分は極限で定義される特別な積分</li>
+                            <li>部分積分では「微分してシンプルになる項」を選ぶ</li>
+                            <li>不定形の極限はロピタルの定理で解決</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\log x$ と冪関数の積分では部分積分を使う</li>
+                            <li>$0 \times \infty$ 形は $\frac{\infty}{\infty}$ に変形してロピタル</li>
+                            <li>広義積分は「発散しそうで収束する」面白い例が多い</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $y'' - 6y' + 9y = 0$ の一般解を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは定数係数線形同次微分方程式ですね！特性方程式 $\lambda^2 - 6\lambda + 9 = 0$ を解いて、重解が出てきたときの解の形を思い出しましょう。重解のときは $x$ をかけた項が追加で必要です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 特性方程式を立てます。$y = e^{\lambda x}$ と仮定して代入すると、
+                            <div class="math-block">
+                                $$\lambda^2 - 6\lambda + 9 = 0$$
+                                $$(\lambda - 3)^2 = 0$$
+                                $$\lambda = 3 \text{（2重解）}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 重解の場合、解が1つしか出ないので $x$ をかけた解を追加します。一般解は、
+                            <div class="math-block">
+                                $$y = (C_1 + C_2 x)e^{3x} \quad (C_1, C_2 \text{は任意定数})$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = (C_1 + C_2 x)e^{3x}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $y'' - 6y' + 9y = e^{3x}$ の一般解を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>非同次方程式ですね！一般解は「同次解 + 特殊解」になります。右辺が $e^{3x}$ で、これは特性方程式の重解と同じ形なので、特殊解には $x^2$ をかけた形を試してみましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 同次解は(1)で求めた結果です。
+                            <div class="math-block">
+                                $$y_h = (C_1 + C_2 x)e^{3x}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 特殊解を設定します。右辺が $e^{3x}$ で、3が特性方程式の2重解なので、
+                            <div class="math-block">
+                                $$y_p = A x^2 e^{3x} \quad (A\text{：未定係数})$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. $y_p$ を微分して元の方程式に代入します。
+                            <div class="math-block">
+                                $y_p' = A(2x + 3x^2)e^{3x}$<br>
+                                $y_p'' = A(2 + 12x + 9x^2)e^{3x}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 方程式に代入して整理すると、
+                            <div class="math-block">
+                                $$A e^{3x} [(2 + 12x + 9x^2) - 6(2x + 3x^2) + 9x^2] = e^{3x}$$
+                                $$A e^{3x} \cdot 2 = e^{3x}$$
+                                $$A = \frac{1}{2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 一般解をまとめます。
+                            <div class="math-block">
+                                $$y = y_h + y_p = (C_1 + C_2 x)e^{3x} + \frac{1}{2} x^2 e^{3x}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = \left( C_1 + C_2 x + \frac{1}{2} x^2 \right) e^{3x}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>重解のとき一般解は $(C_1 + C_2 x) e^{\lambda x}$</li>
+                            <li>非同次項が特性解と重複するときは $x$ の冪をかける</li>
+                            <li>未定係数法で特殊解を見つける</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>特性方程式は「解の個数と重複度」がキーポイント</li>
+                            <li>重複度に応じて $x$, $x^2$ などをかけて調整</li>
+                            <li>最後は必ず元の方程式に代入して検証</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 一周期の区間で、次式で定義される周期関数のフーリエ級数展開式を求めよ。</p>
+                        <div class="math-block">$$f(t) = \begin{cases} 0 & -\pi < t \leq 0 \\ \sin t & 0 < t \leq \pi \end{cases}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>フーリエ級数は「変な形の周期関数を三角関数の和で表現する」魔法のような技術です！この関数は区間で定義されているので、積分計算では区間を分けて考えましょう。積和公式を使うと計算がスムーズになります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. フーリエ係数の公式を使います。周期 $2\pi$ なので、
+                            <div class="math-block">
+                                $a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) dt$<br>
+                                $a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \cos(nt) dt$<br>
+                                $b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \sin(nt) dt$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. $a_0$ を計算します。
+                            <div class="math-block">
+                                $$a_0 = \frac{1}{\pi} \left[ \int_{-\pi}^{0} 0 \, dt + \int_{0}^{\pi} \sin t \, dt \right] = \frac{1}{\pi} \left[ 0 + [-\cos t]_{0}^{\pi} \right] = \frac{2}{\pi}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. $a_n$ を計算します。積和公式 $\sin t \cos(nt) = \frac{1}{2}[\sin((n+1)t) + \sin((1-n)t)]$ を使って、
+                            <div class="math-block">
+                                $$a_n = \frac{1}{\pi} \int_{0}^{\pi} \sin t \cos(nt) dt$$
+                            </div>
+                            計算結果、$n=1$ のときは0、$n \geq 2$ のときも0になります（関数の対称性から）。
+                        </div>
+                        <div class="solution-step">
+                            4. $b_n$ を計算します。特に重要なのは $n=1$ のときで、
+                            <div class="math-block">
+                                $$b_1 = \frac{1}{\pi} \int_{0}^{\pi} \sin^2 t \, dt = \frac{1}{\pi} \cdot \frac{\pi}{2} = \frac{1}{2}$$
+                            </div>
+                            $n \geq 2$ のときは積和公式を使って計算できます。
+                        </div>
+                        <div class="solution-step">
+                            5. 最終的なフーリエ級数展開は、
+                            <div class="math-block">
+                                $$f(t) = \frac{1}{\pi} + \frac{1}{2} \sin t - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{\cos(2kt)}{4k^2-1}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $f(t) = \frac{1}{\pi} + \frac{1}{2} \sin t - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{\cos(2kt)}{4k^2-1}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 次の値を求めよ。</p>
+                        <div class="math-block">$$\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)のフーリエ級数の結果を活用しましょう！特定の $t$ 値を代入することで、級数の和を求めることができます。$\cos$ の符号が交互に変わる $t$ の値を選ぶのがポイントです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. (1)の結果で $t = \frac{\pi}{2}$ を代入します。このとき $\sin \frac{\pi}{2} = 1$、$\cos(k\pi) = (-1)^k$ なので、
+                            <div class="math-block">
+                                $$f\left(\frac{\pi}{2}\right) = \frac{1}{\pi} + \frac{1}{2} - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{(-1)^k}{4k^2-1}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 関数の定義より $f\left(\frac{\pi}{2}\right) = \sin \frac{\pi}{2} = 1$ なので、
+                            <div class="math-block">
+                                $$1 = \frac{1}{\pi} + \frac{1}{2} - \frac{2}{\pi} \sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. この方程式を解くと、
+                            <div class="math-block">
+                                $$\frac{2}{\pi} \sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{1}{\pi} + \frac{1}{2} - 1 = \frac{1}{\pi} - \frac{1}{2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. したがって、
+                            <div class="math-block">
+                                $$\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{\pi}{2} \left( \frac{1}{\pi} - \frac{1}{2} \right) = \frac{1}{2} - \frac{\pi}{4}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{1}{2} - \frac{\pi}{4}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>フーリエ級数は積分で各係数を計算する</li>
+                            <li>積和公式で三角関数の積を分解</li>
+                            <li>特定点での値を使って級数の和を求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>区間で定義された関数は積分区間を分けて考える</li>
+                            <li>フーリエ級数から級数の和を求める技法は頻出</li>
+                            <li>$(-1)^n$ が現れる級数では適切な点を選んで代入</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">ただし、$abc \neq 0$ とする。</div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 次の行列の階数を求めよ。</p>
+                        <div class="math-block">$$A = \begin{bmatrix} 0 & -a & -c \\ a & 0 & -b \\ c & b & 0 \end{bmatrix}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この行列は歪対称行列（転置すると符号反転）の形をしていますね！階数を求めるには行列式を計算するか、行基本変形を使って独立な行の数を調べましょう。まずは行列式から試してみると良いでしょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 行列式をサラスの方法で計算します。
+                            <div class="math-block">
+                                $$\det A = \begin{vmatrix} 0 & -a & -c \\ a & 0 & -b \\ c & b & 0 \end{vmatrix}$$
+                                $$= 0 \cdot 0 \cdot 0 + (-a)(-b)(c) + (-c)(a)(b) - [(-c) \cdot 0 \cdot c + (-a) \cdot a \cdot 0 + 0 \cdot b \cdot (-b)]$$
+                                $$= abc - abc - 0 = 0$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\det A = 0$ なので階数 < 3です。次に2つの列が独立かどうか調べます。第1列と第2列を見ると、
+                            <div class="math-block">
+                                $\begin{bmatrix} 0 \\ a \\ c \end{bmatrix}$ と $\begin{bmatrix} -a \\ 0 \\ b \end{bmatrix}$
+                            </div>
+                            $a, b \neq 0$ なのでこれらは独立です。
+                        </div>
+                        <div class="solution-step">
+                            3. 第3列が第1,2列の線形結合で表せるか確認します。
+                            <div class="math-block">
+                                $\begin{bmatrix} -c \\ -b \\ 0 \end{bmatrix} = x \begin{bmatrix} 0 \\ a \\ c \end{bmatrix} + y \begin{bmatrix} -a \\ 0 \\ b \end{bmatrix}$
+                            </div>
+                            この連立方程式を解くと、$x = -\frac{b}{a}$、$y = \frac{c}{a}$ で確かに成り立ちます。
+                        </div>
+                        <div class="solution-step">
+                            4. 第3列が第1,2列の線形結合で表せるので、独立な列は2本です。
+                        </div>
+                        <span class="answer-highlight">答え: $\text{rank}(A) = 2$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 次の連立一次方程式の解が存在するかどうか判定し，解が存在する場合には解の自由度を求めよ。</p>
+                        <div class="math-block">
+                            $$\begin{cases} ax_2 - cx_3 = a - c \\ ax_1 - bx_3 = a - b \\ cx_1 + bx_2 = c - b \end{cases}$$
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>連立方程式の解の存在は、係数行列と拡大係数行列の階数を比較して判定します！(1)で求めた行列と関係があるので、その結果を活用しましょう。解の自由度は「変数の数 - 階数」で求められます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 係数行列は(1)の行列$A$の転置と同じ構造で、階数は2です。拡大係数行列を作ると、
+                            <div class="math-block">
+                                $$[B|\mathbf{b}] = \left[ \begin{array}{ccc|c} 0 & a & -c & a-c \\ a & 0 & -b & a-b \\ c & b & 0 & c-b \end{array} \right]$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 行基本変形で拡大係数行列の階数を調べます。行の交換と消去を行うと、第3行が第1,2行の線形結合になることが確認できます。
+                        </div>
+                        <div class="solution-step">
+                            3. 具体的に計算すると、第3行 = $-\frac{c}{a} \times$ 第1行 $+ \frac{b}{a} \times$ 第2行 となり、右辺も同様の関係が成り立ちます。
+                        </div>
+                        <div class="solution-step">
+                            4. $\text{rank}(B) = \text{rank}([B|\mathbf{b}]) = 2$ なので解が存在します。変数の数は3、階数は2なので、解の自由度は $3 - 2 = 1$ です。
+                        </div>
+                        <span class="answer-highlight">答え: 解は存在し、自由度は1</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>歪対称行列は特殊な性質を持つ</li>
+                            <li>行列の階数は独立な行・列の数</li>
+                            <li>解の存在は係数行列と拡大係数行列の階数比較</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>行列式が0なら階数<3、非零なら階数=3</li>
+                            <li>連立方程式は階数を使って解の性質を調べる</li>
+                            <li>自由度 = 変数の数 - 係数行列の階数</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

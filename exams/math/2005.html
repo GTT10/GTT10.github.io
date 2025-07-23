@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2005年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2005（H17）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2005年度の数学入試では、大問【1】で陰関数微分と曲線解析、大問【2】で微分方程式（曲線族・変数分離形）、大問【3】で多変数関数の勾配と方向微分、大問【4】でラプラス変換の応用が出題されました。微分積分・微分方程式・多変数解析・積分変換と、理論と応用のバランスが取れた内容です。概念をしっかり理解して、計算テクニックと併せて学習していきましょう！</p>
+                <a href="../../pdfs/question/2005_H17_april/math_2005_H17_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2005年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $F(x,y) = xe^y - y$ について、方程式 $F(x,y) = 0$ によって定まる陰関数 $y = f(x)$ のグラフの概形を $x \geq 0, y \geq 0$ の範囲で描け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>陰関数のグラフを描くには、まず陰関数定理が適用できるかを確認し、導関数を求めて増減を調べましょう！特異点（導関数が無限大になる点）も重要なポイントです。$xe^y = y$ という関係式から、どんな曲線になるか想像してみてください。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず、方程式 $xe^y = y$ を分析します。$x = 0$ のとき $y = 0$ なので、原点$(0, 0)$を通ります。
+                        </div>
+                        <div class="solution-step">
+                            2. 陰関数微分により導関数を求めます：
+                            <div class="math-block">$$\frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{e^y}{xe^y - 1} = \frac{e^y}{1 - xe^y}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 原点での傾きは：$\frac{dy}{dx}\bigg|_{(0,0)} = \frac{e^0}{1 - 0 \cdot e^0} = 1$
+                        </div>
+                        <div class="solution-step">
+                            4. 特異点を調べます。分母が0になるのは $xe^y = 1$ のとき：
+                            <div class="math-block">$$x = \frac{1}{e^y} = e^{-y}$$</div>
+                            これを $xe^y = y$ に代入すると $y = 1$、$x = \frac{1}{e} \approx 0.368$
+                        </div>
+                        <div class="solution-step">
+                            5. 曲線の挙動：
+                            - $x \in [0, \frac{1}{e})$ で単調増加
+                            - $x \to \frac{1}{e}^-$ で $y \to 1^-$、接線は垂直になる
+                            - $x > \frac{1}{e}$ では陰関数として定義されない
+                        </div>
+                        <span class="answer-highlight">グラフ: 原点から始まり、点$(\frac{1}{e}, 1)$に向かって増加する曲線</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $f'(x)$ を $x$ と $y$ で表せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)で求めた陰関数微分の結果をそのまま使えばOKです！陰関数微分の公式 $\frac{dy}{dx} = -\frac{F_x}{F_y}$ を思い出しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            (1)で計算した結果をそのまま使います：
+                            <div class="math-block">$$f'(x) = \frac{dy}{dx} = \frac{e^y}{1 - xe^y}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $f'(x) = \frac{e^{y}}{1 - xe^{y}}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>陰関数定理の適用条件を確認する</li>
+                            <li>特異点（分母=0）で曲線の性質が変わる</li>
+                            <li>陰関数微分は偏微分の比で求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>陰関数のグラフは特異点で注意深く調べる</li>
+                            <li>$xe^y = y$ は超越方程式で解析的に解けない</li>
+                            <li>接線の傾きが無限大→垂直漸近線の可能性</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 直線 $y = x$ 上に中心をもつ任意の半径の円が満たす微分方程式を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>中心が$(h, h)$、半径$r$の円の方程式から出発しましょう！パラメータ$h$と$r$を消去して、$x$、$y$、$y'$、$y''$だけの関係式にします。円の方程式を2回微分するのがポイントです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 中心$(h, h)$、半径$r$の円の方程式：
+                            <div class="math-block">$$(x - h)^2 + (y - h)^2 = r^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $x$で微分（$y = y(x)$）：
+                            <div class="math-block">$$2(x - h) + 2(y - h)y' = 0$$</div>
+                            <div class="math-block">$$(x - h) + (y - h)y' = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. さらに$x$で微分：
+                            <div class="math-block">$$1 + y'^2 + (y - h)y'' = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 2つ目の式から $(y - h) = -\frac{x - h}{y'}$ なので、これを3つ目の式に代入：
+                            <div class="math-block">$$1 + y'^2 - \frac{x - h}{y'}y'' = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 2つ目の式から $(x - h) = -(y - h)y'$ を使って整理すると：
+                            <div class="math-block">$$y''(x - y) = (1 + y'^2)(1 + y')$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y''(x - y) = (1 + y'^{2})(1 + y')$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 微分方程式 $\frac{dy}{dx} - x(1 + y^2) = 0$ の一般解と、初期条件 $x = 0, y = 0$ を満たす特解のグラフを描け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは変数分離形の微分方程式です！$\frac{dy}{1 + y^2} = x dx$ として両辺を積分しましょう。左辺は $\arctan y$ になります。特解では初期条件から積分定数を決定します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数分離を行います：
+                            <div class="math-block">$$\frac{dy}{dx} = x(1 + y^2)$$</div>
+                            <div class="math-block">$$\frac{dy}{1 + y^2} = x dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺を積分：
+                            <div class="math-block">$$\int \frac{dy}{1 + y^2} = \int x dx$$</div>
+                            <div class="math-block">$$\arctan y = \frac{x^2}{2} + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 一般解を求めます：
+                            <div class="math-block">$$y = \tan\left(\frac{x^2}{2} + C\right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 初期条件 $x = 0, y = 0$ から：
+                            <div class="math-block">$$0 = \tan(C) \implies C = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 特解とその性質：
+                            <div class="math-block">$$y = \tan\left(\frac{x^2}{2}\right)$$</div>
+                            - 定義域：$|x| < \sqrt{\pi}$（$\frac{x^2}{2} < \frac{\pi}{2}$）
+                            - $x = \pm\sqrt{\pi}$ で垂直漸近線
+                            - 偶関数（$y(-x) = y(x)$）
+                        </div>
+                        <span class="answer-highlight">一般解: $y = \tan\left(\frac{x^{2}}{2} + C\right)$　特解: $y = \tan\left(\frac{x^{2}}{2}\right)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>曲線族の微分方程式ではパラメータを消去</li>
+                            <li>変数分離形は両辺を適切に積分</li>
+                            <li>$\tan$ 関数は周期的な垂直漸近線をもつ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\int \frac{dy}{1 + y^2} = \arctan y + C$ は基本公式</li>
+                            <li>$\tan$ の定義域に注意（$\frac{\pi}{2}$ の奇数倍で発散）</li>
+                            <li>初期条件から積分定数を正確に決定</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $\phi(x,y,z) = \frac{1}{2}x^2 + y^2 + 2z^2$ について、曲面 $\phi(x,y,z) = C$ 上の点における単位法線ベクトルを求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>曲面の法線ベクトルは勾配ベクトル $\nabla \phi$ で求まります！勾配ベクトルを計算して、それを大きさで割って単位ベクトルにしましょう。$\phi$ の各変数での偏微分を求めるのがスタートです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 勾配ベクトルを計算します：
+                            <div class="math-block">$$\nabla \phi = \left( \frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z} \right) = (x, 2y, 4z)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 勾配ベクトルの大きさを求めます：
+                            <div class="math-block">$$\| \nabla \phi \| = \sqrt{x^2 + (2y)^2 + (4z)^2} = \sqrt{x^2 + 4y^2 + 16z^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 単位法線ベクトルは：
+                            <div class="math-block">$$\mathbf{n} = \frac{\nabla \phi}{\| \nabla \phi \|} = \frac{(x, 2y, 4z)}{\sqrt{x^2 + 4y^2 + 16z^2}}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\mathbf{n} = \frac{(x,\ 2y,\ 4z)}{\sqrt{x^{2} + 4y^{2} + 16z^{2}}}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 点 $P(1,1,1)$ を通るときの定数 $C$ の値を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>点$P(1,1,1)$が曲面$\phi(x,y,z) = C$上にあるということは、この点の座標を$\phi$に代入すれば$C$の値が分かります！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            点$P(1,1,1)$を$\phi(x,y,z)$に代入：
+                            <div class="math-block">$$C = \phi(1,1,1) = \frac{1}{2}(1)^2 + (1)^2 + 2(1)^2 = \frac{1}{2} + 1 + 2 = \frac{7}{2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $C = \frac{7}{2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 点 $P(1,1,1)$ における直線 $x = y = z$ の方向への方向微分係数を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>方向微分係数は $\nabla \phi \cdot \mathbf{u}$ で求まります！直線$x = y = z$の方向ベクトルは$(1,1,1)$なので、これを単位ベクトルにして内積を計算しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 点$P(1,1,1)$での勾配ベクトル：
+                            <div class="math-block">$$\nabla \phi(1,1,1) = (1, 2, 4)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 直線$x = y = z$の方向ベクトル：$(1,1,1)$
+                        </div>
+                        <div class="solution-step">
+                            3. 単位方向ベクトル：
+                            <div class="math-block">$$\mathbf{u} = \frac{(1,1,1)}{\sqrt{1^2 + 1^2 + 1^2}} = \frac{(1,1,1)}{\sqrt{3}}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 方向微分係数：
+                            <div class="math-block">$$\nabla \phi \cdot \mathbf{u} = (1, 2, 4) \cdot \frac{(1,1,1)}{\sqrt{3}} = \frac{1 + 2 + 4}{\sqrt{3}} = \frac{7}{\sqrt{3}} = \frac{7\sqrt{3}}{3}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{7\sqrt{3}}{3}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>曲面の法線ベクトルは勾配ベクトルで求める</li>
+                            <li>単位ベクトルは大きさで割って正規化</li>
+                            <li>方向微分は勾配と方向の内積</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\nabla \phi = \left(\frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z}\right)$</li>
+                            <li>方向微分は $\nabla f \cdot \mathbf{u}$（$\mathbf{u}$は単位ベクトル）</li>
+                            <li>内積計算では各成分を正確に掛け合わせる</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関係式 $L\left[\frac{f(t)}{t}\right] = \int_{s}^{\infty} F(x) dx$ を証明せよ。ただし、$F(s) = L[f(t)]$ とする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換の定義を使って、両辺を具体的に計算してみましょう！積分順序の交換がカギになります。$F(s) = \int_0^{\infty} e^{-st}f(t)dt$ から出発して、右辺の積分を計算します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 左辺を計算します：
+                            <div class="math-block">$$L\left[\frac{f(t)}{t}\right] = \int_{0}^{\infty} e^{-st} \frac{f(t)}{t} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 右辺を展開します：
+                            <div class="math-block">$$\int_{s}^{\infty} F(x) dx = \int_{s}^{\infty} \left( \int_{0}^{\infty} e^{-xt} f(t) dt \right) dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分順序を交換（適当な条件下で）：
+                            <div class="math-block">$$= \int_{0}^{\infty} f(t) \left( \int_{s}^{\infty} e^{-xt} dx \right) dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 内側の積分を計算：
+                            <div class="math-block">$$\int_{s}^{\infty} e^{-xt} dx = \left[ -\frac{1}{t} e^{-xt} \right]_{x=s}^{\infty} = \frac{1}{t} e^{-st}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 結果をまとめると：
+                            <div class="math-block">$$\int_{s}^{\infty} F(x) dx = \int_{0}^{\infty} e^{-st} \frac{f(t)}{t} dt = L\left[\frac{f(t)}{t}\right]$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $g(t) = \frac{1 - e^{at}}{t}$ のラプラス変換を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)の結果を活用しましょう！$f(t) = 1 - e^{at}$ のラプラス変換を求めて、それを$s$から無限大まで積分します。$L[1] = \frac{1}{s}$、$L[e^{at}] = \frac{1}{s-a}$ を使います。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $f(t) = 1 - e^{at}$ のラプラス変換を求めます：
+                            <div class="math-block">$$F(s) = L[1 - e^{at}] = L[1] - L[e^{at}] = \frac{1}{s} - \frac{1}{s - a}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. (1)の結果を適用：
+                            <div class="math-block">$$L[g(t)] = \int_{s}^{\infty} F(x) dx = \int_{s}^{\infty} \left( \frac{1}{x} - \frac{1}{x - a} \right) dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分を計算：
+                            <div class="math-block">$$= \left[ \ln|x| - \ln|x - a| \right]_{s}^{\infty} = \left[ \ln\left|\frac{x}{x - a}\right| \right]_{s}^{\infty}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 極限を取ると：
+                            <div class="math-block">$$= \lim_{b \to \infty} \ln\left(\frac{b}{b - a}\right) - \ln\left(\frac{s}{s - a}\right) = 0 - \ln\left(\frac{s}{s - a}\right) = \ln\left(\frac{s - a}{s}\right)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\ln\left(\frac{s - a}{s}\right)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>積分順序の交換は慎重に適用</li>
+                            <li>基本的なラプラス変換公式を活用</li>
+                            <li>対数関数の性質を使って計算を簡略化</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$L[1] = \frac{1}{s}$、$L[e^{at}] = \frac{1}{s-a}$ は基本公式</li>
+                            <li>$\ln\left|\frac{a}{b}\right| = \ln|a| - \ln|b|$</li>
+                            <li>無限大での極限では主要項に注目</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2015年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2015（H27）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2015年度の数学入試では、大問【1】で変数係数2階微分方程式、大問【2】で連立一次方程式の解法、大問【3】で極限と積分計算、大問【4】でラプラス変換とその応用が出題されました。基本的な計算技法から応用理論まで幅広くカバーした問題構成です。それぞれの分野で重要な解法テクニックが問われているので、丁寧に取り組みましょう！</p>
+                <a href="../../pdfs/question/2015_H27_april/math_2015_H27_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2015年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">2階微分方程式の一般解を求めよ: $\left( x - \frac{1}{x} \right) y'' - 4y' = 4$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>従属変数$y$が直接現れず、$y'$と$y''$のみの方程式です！$v = y'$と置いて次数を下げると1階線形微分方程式になります。積分因子を使って解けますよ。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $v = y'$ とおくと、$y'' = v'$ となるので、方程式は：
+                            <div class="math-block">$$\left( x - \frac{1}{x} \right) v' - 4v = 4$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 標準形に変形：$x - \frac{1}{x} = \frac{x^2 - 1}{x}$ なので：
+                            <div class="math-block">$$v' - \frac{4x}{x^2 - 1} v = \frac{4x}{x^2 - 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分因子を求める：
+                            <div class="math-block">$$\mu(x) = \exp\left( \int -\frac{4x}{x^2 - 1} dx \right) = \exp\left( -2 \ln|x^2 - 1| \right) = \frac{1}{(x^2 - 1)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 積分因子を乗じて解く：
+                            <div class="math-block">$$\frac{d}{dx} \left( v \cdot \frac{1}{(x^2 - 1)^2} \right) = \frac{4x}{(x^2 - 1)^3}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 右辺の積分：$u = x^2 - 1$ と置換すると：
+                            <div class="math-block">$$\int \frac{4x}{(x^2 - 1)^3} dx = -\frac{1}{(x^2 - 1)^2} + C$$</div>
+                            したがって：$v = -1 + C (x^2 - 1)^2$
+                        </div>
+                        <div class="solution-step">
+                            6. $v = y'$ なので、さらに積分して$y$を求める：
+                            <div class="math-block">$$y = \int \left[ -1 + C (x^4 - 2x^2 + 1) \right] dx$$</div>
+                            <div class="math-block">$$= -x + C \left( \frac{x^5}{5} - \frac{2x^3}{3} + x \right) + D$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = -x + C \left( \frac{x^5}{5} - \frac{2x^3}{3} + x \right) + D$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>$v = y'$で次数を下げる</li>
+                            <li>積分因子で1階線形微分方程式を解く</li>
+                            <li>2回の積分で一般解を求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$y$が現れない場合は次数下げが有効</li>
+                            <li>積分因子：$\mu = e^{\int P dx}$</li>
+                            <li>一般解には任意定数が2つ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">連立1次方程式を解け:</p>
+                        <div class="math-block">$$\begin{cases}
+x_1 - 2x_3 - x_4 = -3 \\
+-x_1 + x_2 + 3x_4 = -1 \\
+x_1 - x_2 + x_3 - 3x_4 = 5 \\
+x_1 - 2x_2 - 5x_4 = -3
+\end{cases}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>拡大係数行列を行基本変形して簡約化するのが基本です！4つの式と4つの未知数ですが、解の存在と一意性を確認しながら進めましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 拡大係数行列を書く：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & -2 & -1 & -3 \\
+-1 & 1 & 0 & 3 & -1 \\
+1 & -1 & 1 & -3 & 5 \\
+1 & -2 & 0 & -5 & -3
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 行基本変形を実行：
+                            R2 = R2 + R1, R3 = R3 - R1, R4 = R4 - R1後：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & -2 & -1 & -3 \\
+0 & 1 & -2 & 2 & -4 \\
+0 & -1 & 3 & -2 & 8 \\
+0 & -2 & 2 & -4 & 0
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. さらに変形：R3 = R3 + R2, R4 = R4 + 2R2後：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & -2 & -1 & -3 \\
+0 & 1 & -2 & 2 & -4 \\
+0 & 0 & 1 & 0 & 4 \\
+0 & 0 & -2 & 0 & -8
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 最終的に：R4 = R4 + 2R3後：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 0 & -1 & 5 \\
+0 & 1 & 0 & 2 & 4 \\
+0 & 0 & 1 & 0 & 4 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 解を読み取る：
+                            - $x_3 = 4$
+                            - $x_1 - x_4 = 5$ → $x_1 = x_4 + 5$
+                            - $x_2 + 2x_4 = 4$ → $x_2 = -2x_4 + 4$
+                            - $x_4$ は自由変数
+                        </div>
+                        <span class="answer-highlight">答え: $x_1 = s + 5$, $x_2 = -2s + 4$, $x_3 = 4$, $x_4 = s$ $(s \in \mathbb{R})$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>拡大係数行列を簡約階段形に変形</li>
+                            <li>無数解（1つの自由変数）</li>
+                            <li>パラメータ表示で解を表現</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>rank(A) = rank([A|b]) = 3 < 4</li>
+                            <li>自由変数の数 = 4 - 3 = 1個</li>
+                            <li>解の次元 = 1次元部分空間</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 極限を求めよ: $\lim_{x \to 0} \frac{a^x - 1}{x}$ $(a > 0)$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$\frac{0}{0}$の不定形なのでロピタルの定理が使えます！または指数関数の微分の定義から直接求めることもできますよ。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            ロピタルの定理を適用：
+                            <div class="math-block">$$\lim_{x \to 0} \frac{a^x - 1}{x} = \lim_{x \to 0} \frac{\frac{d}{dx}(a^x - 1)}{\frac{d}{dx}x} = \lim_{x \to 0} \frac{a^x \ln a}{1} = \ln a$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\ln a$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 積分を求めよ: $\int_{0}^{\infty} t e^{-t} dt$</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            部分積分を用いる：$u = t$, $dv = e^{-t} dt$とすると：
+                            <div class="math-block">$$du = dt, \quad v = -e^{-t}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            部分積分の公式：
+                            <div class="math-block">$$\int_{0}^{\infty} t e^{-t} dt = \left[ -t e^{-t} \right]_{0}^{\infty} + \int_{0}^{\infty} e^{-t} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            第1項は$0$、第2項は：
+                            <div class="math-block">$$\int_{0}^{\infty} e^{-t} dt = \left[ -e^{-t} \right]_{0}^{\infty} = 0 - (-1) = 1$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $1$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ロピタルの定理で不定形を処理</li>
+                            <li>部分積分で指数関数の積分</li>
+                            <li>ガンマ関数の性質も活用可能</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$(a^x)' = a^x \ln a$</li>
+                            <li>$\Gamma(2) = 1! = 1$</li>
+                            <li>部分積分：$\int u dv = uv - \int v du$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) ラプラス変換を求めよ: $(1 + 2t)e^{at}$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>線形性を使って分解し、基本公式$\mathcal{L}\{e^{at}\} = \frac{1}{s-a}$と$\mathcal{L}\{te^{at}\} = \frac{1}{(s-a)^2}$を適用しましょう！</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            線形性により分解：
+                            <div class="math-block">$$\mathcal{L}\{(1 + 2t)e^{at}\} = \mathcal{L}\{e^{at}\} + 2\mathcal{L}\{te^{at}\}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            基本公式を適用：
+                            <div class="math-block">$$= \frac{1}{s-a} + 2 \cdot \frac{1}{(s-a)^2} = \frac{1}{s-a} + \frac{2}{(s-a)^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{1}{s-a} + \frac{2}{(s-a)^2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) ラプラス逆変換を求めよ: $\frac{s-1}{s(s+2)}$</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            部分分数分解：
+                            <div class="math-block">$$\frac{s-1}{s(s+2)} = \frac{A}{s} + \frac{B}{s+2}$$</div>
+                            $s-1 = A(s+2) + Bs$
+                        </div>
+                        <div class="solution-step">
+                            係数を求める：
+                            - $s=0$: $-1 = 2A$ → $A = -\frac{1}{2}$
+                            - $s=-2$: $-3 = -2B$ → $B = \frac{3}{2}$
+                        </div>
+                        <div class="solution-step">
+                            逆変換：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{ \frac{-1/2}{s} + \frac{3/2}{s+2} \right\} = -\frac{1}{2} + \frac{3}{2} e^{-2t}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $-\frac{1}{2} + \frac{3}{2} e^{-2t}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 微分方程式を解け: $f'(t) - 2f(t) = e^{2t}$, $f(0) = 0$</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            ラプラス変換を適用：
+                            <div class="math-block">$$sF(s) - f(0) - 2F(s) = \frac{1}{s-2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            初期条件$f(0) = 0$を代入：
+                            <div class="math-block">$$(s-2)F(s) = \frac{1}{s-2}$$</div>
+                            <div class="math-block">$$F(s) = \frac{1}{(s-2)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            逆変換：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{ \frac{1}{(s-2)^2} \right\} = te^{2t}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $f(t) = te^{2t}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>基本公式の組み合わせ</li>
+                            <li>部分分数分解で逆変換</li>
+                            <li>微分方程式をs領域で解く</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{te^{at}\} = \frac{1}{(s-a)^2}$</li>
+                            <li>$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$</li>
+                            <li>部分分数分解は係数比較で</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

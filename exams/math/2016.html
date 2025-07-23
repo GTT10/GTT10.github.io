@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2016年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2016（平成28）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2016年度（平成28年）の数学問題を解説します。ウォリスの積分公式、行列の対角化とべき乗、微分方程式、フーリエ級数展開の4つの大問で構成されています。</p>
+                <a href="../../pdfs/question/2016_H28_april/math_2016_H28_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2016年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】ウォリスの積分公式</div>
+                    <div class="example-box">
+                        <p class="problem-statement">ウォリスの積分公式 $I_n = \int_0^{\pi/2} \sin^n x \, dx$ $(n=0,1,2,\cdots)$ について考える。</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $n \geq 2$ のとき、漸化式を導け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>部分積分を用いて漸化式を導きます。$\sin^n x = \sin^{n-1} x \cdot \sin x$ と見て、$u = \sin^{n-1} x$, $dv = \sin x \, dx$ とおきます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 部分積分の実行:
+                            <div class="math-block">
+                                $$I_n = \left[ -\sin^{n-1} x \cos x \right]_0^{\pi/2} + (n-1) \int_0^{\pi/2} \sin^{n-2} x \cos^2 x \, dx$$
+                            </div>
+                            第1項は0（境界で消える）。$\cos^2 x = 1 - \sin^2 x$ を代入:
+                            <div class="math-block">
+                                $$I_n = (n-1) \int_0^{\pi/2} \sin^{n-2} x (1 - \sin^2 x) \, dx = (n-1)(I_{n-2} - I_n)$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 漸化式の整理:
+                            <div class="math-block">
+                                $$I_n = (n-1)I_{n-2} - (n-1)I_n \implies I_n + (n-1)I_n = (n-1)I_{n-2}$$
+                            </div>
+                            <div class="math-block">
+                                $$nI_n = (n-1)I_{n-2} \implies I_n = \frac{n-1}{n} I_{n-2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $I_n = \dfrac{n-1}{n} I_{n-2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $I_6$ を計算せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>漸化式を繰り返し適用し、初期値 $I_0, I_2$ を使います。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 初期値の計算:
+                            <div class="math-block">
+                                $$I_0 = \int_0^{\pi/2} dx = \frac{\pi}{2}, \quad I_2 = \int_0^{\pi/2} \sin^2 x \, dx = \frac{\pi}{4}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 漸化式の適用:
+                            <div class="math-block">
+                                $$I_4 = \frac{3}{4} I_2 = \frac{3}{4} \cdot \frac{\pi}{4} = \frac{3\pi}{16}$$
+                            </div>
+                            <div class="math-block">
+                                $$I_6 = \frac{5}{6} I_4 = \frac{5}{6} \cdot \frac{3\pi}{16} = \frac{5\pi}{32}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $I_6 = \dfrac{5\pi}{32}$</span>
+                    </div>
+
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>ウォリスの積分公式では部分積分による漸化式の導出が重要です。初期値から順次計算することで任意の$I_n$を求めることができます。</p>
+                    </div>
+                </div>
+
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分積分で漸化式を導出する標準的な手法</li>
+                            <li>境界値での関数の値を正確に評価</li>
+                            <li>三角関数の恒等式$\cos^2 x = 1 - \sin^2 x$の活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>ウォリスの積分は定積分の重要な典型問題</li>
+                            <li>漸化式を立てる際は部分積分の選択が重要</li>
+                            <li>初期条件から順次計算する手順を確実に</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】行列の対角化とべき乗</div>
+                    <div class="example-box">
+                        <div class="problem-statement">行列 $A = \begin{bmatrix} 1 & 2 \\ -1 & 4 \end{bmatrix}$ について考える。</div>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(1) 固有値と固有ベクトルを求めよ。</div>
+                        <div class="point-box">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>特性方程式を解き、固有ベクトルを求めます。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. 固有値の計算:
+                            <div class="math-block">
+                                $$\det(A - \lambda I) = (1-\lambda)(4-\lambda) - (2)(-1) = \lambda^2 - 5\lambda + 6 = 0$$
+                            </div>
+                            <div class="math-block">
+                                $$\lambda = 2, \quad \lambda = 3$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 固有ベクトルの計算:
+                            <div class="math-block">
+                                $$\lambda = 2: \quad (A - 2I)\mathbf{v} = \begin{bmatrix} -1 & 2 \\ -1 & 2 \end{bmatrix}\mathbf{v} = \mathbf{0} \implies \mathbf{v} = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$$
+                            </div>
+                            <div class="math-block">
+                                $$\lambda = 3: \quad (A - 3I)\mathbf{v} = \begin{bmatrix} -2 & 2 \\ -1 & 1 \end{bmatrix}\mathbf{v} = \mathbf{0} \implies \mathbf{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 固有値 $2, 3$、固有ベクトル $\begin{bmatrix} 2 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \end{bmatrix}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(2) $A^n$ を計算せよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            対角化 $A = PDP^{-1}$ を用い、$A^n = PD^nP^{-1}$ を計算:
+                            <div class="math-block">
+                                $$P = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}, \quad D = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}, \quad P^{-1} = \begin{bmatrix} 1 & -1 \\ -1 & 2 \end{bmatrix}$$
+                            </div>
+                            <div class="math-block">
+                                $$A^n = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2^n & 0 \\ 0 & 3^n \end{bmatrix} \begin{bmatrix} 1 & -1 \\ -1 & 2 \end{bmatrix}$$
+                            </div>
+                            <div class="math-block">
+                                $$= \begin{bmatrix} 2^{n+1} - 3^n & -2^{n+1} + 2 \cdot 3^n \\ 2^n - 3^n & -2^n + 2 \cdot 3^n \end{bmatrix}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $A^n = \begin{bmatrix} 2^{n+1} - 3^n & -2^{n+1} + 2 \cdot 3^n \\ 2^n - 3^n & -2^n + 2 \cdot 3^n \end{bmatrix}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(3) 和 $S = \sum_{k=1}^{n-1} A^k$ を計算せよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            固有値ごとの等比級数の和を利用:
+                            <div class="math-block">
+                                $$\sum_{k=1}^{n-1} 2^k = 2^n - 2, \quad \sum_{k=1}^{n-1} 3^k = \frac{3^n - 3}{2}$$
+                            </div>
+                            <div class="math-block">
+                                $$S = P \begin{bmatrix} 2^n - 2 & 0 \\ 0 & \frac{3^n - 3}{2} \end{bmatrix} P^{-1}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $S = \begin{bmatrix} 2(2^n - 2) & 2^n - 2 \\ 2^n - 2 & \frac{2^n - 2 + 3^n - 3}{2} \end{bmatrix}$</span>
+                    </div>
+
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>行列の対角化により、べき乗や級数和の計算が可能になります。固有値・固有ベクトルの正確な計算が基礎となります。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>特性方程式による固有値の計算</li>
+                            <li>固有ベクトルの正確な導出</li>
+                            <li>対角化による$A^n$の計算手法</li>
+                            <li>等比級数の和の公式の活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>行列の対角化は線形代数の核心的な概念</li>
+                            <li>固有ベクトルは基底の変換として理解</li>
+                            <li>べき乗計算では対角化が非常に有効</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】微分方程式</div>
+
+                    <div class="example-box">
+                        <div class="section-title">(1) 微分方程式 $\frac{dy}{dx} + y = x$ を解け。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>同次方程式の解を求め、定数変化法で一般解を導きます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">同次方程式 $\frac{dy}{dx} + y = 0$ の解: $y_h = Ce^{-x}$</li>
+                            <li class="solution-step-list">定数変化法により: $y = C(x)e^{-x}$, $C'(x)e^{-x} = x$ より $C(x) = (x-1)e^x + K$</li>
+                        </ul>
+                        <span class="answer-highlight">答え: 同次解 $y_h = Ce^{-x}$、一般解 $y = x - 1 + Ke^{-x}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(2) 連立微分方程式を解け。</div>
+                        <div class="math-block">
+                            $$\begin{cases}
+                            \frac{dx}{dt} + y = 0 \\
+                            \frac{dx}{dt} - \frac{dy}{dt} = 3(x - y)
+                            \end{cases}$$
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>第1式から $y$ を消去し、2階線形微分方程式に帰着します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">$y = -\frac{dx}{dt}$ を第2式に代入: $\frac{d^2x}{dt^2} - 2\frac{dx}{dt} - 3x = 0$</li>
+                            <li class="solution-step-list">特性方程式 $\lambda^2 - 2\lambda - 3 = 0$ より $\lambda = 3, -1$</li>
+                        </ul>
+                        <span class="answer-highlight">答え: $x(t) = Ae^{3t} + Be^{-t}$, $y(t) = -3Ae^{3t} + Be^{-t}$</span>
+                    </div>
+
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>1階線形微分方程式は定数変化法、連立微分方程式は変数消去により高階方程式に帰着させる手法が重要です。</p>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次方程式と非同次方程式の解法の使い分け</li>
+                            <li>定数変化法による特殊解の求め方</li>
+                            <li>連立方程式での変数消去テクニック</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>微分方程式は工学の基礎となる重要分野</li>
+                            <li>特性方程式の解法を確実に習得</li>
+                            <li>連立方程式では変数の関係を整理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== -->
+        <!-- ここから大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】フーリエ級数展開</div>
+                    <div class="example-box">
+                        <div class="section-title">周期 $2\pi$ の関数 $f(x) = x^2$（区間 $[-\pi, \pi]$）について考える。</div>
+                    </div>   
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>偶関数なので $b_n = 0$。$a_0$ と $a_n$ を計算します。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(1) フーリエ係数を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">$a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} x^2 \, dx = \frac{2\pi^2}{3}$
+                            </li>
+                            <li class="solution-step-list">部分積分を2回適用して $a_n = \frac{4(-1)^n}{n^2}$
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: $a_0 = \frac{2\pi^2}{3}$, $a_n = \frac{4(-1)^n}{n^2}$, $b_n = 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(2) フーリエ級数を書け。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">フーリエ級数の一般形に係数を代入
+                                <div class="math-block">
+                                    $$f(x) = \frac{\pi^2}{3} + \sum_{n=1}^{\infty} \frac{4(-1)^n}{n^2} \cos(nx)$$
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: $f(x) = \frac{\pi^2}{3} + \sum_{n=1}^{\infty} \frac{4(-1)^n}{n^2} \cos(nx)$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="section-title">(3) $\sum_{n=1}^{\infty} \frac{1}{n^2}$ を計算せよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">$x = \pi$ でフーリエ級数を評価: $\pi^2 = \frac{\pi^2}{3} + 4 \sum_{n=1}^{\infty} \frac{1}{n^2}$
+                                <div class="math-block">
+                                    $$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$</span>
+                    </div>
+
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>フーリエ級数展開により、級数和の値を求めることができます。偶関数・奇関数の性質を活用した効率的な計算が重要です。</p>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>偶関数の性質を利用した係数計算</li>
+                            <li>部分積分による積分計算</li>
+                            <li>特定の点での級数評価による和の導出</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>フーリエ級数は信号処理の基礎理論</li>
+                            <li>関数の対称性を活用した効率的計算</li>
+                            <li>バーゼル問題など有名な級数和の導出</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html> 

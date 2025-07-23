@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2024年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2024（R6）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2024年度の数学入試では、大問【1】で微分と接線、大問【2】で微分方程式、大問【3】で行列と固有値、大問【4】でフーリエ変換が出題されました。基礎的な計算力から応用的な思考力まで、バランスよく問われる内容でした。解き方のポイントを丁寧に説明しながら、一緒に考えていきましょう！</p>
+                <a href="../../pdfs/question/2024_R6_april/math_2024_R6_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) \( y = \log x \) の \( x = e \) における接線の方程式を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>接線の方程式は <strong>「点と傾き」</strong> で決まります！まず接点での座標を求めて、次に微分して傾きを求めましょう。あとは接線の公式 \( y - y_1 = m(x - x_1) \) に代入するだけですね。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず接点の座標を求めます。\( x = e \) のとき \( y = \log e = 1 \) なので、接点は \((e, 1)\) です。
+                        </div>
+                        <div class="solution-step">
+                            2. 次に傾きを求めましょう。\( y = \log x \) を微分すると \( y' = \frac{1}{x} \) です。\( x = e \) での傾きは \( y' = \frac{1}{e} \) ですね。
+                        </div>
+                        <div class="solution-step">
+                            3. 接線の方程式に代入します。
+                            <div class="math-block">
+                                $$y - 1 = \frac{1}{e}(x - e) \implies y = \frac{1}{e}x$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(y = \frac{1}{e}x\)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) \( y = kx^2 \) が \( y = \log x \) に接する \( k > 0 \) の値を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>2つの曲線が接するということは、交点で「値が一致」して「傾きも一致」するということです！この2つの条件を連立方程式にして解いていきましょう。傾きの条件から \( k \) を分離すると計算が楽になりますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 2曲線が接する条件を整理します。
+                            <div class="math-block">
+                                交点で値が等しい：$$kx^2 = \log x \quad \cdots ①$$
+                                交点で傾きが等しい：$$2kx = \frac{1}{x} \quad \cdots ②$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. ②式から \( k \) を分離します。
+                            <div class="math-block">
+                                $$k = \frac{1}{2x^2} \quad \cdots ③$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. ③を①に代入して \( x \) を求めます。
+                            <div class="math-block">
+                                $$\frac{1}{2x^2} \cdot x^2 = \log x$$
+                                $$\frac{1}{2} = \log x$$
+                                $$x = e^{1/2} = \sqrt{e}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 最後に \( k \) を求めます。③に \( x = \sqrt{e} \) を代入すると、
+                            <div class="math-block">
+                                $$k = \frac{1}{2(\sqrt{e})^2} = \frac{1}{2e}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(k = \frac{1}{2e}\)</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>接線は「点と傾き」の公式で求められます</li>
+                            <li>接する条件は「値が一致」かつ「微分係数が一致」</li>
+                            <li>計算を楽にするため、適切な順序で文字を消去しましょう</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>対数関数の微分 \(\frac{d}{dx}\log x = \frac{1}{x}\) は基本中の基本</li>
+                            <li>接する問題では傾きの条件から変数を分離すると計算しやすい</li>
+                            <li>答えは必ず検算して、条件を満たしているか確認しよう</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) \( y'' + 4y = 0 \) の一般解を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは同次の線形微分方程式ですね！特性方程式 \(\lambda^2 + 4 = 0\) を解いて、虚数解が出てきたときの解の形を思い出しましょう。\(\cos\) と \(\sin\) が登場します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 特性方程式を立てます。
+                            <div class="math-block">
+                                $$\lambda^2 + 4 = 0$$
+                                $$\lambda^2 = -4$$
+                                $$\lambda = \pm 2i$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 虚数解 \(\lambda = \alpha \pm \beta i\) のとき、一般解は \( e^{\alpha x}(C_1 \cos \beta x + C_2 \sin \beta x) \) です。今回は \(\alpha = 0\)、\(\beta = 2\) なので、
+                            <div class="math-block">
+                                $$y = C_1 \cos 2x + C_2 \sin 2x$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(y = C_1 \cos 2x + C_2 \sin 2x \quad (C_1, C_2 \text{は任意定数})\)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) \( y'' + 4y = \sin 2x + 4x \) の一般解を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>非同次方程式ですね！一般解は「同次解 + 特殊解」になります。非同次項が \(\sin 2x + 4x\) なので、それぞれに対応する特殊解を考えましょう。\(\sin 2x\) は同次解と重複するので要注意です！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 同次解は(1)で求めた結果です。
+                            <div class="math-block">
+                                $$y_h = C_1 \cos 2x + C_2 \sin 2x$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 特殊解を設定します。非同次項を \(4x\) と \(\sin 2x\) に分けて考えます。
+                            <div class="math-block">
+                                \(4x\) に対して ： \( y_{p1} = ax + b \) <br>
+                                \(\sin 2x\) に対して（同次解と重複するので） ： \( y_{p2} = x(c \cos 2x + d \sin 2x) \)
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. \(4x\) に対応する特殊解を求めます。\(y_{p1} = ax + b\) とすると、
+                            <div class="math-block">
+                                $$y_{p1}'' + 4y_{p1} = 0 + 4(ax + b) = 4ax + 4b = 4x$$
+                            </div>
+                            係数を比較して \(a = 1\)、\(b = 0\) です。
+                        </div>
+                        <div class="solution-step">
+                            4. \(\sin 2x\) に対応する特殊解を求めます。\(y_{p2} = x(c \cos 2x + d \sin 2x)\) を微分して代入すると（計算は複雑ですが）、
+                            <div class="math-block">
+                                $$y_{p2}'' + 4y_{p2} = -4c \sin 2x + 4d \cos 2x = \sin 2x$$
+                            </div>
+                            係数を比較して \(c = -\frac{1}{4}\)、\(d = 0\) です。
+                        </div>
+                        <div class="solution-step">
+                            5. 一般解をまとめます。
+                            <div class="math-block">
+                                $$y = y_h + y_{p1} + y_{p2} = C_1 \cos 2x + C_2 \sin 2x + x - \frac{x}{4} \cos 2x$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(y = C_1 \cos 2x + C_2 \sin 2x + x - \frac{x}{4} \cos 2x\)</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>特性方程式の解が虚数のとき、\(\cos\) と \(\sin\) の形になる</li>
+                            <li>非同次項が同次解と重複するときは \(x\) 倍する</li>
+                            <li>複雑な非同次項は項ごとに分けて特殊解を求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>微分方程式は「特性方程式→同次解→特殊解」の順で解く</li>
+                            <li>特殊解の設定では重複の有無をしっかりチェック</li>
+                            <li>答えが求まったら元の方程式に代入して確認しよう</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">行列 \(A = \begin{pmatrix} \cos x & \sin x \\ -\sin x & \cos x \end{pmatrix}\) について、以下の問いに答えよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>この行列は回転行列の形をしていますね！三角関数の性質 \(\sin^2 \theta + \cos^2 \theta = 1\) をうまく使って、直交性や固有値、べき乗の性質を調べていきましょう。</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(1) \( A \) が直交行列であることを証明せよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            直交行列の定義は \( A^T A = I \)（単位行列）です。まず転置行列を求めましょう。
+                            <div class="math-block">
+                                $$A^T = \begin{pmatrix} \cos x & -\sin x \\ \sin x & \cos x \end{pmatrix}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            \( A^T A \) を計算します。
+                            <div class="math-block">
+                                $$A^T A = \begin{pmatrix} \cos x & -\sin x \\ \sin x & \cos x \end{pmatrix} \begin{pmatrix} \cos x & \sin x \\ -\sin x & \cos x \end{pmatrix}$$
+                                $$= \begin{pmatrix} \cos^2 x + \sin^2 x & 0 \\ 0 & \sin^2 x + \cos^2 x \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">よって \( A^T A = I \) なので、\( A \) は直交行列である。</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(2) \( A \) の実数の固有値を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            固有値方程式 \(\det(A - \lambda I) = 0\) を解きます。
+                            <div class="math-block">
+                                $$A - \lambda I = \begin{pmatrix} \cos x - \lambda & \sin x \\ -\sin x & \cos x - \lambda \end{pmatrix}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            行列式を計算します。
+                            <div class="math-block">
+                                $$\det(A - \lambda I) = (\cos x - \lambda)^2 + \sin^2 x = \lambda^2 - 2\lambda \cos x + 1$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            判別式を調べます。
+                            <div class="math-block">
+                                $$D = 4\cos^2 x - 4 = -4\sin^2 x \leq 0$$
+                            </div>
+                            実数固有値を持つのは \( D \geq 0 \) のとき、つまり \(\sin x = 0\) のときです。
+                        </div>
+                        <div class="solution-step">
+                            \(\sin x = 0\) となるのは \( x = 0, \pi \) などです。
+                            <div class="math-block">
+                                \(x = 0\) のとき：\(\lambda^2 - 2\lambda + 1 = 0 \implies \lambda = 1\)（重解）<br>
+                                \(x = \pi\) のとき：\(\lambda^2 + 2\lambda + 1 = 0 \implies \lambda = -1\)（重解）
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(\lambda = 1\)（\(x=0\) のとき）、\(\lambda = -1\)（\(x=\pi\) のとき）</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(3) \( x = \frac{\pi}{2} \) のとき \( \sum_{k=1}^{n} A^k \) を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            \( x = \frac{\pi}{2} \) を代入します。
+                            <div class="math-block">
+                                $$A = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$$
+                            </div>
+                            これは90度回転を表す行列です。
+                        </div>
+                        <div class="solution-step">
+                            \( A \) のべき乗を計算してみましょう。
+                            <div class="math-block">
+                                $$A^1 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \quad A^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$$
+                                $$A^3 = -A, \quad A^4 = I$$
+                            </div>
+                            周期4で循環することがわかります！
+                        </div>
+                        <div class="solution-step">
+                            \( n \) を4で割った余りごとに場合分けします。
+                            <div class="math-block">
+                                \(n \equiv 0 \pmod{4}\) のとき：\(\sum_{k=1}^{n} A^k = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\)<br>
+                                \(n \equiv 1 \pmod{4}\) のとき：\(\sum_{k=1}^{n} A^k = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\)<br>
+                                \(n \equiv 2 \pmod{4}\) のとき：\(\sum_{k=1}^{n} A^k = \begin{pmatrix} -1 & 1 \\ -1 & -1 \end{pmatrix}\)<br>
+                                \(n \equiv 3 \pmod{4}\) のとき：\(\sum_{k=1}^{n} A^k = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}\)
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の場合分けによる結果</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>回転行列は直交行列の典型例</li>
+                            <li>固有値は判別式で実数性を判定</li>
+                            <li>行列のべき乗は周期性を利用する</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>直交行列の判定は \( A^T A = I \) を確認</li>
+                            <li>回転行列の固有値は一般に複素数</li>
+                            <li>周期性のある問題は余りで場合分け</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">関数 \(f(x) = \begin{cases} 2 - |x| & (|x| \leq 2) \\ 0 & (|x| > 2) \end{cases}\) のフーリエ変換 \(F(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x)e^{-i\omega x}dx\) を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>\( f(x) \) は偶関数（\( f(-x) = f(x) \)）なので、フーリエ変換の計算が簡単になります！偶関数のフーリエ変換は \(\cos\) 項だけ考えればよくて、積分範囲も半分にできるんです。部分積分も使って計算しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. \( f(x) \) が偶関数なので、フーリエ変換は次のように簡単化されます。
+                            <div class="math-block">
+                                $$F(\omega) = \sqrt{\frac{2}{\pi}} \int_{0}^{2} (2 - x) \cos(\omega x) dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. まず \(\omega = 0\) の場合を計算します。
+                            <div class="math-block">
+                                $$F(0) = \sqrt{\frac{2}{\pi}} \int_{0}^{2} (2 - x) dx = \sqrt{\frac{2}{\pi}} \left[ 2x - \frac{x^2}{2} \right]_{0}^{2} = \sqrt{\frac{2}{\pi}} \cdot 2 = \frac{4}{\sqrt{2\pi}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. \(\omega \neq 0\) の場合、部分積分を使います。\( u = 2 - x \)、\( dv = \cos(\omega x) dx \) とすると、
+                            <div class="math-block">
+                                $$\int_{0}^{2} (2 - x) \cos(\omega x) dx = \left[ (2 - x) \frac{\sin(\omega x)}{\omega} \right]_{0}^{2} + \frac{1}{\omega} \int_{0}^{2} \sin(\omega x) dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 計算を続けると、
+                            <div class="math-block">
+                                $$= 0 + \frac{1}{\omega} \left[ -\frac{\cos(\omega x)}{\omega} \right]_{0}^{2} = \frac{1 - \cos(2\omega)}{\omega^2}$$
+                            </div>
+                            倍角公式 \(1 - \cos(2\theta) = 2\sin^2 \theta\) より、
+                            <div class="math-block">
+                                $$= \frac{2\sin^2 \omega}{\omega^2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 最終的に、
+                            <div class="math-block">
+                                $$F(\omega) = \sqrt{\frac{2}{\pi}} \cdot \frac{2\sin^2 \omega}{\omega^2} = \frac{4 \sin^2 \omega}{\sqrt{2\pi} \, \omega^2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(F(\omega) = \begin{cases} \frac{4}{\sqrt{2\pi}} & (\omega = 0) \\ \frac{4 \sin^2 \omega}{\sqrt{2\pi} \, \omega^2} & (\omega \neq 0) \end{cases}\)</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>偶関数のフーリエ変換は \(\cos\) 項のみで計算簡略化</li>
+                            <li>部分積分では「微分するとシンプルになる項」を \( u \) に選ぶ</li>
+                            <li>三角関数の恒等式を活用して最終形を整える</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>フーリエ変換では関数の対称性を最大限活用しよう</li>
+                            <li>部分積分は「どちらを微分するか」の判断が重要</li>
+                            <li>\(\omega = 0\) の場合は別途計算することが多い</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

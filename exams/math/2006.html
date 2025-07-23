@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2006年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2006（H18）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2006年度の数学入試では、大問【1】で広義積分の計算、大問【2】で線形微分方程式の初期値問題、大問【3】でラプラス変換を用いた振動解析、大問【4】で最小二乗法の理論が出題されました。積分計算・微分方程式・ラプラス変換・統計解析と、理論と実践のバランスが取れた内容になっています。基礎をしっかり固めて応用力を身につけていきましょう！</p>
+                <a href="../../pdfs/question/2006_H18_april/math_2006_H18_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2006年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の広義積分の値を求めよ。</p>
+                        <div class="math-block">$$\int_{0}^{\infty} \frac{1}{x(1+x^{2})} dx$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この積分は$x=0$で特異点を持つ広義積分です！変数変換$x = e^u$を使うとうまく計算できます。さらに偶関数の性質を利用することで計算がシンプルになりますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数変換 $x = e^u$ を行います。$dx = e^u du$、積分区間は $x: 0 \to \infty$ が $u: -\infty \to \infty$ になります。
+                            <div class="math-block">$$\int_{0}^{\infty} \frac{1}{x(1+x^{2})} dx = \int_{-\infty}^{\infty} \frac{1}{e^u(1+e^{2u})} e^u du = \int_{-\infty}^{\infty} \frac{1}{1 + e^{2u}} du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 被積分関数 $\frac{1}{1 + e^{2u}}$ は偶関数なので：
+                            <div class="math-block">$$= 2 \int_{0}^{\infty} \frac{1}{1 + e^{2u}} du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. さらに変数変換 $v = e^{-u}$ を行います。$u = -\ln v$、$du = -\frac{dv}{v}$、積分区間は $u: 0 \to \infty$ が $v: 1 \to 0$ になります。
+                            <div class="math-block">$$= 2 \int_{1}^{0} \frac{1}{1 + v^2} \left(-\frac{dv}{v}\right) = 2 \int_{0}^{1} \frac{v}{v^2 + 1} dv$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $\int \frac{v}{v^2 + 1} dv$ は $\frac{1}{2}\ln(v^2 + 1)$ なので：
+                            <div class="math-block">$$= 2 \cdot \frac{1}{2} \left[ \ln(v^2 + 1) \right]_{0}^{1} = \ln(1^2 + 1) - \ln(0^2 + 1) = \ln 2 - \ln 1 = \ln 2$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\ln 2$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>特異点を避ける変数変換の選択</li>
+                            <li>偶関数の性質を活用して計算を簡略化</li>
+                            <li>対数積分の基本公式を使用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$x = e^u$ 変換は特異点処理に有効</li>
+                            <li>偶関数の積分は $\int_{-a}^{a} = 2\int_0^a$</li>
+                            <li>$\int \frac{x}{x^2+1} dx = \frac{1}{2}\ln(x^2+1) + C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の微分方程式を解け。</p>
+                        <div class="math-block">$$y'' + y = \cos x, \quad y(0) = 0, \quad y'(0) = 0$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは線形非同次微分方程式です！同次解を求めてから特解を見つけましょう。注意：非同次項$\cos x$が同次解と重複するので、特解は$x$をかけた形$y_p = x(C\cos x + D\sin x)$で設定します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 同次方程式 $y'' + y = 0$ の一般解を求めます。特性方程式は $\lambda^2 + 1 = 0$、解は $\lambda = \pm i$ です。
+                            <div class="math-block">$$y_h = A \cos x + B \sin x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 非同次項 $\cos x$ が同次解と重複するため、特解を $y_p = x(C \cos x + D \sin x)$ と設定します。
+                        </div>
+                        <div class="solution-step">
+                            3. $y_p$ を2回微分します：
+                            <div class="math-block">
+                                $y_p' = (C \cos x + D \sin x) + x(-C \sin x + D \cos x)$<br>
+                                $y_p'' = 2(-C \sin x + D \cos x) + x(-C \cos x - D \sin x)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 微分方程式に代入：
+                            <div class="math-block">$$y_p'' + y_p = 2(-C \sin x + D \cos x) = \cos x$$</div>
+                            係数比較により：$-2C = 0$ ($C = 0$)、$2D = 1$ ($D = \frac{1}{2}$)
+                        </div>
+                        <div class="solution-step">
+                            5. 特解は $y_p = \frac{1}{2} x \sin x$、一般解は：
+                            <div class="math-block">$$y = A \cos x + B \sin x + \frac{1}{2} x \sin x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 初期条件を適用します：
+                            - $y(0) = A = 0$
+                            - $y' = -A \sin x + B \cos x + \frac{1}{2}(\sin x + x \cos x)$
+                            - $y'(0) = B = 0$
+                        </div>
+                        <span class="answer-highlight">答え: $y = \frac{1}{2} x \sin x$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次解と非同次項が重複する場合の処理</li>
+                            <li>特解には$x$をかけた形を使用</li>
+                            <li>初期条件から積分定数を決定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>重複する場合は特解に$x$を乗ずる</li>
+                            <li>係数比較で未定係数を決定</li>
+                            <li>初期条件は最後に適用する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 次の微分方程式をラプラス変換し、$X(s)$ を求めよ。</p>
+                        <div class="math-block">$$\frac{d^{2}x(t)}{dt^{2}} + 2\xi \omega \frac{dx(t)}{dt} + \omega^{2}x(t) = 1$$</div>
+                        <p class="problem-statement">ただし、$\dot{x}(0) = v_0$、$x(0) = x_0$ とする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換の微分則を使いましょう！$L\{f''(t)\} = s^2F(s) - sf(0) - f'(0)$ です。初期条件も含めて整理すると、$X(s)$ について解けますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の公式を適用します：
+                            <div class="math-block">
+                                $L\left\{\frac{d^2x}{dt^2}\right\} = s^2 X(s) - s x_0 - v_0$<br>
+                                $L\left\{\frac{dx}{dt}\right\} = s X(s) - x_0$<br>
+                                $L\{1\} = \frac{1}{s}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 微分方程式をラプラス変換：
+                            <div class="math-block">$$(s^2 X(s) - s x_0 - v_0) + 2\xi \omega (s X(s) - x_0) + \omega^2 X(s) = \frac{1}{s}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $X(s)$ についてまとめます：
+                            <div class="math-block">$$(s^2 + 2\xi \omega s + \omega^2) X(s) = \frac{1}{s} + s x_0 + v_0 + 2\xi \omega x_0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 最終的に：
+                            <div class="math-block">$$X(s) = \frac{\frac{1}{s} + s x_0 + (v_0 + 2\xi \omega x_0)}{s^2 + 2\xi \omega s + \omega^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $X(s) = \frac{\frac{1}{s} + s x_{0} + v_{0} + 2\xi \omega x_{0}}{s^{2} + 2\xi \omega s + \omega^{2}}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $X(s)$ を逆ラプラス変換し、$x(t)$ を求めよ。ただし、$\xi < 1$ とする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$\xi < 1$ なので減衰振動になります！分母を $(s + \xi\omega)^2 + \omega_d^2$ の形に変形し、$\omega_d = \omega\sqrt{1-\xi^2}$ とおいてから逆変換しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 減衰固有角周波数を定義：$\omega_d = \omega \sqrt{1 - \xi^2}$
+                        </div>
+                        <div class="solution-step">
+                            2. 分母を完全平方に変形：
+                            <div class="math-block">$$s^2 + 2\xi \omega s + \omega^2 = (s + \xi \omega)^2 + \omega_d^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $X(s)$ を項目別に分解し、標準的な逆変換公式を適用：
+                            <div class="math-block">
+                                $L^{-1}\left\{ \frac{s + \xi \omega}{(s + \xi \omega)^2 + \omega_d^2} \right\} = e^{-\xi \omega t} \cos(\omega_d t)$<br>
+                                $L^{-1}\left\{ \frac{\omega_d}{(s + \xi \omega)^2 + \omega_d^2} \right\} = e^{-\xi \omega t} \sin(\omega_d t)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 各項を逆変換し、整理すると：
+                            <div class="math-block">$$x(t) = e^{-\xi \omega t} \left( x_0 \cos(\omega_d t) + \frac{v_0 + \xi \omega x_0}{\omega_d} \sin(\omega_d t) \right) + \frac{1}{\omega^2} \left( 1 - e^{-\xi \omega t} \left( \cos(\omega_d t) + \frac{\xi \omega}{\omega_d} \sin(\omega_d t) \right) \right)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の式（初期条件応答＋ステップ応答の合成）</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ラプラス変換の微分則と初期条件</li>
+                            <li>減衰振動系の標準形への変換</li>
+                            <li>初期条件応答とステップ応答の重ね合わせ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\xi < 1$ は減衰振動、$\xi \geq 1$ は非振動</li>
+                            <li>完全平方への変形が逆変換のキー</li>
+                            <li>物理的意味も理解しておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 最小二乗法において、残差の二乗和を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>残差は「実測値 - 理論値」です！一次近似では $y_i - (b_0 + b_1 x_i)$ になります。これを二乗して全データ点について和を取りましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            残差 $e_i = y_i - (b_0 + b_1 x_i)$ の二乗和：
+                            <div class="math-block">$$S = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $S = \sum_{i=1}^{n} (y_{i} - b_{0} - b_{1} x_{i})^{2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 残差の二乗和が最小になる条件を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$S$ を $b_0$ と $b_1$ で偏微分して0とおきます！これが正規方程式の条件になります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $S$ を $b_0$ で偏微分：
+                            <div class="math-block">$$\frac{\partial S}{\partial b_0} = -2 \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $S$ を $b_1$ で偏微分：
+                            <div class="math-block">$$\frac{\partial S}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\sum_{i=1}^{n} (y_{i} - b_{0} - b_{1} x_{i}) = 0$、$\sum_{i=1}^{n} x_{i} (y_{i} - b_{0} - b_{1} x_{i}) = 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 行列を用いて(2)の条件を表せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>データを行列形式で表現しましょう！$Y$をデータベクトル、$X$を計画行列、$B$をパラメータベクトルとして正規方程式を書きます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            行列表現を定義：
+                            <div class="math-block">
+                                $Y = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{pmatrix}$、
+                                $X = \begin{pmatrix} 1 & x_1 \\ 1 & x_2 \\ \vdots & \vdots \\ 1 & x_n \end{pmatrix}$、
+                                $B = \begin{pmatrix} b_0 \\ b_1 \end{pmatrix}$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $X^{\top} X B = X^{\top} Y$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(4) $B$ を $Y$ および $X$ を用いて表せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(3)の正規方程式を$B$について解きましょう！$X^{\top}X$が正則なら逆行列が存在します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            正規方程式 $X^{\top} X B = X^{\top} Y$ を $B$ について解く：
+                            <div class="math-block">$$B = (X^{\top} X)^{-1} X^{\top} Y$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $B = (X^{\top} X)^{-1} X^{\top} Y$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>残差の二乗和を最小化する原理</li>
+                            <li>偏微分による最適化条件の導出</li>
+                            <li>行列による簡潔な表現</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>正規方程式は最小二乗法の基本</li>
+                            <li>$(X^{\top}X)^{-1}X^{\top}$ は疑似逆行列</li>
+                            <li>統計学の基礎となる重要な理論</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

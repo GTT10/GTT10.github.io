@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2008年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2008（H20）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2008年度の数学入試では、大問【1】でラプラス変換を用いた微分方程式、大問【2】で積分の漸化式とサイクロイド面積、大問【3】で行列のランクと連立方程式、大問【4】で微分方程式と軌跡が出題されました。ラプラス変換、積分技法、行列論、微分方程式の幅広い応用力が試される総合的な問題構成です。実用的な計算力が鍵となります！</p>
+                <a href="../../pdfs/question/2008_H20_april/math_2008_H20_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2008年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">ラプラス変換を用いた微分方程式 $\frac{dx}{dt} + 3x = f(t)$，$x(0) = 1$ について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換で微分方程式を代数方程式に変換するのが基本戦略です！時間シフト性質と単位ステップ関数をうまく使って、複雑な入力関数も処理できます。初期条件を忘れずに適用しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 図1の関数$f(t)$を単位ステップ関数で表せ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 矩形波を仮定：$f(t) = 1$ (0≤t&lt;1)，$f(t) = -1$ (1≤t&lt;2)，$f(t) = 0$ (t≥2)
+                        </div>
+                        <div class="solution-step">
+                            2. 単位ステップ関数で表現：
+                            <div class="math-block">$$f(t) = u(t) - 2u(t-1) + u(t-2)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $f(t) = u(t) - 2u(t-1) + u(t-2)$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $g(t-a)u(t-a)$のラプラス変換を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の時間シフト性質を適用：
+                            <div class="math-block">$$\mathcal{L}\{g(t-a)u(t-a)\} = e^{-as}G(s)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $e^{-as}G(s)$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 微分方程式をラプラス変換して$X(s)$を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換を適用：
+                            <div class="math-block">$$sX(s) - x(0) + 3X(s) = F(s)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 初期条件$x(0) = 1$を代入：
+                            <div class="math-block">$$(s + 3)X(s) = 1 + F(s)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $F(s) = \frac{1}{s} - \frac{2e^{-s}}{s} + \frac{e^{-2s}}{s}$を用いて：
+                            <div class="math-block">$$X(s) = \frac{1 + F(s)}{s + 3}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $X(s) = \frac{1 + F(s)}{s + 3}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(4) $X(s)$の逆ラプラス変換を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $X(s) = \frac{1}{s+3} + \frac{F(s)}{s+3}$に分解
+                        </div>
+                        <div class="solution-step">
+                            2. 第1項の逆変換：$\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} = e^{-3t}$
+                        </div>
+                        <div class="solution-step">
+                            3. 第2項は部分分数分解と時間シフト性質で処理
+                        </div>
+                        <div class="solution-step">
+                            4. 最終解は指数減衰と矩形波応答の重畳：
+                            <div class="math-block">$$x(t) = e^{-3t} + \text{(矩形波応答項)}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: 指数減衰と矩形波応答の重畳</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>単位ステップ関数で複雑な入力を表現</li>
+                            <li>時間シフト性質で遅延を処理</li>
+                            <li>部分分数分解で逆変換を簡単に</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$</li>
+                            <li>時間シフト：$e^{-as}F(s) \leftrightarrow f(t-a)u(t-a)$</li>
+                            <li>線形性で複雑な入力も処理可能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">積分と幾何学的応用について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>積分の漸化式は部分積分で導出できます！サイクロイドの面積はパラメータ表示を使って計算するのが効率的です。基本的な積分公式を組み合わせて使いましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $I_n = \int \sin^n x \, dx$ の漸化式を証明せよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 部分積分を適用：$u = \sin^{n-1}x$，$dv = \sin x \, dx$
+                        </div>
+                        <div class="solution-step">
+                            2. $du = (n-1)\sin^{n-2}x \cos x \, dx$，$v = -\cos x$
+                        </div>
+                        <div class="solution-step">
+                            3. 部分積分の公式：
+                            <div class="math-block">$$I_n = -\sin^{n-1}x \cos x + (n-1)\int \sin^{n-2}x \cos^2 x \, dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $\cos^2 x = 1 - \sin^2 x$を代入：
+                            <div class="math-block">$$I_n = -\sin^{n-1}x \cos x + (n-1)(I_{n-2} - I_n)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 整理すると漸化式：
+                            <div class="math-block">$$I_n = \frac{1}{n}\left[-\sin^{n-1}x \cos x + (n-1)I_{n-2}\right]$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) サイクロイド $x = a(t - \sin t)$，$y = a(1 - \cos t)$ と$x$軸で囲まれる面積を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. パラメータ表示での面積公式：
+                            <div class="math-block">$$S = \int_0^{2\pi} y \frac{dx}{dt} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 微分を計算：$\frac{dx}{dt} = a(1 - \cos t)$
+                        </div>
+                        <div class="solution-step">
+                            3. 積分を実行：
+                            <div class="math-block">$$S = \int_0^{2\pi} a(1 - \cos t) \cdot a(1 - \cos t) dt$$</div>
+                            <div class="math-block">$$= a^2 \int_0^{2\pi} (1 - \cos t)^2 dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $(1 - \cos t)^2 = 1 - 2\cos t + \cos^2 t$を展開：
+                            <div class="math-block">$$= a^2 \int_0^{2\pi} \left(1 - 2\cos t + \frac{1 + \cos 2t}{2}\right) dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 各項を積分：
+                            <div class="math-block">$$= a^2 \left[\frac{3}{2}t - 2\sin t + \frac{1}{4}\sin 2t\right]_0^{2\pi} = 3\pi a^2$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $3\pi a^2$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分積分で漸化式を導出</li>
+                            <li>パラメータ表示で曲線の面積計算</li>
+                            <li>三角関数の積分公式を活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\cos^2 x = \frac{1 + \cos 2x}{2}$</li>
+                            <li>サイクロイドは1拱の面積が$3\pi a^2$</li>
+                            <li>パラメータ面積：$S = \int y \frac{dx}{dt} dt$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">行列の解析について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>行基本変形で階段行列に変換するのが基本です！ランクは非ゼロ行の数、同次方程式の解は基底ベクトルで表現、非同次方程式の解の存在条件は拡大係数行列のランクで判定しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 行列 $A = \begin{pmatrix} 0 & 1 & -1 & 1 \\ 1 & 2 & 1 & 1 \\ 2 & 1 & 5 & 6 \\ 1 & 1 & 2 & 2 \end{pmatrix}$ の階段行列とランクを求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 行基本変形を実行：
+                        </div>
+                        <div class="solution-step">
+                            2. 階段行列：
+                            <div class="math-block">$$\begin{pmatrix} 1 & 2 & 1 & 1 \\ 0 & 1 & -1 & 1 \\ 0 & 0 & 0 & 2 \\ 0 & 0 & 0 & 0 \end{pmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 非ゼロ行の数を数える：3行
+                        </div>
+                        <span class="answer-highlight">答え: ランク = 3</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 同次方程式 $Ax = 0$ の解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 階段行列から基本解を読み取る
+                        </div>
+                        <div class="solution-step">
+                            2. 自由変数を$s$とすると：
+                            <div class="math-block">$$x = s \begin{pmatrix} -3 \\ 1 \\ 1 \\ 0 \end{pmatrix}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $x = s \begin{pmatrix} -3 \\ 1 \\ 1 \\ 0 \end{pmatrix}$ ($s \in \mathbb{R}$)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 非同次方程式 $Ax = b$ が解を持つ条件と解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 拡大係数行列の階段形から解の存在条件を調べる
+                        </div>
+                        <div class="solution-step">
+                            2. 解が存在する条件：$a = -1$
+                        </div>
+                        <div class="solution-step">
+                            3. この場合の一般解：
+                            <div class="math-block">$$x = t \begin{pmatrix} -3 \\ 1 \\ 1 \\ 0 \end{pmatrix} + \begin{pmatrix} 6 \\ -3 \\ 0 \\ -1 \end{pmatrix}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $a = -1$のとき解が存在</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>行基本変形で階段行列に変換</li>
+                            <li>ランク = 非ゼロ行の数</li>
+                            <li>解の存在は拡大係数行列で判定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\dim(\ker A) = n - \text{rank}(A)$</li>
+                            <li>解の存在：$\text{rank}(A) = \text{rank}([A|b])$</li>
+                            <li>一般解 = 特殊解 + 同次解</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">微分方程式と軌跡について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>同次型微分方程式は変数変換$u = y/x$で変数分離型に変換できます！連立微分方程式では複素数表現を使うと、計算が大幅に簡単になる場合があります。軌跡の幾何学的意味も考えてみましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 微分方程式 $\frac{dy}{dx} = \frac{2xy}{x^2 - y^2}$ の一般解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 同次型なので$u = y/x$と置換：$y = ux$，$\frac{dy}{dx} = u + x\frac{du}{dx}$
+                        </div>
+                        <div class="solution-step">
+                            2. 代入すると：
+                            <div class="math-block">$$u + x\frac{du}{dx} = \frac{2u}{1 - u^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 整理して変数分離：
+                            <div class="math-block">$$x\frac{du}{dx} = \frac{u(1 + u^2)}{1 - u^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 部分分数分解して積分後、元の変数に戻すと：
+                            <div class="math-block">$$\frac{y}{x^2 + y^2} = C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 整理すると：
+                            <div class="math-block">$$x^2 + y^2 - ky = 0 \quad (k = 1/C)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $x^2 + y^2 - ky = 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 連立方程式 $\frac{dx}{dt} = x^2 - y^2$，$\frac{dy}{dt} = 2xy$ の軌跡を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 複素数$z = x + iy$で表現：
+                            <div class="math-block">$$\frac{dz}{dt} = \frac{dx}{dt} + i\frac{dy}{dt} = (x^2 - y^2) + i(2xy) = z^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 微分方程式$\frac{dz}{dt} = z^2$を解く：
+                            <div class="math-block">$$\frac{dz}{z^2} = dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分すると：
+                            <div class="math-block">$$-\frac{1}{z} = t + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 初期条件から$C$を決定し、実部と虚部を分離すると：
+                            <div class="math-block">$$z = \frac{1}{-t + \frac{1}{2} - \frac{i}{2}}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 軌跡は円：
+                            <div class="math-block">$$x^2 + (y-1)^2 = 1$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: 中心$(0,1)$、半径1の円</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次型は$u = y/x$で変数分離</li>
+                            <li>複素数表現で連立方程式を簡略化</li>
+                            <li>軌跡の幾何学的意味を理解</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>同次判別：$f(tx,ty) = t^n f(x,y)$</li>
+                            <li>$\frac{dz}{dt} = z^2$ → $z = \frac{1}{C-t}$</li>
+                            <li>複素数の軌跡は円や直線が多い</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

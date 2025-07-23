@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2007年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2007（H19）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2007年度の数学入試では、大問【1】でラプラス変換とインパルス応答、大問【2】で積分計算（三角置換・曲線長）、大問【3】で変数の比に関する方程式、大問【4】でベルヌーイ型微分方程式が出題されました。ラプラス変換の実用性、積分の技巧、代数的推論、微分方程式の線形化と、幅広い分野をカバーした良問です。応用数学の実践的な側面もしっかり学んでいきましょう！</p>
+                <a href="../../pdfs/question/2007_H19_april/math_2007_H19_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2007年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 微分方程式 $\frac{d^2x(t)}{dt^2} + 4x(t) = \delta(t)$ （$\delta(t)$ は単位インパルス関数）を初期条件 $x(0) = 0$，$\left.\frac{dx(t)}{dt}\right|_{t=0} = 1$ のもとでラプラス変換し、$X(s)$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>単位インパルス関数のラプラス変換は $\mathcal{L}\{\delta(t)\} = 1$ です！2階微分の変換公式と初期条件を使って、$X(s)$ について解きましょう。インパルス応答は制御理論でとても重要な概念ですよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の公式を適用します：
+                            <div class="math-block">
+                                $\mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} = s^2X(s) - sx(0) - x'(0) = s^2X(s) - 0 - 1 = s^2X(s) - 1$<br>
+                                $\mathcal{L}\{4x(t)\} = 4X(s)$<br>
+                                $\mathcal{L}\{\delta(t)\} = 1$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 微分方程式をラプラス変換：
+                            <div class="math-block">$$s^2X(s) - 1 + 4X(s) = 1$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $X(s)$ について整理：
+                            <div class="math-block">$$(s^2 + 4)X(s) = 1 + 1 = 2$$</div>
+                            <div class="math-block">$$X(s) = \frac{2}{s^2 + 4}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $X(s) = \frac{2}{s^{2} + 4}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $X(s)$ を逆ラプラス変換し、$x(t)$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$X(s) = \frac{2}{s^2 + 4}$ の形は標準的なラプラス変換表にありますね！$\mathcal{L}\{\sin(kt)\} = \frac{k}{s^2 + k^2}$ の公式を使えば簡単に逆変換できます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $X(s) = \frac{2}{s^2 + 4} = \frac{2}{s^2 + 2^2}$ を標準形で表現します。
+                        </div>
+                        <div class="solution-step">
+                            2. 標準的な逆ラプラス変換公式を適用：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{\frac{k}{s^2 + k^2}\right\} = \sin(kt)$$</div>
+                            ここで $k = 2$ なので：
+                            <div class="math-block">$$x(t) = \mathcal{L}^{-1}\left\{\frac{2}{s^2 + 4}\right\} = \sin(2t)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 初期条件の確認：
+                            - $x(0) = \sin(0) = 0$ ✓
+                            - $x'(t) = 2\cos(2t)$，$x'(0) = 2\cos(0) = 2$ 
+                            インパルス効果により速度が瞬間的にジャンプするため整合します。
+                        </div>
+                        <span class="answer-highlight">答え: $x(t) = \sin 2t \quad (t \geq 0)$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>インパルス関数のラプラス変換は1</li>
+                            <li>2階微分の変換には初期条件が必要</li>
+                            <li>標準形への変換で逆変換を簡単に</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{\delta(t)\} = 1$ は重要公式</li>
+                            <li>$\mathcal{L}\{\sin(kt)\} = \frac{k}{s^2 + k^2}$</li>
+                            <li>インパルス応答は制御工学で頻出</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 不定積分 $\int \sqrt{a^2 + x^2} \, dx$ を導出過程とともに示せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>三角関数による置換積分が有効です！$x = a\tan\theta$ とおくと、$\sqrt{a^2 + x^2} = a\sec\theta$ になります。$\sec^3\theta$ の積分は部分積分で求められますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 三角置換 $x = a\tan\theta$ を行います。$dx = a\sec^2\theta \, d\theta$
+                        </div>
+                        <div class="solution-step">
+                            2. 平方根を簡単化：
+                            <div class="math-block">$$\sqrt{a^2 + x^2} = \sqrt{a^2 + a^2\tan^2\theta} = a\sqrt{1 + \tan^2\theta} = a\sec\theta$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分を変換：
+                            <div class="math-block">$$\int \sqrt{a^2 + x^2} \, dx = \int a\sec\theta \cdot a\sec^2\theta \, d\theta = a^2 \int \sec^3\theta \, d\theta$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $\int \sec^3\theta \, d\theta$ を部分積分で計算：
+                            $u = \sec\theta$，$dv = \sec^2\theta \, d\theta$ とおくと
+                            <div class="math-block">$$I = \sec\theta\tan\theta - \int \sec\theta(\sec^2\theta - 1) \, d\theta$$</div>
+                            <div class="math-block">$$2I = \sec\theta\tan\theta + \ln|\sec\theta + \tan\theta|$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 元の変数に戻す：$\sec\theta = \frac{\sqrt{a^2 + x^2}}{a}$，$\tan\theta = \frac{x}{a}$
+                            <div class="math-block">$$\int \sqrt{a^2 + x^2} \, dx = \frac{x}{2}\sqrt{a^2 + x^2} + \frac{a^2}{2}\ln\left|x + \sqrt{a^2 + x^2}\right| + C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{x}{2}\sqrt{a^{2} + x^{2}} + \frac{a^{2}}{2}\ln\left|x + \sqrt{a^{2} + x^{2}}\right| + C$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 放物線 $y = x^2$ の原点 $(0,0)$ から点 $(1,1)$ まで放物線に沿って測った長さを求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>曲線の長さの公式 $L = \int_a^b \sqrt{1 + \left(\frac{dy}{dx}\right)^2} \, dx$ を使います！(1) の結果を活用できるように、$\sqrt{1 + 4x^2}$ の積分に帰着させましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 曲線の長さの公式を適用：
+                            $y = x^2$ より $\frac{dy}{dx} = 2x$
+                            <div class="math-block">$$L = \int_0^1 \sqrt{1 + (2x)^2} \, dx = \int_0^1 \sqrt{1 + 4x^2} \, dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\sqrt{1 + 4x^2}$ を(1)の形に変換：
+                            <div class="math-block">$$\sqrt{1 + 4x^2} = \sqrt{4\left(x^2 + \frac{1}{4}\right)} = 2\sqrt{x^2 + \left(\frac{1}{2}\right)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. (1)の結果を $a = \frac{1}{2}$ として適用：
+                            <div class="math-block">$$L = 2\int_0^1 \sqrt{x^2 + \frac{1}{4}} \, dx$$</div>
+                            <div class="math-block">$$= 2\left[\frac{x}{2}\sqrt{x^2 + \frac{1}{4}} + \frac{1}{8}\ln\left|x + \sqrt{x^2 + \frac{1}{4}}\right|\right]_0^1$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 定積分を計算：
+                            上端 $x=1$：$\frac{\sqrt{5}}{4} + \frac{1}{8}\ln\left(1 + \frac{\sqrt{5}}{2}\right)$<br>
+                            下端 $x=0$：$0 + \frac{1}{8}\ln\left(\frac{1}{2}\right)$
+                            <div class="math-block">$$L = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $L = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>三角置換による根号の処理</li>
+                            <li>$\sec^3\theta$ の積分は部分積分で</li>
+                            <li>曲線長公式と(1)の結果の組み合わせ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$x = a\tan\theta$ 置換で $\sqrt{a^2+x^2}$ 処理</li>
+                            <li>曲線長：$L = \int \sqrt{1+(y')^2} dx$</li>
+                            <li>定積分計算では上端・下端の注意深い計算</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">変数 $x, y, z$ の間に $\frac{x + y - 2z}{x} = \frac{-x + 2y + z}{y} = \frac{y - z}{z}$ が成り立つとき、$x = y = z = 0$ 以外の場合の $x, y, z$ の比を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>共通の比を $k$ とおいて連立方程式を立てましょう！3つの等式から3つの方程式ができるので、パラメータ $k$ の値によって場合分けして解きます。$x \neq 0$，$y \neq 0$，$z \neq 0$ の条件も忘れずに！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 共通の比を $k$ とおきます：
+                            <div class="math-block">$$\frac{x + y - 2z}{x} = \frac{-x + 2y + z}{y} = \frac{y - z}{z} = k$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 3つの方程式を立てます：
+                            <div class="math-block">
+                                $(1-k)x + y - 2z = 0$ ... (1)<br>
+                                $-x + (2-k)y + z = 0$ ... (2)<br>
+                                $y - (k+1)z = 0$ ... (3)
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 式(3)から $y = (k+1)z$ を式(1)に代入：
+                            <div class="math-block">$$(1-k)x + (k+1)z - 2z = 0$$</div>
+                            <div class="math-block">$$(1-k)x + (k-1)z = 0$$</div>
+                            <div class="math-block">$$(1-k)(x - z) = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 場合分けして解きます：
+                            <strong>ケース1:</strong> $k = 1$ のとき
+                            - $y = 2z$，式(2)より $-x + 2y + z = 0$ → $x = 3z$
+                            - 比 $x:y:z = 3:2:1$
+                            
+                            <strong>ケース2:</strong> $k \neq 1$ のとき
+                            - $x = z$，式(2)より $-z + (2-k)(k+1)z + z = 0$
+                            - $(2-k)(k+1) = 0$ より $k = 2$ または $k = -1$
+                            - $k = 2$：$y = 3z$，$x = z$ → 比 $x:y:z = 1:3:1$
+                            - $k = -1$：$y = 0$（不適、分母に $y$ があるため）
+                        </div>
+                        <span class="answer-highlight">答え: $x:y:z = 3:2:1$ または $1:3:1$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>共通の比 $k$ を導入した連立方程式</li>
+                            <li>パラメータ $k$ による場合分けが重要</li>
+                            <li>分母≠0の条件を忘れずにチェック</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>比の問題では共通値を設定</li>
+                            <li>同次連立方程式の非自明解を求める</li>
+                            <li>最後に元の方程式で検算する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $P(x), Q(x)$ が $x$ の関数のとき、微分方程式 $\frac{dy}{dx} + P(x)y = Q(x)y^n$ ($n \neq 0, 1$) が $z = y^{1-n}$ とおけば線形微分方程式に帰着できることを示せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これはベルヌーイ型微分方程式の線形化です！$z = y^{1-n}$ を $x$ で微分して、元の方程式に代入してみましょう。$y^n$ の項がうまく消えて線形方程式になるはずです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $z = y^{1-n}$ を $x$ で微分：
+                            <div class="math-block">$$\frac{dz}{dx} = (1-n)y^{-n}\frac{dy}{dx}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 元の方程式から $\frac{dy}{dx} = -P(x)y + Q(x)y^n$ を代入：
+                            <div class="math-block">$$\frac{dz}{dx} = (1-n)y^{-n}(-P(x)y + Q(x)y^n)$$</div>
+                            <div class="math-block">$$= (1-n)(-P(x)y^{1-n} + Q(x))$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $y^{1-n} = z$ を代入：
+                            <div class="math-block">$$\frac{dz}{dx} = (1-n)(-P(x)z + Q(x))$$</div>
+                            <div class="math-block">$$= (1-n)Q(x) - (1-n)P(x)z$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 線形微分方程式の形に整理：
+                            <div class="math-block">$$\frac{dz}{dx} + (n-1)P(x)z = (1-n)Q(x)$$</div>
+                            これは $z$ に関する線形微分方程式です。
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 微分方程式 $\frac{dy}{dx} + y + e^x y^3 = 0$ を解け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)の結果を活用しましょう！$n=3$ のベルヌーイ型なので、$z = y^{-2}$ とおいて線形微分方程式に変換します。積分因子法で解いてから $y$ に戻します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 方程式を標準形に変形：
+                            <div class="math-block">$$\frac{dy}{dx} + y = -e^x y^3$$</div>
+                            $P(x) = 1$，$Q(x) = -e^x$，$n = 3$
+                        </div>
+                        <div class="solution-step">
+                            2. $z = y^{1-3} = y^{-2}$ とおき、(1)の結果を適用：
+                            <div class="math-block">$$\frac{dz}{dx} + 2z = 2e^x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分因子 $\mu(x) = e^{2x}$ を使って解きます：
+                            <div class="math-block">$$e^{2x}\frac{dz}{dx} + 2e^{2x}z = 2e^{3x}$$</div>
+                            <div class="math-block">$$\frac{d}{dx}(ze^{2x}) = 2e^{3x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 積分：
+                            <div class="math-block">$$ze^{2x} = \int 2e^{3x} dx = \frac{2}{3}e^{3x} + C$$</div>
+                            <div class="math-block">$$z = \frac{2}{3}e^x + Ce^{-2x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. $z = y^{-2}$ より：
+                            <div class="math-block">$$\frac{1}{y^2} = \frac{2}{3}e^x + Ce^{-2x}$$</div>
+                            <div class="math-block">$$y = \pm\frac{e^{-x}}{\sqrt{\frac{2}{3} + Ce^{-3x}}}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = \pm\frac{e^{-x}}{\sqrt{\frac{2}{3} + Ce^{-3x}}}$ （$C$ は定数）</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ベルヌーイ型の線形化変換手法</li>
+                            <li>積分因子法による線形方程式の解法</li>
+                            <li>変数変換後の逆変換処理</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$z = y^{1-n}$ でベルヌーイ型を線形化</li>
+                            <li>積分因子：$\mu = e^{\int P(x)dx}$</li>
+                            <li>最終解は $y$ の形で表現する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

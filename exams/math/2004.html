@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2004年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2004（H16）年　数学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2004年度の数学入試では、大問【1】で不定積分計算、大問【2】で完全微分方程式と積分因子、大問【3】でベクトル解析と球面積分、大問【4】でガウス分布のフーリエ変換が出題されました。微分積分・微分方程式・ベクトル解析・フーリエ解析と、幅広い分野から出題されています。しっかりと基礎を固めて、一つずつ丁寧に解いていきましょう！</p>
+                <a href="../../pdfs/question/2004_H16_april/math_2004_H16_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2004年度)
+                </a>
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $\int \frac{dx}{x(\log x)^4}$ を計算せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>対数を含む積分では置換積分が効果的です！$u = \log x$ とおくと、$du = \frac{1}{x} dx$ となって、きれいに整理されます。対数の微分公式を思い出しながら計算してみましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 置換積分を使います。$u = \log x$ とおくと、$du = \frac{1}{x} dx$ です。
+                            <div class="math-block">$$u = \log x, \quad du = \frac{dx}{x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分を書き換えます。
+                            <div class="math-block">$$\int \frac{dx}{x(\log x)^4} = \int u^{-4} \, du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 冪関数の積分公式を使います。
+                            <div class="math-block">$$\int u^{-4} \, du = \frac{u^{-3}}{-3} + C = -\frac{1}{3u^3} + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 元の変数に戻します。
+                            <div class="math-block">$$-\frac{1}{3(\log x)^3} + C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $-\frac{1}{3(\log x)^{3}} + C$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $\int \frac{dx}{(e^x + 1)^2}$ を計算せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>指数関数を含む積分では $t = e^x$ と置換するのが定石です！その後、部分分数分解を使ってシンプルな分数に分けて積分しましょう。計算は少し長くなりますが、一つずつ丁寧に進めれば大丈夫です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 置換積分を使います。$t = e^x$ とおくと、$dt = e^x dx$ なので $dx = \frac{dt}{t}$ です。
+                            <div class="math-block">$$\int \frac{dx}{(e^x + 1)^2} = \int \frac{1}{(t + 1)^2} \cdot \frac{dt}{t} = \int \frac{dt}{t(t + 1)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 部分分数分解を行います。
+                            <div class="math-block">$$\frac{1}{t(t + 1)^2} = \frac{A}{t} + \frac{B}{t + 1} + \frac{C}{(t + 1)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 係数を求めます。両辺に $t(t + 1)^2$ を乗じて：
+                            <div class="math-block">$$1 = A(t + 1)^2 + Bt(t + 1) + Ct$$</div>
+                            $t = 0$ で $A = 1$、$t = -1$ で $C = -1$、$t^2$ の係数比較で $B = -1$
+                        </div>
+                        <div class="solution-step">
+                            4. 積分を計算します。
+                            <div class="math-block">$$\int \left( \frac{1}{t} - \frac{1}{t + 1} - \frac{1}{(t + 1)^2} \right) dt = \ln |t| - \ln |t + 1| + \frac{1}{t + 1} + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. $t = e^x$ を代入して整理します。
+                            <div class="math-block">$$x - \ln (e^x + 1) + \frac{1}{e^x + 1} + C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $x - \ln (e^{x} + 1) + \frac{1}{e^{x} + 1} + C$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対数や指数を含む積分では置換積分が基本</li>
+                            <li>部分分数分解は係数決定の順序が大切</li>
+                            <li>計算ミスを防ぐため各ステップを丁寧に確認</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\log x$ の積分では $u = \log x$ 置換を試してみる</li>
+                            <li>$e^x$ の積分では $t = e^x$ 置換が効果的</li>
+                            <li>部分分数分解では特定値代入法で係数を求める</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 微分方程式 $(x^2 + y^2 + x)dx + xy \, dy = 0$ が完全微分形でないことを示し、積分因子を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>完全微分形かどうかは「$\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$」で判定します！もし等しくなければ積分因子を探しましょう。$\mu = \mu(x)$ のタイプかどうかを調べるのがコツです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 完全微分形の条件を確認します。$M = x^2 + y^2 + x$、$N = xy$ として、
+                            <div class="math-block">$$\frac{\partial M}{\partial y} = 2y, \quad \frac{\partial N}{\partial x} = y$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$（$2y \neq y$ for $y \neq 0$）なので完全微分形ではありません。
+                        </div>
+                        <div class="solution-step">
+                            3. 積分因子 $\mu = \mu(x)$ を仮定します。完全形の条件から：
+                            <div class="math-block">$$\frac{\partial}{\partial y}(\mu M) = \frac{\partial}{\partial x}(\mu N)$$</div>
+                            <div class="math-block">$$\mu \cdot 2y = y\mu + xy\frac{d\mu}{dx}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 整理すると：
+                            <div class="math-block">$$y\mu = xy\frac{d\mu}{dx} \implies \frac{d\mu}{\mu} = \frac{dx}{x}$$</div>
+                            <div class="math-block">$$\ln|\mu| = \ln|x| + C \implies \mu = x$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: 完全微分形でない。積分因子 $\mu = x$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 上の微分方程式の一般解を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)で求めた積分因子 $\mu = x$ を元の方程式に掛けて、完全微分方程式にします！そして $F(x, y) = C$ の形で解を求めましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 積分因子 $\mu = x$ を乗じます：
+                            <div class="math-block">$$x(x^2 + y^2 + x)dx + x \cdot xy \, dy = 0$$</div>
+                            <div class="math-block">$$(x^3 + xy^2 + x^2)dx + x^2y \, dy = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 完全微分形の確認：$M = x^3 + xy^2 + x^2$、$N = x^2y$ で、
+                            <div class="math-block">$$\frac{\partial M}{\partial y} = 2xy = \frac{\partial N}{\partial x}$$</div>
+                            完全微分形になりました！
+                        </div>
+                        <div class="solution-step">
+                            3. 解 $F(x, y) = C$ を求めます。$\frac{\partial F}{\partial y} = x^2y$ より、
+                            <div class="math-block">$$F = \frac{1}{2}x^2y^2 + g(x)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $\frac{\partial F}{\partial x} = xy^2 + g'(x) = x^3 + xy^2 + x^2$ より、
+                            <div class="math-block">$$g'(x) = x^3 + x^2 \implies g(x) = \frac{1}{4}x^4 + \frac{1}{3}x^3$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 一般解をまとめます：
+                            <div class="math-block">$$\frac{1}{2}x^2y^2 + \frac{1}{4}x^4 + \frac{1}{3}x^3 = C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{1}{2}x^{2}y^{2} + \frac{1}{4}x^{4} + \frac{1}{3}x^{3} = C$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>完全微分形の判定は偏微分の等価性で確認</li>
+                            <li>積分因子は $x$ のみの関数から試してみる</li>
+                            <li>完全微分方程式は $F(x,y) = C$ で解を表現</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>積分因子の候補：$\mu(x)$、$\mu(y)$、$\mu(x+y)$ など</li>
+                            <li>完全形になったら片方の変数で部分積分</li>
+                            <li>検算として元の方程式に解を代入して確認</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 3次元ベクトル $\mathbf{A}$, $\mathbf{B}$ が張る平行四辺形の面積公式を証明せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>平行四辺形の面積は外積の大きさ $|\mathbf{A} \times \mathbf{B}|$ で求まります！ラグランジュの恒等式 $|\mathbf{A}|^2|\mathbf{B}|^2 - (\mathbf{A} \cdot \mathbf{B})^2 = |\mathbf{A} \times \mathbf{B}|^2$ を使って証明しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 平行四辺形の面積は外積のノルムです：
+                            <div class="math-block">$$S = \|\mathbf{A} \times \mathbf{B}\|$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 外積を成分で表すと：
+                            <div class="math-block">
+                                $\mathbf{A} \times \mathbf{B} = (A_yB_z - A_zB_y, A_zB_x - A_xB_z, A_xB_y - A_yB_x)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. $S^2$ を計算すると：
+                            <div class="math-block">$$S^2 = (A_yB_z - A_zB_y)^2 + (A_zB_x - A_xB_z)^2 + (A_xB_y - A_yB_x)^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 一方、ラグランジュの恒等式により：
+                            <div class="math-block">
+                                $|\mathbf{A}|^2|\mathbf{B}|^2 - (\mathbf{A} \cdot \mathbf{B})^2$<br>
+                                $= (A_x^2 + A_y^2 + A_z^2)(B_x^2 + B_y^2 + B_z^2) - (A_xB_x + A_yB_y + A_zB_z)^2$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 展開すると3. の結果と一致し、証明が完成します。
+                        </div>
+                        <span class="answer-highlight">証明完了：$S = \sqrt{|\mathbf{A}|^2|\mathbf{B}|^2 - (\mathbf{A} \cdot \mathbf{B})^2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 球面 $S: |\mathbf{r}| = a$ について次の面積分を計算せよ。</p>
+                        <p class="problem-statement">(a) $\iint_S \frac{\mathbf{r} \cdot \mathbf{n}}{r^3} dS$　　(b) $\iint_S (x\mathbf{i} + y\mathbf{j}) \cdot \mathbf{n} \, dS$</p>
+                        <p>ただし、$\mathbf{n}$ は外向き単位法線ベクトルとする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(a)では球面上で $\mathbf{r} \cdot \mathbf{n} = a$、$r = a$ を使います。(b)では発散定理（ガウスの定理）を活用すると簡単に計算できますよ！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <strong>(a)</strong> 球面上では $\mathbf{n} = \frac{\mathbf{r}}{a}$、$r = a$ なので：
+                            <div class="math-block">
+                                $\mathbf{r} \cdot \mathbf{n} = \mathbf{r} \cdot \frac{\mathbf{r}}{a} = \frac{r^2}{a} = a$<br>
+                                $\frac{\mathbf{r} \cdot \mathbf{n}}{r^3} = \frac{a}{a^3} = \frac{1}{a^2}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            積分すると：$\iint_S \frac{1}{a^2} \, dS = \frac{1}{a^2} \times 4\pi a^2 = 4\pi$
+                        </div>
+                        <div class="solution-step">
+                            <strong>(b)</strong> 発散定理を適用します。$\mathbf{F} = x\mathbf{i} + y\mathbf{j}$ として：
+                            <div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} = 1 + 1 = 2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            発散定理により：
+                            <div class="math-block">$$\iint_S \mathbf{F} \cdot \mathbf{n} \, dS = \iiint_V (\nabla \cdot \mathbf{F}) \, dV = \iiint_V 2 \, dV = 2 \times \frac{4}{3}\pi a^3 = \frac{8}{3}\pi a^3$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: (a) $4\pi$　　(b) $\frac{8}{3}\pi a^{3}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>外積は平行四辺形の面積を与える重要な概念</li>
+                            <li>球面上では位置ベクトルと法線の関係が単純化</li>
+                            <li>発散定理で面積分を体積分に変換できる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>ラグランジュ恒等式は外積計算で頻繁に使用</li>
+                            <li>球面の法線ベクトルは $\mathbf{n} = \frac{\mathbf{r}}{|\mathbf{r}|}$</li>
+                            <li>面積分では発散定理・ストークスの定理を考える</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">ガウス分布 $f(x) = \frac{1}{\sqrt{2\pi b}} \exp\left(-\frac{(x-a)^2}{2b}\right)$ のフーリエ変換を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ガウス分布のフーリエ変換は「ガウス関数のまま」になる美しい性質があります！指数部を平方完成して、ガウス積分の公式 $\int_{-\infty}^{\infty} e^{-u^2/2b} du = \sqrt{2\pi b}$ を使いましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. フーリエ変換の定義に従って積分します：
+                            <div class="math-block">$$\hat{f}(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx = \frac{1}{\sqrt{2\pi b}} \int_{-\infty}^{\infty} \exp\left(-\frac{(x-a)^2}{2b} - ikx\right) dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 指数部を平方完成します：
+                            <div class="math-block">
+                                $-\frac{(x-a)^2}{2b} - ikx$<br>
+                                $= -\frac{1}{2b}\left[x^2 - 2(a - ibk)x + a^2\right]$<br>
+                                $= -\frac{(x - (a - ibk))^2}{2b} - iak - \frac{bk^2}{2}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分を分離します：
+                            <div class="math-block">$$\hat{f}(k) = \frac{1}{\sqrt{2\pi b}} \exp\left(-iak - \frac{bk^2}{2}\right) \int_{-\infty}^{\infty} \exp\left(-\frac{(x - (a - ibk))^2}{2b}\right) dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 積分変数を $u = x - (a - ibk)$ と変換し、ガウス積分公式を適用：
+                            <div class="math-block">$$\int_{-\infty}^{\infty} \exp\left(-\frac{u^2}{2b}\right) du = \sqrt{2\pi b}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 最終結果をまとめます：
+                            <div class="math-block">$$\hat{f}(k) = \frac{1}{\sqrt{2\pi b}} \exp\left(-iak - \frac{bk^2}{2}\right) \times \sqrt{2\pi b} = \exp\left(-iak - \frac{bk^2}{2}\right)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\exp\left(-iak - \frac{bk^{2}}{2}\right)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ガウス分布のフーリエ変換もガウス関数になる</li>
+                            <li>平方完成は複素数を含む場合でも同様に適用</li>
+                            <li>ガウス積分公式は数学的に重要な基本公式</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>フーリエ変換では平方完成が頻繁に使われる</li>
+                            <li>積分変数の変換では積分範囲に注意</li>
+                            <li>ガウス積分の結果 $\sqrt{2\pi b}$ は暗記必須</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

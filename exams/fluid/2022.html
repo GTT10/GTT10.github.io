@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2022年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../real_css/style.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $...$ と \( ... \) を追加
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコンに変更 -->
+                    2022（R4）年　流体力学
+                </h1>
+                <a href="../../index.html" class="about-link">トップページに戻る</a>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2022年度の流体力学入試では、大問【1】でベルヌーイの定理と流量保存則と運動量保存則を用いた水槽からの流出問題、大問【2】で平行平板間の粘性流れ（ナビエ・ストークス方程式）と，ポアズイユ流れに関する問題が出題されました。流体力学の基礎から応用まで、幅広い知識が問われる内容でした。</p>
+                <a href="../../pdfs/question/2022_R4_april/fluid_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図1に示された、大きな水槽の側面に取り付けられたノズルから液体が流出する状況に関する問題を解きます。圧力はゲージ圧、流体は密度 \(\rho\) の完全流体として扱います。</p>
+                        <div class="my-6 text-center">
+                            <img src="../../images/fluid_2022_1.png" alt="水槽とノズルの図" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図1: 水槽とノズル</p>
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この問題は、ベルヌーイの定理、連続の式（質量保存則）、そして運動量保存則を組み合わせて解く典型的な流体力学の問題です。各点の圧力、流速、高さを正確に設定し、適切な法則を適用しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) ノズル出口でのz軸方向の流速を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            水槽の液面（点Aとする）とノズル出口（点1とする）の間でベルヌーイの定理を適用します。液面の高さは \(H\)、出口の高さは 0 です。
+                            <ul>
+                                <li>点A: 圧力 \(P_A = 0\)（大気圧、ゲージ圧0）、流速 \(v_A \approx 0\)（大きな水槽のため）、高さ \(z_A = H\)</li>
+                                <li>点1: 圧力 \(P_1 = 0\)（大気へ放出、ゲージ圧0）、流速 \(v_1\)、高さ \(z_1 = 0\)</li>
+                            </ul>
+                            ベルヌーイの式は \(\frac{P}{\rho} + \frac{v^2}{2} + gz = \text{一定}\) です。
+                            $$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_1}{\rho} + \frac{v_1^2}{2} + g(0)$$
+                            $$0 + 0 + gH = 0 + \frac{v_1^2}{2}$$
+                            これを解くと、ノズル出口での流速 \(v_1\) が求まります。これはトリチェリの定理として知られています。
+                            $$v_1 = \sqrt{2gH}$$
+                        </div>
+                        <span class="answer-highlight">答え: ノズル出口での流速は \(\sqrt{2gH}\) です。</span>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) ノズル入口でのz軸方向の流速を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ノズル入口（断面積 \(A_2\)）と出口（断面積 \(A_1\)）の間で、連続の式を適用します。
+                            $$A_1 v_1 = A_2 v_2$$
+                            ここから、ノズル入口での流速 \(v_2\) を求めます。
+                            $$v_2 = \frac{A_1}{A_2} v_1 = \frac{A_1}{A_2} \sqrt{2gH}$$
+                        </div>
+                        <span class="answer-highlight">答え: ノズル入口での流速は \(\frac{A_1}{A_2} \sqrt{2gH}\) です。</span>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) ノズル入口での圧力を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            水槽の液面（点A）とノズル入口（点2）の間でベルヌーイの定理を適用します。
+                            <ul>
+                                <li>点A: \(P_A = 0\), \(v_A \approx 0\), \(z_A = H\)</li>
+                                <li>点2: 圧力 \(P_2\), 流速 \(v_2\), 高さ \(z_2 = 0\)</li>
+                            </ul>
+                            $$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_2}{\rho} + \frac{v_2^2}{2} + g(0)$$
+                            $$gH = \frac{P_2}{\rho} + \frac{v_2^2}{2}$$
+                            \(P_2\) について解き、$v_2$ の結果を代入します。
+                            $$P_2 = \rho \left( gH - \frac{v_2^2}{2} \right) = \rho \left( gH - \frac{1}{2} \left( \frac{A_1}{A_2} \right)^2 (2gH) \right)$$
+                            $$P_2 = \rho gH \left( 1 - \left( \frac{A_1}{A_2} \right)^2 \right)$$
+                        </div>
+                        <span class="answer-highlight">答え: ノズル入口での圧力は \(\rho gH \left( 1 - \left( \frac{A_1}{A_2} \right)^2 \right)\) です。</span>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) ノズル全体にかかるz軸方向の力を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ノズル内の流体を検査体積とし、z軸方向の運動量の法則を適用します。ノズルが流体に及ぼす力を \(F_{wall}\) とすると、z軸方向の力のつり合いは以下のようになります。
+                            $$P_2 A_2 - P_1 A_1 + F_{wall} = \dot{m}(v_1 - v_2)$$
+                            ここで、$P_1=0$（ゲージ圧）、質量流量 \(\dot{m} = \rho A_1 v_1 = \rho A_2 v_2\) です。
+                            $$P_2 A_2 + F_{wall} = (\rho A_1 v_1)v_1 - (\rho A_2 v_2)v_2 = \rho (A_1 v_1^2 - A_2 v_2^2)$$
+                            ノズルが流体から受ける力（求めたい力 \(F\)）は、$F_{wall}$ の反作用なので \(F = -F_{wall}\) です。
+                            $$F = P_2 A_2 - \rho(A_1 v_1^2 - A_2 v_2^2) = P_2 A_2 - \rho A_1 v_1^2 + \rho A_2 v_2^2$$
+                            ここに(1), (2), (3)の結果を代入します。
+                            $$F = \rho gH \left( 1 - \left(\frac{A_1}{A_2}\right)^2 \right) A_2 - \rho A_1 (2gH) + \rho A_2 \left(\frac{A_1}{A_2}\right)^2 (2gH)$$
+                            $$F = \rho gH \left( A_2 - \frac{A_1^2}{A_2} \right) - 2\rho gH A_1 + 2\rho gH \frac{A_1^2}{A_2}$$
+                            $$F = \rho gH \left( A_2 - \frac{A_1^2}{A_2} - 2A_1 + 2\frac{A_1^2}{A_2} \right)$$
+                            $$F = \rho gH \left( A_2 - 2A_1 + \frac{A_1^2}{A_2} \right) = \rho gH \frac{A_2^2 - 2A_1 A_2 + A_1^2}{A_2}$$
+                            $$F = \frac{\rho gH (A_2 - A_1)^2}{A_2}$$
+                            この力は正の値なので、<b>z軸の正の向き</b>に働きます。
+                        </div>
+                        <span class="answer-highlight">答え: ノズル全体にかかる力は、z軸正の向きに \(\frac{\rho gH (A_2 - A_1)^2}{A_2}\) です。</span>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>この問題は、ベルヌーイの定理と連続の式、そして運動量保存則を段階的に適用することで解くことができます。特に、ノズルにかかる力を求める際には、検査体積の考え方と運動量保存則を正しく適用することが重要です。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ベルヌーイの定理の適用条件を理解する。</li>
+                            <li>連続の式（質量保存則）を正しく用いる。</li>
+                            <li>運動量保存則を検査体積に適用する。</li>
+                            <li>ゲージ圧と絶対圧の区別に注意する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>液面や大気開放点での圧力・流速の仮定を明確にする。</li>
+                            <li>運動量保存則の適用時には、力の向きと運動量変化の向きに注意する。</li>
+                            <li>計算過程を丁寧に記述し、ミスを防ぐ。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">\(x=-H\) と \(x=2H\) に設置された無限に長い二枚の平板間を流れる、二次元非圧縮粘性流体に関する問題を解きます。</p>
+                        <div class="my-6 text-center">
+                            <img src="../../images/fluid_2022_2.png" alt="平行平板の図" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図2: 平行平板</p>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(1) 二次元の連続の方程式を記述せよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>連続の式は質量保存則を表す基本的な方程式です。非圧縮性流体の場合、密度が一定であるため、式が簡略化されます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            非圧縮性流体の二次元（x, y）における連続の方程式は、x方向の流速を \(u\)、y方向の流速を \(v\) として以下のように表されます。
+                            $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0\)</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(2) 二次元のナビエ・ストークス方程式を記述せよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>ナビエ・ストークス方程式は、流体の運動を記述する最も基本的な方程式です。慣性項、圧力項、粘性項で構成されます。外力がない場合の式を正確に記述しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            密度を \(\rho\)、動粘性係数を \(\nu\) としたとき、外力がない場合の二次元ナビエ・ストークス方程式は以下の通りです。<br><b>x方向:</b>
+                            $$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+                            <b>y方向:</b>
+                            $$\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)$$
+                        </div>
+                        <span class="answer-highlight">答え: 上記の2式。</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(3) 平板間の流体に一定の圧力勾配 \(\frac{\partial p}{\partial y}=-G\) のときの流れの名称を記述せよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>平行平板間の圧力勾配による流れには、特定の名称があります。この名称を思い出しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            二つの平行平板間を圧力勾配によって駆動される層流の定常流れは、<b>平面ポアズイユ流れ</b>（または単にポアズイユ流れ）と呼ばれます。
+                        </div>
+                        <span class="answer-highlight">答え: 平面ポアズイユ流れ</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(4) この流れを支配する方程式を導出せよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>ナビエ・ストークス方程式を、定常流れ、y方向の平行流、十分に発達した流れといった条件で簡略化していきます。連続の式も合わせて確認しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            (3)の流れの条件を(2)の方程式に適用します。
+                            <ul>
+                                <li><b>定常流れ</b>: \(\frac{\partial}{\partial t} = 0\)</li>
+                                <li><b>y方向の平行流</b>: \(u=0\)</li>
+                                <li><b>十分に発達した流れ</b>: y方向に流速分布は変化しないため \(\frac{\partial v}{\partial y} = 0\)</li>
+                            </ul>
+                            これらの条件を(1)の連続の式 \(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0\) に代入すると \(0 + 0 = 0\) となり、式は満たされます。
+                        </div>
+                        <div class="solution-step">
+                            次に、ナビエ・ストークス方程式を単純化します。
+                            <ul>
+                                <li><b>x方向:</b> \(0 = - \frac{1}{\rho}\frac{\partial p}{\partial x}\) となり、圧力pはxに依存しないことがわかります。</li>
+                                <li><b>y方向:</b> \(0 + 0 + 0 = - \frac{1}{\rho}\frac{\partial p}{\partial y} + \nu\left(\frac{\partial^2 v}{\partial x^2} + 0\right)\)</li>
+                            </ul>
+                            与えられた圧力勾配 \(\frac{\partial p}{\partial y} = -G\) を代入すると、
+                            $$0 = - \frac{1}{\rho}(-G) + \nu \frac{d^2 v}{dx^2}$$
+                            ここで、$v$ は $x$ のみの関数なので、偏微分は常微分になります。整理すると、流れを支配する方程式が得られます。
+                            $$\frac{d^2 v}{dx^2} = -\frac{G}{\rho \nu} = -\frac{G}{\mu}$$
+                            （ただし \(\mu = \rho\nu\) は粘性係数）
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{d^2 v}{dx^2} = -\frac{G}{\mu}\)</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(5) 流速分布を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>支配方程式を2回積分し、壁面での滑りなし条件（no-slip condition）を境界条件として適用することで、流速分布を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            (4)で得られた方程式を積分して流速分布 \(v(x)\) を求めます。
+                            $$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1$$
+                            $$v(x) = -\frac{G}{2\mu}x^2 + C_1 x + C_2$$
+                            壁面での滑りなし条件（no-slip condition）を境界条件として適用し、積分定数 \(C_1, C_2\) を決定します。
+                            <ul>
+                                <li>\(x=-H\) で \(v=0\): \(0 = -\frac{G}{2\mu}(-H)^2 + C_1(-H) + C_2\) (i)</li>
+                                <li>\(x=2H\) で \(v=0\): \(0 = -\frac{G}{2\mu}(2H)^2 + C_1(2H) + C_2\) (ii)</li>
+                            </ul>
+                            (ii) - (i) より、
+                            $$0 = -\frac{G}{2\mu}(4H^2 - H^2) + 3C_1 H = -\frac{3GH^2}{2\mu} + 3C_1 H \implies C_1 = \frac{GH}{2\mu}$$
+                            \(C_1\) を (i) に代入して \(C_2\) を求めます。
+                            $$C_2 = \frac{GH^2}{2\mu} + C_1 H = \frac{GH^2}{2\mu} + \left(\frac{GH}{2\mu}\right)H = \frac{GH^2}{\mu}$$
+                            したがって、流速分布は以下のようになります。
+                            $$v(x) = -\frac{G}{2\mu}x^2 + \frac{GH}{2\mu}x + \frac{GH^2}{\mu} = \frac{G}{2\mu}(-x^2 + Hx + 2H^2)$$
+                            $$v(x) = \frac{G}{2\mu}(2H-x)(H+x)$$
+                        </div>
+                        <span class="answer-highlight">答え: \(v(x) = \frac{G}{2\mu}(2H-x)(H+x)\)</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(6) 最大流速となる位置と最大流速の値を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>最大流速は、流速分布を微分して0となる位置で発生します。その位置を流速分布の式に代入して最大流速の値を求めましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            最大流速は \(\frac{dv}{dx}=0\) となる位置で生じます。
+                            $$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1 = -\frac{G}{\mu}x + \frac{GH}{2\mu} = 0$$
+                            $$x = \frac{H}{2}$$
+                            この位置は平板間 \((-H, 2H)\) の中央です。
+                            最大流速 \(v_{max}\) は、$v(x)$ に \(x=H/2\) を代入して求めます。
+                            $$v_{max} = v\left(\frac{H}{2}\right) = \frac{G}{2\mu}\left(-\left(\frac{H}{2}\right)^2 + H\left(\frac{H}{2}\right) + 2H^2\right)$$
+                            $$v_{max} = \frac{G}{2\mu}\left(-\frac{H^2}{4} + \frac{H^2}{2} + 2H^2\right) = \frac{G}{2\mu}\left(\frac{-H^2+2H^2+8H^2}{4}\right) = \frac{G}{2\mu}\left(\frac{9H^2}{4}\right)$$
+                            $$v_{max} = \frac{9GH^2}{8\mu}$$
+                        </div>
+                        <span class="answer-highlight">答え: 最大流速となる位置は \(x = H/2\)、最大流速の値は \(\frac{9GH^2}{8\mu}\) です。</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(7) 体積流量を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>体積流量は、流速分布を断面にわたって積分することで求められます。積分範囲に注意して計算しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            平板間の体積流量 \(Q\) （単位奥行きあたり）は、流速分布を断面にわたって積分することで求められます。
+                            $$Q = \int_{-H}^{2H} v(x) dx = \int_{-H}^{2H} \frac{G}{2\mu}(-x^2 + Hx + 2H^2) dx$$
+                            $$Q = \frac{G}{2\mu} \left[ -\frac{x^3}{3} + \frac{Hx^2}{2} + 2H^2x \right]_{-H}^{2H}$$
+                            $$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8H^3}{3} + \frac{4H^3}{2} + 4H^3\right) - \left(\frac{H^3}{3} + \frac{H^3}{2} - 2H^3\right) \right\}$$
+                            $$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8}{3} + 2 + 4\right)H^3 - \left(\frac{1}{3} + \frac{1}{2} - 2\right)H^3 \right\}$$
+                            $$Q = \frac{G}{2\mu} \left\{ \frac{10}{3} - \left(-\frac{7}{6}\right) \right\}H^3 = \frac{G}{2\mu} \left(\frac{20+7}{6}\right)H^3 = \frac{G}{2\mu} \frac{27}{6}H^3$$
+                            $$Q = \frac{9GH^3}{4\mu}$$
+                        </div>
+                        <span class="answer-highlight">答え: 体積流量は \(\frac{9GH^3}{4\mu}\) です。</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(8) \(x=-H\) の壁面におけるせん断応力を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>壁面せん断応力は、粘性係数と流速勾配の積で与えられます。流速分布の微分を計算し、壁面の位置で評価しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            壁面せん断応力 \(\tau_w\) は \(\tau_w = \mu \frac{dv}{dx}\) で与えられます。\(x=-H\) の平板におけるせん断応力を求めます。
+                            $$\frac{dv}{dx} = -\frac{G}{\mu}x + \frac{GH}{2\mu}$$
+                            \(x=-H\) を代入すると、
+                            $$\tau_w = \mu \left( \frac{dv}{dx} \right)_{x=-H} = \mu \left( -\frac{G}{\mu}(-H) + \frac{GH}{2\mu} \right) = \mu \left( \frac{GH}{\mu} + \frac{GH}{2\mu} \right) = \mu \left( \frac{3GH}{2\mu} \right)$$
+                            $$\tau_w = \frac{3GH}{2}$$
+                            この値は正なので、<b>y軸の正の向き</b>に作用します。これは流れの方向と同じです。
+                        </div>
+                        <span class="answer-highlight">答え: 大きさは \(\frac{3GH}{2}\) で、向きはy軸の正の向きです。</span>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>平行平板間の流れは、ナビエ・ストークス方程式を適切な仮定のもとで簡略化し、境界条件を適用して解く典型的な問題です。流速分布、最大流速、体積流量、壁面せん断応力といった各要素を正確に導出する練習を積むことが重要です。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>連続の式とナビエ・ストークス方程式を正確に記述する。</li>
+                            <li>流れの条件（定常、平行流、発達流など）を適用して方程式を簡略化する。</li>
+                            <li>境界条件（滑りなし条件）を正しく適用して積分定数を決定する。</li>
+                            <li>流速分布から最大流速、体積流量、せん断応力を導出する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>支配方程式の導出は、各項の物理的意味を理解しながら進める。</li>
+                            <li>微分方程式の解法（積分定数の決定）を正確に行う。</li>
+                            <li>計算ミスを防ぐために、単位や符号に注意する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>
