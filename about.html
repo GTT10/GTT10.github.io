@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>このサイトについて - 大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* about.html 専用の追加スタイル */
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 120px;
+            margin-bottom: 40px;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            color: #2E86AB;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #F18F01;
+            padding-bottom: 1rem;
+        }
+        
+        .about-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .about-section h2 {
+            font-size: 1.8rem;
+            color: #2E86AB;
+            margin-bottom: 1rem;
+            border-left: 4px solid #F18F01;
+            padding-left: 15px;
+        }
+        
+        .about-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .about-section ul {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .about-section li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #F18F01;
+            font-weight: bold;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #A23B72;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-card h3 {
+            color: #2E86AB;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .contact-box h2 {
+            color: white;
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .back-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2E86AB;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #1a5a7a;
+            transform: translateY(-2px);
+        }
+        
+        .back-link.secondary {
+            background-color: #A23B72;
+        }
+        
+        .back-link.secondary:hover {
+            background-color: #8a2f5f;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">岡山大学 大学院入試過去問ポータル</h1>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">ホーム</a></li>
+                        <li><a href="index.html#subjects" class="nav-link">科目一覧</a></li>
+                        <li><a href="index.html#about" class="nav-link">利用案内</a></li>
+                        <li><a href="statistics.html" class="nav-link">統計・分析</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="about-container">
+        <h1 class="about-title">このサイトについて</h1>
+        
+        <div class="about-section">
+            <h2>サイトの目的</h2>
+            <p>この「大学院入試過去問ポータル」は、岡山大学の学生の皆様の大学院進学をサポートするために開設されました。過去問は、入試対策において最も重要な学習ツールの一つです。</p>
+            <p>本サイトでは、岡山大学大学院の過去問を科目別・年度別に整理し、一元的にアクセスできるプラットフォームを提供することで、皆様の学習負担を軽減し、合格への一助となることを目指しています。</p>
+        </div>
+
+        <div class="about-section">
+            <h2>提供コンテンツ</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📄 過去問データ</h3>
+                    <p>2003年〜2024年までの22年分の過去問をPDF形式で提供</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📚 詳細解説</h3>
+                    <p>数学科目の17年分に詳細な解説とMathJax数式表示を提供</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 統計分析</h3>
+                    <p>出題傾向の分析と効率的な学習戦略の提案</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔬 対象科目</h3>
+                    <p>数学、流体力学、材料力学、熱力学の4科目をカバー</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>特別機能</h2>
+            <ul>
+                <li>数学問題の詳細解説（2003-2020年の17年分）</li>
+                <li>18年間の出題傾向統計分析</li>
+                <li>分野別出題頻度と重要度分析</li>
+                <li>学習優先度とおすすめ戦略の提案</li>
+                <li>時代別問題変化の追跡</li>
+                <li>CSV形式での統計データ提供</li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h2>ご利用にあたっての注意</h2>
+            <p>本サイトで提供される過去問および解説は、<strong>岡山大学の学生の個人学習目的でのみ</strong>ご利用ください。著作権は岡山大学および作成者に帰属します。</p>
+            <p>解説内容については万全を期しておりますが、その正確性を完全に保証するものではありません。学習の参考としてご活用いただき、最終的な判断はご自身の責任において行ってください。</p>
+            <p><strong>禁止事項:</strong> 無断転載、複製、商業利用、他大学への配布</p>
+        </div>
+
+        <div class="contact-box">
+            <h2>📧 お問い合わせ</h2>
+            <p>本サイトに関するご質問、ご意見、ご要望などがございましたら、お気軽にご連絡ください。</p>
+            <p style="margin-top: 1rem;">皆様からのフィードバックは、サイトの改善・発展のために大変貴重です。</p>
+        </div>
+
+        <div class="about-section">
+            <h2>技術仕様</h2>
+            <ul>
+                <li>レスポンシブデザイン対応（PC・タブレット・スマートフォン）</li>
+                <li>MathJax v3による高品質な数式表示</li>
+                <li>Chart.jsによるインタラクティブな統計グラフ</li>
+                <li>UTF-8エンコーディングによる日本語完全対応</li>
+                <li>アクセシビリティ対応デザイン</li>
+            </ul>
+        </div>
+
+        <div class="back-links">
+            <a href="index.html" class="back-link">🏠 トップページに戻る</a>
+            <a href="statistics.html" class="back-link secondary">📊 統計・分析を見る</a>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2024 岡山大学 大学院入試過去問ポータル. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

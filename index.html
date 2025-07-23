@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岡山大学 大学院入試過去問ポータル</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">岡山大学 大学院入試過去問ポータル</h1>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">ホーム</a></li>
+                        <li><a href="#subjects" class="nav-link">科目一覧</a></li>
+                        <li><a href="#about" class="nav-link">利用案内</a></li>
+                        <li><a href="statistics.html" class="nav-link">統計・分析</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">大学院入試の準備をサポート</h2>
+                    <p class="hero-description">
+                        岡山大学の学生専用の過去問ポータルサイトです。<br>
+                        数学・流体力学・材料力学・熱力学の過去問（2003-2024年）を<br>
+                        わかりやすく整理してお届けします。
+                    </p>
+                    <a href="#subjects" class="cta-button">科目を選択する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科目選択セクション -->
+    <section class="subjects" id="subjects">
+        <div class="container">
+            <h2 class="section-title">科目を選択してください</h2>
+            <div class="subjects-grid">
+                <!-- 数学 -->
+                <div class="subject-card" data-subject="math">
+                    <div class="subject-icon">
+                        <img src="images/math_icon.png" alt="数学アイコン">
+                    </div>
+                    <h3 class="subject-title">数学</h3>
+                    <p class="subject-description">微分積分、線形代数、微分方程式、フーリエ解析など</p>
+                    <a href="pages/math.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 流体力学 -->
+                <div class="subject-card" data-subject="fluid">
+                    <div class="subject-icon">
+                        <img src="images/fluid_mechanics_icon.png" alt="流体力学アイコン">
+                    </div>
+                    <h3 class="subject-title">流体力学</h3>
+                    <p class="subject-description">流体の運動、圧力、粘性、流れ解析など</p>
+                    <a href="pages/fluid_mechanics.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 材料力学 -->
+                <div class="subject-card" data-subject="material">
+                    <div class="subject-icon">
+                        <img src="images/material_mechanics_icon.png" alt="材料力学アイコン">
+                    </div>
+                    <h3 class="subject-title">材料力学</h3>
+                    <p class="subject-description">応力、ひずみ、強度設計、構造解析など</p>
+                    <a href="pages/material_mechanics.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 熱力学 -->
+                <div class="subject-card" data-subject="thermo">
+                    <div class="subject-icon">
+                        <img src="images/thermodynamics_icon.png" alt="熱力学アイコン">
+                    </div>
+                    <h3 class="subject-title">熱力学</h3>
+                    <p class="subject-description">熱エネルギー、エントロピー、サイクル、伝熱など</p>
+                    <a href="pages/thermodynamics.html" class="subject-link">過去問を見る</a>
+                </div>
+            </div>
+
+            <!-- 統計・分析セクション -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: #2E86AB; margin-bottom: 1rem;">📊 出題傾向を分析する</h3>
+                <p style="color: #666; margin-bottom: 1.5rem;">18年分の過去問データを統計的に分析し、効率的な学習戦略を提案します</p>
+                <a href="statistics.html" class="cta-button">統計・傾向分析を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 利用案内セクション -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">利用案内</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>対象者</h3>
+                    <p>岡山大学の学生のみご利用いただけます。</p>
+                </div>
+                <div class="about-item">
+                    <h3>収録期間</h3>
+                    <p>2003年から2024年までの過去問と解答を収録しています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>利用方法</h3>
+                    <p>上記の科目から選択し、年度別の過去問をダウンロードしてご利用ください。</p>
+                </div>
+                <div class="about-item">
+                    <h3>注意事項</h3>
+                    <p>過去問は学習目的でのみご利用ください。無断転載・配布は禁止されています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>数学解説について</h3>
+                    <p>数学科目については、2003-2020年の17年分に詳細な解説と統計分析を提供しています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>統計機能</h3>
+                    <p>問題傾向の分析、出題頻度の統計、学習推奨事項などの分析データを提供しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2024 岡山大学 大学院入試過去問ポータル. All rights reserved.</p>
+            <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                <a href="about.html" style="color: #ccc; text-decoration: none;">サイトについて</a> | 
+                <a href="statistics.html" style="color: #ccc; text-decoration: none;">統計・分析</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
