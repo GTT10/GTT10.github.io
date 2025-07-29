@@ -1,9 +1,703 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2014</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2014年度 熱力学 - 岡山大学大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2014（H26）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>シリンダ内の理想気体の状態変化、再生冷凍サイクルの解析、ノズル流れの特性の3つの大問から構成されています。基礎的な状態変化から実用的な流体機械まで幅広く扱い、工業熱力学の理論と応用を総合的に問います。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">理想気体状態変化</span>
+                    <span class="topic-tag">エントロピー</span>
+                    <span class="topic-tag">再生冷凍サイクル</span>
+                    <span class="topic-tag">ノズル流れ</span>
+                </div>
+                
+                <a href="../../pdfs/question/2014_H26_april/thermo_2014_H26_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2014年度)</a>
+                <a href="../../pdfs/answer/2014_H26_april/thermo_2014_H26_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2014年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: シリンダ内の理想気体</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">シリンダ内の理想気体が定容加熱（0→1）と断熱膨張（1→2）を行う場合について、各状態量とエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 状態1の温度$T_1$と圧力$P_1$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定容加熱では体積一定で熱量を加え、理想気体の状態方程式を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>過程0→1：定容加熱（体積$V_0$一定）</p>
+                            <p>加熱量：$Q = mc_v(T_1 - T_0)$より</p>
+                            <div class="math-block">
+                                $$T_1 = T_0 + \frac{Q}{mc_v}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>状態方程式：$P_1V_0 = mRT_1$、$P_0V_0 = mRT_0$より</p>
+                            <div class="math-block">
+                                $$P_1 = P_0 \frac{T_1}{T_0}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_1 = T_0 + \frac{Q}{mc_v}}$$
+                                $$\boxed{P_1 = P_0 \left(1 + \frac{Q}{mc_vT_0}\right)}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 状態0→1のエントロピー変化$\Delta S_{01}$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定容過程のエントロピー変化は$\Delta S = mc_v\ln(T_2/T_1)$で計算します。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{\Delta S_{01} = mc_v \ln\left(1 + \frac{Q}{mc_vT_0}\right)}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 状態2の温度$T_2$と体積$V_2$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱膨張では系全体が断熱でピストンが外圧$P_0$に抗して動きます。エネルギー保存則を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>エネルギー保存則：$\Delta U = -W$</p>
+                            <div class="math-block">
+                                $$mc_v(T_2 - T_1) = -P_0(V_2 - V_0)$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>状態方程式：$P_0V_2 = mRT_2$、$P_0V_0 = mRT_0$</p>
+                            <p>これらを連立して解くと：</p>
+                            <div class="math-block">
+                                $$c_v(T_2 - T_1) = -RT_2 + RT_0$$
+                                $$T_2(c_v + R) = c_vT_1 + RT_0$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_2 = \frac{c_v}{c_p}T_1 + \frac{R}{c_p}T_0}$$
+                                $$\boxed{V_2 = \frac{mRT_2}{P_0}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 状態1→2のエントロピー変化$\Delta S_{12}$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>理想気体の一般的エントロピー変化式を使用します。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p>$P_2 = P_0$、$P_1 = P_0T_1/T_0$より：</p>
+                        <div class="math-block">
+                            $$\boxed{\Delta S_{12} = m\left(c_p\ln\frac{T_2}{T_1} + R\ln\frac{T_1}{T_0}\right)}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) ピストンが外部にした仕事$W$を求めよ。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{W = P_0(V_2 - V_0) = mR(T_2 - T_0)}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(6) $P-V$線図と$T-S$線図を描け。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
+                        </div>
+                        
+                        <div class="diagram-section">
+                            <h4>P-V線図</h4>
+                            <pre class="ascii-diagram">
+圧力 P ↑
+|         
+| P₁: ●状態1
+|     |     \\
+|     |      \\
+| P₀: ●状態0  ●状態2
+|     |         
++-------------------→ 容積 V
+    V₀
+            </pre>
+                        </div>
+
+                        <div class="diagram-section">
+                            <h4>T-S線図</h4>
+                            <pre class="ascii-diagram">
+温度 T ↑
+|         
+| T₁: ●状態1
+|     |     \\
+|     |      \\
+| T₂: |       ●状態2
+|     |      /
+| T₀: ●状態0
+|     
++-------------------→ エントロピー S
+            </pre>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>過程の特徴：</strong></p>
+                            <ul>
+                                <li>0→1: 定容加熱（垂直線、エントロピー増加）</li>
+                                <li>1→2: 断熱膨張（不可逆のためエントロピー増加）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>定容過程：$Q = mc_v\Delta T$</li>
+                            <li>状態方程式：$PV = mRT$</li>
+                            <li>エネルギー保存：$\Delta U = Q - W$</li>
+                            <li>エントロピー変化：$\Delta S = mc_p\ln(T_2/T_1) - mR\ln(P_2/P_1)$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>各過程の特徴把握</li>
+                            <li>エネルギー収支の正確な適用</li>
+                            <li>状態方程式の連立解法</li>
+                            <li>不可逆過程でのエントロピー増加</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>断熱と等エントロピーの区別</li>
+                            <li>外圧による仕事の計算</li>
+                            <li>比熱の定義（$c_p = c_v + R$）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: 再生冷凍サイクル</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">再生器付き冷凍サイクルについて、T-S線図を描き、各過程の熱量と仕事、成績係数を求めよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) T-S線図を描き、熱の流れを示せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>再生サイクルは等温過程と定容過程から構成され、再生器で内部熱交換を行います。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>線図と解答
+                        </div>
+                        
+                        <div class="diagram-section">
+                            <h4>T-S線図</h4>
+                            <pre class="ascii-diagram">
+温度 T ↑
+|         
+| T_H: ●状態1────●状態4
+|      |          |
+|      |          |
+| T_L: ●状態2────●状態3
+|      
++---------------------→ エントロピー S
+            </pre>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>熱の流れ：</strong></p>
+                            <ul>
+                                <li>吸熱：3→4（等温膨張、$T_L$一定）</li>
+                                <li>放熱：1→2（等温圧縮、$T_H$一定）</li>
+                                <li>再生熱：2→3の放熱 = 4→1の吸熱（内部熱交換）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 2→3の熱量$Q_{23}$と仕事$W_{23}$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定容過程では仕事はゼロで、熱量は内部エネルギー変化に等しくなります。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p>定容過程（体積一定）：</p>
+                        <div class="math-block">
+                            $$\boxed{Q_{23} = mc_v(T_3 - T_2) = mc_v(T_L - T_H)}$$
+                            $$\boxed{W_{23} = 0}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 3→4の熱量$Q_{34}$と仕事$W_{34}$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等温膨張では内部エネルギー変化がゼロのため、熱量と仕事が等しくなります。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p>等温膨張（$T_L$一定、$\Delta U = 0$）：</p>
+                        <div class="math-block">
+                            $$\boxed{Q_{34} = mRT_L\ln\frac{V_4}{V_3}}$$
+                            $$\boxed{W_{34} = mRT_L\ln\frac{V_4}{V_3}}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 成績係数（COP）を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>成績係数は冷凍効果（吸熱量）を投入仕事で割った値です。再生器により内部熱交換が相殺されます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>冷凍効果（吸熱量）：</p>
+                            <div class="math-block">
+                                $$Q_{\text{冷凍}} = Q_{34} = mRT_L\ln\frac{V_4}{V_3}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>正味仕事入力：</p>
+                            <p>1→2（等温圧縮）：$W_{12} = mRT_H\ln\frac{V_2}{V_1} = -mRT_H\ln\frac{V_1}{V_2}$</p>
+                            <p>サイクル構造より：$V_4/V_3 = V_1/V_2 = \varepsilon$</p>
+                            <div class="math-block">
+                                $$W_{\text{net}} = mR\ln\varepsilon(T_L - T_H)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\text{COP} = \frac{Q_{\text{冷凍}}}{|W_{\text{net}}|} = \frac{T_L\ln\varepsilon}{(T_H - T_L)\ln\varepsilon} = \boxed{\frac{T_L}{T_H - T_L}}$$
+                            </div>
+                            <p>これはカルノー冷凍機の成績係数と一致します。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>再生サイクルの特徴
+                        </div>
+                        <ul>
+                            <li>内部熱交換により効率向上</li>
+                            <li>等温過程と定容過程の組合せ</li>
+                            <li>カルノー効率に近づく</li>
+                            <li>実用的な冷凍システム</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>計算のポイント
+                        </div>
+                        <ul>
+                            <li>各過程での仕事・熱量の特徴</li>
+                            <li>再生器での熱収支</li>
+                            <li>成績係数の定義</li>
+                            <li>体積比の関係性</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】: ノズル流れ</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">ノズルを通る流体の臨界条件と音速の関係、適切なノズル形状の選択について解析せよ。</div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 臨界圧力$P_c$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>臨界圧力は入口圧力と比熱比から決まる理論式があります。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{P_c = P_1\left(\frac{2}{\kappa + 1}\right)^{\frac{\kappa}{\kappa - 1}}}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 臨界流れの出口速度$w_2$を求めよ。（入口速度$w_1 = 0$）</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エネルギー保存則と断熱過程の関係から臨界流れの速度を導出します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>エネルギー保存則：</p>
+                            <div class="math-block">
+                                $$h_1 = h_2 + \frac{w_2^2}{2}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>断熱過程：</p>
+                            <div class="math-block">
+                                $$h_1 - h_2 = c_p(T_1 - T_2) = \frac{\kappa RT_1}{\kappa - 1}\left(1 - \frac{T_2}{T_1}\right)$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>臨界条件：$T_2/T_1 = 2/(\kappa + 1)$</p>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{w_2 = \sqrt{\frac{2\kappa RT_1}{\kappa + 1}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 臨界流れの速度と音速の関係を示せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>臨界点での音速を計算し、臨界流れ速度と比較します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>音速の定義：$a = \sqrt{\kappa RT}$</p>
+                            <p>臨界点での温度：$T_2 = T_1 \cdot \frac{2}{\kappa + 1}$</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>臨界点での音速：</p>
+                            <div class="math-block">
+                                $$a_2 = \sqrt{\kappa RT_2} = \sqrt{\kappa RT_1 \cdot \frac{2}{\kappa + 1}} = \sqrt{\frac{2\kappa RT_1}{\kappa + 1}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{w_2 = a_2}$$
+                            </div>
+                            <p><strong>結論：</strong>臨界流れの速度は音速に一致します。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) 適切なノズル形状を選択せよ。<br>
+                        (a) 空気（$\kappa = 1.40$）：$P_1 = 0.18$ MPa → $P_2 = 0.10$ MPa<br>
+                        (b) 過熱蒸気（$\kappa = 1.30$）：$P_1 = 4.00$ MPa → $P_2 = 2.08$ MPa</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>圧力比と臨界圧力比を比較してノズル形状を決定します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>(a) 空気の場合：</strong>
+                            <p>臨界圧力比：$\left(\frac{2}{\kappa + 1}\right)^{\frac{\kappa}{\kappa - 1}} = \left(\frac{2}{2.4}\right)^{3.5} = 0.5283$</p>
+                            <p>実際の圧力比：$\frac{P_2}{P_1} = \frac{0.10}{0.18} = 0.5556$</p>
+                            <p>$0.5556 > 0.5283$（臨界値以上）</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>(b) 過熱蒸気の場合：</strong>
+                            <p>臨界圧力比：$\left(\frac{2}{2.3}\right)^{\frac{1.3}{0.3}} = 0.5457$</p>
+                            <p>実際の圧力比：$\frac{P_2}{P_1} = \frac{2.08}{4.00} = 0.52$</p>
+                            <p>$0.52 < 0.5457$（臨界値未満）</p>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>(a) 空気：先細ノズル</strong></p>
+                            <p>理由：圧力比が臨界値以上で亜音速流れのため</p>
+                            <p><strong>(b) 過熱蒸気：末広ノズル</strong></p>
+                            <p>理由：圧力比が臨界値未満で超音速流れが発生するため</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>ノズル流れの基本
+                        </div>
+                        <ul>
+                            <li>臨界圧力での流れ変化</li>
+                            <li>音速との関係</li>
+                            <li>亜音速・超音速の区別</li>
+                            <li>ノズル形状の選択基準</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>設計のポイント
+                        </div>
+                        <ul>
+                            <li>圧力比による形状決定</li>
+                            <li>先細：亜音速流れ</li>
+                            <li>末広：超音速流れ</li>
+                            <li>比熱比の流体依存性</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要な関係式
+                        </div>
+                        <ul>
+                            <li>臨界圧力比：$(2/(\kappa+1))^{\kappa/(\kappa-1)}$</li>
+                            <li>臨界速度：$\sqrt{2\kappa RT_1/(\kappa+1)}$</li>
+                            <li>音速：$a = \sqrt{\kappa RT}$</li>
+                            <li>臨界条件：$w = a$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

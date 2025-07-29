@@ -1,9 +1,386 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2021</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2021年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2021（R3）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2021年度の材料力学入試では、大問【1】で3本の丸棒による並列支持問題（不静定問題とせん断破壊）、大問【2】で段付はりのたわみ問題（複雑な分布荷重）が出題されました。不静定構造の解析とはりの変形解析が重要なテーマとなりました。</p>
+                <a href="../../pdfs/question/2021_R3_april/materials_2021_R3_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/answer/2021_R3_april/materials_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】3本の丸棒による並列支持問題</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">長さlの3本の丸棒A、B、Cが上下から剛体板で挟まれ、その剛体板に外力Pが作用している。丸棒の中心は互いにaだけ離れており、外力Pによってすべての丸棒は等しく縮むものとする。丸棒A、B、Cの縦弾性係数および断面積は、それぞれ順にE₁、E₂、E₃およびA₁、A₂、A₃とする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この問題は不静定問題です。力のつり合い式だけでは解けないため、変形の適合条件（すべての丸棒が等しく縮む）を利用します。各丸棒の剛性を考慮した力の分配が重要です。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 丸棒の縮みδを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>考え方：</strong><br>
+                            すべての丸棒が等しく縮むため、各丸棒の縮みは同じδです。フックの法則により、各丸棒の力は剛性×縮みで表されます。
+                            
+                            <strong>剛性の定義：</strong><br>
+                            各丸棒の剛性を\(k_i = \frac{E_i A_i}{l}\)と定義すると、各丸棒に作用する力は：
+                            - \(F_A = k_A \delta = \frac{E_1 A_1}{l} \delta\)
+                            - \(F_B = k_B \delta = \frac{E_2 A_2}{l} \delta\)
+                            - \(F_C = k_C \delta = \frac{E_3 A_3}{l} \delta\)
+                            
+                            <strong>力のつり合い：</strong><br>
+                            $$F_A + F_B + F_C = P$$
+                            $$(k_A + k_B + k_C)\delta = P$$
+                            $$\delta = \frac{P}{k_A + k_B + k_C} = \frac{Pl}{E_1 A_1 + E_2 A_2 + E_3 A_3}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(\delta = \frac{Pl}{E_1 A_1 + E_2 A_2 + E_3 A_3}\)</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 外力Pを作用させた位置xを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>考え方：</strong><br>
+                            外力Pの作用位置は、モーメントのつり合いから決まります。丸棒Aを基準点として、モーメントのつり合いを考えます。
+                            
+                            <strong>モーメントのつり合い（点A基準）：</strong><br>
+                            - 丸棒Bの位置：Aからa
+                            - 丸棒Cの位置：Aから2a
+                            - 外力Pの位置：Aからx
+                            
+                            $$F_B \cdot a + F_C \cdot 2a = P \cdot x$$
+                            
+                            \(F_i = k_i \delta\)を代入：
+                            $$k_B \delta \cdot a + k_C \delta \cdot 2a = P \cdot x$$
+                            $$\delta a (k_B + 2k_C) = P \cdot x$$
+                            
+                            (1)の結果を代入：
+                            $$x = \frac{\delta a (k_B + 2k_C)}{P} = \frac{a(k_B + 2k_C)}{k_A + k_B + k_C}$$
+                            $$x = a \frac{E_2 A_2 + 2E_3 A_3}{E_1 A_1 + E_2 A_2 + E_3 A_3}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(x = a \frac{E_2 A_2 + 2E_3 A_3}{E_1 A_1 + E_2 A_2 + E_3 A_3}\)</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 破壊したときの外力P_maxを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>考え方：</strong><br>
+                            丸棒Aがせん断破壊する条件を考えます。一軸応力状態では、最大せん断応力は主応力の半分となります。
+                            
+                            <strong>破壊条件：</strong><br>
+                            丸棒Aの圧縮応力：\(\sigma = \frac{F_A}{A_1}\)<br>
+                            最大せん断応力：\(\tau_{max} = \frac{\sigma}{2} = \frac{F_A}{2A_1}\)
+                            
+                            破壊条件：\(\tau_{max} = \tau_a\)より
+                            $$\frac{F_A}{2A_1} = \tau_a$$
+                            $$F_A = 2A_1 \tau_a$$
+                            
+                            <strong>F_AとPの関係：</strong><br>
+                            (1)より\(F_A = k_A \delta = k_A \frac{P}{k_A + k_B + k_C}\)
+                            
+                            破壊条件を代入：
+                            $$k_A \frac{P_{max}}{k_A + k_B + k_C} = 2A_1 \tau_a$$
+                            $$P_{max} = 2A_1 \tau_a \cdot \frac{k_A + k_B + k_C}{k_A}$$
+                            $$P_{max} = \frac{2\tau_a}{E_1}(E_1 A_1 + E_2 A_2 + E_3 A_3)$$
+                        </div>
+                        <span class="answer-highlight">答え: \(P_{max} = \frac{2\tau_a}{E_1}(E_1 A_1 + E_2 A_2 + E_3 A_3)\)</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>並列支持問題では、各部材の剛性に応じて力が分配されます。破壊解析では、最も弱い部材（応力が最大となる部材）が先に破壊することを考慮します。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>不静定問題の解法理解</li>
+                            <li>変形適合条件の活用</li>
+                            <li>剛性による力の分配</li>
+                            <li>破壊条件の適用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>剛性は EA/L で定義される</li>
+                            <li>並列では剛性の比で力が分配される</li>
+                            <li>せん断破壊では最大せん断応力を考慮</li>
+                            <li>一軸応力状態でτ_max = σ/2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】段付はりのたわみ問題</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">縦弾性係数E、長さ4lの両端を支持した段付はりAEがあり、三角形分布荷重が作用している。分布外力wは以下の式で与えられる：</p>
+                        <div class="solution-step">
+                            $$w = \begin{cases} 
+                            \frac{w_0}{l}(x-l) & (l \leq x \leq 2l) \\
+                            \frac{w_0}{l}(3l-x) & (2l \leq x \leq 3l)
+                            \end{cases}$$
+                        </div>
+                        <p class="problem-statement">AB及びDE間の断面二次モーメントをI、長さをl、BD間の断面二次モーメントを2I、長さを2lとする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>段付はりの問題では、各区間での断面二次モーメントの変化を考慮します。分布荷重は対称性を持つため、支点反力も対称になります。たわみは微分方程式を区間ごとに解き、境界条件と連続条件を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) A点に作用する支点反力R_Aを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>分布荷重の合力計算：</strong><br>
+                            第一区間（l ≤ x ≤ 2l）：
+                            $$\int_l^{2l} \frac{w_0}{l}(x-l)dx = \frac{w_0}{l} \left[\frac{1}{2}(x-l)^2\right]_l^{2l} = \frac{1}{2}w_0 l$$
+                            
+                            第二区間（2l ≤ x ≤ 3l）：
+                            $$\int_{2l}^{3l} \frac{w_0}{l}(3l-x)dx = \frac{1}{2}w_0 l$$
+                            
+                            <strong>合力と対称性：</strong><br>
+                            全合力：\(R_w = w_0 l\)（x = 2lで作用）<br>
+                            対称性により：\(R_A = R_E\)
+                            
+                            <strong>力のつり合い：</strong><br>
+                            $$2R_A = w_0 l$$
+                            $$R_A = \frac{1}{2}w_0 l$$
+                        </div>
+                        <span class="answer-highlight">答え: \(R_A = \frac{1}{2}w_0 l\)</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) BC間のせん断力F_BCを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>せん断力の計算（l ≤ x ≤ 2l）：</strong><br>
+                            左側の力のつり合いから：
+                            $$F(x) = -R_A + \int_l^x w(\xi)d\xi$$
+                            
+                            分布荷重の積分：
+                            $$\int_l^x \frac{w_0}{l}(\xi-l)d\xi = \frac{w_0}{2l}(x-l)^2$$
+                            
+                            \(R_A = \frac{1}{2}w_0 l\)を代入：
+                            $$F_{BC}(x) = -\frac{1}{2}w_0 l + \frac{w_0}{2l}(x-l)^2$$
+                        </div>
+                        <span class="answer-highlight">答え: \(F_{BC}(x) = \frac{w_0}{2l}(x-l)^2 - \frac{1}{2}w_0 l\) (l ≤ x ≤ 2l)</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) BC間の曲げモーメントM_BCを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>曲げモーメントの計算：</strong><br>
+                            左側のモーメントのつり合いから：
+                            $$M(x) = R_A \cdot x - \int_l^x w(\xi)(x-\xi)d\xi$$
+                            
+                            分布荷重によるモーメント：
+                            $$\int_l^x \frac{w_0}{l}(\xi-l)(x-\xi)d\xi = \frac{w_0}{6l}(x-l)^3$$
+                            
+                            したがって：
+                            $$M_{BC}(x) = \frac{w_0 l}{2}x - \frac{w_0}{6l}(x-l)^3$$
+                        </div>
+                        <span class="answer-highlight">答え: \(M_{BC}(x) = \frac{w_0 l}{2}x - \frac{w_0}{6l}(x-l)^3\) (l ≤ x ≤ 2l)</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) AB間のたわみv_ABを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>たわみの微分方程式（0 ≤ x ≤ l）：</strong><br>
+                            AB区間では荷重なし、\(M(x) = R_A x = \frac{1}{2}w_0 lx\)
+                            
+                            $$\frac{d^2v}{dx^2} = -\frac{M}{EI} = -\frac{w_0 l x}{2EI}$$
+                            
+                            <strong>積分：</strong><br>
+                            $$\frac{dv}{dx} = -\frac{w_0 l}{4EI}x^2 + C_1$$
+                            $$v = -\frac{w_0 l}{12EI}x^3 + C_1 x + C_2$$
+                            
+                            <strong>境界条件：</strong><br>
+                            x = 0でv = 0より\(C_2 = 0\)<br>
+                            連続条件と対称性から\(C_1 = \frac{29}{48}\frac{w_0 l^3}{EI}\)
+                            
+                            $$v_{AB}(x) = \frac{w_0 l}{EI}\left(-\frac{1}{12}x^3 + \frac{29}{48}l^2 x\right)$$
+                        </div>
+                        <span class="answer-highlight">答え: \(v_{AB}(x) = \frac{w_0 l}{EI}\left(-\frac{1}{12}x^3 + \frac{29}{48}l^2 x\right)\) (0 ≤ x ≤ l)</span>
+                        
+                        <!-- 小問(5) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) BC間のたわみv_BCを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>BD区間の微分方程式（l ≤ x ≤ 2l）：</strong><br>
+                            断面二次モーメント2Iを考慮：
+                            $$\frac{d^2v_2}{dx^2} = -\frac{M}{E \cdot 2I} = -\frac{1}{2EI}\left(\frac{w_0 l}{2}x - \frac{w_0}{6l}(x-l)^3\right)$$
+                            
+                            <strong>積分と境界条件：</strong><br>
+                            複雑な計算を経て、連続条件（点Bでのたわみと傾きの連続性）と対称性を適用すると：
+                            
+                            $$v_{BC}(x) = \frac{w_0}{EI}\left[-\frac{l}{24}x^3 + \frac{1}{240l}(x-l)^5 + \frac{23}{48}l^3 x + \frac{1}{12}l^4\right]$$
+                        </div>
+                        <span class="answer-highlight">答え: \(v_{BC}(x) = \frac{w_0}{EI}\left[-\frac{l}{24}x^3 + \frac{1}{240l}(x-l)^5 + \frac{23}{48}l^3 x + \frac{1}{12}l^4\right]\) (l ≤ x ≤ 2l)</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>段付はりの解析では、各区間の断面二次モーメントの変化を正確に考慮することが重要です。分布荷重の対称性を活用し、連続条件を正しく適用することで複雑な変形状態を解析できます。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>段付はりの解析手法</li>
+                            <li>分布荷重の積分計算</li>
+                            <li>境界条件と連続条件の適用</li>
+                            <li>対称性の活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>断面変化点で連続条件を適用</li>
+                            <li>分布荷重は区間ごとに積分</li>
+                            <li>対称性により計算を簡略化</li>
+                            <li>積分定数は境界条件から決定</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

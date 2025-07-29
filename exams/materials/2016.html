@@ -1,9 +1,438 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2016</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2016年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2016（H28）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2016年度の材料力学入試では、大問【1】で両端固定段付き丸棒の軸力問題（不静定構造の極限解析）、大問【2】で両端突き出しはりの曲げ問題（対称構造のたわみ最適化）、大問【3】で傾斜荷重を受ける片持ちはりの問題（2軸曲げの重ね合わせ）が出題されました。理論と実用設計を組み合わせた総合的な年度です。</p>
+                <a href="../../pdfs/question/2016_H28_april/materials_2016_H28_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2016年度)</a>
+                <a href="../../pdfs/answer/2016_H28_april/materials_2016_H28_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2016年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端固定された段付き丸棒の中間点に集中荷重が作用する不静定構造について、反力、変位、極限条件を解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒AB：長さa、断面積S₁ = πd²/4、ヤング率E₁</li>
+                            <li>棒BD：長さb+c、断面積S₂ = πd²/4、ヤング率E₂</li>
+                            <li>境界条件：両端A、Dで完全固定</li>
+                            <li>荷重：B点に集中荷重P（右向き）</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>両端固定の不静定問題では、全体の変形がゼロ（δAD = 0）という条件を使います。段付き構造では材料特性の違いも考慮して解析します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 反力RAとRD</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            力の釣り合いと変形の適合条件を連立して反力を求めます。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$R_A + R_D = P$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            全体の変形がゼロ：
+                            <div class="math-block">
+                                $$\delta_{AB} + \delta_{BD} = 0$$
+                                $$-\frac{R_A \cdot a}{S_1 E_1} + \frac{R_D \cdot (b+c)}{S_2 E_2} = 0$$
+                            </div>
+                            <p>S₁ = S₂ = πd²/4の条件を用いて連立すると：</p>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{4P(b+c)E_1}{aE_2 + 4(b+c)E_1}$$
+                                $$R_D = \frac{PaE_2}{aE_2 + 4(b+c)E_1}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 点Cの変位δc</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            C点の変位をD点基準で計算します。
+                            <p><strong>D点基準での計算：</strong></p>
+                            CD間（長さc）がRDによって伸びることで、C点が左向きに変位：
+                            <div class="math-block">
+                                \delta_c = -\frac{R_D \cdot c}{S_2 E_2}
+                            </div>
+                            <p>(1)のRDを代入：</p>
+                            <div class="math-block">
+                                $$\delta_c = -\frac{4Pac}{\pi d^2 (aE_2 + 4(b+c)E_1)}$$
+                            </div>
+                            （負号は左向きの変位を示す）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) E₁≪E₂のときの点Cの変位δc₂</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            E₁がE₂に比べて非常に小さい極限条件を考えます。
+                            <p><strong>極限条件の適用：</strong></p>
+                            (2)の式で分母のE₁項を無視：
+                            <div class="math-block">
+                                aE_2 + 4(b+c)E_1 ≈ aE_2 \quad (E_1 \ll E_2)
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\delta_{c2} = -\frac{4Pc}{\pi d^2 E_2}$$
+                            </div>
+                            これは材料の軟らかい部分（AB間）が変形を支配する状況を表しています。
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>段付き構造では各部分の材料特性を考慮する。</li>
+                            <li>両端固定では全体変形ゼロの条件を活用する。</li>
+                            <li>極限条件では支配的な要因を見極める。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>段付き棒では断面積と材料定数の両方に注意する。</li>
+                            <li>極限解析では主要項と副次項を区別する。</li>
+                            <li>変位の符号で変形方向を正確に把握する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端突き出し梁に対称荷重が作用する場合について、曲げモーメント線図、たわみ、最適設計条件を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：全長L、断面二次モーメントI、ヤング率E</li>
+                            <li>支点：C、D点で単純支持（支間長L-2a）</li>
+                            <li>突き出し：両端A、B各々長さa</li>
+                            <li>荷重：A、B点にそれぞれ集中荷重P（下向き）</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>対称構造では反力も対称になります。突き出し部のたわみは片持ち効果と全体の傾きの重ね合わせで求まります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 曲げモーメント線図(BMD)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            対称性を利用して反力と曲げモーメントを求めます。
+                            <p><strong>支点反力：</strong></p>
+                            対称性により：
+                            <div class="math-block">
+                                $$R_C = R_D = P$$
+                            </div>
+                            <p><strong>各区間の曲げモーメント：</strong></p>
+                            <ul>
+                                <li><strong>AC間（0 ≤ x ≤ a）：</strong> M(x) = -Px</li>
+                                <li><strong>CD間（a ≤ x ≤ L-a）：</strong> M(x) = -Pa</li>
+                                <li><strong>DB間（L-a ≤ x ≤ L）：</strong> M(x) = -P(L-x)</li>
+                            </ul>
+                            <p><strong>曲げモーメント線図の特徴：</strong></p>
+                            <ul>
+                                <li>両端A、Bでモーメントは0</li>
+                                <li>支点C、Dで最大値-Pa</li>
+                                <li>支点間は-Paで一定</li>
+                                <li>逆台形状の線図</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 点Aのたわみ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            突き出し部の片持ち効果と全体の傾きを重ね合わせます。
+                            <p><strong>2つの効果の重ね合わせ：</strong></p>
+                            <div class="math-block">
+                                \delta_A = \delta_{片持ち} + \delta_{傾き}
+                            </div>
+                            <p><strong>片持ち効果：</strong></p>
+                            <div class="math-block">
+                                \delta_{片持ち} = \frac{Pa^3}{3EI}
+                            </div>
+                            <p><strong>全体の傾き効果：</strong></p>
+                            <div class="math-block">
+                                \delta_{傾き} = \frac{Pa^2(L-2a)}{2EI}
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\delta_A = \frac{Pa^2(3L - 4a)}{6EI}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 点Cのたわみ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            支点間中央のたわみを求めます。
+                            <p><strong>一定モーメント-Paによる曲率：</strong></p>
+                            対称性により中央で傾きゼロの条件を使用：
+                            <div class="math-block">
+                                $$\delta_C = \frac{Pa(L-2a)^2}{8EI}$$
+                            </div>
+                            （上向きのたわみ）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) たわみの大きさが等しいときのa/L</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            |δA| = |δC|となる最適化条件を求めます。
+                            <p><strong>等価条件：</strong></p>
+                            <div class="math-block">
+                                \frac{Pa^2(3L - 4a)}{6EI} = \frac{Pa(L-2a)^2}{8EI}
+                            </div>
+                            <p>整理すると：</p>
+                            <div class="math-block">
+                                4a(3L - 4a) = 3(L-2a)^2
+                            </div>
+                            <p>a/L = tとして2次方程式を解くと：</p>
+                            <div class="math-block">
+                                $$\frac{a}{L} = \frac{6 - \sqrt{15}}{14} \approx 0.152$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対称構造では対称性を最大限活用する。</li>
+                            <li>突き出し部のたわみは2つの効果の重ね合わせ。</li>
+                            <li>最適設計では異なる部位の変形を均等化する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>BMDでは不連続点（荷重点、支点）に注意する。</li>
+                            <li>重ね合わせの原理を正しく適用する。</li>
+                            <li>最適化問題では物理的に妥当な解を選択する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">矩形断面の片持ちはりに傾斜した集中荷重が作用する場合の2軸曲げ問題について、曲げモーメント、最大応力、許容荷重を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さL、矩形断面（幅b×高さh）</li>
+                            <li>境界条件：固定端A、自由端B</li>
+                            <li>荷重：B点に集中荷重P（水平面から角度θ傾斜）</li>
+                            <li>材料：引張強さσt</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>傾斜荷重をy、z成分に分解し、各成分による曲げ応力を重ね合わせます。最大応力は両成分の引張応力が重なる断面角部で発生します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 固定面の曲げモーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            傾斜荷重を2成分に分解し、各軸まわりのモーメントを求めます。
+                            <p><strong>荷重の成分分解：</strong></p>
+                            <div class="math-block">
+                                垂直成分：P_y = P\cos\theta
+                            </div>
+                            <div class="math-block">
+                                水平成分：P_x = P\sin\theta
+                            </div>
+                            <p><strong>各軸まわりの曲げモーメント：</strong></p>
+                            <div class="math-block">
+                                z軸まわり：$$M_z = P\cos\theta \cdot L$$
+                                y軸まわり：$$M_y = P\sin\theta \cdot L$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 最大引張応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2軸曲げによる応力を重ね合わせて最大応力を求めます。
+                            <p><strong>各軸まわりの曲げ応力：</strong></p>
+                            <div class="math-block">
+                                z軸まわり：$$\sigma_z = \frac{M_z \cdot (h/2)}{I_z} = \frac{6PL\cos\theta}{bh^2}$$
+                                y軸まわり：$$\sigma_y = \frac{M_y \cdot (b/2)}{I_y} = \frac{6PL\sin\theta}{b^2h}$$
+                            </div>
+                            <p>ここで、Iz = bh³/12、Iy = b³h/12</p>
+                            <p><strong>最大引張応力（断面右上隅）：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \sigma_z + \sigma_y = \frac{6PL}{bh}\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 外力Pの最大値</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            材料の引張強さを超えない条件からPの最大値を決定します。
+                            <p><strong>安全条件：</strong></p>
+                            <div class="math-block">
+                                \sigma_{max} \leq \sigma_t
+                            </div>
+                            <p>(2)の結果を代入：</p>
+                            <div class="math-block">
+                                \frac{6PL}{bh}\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right) \leq \sigma_t
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$P_{max} = \frac{\sigma_t bh}{6L\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right)}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>傾斜荷重は直交成分に分解して解析する。</li>
+                            <li>2軸曲げでは各軸の応力を重ね合わせる。</li>
+                            <li>最大応力点は両応力が同符号で重なる箇所。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2016年度は実用設計を意識した問題構成。</li>
+                            <li>断面二次モーメントの公式を正確に適用する。</li>
+                            <li>許容応力設計では安全条件を正しく設定する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

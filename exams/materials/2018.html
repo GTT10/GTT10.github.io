@@ -1,9 +1,421 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2018</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2018年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2018（H30）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2018年度の材料力学入試では、大問【1】でハメあいによる応力問題（不静定構造の解析）、大問【2】で連続はりの曲げ問題（3点支持の不静定はり）、大問【3】で段付き丸棒のねじり問題（複合軸の変形解析）が出題されました。伝統的な3問構成の最終年度として、全分野をバランスよくカバーした総合的な内容でした。</p>
+                <a href="../../pdfs/question/2018_H30_april/materials_2018_H30_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/answer/2018_H30_april/materials_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">長さがわずかに異なる円管と丸棒をハメあいで固定した際に生じる応力と、同等の熱応力を発生させる温度上昇について解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>円管：長さl、断面積A₁、ヤング率E₁</li>
+                            <li>丸棒：長さl+δ、断面積A₂、ヤング率E₂</li>
+                            <li>関係：A₁ = 2A₂</li>
+                            <li>熱膨張係数：α₁、α₂</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ハメあい問題は不静定問題の典型例です。力の釣り合いと変形の適合条件を同時に考える必要があります。熱応力との等価性も重要な概念です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 内力の関係式</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            接合後、外力がない状態で静止しているため、作用・反作用の法則から両部品の内力は等しくなります。
+                            <div class="math-block">
+                                $$Q_1 = Q_2$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 伸びの関係式</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            最終的に両部品は同じ長さになるため、それぞれの伸びから関係式を導きます。
+                            <p><strong>初期状態:</strong> 円管の長さはl、丸棒の長さはl+δ</p>
+                            <p><strong>最終状態:</strong> 両方とも同じ長さL_finalになる</p>
+                            <div class="math-block">
+                                円管の伸び：$$\lambda_1 = L_{final} - l$$
+                                丸棒の伸び：$$\lambda_2 = L_{final} - (l + \delta)$$
+                            </div>
+                            <p>これらから以下の関係式が得られます：</p>
+                            <div class="math-block">
+                                $$\lambda_1 - \lambda_2 = \delta$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 各部品の応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            力の釣り合いと変形の適合条件を連立して応力を求めます。
+                            <p><strong>応力と力の関係:</strong> σ = Q/A</p>
+                            <p><strong>フックの法則:</strong> λ = -σl/E（圧縮のため負号）</p>
+                            <p>関係式を応力で表現すると：</p>
+                            <div class="math-block">
+                                $$l \left(\frac{\sigma_2}{E_2} - \frac{\sigma_1}{E_1}\right) = \delta$$
+                            </div>
+                            <p>力の釣り合いから：σ₂ = σ₁(A₁/A₂)</p>
+                            <p><strong>解答:</strong></p>
+                            <div class="math-block">
+                                円管の応力：$$\sigma_1 = \frac{\delta A_2 E_1 E_2}{l(A_1 E_1 - A_2 E_2)}$$
+                                丸棒の応力：$$\sigma_2 = \frac{\delta A_1 E_1 E_2}{l(A_1 E_1 - A_2 E_2)}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 応力の比</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            A₁ = 2A₂の条件を用いて応力の比を求めます。
+                            <div class="math-block">
+                                $$\frac{|\sigma_1|}{|\sigma_2|} = \frac{A_2}{A_1} = \frac{A_2}{2A_2} = \frac{1}{2}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 等価な温度上昇</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            同じ応力を発生させる温度上昇ΔTを求めます。
+                            <p>熱膨張による変位差がハメあいのすきまδと等価になる条件：</p>
+                            <div class="math-block">
+                                $$\delta = (\alpha_2 - \alpha_1) \cdot l \cdot \Delta T$$
+                            </div>
+                            <p><strong>解答:</strong></p>
+                            <div class="math-block">
+                                $$\Delta T = \frac{\delta}{l(\alpha_2 - \alpha_1)}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ハメあい問題は力の釣り合いと変形の適合条件を連立する不静定問題。</li>
+                            <li>作用・反作用の法則から内力の関係を導く。</li>
+                            <li>熱応力と機械的応力の等価性を理解する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>不静定問題では必ず変形の適合条件が必要。</li>
+                            <li>熱応力問題では熱膨張係数の差に注目する。</li>
+                            <li>初期状態と最終状態の長さの関係を明確にする。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">3点で支持された連続はりに分布荷重が作用する場合の支持力、曲げモーメントを求める不静定問題。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：全長2l、3点支持（A、C、B）</li>
+                            <li>荷重：AC間に分布荷重w（一様）</li>
+                            <li>支点：A、C、Bで支持（Cは中間支点）</li>
+                            <li>構造：ACとCBが各々長さlの連続はり</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>3点支持の連続はりは1次不静定問題です。モーメントの釣り合いから反力間の関係を求め、たわみの連続条件で完全解を得ます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) A点の支持力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            B点まわりのモーメントの釣り合いから反力間の関係式を導きます。
+                            <p><strong>モーメントの釣り合い（B点まわり）:</strong></p>
+                            <div class="math-block">
+                                $$R_A \cdot 2l + R_C \cdot l - wl \cdot \frac{3l}{2} = 0$$
+                            </div>
+                            <p>これを整理すると：</p>
+                            <div class="math-block">
+                                $$R_A = \frac{R_C}{2} + \frac{3wl}{4}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 曲げモーメントの表現</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            A点からの距離xにおける曲げモーメントを区間別に求めます。
+                            <p><strong>AC間（0 ≤ x ≤ l）:</strong></p>
+                            <div class="math-block">
+                                $$M(x) = R_A x - \frac{wx^2}{2}$$
+                            </div>
+                            <p>(1)の結果を代入すると：</p>
+                            <div class="math-block">
+                                $$M(x) = \left(\frac{R_C}{2} + \frac{3wl}{4}\right)x - \frac{wx^2}{2}$$
+                            </div>
+                            <p><strong>CB間（l ≤ x ≤ 2l）:</strong></p>
+                            <div class="math-block">
+                                $$M(x) = R_A x + R_C(x-l) - wl\left(x-\frac{l}{2}\right)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) C点の支持力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            不静定問題の完全解として、たわみの連続条件等を用いて求めます。
+                            <p>高次の構造解析手法（三連モーメント定理等）により：</p>
+                            <div class="math-block">
+                                $$R_A = \frac{7wl}{16}, \quad R_B = -\frac{wl}{16}, \quad R_C = \frac{5wl}{8}$$
+                            </div>
+                            <p><strong>解答:</strong></p>
+                            <div class="math-block">
+                                $$R_C = \frac{5wl}{8}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>連続はりは静定解析だけでは解けない不静定構造。</li>
+                            <li>モーメントの釣り合いから反力間の関係式を導く。</li>
+                            <li>たわみの連続条件が追加の拘束条件となる。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>区間ごとに曲げモーメント式を立てる。</li>
+                            <li>支点での境界条件（たわみ=0）を活用する。</li>
+                            <li>三連モーメント定理は重要な解法手段。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">段付き丸棒と複合軸（中実軸+中空軸）からなる構造のねじり変形について、各部のねじれ角と全体の変形を解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>AB部：中実軸（直径d₁、長さl₁、横弾性係数G₁）</li>
+                            <li>BC部：複合軸（中実軸+中空軸、長さl₂）</li>
+                            <li>中実軸：直径d₂、横弾性係数G₂</li>
+                            <li>中空軸：外径d₃、内径d₂、横弾性係数G₃</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>複合軸では各軸が一体となって変形するため、ねじれ角が等しいという条件を使います。トルクの分担と変形の適合が重要です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 中実軸ABのねじれ角</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ねじりの基本公式φ = TL/(GJ)を適用します。
+                            <p><strong>中実円軸の断面二次極モーメント:</strong></p>
+                            <div class="math-block">
+                                $$J_1 = \frac{\pi d_1^4}{32}$$
+                            </div>
+                            <p><strong>ねじれ角:</strong></p>
+                            <div class="math-block">
+                                $$\phi_{AB} = \frac{T l_1}{G_1 J_1} = \frac{32 T l_1}{\pi G_1 d_1^4}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 複合軸のトルク比</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            複合軸では中実軸と中空軸のねじれ角が等しい条件を使います。
+                            <p><strong>ねじれ角の等価条件:</strong></p>
+                            <div class="math-block">
+                                $$\phi_2 = \phi_3 \Rightarrow \frac{T_2 l_2}{G_2 J_2} = \frac{T_3 l_2}{G_3 J_3}$$
+                            </div>
+                            <p><strong>断面二次極モーメント:</strong></p>
+                            <div class="math-block">
+                                $$J_2 = \frac{\pi d_2^4}{32}, \quad J_3 = \frac{\pi (d_3^4 - d_2^4)}{32}$$
+                            </div>
+                            <p><strong>トルク比:</strong></p>
+                            <div class="math-block">
+                                $$\frac{T_2}{T_3} = \frac{G_2 J_2}{G_3 J_3} = \frac{G_2 d_2^4}{G_3 (d_3^4 - d_2^4)}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 全体のねじれ角</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            全体のねじれ角は各部の和として求まります。
+                            <p><strong>トルクの配分:</strong> T = T₂ + T₃</p>
+                            <p>(2)の比を用いて：</p>
+                            <div class="math-block">
+                                $$T_2 = \frac{G_2 J_2}{G_2 J_2 + G_3 J_3} T, \quad T_3 = \frac{G_3 J_3}{G_2 J_2 + G_3 J_3} T$$
+                            </div>
+                            <p><strong>BC部のねじれ角:</strong></p>
+                            <div class="math-block">
+                                $$\phi_{BC} = \frac{T l_2}{G_2 J_2 + G_3 J_3}$$
+                            </div>
+                            <p><strong>全体のねじれ角:</strong></p>
+                            <div class="math-block">
+                                $$\phi = \phi_{AB} + \phi_{BC} = \frac{32 T l_1}{\pi G_1 d_1^4} + \frac{32 T l_2}{\pi(G_2 d_2^4 + G_3(d_3^4 - d_2^4))}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>複合軸では各軸のねじれ角が等しいという条件を使う。</li>
+                            <li>中空軸の断面二次極モーメントは外径と内径の差で表される。</li>
+                            <li>全体の変形は各部の変形の和として求まる。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2018年度は伝統的3問構成の最終年度。</li>
+                            <li>ねじり問題では断面形状に応じた公式を正確に適用する。</li>
+                            <li>複合構造では変形の適合条件が重要。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年度 熱力学 - 岡山大学大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2021（R3）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>ディーゼルサイクルの理論解析と熱源間の熱移動・エントロピー変化の2つの大問から構成されています。ディーゼルサイクルでは線図描画から熱効率導出まで体系的に解析し、熱移動問題では不可逆過程のエントロピー増大を扱います。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">ディーゼルサイクル</span>
+                    <span class="topic-tag">エントロピー変化</span>
+                </div>
+                
+                <a href="../../pdfs/question/2021_R3_april/thermo_2021_R3_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/answer/2021_R3_april/thermo_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: ディーゼルサイクル</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">質量 $m$ の理想気体が、状態1から状態2に断熱圧縮され、等圧変化で外部から熱量 $Q_1$ を受け取り、状態3になる。状態3から断熱膨張して状態4になり、定容変化で熱量 $Q_2$ を放出して状態1に戻るとき、以下の問いに答えよ。ただし、状態 $i$ における状態量にはそれぞれ添字 $i$ を付ける。また、気体の圧力を $p$、容積を $V$、温度を $T$、エントロピーを $S$、比熱比を $k$、定圧比熱を $c_p$、定容比熱を $c_v$、圧縮比を $e = V_1 / V_2$、噴射締切比を $\rho = V_3 / V_2$ とする。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) このサイクルの $p-V$（圧力-容積）線図および $T-S$（温度-エントロピー）線図を描け。また、図中に状態1, 2, 3, 4を明記するとともに熱の出入りを示せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>サイクルの各過程を整理し、$p-V$線図と$T-S$線図の特徴を把握します。断熱過程はそれぞれ$pV^k = \text{一定}$と$S = \text{一定}$、等圧過程は$p = \text{一定}$、定容過程は$V = \text{一定}$として描画します。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-brain mr-2"></i>考え方
+                        </div>
+                        <p>各過程の特徴：1→2（断熱圧縮）、2→3（等圧加熱、$Q_1$吸収）、3→4（断熱膨張）、4→1（定容冷却、$Q_2$放出）。状態点の容積関係：$V_2 = V_1/e$、$V_3 = \rho V_2 = \rho V_1/e$、$V_4 = V_1$。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
+                        </div>
+                        
+                        <div class="diagram-section">
+                            <h4>p-V線図</h4>
+                            <pre class="ascii-diagram">
+p ↑
+|        2-------3 (等圧過程, Q₁吸収)
+|       /|       |\
+|      / |       | \
+|     /  |       |  \
+|    /   |       |   \ (断熱膨張)
+|   / (断熱圧縮)  |    \
+|  /     |       |     \
+| /      |       |      \
+|1-------+-------+-------4----→ V
+ V₁      V₂      V₃      V₁
+         (定容過程, Q₂放出)
+                            </pre>
+                        </div>
+
+                        <div class="diagram-section">
+                            <h4>T-S線図</h4>
+                            <pre class="ascii-diagram">
+T ↑
+|     2-------3 (等圧過程, Q₁吸収)
+|     |       |
+|     |       |
+|     |       | (断熱過程: S一定)
+|     |       |
+|     |       |
+|     1-------4 (定容過程, Q₂放出)
+|   (断熱過程)
++-------------------------→ S
+     S₁=S₂   S₃=S₄
+                            </pre>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>p-V線図</strong>: 1→2（断熱圧縮曲線）、2→3（水平線、$Q_1$吸収）、3→4（断熱膨張曲線）、4→1（垂直線、$Q_2$放出）</p>
+                            <p><strong>T-S線図</strong>: 1→2（垂直線）、2→3（曲線、$Q_1$吸収）、3→4（垂直線）、4→1（曲線、$Q_2$放出）</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 受け取る熱量 $Q_1$、放出する熱量 $Q_2$ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>各状態の温度を$T_1$とパラメータ$e, \rho, k$で表し、等圧過程と定容過程の熱量計算式に代入します。断熱過程の関係式$TV^{k-1} = \text{一定}$を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>各状態の温度導出</strong>
+                            <p><strong>$T_2$（1→2断熱圧縮）:</strong></p>
+                            <div class="math-block">
+                                $$T_1 V_1^{k-1} = T_2 V_2^{k-1}, \quad V_2 = \frac{V_1}{e}$$
+                                $$T_2 = T_1 \left(\frac{V_1}{V_2}\right)^{k-1} = T_1 e^{k-1}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>$T_3$（2→3等圧変化）:</strong>
+                            <div class="math-block">
+                                $$\frac{V_2}{T_2} = \frac{V_3}{T_3}, \quad V_3 = \rho V_2$$
+                                $$T_3 = T_2 \frac{V_3}{V_2} = T_2 \rho = T_1 e^{k-1} \rho$$
+                            </div>
+                        </div>
+
+                        <div class="solution-step">
+                            <strong>$T_4$（3→4断熱膨張）:</strong>
+                            <div class="math-block">
+                                $$T_3 V_3^{k-1} = T_4 V_4^{k-1}, \quad V_4 = V_1, \quad V_3 = \rho \frac{V_1}{e}$$
+                                $$T_4 = T_3 \left(\frac{V_3}{V_4}\right)^{k-1} = T_1 e^{k-1} \rho \left(\frac{\rho}{e}\right)^{k-1} = T_1 \rho^k$$
+                            </div>
+                        </div>
+
+                        <div class="solution-step">
+                            <strong>熱量計算</strong>
+                            <div class="math-block">
+                                $$Q_1 = mc_p(T_3 - T_2) = mc_p T_1 e^{k-1}(\rho - 1)$$
+                                $$Q_2 = mc_v(T_4 - T_1) = mc_v T_1(\rho^k - 1)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                Q_1 &= mc_p T_1 e^{k-1}(\rho - 1) \\
+                                Q_2 &= mc_v T_1(\rho^k - 1)
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 状態1の温度 $T_1$ を用いて、このサイクルの最高温度を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>(2)で求めた各状態の温度$T_2 = T_1 e^{k-1}$、$T_3 = T_1 e^{k-1} \rho$、$T_4 = T_1 \rho^k$を比較し、最高温度を特定します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        <div class="solution-step">
+                            各状態の温度比較：$T_3 = T_1 e^{k-1} \rho$ と $T_4 = T_1 \rho^k$ のうち、ディーゼルサイクルでは通常$T_3 > T_4$となります（等圧加熱後の状態3が最高温度）。
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p>最高温度は状態3の温度：</p>
+                            <div class="math-block">
+                                $$\boxed{T_3 = T_1 e^{k-1} \rho}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) このサイクルの熱効率を $\kappa$、$\varepsilon$ および $\rho$ を用いて求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱効率$\eta = 1 - Q_2/Q_1$の定義を使用し、問題文の記号$\kappa = k$（比熱比）、$\varepsilon = e$（圧縮比）として整理します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <div class="math-block">
+                                $$\eta = 1 - \frac{Q_2}{Q_1} = 1 - \frac{mc_v T_1(\rho^\kappa - 1)}{mc_p T_1 \varepsilon^{\kappa-1}(\rho - 1)}$$
+                                $$= 1 - \frac{c_v}{c_p} \cdot \frac{\rho^\kappa - 1}{\varepsilon^{\kappa-1}(\rho - 1)}$$
+                                $$= 1 - \frac{1}{\kappa} \cdot \frac{\rho^\kappa - 1}{\varepsilon^{\kappa-1}(\rho - 1)}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\eta = 1 - \frac{1}{\kappa} \cdot \frac{\rho^\kappa - 1}{\varepsilon^{\kappa-1}(\rho - 1)}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) (4)を考慮して、実際の4ストローク機関において、熱効率を向上させるにはどのようにすれば良いか、2点挙げよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>(4)の熱効率式を分析し、$\varepsilon$（圧縮比）と$\rho$（噴射締切比）が効率に与える影響を考察します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p>実際の4ストローク機関で熱効率を向上させる方法：</p>
+                            <ol>
+                                <li><strong>圧縮比 $\varepsilon$ を大きくする</strong>：燃焼室の設計を変更し、混合気の圧縮を高めることで熱効率が向上する。ただし、ノッキングのリスクがあるため材料強度や燃料選択に注意が必要。</li>
+                                <li><strong>噴射締切比 $\rho$ を小さくする</strong>：燃料噴射時期を調整し、膨張行程の開始点での容積増加を抑える。これにより高温ガスの有効利用が増し熱効率が向上する。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>断熱過程: $TV^{k-1} = \text{一定}$</li>
+                            <li>等圧過程: $Q = mc_p \Delta T$</li>
+                            <li>定容過程: $Q = mc_v \Delta T$</li>
+                            <li>熱効率: $\eta = 1 - Q_2/Q_1$</li>
+                            <li>圧縮比: $e = V_1/V_2$</li>
+                            <li>噴射締切比: $\rho = V_3/V_2$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>ディーゼルサイクルの4つの過程を正確に把握</li>
+                            <li>断熱過程での温度・容積関係の活用</li>
+                            <li>状態量の系統的な導出</li>
+                            <li>線図での過程と熱の出入りの視覚化</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>容積関係の正確な把握（$V_4 = V_1$など）</li>
+                            <li>断熱過程でのエントロピー一定</li>
+                            <li>記号の対応（$\kappa = k$, $\varepsilon = e$）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: 熱源間の熱移動とエントロピー変化</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">質量 $m$、比熱 $c$ が同じで温度が異なる 2 つの熱源がある。高温熱源（温度 $T_1$）に低温熱源（温度 $T_2$）を接触させ、熱移動を行う。接触後、熱平衡になったとき、以下の問いに答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 接触後の熱平衡状態の温度を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱系での熱交換なので、熱量保存則を適用します。高温熱源の失った熱量と低温熱源の得た熱量が等しくなります。</p>
+                    </div>
+                
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <p>熱平衡温度を$T_f$とすると：</p>
+                            <p>高温熱源の放出熱量 = $mc(T_1 - T_f)$</p>
+                            <p>低温熱源の吸収熱量 = $mc(T_f - T_2)$</p>
+                            <p>熱量保存：</p>
+                            <div class="math-block">
+                                $$mc(T_1 - T_f) = mc(T_f - T_2)$$
+                                $$T_1 - T_f = T_f - T_2$$
+                                $$2T_f = T_1 + T_2$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_f = \frac{T_1 + T_2}{2}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 高温熱源および低温熱源のエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エントロピー変化は状態量なので、可逆経路で計算できます。各熱源について$\Delta S = \int dQ_{\text{rev}}/T$を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <strong>高温熱源のエントロピー変化：</strong>
+                            <div class="math-block">
+                                $$\Delta S_{\text{high}} = \int_{T_1}^{T_f} \frac{-mc \, dT}{T} = -mc \ln\left(\frac{T_f}{T_1}\right)$$
+                            </div>
+                            
+                            <strong>低温熱源のエントロピー変化：</strong>
+                            <div class="math-block">
+                                $$\Delta S_{\text{low}} = \int_{T_2}^{T_f} \frac{mc \, dT}{T} = mc \ln\left(\frac{T_f}{T_2}\right)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                \Delta S_{\text{high}} &= -mc \ln\left(\frac{T_f}{T_1}\right) \\
+                                \Delta S_{\text{low}} &= mc \ln\left(\frac{T_f}{T_2}\right)
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 系全体のエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>系全体のエントロピー変化は各熱源のエントロピー変化の和です。(2)の結果を使用して計算します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <div class="math-block">
+                                $$\Delta S_{\text{total}} = \Delta S_{\text{high}} + \Delta S_{\text{low}}$$
+                                $$= -mc \ln\left(\frac{T_f}{T_1}\right) + mc \ln\left(\frac{T_f}{T_2}\right)$$
+                                $$= mc \left[\ln\left(\frac{T_f}{T_2}\right) - \ln\left(\frac{T_f}{T_1}\right)\right]$$
+                                $$= mc \ln\left(\frac{T_f/T_2}{T_f/T_1}\right) = mc \ln\left(\frac{T_1}{T_2}\right)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta S_{\text{total}} = mc \ln\left(\frac{T_1}{T_2}\right)}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) この変化は可逆か、不可逆かを説明せよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エントロピー増大則を適用します。断熱系でエントロピーが増加すれば不可逆過程、不変なら可逆過程です。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>この変化は不可逆である。</strong></p>
+                            <p><strong>理由：</strong>系全体が断熱でありながらエントロピー変化$\Delta S_{\text{total}} = mc \ln(T_1/T_2) > 0$（$T_1 > T_2$より正の増加）となるため。温度差がある熱源間の熱移動は自然に進行する不可逆過程であり、エントロピーが増大する。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>熱移動の基本法則
+                        </div>
+                        <ul>
+                            <li>熱量保存則の適用</li>
+                            <li>エントロピーは状態量</li>
+                            <li>可逆経路での計算可能</li>
+                            <li>断熱系でのエントロピー増大則</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>不可逆過程の判定
+                        </div>
+                        <ul>
+                            <li>断熱系: $\Delta S > 0$ → 不可逆</li>
+                            <li>断熱系: $\Delta S = 0$ → 可逆</li>
+                            <li>温度差のある熱移動は自然不可逆</li>
+                            <li>エントロピー増大が熱力学第二法則</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

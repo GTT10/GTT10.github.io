@@ -1,9 +1,324 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2020</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2020年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2020（R2）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2020年度の材料力学入試では、大問【1】でT型板のピン支持構造問題（静力学的平衡とせん断応力）、大問【2】で片持ちはりの曲げ問題（分布荷重と集中荷重の組合せ）が出題されました。この年度から大問数が3問から2問に変更され、各問題の深度が増加しました。</p>
+                <a href="../../pdfs/question/2020_R2_april/materials_2020_R2_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/materials_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">T型板が壁面に2つのピンA、Bで固定され、先端に集中荷重Pが作用する構造について、静力学的平衡、支持力、せん断応力、回転角の解析を行う。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>T型板：縦板（長さl、厚さt）、横板（高さ2h、幅b、厚さt）</li>
+                            <li>ピン：直径d、2つのピンA、Bで壁面に固定</li>
+                            <li>荷重：先端に集中荷重P（垂直下向き）</li>
+                            <li>材料：ヤング率E</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>T型板が静的平衡にあるため、力とモーメントの釣り合い条件を適用する。水平・垂直の力の釣り合いと、回転中心まわりのモーメントの釣り合いから反力を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) つり合い式の導出</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            T型板の静的平衡条件から、以下のつり合い式が成り立ちます。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                垂直方向：$$R_A + R_B - P = 0$$
+                                水平方向：$$F_B - F_A = 0$$
+                            </div>
+                            <p><strong>モーメントの釣り合い（点Oまわり）：</strong></p>
+                            <div class="math-block">
+                                $$h F_A + h F_B - P l = 0$$
+                            </div>
+                            ここで、\(R_A, R_B\)は鉛直反力、\(F_A, F_B\)は水平反力です。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 支持力の計算</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            つり合い式を解いて反力を求めます。
+                            <p><strong>水平反力：</strong></p>
+                            <div class="math-block">
+                                水平力の釣り合いから \(F_A = F_B\)。これをモーメント式に代入：
+                                $$2h F_A = P l \implies F_A = F_B = \frac{P l}{2h}$$
+                            </div>
+                            <p><strong>鉛直反力：</strong></p>
+                            <div class="math-block">
+                                構造の対称性により：$$R_A = R_B = \frac{P}{2}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) ピンのせん断応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            各ピンにかかる合力とせん断応力を計算します。
+                            <p><strong>ピンにかかる合力：</strong></p>
+                            <div class="math-block">
+                                $$S_A = S_B = \sqrt{R_A^2 + F_A^2} = \sqrt{\left(\frac{P}{2}\right)^2 + \left(\frac{P l}{2h}\right)^2}$$
+                                $$= \frac{P}{2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+                            </div>
+                            <p><strong>せん断応力：</strong></p>
+                            <div class="math-block">
+                                ピン断面積 \(A_{pin} = \frac{\pi d^2}{4}\) を用いて：
+                                $$\tau_A = \tau_B = \frac{S_A}{A_{pin}} = \frac{2P}{\pi d^2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 点Oの回転角</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            横板を単純支持梁として解析し、中央での回転角を求めます。
+                            <div class="math-block">
+                                中央にモーメント \(M_0 = Pl\) が作用する場合：
+                                $$\theta = \frac{M_0 (2h)}{16 E I_v} = \frac{Plh}{8EI_v}$$
+                            </div>
+                            <p>横板の断面二次モーメント：\(I_v = \frac{bt^3}{12}\)</p>
+                            <div class="math-block">
+                                $$\theta = \frac{3Plh}{2Ebt^3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>T型板の静的平衡解析では、力とモーメントの釣り合いを適用する。</li>
+                            <li>ピンのせん断応力は合力と断面積から求める。</li>
+                            <li>片持ちはりでは固定端で反力とモーメントが発生する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>静的平衡問題では対称性を活用して計算を簡略化する。</li>
+                            <li>集中荷重と分布荷重の組み合わせでは区間ごとに解析する。</li>
+                            <li>単位と符号の確認を欠かさず行う。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">片持ちはり（円形断面）に分布荷重と集中荷重が同時に作用する場合の、断面二次モーメント、支持反力、せん断力、曲げモーメント、最大曲げ応力を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さl、円形断面（直径d）</li>
+                            <li>境界条件：点Aで完全固定、点Bで自由端</li>
+                            <li>荷重：分布荷重w（一様、全長）、集中荷重P（距離2l/3の位置）</li>
+                            <li>材料：ヤング率E</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>片持ちはりでは固定端で反力とモーメントが発生します。集中荷重の作用点でせん断力が不連続になることに注意して、区間ごとに解析しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 断面二次モーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            円形断面の断面二次モーメントは：
+                            <div class="math-block">
+                                $$I = \frac{\pi d^4}{64}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 支持反力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            固定端Aでの反力を力とモーメントの釣り合いから求めます。
+                            <p><strong>鉛直反力 \(R_A\)：</strong></p>
+                            <div class="math-block">
+                                $$R_A = wl + P$$
+                            </div>
+                            <p><strong>反力モーメント \(M_A\)：</strong></p>
+                            <div class="math-block">
+                                $$M_A = \frac{wl^2}{2} + \frac{2Pl}{3}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) せん断力分布</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            集中荷重の作用点で区間を分けて考えます。
+                            <p><strong>AC区間 (0 ≤ x < 2l/3)：</strong></p>
+                            <div class="math-block">
+                                $$F_{AC}(x) = (wl + P) - wx$$
+                            </div>
+                            <p><strong>CB区間 (2l/3 < x ≤ l)：</strong></p>
+                            <div class="math-block">
+                                $$F_{CB}(x) = w(l-x)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 曲げモーメント分布</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            各区間の曲げモーメントを求めます。
+                            <p><strong>AC区間 (0 ≤ x ≤ 2l/3)：</strong></p>
+                            <div class="math-block">
+                                $$M_{AC}(x) = -M_A + R_A x - \frac{wx^2}{2}$$
+                            </div>
+                            <p><strong>CB区間 (2l/3 ≤ x ≤ l)：</strong></p>
+                            <div class="math-block">
+                                $$M_{CB}(x) = -\frac{w(l-x)^2}{2}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 最大曲げ応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりでは固定端で最大曲げモーメントが発生します。
+                            <div class="math-block">
+                                最大曲げモーメント：$$|M|_{max} = M_A = \frac{wl^2}{2} + \frac{2Pl}{3}$$
+                            </div>
+                            <div class="math-block">
+                                最大曲げ応力：$$\sigma_{max} = \frac{|M|_{max} \cdot (d/2)}{I} = \frac{16wl^2}{\pi d^3} + \frac{64Pl}{3\pi d^3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>片持ちはりでは固定端で最大曲げモーメントが発生する。</li>
+                            <li>集中荷重の作用点でせん断力が不連続になる。</li>
+                            <li>円形断面の断面二次モーメントは\(I = \frac{\pi d^4}{64}\)。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2020年度からは3問から2問に変更され、各問の深度が増加した。</li>
+                            <li>片持ちはりの解析では区間ごとに式を立てることが重要。</li>
+                            <li>分布荷重と集中荷重の組み合わせでは特に注意が必要。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

@@ -1,9 +1,388 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2024</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2024年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $...$ と \( ... \) を追加
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+                    2024（R6）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2024年度の流体力学入試では、大問【1】で複素ポテンシャル流れに関する理論問題、大問【2】でナビエ・ストークス方程式の導出に関する問題が出題されました。理論的な理解と数学的な導出能力が問われる内容でした。</p>
+                <a href="../../pdfs/question/2024_R6_april/fluid_2024_R6_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_R6_april/fluid_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】複素ポテンシャル流れ</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">x軸およびy軸で与えられる複素平面において、粘性のない非圧縮性流れがある。流体の密度をρとし、淀み点における圧力を大気圧とする。xおよびy方向の速度をそれぞれKx+UおよびKyとするとき、この流れについて以下の問いに答えよ。ただし、KおよびUを実数の正定数とし、問(1)に限りU=0とする。なお、虚数単位をiとする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>複素ポテンシャル流れの問題では、流線、連続の方程式、渦度、複素速度ポテンシャル、淀み点、圧力分布を段階的に求めていきます。各概念の物理的意味を理解しながら解きましょう。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 流線をx,yの関数として求めよ（U=0とする）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            U=0の場合、速度は$u = Kx$, $v = -Ky$となります。流線の定義式$\frac{dy}{dx} = \frac{v}{u}$に代入します。
+                            $$\frac{dy}{dx} = \frac{-Ky}{Kx} = -\frac{y}{x}$$
+                            変数分離で積分すると：
+                            $$\frac{1}{y} dy = -\frac{1}{x} dx$$
+                            $$\ln|y| = -\ln|x| + C_1$$
+                            $$\ln|xy| = C_1$$
+                            $$xy = C \quad (C\text{は定数})$$
+                        </div>
+                        <span class="answer-highlight">答え: 流線は$xy = C$（Cは定数）で表される双曲線</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 座標(1,1)と(1,-1)を結ぶ線分を通過する体積流量を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            線分は$x=1$上にあり、$y$が1から-1まで変化します。この線分を通過する体積流量は、x方向の速度$u = Kx+U$を線分に沿って積分することで求められます。
+                            $$Q = \int_{-1}^{1} u(1, y) \cdot dy = \int_{-1}^{1} (K \cdot 1 + U) dy$$
+                            $$Q = (K+U) \int_{-1}^{1} dy = (K+U)[y]_{-1}^{1}$$
+                            $$Q = (K+U)(1-(-1)) = 2(K+U)$$
+                        </div>
+                        <span class="answer-highlight">答え: 体積流量は$2(K+U)$</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 連続の方程式を示せ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            非圧縮性流れの連続の方程式は$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$です。与えられた速度成分を代入します。
+                            $$\frac{\partial u}{\partial x} = \frac{\partial (Kx+U)}{\partial x} = K$$
+                            $$\frac{\partial v}{\partial y} = \frac{\partial (-Ky)}{\partial y} = -K$$
+                            $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = K + (-K) = 0$$
+                        </div>
+                        <span class="answer-highlight">答え: 連続の方程式は満たされる</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 渦度を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            二次元流れの渦度は$\omega = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}$で定義されます。
+                            $$\frac{\partial v}{\partial x} = \frac{\partial (-Ky)}{\partial x} = 0$$
+                            $$\frac{\partial u}{\partial y} = \frac{\partial (Kx+U)}{\partial y} = 0$$
+                            $$\omega = 0 - 0 = 0$$
+                        </div>
+                        <span class="answer-highlight">答え: 渦度は0（渦なしの流れ）</span>
+                        
+                        <!-- 小問(5) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 複素速度ポテンシャルを求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            複素速度ポテンシャル$f(z)$は、その導関数が複素速度$u - iv$になります。速度ポテンシャル$\phi$を求めると：
+                            $$u = \frac{\partial \phi}{\partial x} = Kx + U$$
+                            $$\phi = \int (Kx+U) dx = \frac{1}{2}Kx^2 + Ux + C(y)$$
+                            $v = \frac{\partial \phi}{\partial y} = -Ky$から$C(y) = -\frac{1}{2}Ky^2$となります。
+                            $$\phi = \frac{1}{2}K(x^2 - y^2) + Ux$$
+                            $z = x+iy$を用いると、$z^2 = x^2-y^2+2ixy$なので：
+                            $$f(z) = \frac{1}{2}Kz^2 + Uz$$
+                        </div>
+                        <span class="answer-highlight">答え: 複素速度ポテンシャルは$f(z) = \frac{1}{2}Kz^2 + Uz$</span>
+                        
+                        <!-- 小問(6) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(6) 淀み点の座標を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            淀み点では速度がゼロになります。$u=0$かつ$v=0$となる点を求めます。
+                            $$u = Kx + U = 0 \implies x = -\frac{U}{K}$$
+                            $$v = -Ky = 0 \implies y = 0$$
+                        </div>
+                        <span class="answer-highlight">答え: 淀み点の座標は$(-U/K, 0)$</span>
+                        
+                        <!-- 小問(7) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(7) 流れ場のゲージ圧を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            非粘性・定常流れなのでベルヌーイの定理が適用できます。淀み点（速度0、ゲージ圧0）を基準とすると：
+                            $$\frac{1}{2}\rho V^2 + p_{gauge} = 0$$
+                            $$p_{gauge} = -\frac{1}{2}\rho V^2$$
+                            速度の大きさの2乗は：
+                            $$V^2 = u^2 + v^2 = (Kx+U)^2 + (-Ky)^2$$
+                            $$V^2 = K^2x^2 + 2KUx + U^2 + K^2y^2$$
+                        </div>
+                        <span class="answer-highlight">答え: ゲージ圧は$p(x,y) = -\frac{1}{2}\rho(K^2x^2 + 2KUx + U^2 + K^2y^2)$</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>複素ポテンシャル流れでは、流線が双曲線となり、連続の方程式と渦なし条件を満たす理想的な流れです。複素関数論と流体力学の結びつきを理解することが重要です。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>流線の定義式を正確に使う</li>
+                            <li>連続の方程式の物理的意味を理解する</li>
+                            <li>渦度がゼロの意味を把握する</li>
+                            <li>複素関数と実関数の対応関係を理解する</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>変数分離による積分を正確に実行する</li>
+                            <li>ベルヌーイの定理の適用条件を確認する</li>
+                            <li>複素ポテンシャルの物理的意味を把握する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】ナビエ・ストークス方程式の導出</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">図1に示す二次元の流体粒子ABCDのy方向のナビエ・ストークス方程式を導出する。流体粒子の一辺の長さは∆x, ∆y、密度はρで紙面に垂直な奥行き方向に一様とする。流体粒子には図中の矢印の方向に、垂直応力σ、せん断応力τがそれぞれ働いているものとし、以下の問いに答えよ。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <div class="section-title">(1) 流体粒子の単位奥行き当りの質量とこの流体粒子に働く重力の大きさを求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>質量は密度×体積で計算でき、重力は質量×重力加速度で求められます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            流体粒子の体積は$\Delta x \cdot \Delta y \cdot 1$（単位奥行き）です。
+                            <ul>
+                                <li>質量: $m = \rho \cdot (\Delta x \Delta y)$</li>
+                                <li>重力: $F_g = mg = \rho g \Delta x \Delta y$（y軸負の向き）</li>
+                            </ul>
+                        </div>
+                        <span class="answer-highlight">答え: 質量は$\rho \Delta x \Delta y$、重力の大きさは$\rho g \Delta x \Delta y$</span>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <div class="section-title">(2) 辺ADに働くy方向の力を図中の記号を用いて示せ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>辺ADに働くせん断応力による力を求めます。力は応力×面積で計算されます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            辺ADに働くせん断応力は$\tau(x - \frac{1}{2}\Delta x, y)$で、y軸負の方向に作用します。
+                            辺ADの面積は$\Delta y \cdot 1$なので、力は：
+                            $$F_{AD} = -\tau(x - \frac{1}{2}\Delta x, y) \Delta y$$
+                        </div>
+                        <span class="answer-highlight">答え: $-\tau(x - \frac{1}{2}\Delta x, y) \Delta y$</span>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <div class="section-title">(3) 辺BCに働くy方向の力を図中の記号を用いて示せ</div>
+                    </div>
+                    <div class="solution-step">
+                        辺BCに働くせん断応力は$\tau(x + \frac{1}{2}\Delta x, y)$で、y軸正の方向に作用します。
+                        $$F_{BC} = \tau(x + \frac{1}{2}\Delta x, y) \Delta y$$
+                    </div>
+                    <span class="answer-highlight">答え: $\tau(x + \frac{1}{2}\Delta x, y) \Delta y$</span>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <div class="section-title">(4) (2)と(3)で求めたy方向の力の和を、応力の偏導関数を用いて書き換えよ</div>
+                    </div>
+                    <div class="solution-step">
+                        力の和を計算し、テイラー展開で近似します：
+                        $$F_{shear} = \tau(x + \frac{1}{2}\Delta x, y) \Delta y - \tau(x - \frac{1}{2}\Delta x, y) \Delta y$$
+                        $$= \left\{ \tau(x + \frac{1}{2}\Delta x, y) - \tau(x - \frac{1}{2}\Delta x, y) \right\} \Delta y$$
+                        テイラー展開により：
+                        $$\approx \frac{\partial \tau}{\partial x} \Delta x \Delta y$$
+                    </div>
+                    <span class="answer-highlight">答え: $\frac{\partial \tau}{\partial x} \Delta x \Delta y$</span>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <div class="section-title">(5) 辺ABとDCに働くy方向の力の和を、応力の偏導関数を用いて示せ</div>
+                    </div>
+                    <div class="solution-step">
+                        同様に垂直応力について：
+                        $$F_{normal} = \sigma(x, y + \frac{1}{2}\Delta y) \Delta x - \sigma(x, y - \frac{1}{2}\Delta y) \Delta x$$
+                        テイラー展開により：
+                        $$\approx \frac{\partial \sigma}{\partial y} \Delta x \Delta y$$
+                    </div>
+                    <span class="answer-highlight">答え: $\frac{\partial \sigma}{\partial y} \Delta x \Delta y$</span>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <div class="section-title">(6) (1), (4), (5)を用いて、流体粒子のy方向の運動方程式を導出せよ</div>
+                    </div>
+                    <div class="solution-step">
+                        ニュートンの運動方程式$F=ma$を適用します：
+                        $$\sum F_y = \frac{\partial \sigma}{\partial y} \Delta x \Delta y + \frac{\partial \tau}{\partial x} \Delta x \Delta y - \rho g \Delta x \Delta y$$
+                        $$(\rho \Delta x \Delta y) \frac{Dv}{Dt} = \left( \frac{\partial \sigma}{\partial y} + \frac{\partial \tau}{\partial x} - \rho g \right) \Delta x \Delta y$$
+                        両辺を$\Delta x \Delta y$で割ると：
+                        $$\rho \frac{Dv}{Dt} = \frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} - \rho g$$
+                    </div>
+                    <span class="answer-highlight">答え: $\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = \frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} - \rho g$</span>
+                    
+                    <!-- 小問(7) -->
+                    <div class="example-box">
+                        <div class="section-title">(7) 流れが非圧縮でナビエ・ストークス方程式を導出せよ</div>
+                    </div>
+                    <div class="solution-step">
+                        与えられた応力の式を代入します：
+                        <ul>
+                            <li>$\sigma = -p + 2\mu \frac{\partial v}{\partial y}$</li>
+                            <li>$\tau = \mu (\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y})$</li>
+                        </ul>
+                        これらを(6)の式に代入し、非圧縮性の連続の式$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$を使って整理すると：
+                        $$\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}) - \rho g$$
+                    </div>
+                    <span class="answer-highlight">答え: $\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}) - \rho g$</span>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>ナビエ・ストークス方程式は、流体粒子に働く力のバランスから導出される運動方程式です。応力の概念と偏微分の操作を正確に理解することが重要です。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>流体粒子の力のバランスを正確に把握する</li>
+                            <li>テイラー展開による近似を理解する</li>
+                            <li>応力テンソルの物理的意味を理解する</li>
+                            <li>ニュートンの運動方程式を適用する</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>応力の符号と方向に注意する</li>
+                            <li>連続の式と運動方程式の関係を理解する</li>
+                            <li>偏微分の計算を正確に行う</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

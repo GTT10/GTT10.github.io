@@ -1,9 +1,695 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2019</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2019年度 熱力学 - 岡山大学大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2019（R1）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>理想気体の容器内変化プロセス、ブレイトンサイクル理論解析、ノズル内流れ解析の3つの大問から構成されています。理想気体の基本的な状態変化から応用のガスタービンサイクルまで幅広く扱い、エネルギー解析の総合的な理解を問います。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">理想気体の状態変化</span>
+                    <span class="topic-tag">ブレイトンサイクル</span>
+                    <span class="topic-tag">ノズル流れ</span>
+                </div>
+                
+                <a href="../../pdfs/question/2019_H31_R1_april/thermo_2019_H31_R1_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)</a>
+                <a href="../../pdfs/answer/2019_H31_R1_april/thermo_2019_H31_R1_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: 容器内理想気体の状態変化</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">初期状態が$p_1 = 400$ kPa、$V_1 = 1$ m³、$T_1 = 500$ Kの理想気体（$\kappa = 1.4$、$R = 0.25$ kJ/(kg·K)）について、各種状態変化を考える。以下の問いに答えよ。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 容器内に封入されているガスの質量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>理想気体の状態方程式$pV = mRT$を用いて質量$m$を求めます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <div class="math-block">
+                                $$m = \frac{p_1 V_1}{R T_1} = \frac{400 \times 1}{0.25 \times 500} = \frac{400}{125} = 3.2 \text{ kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{m = 3.2 \text{ kg}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 等圧変化で容積を$V_2 = 2$ m³まで増加させたとき、外部になす仕事$W$、与えられた熱量$Q$、エントロピー変化$\Delta S$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等圧過程では$W = p(V_2 - V_1)$、$Q = mc_p\Delta T$、$\Delta S = mc_p\ln(T_2/T_1)$を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>外部になす仕事：</strong>
+                            <div class="math-block">
+                                $$W = p_1(V_2 - V_1) = 400 \times (2 - 1) = 400 \text{ kJ}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>与えられた熱量：</strong>
+                            <p>定圧比熱：$c_p = \frac{\kappa R}{\kappa - 1} = \frac{1.4 \times 0.25}{0.4} = 0.875$ kJ/(kg·K)</p>
+                            <p>温度変化：$T_2 = T_1 \frac{V_2}{V_1} = 500 \times 2 = 1000$ K</p>
+                            <div class="math-block">
+                                $$Q = mc_p(T_2 - T_1) = 3.2 \times 0.875 \times (1000 - 500) = 1400 \text{ kJ}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>エントロピー変化：</strong>
+                            <div class="math-block">
+                                $$\Delta S = mc_p\ln\frac{T_2}{T_1} = 3.2 \times 0.875 \times \ln 2 = 2.8 \times 0.693 = 1.94 \text{ kJ/K}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                W &= 400 \text{ kJ} \\
+                                Q &= 1400 \text{ kJ} \\
+                                \Delta S &= 1.94 \text{ kJ/K}
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 等温変化で容積を$V_2 = 4$ m³まで増加させたとき、外部になす仕事$W$、与えられた熱量$Q$、エントロピー変化$\Delta S$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等温過程では$W = mRT\ln(V_2/V_1)$、$Q = W$、$\Delta S = mR\ln(V_2/V_1)$を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>外部になす仕事：</strong>
+                            <div class="math-block">
+                                $$W = mRT_1\ln\frac{V_2}{V_1} = 3.2 \times 0.25 \times 500 \times \ln 4$$
+                                $$= 400 \times 2\ln 2 = 400 \times 1.386 = 554.4 \text{ kJ}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>与えられた熱量：</strong>
+                            <p>等温変化のため：$Q = W = 554.4$ kJ</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>エントロピー変化：</strong>
+                            <div class="math-block">
+                                $$\Delta S = mR\ln\frac{V_2}{V_1} = 3.2 \times 0.25 \times \ln 4 = 0.8 \times 1.386 = 1.11 \text{ kJ/K}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                W &= 554.4 \text{ kJ} \\
+                                Q &= 554.4 \text{ kJ} \\
+                                \Delta S &= 1.11 \text{ kJ/K}
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 可逆断熱変化で容積を$V_2 = 1.93$ m³まで増加させたとき、外部になす仕事$W$、与えられた熱量$Q$、エントロピー変化$\Delta S$を求めよ。ただし$(1.93)^{0.4} \approx 1.3$とする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱過程では$Q = 0$、$\Delta S = 0$、$W = -mc_v\Delta T$を使用します。温度は$TV^{\kappa-1} = \text{一定}$から求めます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>温度変化：</strong>
+                            <p>定容比熱：$c_v = \frac{R}{\kappa - 1} = \frac{0.25}{0.4} = 0.625$ kJ/(kg·K)</p>
+                            <div class="math-block">
+                                $$T_2 = T_1\left(\frac{V_1}{V_2}\right)^{\kappa-1} = 500 \times \left(\frac{1}{1.93}\right)^{0.4} = \frac{500}{1.3} = 384.6 \text{ K}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>外部になす仕事：</strong>
+                            <div class="math-block">
+                                $$W = -mc_v(T_2 - T_1) = -3.2 \times 0.625 \times (384.6 - 500)$$
+                                $$= -2 \times (-115.4) = 230.8 \text{ kJ}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                W &= 230.8 \text{ kJ} \\
+                                Q &= 0 \text{ kJ} \\
+                                \Delta S &= 0 \text{ kJ/K}
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>理想気体状態方程式: $pV = mRT$</li>
+                            <li>等圧過程: $W = p\Delta V$, $Q = mc_p\Delta T$</li>
+                            <li>等温過程: $W = mRT\ln(V_2/V_1)$, $Q = W$</li>
+                            <li>断熱過程: $Q = 0$, $W = -mc_v\Delta T$</li>
+                            <li>エントロピー変化: $\Delta S = mc_p\ln(T_2/T_1) + mR\ln(V_2/V_1)$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>各過程の特徴を正確に把握</li>
+                            <li>比熱比$\kappa$から$c_p$、$c_v$を計算</li>
+                            <li>状態方程式による温度・圧力変化の追跡</li>
+                            <li>第一法則によるエネルギー収支の確認</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>各過程で一定に保たれる量の確認</li>
+                            <li>比熱の定義と関係式</li>
+                            <li>断熱過程での$Q = 0$、$\Delta S = 0$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: ブレイトンサイクル</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">理想気体によるブレイトンサイクル（ガスタービンサイクル）について考える。圧力比を$\phi = p_2/p_1$、容積比を$\alpha = V_3/V_2$とし、以下の問いに答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) このサイクルの$p-V$線図および$T-S$線図を描け。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>ブレイトンサイクルは1→2（断熱圧縮）、2→3（等圧加熱）、3→4（断熱膨張）、4→1（等圧冷却）の4過程です。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
+                        </div>
+                        
+                        <div class="diagram-section">
+                            <h4>p-V線図</h4>
+                            <pre class="ascii-diagram">
+圧力 p ↑
+|        2-------3 (等圧加熱)
+|       /|       |\
+|      / |       | \
+|     /  |       |  \
+|    / (断熱圧縮) | (断熱膨張)
+|   /    |       |   \
+|  /     |       |    \
+| /      |       |     \
+|1-------+-------+-----4----→ 容積 V
+ V₁      V₂      V₃    V₄
+         (等圧冷却)
+                            </pre>
+                        </div>
+
+                        <div class="diagram-section">
+                            <h4>T-S線図</h4>
+                            <pre class="ascii-diagram">
+温度 T ↑
+|        2-------3 (等圧加熱)
+|        |       |
+|        |       |
+| (断熱) |       | (断熱)
+|        |       |
+|        |       |
+|        1-------4 (等圧冷却)
++-------------------------→ エントロピー S
+        S₁=S₂   S₃=S₄
+                            </pre>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>p-V線図</strong>: 1→2（断熱圧縮曲線）、2→3（水平線）、3→4（断熱膨張曲線）、4→1（水平線）</p>
+                            <p><strong>T-S線図</strong>: 1→2（垂直線）、2→3（右上がり曲線）、3→4（垂直線）、4→1（左下がり曲線）</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 各過程における熱量の出入りを求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等圧過程2→3で吸熱、等圧過程4→1で放熱します。断熱過程では熱の出入りはありません。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{
+                            \begin{aligned}
+                            Q_{\text{in}} &= mc_p(T_3 - T_2) \quad (\text{2→3の等圧加熱}) \\
+                            Q_{\text{out}} &= mc_p(T_4 - T_1) \quad (\text{4→1の等圧冷却})
+                            \end{aligned}
+                            }$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 状態2、3、4の温度を状態1の温度$T_1$と$\phi$、$\alpha$を用いて表せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱過程では$T_1V_1^{\kappa-1} = T_2V_2^{\kappa-1}$、等圧過程では$V/T = \text{一定}$の関係を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>状態2（断熱圧縮）：</strong>
+                            <div class="math-block">
+                                $$T_2 = T_1\left(\frac{p_2}{p_1}\right)^{\frac{\kappa-1}{\kappa}} = T_1\phi^{\frac{\kappa-1}{\kappa}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>状態3（等圧加熱）：</strong>
+                            <div class="math-block">
+                                $$T_3 = T_2\frac{V_3}{V_2} = T_1\phi^{\frac{\kappa-1}{\kappa}}\alpha$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>状態4（断熱膨張）：</strong>
+                            <div class="math-block">
+                                $$T_4 = T_3\left(\frac{p_4}{p_3}\right)^{\frac{\kappa-1}{\kappa}} = T_1\phi^{\frac{\kappa-1}{\kappa}}\alpha \cdot \phi^{-\frac{\kappa-1}{\kappa}} = T_1\alpha$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                T_2 &= T_1\phi^{\frac{\kappa-1}{\kappa}} \\
+                                T_3 &= T_1\phi^{\frac{\kappa-1}{\kappa}}\alpha \\
+                                T_4 &= T_1\alpha
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) このサイクルの熱効率を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱効率は$\eta = 1 - Q_{\text{out}}/Q_{\text{in}}$で定義されます。(3)の結果を使用して計算します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <div class="math-block">
+                                $$\eta = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}} = 1 - \frac{T_4 - T_1}{T_3 - T_2}$$
+                                $$= 1 - \frac{T_1\alpha - T_1}{T_1\phi^{\frac{\kappa-1}{\kappa}}\alpha - T_1\phi^{\frac{\kappa-1}{\kappa}}}$$
+                                $$= 1 - \frac{T_1(\alpha - 1)}{T_1\phi^{\frac{\kappa-1}{\kappa}}(\alpha - 1)} = 1 - \frac{1}{\phi^{\frac{\kappa-1}{\kappa}}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\eta = 1 - \phi^{\frac{1-\kappa}{\kappa}}}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>ブレイトンサイクルの特徴
+                        </div>
+                        <ul>
+                            <li>ガスタービンの理論サイクル</li>
+                            <li>開放サイクルが一般的</li>
+                            <li>圧力比が効率を決定</li>
+                            <li>高温での材料制約が課題</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>重要な関係式
+                        </div>
+                        <ul>
+                            <li>断熱過程: $Tp^{\frac{1-\kappa}{\kappa}} = \text{一定}$</li>
+                            <li>等圧過程: $V/T = \text{一定}$</li>
+                            <li>効率は圧力比のみに依存</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】: ノズル内の等エントロピー流れ</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">理想気体がノズル内を等エントロピー（断熱可逆）的に流れる場合を考える。入口状態を1、出口状態を2とし、以下の問いに答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) エネルギー保存則を適用して、出口流速$u_2$を求めよ。ただし、入口流速は無視できるものとし、位置エネルギーの変化も無視する。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定常流れの機械的エネルギー保存則$h_1 + u_1^2/2 = h_2 + u_2^2/2$を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>入口流速$u_1 \approx 0$として：</p>
+                            <div class="math-block">
+                                $$h_1 + \frac{u_1^2}{2} = h_2 + \frac{u_2^2}{2}$$
+                                $$h_1 = h_2 + \frac{u_2^2}{2}$$
+                                $$u_2^2 = 2(h_1 - h_2)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{u_2 = \sqrt{2(h_1 - h_2)}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 理想気体について、比エンタルピー差$h_1 - h_2$を温度で表せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>理想気体では比エンタルピーは温度の関数のみで、$h = c_pT$の関係を使用します。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{h_1 - h_2 = c_p(T_1 - T_2)}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 臨界圧力$p^*$を入口圧力$p_1$と比熱比$\kappa$で表せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>臨界状態では音速となり、臨界圧力比は比熱比のみの関数として表されます。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{p^* = p_1\left(\frac{2}{\kappa + 1}\right)^{\frac{\kappa}{\kappa-1}}}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) $p_1 = 0.25$ MPa、$p_2 = 0.10$ MPa、$\kappa = 1.4$のとき、適切なノズル形状を選択し、理由を述べよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>圧力比と臨界圧力比を比較して、必要なノズル形状を判定します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と判定
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>圧力比：</strong>
+                            <div class="math-block">
+                                $$\frac{p_2}{p_1} = \frac{0.10}{0.25} = 0.4$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>臨界圧力比：</strong>
+                            <div class="math-block">
+                                $$\left(\frac{2}{\kappa + 1}\right)^{\frac{\kappa}{\kappa-1}} = \left(\frac{2}{2.4}\right)^{\frac{1.4}{0.4}} = \left(\frac{5}{6}\right)^{3.5} \approx 0.528$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>適切なノズル形状：末広ノズル</strong></p>
+                            <p><strong>理由：</strong>$0.4 < 0.528$のため圧力比が臨界値未満であり、超音速流となる。流速を連続的に増加させるには拡大管（末広ノズル）が必要。</p>
+                            <div class="math-block">
+                                $$\boxed{\text{末広ノズル}}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>ノズル流れの基本
+                        </div>
+                        <ul>
+                            <li>連続の式とエネルギー保存則の適用</li>
+                            <li>等エントロピー過程の仮定</li>
+                            <li>臨界状態での音速達成</li>
+                            <li>マッハ数による流れの分類</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>ノズル形状の選択
+                        </div>
+                        <ul>
+                            <li>$p_2/p_1 > p^*/p_1$：先細ノズル</li>
+                            <li>$p_2/p_1 < p^*/p_1$：末広ノズル</li>
+                            <li>超音速流では拡大管で加速</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

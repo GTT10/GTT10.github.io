@@ -1,9 +1,789 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2016</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2016年度 熱力学 - 岡山大学大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2016（H28）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>流体の流れ仕事とジュール・トムソン効果、ボイラエネルギー損失解析、蒸気サイクル解析の3つの大問から構成されています。熱力学的関係式の導出から実際のエネルギーシステムの解析まで、理論と応用を総合的に扱います。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">流体流れ仕事</span>
+                    <span class="topic-tag">ジュール・トムソン効果</span>
+                    <span class="topic-tag">エネルギー損失</span>
+                    <span class="topic-tag">蒸気サイクル</span>
+                </div>
+                
+                <a href="../../pdfs/question/2016_H28_april/thermo_2016_H28_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2016年度)</a>
+                <a href="../../pdfs/answer/2016_H28_april/thermo_2016_H28_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2016年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: 流体の流れと熱力学</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">流体が管内を流れ、その途中でタービンや絞りを通過する場合を考える。以下の問いに答えよ。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 断面Ⅰで気体を押し込む際に必要な単位質量あたりの仕事を答えよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>流体を管内に押し込む際の流れ仕事（流動仕事）を考えます。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{P_1 v_1}$$
+                        </div>
+                        <p>ここで$P_1$は圧力、$v_1$は比容積です。</p>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) タービン仕事$W_1$を求めよ。ただし、運動エネルギーと位置エネルギーの変化は無視し、外部への放熱量を$Q$とする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定常流エネルギー保存則を適用し、エンタルピー変化と放熱量からタービン仕事を求めます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>定常流エネルギー保存則より：</p>
+                            <div class="math-block">
+                                $$mh_1 = mh_2 + W_1 + Q$$
+                            </div>
+                            <p>（$Q > 0$は外部への放熱）</p>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{W_1 = m(h_1 - h_2) - Q}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 絞り過程（断熱・無仕事）のエネルギー保存式を書け。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>絞りでは$W_1 = 0$、熱損失なし（$Q = 0$）、流速遅い（運動エネルギー無視）の条件を適用します。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{h_1 = h_2}$$
+                        </div>
+                        <p>絞り過程は等エンタルピー変化となります。</p>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 熱力学第一法則とエンタルピーの定義から$dh = T ds + v dP$を導け。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱力学第一法則$du = T ds - P dv$とエンタルピーの定義$h = u + Pv$を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>導出過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>熱力学第一法則：</strong></p>
+                            <div class="math-block">
+                                $$du = \delta q - \delta w = T ds - P dv$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>エンタルピー定義：</strong></p>
+                            <div class="math-block">
+                                $$h = u + Pv$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>全微分：</strong></p>
+                            <div class="math-block">
+                                $$dh = du + P dv + v dP = (T ds - P dv) + P dv + v dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{dh = T ds + v dP}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) $dh = c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP$を導け。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エントロピーを$s = s(P, T)$として全微分し、マックスウェルの関係式を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>導出過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>エントロピーの全微分：</strong></p>
+                            <div class="math-block">
+                                $$ds = \left( \frac{\partial s}{\partial T} \right)_P dT + \left( \frac{\partial s}{\partial P} \right)_T dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>定圧比熱の関係：</strong>$c_p = T \left( \frac{\partial s}{\partial T} \right)_P$</p>
+                            <div class="math-block">
+                                $$ds = \frac{c_p}{T} dT + \left( \frac{\partial s}{\partial P} \right)_T dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>マックスウェルの関係式：</strong>$\left( \frac{\partial v}{\partial T} \right)_P = -\left( \frac{\partial s}{\partial P} \right)_T$</p>
+                            <div class="math-block">
+                                $$ds = \frac{c_p}{T} dT - \left( \frac{\partial v}{\partial T} \right)_P dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>(4)の結果に代入：</strong></p>
+                            <div class="math-block">
+                                $$dh = T \left[ \frac{c_p}{T} dT - \left( \frac{\partial v}{\partial T} \right)_P dP \right] + v dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{dh = c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(6) ジュール・トムソン係数$\mu$を定義し、その表式を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>絞り過程では$dh = 0$であることを利用し、(5)の結果からジュール・トムソン係数を定義します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>絞り過程では$dh = 0$。(5)の式で$dh = 0$とし、係数を定義：</p>
+                            <div class="math-block">
+                                $$0 = c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\mu = \left( \frac{\partial T}{\partial P} \right)_h = \frac{1}{c_p} \left[ T \left( \frac{\partial v}{\partial T} \right)_P - v \right]}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(7) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(7) 状態式$P \left( v - a + \frac{b}{RT} \right) = RT$に対して逆転温度$T_{\text{inv}}$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>逆転温度は$\mu = 0$となる温度です。状態式から$(\partial v/\partial T)_P$を求め、$\mu = 0$の条件を適用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>状態式を変形：</strong></p>
+                            <div class="math-block">
+                                $$v = \frac{RT}{P} + a - \frac{b}{RT}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>微分：</strong></p>
+                            <div class="math-block">
+                                $$\left( \frac{\partial v}{\partial T} \right)_P = \frac{R}{P} + \frac{b}{R T^2}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>$\mu = 0$の条件：</strong>$T \left( \frac{\partial v}{\partial T} \right)_P - v = 0$</p>
+                            <div class="math-block">
+                                $$T \left( \frac{R}{P} + \frac{b}{R T^2} \right) - \left( \frac{RT}{P} + a - \frac{b}{RT} \right) = 0$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>整理：</strong></p>
+                            <div class="math-block">
+                                $$\frac{RT}{P} + \frac{b}{RT} - \frac{RT}{P} - a + \frac{b}{RT} = 0$$
+                                $$-a + \frac{2b}{RT} = 0$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_{\text{inv}} = \frac{2b}{aR}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(8) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(8) 理想気体が絞りを通過した後の温度変化について述べよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>理想気体では$Pv = RT$であり、(7)の式で$a = b = 0$とした場合を考えます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p>理想気体では$a = b = 0$より：</p>
+                            <div class="math-block">
+                                $$T \left( \frac{\partial v}{\partial T} \right)_P - v = T \cdot \frac{R}{P} - \frac{RT}{P} = 0$$
+                            </div>
+                            <p>したがって$\mu = 0$</p>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p><strong>理想気体では絞り通過後も温度変化なし</strong>（等エンタルピー変化）</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>流れ仕事: $Pv$</li>
+                            <li>定常流エネルギー保存則</li>
+                            <li>熱力学基本関係式: $dh = T ds + v dP$</li>
+                            <li>マックスウェルの関係式</li>
+                            <li>ジュール・トムソン係数の定義</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>流れ系でのエネルギー保存則の適用</li>
+                            <li>熱力学関係式の体系的導出</li>
+                            <li>絞り過程の特性理解</li>
+                            <li>実ガス効果の理論的取り扱い</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>流れ仕事と軸仕事の区別</li>
+                            <li>偏微分の扱いと関係式</li>
+                            <li>理想気体と実ガスの違い</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: ボイラのエネルギー損失</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">高温熱源（1400℃）から2800 kJ/kgの熱量を受けて水が蒸気になる場合を考える。環境温度を0℃とし、以下の問いに答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) この熱量を可逆的に利用した場合のエントロピーと無効エネルギーを求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>可逆利用時のエントロピーは熱源の初期エントロピー、無効エネルギーは低温熱源に関連するエネルギーです。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>温度変換：</strong></p>
+                            <p>$T_H = 1400 + 273 = 1673$ K</p>
+                            <p>$T_L = 0 + 273 = 273$ K</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>可逆利用時のエントロピー：</strong></p>
+                            <div class="math-block">
+                                $$S_{\text{initial}} = \frac{Q}{T_H} = \frac{2800}{1673} = 1.67 \text{ kJ/(kg·K)}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>無効エネルギー：</strong></p>
+                            <div class="math-block">
+                                $$E_{\text{無効}} = T_L \cdot \frac{Q}{T_H} = 273 \times \frac{2800}{1673} = 456 \text{ kJ/kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                S_{\text{initial}} &= 1.67 \text{ kJ/(kg·K)} \\
+                                E_{\text{無効}} &= 456 \text{ kJ/kg}
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 不可逆伝熱により水のエントロピーが6.6 kJ/(kg·K)増加した場合のエントロピー増加量と無効エネルギー増加量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱源と水の系全体でのエントロピー変化を求め、無効エネルギー増加量を計算します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>エントロピー変化：</strong></p>
+                            <p>熱源のエントロピー減少：$-\frac{Q}{T_H} = -\frac{2800}{1673} = -1.67$ kJ/(kg·K)</p>
+                            <p>水のエントロピー増加：$+6.6$ kJ/(kg·K)</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>全体のエントロピー増加量：</strong></p>
+                            <div class="math-block">
+                                $$\Delta S_{\text{total}} = 6.6 - \frac{2800}{1673} = 6.6 - 1.67 = 4.93 \text{ kJ/(kg·K)}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>無効エネルギー増加量：</strong></p>
+                            <div class="math-block">
+                                $$\Delta E_{\text{無効}} = T_L \cdot \Delta S_{\text{total}} = 273 \times 4.93 = 1346 \text{ kJ/kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{
+                                \begin{aligned}
+                                \Delta S_{\text{total}} &= 4.93 \text{ kJ/(kg·K)} \\
+                                \Delta E_{\text{無効}} &= 1346 \text{ kJ/kg}
+                                \end{aligned}
+                                }$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>エクセルギー解析の基本
+                        </div>
+                        <ul>
+                            <li>可逆過程でのエネルギーの有効利用</li>
+                            <li>不可逆性による損失の定量化</li>
+                            <li>環境温度基準の無効エネルギー</li>
+                            <li>エントロピー増加と損失の関係</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>重要な概念
+                        </div>
+                        <ul>
+                            <li>有効エネルギー（エクセルギー）</li>
+                            <li>無効エネルギー（アネルギー）</li>
+                            <li>不可逆性によるエネルギー質の劣化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】: 蒸気サイクル解析</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">蒸気表（表1）を用いて蒸気サイクルを解析する。ボイラ出口圧力2 MPa、復水器圧力0.004 MPaとし、以下の問いに答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 状態4（復水器入口）の乾き度を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等エントロピー膨張により状態1から状態4へ変化し、乾き度は$x = (s_4 - s')/(s'' - s')$で求められます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>状態点の設定：</strong></p>
+                            <p>状態1（ボイラ出口）：$P_1 = 2$ MPa, $s_1 = s'' = 6.3$ kJ/(kg·K)</p>
+                            <p>状態4（復水器入口）：$P_4 = 0.004$ MPa, $s_4 = s_1 = 6.3$ kJ/(kg·K)</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>飽和蒸気表（0.004 MPa）：</strong></p>
+                            <p>$s' = 0.4$ kJ/(kg·K), $s'' = 8.5$ kJ/(kg·K)</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>乾き度計算：</strong></p>
+                            <div class="math-block">
+                                $$x_4 = \frac{s_4 - s'}{s'' - s'} = \frac{6.3 - 0.4}{8.5 - 0.4} = \frac{5.9}{8.1} = 0.73$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{x_4 = 0.73}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) サイクル熱効率を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱効率は$\eta = w_{\text{net}}/q_{\text{in}}$で定義されます。吸熱量と正味仕事を蒸気表から求めます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>吸熱量（ボイラ）：</strong></p>
+                            <div class="math-block">
+                                $$q_{\text{in}} = h_1 - h_2 = 2800 - 900 = 1900 \text{ kJ/kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>状態4のエンタルピー：</strong></p>
+                            <div class="math-block">
+                                $$h_4 = h' + x_4(h'' - h') = 100 + 0.73 \times (2500 - 100) = 100 + 1752 = 1852 \text{ kJ/kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>正味仕事（ポンプ仕事無視）：</strong></p>
+                            <div class="math-block">
+                                $$w_{\text{net}} = h_1 - h_4 = 2800 - 1852 = 948 \text{ kJ/kg}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>熱効率：</strong></p>
+                            <div class="math-block">
+                                $$\eta = \frac{w_{\text{net}}}{q_{\text{in}}} = \frac{948}{1900} = 0.50$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\eta = 0.50 \text{ (50\%)}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 同じ温度範囲でのカルノー効率を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>カルノー効率は$\eta_{\text{Carnot}} = 1 - T_L/T_H$で計算されます。温度は絶対温度を使用します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>温度設定：</strong></p>
+                            <p>高温熱源温度：$T_H = 200 + 273 = 473$ K</p>
+                            <p>低温熱源温度：$T_L = 30 + 273 = 303$ K</p>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <p><strong>カルノー効率：</strong></p>
+                            <div class="math-block">
+                                $$\eta_{\text{Carnot}} = 1 - \frac{T_L}{T_H} = 1 - \frac{303}{473} = 1 - 0.64 = 0.36$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\eta_{\text{Carnot}} = 0.36 \text{ (36\%)}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 実際の原動所で生じる主な損失と不可逆性について述べよ。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p><strong>実際の原動所で生じる主な損失：</strong></p>
+                        <ol>
+                            <li><strong>タービン内の不可逆膨張</strong>：摩擦や乱流によりエントロピー増加、仕事出力減少</li>
+                            <li><strong>配管での熱損失</strong>：断熱不十分で熱が外部へ逃げる</li>
+                            <li><strong>ポンプの不可逆性</strong>：機械損失や内部摩擦により消費電力増加</li>
+                            <li><strong>復水器の過冷却</strong>：設計値より低温で凝縮、利用可能エネルギー損失</li>
+                            <li><strong>燃焼の不完全性</strong>：化学エネルギーから熱エネルギーへの変換効率低下</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>蒸気サイクル解析の基本
+                        </div>
+                        <ul>
+                            <li>蒸気表の正確な読み取り</li>
+                            <li>湿り蒸気の乾き度計算</li>
+                            <li>等エントロピー過程の仮定</li>
+                            <li>エネルギー収支の適用</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要な公式
+                        </div>
+                        <ul>
+                            <li>乾き度: $x = (s - s')/(s'' - s')$</li>
+                            <li>湿り蒸気エンタルピー: $h = h' + x(h'' - h')$</li>
+                            <li>熱効率: $\eta = w_{\text{net}}/q_{\text{in}}$</li>
+                            <li>カルノー効率: $\eta_C = 1 - T_L/T_H$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>飽和蒸気表の正確な読み取り</li>
+                            <li>乾き度が1以下であることの確認</li>
+                            <li>ポンプ仕事の扱い（通常無視可能）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

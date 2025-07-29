@@ -1,9 +1,318 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2023</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2023年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2023（R5）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2023年度の材料力学入試では、大問【1】で回転棒の遠心力による伸び、大問【2】で複合軸のねじり問題（不静定問題）が出題されました。動的荷重による変形解析と、ねじりの不静定解析が重要なテーマとなりました。</p>
+                <a href="../../pdfs/question/2023_R5_april/materials_2023_R5_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/answer/2023_R5_april/materials_2023_R5_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】回転棒の遠心力による伸び</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">長さl、直径d、密度ρの一様な棒の両端に質量mの重りを取り付け、中央を軸として角速度ωで回転させる。この棒の遠心力による伸びを求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>回転による遠心力は慣性力の一種で、質量×半径×角速度²で表されます。棒自身の質量を考慮する場合は、位置によって張力が変化することに注意が必要です。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 端部の重りのみを考慮した場合の伸び</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>考え方：</strong><br>
+                            棒の質量を無視し、端部の重りによる遠心力のみを考慮します。この場合、棒全体に一定の張力がかかります。
+                            
+                            <strong>遠心力の計算：</strong><br>
+                            - 各重りの回転半径：\(r = \frac{l}{2}\)<br>
+                            - 各重りの遠心力：\(F = mr\omega^2 = m \cdot \frac{l}{2} \cdot \omega^2 = \frac{ml\omega^2}{2}\)
+                            
+                            <strong>伸びの計算：</strong><br>
+                            - 棒の断面積：\(A = \frac{\pi d^2}{4}\)<br>
+                            - 張力：\(T = F = \frac{ml\omega^2}{2}\)（棒全体で一定）<br>
+                            - 全伸び：\(\delta = \frac{TL}{AE} = \frac{F \cdot l}{AE}\)
+                            
+                            $$\delta = \frac{\frac{ml\omega^2}{2} \cdot l}{\frac{\pi d^2}{4} \cdot E} = \frac{2ml^2\omega^2}{\pi Ed^2}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(\delta = \frac{2ml^2\omega^2}{\pi Ed^2}\)</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 棒の質量も考慮した場合の伸び</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>考え方：</strong><br>
+                            棒自身の質量による遠心力も考慮します。この場合、張力は位置によって変化するため、積分による解析が必要です。
+                            
+                            <strong>可変張力の計算：</strong><br>
+                            中心からの距離xにおける張力\(T(x)\)は：
+                            - 端部重りによる張力：\(\frac{ml\omega^2}{2}\)
+                            - 棒の外側部分による張力：\(\int_x^{l/2} (\rho A dr) r \omega^2 = \frac{\rho A \omega^2}{2}\left(\frac{l^2}{4} - x^2\right)\)
+                            
+                            したがって：
+                            $$T(x) = \frac{ml\omega^2}{2} + \frac{\rho A \omega^2}{2}\left(\frac{l^2}{4} - x^2\right)$$
+                            
+                            <strong>伸びの計算：</strong><br>
+                            微小要素\(dx\)の伸び：\(d\delta = \frac{T(x)}{AE}dx\)<br>
+                            
+                            全伸び：
+                            $$\delta = \int_{-l/2}^{l/2} \frac{T(x)}{AE} dx = 2\int_0^{l/2} \frac{T(x)}{AE} dx$$
+                            
+                            計算結果：
+                            $$\delta = \frac{2ml^2\omega^2}{\pi Ed^2} + \frac{\rho\omega^2 l^3}{12E}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(\delta = \frac{2ml^2\omega^2}{\pi Ed^2} + \frac{\rho\omega^2 l^3}{12E}\)</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>回転による伸びは、端部重りによる項と棒自身の質量による項の和となります。第2項は棒の密度と長さの3乗に比例するため、長い棒では無視できない影響があります。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>遠心力の正確な計算</li>
+                            <li>可変張力の扱い方</li>
+                            <li>積分による全体変形の算出</li>
+                            <li>質量分布の影響の理解</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>遠心力は質量×半径×角速度²</li>
+                            <li>分布質量では張力が位置の関数になる</li>
+                            <li>対称性を利用して計算を簡略化</li>
+                            <li>積分範囲の設定に注意</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】複合軸のねじり問題（不静定）</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">両端が固定された複合軸が、2つのトルク\(T_1\)、\(T_2\)を受けている。軸は3つの区間（AC、CD、DB）からなり、AC区間とDB区間の材質は同じ（せん断弾性係数\(G_1\)）、CD区間は異なる材質（せん断弾性係数\(G_2\)）である。各区間の長さはそれぞれa、b、cとする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>不静定ねじり問題では、静力学的つり合い式と変形適合条件を組み合わせて解きます。両端固定では全体のねじり角が0になることが重要な条件です。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 円形軸の極断面二次モーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>円形断面の極断面二次モーメント：</strong><br>
+                            直径dの円形断面の極断面二次モーメント\(J\)は、ねじりに対する抵抗の指標です。
+                            
+                            $$J = \frac{\pi d^4}{32}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(J = \frac{\pi d^4}{32}\)</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 各区間のトルク</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>内部トルクの表現：</strong><br>
+                            反力トルク\(T_B\)を基準として、各区間の内部トルクを表現します。
+                            
+                            - **区間DB：** \(T_{DB} = -T_B\)
+                            - **区間CD：** \(T_{CD} = T_2 - T_B\)
+                            - **区間AC：** \(T_{AC} = T_1 + T_2 - T_B\)
+                        </div>
+                        <span class="answer-highlight">答え: \(T_{DB} = -T_B\)、\(T_{CD} = T_2 - T_B\)、\(T_{AC} = T_1 + T_2 - T_B\)</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 各区間のねじり角</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>ねじり角の計算：</strong><br>
+                            ねじり角は\(\phi = \frac{TL}{GJ}\)の関係で計算されます。
+                            
+                            - **区間AC：** \(\phi_{AC} = \frac{(T_1 + T_2 - T_B)a}{G_1 J}\)
+                            - **区間CD：** \(\phi_{CD} = \frac{(T_2 - T_B)b}{G_2 J}\)
+                            - **区間DB：** \(\phi_{DB} = \frac{-T_B c}{G_1 J}\)
+                        </div>
+                        <span class="answer-highlight">答え: \(\phi_{AC} = \frac{(T_1 + T_2 - T_B)a}{G_1 J}\)、\(\phi_{CD} = \frac{(T_2 - T_B)b}{G_2 J}\)、\(\phi_{DB} = \frac{-T_B c}{G_1 J}\)</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 反力トルク\(T_A\)、\(T_B\)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>適合条件の適用：</strong><br>
+                            両端固定のため、全体のねじり角は0になります：
+                            $$\phi_{AC} + \phi_{CD} + \phi_{DB} = 0$$
+                            
+                            この条件から\(T_B\)を求めます：
+                            $$\frac{(T_1 + T_2 - T_B)a}{G_1 J} + \frac{(T_2 - T_B)b}{G_2 J} - \frac{T_B c}{G_1 J} = 0$$
+                            
+                            整理すると：
+                            $$T_B = \frac{aG_2(T_1 + T_2) + bG_1 T_2}{(a+c)G_2 + bG_1}$$
+                            
+                            <strong>静力学的つり合い：</strong><br>
+                            \(T_A + T_B = T_1 + T_2\)より：
+                            $$T_A = \frac{cG_2(T_1 + T_2) + bG_1 T_1}{(a+c)G_2 + bG_1}$$
+                        </div>
+                        <span class="answer-highlight">答え: \(T_A = \frac{cG_2(T_1 + T_2) + bG_1 T_1}{(a+c)G_2 + bG_1}\)、\(T_B = \frac{aG_2(T_1 + T_2) + bG_1 T_2}{(a+c)G_2 + bG_1}\)</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>不静定ねじり問題では、静力学的つり合いに加えて変形適合条件が重要です。異なる材質の複合軸では、各区間のせん断弾性係数の違いが反力分布に大きく影響します。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>不静定次数の正確な把握</li>
+                            <li>適合条件の設定</li>
+                            <li>複合材質の影響理解</li>
+                            <li>ねじり角の計算方法</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>極断面二次モーメントはねじり抵抗の指標</li>
+                            <li>両端固定では全ねじり角が0</li>
+                            <li>材質の違いは弾性係数の比で考慮</li>
+                            <li>内部トルクの符号設定に注意</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

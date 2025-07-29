@@ -1,9 +1,362 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2021</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2021年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $...$ と \( ... \) を追加
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+                    2021（R3）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2021年度の流体力学入試では、大問【1】で二次元非圧縮性流れにおける流跡線・流線・抗力係数・レイノルズ数の関係に関する問題、大問【2】で定常流中の物体に関する問題（ナビエ・ストークス方程式の無次元化、レイノルズ数、せん断応力、風洞実験の相似則）が出題されました。基礎理論から実験工学まで幅広い内容でした。</p>
+                <a href="../../pdfs/question/2021_R3_april/fluid_2021_R3_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/answer/2021_R3_april/fluid_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】二次元非圧縮性流れの問題</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">二次元非圧縮性流れにおいて、時間の経過とともに速度場が変化する非定常流れが与えられている。以下の問いに答えよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この問題では、流跡線（pathline）と流線（streamline）の違い、さらに抗力係数とレイノルズ数の関係を理解することが重要です。特に非定常流れでは流線と流跡線が異なることに注意しましょう。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) インクの軌跡について</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>問題:</strong> 注射針からインクが流れるとき、インクが描く軌跡は何と呼ばれる？ 0 ≤ t ≤ 4の軌跡を図に描いてね。<br><br>
+                            <strong>考え方:</strong><br>
+                            - インクの軌跡は「流跡線（りゅうせきせん）」って呼ぶよ。固定された注射針から出るインクの動きを追ったものだね。<br>
+                            - 軌跡を描くには、各区間の速度を積分すればOK。注射針の位置は図に書いてないけど、とりあえず原点(0,0)からスタートするとしよう。<br><br>
+                            <strong>計算の流れ:</strong><br>
+                            1. **0 ≤ t < 1**: 速度(2,2) → 1秒後は(2,2)に移動。<br>
+                            2. **1 ≤ t < 3**: 速度(0,1) → x=2でyだけ増加。3秒後は(2,4)。<br>
+                            3. **3 ≤ t ≤ 4**: 速度(-1,0) → y=4でxだけ減少。4秒後は(1,4)。
+                        </div>
+                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(0,0)→(2,2)→(2,4)→(1,4)の折れ線</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 小球の軌跡について</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>問題:</strong> 小球が流れに乗って動くときの軌跡は？ 0 ≤ t ≤ 4の軌跡を描いて。<br><br>
+                            <strong>考え方:</strong><br>
+                            - これも「流跡線」だよ！ (1)と同じ計算で、初期位置を(0,0)とすると全く同じ軌跡になるね。
+                        </div>
+                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(1)と同じ折れ線</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 抗力係数とレイノルズ数の関係</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>問題:</strong> 小球の抗力係数$C_D$とレイノルズ数Reの正しい関係は？<br><br>
+                            <strong>ヒント:</strong><br>
+                            - 小球の場合、Reが小さいと$C_D$は大きく、Reが大きくなるほど$C_D$は減っていくよ。<br>
+                            - 選択肢は見えないけど、多分「Reが増えると$C_D$が減るグラフ」が正解。
+                        </div>
+                        <span class="answer-highlight">答え: 正しい関係は**b)（減少する曲線）**</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 流線の式</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>問題:</strong> t > 4のときの流線をy = f(x)で表して。<br><br>
+                            <strong>解き方:</strong><br>
+                            - 流線は「瞬間的な流れの線」で、速度場$(u,v) = (k/x, -k y)$から計算。<br>
+                            - 流線の式は$\frac{dy}{dx} = \frac{v}{u} = -x y$→ 変数分離で解くと…<br><br>
+                            $$\frac{dy}{y} = -x dx$$
+                            $$\ln|y| = -\frac{x^2}{2} + C$$
+                            $$y = A e^{-x^2/2} \quad (A\text{は定数})$$
+                        </div>
+                        <span class="answer-highlight">答え: $y = A e^{-x^2 / 2}$（Aは定数）</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>流跡線は粒子の軌跡、流線は瞬間的な流れの方向を表します。非定常流れでは両者が異なることを理解し、抗力係数とレイノルズ数の関係も押さえておきましょう。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>流跡線と流線の概念の違いを理解する</li>
+                            <li>非定常流れでは流跡線≠流線</li>
+                            <li>抗力係数の物理的意味を把握する</li>
+                            <li>レイノルズ数と流れの特性の関係</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>時間変化する流れでは軌跡を追って計算</li>
+                            <li>流線方程式は変数分離で解く</li>
+                            <li>レイノルズ数の物理的意味を理解する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】定常流中の物体に関する問題</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">x軸の正の方向に向かう流速Uの定常流中に代表長さDの物体が静止しているとし、以下の問いに答えよ。ただし流れは二次元非圧縮粘性流れとし、流体の密度はρ、動粘性係数はν、圧力はp、x方向の速度はu、y方向の速度はvとする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この問題では、ナビエ・ストークス方程式の記述から無次元化、レイノルズ数、せん断応力の計算、そして相似則までの幅広い理論を扱います。各概念の関係性を理解しながら解きましょう。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) x方向のナビエ・ストークス方程式を書け</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            二次元非圧縮粘性流れのナビエ・ストークス方程式（x成分）を記述します。定常流のため時間微分項はゼロです。
+                            $$\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+                            （μは粘度、ν = μ/ρ、定常のため∂u/∂t = 0）
+                        </div>
+                        <span class="answer-highlight">答え: $\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) ナビエ・ストークス方程式をUとDを使って無次元化せよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            無次元化のスケールを設定します：長さD、速度U、圧力ρU²（動圧を基準）<br>
+                            無次元変数を定義：
+                            $$x^* = \frac{x}{D}, \quad y^* = \frac{y}{D}, \quad u^* = \frac{u}{U}, \quad v^* = \frac{v}{U}, \quad p^* = \frac{p - p_\infty}{\rho U^2}$$
+                            
+                            元の方程式に無次元変数を代入し、$\frac{\rho U^2}{D}$で割ると：
+                            $$u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)$$
+                            
+                            ここで、レイノルズ数Re = UD/νが現れます。
+                        </div>
+                        <span class="answer-highlight">答え: $u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \nabla^{*2} u^*$、pの無次元化に用いた物理量：**ρU²**</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) レイノルズ数Reを設問中の記号を用いて示せ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            レイノルズ数は代表速度U、代表長さD、動粘性係数νで定義されます。
+                            $$\text{Re} = \frac{U D}{\nu}$$
+                        </div>
+                        <span class="answer-highlight">答え: $\text{Re} = \frac{U D}{\nu}$</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) yが一定の断面に働く粘性せん断応力τ_yを示せ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            y = const の断面における粘性せん断応力は、非圧縮ニュートン流体では：
+                            $$\tau_y = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$$
+                            （τ_yはτ_{yx}を意味し、y一定面でのx方向せん断応力）
+                        </div>
+                        <span class="answer-highlight">答え: $\tau_y = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$</span>
+                        
+                        <!-- 小問(5) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) τ_yをReと無次元化された物理量を用いて書き換えよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            τ_yを無次元化します。せん断応力の無次元化にはスケールμU/Dを使用：
+                            $$\tau_y^* = \frac{\tau_y}{\mu U / D}$$
+                            
+                            (4)の式を無次元変数で表すと：
+                            $$\tau_y = \frac{\mu U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
+                            
+                            したがって無次元せん断応力は：
+                            $$\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$$
+                        </div>
+                        <span class="answer-highlight">答え: $\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$</span>
+                        
+                        <!-- 小問(6) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(6) 模型の流速と抗力を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            実車の1/10サイズの模型で風洞実験を行う場合の相似則について考えます。<br><br>
+                            
+                            <strong>相似則のポイント：</strong><br>
+                            - レイノルズ数を同じにすることがキーワード<br>
+                            - 模型の長さ1/10 → 流速は10倍にすればOK（Re = (流速)×(長さ) だから）<br><br>
+                            
+                            **詳細計算：**<br>
+                            レイノルズ数の相似条件：$Re_{model} = Re_{actual}$<br>
+                            $$\frac{\rho V_{model} L_{model}}{\mu} = \frac{\rho V_{actual} L_{actual}}{\mu}$$
+                            
+                            $L_{model} = L_{actual}/10$なので：<br>
+                            $$V_{model} \cdot \frac{L_{actual}}{10} = V_{actual} \cdot L_{actual}$$
+                            $$V_{model} = 10 V_{actual} = 10V$$
+                            
+                            抗力の計算：<br>
+                            $$F_D = \frac{1}{2}\rho V^2 C_D A$$
+                            
+                            - 模型の面積：$A_{model} = A_{actual}/100$<br>
+                            - 模型の流速²：$V_{model}^2 = (10V)^2 = 100V^2$<br>
+                            - 模型の抗力：$F_{D,model} = \frac{1}{2}\rho (100V^2) C_D (A_{actual}/100) = F_{D,actual}$
+                        </div>
+                        <span class="answer-highlight">答え: 風洞の流速は**10V**、抗力の倍率は**1倍**</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>この問題では、ナビエ・ストークス方程式の無次元化からレイノルズ数の物理的意味、せん断応力の計算、相似則の応用まで、流体力学の基礎理論が体系的に問われました。特に無次元化は流体力学の解析において非常に重要な手法です。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ナビエ・ストークス方程式の物理的意味を理解する</li>
+                            <li>無次元化の手法とレイノルズ数の導出</li>
+                            <li>せん断応力の定義と計算方法</li>
+                            <li>相似則による模型実験の理論</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>無次元化は流体力学解析の基本技法</li>
+                            <li>レイノルズ数は慣性力と粘性力の比</li>
+                            <li>応力テンソルの成分と物理的意味</li>
+                            <li>相似則による実験スケールの決定法</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>

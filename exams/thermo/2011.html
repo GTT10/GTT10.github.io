@@ -1,9 +1,585 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>数学 2011</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2011年度 熱力学 - 岡山大学大学院入試過去問ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2011（H23）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>理想気体サイクル（オットーサイクル）、カルノーサイクルと伝熱損失、蒸気表を用いた計算の3つの大問から構成されています。基礎的なサイクル理論から実用的な内燃機関の効率向上策、蒸気の状態判定まで総合的に扱い、工業熱力学の理論と実践を幅広く問います。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">オットーサイクル</span>
+                    <span class="topic-tag">カルノーサイクル</span>
+                    <span class="topic-tag">伝熱損失</span>
+                    <span class="topic-tag">蒸気表計算</span>
+                    <span class="topic-tag">エンジン効率向上</span>
+                </div>
+                
+                <a href="../../pdfs/question/2011_H23_april/thermo_2011_H23_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2011年度)</a>
+                <a href="../../pdfs/answer/2011_H23_april/thermo_2011_H23_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2011年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: 理想気体サイクル（オットーサイクル）</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <div class="section-title">問題文再現</div>
+                        <p class="problem-statement">質量$m$の理想気体が、断熱圧縮（状態1→2）、定容加熱（状態2→3）、断熱膨張（状態3→4）、定容冷却（状態4→1）のサイクルを行う。圧縮比$\varepsilon = V_1/V_2$とする。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) このサイクルの名称を答えよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>各過程の組み合わせから、該当するサイクル名を特定します。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{\text{オットーサイクル}}$$
+                        </div>
+                        <p><strong>理由：</strong>1→2: 断熱圧縮、2→3: 定容加熱、3→4: 断熱膨張、4→1: 定容冷却の組み合わせは、ガソリンエンジンの基本理論サイクルであるオットーサイクルに一致します。</p>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 熱効率を導出せよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱効率$\eta = 1 - \frac{\text{放出熱量}}{\text{吸収熱量}}$を用い、断熱関係式で温度を整理します。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>吸熱量$Q_{\text{in}}$（2→3: 定容加熱）：</strong>
+                            <div class="math-block">
+                                $$Q_{\text{in}} = m c_v (T_3 - T_2)$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>放熱量$Q_{\text{out}}$（4→1: 定容冷却）：</strong>
+                            <div class="math-block">
+                                $$Q_{\text{out}} = m c_v (T_4 - T_1)$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>断熱関係式の適用：</strong>
+                            <ul>
+                                <li>断熱過程1→2: $T_2 = T_1 \varepsilon^{k-1}$</li>
+                                <li>断熱過程3→4: $T_3 = T_4 \varepsilon^{k-1}$</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>温度比の整理：</strong>
+                            <p>$V_4 = V_1$、$V_3 = V_2$より、$T_4/T_1 = T_3/T_2$</p>
+                            <div class="math-block">
+                                $$\frac{T_4 - T_1}{T_3 - T_2} = \frac{T_1(T_4/T_1 - 1)}{T_2(T_3/T_2 - 1)} = \frac{T_1}{T_2} = \frac{1}{\varepsilon^{k-1}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\eta = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}} = 1 - \frac{1}{\varepsilon^{k-1}}$$
+                                $$\boxed{\eta = 1 - \frac{1}{\varepsilon^{k-1}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 実際の4ストローク機関での熱効率向上策を述べよ。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p><strong>主な向上策：</strong></p>
+                        <ol>
+                            <li><strong>圧縮比$\varepsilon$の向上</strong>
+                                <ul>
+                                    <li>効率は$\varepsilon$の増加で向上</li>
+                                    <li>制約：ノッキング防止のため燃料オクタン価を調整</li>
+                                </ul>
+                            </li>
+                            <li><strong>比熱比$k$の増加</strong>
+                                <ul>
+                                    <li>燃焼ガス組成の最適化</li>
+                                    <li>排ガス再循環率の調整</li>
+                                </ul>
+                            </li>
+                            <li><strong>ポンピング損失の低減</strong>
+                                <ul>
+                                    <li>可変バルブ機構でバルブタイミング最適化</li>
+                                    <li>過給器（ターボチャージャー）の導入</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>オットーサイクル
+                        </div>
+                        <ul>
+                            <li>ガソリンエンジンの理論サイクル</li>
+                            <li>効率は圧縮比と比熱比で決まる</li>
+                            <li>断熱過程：$TV^{k-1} = \text{const}$</li>
+                            <li>定容過程：$P/T = \text{const}$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>効率向上のポイント
+                        </div>
+                        <ul>
+                            <li>圧縮比向上が最も効果的</li>
+                            <li>ノッキング限界が制約</li>
+                            <li>実機では機械損失も考慮</li>
+                            <li>ポンピング損失の影響大</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点
+                        </div>
+                        <ul>
+                            <li>理論効率と実際の効率は異なる</li>
+                            <li>断熱関係式の正確な適用</li>
+                            <li>温度比の整理に注意</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: カルノーサイクルと伝熱損失</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <div class="section-title">問題文再現</div>
+                        <div class="problem-statement">高温熱源$T_H$、低温熱源$T_L$間のカルノーサイクル。作業媒質の最高温度$T_I$で、熱供給量$Q = K(T_H - T_I)$の伝熱損失がある。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) カルノーサイクルの熱効率を求めよ。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <div class="math-block">
+                            $$\boxed{\eta_{\text{carnot}} = 1 - \frac{T_L}{T_H}}$$
+                        </div>
+                        <p><strong>理由：</strong>カルノーサイクルは可逆サイクルであり、効率は高低温熱源の温度のみで決まります。</p>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 伝熱損失がある場合の熱効率と有効エネルギーを求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>作業媒質の最高温度$T_I$でカルノー効率を適用し、$Q = K(T_H - T_I)$の関係を使います。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>熱効率$\eta$：</strong>
+                            <p>カルノー効率を$T_I$で適用：</p>
+                            <div class="math-block">
+                                $$\eta = 1 - \frac{T_L}{T_I}$$
+                            </div>
+                            <p>$Q = K(T_H - T_I)$より$T_I = T_H - \frac{Q}{K}$を代入：</p>
+                            <div class="math-block">
+                                $$\eta = 1 - \frac{T_L}{T_H - \frac{Q}{K}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>有効エネルギー$W$（仕事出力）：</strong>
+                            <div class="math-block">
+                                $$W = \eta Q = Q \left(1 - \frac{T_L}{T_H - \frac{Q}{K}}\right)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <ul>
+                                <li>熱効率：$\boxed{\eta = 1 - \frac{T_L}{T_H - \frac{Q}{K}}}$</li>
+                                <li>有効エネルギー：$\boxed{W = Q \left(1 - \frac{T_L}{T_H - \frac{Q}{K}}\right)}$</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) エントロピー生成が最大となる$Q$を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>不可逆性によるエントロピー生成を最大化する条件を求めます。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>エントロピー生成$\sigma$：</strong>
+                            <ul>
+                                <li>高温熱源のエントロピー減少：$-\frac{Q}{T_H}$</li>
+                                <li>低温熱源のエントロピー増加：$\frac{Q-W}{T_L}$</li>
+                            </ul>
+                            <div class="math-block">
+                                $$\sigma = \frac{Q-W}{T_L} - \frac{Q}{T_H}$$
+                            </div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>最適化条件：</strong>
+                            <p>エントロピー最大は「仕事出力$W$が最小」と等価で、$T_I$が$T_H$と$T_L$の幾何平均となる点：</p>
+                            <div class="math-block">
+                                $$T_I = \sqrt{T_H T_L}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <p>$T_I = T_H - \frac{Q}{K}$より：</p>
+                            <div class="math-block">
+                                $$\boxed{Q = K(T_H - \sqrt{T_H T_L})}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>カルノーサイクル
+                        </div>
+                        <ul>
+                            <li>理想的な可逆サイクル</li>
+                            <li>効率は温度比のみで決まる</li>
+                            <li>実際には不可逆損失が存在</li>
+                            <li>エントロピー生成の概念重要</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>伝熱損失の影響
+                        </div>
+                        <ul>
+                            <li>作業媒質温度$T_I < T_H$</li>
+                            <li>効率低下の主因</li>
+                            <li>熱交換器設計で重要</li>
+                            <li>最適化問題として扱える</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要な関係式
+                        </div>
+                        <ul>
+                            <li>カルノー効率：$\eta = 1 - T_L/T_H$</li>
+                            <li>伝熱関係：$Q = K(T_H - T_I)$</li>
+                            <li>エントロピー生成：$\sigma > 0$</li>
+                            <li>最適温度：$T_I = \sqrt{T_H T_L}$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】: 蒸気表を用いた計算</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <div class="section-title">問題文再現</div>
+                        <div class="problem-statement">蒸気表を用いて各種水蒸気の状態量と状態を求める問題。飽和状態、湿り蒸気、過熱蒸気の判定と計算を行う。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 0.5MPaでの沸騰温度を求めよ。</p>
+                    </div>
+                    
+                    <div class="final-answer">
+                        <div class="section-title">
+                            <i class="fas fa-check-circle mr-2"></i>解答
+                        </div>
+                        <p>蒸気表より：</p>
+                        <div class="math-block">
+                            $$\boxed{151.8°\text{C}}$$
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 0.5MPaでの蒸発潜熱を求めよ。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>蒸気表より：</strong>
+                            <ul>
+                                <li>飽和液エンタルピー：$h_f = 640.1$ kJ/kg</li>
+                                <li>飽和蒸気エンタルピー：$h_g = 2748.1$ kJ/kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$h_{fg} = h_g - h_f = 2748.1 - 640.1 = \boxed{2108.0 \text{ kJ/kg}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 0.5MPa、乾き度0.4の湿り蒸気のエンタルピーを求めよ。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>湿り蒸気のエンタルピー公式：</strong>
+                            <div class="math-block">
+                                $$h = h_f + x \cdot h_{fg}$$
+                            </div>
+                            <p>ここで、$x = 0.4$（乾き度）</p>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$h = 640.1 + 0.4 \times 2108.0 = 640.1 + 843.2 = \boxed{1483.3 \text{ kJ/kg}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 1.0MPa、200℃の蒸気の状態を判定せよ。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>判定過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>飽和温度との比較：</strong>
+                            <ul>
+                                <li>1.0MPaの飽和温度：179.9℃</li>
+                                <li>蒸気温度：200℃</li>
+                                <li>200℃ > 179.9℃ → 過熱蒸気</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\text{過熱蒸気}}$$
+                            </div>
+                            <p><strong>理由：</strong>飽和温度179.9℃より高いため、液体を含まない過熱状態です。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) 1.0MPa、100℃の圧縮水を300℃過熱蒸気にする必要熱量を求めよ。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>計算過程
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>各状態のエンタルピー：</strong>
+                            <ul>
+                                <li>圧縮水（100℃, 1.0MPa）：$h_1 \approx 419.1$ kJ/kg（飽和液近似）</li>
+                                <li>過熱蒸気（300℃, 1.0MPa）：$h_2 = 3051.2$ kJ/kg（過熱蒸気表より）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$Q = h_2 - h_1 = 3051.2 - 419.1 = \boxed{2632.1 \text{ kJ/kg}}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>蒸気表の読み方
+                        </div>
+                        <ul>
+                            <li>飽和温度・圧力は一対一対応</li>
+                            <li>$h_f$：飽和液エンタルピー</li>
+                            <li>$h_g$：飽和蒸気エンタルピー</li>
+                            <li>$h_{fg} = h_g - h_f$：蒸発潜熱</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>状態判定のポイント
+                        </div>
+                        <ul>
+                            <li>温度と飽和温度の比較</li>
+                            <li>湿り蒸気：$h = h_f + x h_{fg}$</li>
+                            <li>過熱蒸気：飽和温度より高温</li>
+                            <li>圧縮液：飽和液近似可能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要な関係式
+                        </div>
+                        <ul>
+                            <li>湿り蒸気：$h = h_f + x h_{fg}$</li>
+                            <li>蒸発潜熱：$h_{fg} = h_g - h_f$</li>
+                            <li>乾き度：$x = \frac{h - h_f}{h_{fg}}$</li>
+                            <li>必要熱量：$Q = \Delta h$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

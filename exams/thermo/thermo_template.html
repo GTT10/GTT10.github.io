@@ -1,27 +1,68 @@
 <!DOCTYPE html>
 <!-- 
-    数学試験ページテンプレート
-    使用方法:
-    1. {{YEAR}} を実際の年度（例：2023）に置換
-    2. {{R_YEAR}} を令和年度（例：R5）に置換
-    3. {{SUBJECT_OVERVIEW}} を問題概要説明に置換
-    4. {{PROBLEM_X_Y}} を問題文に置換
-    5. {{HINT_X_Y}} をヒントに置換
-    6. {{SOLUTION_X_Y}} を解答に置換
-    7. {{ANSWER_X_Y}} を最終答えに置換
-    8. {{TIPS_X}} を各問題のポイント・チップスに置換
+    熱力学試験ページテンプレート（改良版）
+    
+    🎯 テンプレート使用方法:
+    
+    【基本情報】
+    {{YEAR}} - 年度（例：2024）
+    {{R_YEAR}} - 令和年度（例：R6）
+    {{SUBJECT_OVERVIEW}} - 問題概要説明
+    {{TOPIC_1}}, {{TOPIC_2}} - 出題トピック（例：カルノーサイクル、エントロピー）
+    
+    【大問1関連】
+    {{MAIN_TOPIC_1}} - 大問1のメインテーマ（例：: 理想気体サイクル）
+    {{PROBLEM_1_MAIN}} - 大問1の問題文全体
+    {{PROBLEM_1_1}}, {{PROBLEM_1_2}}, {{PROBLEM_1_3}} - 各小問の問題文
+    
+    【解法構造（各小問共通）】
+    {{STRATEGY_1_1}} - 解答方針・アプローチ
+    {{CONCEPT_1_1}} - 考え方・理論背景
+    {{SOLUTION_1_1_STEP1}}, {{SOLUTION_1_1_STEP2}} - 解答手順
+    {{FORMULA_1_1_1}}, {{FORMULA_1_1_2}} - LaTeX数式
+    {{BOXED_ANSWER_1_1}} - boxed形式の最終解答
+    {{POINT_1_1}} - 重要ポイント
+    
+    【図表・線図】
+    {{DIAGRAM_TITLE_1_1}} - 図表タイトル
+    {{ASCII_DIAGRAM_1_1}} - ASCII形式の線図・図表
+    
+    【大問2関連】
+    {{MAIN_TOPIC_2}} - 大問2のメインテーマ
+    {{PROBLEM_2_MAIN}} - 大問2の問題文全体
+    {{PROBLEM_2_1}}, {{PROBLEM_2_2}} - 各小問の問題文
+    {{STRATEGY_2_1}}, {{STRATEGY_2_2}} - 各小問の方針
+    {{SOLUTION_2_1}}, {{SOLUTION_2_2}} - 解答内容
+    {{FORMULA_2_1}}, {{FORMULA_2_2}} - LaTeX数式
+    {{BOXED_ANSWER_2_1}}, {{BOXED_ANSWER_2_2}} - 最終解答
+    
+    【サイドバー（右側）】
+    {{FORMULA_KEY_1}}, {{FORMULA_KEY_2}}, {{FORMULA_KEY_3}} - 重要公式
+    {{SOLVING_POINT_1}}, {{SOLVING_POINT_2}}, {{SOLVING_POINT_3}} - 解法ポイント
+    {{CAUTION_POINT_1}}, {{CAUTION_POINT_2}} - 注意点
+    {{THERMO_TIP_1}}, {{THERMO_TIP_2}} - 熱力学のチップス
+    
+    【まとめ】
+    {{SUMMARY_1}}, {{SUMMARY_2}} - 各大問のまとめ
+    
+    ✨ 特徴:
+    - 分析結果に基づく構造（方針→考え方→途中式→解答→ポイント）
+    - boxed形式の解答表示
+    - ASCII図形対応
+    - トピックタグ表示
+    - 充実したサイドバー情報
 -->
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数学 {{YEAR}}年度 解説 - 大学院入試過去問ポータル</title>
+    <title>熱力学 {{YEAR}}年度 解説 - 大学院入試過去問ポータル</title>
     <!-- Google Fontsの読み込み（共通） -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesomeの読み込み（アイコン用） -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <!-- 外部CSSファイルを読み込む（パス修正） -->
-    <link rel="stylesheet" href="../../css/math.css">
+    <link rel="stylesheet" href="../../css/thermo.css">
     <!-- MathJaxスクリプト -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -44,11 +85,11 @@
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
-                    <i class="fas fa-infinity mr-3 text-blue-600"></i> <!-- 数学なので無限大のアイコン -->
-{{YEAR}}（{{R_YEAR}}）年　数学
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i> <!-- 熱力学なので温度計のアイコン -->
+{{YEAR}}（{{R_YEAR}}）年　熱力学
                 </h1>
                 <div class="nav-buttons">
-                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
                     <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
                 </div>
             </div>
@@ -59,7 +100,15 @@
             <div class="problem-overview-section">
                 <h2>問題概要</h2>
                 <p>{{SUBJECT_OVERVIEW}}</p>
-                <a href="../../pdfs/question/{{YEAR}}_{{R_YEAR}}_april/math_{{YEAR}}_{{R_YEAR}}_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード ({{YEAR}}年度)</a>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">{{TOPIC_1}}</span>
+                    <span class="topic-tag">{{TOPIC_2}}</span>
+                </div>
+                
+                <a href="../../pdfs/question/{{YEAR}}_{{R_YEAR}}_april/thermo_{{YEAR}}_{{R_YEAR}}_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード ({{YEAR}}年度)</a>
+                <a href="../../pdfs/answer/{{YEAR}}_{{R_YEAR}}_april/thermo_{{YEAR}}_{{R_YEAR}}_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード ({{YEAR}}年度)</a>
             </div>
             
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
@@ -68,68 +117,141 @@
             <div class="exam-grid">
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
-                    <div class="main-section-title">大問【1】</div>
+                    <div class="main-section-title">大問【1】{{MAIN_TOPIC_1}}</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">{{PROBLEM_1_MAIN}}</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) {{PROBLEM_1_1}}</p>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                            <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
-                        <p>{{HINT_1_1}}</p>
+                        <p>{{STRATEGY_1_1}}</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-brain mr-2"></i>考え方
+                        </div>
+                        <p>{{CONCEPT_1_1}}</p>
                     </div>
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. {{SOLUTION_1_1_STEP1}}
+                            <strong>手順1:</strong> {{SOLUTION_1_1_STEP1}}
                             <div class="math-block">
-                                $${{FORMULA}}$$
+                                $${{FORMULA_1_1_1}}$$
                             </div>
                         </div>
                         <div class="solution-step">
-                            2. {{SOLUTION_1_1_STEP2}}
+                            <strong>手順2:</strong> {{SOLUTION_1_1_STEP2}}
                             <div class="math-block">
-                                $${{FORMULA}}$$
+                                $${{FORMULA_1_1_2}}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: {{ANSWER_1_1}}</span>
-                        <!-- 必要であればアコーディオンを追加 -->
-                        <div class="accordion" id="alt-solution-q1-d1">
-                            <div class="accordion-header" onclick="toggleAccordion('alt-solution-q1-d1')">
-                                <span>別解（別の解法）</span>
-                                <span class="accordion-arrow">▶</span>
+                        
+                        <!-- ASCII図や線図を描く場合 -->
+                        <div class="diagram-section">
+                            <h4>{{DIAGRAM_TITLE_1_1}}</h4>
+                            <pre class="ascii-diagram">{{ASCII_DIAGRAM_1_1}}</pre>
+                        </div>
+                        
+                        <!-- boxed形式の最終解答 -->
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
-                            <div class="accordion-content">
-                                <p>{{ALT_SOLUTION_1_1}}</p>
+                            <div class="math-block">
+                                $$\boxed{{{BOXED_ANSWER_1_1}}}$$
                             </div>
+                        </div>
+                        
+                        <!-- ポイント・チップス -->
+                        <div class="point-box">
+                            <div class="section-title">
+                                <i class="fas fa-star mr-2"></i>ポイント
+                            </div>
+                            <p>{{POINT_1_1}}</p>
                         </div>
                     </div>
+                    <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) {{PROBLEM_1_2}}</p>
                     </div>
-                    <div>
+                    
+                    <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                            <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
-                        <p>{{HINT_1_2}}</p>
+                        <p>{{STRATEGY_1_2}}</p>
                     </div>
+                    
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. {{SOLUTION_1_2_STEP1}}
+                            {{SOLUTION_1_2}}
                             <div class="math-block">
-                                $${{FORMULA}}$$
+                                $${{FORMULA_1_2}}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: {{ANSWER_1_2}}</span>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{{{BOXED_ANSWER_1_2}}}$$
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- 小問(3)以降のテンプレート -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) {{PROBLEM_1_3}}</p>
+                    </div>
+                    
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>{{STRATEGY_1_3}}</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_3}}
+                            <div class="math-block">
+                                $${{FORMULA_1_3}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{{{BOXED_ANSWER_1_3}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
                         </div>
                         <p>{{SUMMARY_1}}</p>
                     </div>
@@ -139,18 +261,43 @@
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
                         </div>
                         <ul>
-                            <li>{{TIPS_1_POINT1}}</li>
+                            <li>{{FORMULA_KEY_1}}</li>
+                            <li>{{FORMULA_KEY_2}}</li>
+                            <li>{{FORMULA_KEY_3}}</li>
                         </ul>
                     </div>
+                    
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
                         </div>
                         <ul>
-                            <li>{{TIPS_1_TIP1}}</li>
+                            <li>{{SOLVING_POINT_1}}</li>
+                            <li>{{SOLVING_POINT_2}}</li>
+                            <li>{{SOLVING_POINT_3}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>{{CAUTION_POINT_1}}</li>
+                            <li>{{CAUTION_POINT_2}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>熱力学のチップス
+                        </div>
+                        <ul>
+                            <li>{{THERMO_TIP_1}}</li>
+                            <li>{{THERMO_TIP_2}}</li>
                         </ul>
                     </div>
                 </div>
@@ -163,39 +310,77 @@
             <div class="exam-grid">
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
-                    <div class="main-section-title">大問【2】</div>
+                    <div class="main-section-title">大問【2】{{MAIN_TOPIC_2}}</div>
+                    
+                    <!-- 問題文再現 -->
                     <div class="example-box">
+                        
                         <div class="problem-statement">{{PROBLEM_2_MAIN}}</div>
                     </div>
+                    
+                    <!-- 小問(1) -->
                     <div class="example-box">
-                        <div class="section-title">(1) {{PROBLEM_2_1}}</div>
-                        <div class="point-box">
-                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
-                            <p>{{HINT_2_1}}</p>
-                        </div>
+                        <p class="problem-statement">(1) {{PROBLEM_2_1}}</p>
                     </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>{{STRATEGY_2_1}}</p>
+                    </div>
+                
                     <div>
-                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
                         <div class="solution-step">
                             {{SOLUTION_2_1}}
                             <div class="math-block">
-                                $${{FORMULA}}$$
+                                $${{FORMULA_2_1}}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: {{ANSWER_2_1}}</span>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{{{BOXED_ANSWER_2_1}}}$$
+                            </div>
+                        </div>
                     </div>
+                    <!-- 小問(2) -->
                     <div class="example-box">
-                        <div class="section-title">(2) {{PROBLEM_2_2}}</div>
+                        <p class="problem-statement">(2) {{PROBLEM_2_2}}</p>
                     </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>{{STRATEGY_2_2}}</p>
+                    </div>
+                    
                     <div>
-                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
                         <div class="solution-step">
                             {{SOLUTION_2_2}}
                             <div class="math-block">
-                                $${{FORMULA}}$$
+                                $${{FORMULA_2_2}}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: {{ANSWER_2_2}}</span>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{{{BOXED_ANSWER_2_2}}}$$
+                            </div>
+                        </div>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
@@ -216,7 +401,7 @@
                     </div>
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                            <i class="fas fa-exclamation-circle mr-2"></i>熱力学のチップス
                         </div>
                         <ul>
                             <li>{{TIPS_2_TIP1}}</li>
@@ -264,7 +449,7 @@
                     </div>
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                            <i class="fas fa-exclamation-circle mr-2"></i>熱力学のチップス
                         </div>
                         <ul>
                             <li>{{TIPS_3_TIP1}}</li>
@@ -333,7 +518,7 @@
                     </div>
                     <div class="point-box">
                         <div class="section-title">
-                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                            <i class="fas fa-exclamation-circle mr-2"></i>熱力学のチップス
                         </div>
                         <ul>
                             <li>{{TIPS_4_TIP1}}</li>
