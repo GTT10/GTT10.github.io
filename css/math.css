@@ -1,0 +1,554 @@
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #3f51b5;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #5c6bc0;
+    letter-spacing: 0.05em;
+}
+
+p.description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+    font-weight: normal;
+    color: #777;
+}
+
+.tab.active {
+    border-bottom: 3px solid #3f51b5;
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+.tab:hover {
+    background: #e0e6f8;
+    color: #3f51b5;
+}
+
+/* Content Containers (for index.html tabs) */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Card Grid (for index.html) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+    padding: 10px;
+}
+
+.card {
+    background: #fff;
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: #e6eafc;
+    color: #2a3b90;
+}
+
+.card span {
+    display: block;
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+/* Header Navigation (for index.html and exam pages) */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.header-nav h1 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    text-align: left; /* ヘッダー内のh1は左寄せに */
+}
+.about-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #5c6bc0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.about-link:hover {
+    background-color: #3f51b5;
+}
+
+/* Navigation buttons container */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-buttons .about-link {
+    margin: 0;
+}
+
+/* ================================================= */
+/* ここから解説ページ (exam pages) 用のスタイル */
+/* ================================================= */
+
+.page-wrapper { /* 旧 .slide-container をより汎用的な名前に変更し、レスポンシブ対応 */
+    max-width: 1280px; /* 最大幅を設定 */
+    width: 100%; /* 幅を100%にしてレスポンシブ対応 */
+    margin: 20px auto; /* 中央寄せと上下の余白 */
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* 角丸を追加 */
+    overflow: hidden; /* 内部要素の回り込みを考慮 */
+}
+
+.header-decoration {
+    height: 8px;
+    width: 100%;
+    background-color: #2563eb; /* 青色 */
+}
+
+.page-content { /* 旧 .p-10 h-full に相当 */
+    padding: 2.5rem; /* 40px */
+    color: #334155; /* テキスト色 */
+}
+
+.exam-title { /* 旧 .slide-title に相当 */
+    color: #1e40af;
+    font-weight: 700;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* 問題概要セクションのスタイル */
+.problem-overview-section {
+    background-color: #f8faff; /* 非常に薄い青の背景 */
+    border: 1px solid #dbeafe; /* 薄い青のボーダー */
+    border-radius: 8px; /* 角丸 */
+    padding: 1.5rem; /* 内側の余白 */
+    margin-bottom: 2rem; /* 下の要素との余白 */
+}
+.problem-overview-section h2 {
+    font-size: 1.8rem;
+    color: #3f51b5;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e0e6f8;
+    padding-bottom: 0.5rem;
+}
+.problem-overview-section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #444;
+}
+.pdf-link {
+    display: inline-flex; /* アイコンとテキストを横並びにするため */
+    align-items: center; /* 垂直方向中央揃え */
+    background-color: #dc3545; /* 赤色 */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 0.5rem; /* PDFリンクと説明文の間の余白 */
+    transition: background-color 0.3s ease-in-out;
+}
+.pdf-link:hover {
+    background-color: #c82333;
+}
+.pdf-link i { /* アイコンの右側の余白 */
+    margin-right: 0.5rem;
+}
+
+
+/* グリッドレイアウト（問題とヒント/解答の分割） */
+.exam-grid { /* 旧 .grid grid-cols-5 gap-6 に相当 */
+    /* 修正点: 左右のコラム幅の比率を左4:右1に変更 */
+    display: grid;
+    grid-template-columns: 4fr 1fr; /* 左4:右1の比率に変更 */
+    gap: 1.5rem; /* 24px */
+}
+
+.exam-col-left { /* 旧 .col-span-3 に相当 */
+    /* 特にスタイルは不要だが、意味付けとしてクラスを残す */
+}
+
+.exam-col-right { /* 旧 .col-span-2 に相当 */
+    /* 特にスタイルは不要だが、意味付けとしてクラスを残す */
+}
+
+.main-section-title { /* 大問タイトルの強調背景色（薄い黄色系） */
+    background-color: #fef9c3;
+    color: #b45309;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.example-box {
+    background-color: #f1f5f9;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.375rem; /* Tailwindのrounded-mdに相当 */
+}
+
+.problem-statement {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.section-title { /* 考え方のヒント、途中式と解答などのタイトル */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.75rem;
+}
+
+/* アイコンと文字の間にスペースを追加 */
+.section-title i {
+    margin-right: 0.75rem; /* 12pxの右マージン */
+}
+
+.solution-step {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #334155;
+}
+
+.solution-step::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #3b82f6;
+    border-radius: 50%;
+}
+
+.point-box {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem; /* 下の余白を追加 */
+}
+.point-box ul { /* point-box内のリストのスタイル */
+    list-style: disc; /* デフォルトのdiscを明示 */
+    padding-left: 1.25rem; /* pl-5に相当 */
+    margin-top: 0.5rem; /* space-y-2に相当 */
+}
+.point-box li {
+    margin-bottom: 0.5rem; /* space-y-2に相当 */
+}
+
+
+.answer-highlight {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #dc2626;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* 途中式の青色箇条書き */
+.solution-list {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1.2rem;
+}
+.solution-list li {
+    color: #334155;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+.solution-list li::marker {
+    color: #2563eb;
+}
+
+/* 数式ブロックのスタイル */
+.math-block { /* 旧 .ml-4 に相当 */
+    margin-left: 1rem; /* 16px */
+    margin-top: 0.5rem; /* 8px */
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #334155;
+}
+
+/* アコーディオン用スタイル */
+.accordion {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    background: #f1f5f9;
+}
+.accordion-header {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #2563eb;
+    background: #e0e7ef;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+.accordion.open .accordion-content {
+    display: block;
+}
+.accordion-arrow {
+    transition: transform 0.2s;
+}
+.accordion.open .accordion-arrow {
+    transform: rotate(90deg);
+}
+
+/* 新しい区切り線のスタイル */
+.separator-line {
+    border: none;
+    border-top: 1px solid #e0e6f8; /* 薄い青灰色の線 */
+    margin: 2.5rem 0; /* 上下2.5remの余白 */
+}
+
+/* ページ下部のフッター */
+.site-footer { /* サイト全体のフッターとして定義 */
+    padding: 1rem;
+    background-color: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+    text-align: right;
+    font-size: 0.875rem;
+    color: #555;
+    margin-top: 40px; /* コンテンツとの間に十分な余白 */
+}
+
+/* ================================================= */
+/* レスポンシブ対応 (既存と新規を統合) */
+/* ================================================= */
+
+@media (max-width: 768px) { /* タブレット・スマホ向け */
+    body {
+        padding: 10px; /* 全体パディング調整 */
+    }
+    /* index.html のスタイル調整 */
+    .tabs {
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+    .tab {
+        flex: 1 1 50%;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.8rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+    .card span {
+        font-size: 1.1rem;
+    }
+
+    /* exam pages のスタイル調整 */
+    .header-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+    .header-nav h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 2rem; /* h1のサイズ調整 */
+        margin-bottom: 1rem;
+    }
+    .about-link {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .page-content {
+        padding: 1.5rem; /* スマホでのパディング調整 */
+    }
+    .exam-grid { /* グリッドレイアウトを縦積みに変更 */
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .exam-title {
+        font-size: 1.8rem;
+    }
+    .problem-statement {
+        font-size: 1.25rem;
+    }
+    .solution-step {
+        font-size: 1em;
+    }
+    .main-section-title {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .point-box {
+        margin-bottom: 1rem; /* スマホでの余白調整 */
+    }
+    .pdf-link, .back-to-index {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    .problem-overview-section h2 {
+        font-size: 1.5rem;
+    }
+    .problem-overview-section p {
+        font-size: 0.95rem;
+    }
+}
+
+/* 印刷時の改ページ制御 */
+@media print {
+    body {
+        background-color: white !important;
+        color: black !important;
+        padding: 0 !important; /* 印刷時はパディングをなくす */
+    }
+
+    .page-wrapper {
+        width: 100% !important;
+        min-height: auto !important;
+        box-shadow: none !important;
+        page-break-after: always; /* 各ページコンテナの後に改ページ */
+        margin: 0 !important; /* 印刷時のマージンをなくす */
+        border-radius: 0 !important; /* 印刷時は角丸をなくす */
+    }
+
+    .header-decoration {
+        display: none;
+    }
+
+    .site-footer { /* 印刷時のフッター */
+        position: static !important;
+        margin-top: 2rem;
+        page-break-before: avoid;
+        text-align: center; /* 印刷時は中央寄せ */
+        background-color: white !important; /* 背景色を白に */
+        border-top: none !important; /* ボーダーをなくす */
+        color: black !important; /* 文字色を黒に */
+    }
+
+    /* 要素の分割を防ぐ */
+    .example-box,
+    .point-box,
+    .solution-step,
+    .accordion,
+    .solution-list li,
+    .problem-overview-section { /* 問題概要も分割しない */
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* 見出しの前で改ページを避ける */
+    .exam-title,
+    .section-title,
+    .main-section-title,
+    .problem-overview-section h2 { /* 問題概要の見出しも */
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* 解法手順の各ステップを分割しない */
+    .solution-step {
+        orphans: 3; /* ページ下部に残る行数 */
+        widows: 3;  /* ページ上部に残る行数 */
+    }
+
+    /* 数式を含む要素の分割を防ぐ */
+    .math-block {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        font-size: 1.05rem; /* 印刷時のフォントサイズ */
+        line-height: 1.7;
+        color: #334155;
+    }
+
+    /* グリッドレイアウトの印刷対応 */
+    .exam-grid {
+        display: block !important; /* グリッドをブロック表示に */
+    }
+
+    .exam-col-left,
+    .exam-col-right {
+        width: 100% !important;
+        margin-bottom: 1rem; /* 縦積み時の余白 */
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
