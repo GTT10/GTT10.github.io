@@ -122,3 +122,21 @@ function toggleMobileMenu() {
         nav.classList.toggle('mobile-active');
     }
 }
+
+// FAQ アコーディオン機能
+function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = element.querySelector('.faq-icon');
+    
+    // アクティブ状態をトグル
+    element.classList.toggle('active');
+    answer.classList.toggle('show');
+    
+    // アイコンのテキストを変更
+    if (answer.classList.contains('show')) {
+        icon.textContent = '−';
+    } else {
+        icon.textContent = '+';
+    }
+}
