@@ -200,6 +200,200 @@ body {
     transform: translateY(-2px);
 }
 
+/* お知らせ・開発状況セクション */
+.notice {
+    padding: 4rem 0;
+    background-color: #FFF9E6;
+    border-top: 3px solid #F18F01;
+}
+
+.notice-content {
+    margin-top: 2rem;
+}
+
+.notice-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #F18F01;
+}
+
+.notice-box h3 {
+    color: #2E86AB;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.notice-text p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.notice-text ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: #555;
+}
+
+.notice-text li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.notice-text strong {
+    color: #2E86AB;
+}
+
+/* 開発状況テーブル */
+.progress-table-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.progress-table {
+    width: auto;
+    max-width: 400px;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 0.8rem;
+    margin: 0 auto;
+}
+
+.progress-table th {
+    background-color: #2E86AB;
+    color: white;
+    padding: 0.3rem 0.1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.7rem;
+    border: 1px solid #1a5d7a;
+    width: 35px;
+}
+
+.progress-table th:first-child {
+    background-color: #1a5d7a;
+    width: 45px;
+}
+
+.progress-table td {
+    padding: 0.2rem;
+    text-align: center;
+    border: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    width: 35px;
+    height: 28px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.progress-table td sup {
+    font-size: 0.6rem;
+    color: #666;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    line-height: 1;
+}
+
+.progress-table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.7rem;
+    width: 45px;
+    padding: 0.1rem 0.2rem;
+}
+
+.progress-table tbody tr:hover {
+    background-color: #f1f8ff;
+}
+
+.progress-table tbody tr:hover td:first-child {
+    background-color: #e3f2fd;
+}
+
+/* ステータス別スタイル（data属性ベース） */
+[data-status="a"] { color: #28a745; font-size: 1.2rem; }      /* 完成済み */
+[data-status="b"] { color: #ffc107; font-size: 1.2rem; }      /* 準完成済み */
+[data-status="c"] { color: #17a2b8; font-size: 1.2rem; }      /* 要確認 */
+[data-status="d"] { color: #fd7e14; font-size: 1.2rem; }      /* 作業中 */
+[data-status="e"] { color: #dc3545; font-size: 1.2rem; }      /* 未実装 */
+
+/* 凡例スタイル */
+.legend {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border-left: 4px solid #2E86AB;
+}
+
+.legend-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.status-icon {
+    margin-right: 0.4rem;
+    font-size: 1rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .progress-table {
+        font-size: 0.7rem;
+        max-width: 320px;
+    }
+    
+    .progress-table th {
+        padding: 0.2rem 0.05rem;
+        font-size: 0.6rem;
+        width: 30px;
+    }
+    
+    .progress-table th:first-child {
+        width: 38px;
+    }
+    
+    .progress-table td {
+        padding: 0.15rem;
+        font-size: 0.8rem;
+        width: 30px;
+        height: 25px;
+    }
+    
+    .progress-table td:first-child {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.15rem;
+        width: 38px;
+    }
+    
+    .legend-grid {
+        gap: 0.8rem;
+        justify-content: flex-start;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+}
+
 /* 利用案内セクション */
 .about {
     padding: 4rem 0;
@@ -229,6 +423,75 @@ body {
 .about-item p {
     color: #666;
     line-height: 1.6;
+}
+
+/* FAQ セクション */
+.faq {
+    padding: 4rem 0;
+    background-color: #F8F9FA;
+}
+
+.faq-content {
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #F8F9FA;
+}
+
+.faq-question h3 {
+    color: #2E86AB;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: #F18F01;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #FAFBFC;
+}
+
+.faq-answer.show {
+    padding: 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* フッター */
