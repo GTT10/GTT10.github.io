@@ -1,0 +1,327 @@
+### 大問1: 理想気体サイクル
+
+#### (1) p-V線図とT-S線図
+**方針**  
+サイクルは4過程で構成：
+1. 1→2: 断熱圧縮（可逆）
+2. 2→3: 等容加熱（体積一定）
+3. 3→4: 断熱膨張（可逆）
+4. 4→1: 等容冷却（体積一定）
+
+**p-V線図**:
+- 断熱過程: \( pV^\kappa = \text{一定} \) → 急峻な曲線
+- 等容過程: 垂直線（体積一定）
+- サイクル軌跡: 1→2（圧縮）, 2→3（加熱）, 3→4（膨張）, 4→1（冷却）
+```
+p ↑
+|　　　　 3
+|　　　　/ \
+|　　　2     4
+|　　 /       \
+|　　/         \
+|　1-------------→ V
++----------------
+```
+
+**T-S線図**:
+- 断熱過程: 等エントロピー → 垂直線
+- 等容過程: 傾き正の曲線（後述）
+- サイクル軌跡: 1→2（断熱圧縮）, 2→3（等容加熱）, 3→4（断熱膨張）, 4→1（等容冷却）
+```
+T ↑
+|　　　2-------3
+|　　　|       |
+|　　　|       |
+|　　　1-------4
++----------------→ S
+```
+
+**熱の出入り**:
+- 加熱: 2→3（等容加熱）
+- 放熱: 4→1（等容冷却）
+
+---
+
+#### (2) 状態2,3,4の温度（\( T_1 \) 使用）
+**方針**  
+- **1→2（断熱圧縮）**:  
+  \( T_1 V_1^{\kappa-1} = T_2 V_2^{\kappa-1} \)  
+  圧縮比 \( \varepsilon = V_1 / V_2 \) →  
+  \[
+  T_2 = T_1 \varepsilon^{\kappa-1}
+  \]
+
+- **2→3（等容変化）**:  
+  体積一定 \( V_2 = V_3 \), 圧力比 \( \xi = p_3 / p_2 \)  
+  状態方程式: \( \frac{p_2}{T_2} = \frac{p_3}{T_3} \) →  
+  \[
+  T_3 = T_2 \xi = T_1 \varepsilon^{\kappa-1} \xi
+  \]
+
+- **3→4（断熱膨張）**:  
+  \( T_3 V_3^{\kappa-1} = T_4 V_4^{\kappa-1} \)  
+  \( V_3 = V_2 \), \( V_4 = V_1 \)（サイクル閉じる） →  
+  \[
+  T_4 = T_3 \left( \frac{V_3}{V_4} \right)^{\kappa-1} = T_3 \left( \frac{V_2}{V_1} \right)^{\kappa-1} = T_1 \xi \varepsilon^{1-\kappa} \cdot \varepsilon^{1-\kappa} = T_1 \xi
+  \]
+
+**解答**:
+\[
+T_2 = T_1 \varepsilon^{\kappa-1}, \quad T_3 = T_1 \varepsilon^{\kappa-1} \xi, \quad T_4 = T_1 \xi
+\]
+
+---
+
+#### (3) 2→3の熱量 \( Q_{23} \) と仕事 \( W_{23} \)
+**方針**  
+- 等容過程 → 仕事 \( W_{23} = 0 \)（体積変化なし）
+- 熱力学第一法則: \( \Delta U = Q - W \)  
+  \[
+  Q_{23} = \Delta U = m c_v (T_3 - T_2)
+  \]
+- \( T_3, T_2 \) を代入:  
+  \[
+  Q_{23} = m c_v (T_1 \varepsilon^{\kappa-1} \xi - T_1 \varepsilon^{\kappa-1}) = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)
+  \]
+
+**解答**:
+\[
+W_{23} = 0, \quad Q_{23} = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)
+\]
+
+---
+
+#### (4) 3→4の仕事 \( W_{34} \)
+**方針**  
+- 断熱過程 → 熱量 \( Q_{34} = 0 \)
+- 熱力学第一法則: \( \Delta U = -W_{34} \)  
+  \[
+  W_{34} = -\Delta U = -m c_v (T_4 - T_3) = m c_v (T_3 - T_4)
+  \]
+- \( T_3, T_4 \) を代入:  
+  \[
+  W_{34} = m c_v (T_1 \varepsilon^{\kappa-1} \xi - T_1 \xi) = m c_v T_1 \xi (\varepsilon^{\kappa-1} - 1)
+  \]
+
+**解答**:
+\[
+W_{34} = m c_v T_1 \xi (\varepsilon^{\kappa-1} - 1)
+\]
+
+---
+
+#### (5) 4→1の熱量 \( Q_{41} \)
+**方針**  
+- 等容過程 → 仕事 \( W_{41} = 0 \)
+- 熱力学第一法則: \( \Delta U = Q_{41} \)  
+  \[
+  Q_{41} = m c_v (T_1 - T_4)
+  \]
+- \( T_4 = T_1 \xi \) を代入:  
+  \[
+  Q_{41} = m c_v (T_1 - T_1 \xi) = m c_v T_1 (1 - \xi)
+  \]
+
+**解答**:
+\[
+Q_{41} = m c_v T_1 (1 - \xi)
+\]
+
+---
+
+#### (6) 熱効率
+**方針**  
+熱効率 \( \eta = \frac{W_{\text{net}}}{Q_{\text{in}}} \)
+- 正味仕事: \( W_{\text{net}} = Q_{23} + Q_{41} \)（\( Q_{41} < 0 \)）
+- 吸収熱量: \( Q_{\text{in}} = Q_{23} \)
+\[
+W_{\text{net}} = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1) + m c_v T_1 (1 - \xi) = m c_v T_1 (\xi - 1)(\varepsilon^{\kappa-1} - 1)
+\]
+\[
+\eta = \frac{W_{\text{net}}}{Q_{23}} = \frac{m c_v T_1 (\xi - 1)(\varepsilon^{\kappa-1} - 1)}{m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)} = 1 - \varepsilon^{1-\kappa}
+\]
+
+**解答**:
+\[
+\eta = 1 - \varepsilon^{1-\kappa}
+\]
+
+---
+
+#### (7) 図示平均有効圧力（IMEP）
+**方針**  
+- 定義: \( \text{IMEP} = \frac{W_{\text{net}}}{V_{\text{max}} - V_{\text{min}}} \)
+- \( p-V \) 線図で解釈:  
+  - サイクル囲む面積 = \( W_{\text{net}} \)  
+  - 容積変位: \( V_1 - V_2 \)（∵ \( V_{\text{max}} = V_1, V_{\text{min}} = V_2 \))  
+  \[
+  \text{IMEP} = \frac{W_{\text{net}}}{V_1 - V_2}
+  \]
+- 物理的意味: 仕事を生む等価な平均圧力
+
+---
+
+### 大問2: ボイラの熱力学
+
+#### (1) 水の温度上昇に要する熱量
+**方針**  
+水を \( T_{w1} \) → \( T_{w2} \) に加熱:
+\[
+\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})
+\]
+
+**解答**:
+\[
+\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})
+\]
+
+---
+
+#### (2) 水の蒸発に要する熱量
+**方針**  
+蒸発潜熱 \( r \) 使用:
+\[
+\dot{Q}_{\text{vap}} = \dot{m}_w r
+\]
+
+**解答**:
+\[
+\dot{Q}_{\text{vap}} = \dot{m}_w r
+\]
+
+---
+
+#### (3) 燃焼ガスが失う熱量
+**方針**  
+燃焼ガスの定圧冷却:
+\[
+\dot{Q}_g = \dot{m}_g c_p (T_{g1} - T_{g2})
+\]
+
+**解答**:
+\[
+\dot{Q}_g = \dot{m}_g c_p (T_{g1} - T_{g2})
+\]
+
+---
+
+#### (4) 質量流量比 \( \dot{m}_g / \dot{m}_w \)
+**方針**  
+エネルギー収支（放熱なし）:
+\[
+\dot{Q}_g = \dot{Q}_{\text{temp}} + \dot{Q}_{\text{vap}}
+\]
+\[
+\dot{m}_g c_p (T_{g1} - T_{g2}) = \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r \right]
+\]
+\[
+\frac{\dot{m}_g}{\dot{m}_w} = \frac{ c_w (T_{w2} - T_{w1}) + r }{ c_p (T_{g1} - T_{g2}) }
+\]
+
+**解答**:
+\[
+\frac{\dot{m}_g}{\dot{m}_w} = \frac{ c_w (T_{w2} - T_{w1}) + r }{ c_p (T_{g1} - T_{g2}) }
+\]
+
+---
+
+#### (5) 水の温度上昇のエントロピー変化
+**方針**  
+可逆加熱と仮定:
+\[
+\Delta \dot{S}_w^{\text{temp}} = \dot{m}_w \int_{T_{w1}}^{T_{w2}} \frac{c_w  dT}{T} = \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}}
+\]
+
+**解答**:
+\[
+\Delta \dot{S}_w^{\text{temp}} = \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}}
+\]
+
+---
+
+#### (6) 水の蒸発のエントロピー変化
+**方針**  
+等温蒸発:
+\[
+\Delta \dot{S}_w^{\text{vap}} = \frac{\dot{Q}_{\text{vap}}}{T_{w2}} = \dot{m}_w \frac{r}{T_{w2}}
+\]
+
+**解答**:
+\[
+\Delta \dot{S}_w^{\text{vap}} = \dot{m}_w \frac{r}{T_{w2}}
+\]
+
+---
+
+#### (7) 燃焼ガスのエントロピー変化
+**方針**  
+定圧冷却:
+\[
+\Delta \dot{S}_g = \dot{m}_g \int_{T_{g1}}^{T_{g2}} \frac{c_p  dT}{T} = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}}
+\]
+
+**解答**:
+\[
+\Delta \dot{S}_g = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}}
+\]
+
+---
+
+#### (8) 系全体のエントロピー変化
+**方針**  
+水と燃焼ガスの合計:
+\[
+\Delta \dot{S}_{\text{total}} = \Delta \dot{S}_g + \Delta \dot{S}_w^{\text{temp}} + \Delta \dot{S}_w^{\text{vap}}
+\]
+\[
+= \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}} + \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}} + \dot{m}_w \frac{r}{T_{w2}}
+\]
+
+**解答**:
+\[
+\Delta \dot{S}_{\text{total}} = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}} + \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}} + \dot{m}_w \frac{r}{T_{w2}}
+\]
+
+---
+
+#### (9) 水のエクセルギー変化
+**方針**  
+エクセルギー定義:
+\[
+\Delta \dot{E}_w = \dot{m}_w \left[ \Delta h_w - T_0 \Delta s_w \right]
+\]
+- エンタルピー変化:  
+  \[
+  \Delta h_w = c_w (T_{w2} - T_{w1}) + r
+  \]
+- エントロピー変化:  
+  \[
+  \Delta s_w = c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}}
+  \]
+\[
+\Delta \dot{E}_w = \dot{m}_w \left[ \left( c_w (T_{w2} - T_{w1}) + r \right) - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]
+\]
+
+**解答**:
+\[
+\Delta \dot{E}_w = \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]
+\]
+
+---
+
+#### (10) 系全体のエクセルギー変化
+**方針**  
+燃焼ガス + 水:
+\[
+\Delta \dot{E}_{\text{total}} = \Delta \dot{E}_g + \Delta \dot{E}_w
+\]
+- 燃焼ガスのエクセルギー変化:  
+  \[
+  \Delta \dot{E}_g = \dot{m}_g \left[ c_p (T_{g2} - T_{g1}) - T_0 c_p \ln \frac{T_{g2}}{T_{g1}} \right]
+  \]
+- (9) の結果と結合
+
+**解答**:
+\[
+\Delta \dot{E}_{\text{total}} = \dot{m}_g \left[ c_p (T_{g2} - T_{g1}) - T_0 c_p \ln \frac{T_{g2}}{T_{g1}} \right] + \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]
+\]

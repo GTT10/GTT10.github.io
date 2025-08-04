@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2017年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2017（H29）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2017年度の材料力学入試では、大問【1】で3本のワイヤで吊り下げられた剛体棒の問題（不静定構造の変形解析）、大問【2】で一端固定・他端支持はりの曲げ問題（不静定はりの境界条件）、大問【3】で両端固定丸棒のねじり問題（不静定ねじりの反力分布）が出題されました。全て不静定問題で構成された難易度の高い年度です。</p>
+                <a href="../../pdfs/question/2017_H29_april/materials_2017_H29_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
+                <a href="../../pdfs/answer/2017_H29_april/materials_2017_H29_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">3本のワイヤで吊り下げられた剛体棒に集中荷重が作用する不静定構造について、各ワイヤの張力、たるまない条件、剛体棒の傾き角を解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>剛体棒：長さ2a、A、B、C点で3本のワイヤで吊り下げ</li>
+                            <li>ワイヤ：全て同じ材質・寸法（長さl、断面積A、ヤング率E）</li>
+                            <li>荷重：距離xの位置に集中荷重P（垂直下向き）</li>
+                            <li>剛体仮定：棒は変形しない</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>剛体棒では3点の変位が一直線上に保たれるため、変形の幾何学的関係「2δB = δA + δC」が成り立ちます。この条件を不静定問題の解法に活用します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 各ワイヤの張力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            力とモーメントの釣り合いに加えて、剛体の変形の幾何学的関係を利用します。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$Q_{AD} + Q_{BE} + Q_{CF} = P$$
+                            </div>
+                            <p><strong>モーメントの釣り合い（A点まわり）：</strong></p>
+                            <div class="math-block">
+                                $$Q_{BE} \cdot a + Q_{CF} \cdot 2a = P \cdot x$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            剛体の幾何学的関係から：
+                            <div class="math-block">
+                                $$2\delta_B = \delta_A + \delta_C$$
+                                $$2Q_{BE} = Q_{AD} + Q_{CF}$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$Q_{AD} = \frac{P}{6a}(5a - 3x)$$
+                                $$Q_{BE} = \frac{P}{3}$$
+                                $$Q_{CF} = \frac{P}{6a}(3x - a)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) すべてのワイヤがたるまないxの範囲</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            全てのワイヤの張力が正の値（QAD ≥ 0、QBE ≥ 0、QCF ≥ 0）となる条件を求めます。
+                            <p><strong>条件の設定：</strong></p>
+                            <div class="math-block">
+                                Q_{AD} = \frac{P}{6a}(5a - 3x) \geq 0 \Rightarrow x \leq \frac{5a}{3}
+                            </div>
+                            <div class="math-block">
+                                Q_{BE} = \frac{P}{3} \geq 0 \quad \text{(常に満足)}
+                            </div>
+                            <div class="math-block">
+                                Q_{CF} = \frac{P}{6a}(3x - a) \geq 0 \Rightarrow x \geq \frac{a}{3}
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\frac{a}{3} \leq x \leq \frac{5a}{3}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 剛体棒の傾き角（x = a/2の場合）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            x = a/2のときの各ワイヤの張力から変位を求め、傾き角を計算します。
+                            <p><strong>x = a/2での張力：</strong></p>
+                            <div class="math-block">
+                                Q_{AD} = \frac{P}{6a}(5a - \frac{3a}{2}) = \frac{7P}{12}
+                            </div>
+                            <div class="math-block">
+                                Q_{CF} = \frac{P}{6a}(\frac{3a}{2} - a) = \frac{P}{12}
+                            </div>
+                            <p><strong>各点の変位：</strong></p>
+                            <div class="math-block">
+                                \delta_A = \frac{Q_{AD} l}{AE} = \frac{7Pl}{12AE}
+                            </div>
+                            <div class="math-block">
+                                \delta_C = \frac{Q_{CF} l}{AE} = \frac{Pl}{12AE}
+                            </div>
+                            <p><strong>傾き角：</strong></p>
+                            <div class="math-block">
+                                $$\theta = \frac{\delta_A - \delta_C}{2a} = \frac{Pl}{4aAE} \text{ [rad]}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>剛体棒では変形の幾何学的関係が追加の拘束条件となる。</li>
+                            <li>不静定問題では力の釣り合いと変形の適合条件を連立する。</li>
+                            <li>張力の正負で構造物の安定性を評価する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>剛体仮定では変形の幾何学的関係を正確に把握する。</li>
+                            <li>吊り構造では張力が負になる場合の物理的意味を理解する。</li>
+                            <li>対称性を活用して計算を簡略化する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">一端固定・他端支持はりに部分分布荷重が作用する不静定構造について、曲げモーメント分布、支点反力、固定端モーメントを求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：全長l、断面二次モーメントI、ヤング率E</li>
+                            <li>境界条件：A端で完全固定、B端で単純支持</li>
+                            <li>荷重：AC間（長さl/2）に一様分布荷重w</li>
+                            <li>支点：B点は鉛直反力のみ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>一端固定・他端支持はりでは、支点での境界条件（固定端：変位・傾き=0、支持端：変位=0）を利用して不静定問題を解きます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 曲げモーメントMの表現</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            荷重分布が区間によって異なるため、CB間とAC間で分けて考えます。
+                            <p><strong>CB間（0 ≤ x ≤ l/2）：</strong></p>
+                            この区間には荷重がないため：
+                            <div class="math-block">
+                                $$M(x) = R_B x$$
+                            </div>
+                            <p><strong>AC間（l/2 ≤ x ≤ l）：</strong></p>
+                            分布荷重wの影響を含めて：
+                            <div class="math-block">
+                                $$M(x) = R_B x - \frac{w}{2}\left(x-\frac{l}{2}\right)^2$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 支点Bの反力RB</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            境界条件を利用してRBを決定します。
+                            <p><strong>境界条件の設定：</strong></p>
+                            <ul>
+                                <li>x = 0（B点）でのたわみ = 0</li>
+                                <li>x = l（A点）でのたわみ = 0</li>
+                                <li>x = l（A点）での傾き = 0</li>
+                            </ul>
+                            <p>たわみの微分方程式を2回積分し、上記境界条件を適用すると：</p>
+                            <div class="math-block">
+                                $$R_B = \frac{7}{128}wl$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 固定端Aにおける曲げモーメントMA</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            全体のモーメントの釣り合いからMAを求めます。
+                            <p><strong>A点まわりのモーメントの釣り合い：</strong></p>
+                            <div class="math-block">
+                                M_A + R_B \cdot l - w \cdot \frac{l}{2} \cdot \frac{3l}{4} = 0
+                            </div>
+                            <p>RBの値を代入して：</p>
+                            <div class="math-block">
+                                $$M_A = \frac{9}{128}wl^2$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>一端固定・他端支持はりは1次不静定構造である。</li>
+                            <li>荷重分布が変わる点で区間を分けて解析する。</li>
+                            <li>境界条件を正確に設定して未知反力を決定する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>部分分布荷重では荷重の作用範囲に注意する。</li>
+                            <li>固定端では反力とモーメントの両方が発生する。</li>
+                            <li>境界条件の設定が解法の鍵となる。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端固定された丸棒の中間点にトルクが作用する不静定ねじり問題について、断面二次極モーメント、ねじれ角、反力トルクの比を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>丸棒：直径d、全長l = l₁ + l₂</li>
+                            <li>境界条件：両端A、Bで完全固定</li>
+                            <li>荷重：C点（距離l₁の位置）にトルクTc</li>
+                            <li>材料：横弾性係数G</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>両端固定のねじりでは全体のねじれ角がゼロという条件を使います。各区間のねじれ角の和がゼロになる関係から反力トルクを決定します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 断面二次極モーメントIp</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            中実円軸の断面二次極モーメントは：
+                            <div class="math-block">
+                                $$I_p = \frac{\pi d^4}{32}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) C点のねじれ角（TAで表現）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            A点を基準としたC点のねじれ角を求めます。
+                            <p><strong>ねじりの基本式：</strong></p>
+                            <div class="math-block">
+                                \theta = \frac{TL}{GI_p}
+                            </div>
+                            <p>AC区間（長さl₁）で、内部トルクがTAの場合：</p>
+                            <div class="math-block">
+                                $$\theta_c = \frac{T_A l_1}{G I_p}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) ねじりモーメントの比|TA|/|TB|</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            全体のねじれ角がゼロという条件を利用します。
+                            <p><strong>ねじれ角の適合条件：</strong></p>
+                            <div class="math-block">
+                                \theta_{AC} + \theta_{CB} = 0
+                            </div>
+                            <div class="math-block">
+                                \frac{T_A l_1}{GI_p} + \frac{(-T_B) l_2}{GI_p} = 0
+                            </div>
+                            <p>これから：</p>
+                            <div class="math-block">
+                                T_A l_1 = T_B l_2
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\frac{|T_A|}{|T_B|} = \frac{l_2}{l_1}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) C点のねじれ角（Tcで表現）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            トルクの釣り合いを利用してTAをTcで表現します。
+                            <p><strong>トルクの釣り合い：</strong></p>
+                            <div class="math-block">
+                                T_A + T_B = T_c
+                            </div>
+                            <p>(3)の関係 TB = TA(l₁/l₂) を代入：</p>
+                            <div class="math-block">
+                                T_A + T_A \frac{l_1}{l_2} = T_c
+                            </div>
+                            <div class="math-block">
+                                T_A = \frac{T_c l_2}{l_1 + l_2}
+                            </div>
+                            <p><strong>最終解答：</strong></p>
+                            <div class="math-block">
+                                $$\theta_c = \frac{T_c l_1 l_2}{G I_p (l_1+l_2)} = \frac{T_c l_1 l_2}{G I_p l}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>両端固定ねじりでは全体のねじれ角がゼロという条件を使う。</li>
+                            <li>反力トルクは作用点からの距離に反比例する。</li>
+                            <li>中実円軸の断面二次極モーメントは\\(I_p = \\frac{\\pi d^4}{32}\\)。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2017年度は全問が不静定問題で構成された高難度の年度。</li>
+                            <li>ねじり問題では区間ごとの内部トルクを正確に把握する。</li>
+                            <li>変形の適合条件が不静定問題の解法の鍵となる。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

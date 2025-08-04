@@ -1,0 +1,233 @@
+はい、承知いたしました。平成18年度の大学院入試問題ですね。今回も、これまでの問題と同様に、丁寧に解説していきます。
+
+-----
+
+### **大問1：連続の方程式の導出**
+
+この問題は、流体の最も基本的な法則の一つである「質量保存則」を数式で表現する、流体力学の出発点となるテーマです。
+
+-----
+
+#### **問題文**
+
+非粘性流体の2次元流について以下の問いに答えよ。ただし、ρを密度、u,vをそれぞれx方向,y方向速度とする。
+
+(1) 図1に示す長方形ABCD内での質量保存法則は以下のようになる。項(I), 項(II)は何を表すか符号の違いに注意して説明せよ。なおBC等は、その線上での積分であることを示す。
+$$\frac{\partial}{\partial t}\iint_{領域ABCD}\rho dxdy = -\int_{y_1 BC}^{y_2}\rho u dy - \int_{x_1 DC}^{x_2}\rho v dx + \int_{y_1 AD}^{y_2}\rho u dy + \int_{x_1 AB}^{x_2}\rho v dx$$
+(I) (II)
+(2) (1)の保存則がx-y平面における任意の長方形において成立することから、連続方程式を導け。
+(3) ラグランジュ微分を用いて連続方程式を書け。
+
+-----
+
+#### **(1) 質量保存則の各項の説明**
+
+##### **方針・考え方**
+
+この式は、「**領域内の質量の時間変化（左辺）は、領域に流れ込む質量と流れ出す質量の差に等しい（右辺）**」ということを表しています。右辺の各積分項が、長方形のどの辺から出入りしている流れに対応するのかを考えます。
+
+##### **答え**
+
+  * **項(I) $\\frac{\\partial}{\\partial t}\\iint\_{領域ABCD}\\rho dxdy$**:
+    これは、長方形領域ABCD内にある**全質量の時間的な変化率**を表します。 [cite: 295]
+
+  * **項(II) $-\\int\_{y\_1 BC}^{y\_2}\\rho u dy - \\int\_{x\_1 DC}^{x\_2}\\rho v dx + \\int\_{y\_1 AD}^{y\_2}\\rho u dy + \\int\_{x\_1 AB}^{x\_2}\\rho v dx$**:
+    これは、長方形領域ABCDの境界（辺AB, BC, CD, DA）を通過して、**領域内へ単位時間に流入する正味の質量（質量流量）** を表します。 [cite: 295] 各項は以下の通りです。
+
+      * **$+\\int\_{y\_1 AD}^{y\_2}\\rho u dy$**: 辺AD（左辺）からx方向に流入する質量流量。
+      * **$-\\int\_{y\_1 BC}^{y\_2}\\rho u dy$**: 辺BC（右辺）からx方向に流出する質量流量（負号なので流入の逆）。
+      * **$+\\int\_{x\_1 AB}^{x\_2}\\rho v dx$**: 辺AB（下辺）からy方向に流入する質量流量。
+      * **$-\\int\_{x\_1 DC}^{x\_2}\\rho v dx$**: 辺DC（上辺）からy方向に流出する質量流量。
+
+-----
+
+#### **(2) 連続方程式の導出**
+
+##### **方針・考え方**
+
+(1)の積分形の式を、微分形の式に変換します。長方形が非常に小さい（微小な）領域であると考えると、積分は単純な掛け算になり、テイラー展開の考え方を使って式を整理できます。最終的に、微小な面積 $dxdy$ で両辺を割ることで、各点における関係式（微分方程式）が導かれます。
+
+##### **計算過程**
+
+(1)の式の右辺を整理します。
+右辺 = $\\left( \\int\_{y\_1 AD}^{y\_2}\\rho u dy - \\int\_{y\_1 BC}^{y\_2}\\rho u dy \\right) + \\left( \\int\_{x\_1 AB}^{x\_2}\\rho v dx - \\int\_{x\_1 DC}^{x\_2}\\rho v dx \\right)$
+ここで、BC上での $\\rho u$ は、AD上での値にx方向の変化分を加えたもの $(\\rho u)|*{x\_2} \\approx (\\rho u)|*{x\_1} + \\frac{\\partial(\\rho u)}{\\partial x}dx$ と近似できます。同様にDC上でも考えます。
+右辺 $\\approx -\\frac{\\partial(\\rho u)}{\\partial x}dxdy - \\frac{\\partial(\\rho v)}{\\partial y}dxdy = - \\left( \\frac{\\partial(\\rho u)}{\\partial x} + \\frac{\\partial(\\rho v)}{\\partial y} \\right) dxdy$
+左辺も同様に、$\\frac{\\partial \\rho}{\\partial t}dxdy$ となります。
+よって、
+$\\frac{\\partial \\rho}{\\partial t}dxdy = - \\left( \\frac{\\partial(\\rho u)}{\\partial x} + \\frac{\\partial(\\rho v)}{\\partial y} \\right) dxdy$
+両辺を $dxdy$ で割ると、連続方程式が得られます。
+
+##### **答え**
+
+$$\frac{\partial \rho}{\partial t} + \frac{\partial(\rho u)}{\partial x} + \frac{\partial(\rho v)}{\partial y} = 0$$
+
+-----
+
+#### **(3) ラグランジュ微分を用いた表現**
+
+##### **方針・考え方**
+
+「ラグランジュ微分（物質微分）」は、流体の粒子と一緒に動きながらその物理量の時間変化を見るもので、$D/Dt$ と書かれます。
+$\\frac{D\\phi}{Dt} = \\frac{\\partial \\phi}{\\partial t} + u\\frac{\\partial \\phi}{\\partial x} + v\\frac{\\partial \\phi}{\\partial y}$
+(2)で求めた連続方程式を展開し、この形をうまく作り出します。
+
+##### **計算過程**
+
+(2)の式を展開します。
+$\\frac{\\partial \\rho}{\\partial t} + \\left( \\frac{\\partial \\rho}{\\partial x}u + \\rho \\frac{\\partial u}{\\partial x} \\right) + \\left( \\frac{\\partial \\rho}{\\partial y}v + \\rho \\frac{\\partial v}{\\partial y} \\right) = 0$
+項を並べ替えます。
+$\\left( \\frac{\\partial \\rho}{\\partial t} + u\\frac{\\partial \\rho}{\\partial x} + v\\frac{\\partial \\rho}{\\partial y} \\right) + \\rho \\left( \\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} \\right) = 0$
+最初の括弧の中身が、まさに密度のラグランジュ微分 $D\\rho/Dt$ です。
+
+##### **答え**
+
+$$\frac{D\rho}{Dt} + \rho \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) = 0$$
+
+-----
+
+### **大問2：円柱を傾けて横切る流れ**
+
+これは、一様流の中に円柱が置かれた流れですが、流れが軸に対して傾いている少し応用的な問題です。複素ポテンシャルを使うことで、これもエレガントに解くことができます。
+
+-----
+
+#### **問題文**
+
+複素速度ポテンシャル $W=Uze^{-i\\alpha}+\\frac{A}{z}e^{i\\alpha}$ で与えられる2次元流を考える。ここで $z(=x+iy)$ は複素数, U, A, α $(0\<\\alpha\<\\pi/2)$ を正の定数とする。このとき、以下の問いに答えよ。
+
+(1) 複素速度を求め、その結果からよどみ点の座標を求めよ。
+(2) 流れ関数を座標(x,y)の関数として求め、Ψ=0が表す流線を図示せよ。
+(3) 複素速度ポテンシャルWの表す流れはどのような流れであるか説明せよ。
+
+-----
+
+#### **(1) 複素速度とよどみ点**
+
+##### **方針・考え方**
+
+複素速度 $w$ は複素ポテンシャル $W$ を $z$ で微分して得られます ($w = dW/dz$)。よどみ点は、この複素速度が0 ($w=0$) となる点です。
+
+##### **計算過程**
+
+1.  **複素速度の計算**
+    $w = \\frac{dW}{dz} = \\frac{d}{dz}\\left(Uze^{-i\\alpha}+\\frac{A}{z}e^{i\\alpha}\\right) = Ue^{-i\\alpha} - \\frac{A}{z^2}e^{i\\alpha}$
+
+2.  **よどみ点の計算**
+    $w=0$ とおくと、
+    $Ue^{-i\\alpha} = \\frac{A}{z^2}e^{i\\alpha}$
+    $z^2 = \\frac{A}{U}e^{2i\\alpha}$
+    $z = \\pm \\sqrt{\\frac{A}{U}}e^{i\\alpha}$
+
+##### **答え**
+
+  * 複素速度: **$w = Ue^{-i\\alpha} - \\frac{A}{z^2}e^{i\\alpha}$** [cite: 310]
+  * よどみ点の座標: **$z = \\pm \\sqrt{A/U} e^{i\\alpha}$** [cite: 310]
+
+-----
+
+#### **(2) 流れ関数と流線**
+
+##### **方針・考え方**
+
+流れ関数 $\\psi$ は $W$ の虚部 ($\\psi = \\text{Im}[W]$) です。$z=x+iy$ とオイラーの公式を使って $W$ を実部と虚部に分けます。$\\psi=0$ となる条件が、物体表面や流れの対称軸を表す流線になります。
+
+##### **計算過程**
+
+$z = re^{i\\theta}$ を使うと計算が楽です。
+$W = U(re^{i\\theta})e^{-i\\alpha} + \\frac{A}{re^{i\\theta}}e^{i\\alpha} = Ure^{i(\\theta-\\alpha)} + \\frac{A}{r}e^{-i(\\theta-\\alpha)}$
+$W = U r{\\cos(\\theta-\\alpha)+i\\sin(\\theta-\\alpha)} + \\frac{A}{r}{\\cos(\\theta-\\alpha)-i\\sin(\\theta-\\alpha)}$
+$W = (Ur+\\frac{A}{r})\\cos(\\theta-\\alpha) + i(Ur-\\frac{A}{r})\\sin(\\theta-\\alpha)$
+流れ関数は $\\psi = (Ur-\\frac{A}{r})\\sin(\\theta-\\alpha)$ です。
+$\\psi=0$ となるのは、
+
+1.  $Ur-\\frac{A}{r}=0 \\implies r^2 = A/U \\implies r=\\sqrt{A/U}$
+2.  $\\sin(\\theta-\\alpha)=0 \\implies \\theta-\\alpha=0$ or $\\pi \\implies \\theta=\\alpha$ or $\\theta=\\alpha+\\pi$
+
+##### **答え**
+
+  * 流れ関数: **$\\psi = (Ur-\\frac{A}{r})\\sin(\\theta-\\alpha)$** [cite: 311]
+  * $\\psi=0$ の流線:
+    1.  **半径 $\\sqrt{A/U}$ の円**
+    2.  **x軸から角度 $\\alpha$ だけ傾いた直線**
+        これらを図示すると、傾いた直線が円にぶつかり、円の表面に沿って流れていく様子が描かれます。
+
+-----
+
+#### **(3) 流れの説明**
+
+##### **方針・考え方**
+
+(2)で描いた流線の様子を言葉で説明します。一様な流れが、円形の物体の周りを流れていく様子です。流れの傾きと物体の関係に注目します。
+
+##### **答え**
+
+この流れは、「**x軸から角度 $\\alpha$ の方向へ速さUで進む一様流が、原点を中心とする半径 $\\sqrt{A/U}$ の円柱（または円）を横切る流れ**」を表しています。 [cite: 312]
+
+-----
+
+### **大問3・4：渦と境界層**
+
+最後の2問は、異なるテーマを扱っています。大問3は回転する流れ、大問4は物体表面にできる薄い流れの層（境界層）に関する問題です。
+
+-----
+
+#### **大問3：強制渦**
+
+##### **問題文**
+
+半径方向速度 $u\_r=0$, 軸方向速度 $u\_z=0$, 円周方向速度 $u\_\\theta=Cr$ で与えられる軸対称流れの渦度を求めよ。ただし、Cは正定数、rは対称軸からの距離である。また、このような渦を何と呼ぶか。 [cite: 313]
+
+##### **方針・考え方**
+
+「渦度」は流れの回転の強さを表し、速度の回転 ($\\nabla \\times \\boldsymbol{u}$) で計算されます。円柱座標での公式に速度成分を代入します。円周速度が半径 $r$ に比例する渦は、身近な例にも見られる基本的な流れです。
+
+##### **計算過程**
+
+渦度のz成分の公式: $(\\omega)*z = \\frac{1}{r} \\frac{\\partial(r u*\\theta)}{\\partial r} - \\frac{1}{r}\\frac{\\partial u\_r}{\\partial \\theta}$
+$u\_r=0, u\_\\theta=Cr$ を代入します。
+$(\\omega)\_z = \\frac{1}{r} \\frac{\\partial(r \\cdot Cr)}{\\partial r} - 0 = \\frac{1}{r} \\frac{\\partial(Cr^2)}{\\partial r} = \\frac{1}{r}(2Cr) = 2C$
+
+##### **答え**
+
+  * 渦度: **2C** （一定） [cite: 313]
+  * 名称: このような、流体が剛体のように一体となって回転する渦を **強制渦** と呼びます。 [cite: 313]
+
+-----
+
+#### **大問4：境界層のオーダー評価**
+
+##### **問題文**
+
+無限遠方でx方向にUの一様流速を持つ非圧縮性流体の2次元流を考える。薄い半無限平板が図2のように置かれている。この平板のx=Lでの平板層流境界層の厚さは、平板片側でδであるとする...
+(1) 速度比 V/U の大きさは、長さ比 δ/L のオーダであることを示せ。
+(2) x=Lでの境界層厚さは $\\frac{L}{\\sqrt{Re}}$ のオーダであることを示せ。
+
+##### **方針・考え方**
+
+これは、ナビエ・ストークス方程式の各項の大きさを見積もる「オーダー評価」の問題です。
+(1) 質量の保存則である「連続の式」から導きます。
+(2) 境界層内では「慣性力」と「粘性力」が釣り合っている、という考え方から導きます。
+
+##### **計算過程**
+
+**(1) 速度比のオーダー**
+連続の式: $\\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} = 0$
+オーダーで評価すると（$u \\sim U, v \\sim V, x \\sim L, y \\sim \\delta$）:
+$O\\left(\\frac{U}{L}\\right) + O\\left(\\frac{V}{\\delta}\\right) = 0$
+両者のオーダーは等しいので、$\\frac{U}{L} \\sim \\frac{V}{\\delta} \\implies \\frac{V}{U} \\sim \\frac{\\delta}{L}$
+
+**(2) 境界層厚さのオーダー**
+ナビエ・ストークス方程式の慣性項と粘性項を比較します。
+
+  * 慣性項: $u\\frac{\\partial u}{\\partial x} \\sim U \\frac{U}{L} = \\frac{U^2}{L}$
+  * 粘性項: $\\nu \\frac{\\partial^2 u}{\\partial y^2} \\sim \\nu \\frac{U}{\\delta^2}$
+    これらが釣り合うので、
+    $\\frac{U^2}{L} \\sim \\nu \\frac{U}{\\delta^2} \\implies \\delta^2 \\sim \\frac{\\nu L}{U}$
+    $\\delta \\sim \\sqrt{\\frac{\\nu L}{U}} = \\sqrt{\\frac{L^2 \\nu}{UL}} = \\frac{L}{\\sqrt{UL/\\nu}}$
+    レイノルズ数 $Re = UL/\\nu$ を使うと、$\\delta \\sim \\frac{L}{\\sqrt{Re}}$
+
+##### **答え**
+
+(1) 連続の式 $\\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} = 0$ をオーダー評価すると $\\frac{U}{L} \\sim \\frac{V}{\\delta}$ となり、**$V/U \\sim \\delta/L$** が示される。 [cite: 315]
+(2) ナビエ・ストークス方程式の慣性項 $O(U^2/L)$ と粘性項 $O(\\nu U/\\delta^2)$ の釣り合いから $\\delta^2 \\sim \\nu L/U$ が導かれ、これを変形すると **$\\delta \\sim L/\\sqrt{Re}$** が示される。 [cite: 317]

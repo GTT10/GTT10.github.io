@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2015年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2015（H27）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2015年度の材料力学入試では、大問【1】で両端固定棒の軸力問題（不静定構造の最大荷重設計）、大問【2】で単純支持はりの曲げ問題（対称荷重と自重の影響）、大問【3】で長柱の座屈問題（オイラー座屈と自重座屈）が出題されました。基礎理論から実用的な設計問題まで幅広くカバーした年度です。</p>
+                <a href="../../pdfs/question/2015_H27_april/materials_2015_H27_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2015年度)</a>
+                <a href="../../pdfs/answer/2015_H27_april/materials_2015_H27_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2015年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端固定された棒の中間点に軸方向集中荷重が作用する不静定構造について、反力、変位、最大荷重を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒：全長a+b、断面積S、ヤング率E</li>
+                            <li>境界条件：両端A、Cで完全固定</li>
+                            <li>荷重：B点（長さaの位置）に集中荷重P（右向き）</li>
+                            <li>材料：許容せん断応力τa、条件a < b</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>両端固定の不静定問題では、全体の変形がゼロという条件が重要です。AB間の伸びとBC間の縮みが等しくなるという適合条件を活用します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 壁から受ける反力RAとRC</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            力の釣り合いと変形の適合条件を連立して反力を求めます。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$R_A + R_C = P$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            全体の変形がゼロ：
+                            <div class="math-block">
+                                $$\delta_{AB} = \delta_{BC}$$
+                                $$\frac{R_A \cdot a}{SE} = \frac{R_C \cdot b}{SE}$$
+                            </div>
+                            <p>これから RA・a = RC・b の関係が得られます。</p>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{Pb}{a+b}$$
+                                $$R_C = \frac{Pa}{a+b}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 点Bの変位λB</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            A点を基準としたB点の変位を求めます。
+                            <p><strong>AB間の伸び：</strong></p>
+                            B点の変位はAB間の伸びに等しい：
+                            <div class="math-block">
+                                \lambda_B = \delta_{AB} = \frac{R_A \cdot a}{SE}
+                            </div>
+                            <p>(1)のRAを代入：</p>
+                            <div class="math-block">
+                                $$\lambda_B = \frac{Pab}{(a+b)SE}$$
+                            </div>
+                            （右向きが正の変位）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 最大荷重Pmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            最大せん断応力による破壊条件から最大荷重を決定します。
+                            <p><strong>最大せん断応力の発生位置：</strong></p>
+                            条件a < bから、(1)より RA > RC となり、AB間の方が危険：
+                            <div class="math-block">
+                                \sigma_{AB} = \frac{R_A}{S} = \frac{Pb}{(a+b)S}
+                            </div>
+                            <p><strong>最大せん断応力：</strong></p>
+                            <div class="math-block">
+                                \tau_{max} = \frac{\sigma_{AB}}{2} = \frac{Pb}{2(a+b)S}
+                            </div>
+                            <p><strong>破壊条件：</strong></p>
+                            τmax ≤ τa の条件から：
+                            <div class="math-block">
+                                $$P_{max} = \frac{2S\tau_a(a+b)}{b}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>両端固定では全体変形ゼロの条件を活用する。</li>
+                            <li>反力の大きさは荷重点からの距離に反比例する。</li>
+                            <li>最大せん断応力による破壊を考慮する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>不静定問題では変形の適合条件が必須。</li>
+                            <li>最大せん断応力は軸応力の半分である。</li>
+                            <li>危険断面は最大内力が発生する箇所。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">単純支持はりに対称集中荷重が作用する場合について、せん断力図・曲げモーメント図、たわみ、応力、自重の影響を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：全長3a、断面は中空円管（外径2d、内径d）</li>
+                            <li>支点：A、B点で単純支持（支間長3a）</li>
+                            <li>荷重：対称位置（a、2aの地点）に集中荷重P</li>
+                            <li>材料：ヤング率E、単位長さ当たり重量w</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>対称荷重では支点反力も対称になります。SFDとBMDは区間ごとに構築し、最大値の位置を特定します。自重は分布荷重として別途考慮します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) せん断力図(SFD)および曲げモーメント図(BMD)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            対称性を利用して反力とせん断力・曲げモーメントを求めます。
+                            <p><strong>支点反力：</strong></p>
+                            対称性により：
+                            <div class="math-block">
+                                $$R_A = R_B = P$$
+                            </div>
+                            <p><strong>せん断力分布：</strong></p>
+                            <ul>
+                                <li><strong>A-C間（0 ≤ x ≤ a）：</strong> F(x) = P</li>
+                                <li><strong>C-D間（a ≤ x ≤ 2a）：</strong> F(x) = 0</li>
+                                <li><strong>D-B間（2a ≤ x ≤ 3a）：</strong> F(x) = -P</li>
+                            </ul>
+                            <p><strong>曲げモーメント分布：</strong></p>
+                            <ul>
+                                <li><strong>A-C間：</strong> M(x) = Px</li>
+                                <li><strong>C-D間：</strong> M(x) = Pa（一定）</li>
+                                <li><strong>D-B間：</strong> M(x) = P(3a-x)</li>
+                            </ul>
+                            <p><strong>線図の特徴：</strong></p>
+                            <ul>
+                                <li>SFD：階段状（P → 0 → -P）</li>
+                                <li>BMD：台形状（最大値Pa）</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 最大たわみとその位置</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            対称性から最大たわみは中央で発生します。
+                            <p><strong>最大たわみの位置：</strong></p>
+                            はりの中心：
+                            <div class="math-block">
+                                $$x = \frac{3a}{2} = 1.5a$$
+                            </div>
+                            <p><strong>最大たわみ：</strong></p>
+                            たわみの微分方程式を積分して：
+                            <div class="math-block">
+                                $$y_{max} = \frac{23Pa^3}{24EI}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 断面二次モーメントIと最大引張応力σmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            中空円管の断面特性と曲げ応力を求めます。
+                            <p><strong>断面二次モーメント：</strong></p>
+                            中空円管（外径2d, 内径d）：
+                            <div class="math-block">
+                                $$I = \frac{\pi}{64}[(2d)^4 - d^4] = \frac{15\pi d^4}{64}$$
+                            </div>
+                            <p><strong>最大引張応力：</strong></p>
+                            最大曲げモーメントMmax = Paで：
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{M_{max} \cdot y_{max}}{I} = \frac{Pa \cdot d}{15\pi d^4/64} = \frac{64Pa}{15\pi d^3}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 自重による最大引張応力の増加量</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            自重を分布荷重として考慮した応力増加を求めます。
+                            <p><strong>自重による最大曲げモーメント：</strong></p>
+                            単純支持はりの中央における分布荷重wによる最大モーメント：
+                            <div class="math-block">
+                                M_{自重} = \frac{w(3a)^2}{8} = \frac{9wa^2}{8}
+                            </div>
+                            <p><strong>応力増加量：</strong></p>
+                            <div class="math-block">
+                                $$\Delta\sigma_{max} = \frac{M_{自重} \cdot d}{I} = \frac{(9wa^2/8) \cdot d}{15\pi d^4/64} = \frac{24wa^2}{5\pi d^3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対称荷重では対称性を最大限活用する。</li>
+                            <li>中空円管の断面二次モーメント公式を正確に適用する。</li>
+                            <li>自重は分布荷重として別途考慮する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>SFD・BMDでは荷重点での不連続に注意する。</li>
+                            <li>最大たわみは対称構造では中央で発生する。</li>
+                            <li>自重の影響は実用設計で重要な考慮事項。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">長柱の座屈問題について、オイラー座屈荷重、座屈時のたわみ曲線、自重による座屈条件を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>柱：長さl、断面積A、断面二次モーメントI</li>
+                            <li>境界条件：下端固定、上端自由</li>
+                            <li>材料：ヤング率E、単位体積当たり重量γ</li>
+                            <li>座屈係数：μ ≈ 7.837（自重座屈用）</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>下端固定・上端自由の柱では有効座屈長さLe = 2lとなります。自重座屈では軸力が位置によって変化することを考慮します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 座屈荷重とたわみ曲線</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            オイラーの座屈理論を適用します。
+                            <p><strong>有効座屈長さ：</strong></p>
+                            下端固定・上端自由の場合：
+                            <div class="math-block">
+                                $$L_e = 2l$$
+                            </div>
+                            <p><strong>座屈荷重：</strong></p>
+                            オイラーの座屈公式：
+                            <div class="math-block">
+                                $$P_{cr} = \frac{\pi^2 EI}{L_e^2} = \frac{\pi^2 EI}{(2l)^2} = \frac{\pi^2 EI}{4l^2}$$
+                            </div>
+                            <p><strong>たわみ曲線：</strong></p>
+                            座屈時の変形形状（下端から測った距離x）：
+                            <div class="math-block">
+                                $$y(x) = \delta\left(1 - \cos\frac{\pi x}{2l}\right)$$
+                            </div>
+                            ここで、δは上端でのたわみ量（座屈開始時は不定）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 自重による座屈</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            柱の自重だけで座屈が生じる条件を求めます。
+                            <p><strong>自重座屈の特徴：</strong></p>
+                            <ul>
+                                <li>軸力が高さによって変化（上部ほど小さい）</li>
+                                <li>微分方程式の係数が変数となる</li>
+                                <li>解析的解法は高度で、通常は公式を使用</li>
+                            </ul>
+                            <p><strong>座屈条件：</strong></p>
+                            下端固定・上端自由の柱における自重座屈の臨界条件：
+                            <div class="math-block">
+                                $$\gamma_{cr} = \frac{\mu EI}{Al^3}$$
+                            </div>
+                            <p>ここで、μ ≈ 7.837は境界条件による座屈係数</p>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\gamma_{cr} = \frac{7.837 EI}{Al^3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>座屈は細長い柱特有の不安定現象である。</li>
+                            <li>有効座屈長さは境界条件により決まる。</li>
+                            <li>自重座屈では軸力の変化を考慮する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2015年度は基礎から実用設計まで幅広い内容。</li>
+                            <li>座屈問題では境界条件の影響が重要。</li>
+                            <li>自重座屈は高層建築で実用的な問題。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

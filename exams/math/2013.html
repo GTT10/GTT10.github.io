@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2013年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2013（H25）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2013年度の数学入試では、大問【1】で対数微分法と広義積分の収束性、大問【2】で微分方程式（同次・非同次）、大問【3】で行列式の計算、大問【4】で畳み込みのラプラス変換と積分方程式が出題されました。微分・積分・微分方程式・線形代数・積分変換と、数学の基本から応用まで幅広くカバーした良問です。各分野の基礎をしっかり固めていきましょう！</p>
+                <a href="../../pdfs/question/2013_H25_april/math_2013_H25_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)
+                </a>
+                <a href="../../pdfs/answer/2013_H25_april/math_2013_H25_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $y = \sqrt{\frac{x^2 + 1}{x^2 - 1}}$ の微分 $\frac{dy}{dx}$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>複雑な形の関数は対数微分法が効果的です！自然対数を取ってから微分すると、根号や分数が扱いやすくなります。対数の性質を活用して計算を簡単にしましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 自然対数を取ります：
+                            <div class="math-block">$$\ln y = \frac{1}{2}\ln\left(\frac{x^2 + 1}{x^2 - 1}\right) = \frac{1}{2}(\ln(x^2 + 1) - \ln(x^2 - 1))$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺を$x$で微分：
+                            <div class="math-block">$$\frac{1}{y}\frac{dy}{dx} = \frac{1}{2}\left(\frac{2x}{x^2 + 1} - \frac{2x}{x^2 - 1}\right) = x\left(\frac{1}{x^2 + 1} - \frac{1}{x^2 - 1}\right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 右辺を整理：
+                            <div class="math-block">$$\frac{1}{x^2 + 1} - \frac{1}{x^2 - 1} = \frac{(x^2 - 1) - (x^2 + 1)}{(x^2 + 1)(x^2 - 1)} = \frac{-2}{x^4 - 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $\frac{dy}{dx}$について解く：
+                            <div class="math-block">$$\frac{dy}{dx} = y \cdot x \cdot \frac{-2}{x^4 - 1} = \sqrt{\frac{x^2 + 1}{x^2 - 1}} \cdot \frac{-2x}{x^4 - 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. $x^4 - 1 = (x^2 - 1)(x^2 + 1)$より：
+                            <div class="math-block">$$\frac{dy}{dx} = \sqrt{\frac{x^2 + 1}{x^2 - 1}} \cdot \frac{-2x}{(x^2 - 1)(x^2 + 1)} = \frac{-2x}{(x^2 - 1)^{1/2}(x^2 + 1)^{3/2}}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dy}{dx} = -\frac{2x}{(x^{2}-1)^{1/2}(x^{2}+1)^{3/2}}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 広義積分 $\int_{1}^{\infty} \frac{\log x}{x^3} dx$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この広義積分は、$x \to \infty$での収束性と、分母の$x^3$による減衰がポイントです。$x = 1$以降の区間で特異性はありませんが、$x \to \infty$での挙動を確認し、部分積分を使って計算します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <div class="solution-step">
+                            1. $\int_{1}^{\infty} \frac{\log x}{x^3} dx$ を部分積分：
+                            $u = \log x$，$dv = x^{-3}dx$ とすると
+                            <div class="math-block">$$du = \frac{1}{x}dx，\quad v = -\frac{1}{2}x^{-2}$$</div>
+                            <div class="math-block">$$\int_{1}^{\infty} = \left[-\frac{\log x}{2x^2}\right]_{1}^{\infty} + \frac{1}{2}\int_{1}^{\infty} x^{-3}dx = 0 + \frac{1}{2} \cdot \frac{1}{4} = \frac{1}{4}$$</div>
+                        </div>
+
+                        <span class="answer-highlight">答え: $\frac{1}{4}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対数微分法で複雑な関数を簡単に</li>
+                            <li>広義積分は特異点を分けて考える</li>
+                            <li>収束・発散の判定が重要</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\ln y' = (\ln y)'$ で対数微分</li>
+                            <li>$\int_{0}^{\infty} = \int_{0}^{1} + \int_{1}^{\infty}$ で分割</li>
+                            <li>$\log x / x^n$ 型は部分積分が基本</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 同次微分方程式 $y' - \frac{x}{x^2 + 1} y = 0$ を解け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは変数分離形の同次微分方程式です！$\frac{dy}{y} = \frac{x}{x^2 + 1}dx$ として両辺を積分しましょう。右辺は置換積分で簡単に計算できます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数分離：
+                            <div class="math-block">$$\frac{dy}{y} = \frac{x}{x^2 + 1}dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺を積分：
+                            <div class="math-block">$$\int \frac{dy}{y} = \int \frac{x}{x^2 + 1}dx$$</div>
+                            <div class="math-block">$$\ln|y| = \frac{1}{2}\ln(x^2 + 1) + C_1$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 指数をとって解く：
+                            <div class="math-block">$$|y| = e^{C_1} \cdot \sqrt{x^2 + 1}$$</div>
+                            <div class="math-block">$$y = C\sqrt{x^2 + 1}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = C\sqrt{x^{2} + 1}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 非同次微分方程式 $y' - \frac{x}{x^2 + 1} y = x$ を解け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)の解を利用して定数変化法を使いましょう！$y = C(x)\sqrt{x^2 + 1}$ とおいて、$C(x)$ を求めます。非同次項が $x$ なので計算は比較的簡単になります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 定数変化法：$y = C(x)\sqrt{x^2 + 1}$ とおく
+                        </div>
+                        <div class="solution-step">
+                            2. $y' = C'(x)\sqrt{x^2 + 1} + C(x) \cdot \frac{x}{\sqrt{x^2 + 1}}$ を微分方程式に代入：
+                            <div class="math-block">$$C'(x)\sqrt{x^2 + 1} + C(x) \cdot \frac{x}{\sqrt{x^2 + 1}} - \frac{x}{x^2 + 1} \cdot C(x)\sqrt{x^2 + 1} = x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 整理すると：
+                            <div class="math-block">$$C'(x)\sqrt{x^2 + 1} = x$$</div>
+                            <div class="math-block">$$C'(x) = \frac{x}{\sqrt{x^2 + 1}}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $C(x)$ を求める：
+                            <div class="math-block">$$C(x) = \int \frac{x}{\sqrt{x^2 + 1}}dx = \sqrt{x^2 + 1} + K$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 一般解：
+                            <div class="math-block">$$y = (\sqrt{x^2 + 1} + K)\sqrt{x^2 + 1} = x^2 + 1 + K\sqrt{x^2 + 1}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = x^{2} + 1 + K\sqrt{x^{2} + 1}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次方程式は変数分離で解く</li>
+                            <li>非同次方程式は定数変化法が有効</li>
+                            <li>同次解を利用して効率的に解く</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\int \frac{x}{x^2+1}dx = \frac{1}{2}\ln(x^2+1) + C$</li>
+                            <li>定数変化法：$y = C(x) \times y_{\text{同次}}$</li>
+                            <li>$\int \frac{x}{\sqrt{x^2+1}}dx = \sqrt{x^2+1} + C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">行列 $B = \begin{pmatrix} 3 & -1 & -1 \\ 4 & 0 & 0 \\ -3 & 2 & 2 \end{pmatrix}$ の行列式を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>3×3行列の行列式はサルスの定理や余因子展開で計算できます！第2行に0が多いので、第2行での余因子展開が効率的ですね。計算ミスに注意して丁寧に進めましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 第2行での余因子展開を行います（0が多いため）：
+                            <div class="math-block">$$|B| = 4 \cdot (-1)^{2+1} \begin{vmatrix} -1 & -1 \\ 2 & 2 \end{vmatrix} + 0 + 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 2×2行列式を計算：
+                            <div class="math-block">$$\begin{vmatrix} -1 & -1 \\ 2 & 2 \end{vmatrix} = (-1) \cdot 2 - (-1) \cdot 2 = -2 + 2 = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. したがって：
+                            <div class="math-block">$$|B| = 4 \cdot (-1) \cdot 0 = 0$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $|B| = 0$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>0の多い行・列で余因子展開</li>
+                            <li>2×2行列式は暗算で計算</li>
+                            <li>行列式=0は行列が特異（非正則）</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>余因子展開：$|A| = \sum a_{ij}(-1)^{i+j}M_{ij}$</li>
+                            <li>$\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$</li>
+                            <li>行列式=0 ⇔ 逆行列が存在しない</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 畳み込みのラプラス変換：$\mathcal{L}\left[\int_{0}^{t} f(t-\tau) g(\tau) d\tau\right] = \mathcal{L}[f] \mathcal{L}[g]$ を証明せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>畳み込みの定義から始めて、積分順序の変更を行います！変数変換 $u = t - \tau$ を使って、最終的に $\mathcal{L}[f] \mathcal{L}[g]$ の形に帰着させましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 畳み込みのラプラス変換を定義に従って計算：
+                            <div class="math-block">$$\mathcal{L}[(f * g)(t)] = \int_{0}^{\infty} e^{-st} \left(\int_{0}^{t} f(t-\tau) g(\tau) d\tau\right) dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分順序を変更：
+                            <div class="math-block">$$= \int_{0}^{\infty} g(\tau) \left(\int_{\tau}^{\infty} e^{-st} f(t-\tau) dt\right) d\tau$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 変数変換 $u = t - \tau$ を適用：
+                            <div class="math-block">$$= \int_{0}^{\infty} g(\tau) e^{-s\tau} \left(\int_{0}^{\infty} e^{-su} f(u) du\right) d\tau$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 因数分解：
+                            <div class="math-block">$$= \left(\int_{0}^{\infty} e^{-su} f(u) du\right) \left(\int_{0}^{\infty} g(\tau) e^{-s\tau} d\tau\right) = \mathcal{L}[f] \mathcal{L}[g]$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 積分方程式 $y(t) = \int_{0}^{t} e^{t-\tau} y(\tau) d\tau + t + 1$ を解け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)の畳み込み公式を利用しましょう！$\int_{0}^{t} e^{t-\tau} y(\tau) d\tau$ は $e^t$ と $y(t)$ の畳み込みです。ラプラス変換で代数方程式に変換して解きます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換を適用：
+                            <div class="math-block">$$Y(s) = \mathcal{L}[e^t] Y(s) + \mathcal{L}[t] + \mathcal{L}[1]$$</div>
+                            <div class="math-block">$$Y(s) = \frac{1}{s-1} Y(s) + \frac{1}{s^2} + \frac{1}{s}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $Y(s)$ について整理：
+                            <div class="math-block">$$Y(s)\left(1 - \frac{1}{s-1}\right) = \frac{s+1}{s^2}$$</div>
+                            <div class="math-block">$$Y(s) \cdot \frac{s-2}{s-1} = \frac{s+1}{s^2}$$</div>
+                            <div class="math-block">$$Y(s) = \frac{(s+1)(s-1)}{s^2(s-2)} = \frac{s^2-1}{s^2(s-2)}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 部分分数分解：
+                            <div class="math-block">$$\frac{s^2-1}{s^2(s-2)} = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s-2}$$</div>
+                            計算すると：$A = \frac{1}{4}$，$B = \frac{1}{2}$，$C = \frac{3}{4}$
+                        </div>
+                        <div class="solution-step">
+                            4. 逆ラプラス変換：
+                            <div class="math-block">$$y(t) = \frac{1}{4} + \frac{1}{2}t + \frac{3}{4}e^{2t}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y(t) = \frac{1}{4} + \frac{1}{2}t + \frac{3}{4}e^{2t}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>畳み込み定理は積分方程式の強力な道具</li>
+                            <li>積分順序の変更と変数変換が鍵</li>
+                            <li>部分分数分解で逆変換を簡単に</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}[e^{at}] = \frac{1}{s-a}$，$\mathcal{L}[t^n] = \frac{n!}{s^{n+1}}$</li>
+                            <li>畳み込み：$(f * g)(t) = \int_0^t f(t-\tau)g(\tau)d\tau$</li>
+                            <li>部分分数分解は逆変換の基本技法</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

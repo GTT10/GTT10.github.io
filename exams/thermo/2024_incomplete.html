@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!-- 
+    熱力学試験ページテンプレート（改良版）
+    
+    🎯 テンプレート使用方法:
+    
+    【基本情報】
+    2024 - 年度（例：2024）
+    R6 - 令和年度（例：R6）
+    2024年度（R6年）の熱力学では、理想気体サイクルの詳細解析とボイラの熱力学を扱います。特に、p-V線図・T-S線図の作図、サイクル効率の計算、エントロピー・エクセルギー解析が重要なポイントです。 - 問題概要説明
+    理想気体サイクル, ボイラ熱力学 - 出題トピック（例：カルノーサイクル、エントロピー）
+    
+    【大問1関連】
+    : 理想気体サイクル - 大問1のメインテーマ（例：: 理想気体サイクル）
+    4過程からなる理想気体サイクル（断熱圧縮→等容加熱→断熱膨張→等容冷却）について、各状態の温度、熱量・仕事、熱効率、図示平均有効圧力を求める問題です。 - 大問1の問題文全体
+    p-V線図とT-S線図を描き、熱の出入りを示せ。, 状態2,3,4の温度を T₁ を用いて表せ。, 2→3の熱量 Q₂₃ と仕事 W₂₃ を求めよ。 - 各小問の問題文
+    
+    【解法構造（各小問共通）】
+    サイクルの各過程（断熱圧縮、等容加熱、断熱膨張、等容冷却）の特徴を把握し、p-V線図とT-S線図を正確に描く。 - 解答方針・アプローチ
+    断熱過程では等エントロピー変化（T-S線図で垂直線）、等容過程では体積一定（p-V線図で垂直線）の特徴を活用する。 - 考え方・理論背景
+    各過程の特徴を整理し、ASCII図で線図を描く, 状態方程式と断熱関係式を適用する - 解答手順
+    pV^{\kappa} = \text{一定}, TV^{\kappa-1} = \text{一定} - LaTeX数式
+    \text{p-V線図とT-S線図} - boxed形式の最終解答
+    サイクル解析では各過程の物理的特徴を正確に把握することが重要 - 重要ポイント
+    
+    【図表・線図】
+    p-V線図とT-S線図 - 図表タイトル
+    p ↑
+|　　　　 3
+|　　　　/ \
+|　　　2     4
+|　　 /       \
+|　　/         \
+|　1-------------→ V
++----------------
+
+T ↑
+|　　　2-------3
+|　　　|       |
+|　　　|       |
+|　　　1-------4
++----------------→ S - ASCII形式の線図・図表
+    
+    【大問2関連】
+    : ボイラの熱力学 - 大問2のメインテーマ
+    ボイラ内で水を加熱・蒸発させる過程において、燃焼ガスとの熱交換によるエネルギー収支、エントロピー変化、エクセルギー変化を解析する問題です。 - 大問2の問題文全体
+    水の温度上昇に要する熱量を求めよ。, 水の蒸発に要する熱量を求めよ。 - 各小問の問題文
+    比熱の定義を用いて温度上昇による熱量を計算する。, 蒸発潜熱を用いて相変化の熱量を計算する。 - 各小問の方針
+    温度上昇: \dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1}), 蒸発: \dot{Q}_{\text{vap}} = \dot{m}_w r - 解答内容
+    \dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1}), \dot{Q}_{\text{vap}} = \dot{m}_w r - LaTeX数式
+    \dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1}), \dot{Q}_{\text{vap}} = \dot{m}_w r - 最終解答
+    
+    【サイドバー（右側）】
+    断熱関係式: pV^κ = 一定, 状態方程式: pV = mRT, 熱効率: η = W_net/Q_in - 重要公式
+    各過程の特徴を明確に把握する, 線図を正確に描いて視覚化する, エネルギー収支を厳密に計算する - 解法ポイント
+    断熱と等容の混同に注意, 符号の取り扱いに注意（吸熱・放熱） - 注意点
+    理想気体サイクルは内燃機関の基礎, エントロピーは不可逆性の指標 - 熱力学のチップス
+    
+    【まとめ】
+    理想気体サイクルの解析では、各過程の物理的特徴を把握し、線図を活用することで体系的に状態量を求めることができます。, ボイラの熱力学では、エネルギー保存則に基づいた収支計算と、エントロピー・エクセルギー解析により効率評価が可能です。 - 各大問のまとめ
+    
+    ✨ 特徴:
+    - 分析結果に基づく構造（方針→考え方→途中式→解答→ポイント）
+    - boxed形式の解答表示
+    - ASCII図形対応
+    - トピックタグ表示
+    - 充実したサイドバー情報
+-->
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024（R6）年　熱力学 - 岡山大学 大学院入試過去問ポータル</title>
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ヘッダーナビゲーション -->
+        <div class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i> <!-- 熱力学なので温度計のアイコン -->
+2024（R6）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+            
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2024年度（R6年）の熱力学では、理想気体サイクルの詳細解析とボイラの熱力学を扱います。特に、p-V線図・T-S線図の作図、サイクル効率の計算、エントロピー・エクセルギー解析が重要なポイントです。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">理想気体サイクル</span>
+                    <span class="topic-tag">ボイラ熱力学</span>
+                </div>
+                
+                <a href="../../pdfs/question/2024_R6_april/thermo_2024_R6_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_R6_april/thermo_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: 理想気体サイクル</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">4過程からなる理想気体サイクル（断熱圧縮→等容加熱→断熱膨張→等容冷却）について、各状態の温度、熱量・仕事、熱効率、図示平均有効圧力を求める問題です。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) p-V線図とT-S線図を描き、熱の出入りを示せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>サイクルの各過程（断熱圧縮、等容加熱、断熱膨張、等容冷却）の特徴を把握し、p-V線図とT-S線図を正確に描く。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-brain mr-2"></i>考え方
+                        </div>
+                        <p>断熱過程では等エントロピー変化（T-S線図で垂直線）、等容過程では体積一定（p-V線図で垂直線）の特徴を活用する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <strong>手順1:</strong> 各過程の特徴を整理し、ASCII図で線図を描く
+                            <div class="math-block">
+                                $$pV^{\kappa} = \text{一定}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>手順2:</strong> 状態方程式と断熱関係式を適用する
+                            <div class="math-block">
+                                $$TV^{\kappa-1} = \text{一定}$$
+                            </div>
+                        </div>
+                        
+                        <!-- ASCII図や線図を描く場合 -->
+                        <div class="diagram-section">
+                            <h4>p-V線図とT-S線図</h4>
+                            <pre class="ascii-diagram">p ↑
+|　　　　 3
+|　　　　/ \
+|　　　2     4
+|　　 /       \
+|　　/         \
+|　1-------------→ V
++----------------
+
+T ↑
+|　　　2-------3
+|　　　|       |
+|　　　|       |
+|　　　1-------4
++----------------→ S</pre>
+                        </div>
+                        
+                        <!-- boxed形式の最終解答 -->
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\text{p-V線図とT-S線図}}$$
+                            </div>
+                        </div>
+                        
+                        <!-- ポイント・チップス -->
+                        <div class="point-box">
+                            <div class="section-title">
+                                <i class="fas fa-star mr-2"></i>ポイント
+                            </div>
+                            <p>サイクル解析では各過程の物理的特徴を正確に把握することが重要</p>
+                        </div>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 状態2,3,4の温度を T₁ を用いて表せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱関係式と状態方程式を用いて各状態の温度を表現する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1→2断熱圧縮: $T_1 V_1^{\kappa-1} = T_2 V_2^{\kappa-1}$より、$T_2 = T_1 \varepsilon^{\kappa-1}$
+                            <br>2→3等容変化: $\frac{p_2}{T_2} = \frac{p_3}{T_3}$より、$T_3 = T_1 \varepsilon^{\kappa-1} \xi$  
+                            <br>3→4断熱膨張: $T_4 = T_1 \xi$
+                            <div class="math-block">
+                                $$T_2 = T_1 \varepsilon^{\kappa-1}, \quad T_3 = T_1 \varepsilon^{\kappa-1} \xi, \quad T_4 = T_1 \xi$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_2 = T_1 \varepsilon^{\kappa-1}, \quad T_3 = T_1 \varepsilon^{\kappa-1} \xi, \quad T_4 = T_1 \xi}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3)以降のテンプレート -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 2→3の熱量 Q₂₃ と仕事 W₂₃ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等容過程では仕事は0で、熱力学第一法則より熱量は内部エネルギー変化と等しい。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            等容過程: $W_{23} = 0$、$Q_{23} = \Delta U = m c_v (T_3 - T_2) = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)$
+                            <div class="math-block">
+                                $$W_{23} = 0, \quad Q_{23} = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{W_{23} = 0, \quad Q_{23} = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)}$$
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>理想気体サイクルの解析では、各過程の物理的特徴を把握し、線図を活用することで体系的に状態量を求めることができます。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>断熱関係式: pV^κ = 一定</li>
+                            <li>状態方程式: pV = mRT</li>
+                            <li>熱効率: η = W_net/Q_in</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>各過程の特徴を明確に把握する</li>
+                            <li>線図を正確に描いて視覚化する</li>
+                            <li>エネルギー収支を厳密に計算する</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>断熱と等容の混同に注意</li>
+                            <li>符号の取り扱いに注意（吸熱・放熱）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>熱力学のチップス
+                        </div>
+                        <ul>
+                            <li>理想気体サイクルは内燃機関の基礎</li>
+                            <li>エントロピーは不可逆性の指標</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: ボイラの熱力学</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">ボイラ内で水を加熱・蒸発させる過程において、燃焼ガスとの熱交換によるエネルギー収支、エントロピー変化、エクセルギー変化を解析する問題です。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 水の温度上昇に要する熱量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>比熱の定義を用いて温度上昇による熱量を計算する。</p>
+                    </div>
+                
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            温度上昇: $\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})$
+                            <div class="math-block">
+                                $$\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})}$$
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 水の蒸発に要する熱量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>蒸発潜熱を用いて相変化の熱量を計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            蒸発: $\dot{Q}_{\text{vap}} = \dot{m}_w r$
+                            <div class="math-block">
+                                $$\dot{Q}_{\text{vap}} = \dot{m}_w r$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\dot{Q}_{\text{vap}} = \dot{m}_w r}$$
+                            </div>
+                        </div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問2のまとめ
+                        </div>
+                        <p>ボイラの熱力学では、エネルギー保存則に基づいた収支計算と、エントロピー・エクセルギー解析により効率評価が可能です。</p>
+                    </div>
+                </div>
+                <!-- 右側：サイドバー（大問2用） -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>エネルギー関係式
+                        </div>
+                        <ul>
+                            <li>比熱による加熱: Q = mcΔT</li>
+                            <li>蒸発潜熱: Q = mr</li>
+                            <li>エントロピー変化: ΔS = Q/T</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-industry mr-2"></i>実用ポイント
+                        </div>
+                        <ul>
+                            <li>ボイラは火力発電の基幹設備</li>
+                            <li>エクセルギーは有効エネルギー</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/script.js"></script>
+    
+    <!-- アコーディオン機能 -->
+    <script>
+    function toggleAccordion(id) {
+        const element = document.getElementById(id);
+        const content = element.querySelector('.accordion-content');
+        const arrow = element.querySelector('.accordion-arrow');
+        
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            arrow.textContent = '▶';
+        } else {
+            content.style.display = 'block';
+            arrow.textContent = '▼';
+        }
+    }
+    </script>
+</body>
+</html>

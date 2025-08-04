@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熱力学 2022年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3"></i> <!-- 熱力学なので温度計のアイコンに変更 -->
+                    2022（R4）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2022年度の熱力学入試では、大問【1】でカルノーサイクル、大問【2】で熱力学関係式の導出（エンタルピー、ジュール・トムソン係数）が出題されました。熱力学の基礎概念と関係式の導出能力が問われる内容でした。</p>
+                <a href="../../pdfs/question/2022_R4_april/thermo_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">(1) カルノーサイクルのp-V線図とT-S線図を説明せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>カルノーサイクルは、2つの等温過程と2つの可逆断熱過程から構成される理想的な熱機関のサイクルです。各過程の物理的意味と、p-V線図・T-S線図の特徴を押さえましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <b>p-V (圧力-容積) 線図:</b><br>
+                            1→2: 等温膨張（温度\(T_H\)、熱\(Q_1\)吸収）<br>
+                            2→3: 断熱膨張（\(T_H\)→\(T_L\)）<br>
+                            3→4: 等温圧縮（温度\(T_L\)、熱\(Q_2\)放出）<br>
+                            4→1: 断熱圧縮（\(T_L\)→\(T_H\)）<br>
+                            <!-- ここにp-V線図の画像を挿入 -->
+                            <div class="my-6 text-center">
+                                <img src="../../images/thermo_2022_1.png" alt="カルノーサイクル p-V線図" class="mx-auto rounded-lg shadow-md">
+                                <p class="text-sm text-gray-600 mt-2">図1：カルノーサイクルのp-V線図</p>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <b>T-S (温度-エントロピー) 線図:</b><br>
+                            1→2: 等温膨張（\(T_H\)一定、\(S_1\)→\(S_2\)）<br>
+                            2→3: 断熱膨張（\(S_2=S_3\)、\(T_H\)→\(T_L\)）<br>
+                            3→4: 等温圧縮（\(T_L\)一定、\(S_3\)→\(S_4\)）<br>
+                            4→1: 断熱圧縮（\(S_4=S_1\)、\(T_L\)→\(T_H\)）<br>
+                            <!-- ここにT-S線図の画像を挿入 -->
+                            <div class="my-6 text-center">
+                                <img src="../../images/thermo_2022_1.png" alt="カルノーサイクル T-S線図" class="mx-auto rounded-lg shadow-md">
+                                <p class="text-sm text-gray-600 mt-2">図2：カルノーサイクルのT-S線図</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="problem-statement">(2) カルノーサイクルにおける熱量 \(Q_1\)（吸収）と \(Q_2\)（放出）を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>等温変化では内部エネルギーが変化しないため、供給・放出される熱量は外部への仕事と等しくなります。理想気体の状態方程式を使いましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <b>供給熱量 \(Q_1\)（1→2: 等温膨張）:</b><br>
+                            $$Q_1 = \int_{V_1}^{V_2} p dV = \int_{V_1}^{V_2} \frac{mRT_H}{V} dV = mRT_H \ln\left(\frac{V_2}{V_1}\right)$$
+                        </div>
+                        <div class="solution-step">
+                            <b>放出熱量 \(Q_2\)（3→4: 等温圧縮）:</b><br>
+                            $$Q_2 = mRT_L \ln\left(\frac{V_3}{V_4}\right)$$
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="problem-statement">(3) 各過程におけるエントロピー変化を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>等温過程ではエントロピー変化は熱量/温度で計算できます。断熱過程ではエントロピーは一定です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <b>1→2（等温膨張）:</b> $$\Delta S_{12} = \frac{Q_1}{T_H} = mR \ln\left(\frac{V_2}{V_1}\right)$$
+                        </div>
+                        <div class="solution-step">
+                            <b>2→3（断熱膨張）:</b> $$\Delta S_{23} = 0$$
+                        </div>
+                        <div class="solution-step">
+                            <b>3→4（等温圧縮）:</b> $$\Delta S_{34} = -\frac{Q_2}{T_L} = -mR \ln\left(\frac{V_3}{V_4}\right)$$<br>
+                            断熱過程の関係より \(\frac{V_2}{V_1} = \frac{V_3}{V_4}\) なので、\(\Delta S_{34} = -mR \ln\left(\frac{V_2}{V_1}\right)\) となる。
+                        </div>
+                        <div class="solution-step">
+                            <b>4→1（断熱圧縮）:</b> $$\Delta S_{41} = 0$$
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="problem-statement">(4) サイクルの熱効率を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>熱効率は正味の仕事を供給熱量で割った値です。断熱過程の関係式を使って\(Q_2/Q_1\)を温度比で表しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $$\eta = \frac{Q_1 - Q_2}{Q_1} = 1 - \frac{Q_2}{Q_1}$$<br>
+                            断熱過程の関係より \(\frac{V_2}{V_1} = \frac{V_3}{V_4}\) となるため、\(Q_1/T_H = Q_2/T_L\) (エントロピー変化が等しい) より \(\frac{Q_2}{Q_1} = \frac{T_L}{T_H}\)<br>
+                            よって、$$\eta = 1 - \frac{T_L}{T_H}$$<br>
+                            例えば \(T_H=1200\,\mathrm{K}\), \(T_L=600\,\mathrm{K}\) のとき、$$\eta = 1 - 0.5 = 0.5$$
+                            <span class="answer-highlight">答え: 熱効率は \(1 - \frac{T_L}{T_H}\)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右側：解説とポイント -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>カルノーサイクルは熱機関の理想モデルで、最大効率を示す</li>
+                            <li>等温・断熱過程の物理的意味を理解することが重要</li>
+                            <li>エントロピーや熱効率の計算は公式を活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験熱力学のチップス
+                        </div>
+                        <ul>
+                            <li>p-V線図・T-S線図の特徴を押さえる</li>
+                            <li>理想気体の状態方程式やエントロピー公式を使いこなす</li>
+                            <li>効率は温度比だけで決まることを覚えておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <div class="problem-statement">熱力学関係式の導出に関する以下の問いに答えよ。</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(1) \(c_{p}=T\left(\frac{\partial S}{\partial T}\right)_{p}\) の導出</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. 比エンタルピー \(h\) の定義 \(h = u + pv\) より、\(dh = du + p dv + v dp\)。
+                        </div>
+                        <div class="solution-step">
+                            2. 熱力学第一法則 \(dq = du + p dv\)、これを代入して \(dh = dq + v dp\)。
+                        </div>
+                        <div class="solution-step">
+                            3. 熱力学第二法則 \(dq = T ds\) より、\(dh = T ds + v dp\)。
+                        </div>
+                        <div class="solution-step">
+                            4. 定圧過程 (\(dp=0\)) で \(dh = T ds\)。
+                        </div>
+                        <div class="solution-step">
+                            5. 圧力一定で温度\(T\)で偏微分し、\(\left(\frac{\partial h}{\partial T}\right)_p = T\left(\frac{\partial s}{\partial T}\right)_p\)。
+                        </div>
+                        <div class="solution-step">
+                            6. 定圧比熱 \(c_p = \left(\frac{\partial h}{\partial T}\right)_p\) より、
+                            <span class="answer-highlight">$$c_{p}=T\left(\frac{\partial S}{\partial T}\right)_{p}$$</span>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(2) \(dh = c_p dT + \left[v - T\left(\frac{\partial v}{\partial T}\right)_p\right] dp\) の導出</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. (1)で導出した \(dh = T ds + v dp\) を用いる。
+                        </div>
+                        <div class="solution-step">
+                            2. \(s=s(T,p)\)と考え、\(ds = \left(\frac{\partial s}{\partial T}\right)_p dT + \left(\frac{\partial s}{\partial p}\right)_T dp\)。
+                        </div>
+                        <div class="solution-step">
+                            3. これを\(dh\)に代入し、
+                            $$dh = T\left(\frac{\partial s}{\partial T}\right)_p dT + \left[T\left(\frac{\partial s}{\partial p}\right)_T + v\right] dp$$
+                        </div>
+                        <div class="solution-step">
+                            4. \(T\left(\frac{\partial s}{\partial T}\right)_p = c_p\)、\(\left(\frac{\partial s}{\partial p}\right)_T = -\left(\frac{\partial v}{\partial T}\right)_p\)（Maxwell関係式）を代入。
+                        </div>
+                        <div class="solution-step">
+                            5. まとめて、
+                            <span class="answer-highlight">$$dh = c_p dT + \left[v - T\left(\frac{\partial v}{\partial T}\right)_p\right] dp$$</span>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(3) ジュール・トムソン係数 \(\mu_{JT}\) の導出</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. (2)の式で\(dh=0\)とし、
+                            $$0 = c_p dT + \left[v - T\left(\frac{\partial v}{\partial T}\right)_p\right] dp$$
+                        </div>
+                        <div class="solution-step">
+                            2. \(dT\)について整理し、
+                            $$c_p dT = -\left[v - T\left(\frac{\partial v}{\partial T}\right)_p\right] dp$$
+                        </div>
+                        <div class="solution-step">
+                            3. \(dp\)で割り、
+                            <span class="answer-highlight">$$\mu_{JT} = \left(\frac{\partial T}{\partial p}\right)_h = \frac{1}{c_p}\left[T\left(\frac{\partial v}{\partial T}\right)_p - v\right]$$</span>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(4) 理想気体のジュール・トムソン係数</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            1. 理想気体の状態方程式 \(pv=RT\) より \(v=\frac{RT}{p}\)。
+                        </div>
+                        <div class="solution-step">
+                            2. \(\left(\frac{\partial v}{\partial T}\right)_p = \frac{R}{p}\)。
+                        </div>
+                        <div class="solution-step">
+                            3. (3)の式に代入し、
+                            $$\mu_{JT} = \frac{1}{c_p}\left[\frac{RT}{p} - \frac{RT}{p}\right] = 0$$
+                        </div>
+                        <div class="solution-step">
+                            <span class="answer-highlight">答え: 理想気体のジュール・トムソン係数は0（温度変化なし）</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul>
+                            <li>エンタルピーやエントロピーの定義・微分形を活用</li>
+                            <li>Maxwell関係式や状態方程式を使いこなす</li>
+                            <li>理想気体の特徴を押さえる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験熱力学のチップス
+                        </div>
+                        <ul>
+                            <li>導出問題は定義・法則・関係式を順序立てて使う</li>
+                            <li>理想気体のジュール・トムソン係数は必ず0になる</li>
+                            <li>微分・偏微分の扱いに慣れておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>

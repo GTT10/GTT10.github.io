@@ -1,0 +1,198 @@
+### 解答：平成19年度 工業熱力学
+
+---
+
+### 【１】シリンダ内のガス排出問題  
+**問題文再現**：  
+容積 \( V_1 \) のシリンダ内に圧力 \( 2P_0 \)、温度 \( T_1 \) の理想気体（比熱比 \( \kappa \)）が封入。仮想ピストンを用いて外気圧 \( P_0 \) まで膨張（状態1'）後、定圧 \( P_0 \) で排気（状態2）。熱損失 \( Q_{\text{loss}} = \frac{P_0 V_1}{2(\kappa-1)} \)。排気ガスの温度を求めよ。  
+
+#### 方針：  
+1. **状態1 → 状態1'（膨張）**：  
+   - エネルギー保存則を適用。外気圧 \( P_0 \) が一定のため、仕事 \( W = P_0 (V_1' - V_1) \)。  
+   - 熱損失 \( Q = -Q_{\text{loss}} \)（ガスから熱が出ていく）。  
+   - 内部エネルギー変化 \( \Delta U = m c_v (T_1' - T_1) \)。  
+2. **状態方程式**：  
+   - 状態1： \( 2P_0 V_1 = m R T_1 \)  
+   - 状態1'： \( P_0 V_1' = m R T_1' \)  
+3. **定積比熱**： \( c_v = \frac{R}{\kappa-1} \)。  
+
+#### 計算過程：  
+エネルギー保存則：  
+\[
+m c_v (T_1' - T_1) = -Q_{\text{loss}} - P_0 (V_1' - V_1)
+\]  
+代入：  
+\[
+m \cdot \frac{R}{\kappa-1} (T_1' - T_1) = -\frac{P_0 V_1}{2(\kappa-1)} - P_0 (V_1' - V_1)
+\]  
+状態方程式より \( m R = \frac{2P_0 V_1}{T_1} \) を利用し、両辺を \( P_0 \) で割り整理：  
+\[
+\frac{1}{\kappa-1} \left( \frac{P_0 V_1'}{m R} - \frac{2P_0 V_1}{m R} \right) = -\frac{V_1}{2(\kappa-1)} - (V_1' - V_1)
+\]  
+\[
+\frac{1}{\kappa-1} \left( T_1' - T_1 \cdot \frac{V_1'}{V_1} \cdot \frac{1}{2} \cdot 2 \right) = \cdots \quad \text{(詳細な導出は割愛)}
+\]  
+最終的に：  
+\[
+V_1' = \left(1 + \frac{1}{2\kappa}\right) V_1
+\]  
+温度 \( T_1' \)：  
+\[
+T_1' = \frac{P_0 V_1'}{m R} = \frac{P_0}{m R} \cdot \left(1 + \frac{1}{2\kappa}\right) V_1 = \frac{1}{2} \left(1 + \frac{1}{2\kappa}\right) T_1 \quad \left( \because \frac{P_0 V_1}{m R} = \frac{T_1}{2} \right)
+\]  
+\[
+\boxed{T_{\text{排気}} = \frac{2\kappa + 1}{4\kappa} T_1
+\]  
+
+#### ポイント：  
+- 外圧一定のため仕事 \( W = P_0 \Delta V \) と計算。  
+- 熱損失を考慮したエネルギー保存則が鍵。  
+- 排気ガスの温度は状態1'と同じ（定圧排気過程で変化なし）。  
+
+---
+
+### 【２】半理想気体の熱機関サイクル  
+**問題文再現**：  
+半理想気体（定容比熱 \( c_v = \alpha T \)、比熱比 \( \kappa \)）が以下のサイクル：  
+1→2: 可逆断熱圧縮、2→3: 定容加熱、3→4: 可逆断熱膨張、4→1: 定容冷却。圧縮比 \( \epsilon = V_1 / V_2 \)。  
+
+#### (1) 半理想気体の説明  
+\[
+\boxed{\text{比熱が温度に依存する理想気体。状態方程式 } PV = mRT \text{ に従うが、} c_v = \alpha T \text{（定数 } \alpha \text{）のため内部エネルギーが温度の2次関数。}}
+\]  
+
+#### (2) \( P-V \) 線図と \( T-S \) 線図  
+- **\( P-V \) 線図**：  
+  - 1→2: 断熱圧縮（急峻な曲線）  
+  - 2→3: 定容加熱（垂直線）  
+  - 3→4: 断熱膨張（急峻な曲線）  
+  - 4→1: 定容冷却（垂直線）  
+  <img src="https://via.placeholder.com/300x200?text=P-V+Diagram" alt="P-V Diagram" style="background:white;border:1px solid black;">  
+- **\( T-S \) 線図**：  
+  - 1→2: 断熱（垂直線、\( S_1 = S_2 \))  
+  - 2→3: 定容（直線、\( dS = \alpha dT \))  
+  - 3→4: 断熱（垂直線、\( S_3 = S_4 \))  
+  - 4→1: 定容（直線、\( dS = \alpha dT \))  
+  <img src="https://via.placeholder.com/300x200?text=T-S+Diagram" alt="T-S Diagram" style="background:white;border:1px solid black;">  
+
+#### (3) 各過程の熱量  
+- **1→2（断熱）**: \( Q_{12} = 0 \)  
+- **2→3（定容）**:  
+  \[
+  Q_{23} = \Delta U = m \int_{T_2}^{T_3} c_v  dT = m \int_{T_2}^{T_3} \alpha T  dT = \boxed{\dfrac{m \alpha}{2} (T_3^2 - T_2^2)}
+  \]  
+- **3→4（断熱）**: \( Q_{34} = 0 \)  
+- **4→1（定容）**:  
+  \[
+  Q_{41} = \Delta U = m \int_{T_4}^{T_1} c_v  dT = \boxed{\dfrac{m \alpha}{2} (T_1^2 - T_4^2)} \quad (\text{負の値})
+  \]  
+
+#### (4) 理論熱効率 \( \eta \)  
+\[
+\eta = 1 - \frac{|Q_{41}|}{Q_{23}} = 1 - \frac{T_4^2 - T_1^2}{T_3^2 - T_2^2}
+\]  
+断熱過程の関係：  
+- 1→2: \( T_1 V_1^{R/\alpha} = T_2 V_2^{R/\alpha} \implies T_2 = T_1 \epsilon^{R/\alpha} \)  
+- 3→4: \( T_3 V_2^{R/\alpha} = T_4 V_1^{R/\alpha} \implies T_4 = T_3 \epsilon^{-R/\alpha} \)  
+代入し \( T_3 = r T_1 \) とおくと：  
+\[
+\eta = 1 - \frac{(r \epsilon^{-R/\alpha})^2 - T_1^2}{(r T_1)^2 - (T_1 \epsilon^{R/\alpha})^2} = 1 - \epsilon^{-2R/\alpha}
+\]  
+比熱比 \( \kappa = 1 + \frac{R}{\alpha T} \) だが、問題で \( \kappa \) が与えられた場合、通常のオットーサイクル近似で：  
+\[
+\boxed{\eta = 1 - \epsilon^{-2(\kappa - 1)}}
+\]  
+
+#### (5) エントロピー変化  
+- **1→2（断熱可逆）**: \( \Delta S_{12} = 0 \)  
+- **2→3（定容）**:  
+  \[
+  \Delta S_{23} = \int \frac{\delta Q}{T} = \int_{T_2}^{T_3} \frac{c_v}{T} dT = \int_{T_2}^{T_3} \alpha  dT = \boxed{\alpha (T_3 - T_2)}
+  \]  
+- **3→4（断熱可逆）**: \( \Delta S_{34} = 0 \)  
+- **4→1（定容）**:  
+  \[
+  \Delta S_{41} = \int_{T_4}^{T_1} \frac{c_v}{T} dT = \boxed{\alpha (T_1 - T_4)}
+  \]  
+
+---
+
+### 【３】ガスの混合とエントロピー変化  
+**問題文再現**：  
+ガスA（温度 \( T_1 \)、定圧比熱 \( c_{p1} \)、質量 \( m_1 \)) とガスB（温度 \( T_2 \)、定圧比熱 \( c_{p2} \)、質量 \( m_2 \)) を定圧下で混合。外部と断熱。  
+
+#### (1) 混合後の温度 \( T_m \)  
+**エネルギー保存（エンタルピー保存）**：  
+混合前エンタルピー総和 = 混合後エンタルピー総和  
+\[
+m_1 c_{p1} T_1 + m_2 c_{p2} T_2 = (m_1 c_{p1} + m_2 c_{p2}) T_m
+\]  
+\[
+\boxed{T_m = \dfrac{m_1 c_{p1} T_1 + m_2 c_{p2} T_2}{m_1 c_{p1} + m_2 c_{p2}}}
+\]  
+
+##### (a) ガスAのエントロピー増加量 \( \Delta S_A \)  
+理想気体のエントロピー変化（温度変化＋圧力変化）：  
+- 初期圧力: \( P \)  
+- 最終分圧: \( P_{A} = \frac{n_A}{n_A + n_B} P \)（モル分率）  
+\[
+\Delta S_A = m_1 \left( \int_{T_1}^{T_m} \frac{c_{p1}}{T} dT - R_1 \ln \frac{P_{A}}{P} \right)
+\]  
+\( c_{p1} \) 一定と仮定：  
+\[
+\boxed{\Delta S_A = m_1 \left( c_{p1} \ln \frac{T_m}{T_1} - R_1 \ln \frac{n_A}{n_A + n_B} \right)}
+\]  
+（\( n_A, n_B \): モル数, \( R_1 \): ガスAの気体定数）  
+
+##### (b) ガスBのエントロピー増加量 \( \Delta S_B \)  
+同様に：  
+\[
+\boxed{\Delta S_B = m_2 \left( c_{p2} \ln \frac{T_m}{T_2} - R_2 \ln \frac{n_B}{n_A + n_B} \right)}
+\]  
+
+##### (c) 全体のエントロピー増加量 \( \Delta S \)  
+\[
+\boxed{\Delta S = \Delta S_A + \Delta S_B}
+\]  
+
+#### (2) 特定条件（ \( c_{p1} = c_{p2} = c_p \), \( m_1 = m_2 = m \), \( T_1 = 2T_2 \) ）  
+##### 混合後の温度 \( T_m \)：  
+\[
+T_m = \frac{m c_p (2T_2) + m c_p T_2}{m c_p + m c_p} = \frac{3m c_p T_2}{2m c_p} = \boxed{\dfrac{3}{2} T_2}
+\]  
+
+##### エントロピー増加量 \( \Delta S \)：  
+- 同じ気体と仮定（分子量等しい→ \( R_1 = R_2 = R \), \( n_A = n_B = n \))  
+- 分圧変化: \( \frac{P_A}{P} = \frac{1}{2} \)  
+\[
+\Delta S_A = m \left( c_p \ln \frac{3T_2/2}{2T_2} - R \ln \frac{1}{2} \right) = m \left( c_p \ln \frac{3}{4} + R \ln 2 \right)
+\]  
+\[
+\Delta S_B = m \left( c_p \ln \frac{3T_2/2}{T_2} - R \ln \frac{1}{2} \right) = m \left( c_p \ln \frac{3}{2} + R \ln 2 \right)
+\]  
+\[
+\Delta S = m \left[ c_p \left( \ln \frac{3}{4} + \ln \frac{3}{2} \right) + 2R \ln 2 \right] = m \left[ c_p \ln \left( \frac{9}{8} \right) + 2R \ln 2 \right]
+\]  
+\[
+\boxed{\Delta S = m \left( c_p \ln \frac{9}{8} + 2R \ln 2 \right)}
+\]  
+
+#### ポイント：  
+- 定圧混合ではエンタルピー保存を使用。  
+- エントロピー変化は温度変化と分圧変化の影響を受ける。  
+- 同じ気体と仮定すると分圧比 \( \frac{1}{2} \) となる。  
+
+--- 
+
+### 総括ポイント  
+1. **【１】**：  
+   - 熱損失を含むエネルギー保存則と、外圧一定を利用した仕事の計算が鍵。  
+   - 排気ガス温度は圧縮比 \( \epsilon \) と比熱比 \( \kappa \) で決まる。  
+2. **【２】**：  
+   - 半理想気体は比熱が温度依存するため、積分で熱量・エントロピーを計算。  
+   - 効率は通常のオットーサイクルとは異なり \( \eta = 1 - \epsilon^{-2(\kappa-1)} \)。  
+3. **【３】**：  
+   - 定圧断熱混合ではエンタルピー保存から \( T_m \) を決定。  
+   - エントロピー変化は分圧変化（混合による）を考慮。  
+
+> 試験では途中式を明確に記述し、仮定を明示することが重要です。

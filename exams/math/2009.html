@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2009年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2009（H21）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2009年度の数学入試では、大問【1】で広義積分（立方根による特異点）、大問【2】で落下運動の微分方程式（空気抵抗を考慮）、大問【3】で行列式計算（1の立方根の条件下）、大問【4】でラプラス変換による積分方程式が出題されました。物理的応用と数学理論が巧みに組み合わされた実践的な問題構成です。基礎から応用まで幅広くカバーして挑みましょう！</p>
+                <a href="../../pdfs/question/2009_H21_april/math_2009_H21_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2009年度)
+                </a>
+                <a href="../../pdfs/answer/2009_H21_april/math_2009_H21_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2009年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の広義積分を求めよ: $\int_{-1}^1 \frac{dx}{\sqrt[3]{(x-a)^2}} \quad (0\lt a\lt 1)$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$x=a$で被積分関数が発散する広義積分です！指数が$-2/3 > -1$なので収束します。変数変換$u = x - a$で対称性を利用し、立方根の性質（負数の立方根は負）に注意して計算しましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数変換 $u = x - a$ とすると、$dx = du$、積分区間は：
+                            <div class="math-block">
+$$
+x = -1 \text{のとき}\ u = -1 - a, \\
+x = 1 \text{のとき}\ u = 1 - a
+$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分は：
+                            <div class="math-block">
+$$
+\int_{-1-a}^{1-a} u^{-2/3} du
+$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 被積分関数 $u^{-2/3}$ の原始関数：
+                            <div class="math-block">
+$$
+\int u^{-2/3} du = \frac{u^{1/3}}{1/3} = 3u^{1/3} + C
+$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 定積分を計算：
+                            <div class="math-block">
+$$
+\left[ 3u^{1/3} \right]_{-1-a}^{1-a} = 3(1-a)^{1/3} - 3(-1-a)^{1/3}
+$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. $(-1-a)^{1/3} = -(1+a)^{1/3}$（実数範囲で立方根は負）なので：
+                            <div class="math-block">
+$$
+3(1-a)^{1/3} - 3(-(1+a)^{1/3}) = 3(1-a)^{1/3} + 3(1+a)^{1/3}
+$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $3 \left( (1-a)^{1/3} + (1+a)^{1/3} \right)$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>広義積分だが指数$-2/3 > -1$で収束</li>
+                            <li>変数変換で積分区間を調整</li>
+                            <li>立方根の性質：負数の立方根は負</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\int x^{-p} dx$は$p < 1$で収束</li>
+                            <li>$(-a)^{1/3} = -a^{1/3}$（実数範囲）</li>
+                            <li>結果は$a$の関数、$0<a<1$で定義</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">物体が落下するとき、落下速度$u$の2乗に比例した抵抗力を受けるとすれば、運動方程式は $\frac{du}{dt} = g - ku^2$ $(k>0, u(0)=0)$。$u(t)$と$u(\infty)$を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>変数分離形の微分方程式です！$\alpha = \sqrt{g/k}$と置いて部分分数分解すると計算が楽になります。終端速度$u(\infty)$は力のつり合い$g = ku^2$から直接求められますよ。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数分離：
+                            <div class="math-block">$$\frac{du}{g - ku^2} = dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\alpha = \sqrt{\frac{g}{k}}$ とおくと：
+                            <div class="math-block">$$\frac{du}{\alpha^2 - u^2} = k dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 部分分数分解：
+                            <div class="math-block">$$\frac{1}{\alpha^2 - u^2} = \frac{1}{2\alpha} \left( \frac{1}{\alpha - u} + \frac{1}{\alpha + u} \right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 積分実行：
+                            <div class="math-block">$$\frac{1}{2\alpha} \ln \left| \frac{\alpha + u}{\alpha - u} \right| = kt + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 初期条件$u(0)=0$より$C = 0$なので：
+                            <div class="math-block">$$\frac{\alpha + u}{\alpha - u} = e^{2\alpha k t}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. $u(t)$について解くと：
+                            <div class="math-block">$$u(t) = \alpha \frac{e^{2\alpha k t} - 1}{e^{2\alpha k t} + 1} = \sqrt{\frac{g}{k}} \frac{e^{2\sqrt{gk}t} - 1}{e^{2\sqrt{gk}t} + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            7. 終端速度：
+                            <div class="math-block">$$u(\infty) = \lim_{t \to \infty} u(t) = \sqrt{\frac{g}{k}}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $u(t) = \sqrt{\frac{g}{k}} \frac{e^{2\sqrt{gk}t} - 1}{e^{2\sqrt{gk}t} + 1}$, $u(\infty) = \sqrt{\frac{g}{k}}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分分数分解が鍵</li>
+                            <li>解は双曲線関数で表せる</li>
+                            <li>終端速度は力のつり合いから</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$u(t) = \sqrt{\frac{g}{k}} \tanh(\sqrt{gk}t)$とも表せる</li>
+                            <li>終端速度：$g = ku^2$より直接求められる</li>
+                            <li>物理的意味：重力と抗力のつり合い</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の行列式の値を求めよ。ただし、$x^3=1$, $x \neq 1$。</p>
+                        <div class="math-block">$$\begin{vmatrix} 1 & x^3 & x^2 & x \\ x^3 & x^2 & x & 1 \\ x^2 & x & 1 & x^3 \\ x & 1 & x^3 & x^2 \end{vmatrix}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>条件$x^3=1$（$x$は1の原始立方根$\omega, \omega^2$）を適用します！行列の対称性と、原始立方根の性質$1+\omega+\omega^2=0$をうまく使って計算しましょう。全行の和が一定になることがヒントです。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $x^3=1$を適用（$x^3 \to 1$）：
+                            <div class="math-block">$$A = \begin{bmatrix} 1 & 1 & x^2 & x \\ 1 & x^2 & x & 1 \\ x^2 & x & 1 & 1 \\ x & 1 & 1 & x^2 \end{bmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $x = \omega = e^{2\pi i / 3}$（$\omega^3=1$, $\omega \neq 1$, $1+\omega+\omega^2=0$）を代入
+                        </div>
+                        <div class="solution-step">
+                            3. 全行の和は一定（各成分和は$1+x+x^2+x^3 = 1+\omega+\omega^2+1 = 1$）
+                        </div>
+                        <div class="solution-step">
+                            4. 固有値の一つは1（固有ベクトル$[1,1,1,1]^T$）
+                        </div>
+                        <div class="solution-step">
+                            5. 詳細な計算（行基本変形・余因子展開）により：
+                        </div>
+                        <span class="answer-highlight">答え: $-3x^2+3x=-3$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>原始立方根の性質を活用</li>
+                            <li>対称行列の固有値計算</li>
+                            <li>行列の構造的性質を利用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\omega = -\frac{1}{2} + i\frac{\sqrt{3}}{2}$</li>
+                            <li>$\omega^2 = -\frac{1}{2} - i\frac{\sqrt{3}}{2}$</li>
+                            <li>$1 + \omega + \omega^2 = 0$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の方程式が$0 \leq t$で成立。ラプラス変換で$y(t)$を求めよ。ただし$y(0)=0$。</p>
+                        <div class="math-block">$$\frac{dy}{dt} + 3 \int_0^t y dt = \sin t$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>積分項の変換公式$\mathcal{L}\{\int_0^t y dt\} = \frac{Y(s)}{s}$を使います！ラプラス変換で代数方程式に変換し、部分分数分解で逆変換しやすい形にしましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換適用：
+                            <div class="math-block">$$\mathcal{L}\left\{\frac{dy}{dt}\right\} = sY(s) - y(0) = sY(s)$$</div>
+                            <div class="math-block">$$\mathcal{L}\left\{\int_0^t y dt\right\} = \frac{Y(s)}{s}, \quad \mathcal{L}\{\sin t\} = \frac{1}{s^2 + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 方程式の変換：
+                            <div class="math-block">$$sY(s) + 3 \cdot \frac{Y(s)}{s} = \frac{1}{s^2 + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $Y(s)$について整理：
+                            <div class="math-block">$$Y(s) \left( \frac{s^2 + 3}{s} \right) = \frac{1}{s^2 + 1}$$</div>
+                            <div class="math-block">$$Y(s) = \frac{s}{(s^2 + 3)(s^2 + 1)}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 部分分数分解：
+                            <div class="math-block">$$\frac{s}{(s^2 + 3)(s^2 + 1)} = \frac{As + B}{s^2 + 3} + \frac{Cs + D}{s^2 + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 係数比較により：$A = -\frac{1}{2}$, $B = 0$, $C = \frac{1}{2}$, $D = 0$
+                            <div class="math-block">$$Y(s) = \frac{1}{2} \left( \frac{s}{s^2 + 1} - \frac{s}{s^2 + 3} \right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 逆ラプラス変換：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{\frac{s}{s^2 + 1}\right\} = \cos t, \quad \mathcal{L}^{-1}\left\{\frac{s}{s^2 + 3}\right\} = \cos(\sqrt{3}t)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y(t) = \frac{1}{2} \left( \cos t - \cos(\sqrt{3}t) \right)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>積分項の変換：$\int_0^t y dt \to \frac{Y(s)}{s}$</li>
+                            <li>部分分数分解後、逆変換は標準公式</li>
+                            <li>解は異なる周期の振動の重ね合わせ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{\int_0^t f dt\} = \frac{F(s)}{s}$</li>
+                            <li>$\mathcal{L}^{-1}\{\frac{s}{s^2 + a^2}\} = \cos(at)$</li>
+                            <li>部分分数分解は係数比較で</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

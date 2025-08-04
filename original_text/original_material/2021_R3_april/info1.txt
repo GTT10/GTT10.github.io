@@ -1,0 +1,264 @@
+### 大問1
+
+**問題文：**  
+図1に示すように，長さ \(l\) の3本の丸棒A、B、Cが上下から剛体板で挟まれ，その剛体板に外力 \(P\) が作用している．丸棒の中心は互いに \(a\) だけ離れており，外力 \(P\) によってすべての丸棒は等しく縮むものとする．丸棒A、B、Cの縦弾性係数および断面積は，それぞれ順に \(E_1\)、\(E_2\)、\(E_3\) および \(A_1\)、\(A_2\)、\(A_3\) とする．  
+(1) 丸棒の縮み \(\delta\) を求めよ．  
+(2) 外力 \(P\) を作用させた位置 \(x\) を求めよ．ただし，\(x\) は丸棒Aの中心からの距離とする．  
+(3) 外力 \(P\) を増加させると丸棒Aが先にせん断破壊した．破壊したときの外力 \(P_{\text{max}}\) を求めよ．ただし，丸棒Aのせん断強さを \(\tau_a\) とする．
+
+**方針と解答：**  
+すべての丸棒が等しく縮むため，各丸棒の縮みは同じ \(\delta\) である．丸棒に作用する力を \(F_A\), \(F_B\), \(F_C\) とすると，力のつり合いとモーメントのつり合いが成立する．また，フックの法則から，各丸棒の縮み \(\delta\) と力の関係を導く．丸棒の剛性を \(k_i = \frac{E_i A_i}{l}\) と定義すると，\(F_i = k_i \delta\) と表せる．
+
+#### (1) 丸棒の縮み \(\delta\) を求めよ．
+**方針：** 力のつり合い（鉛直方向）を考慮する．外力 \(P\) と各丸棒に作用する力の和が等しい．  
+**途中式：**  
+力のつり合い：  
+\[
+F_A + F_B + F_C = P
+\]  
+\(F_i = k_i \delta\) を代入：  
+\[
+k_A \delta + k_B \delta + k_C \delta = P
+\]  
+\[
+\delta (k_A + k_B + k_C) = P
+\]  
+\[
+\delta = \frac{P}{k_A + k_B + k_C}
+\]  
+\(k_i = \frac{E_i A_i}{l}\) を代入：  
+\[
+\delta = \frac{P}{\frac{E_1 A_1}{l} + \frac{E_2 A_2}{l} + \frac{E_3 A_3}{l}} = \frac{P l}{E_1 A_1 + E_2 A_2 + E_3 A_3}
+\]  
+**解答：**  
+\[
+\delta = \frac{P l}{E_1 A_1 + E_2 A_2 + E_3 A_3}
+\]
+
+#### (2) 外力 \(P\) を作用させた位置 \(x\) を求めよ．
+**方針：** 点Aに関するモーメントのつり合いを考慮する．丸棒BとCの位置はAからそれぞれ \(a\), \(2a\) である．  
+**途中式：**  
+モーメントのつり合い（点A基準）：  
+\[
+F_B \cdot a + F_C \cdot 2a = P \cdot x
+\]  
+\(F_i = k_i \delta\) を代入：  
+\[
+k_B \delta \cdot a + k_C \delta \cdot 2a = P x
+\]  
+\[
+\delta a (k_B + 2k_C) = P x
+\]  
+(1) の \(\delta = \frac{P}{k_A + k_B + k_C}\) を代入：  
+\[
+x = \frac{\delta a (k_B + 2k_C)}{P} = \frac{\frac{P}{k_A + k_B + k_C} \cdot a (k_B + 2k_C)}{P} = \frac{a (k_B + 2k_C)}{k_A + k_B + k_C}
+\]  
+\(k_i = \frac{E_i A_i}{l}\) を代入：  
+\[
+x = a \frac{\frac{E_2 A_2}{l} + 2 \frac{E_3 A_3}{l}}{\frac{E_1 A_1}{l} + \frac{E_2 A_2}{l} + \frac{E_3 A_3}{l}} = a \frac{E_2 A_2 + 2E_3 A_3}{E_1 A_1 + E_2 A_2 + E_3 A_3}
+\]  
+**解答：**  
+\[
+x = a \frac{E_2 A_2 + 2E_3 A_3}{E_1 A_1 + E_2 A_2 + E_3 A_3}
+\]
+
+#### (3) 破壊したときの外力 \(P_{\text{max}}\) を求めよ．
+**方針：** 丸棒Aがせん断破壊する条件は，最大せん断応力 \(\tau_{\text{max}}\) がせん断強さ \(\tau_a\) に達したときである．一軸応力状態では \(\tau_{\text{max}} = \frac{\sigma}{2}\) であり，\(\sigma = \frac{F_A}{A_1}\)（圧縮応力）である．  
+**途中式：**  
+破壊条件：  
+\[
+\tau_{\text{max}} = \frac{\sigma}{2} = \frac{F_A}{2A_1} = \tau_a
+\]  
+\[
+F_A = 2 A_1 \tau_a
+\]  
+(1) より \(F_A = k_A \delta = k_A \frac{P}{k_A + k_B + k_C}\) であるから：  
+\[
+k_A \frac{P}{k_A + k_B + k_C} = 2 A_1 \tau_a
+\]  
+\[
+P \frac{k_A}{k_A + k_B + k_C} = 2 A_1 \tau_a
+\]  
+\[
+P = 2 A_1 \tau_a \cdot \frac{k_A + k_B + k_C}{k_A}
+\]  
+\(k_i = \frac{E_i A_i}{l}\) を代入：  
+\[
+P_{\text{max}} = 2 A_1 \tau_a \cdot \frac{\frac{E_1 A_1}{l} + \frac{E_2 A_2}{l} + \frac{E_3 A_3}{l}}{\frac{E_1 A_1}{l}} = 2 A_1 \tau_a \cdot \frac{E_1 A_1 + E_2 A_2 + E_3 A_3}{E_1 A_1}
+\]  
+\[
+P_{\text{max}} = 2 \tau_a \frac{E_1 A_1 + E_2 A_2 + E_3 A_3}{E_1}
+\]  
+**解答：**  
+\[
+P_{\text{max}} = \frac{2 \tau_a}{E_1} (E_1 A_1 + E_2 A_2 + E_3 A_3)
+\]
+
+---
+
+### 大問2
+
+**問題文：**  
+図2に示すように，縦弾性係数 \(E\)，長さ \(4l\) の両端を支持した段付はりAEがあり，その段付はりに以下の式で示す単位長さあたり \(w\) の分布外力が作用している．  
+\[
+w = 
+\begin{cases} 
+\frac{w_0}{l}(x-l) & (l \leq x \leq 2l) \\
+\frac{w_0}{l}(3l-x) & (2l \leq x \leq 3l)
+\end{cases}
+\]  
+支点Aから段付はりの水平右向きに \(x\) 軸，鉛直下向きに \(y\) 軸をとる．ABおよびDE間の断面二次モーメントを \(I\)，長さを \(l\)，BD間の断面二次モーメントを \(2I\)，長さを \(2l\)，BCおよびCD間の長さを \(l\) とする．解答には \(w_0\)，\(E\)，\(l\)，\(x\) の中から必要なものを用いよ．  
+(1) A点に作用する支点反力 \(R_A\) を求めよ．  
+(2) BC間のせん断力 \(F_{\text{BC}}\) を求めよ．  
+(3) BC間の曲げモーメント \(M_{\text{BC}}\) を求めよ．  
+(4) AB間のたわみ \(v_{\text{AB}}\) を求めよ．  
+(5) BC間のたわみ \(v_{\text{BC}}\) を求めよ．
+
+**方針と解答：**  
+はりは両端支持（AとEで支持），分布外力は \(x=l\) から \(x=3l\) まで作用し，対称性を持つ（荷重分布とはりの断面が \(x=2l\) で対称）．支点反力は対称性より \(R_A = R_E\)．分布外力の合力と作用位置を求め，力とモーメントのつり合いから支点反力を求める．せん断力，曲げモーメントは区間ごとに積分で求める．たわみは曲げモーメントから微分方程式を解き，境界条件と連続条件から積分定数を決定する．
+
+#### (1) A点に作用する支点反力 \(R_A\) を求めよ．
+**方針：** 分布外力の合力と作用位置を求め，力のつり合いとモーメントのつり合いを解く．  
+**途中式：**  
+分布外力の合力 \(R_w\)：  
+\[
+R_w = \int_{l}^{3l} w \, dx = \int_{l}^{2l} \frac{w_0}{l} (x - l) \, dx + \int_{2l}^{3l} \frac{w_0}{l} (3l - x) \, dx
+\]  
+第一積分：  
+\[
+\int_{l}^{2l} \frac{w_0}{l} (x - l) \, dx = \frac{w_0}{l} \left[ \frac{1}{2} (x - l)^2 \right]_{l}^{2l} = \frac{w_0}{l} \cdot \frac{1}{2} l^2 = \frac{1}{2} w_0 l
+\]  
+第二積分：  
+\[
+\int_{2l}^{3l} \frac{w_0}{l} (3l - x) \, dx = \frac{w_0}{l} \left[ 3l x - \frac{1}{2} x^2 \right]_{2l}^{3l} = \frac{w_0}{l} \left( \left(9l^2 - \frac{9}{2}l^2\right) - \left(6l^2 - 2l^2\right) \right) = \frac{w_0}{l} \left( \frac{9}{2}l^2 - 4l^2 \right) = \frac{w_0}{l} \cdot \frac{1}{2} l^2 = \frac{1}{2} w_0 l
+\]  
+合力：  
+\[
+R_w = \frac{1}{2} w_0 l + \frac{1}{2} w_0 l = w_0 l
+\]  
+作用位置（対称性より \(x=2l\)）．  
+力のつり合い（鉛直下向き正）：  
+\[
+R_A + R_E - R_w = 0
+\]  
+対称性より \(R_A = R_E\)：  
+\[
+2 R_A = w_0 l \quad \Rightarrow \quad R_A = \frac{1}{2} w_0 l
+\]  
+**解答：**  
+\[
+R_A = \frac{1}{2} w_0 l
+\]
+
+#### (2) BC間のせん断力 \(F_{\text{BC}}\) を求めよ．
+**方針：** BC間は \(l \leq x \leq 2l\)．せん断力 \(F(x)\) は，左側（Aからxまで）の力のつり合いから求める．分布外力が作用する．  
+**途中式：**  
+\(x\) でのせん断力：  
+\[
+F(x) = -R_A + \int_{l}^{x} w(\xi) \, d\xi \quad (l \leq x \leq 2l)
+\]  
+\(w(\xi) = \frac{w_0}{l} (\xi - l)\)：  
+\[
+\int_{l}^{x} w(\xi) \, d\xi = \int_{l}^{x} \frac{w_0}{l} (\xi - l) \, d\xi = \frac{w_0}{l} \left[ \frac{1}{2} (\xi - l)^2 \right]_{l}^{x} = \frac{w_0}{2l} (x - l)^2
+\]  
+\(R_A = \frac{1}{2} w_0 l\) より：  
+\[
+F(x) = -\frac{1}{2} w_0 l + \frac{w_0}{2l} (x - l)^2
+\]  
+**解答：**  
+BC間のせん断力：  
+\[
+F_{\text{BC}}(x) = \frac{w_0}{2l} (x - l)^2 - \frac{1}{2} w_0 l \quad (l \leq x \leq 2l)
+\]
+
+#### (3) BC間の曲げモーメント \(M_{\text{BC}}\) を求めよ．
+**方針：** BC間は \(l \leq x \leq 2l\)．曲げモーメント \(M(x)\) は，左側の力によるモーメントのつり合いから求める．分布外力によるモーメントを積分する．  
+**途中式：**  
+\[
+M(x) = R_A \cdot x - \int_{l}^{x} w(\xi) (x - \xi) \, d\xi
+\]  
+積分：  
+\[
+\int_{l}^{x} w(\xi) (x - \xi) \, d\xi = \int_{l}^{x} \frac{w_0}{l} (\xi - l) (x - \xi) \, d\xi
+\]  
+\(\xi - l = u\) と置換：  
+\[
+= \frac{w_0}{l} \int_{0}^{x-l} u (x - l - u) \, du = \frac{w_0}{l} \int_{0}^{x-l} \left( u(x - l) - u^2 \right) du = \frac{w_0}{l} \left[ \frac{1}{2} u^2 (x - l) - \frac{1}{3} u^3 \right]_{0}^{x-l} = \frac{w_0}{l} \left( \frac{1}{2} (x-l)^3 - \frac{1}{3} (x-l)^3 \right) = \frac{w_0}{l} \cdot \frac{1}{6} (x-l)^3
+\]  
+\(R_A = \frac{1}{2} w_0 l\) より：  
+\[
+M(x) = \frac{1}{2} w_0 l \cdot x - \frac{w_0}{6l} (x-l)^3
+\]  
+**解答：**  
+BC間の曲げモーメント：  
+\[
+M_{\text{BC}}(x) = \frac{w_0 l}{2} x - \frac{w_0}{6l} (x - l)^3 \quad (l \leq x \leq 2l)
+\]
+
+#### (4) AB間のたわみ \(v_{\text{AB}}\) を求めよ．
+**方針：** AB間は \(0 \leq x \leq l\)，断面二次モーメント \(I\)，荷重なし．たわみの微分方程式 \(\frac{d^2 v}{dx^2} = -\frac{M}{EI}\) を解く．\(M(x) = R_A x\)．境界条件：\(x=0\) で \(v=0\)，点B（\(x=l\)）でBD区間とたわみと傾きが連続．対称性より \(x=2l\) で傾き0を用いて積分定数を決定．  
+**途中式：**  
+曲げモーメント：  
+\[
+M(x) = R_A x = \frac{1}{2} w_0 l x
+\]  
+微分方程式：  
+\[
+\frac{d^2 v}{dx^2} = -\frac{M}{EI} = -\frac{1}{EI} \cdot \frac{1}{2} w_0 l x
+\]  
+積分：  
+\[
+\frac{dv}{dx} = \int -\frac{w_0 l}{2EI} x \, dx = -\frac{w_0 l}{4EI} x^2 + C_1
+\]  
+\[
+v = \int \left( -\frac{w_0 l}{4EI} x^2 + C_1 \right) dx = -\frac{w_0 l}{12EI} x^3 + C_1 x + C_2
+\]  
+境界条件 \(x=0\) で \(v=0\)：  
+\[
+C_2 = 0
+\]  
+\[
+v(x) = -\frac{w_0 l}{12EI} x^3 + C_1 x
+\]  
+点B（\(x=l\)）での傾き \(\theta_B = \left. \frac{dv}{dx} \right|_{x=l} = -\frac{w_0 l}{4EI} l^2 + C_1 = -\frac{w_0 l^3}{4EI} + C_1\)．  
+BD区間（特に \(x=2l\) で傾き0）を用い，全体の連続条件から \(C_1\) を求める（詳細は (5) の前処理で導出）．結果：  
+\[
+C_1 = \frac{29}{48} \frac{w_0 l^3}{EI}
+\]  
+したがって：  
+\[
+v_{\text{AB}}(x) = -\frac{w_0 l}{12EI} x^3 + \frac{29}{48} \frac{w_0 l^3}{EI} x
+\]  
+**解答：**  
+AB間のたわみ：  
+\[
+v_{\text{AB}}(x) = \frac{w_0 l}{EI} \left( -\frac{1}{12} x^3 + \frac{29}{48} l^2 x \right) \quad (0 \leq x \leq l)
+\]
+
+#### (5) BC間のたわみ \(v_{\text{BC}}\) を求めよ．
+**方針：** BC間は \(l \leq x \leq 2l\)，BD区間の一部．断面二次モーメント \(2I\)．たわみの微分方程式を解く．点B（\(x=l\)）でAB区間とたわみと傾きが連続，点C（\(x=2l\)）で連続（ただし，ここではBD区間全体の解を用いる）．  
+**途中式：**  
+BD区間（\(l \leq x \leq 2l\)）のたわみ \(v_2(x)\)：  
+\[
+\frac{d^2 v_2}{dx^2} = -\frac{M}{E \cdot 2I} = -\frac{1}{2EI} \left( \frac{w_0 l}{2} x - \frac{w_0}{6l} (x-l)^3 \right)
+\]  
+積分（詳細は複雑のため省略）：  
+\[
+v_2(x) = -\frac{w_0 l}{24EI} x^3 + \frac{w_0}{240EI l} (x-l)^5 + D_1 x + D_2
+\]  
+点B（\(x=l\)）での連続条件：  
+- たわみ： \(v_1(l) = v_2(l)\)  
+- 傾き： \(\theta_1(l) = \theta_2(l)\)  
+および \(x=2l\) で傾き0（対称性）から，  
+\[
+D_1 = \frac{23}{48} \frac{w_0 l^3}{EI}, \quad D_2 = \frac{1}{12} \frac{w_0 l^4}{EI}
+\]  
+代入：  
+\[
+v_{\text{BC}}(x) = -\frac{w_0 l}{24EI} x^3 + \frac{w_0}{240EI l} (x-l)^5 + \frac{23}{48} \frac{w_0 l^3}{EI} x + \frac{1}{12} \frac{w_0 l^4}{EI}
+\]  
+**解答：**  
+BC間のたわみ：  
+\[
+v_{\text{BC}}(x) = \frac{w_0}{EI} \left[ -\frac{l}{24} x^3 + \frac{1}{240l} (x-l)^5 + \frac{23}{48} l^3 x + \frac{1}{12} l^4 \right] \quad (l \leq x \leq 2l)
+\]

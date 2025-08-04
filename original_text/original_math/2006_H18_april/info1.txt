@@ -1,0 +1,224 @@
+### 解答
+
+#### **問題1: 次の広義積分の値を求めよ．**
+\[
+\int_{0}^{\infty} \frac{1}{x(1+x^{2})}  dx
+\]
+
+**方針:**  
+被積分関数は \(x=0\) で特異点を持つ広義積分である。変数変換 \(x = e^u\) を用いて計算する。  
+- \(x = e^u\) とおくと、\(dx = e^u  du\)、積分区間は \(x: 0 \to \infty\) に対応して \(u: -\infty \to \infty\)。  
+- 被積分関数は \(\frac{1}{x(1+x^2)} dx = \frac{1}{e^u (1 + e^{2u})} e^u  du = \frac{1}{1 + e^{2u}}  du\)。  
+
+**解答:**  
+\[
+\int_{0}^{\infty} \frac{1}{x(1+x^{2})}  dx = \int_{-\infty}^{\infty} \frac{1}{1 + e^{2u}}  du
+\]
+被積分関数 \(\frac{1}{1 + e^{2u}}\) は偶関数であるため、  
+\[
+= 2 \int_{0}^{\infty} \frac{1}{1 + e^{2u}}  du
+\]
+ここで \(v = e^{-u}\) とおくと、\(u = -\ln v\)、\(du = -\frac{dv}{v}\)、積分区間は \(u: 0 \to \infty\) に対応して \(v: 1 \to 0\)。  
+\[
+2 \int_{1}^{0} \frac{1}{1 + e^{-2u}} \left(-\frac{dv}{v}\right) = 2 \int_{0}^{1} \frac{1}{1 + v^{-2}} \frac{dv}{v} = 2 \int_{0}^{1} \frac{v^2}{v^2 + 1} \cdot \frac{dv}{v} = 2 \int_{0}^{1} \frac{v}{v^2 + 1}  dv
+\]
+\[
+= 2 \cdot \frac{1}{2} \int_{0}^{1} \frac{2v}{v^2 + 1}  dv = \left[ \ln(v^2 + 1) \right]_{0}^{1} = \ln(1^2 + 1) - \ln(0^2 + 1) = \ln 2 - \ln 1 = \ln 2
+\]
+
+**答え:** \(\boxed{\ln 2}\)
+
+**要点・チップス:**  
+- \(x=0\) での特異点を扱うため、変数変換が有効。  
+- 偶関数の性質を利用して積分範囲を簡略化。  
+- 最終的に初等関数の積分に帰着。
+
+---
+
+#### **問題2: 次の微分方程式を解け．**
+\[
+y'' + y = \cos x, \quad y(0) = 0, \quad y'(0) = 0
+\]
+
+**方針:**  
+線形非同次微分方程式。同次解と特解を求め、初期条件を適用。非同次項 \(\cos x\) が同次解と重複するため、特解を \(y_p = x (C \cos x + D \sin x)\) の形で仮定。
+
+**解答:**  
+**ステップ1: 同次方程式の一般解**  
+同次方程式 \(y'' + y = 0\) の特性方程式は \(\lambda^2 + 1 = 0\)。解 \(\lambda = \pm i\) より、  
+\[
+y_h = A \cos x + B \sin x \quad (A, B \text{は定数})
+\]
+
+**ステップ2: 特解の決定**  
+非同次項 \(\cos x\) が同次解と重複するため、特解を \(y_p = x (C \cos x + D \sin x)\) と仮定。  
+\[
+y_p' = (C \cos x + D \sin x) + x (-C \sin x + D \cos x)
+\]
+\[
+y_p'' = 2(-C \sin x + D \cos x) + x (-C \cos x - D \sin x)
+\]
+方程式に代入：  
+\[
+y_p'' + y_p = 2(-C \sin x + D \cos x) = \cos x
+\]
+係数比較：  
+- \(\cos x\) の係数: \(2D = 1 \implies D = \frac{1}{2}\)  
+- \(\sin x\) の係数: \(-2C = 0 \implies C = 0\)  
+よって \(y_p = \frac{1}{2} x \sin x\)。
+
+**ステップ3: 一般解と初期条件適用**  
+一般解は \(y = y_h + y_p = A \cos x + B \sin x + \frac{1}{2} x \sin x\)。  
+初期条件：  
+- \(y(0) = A = 0\)  
+- \(y' = -A \sin x + B \cos x + \frac{1}{2} (\sin x + x \cos x)\) に \(x=0\) を代入：  
+  \[
+  y'(0) = B + 0 = 0 \implies B = 0
+  \]
+したがって、  
+\[
+y = \frac{1}{2} x \sin x
+\]
+
+**答え:** \(\boxed{y = \dfrac{1}{2} x \sin x}\)
+
+**要点・チップス:**  
+- 非同次項が同次解と重複する場合、特解に \(x\) を乗じた形を仮定。  
+- 初期条件から積分定数を決定。
+
+---
+
+#### **問題3: ラプラス変換を用いた微分方程式**
+
+##### (1) ラプラス変換し、\(X(s)\)を求めよ．
+\[
+\frac{d^{2}x(t)}{dt^{2}} + 2\xi \omega \frac{dx(t)}{dt} + \omega^{2}x(t) = 1, \quad \dot{x}(0) = v_0, \quad x(0) = x_0
+\]
+
+**方針:**  
+ラプラス変換の公式を適用。微分則と初期条件を使用。
+
+**解答:**  
+ラプラス変換：  
+\[
+\mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} = s^2 X(s) - s x_0 - v_0
+\]
+\[
+\mathcal{L}\left\{\frac{dx}{dt}\right\} = s X(s) - x_0, \quad \mathcal{L}\{1\} = \frac{1}{s}
+\]
+方程式を変換：  
+\[
+(s^2 X(s) - s x_0 - v_0) + 2\xi \omega (s X(s) - x_0) + \omega^2 X(s) = \frac{1}{s}
+\]
+整理：  
+\[
+(s^2 + 2\xi \omega s + \omega^2) X(s) = \frac{1}{s} + s x_0 + v_0 + 2\xi \omega x_0
+\]
+\[
+X(s) = \frac{\dfrac{1}{s} + s x_0 + (v_0 + 2\xi \omega x_0)}{s^2 + 2\xi \omega s + \omega^2}
+\]
+
+**答え:**  
+\[
+\boxed{X(s) = \dfrac{\dfrac{1}{s} + s x_{0} + v_{0} + 2\xi \omega x_{0}}{s^{2} + 2\xi \omega s + \omega^{2}}}
+\]
+
+##### (2) \(X(s)\)を逆ラプラス変換し、\(x(t)\)を求めよ．
+**方針:**  
+\(\xi < 1\) より、減衰振動となる。分母を完成させ、部分分数分解または標準形に変形。\(\omega_d = \omega \sqrt{1 - \xi^2}\) とおく。
+
+**解答:**  
+分母を変形：  
+\[
+s^2 + 2\xi \omega s + \omega^2 = (s + \xi \omega)^2 + \omega_d^2, \quad \omega_d = \omega \sqrt{1 - \xi^2}
+\]
+分子を整理：  
+\[
+X(s) = \frac{x_0 s + (v_0 + 2\xi \omega x_0)}{(s + \xi \omega)^2 + \omega_d^2} + \frac{1}{s} \frac{1}{(s + \xi \omega)^2 + \omega_d^2}
+\]
+第一項：  
+\[
+\frac{x_0 (s + \xi \omega) + (v_0 + \xi \omega x_0)}{(s + \xi \omega)^2 + \omega_d^2} = x_0 \frac{s + \xi \omega}{(s + \xi \omega)^2 + \omega_d^2} + \frac{v_0 + \xi \omega x_0}{\omega_d} \frac{\omega_d}{(s + \xi \omega)^2 + \omega_d^2}
+\]
+逆ラプラス変換：  
+\[
+\mathcal{L}^{-1}\left\{ \frac{s + \xi \omega}{(s + \xi \omega)^2 + \omega_d^2} \right\} = e^{-\xi \omega t} \cos(\omega_d t)
+\]
+\[
+\mathcal{L}^{-1}\left\{ \frac{\omega_d}{(s + \xi \omega)^2 + \omega_d^2} \right\} = e^{-\xi \omega t} \sin(\omega_d t)
+\]
+第二項の逆変換（ステップ応答）：  
+\[
+\mathcal{L}^{-1}\left\{ \frac{1}{s} \frac{1}{(s + \xi \omega)^2 + \omega_d^2} \right\} = \frac{1}{\omega^2} \left( 1 - e^{-\xi \omega t} \left( \cos(\omega_d t) + \frac{\xi \omega}{\omega_d} \sin(\omega_d t) \right) \right)
+\]
+したがって、  
+\[
+x(t) = e^{-\xi \omega t} \left( x_0 \cos(\omega_d t) + \frac{v_0 + \xi \omega x_0}{\omega_d} \sin(\omega_d t) \right) + \frac{1}{\omega^2} \left( 1 - e^{-\xi \omega t} \left( \cos(\omega_d t) + \frac{\xi \omega}{\omega_d} \sin(\omega_d t) \right) \right)
+\]
+
+**答え:**  
+\[
+\boxed{x(t) = e^{-\xi \omega t} \left( x_{0} \cos(\omega_{d} t) + \dfrac{v_{0} + \xi \omega x_{0}}{\omega_{d}} \sin(\omega_{d} t) \right) + \dfrac{1}{\omega^{2}} \left( 1 - e^{-\xi \omega t} \left( \cos(\omega_{d} t) + \dfrac{\xi \omega}{\omega_{d}} \sin(\omega_{d} t) \right) \right)}
+\]
+
+**要点・チップス:**  
+- \(\xi < 1\) のため振動解。\(\omega_d\) は減衰固有角周波数。  
+- 初期条件応答とステップ応答の和。
+
+---
+
+#### **問題4: 最小二乗法による一次近似**
+
+##### (1) 残差の二乗和を求めよ．
+**解答:**  
+残差 \(e_i = y_i - (b_0 + b_1 x_i)\) の二乗和は、  
+\[
+S = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
+\]
+
+**答え:** \(\boxed{S = \displaystyle\sum_{i=1}^{n} (y_{i} - b_{0} - b_{1} x_{i})^{2}}\)
+
+##### (2) 残差の二乗和が最小になる条件を求めよ．
+**解答:**  
+\(S\) を \(b_0, b_1\) で偏微分し \(0\) とおく。  
+\[
+\frac{\partial S}{\partial b_0} = -2 \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0
+\]
+\[
+\frac{\partial S}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
+\]
+整理：  
+\[
+\sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0, \quad \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
+\]
+
+**答え:**  
+\[
+\boxed{\sum_{i=1}^{n} (y_{i} - b_{0} - b_{1} x_{i}) = 0}, \quad \boxed{\sum_{i=1}^{n} x_{i} (y_{i} - b_{0} - b_{1} x_{i}) = 0}
+\]
+
+##### (3) 行列を用いて条件を表せ．
+**解答:**  
+行列 \(Y = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{pmatrix}\), \(X = \begin{pmatrix} 1 & x_1 \\ 1 & x_2 \\ \vdots & \vdots \\ 1 & x_n \end{pmatrix}\), \(B = \begin{pmatrix} b_0 \\ b_1 \end{pmatrix}\) を用いると、正規方程式は、  
+\[
+X^\top X B = X^\top Y
+\]
+
+**答え:** \(\boxed{X^{\top} X B = X^{\top} Y}\)
+
+##### (4) \(B\) を \(Y\) および \(X\) を用いて表せ．
+**解答:**  
+正規方程式の解は、  
+\[
+B = (X^\top X)^{-1} X^\top Y
+\]
+
+**答え:** \(\boxed{B = (X^{\top} X)^{-1} X^{\top} Y}\)
+
+**要点・チップス:**  
+- 最小二乗法の正規方程式を導出。  
+- 行列表示により解をコンパクトに表現。
+
+--- 
+
+以上で解答を完了します。

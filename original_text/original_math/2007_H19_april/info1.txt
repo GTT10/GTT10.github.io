@@ -1,0 +1,289 @@
+### 解答
+
+#### **問題1: ラプラス変換を用いた微分方程式の解法**
+
+##### (1) 微分方程式をラプラス変換し、\(X(s)\)を求める
+**問題文:**  
+微分方程式 \(\frac{d^2x(t)}{dt^2} + 4x(t) = \delta(t)\)（\(\delta(t)\)は単位インパルス関数）を初期条件 \(x(0) = 0\), \(\left.\frac{dx(t)}{dt}\right|_{t=0} = 1\) のもとでラプラス変換し、\(X(s)\)を求めよ。
+
+**方針:**  
+ラプラス変換の性質を用いる。単位インパルス関数のラプラス変換は \(\mathcal{L}\{\delta(t)\} = 1\)、2階微分の変換は \(\mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} = s^2X(s) - s x(0) - x'(0)\) である。初期条件を適用して代数方程式を解く。
+
+**解答:**  
+- 与えられた微分方程式をラプラス変換：
+  \[
+  \mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} + 4\mathcal{L}\{x(t)\} = \mathcal{L}\{\delta(t)\}
+  \]
+- 各項の変換を適用：
+  \[
+  [s^2X(s) - s \cdot 0 - 1] + 4X(s) = 1
+  \]
+  \[
+  s^2X(s) - 1 + 4X(s) = 1
+  \]
+- \(X(s)\)について整理：
+  \[
+  (s^2 + 4)X(s) = 2
+  \]
+  \[
+  X(s) = \frac{2}{s^2 + 4}
+  \]
+
+**答え:**  
+\[
+\boxed{X(s) = \dfrac{2}{s^{2} + 4}
+\]
+
+##### (2) \(X(s)\)を逆ラプラス変換し、\(x(t)\)を求める
+**問題文:**  
+(1)で求めた \(X(s)\) をラプラス逆変換して、微分方程式の解 \(x(t)\) を求めよ。
+
+**方針:**  
+\(X(s) = \frac{2}{s^2 + 4}\) の逆ラプラス変換を求める。標準的な変換 \(\mathcal{L}\{\sin(kt)\} = \frac{k}{s^2 + k^2}\) を利用する。
+
+**解答:**  
+- \(X(s) = \frac{2}{s^2 + 4} = \frac{2}{s^2 + 2^2}\) より：
+  \[
+  \mathcal{L}^{-1}\left\{\frac{2}{s^2 + 4}\right\} = \sin(2t)
+  \]
+- ただし、単位インパルス関数の影響を考慮し、解は \(t \geq 0\) で定義される：
+  \[
+  x(t) = \sin(2t) \quad (t \geq 0)
+  \]
+- 初期条件の検証：
+  - \(x(0) = \sin(0) = 0\)（満たす）。
+  - \(\left.\frac{dx}{dt}\right|_{t=0} = 2\cos(0) = 2\)：インパルスによる速度のジャンプがあり、初期条件 \(x'(0^-) = 1\) とは整合する（詳細は方針参照）。
+
+**要点・チップス:**  
+- 単位インパルス関数 \(\delta(t)\) は \(t=0\) で作用し、速度にジャンプを引き起こす。
+- 解は \(t \geq 0\) で有効であり、単位ステップ関数 \(u(t)\) を明示する必要はない。
+
+**答え:**  
+\[
+\boxed{x(t) = \sin 2t \quad (t \geq 0)}
+\]
+
+---
+
+#### **問題2: 積分問題**
+
+##### (1) 不定積分 \(\int \sqrt{a^2 + x^2}  dx\) の導出
+**問題文:**  
+不定積分 \(\int \sqrt{a^2 + x^2}  dx\) を導出過程とともに示せ。
+
+**方針:**  
+三角関数による置換積分を用いる。\(x = a \tan\theta\) とおき、\(\sec^3\theta\) の積分に帰着し、部分積分で解く。
+
+**解答:**  
+- \(x = a \tan\theta\) とおくと、\(dx = a \sec^2\theta  d\theta\)。
+- \(\sqrt{a^2 + x^2} = \sqrt{a^2 + a^2 \tan^2\theta} = a \sec\theta\)（\(\sec\theta > 0\) とする）。
+- 積分の変換：
+  \[
+  \int \sqrt{a^2 + x^2}  dx = \int (a \sec\theta) (a \sec^2\theta)  d\theta = a^2 \int \sec^3\theta  d\theta
+  \]
+- \(\int \sec^3\theta  d\theta\) を部分積分で計算：
+  \[
+  I = \int \sec^3\theta  d\theta = \int \sec\theta \cdot \sec^2\theta  d\theta
+  \]
+  \(u = \sec\theta\), \(dv = \sec^2\theta  d\theta\) とおくと、\(du = \sec\theta \tan\theta  d\theta\), \(v = \tan\theta\)。
+  \[
+  I = \sec\theta \tan\theta - \int \tan\theta \cdot \sec\theta \tan\theta  d\theta = \sec\theta \tan\theta - \int \sec\theta (\sec^2\theta - 1)  d\theta
+  \]
+  \[
+  I = \sec\theta \tan\theta - \int \sec^3\theta  d\theta + \int \sec\theta  d\theta = \sec\theta \tan\theta - I + \ln|\sec\theta + \tan\theta|
+  \]
+  \[
+  2I = \sec\theta \tan\theta + \ln|\sec\theta + \tan\theta|
+  \]
+  \[
+  I = \frac{1}{2} \sec\theta \tan\theta + \frac{1}{2} \ln|\sec\theta + \tan\theta| + C
+  \]
+- 元の変数に戻す：\(\sec\theta = \frac{\sqrt{a^2 + x^2}}{a}\), \(\tan\theta = \frac{x}{a}\)。
+  \[
+  \int \sec^3\theta  d\theta = \frac{1}{2} \left( \frac{\sqrt{a^2 + x^2}}{a} \cdot \frac{x}{a} \right) + \frac{1}{2} \ln \left| \frac{\sqrt{a^2 + x^2}}{a} + \frac{x}{a} \right| + C
+  \]
+  \[
+  = \frac{x \sqrt{a^2 + x^2}}{2a^2} + \frac{1}{2} \ln \left| \frac{\sqrt{a^2 + x^2} + x}{a} \right| + C
+  \]
+- \(a^2\) を乗じ：
+  \[
+  \int \sqrt{a^2 + x^2}  dx = a^2 \left( \frac{x \sqrt{a^2 + x^2}}{2a^2} + \frac{1}{2} \ln \left| \frac{\sqrt{a^2 + x^2} + x}{a} \right| \right) + C
+  \]
+  \[
+  = \frac{x}{2} \sqrt{a^2 + x^2} + \frac{a^2}{2} \ln \left| x + \sqrt{a^2 + x^2} \right| - \frac{a^2}{2} \ln|a| + C
+  \]
+  定数項をまとめ：
+  \[
+  = \frac{x}{2} \sqrt{a^2 + x^2} + \frac{a^2}{2} \ln \left| x + \sqrt{a^2 + x^2} \right| + C'
+  \]
+
+**答え:**  
+\[
+\boxed{\int \sqrt{a^{2} + x^{2}}  dx = \dfrac{x}{2} \sqrt{a^{2} + x^{2}} + \dfrac{a^{2}}{2} \ln \left| x + \sqrt{a^{2} + x^{2}} \right| + C}
+\]
+
+##### (2) 放物線 \(y = x^2\) の原点から点 (1,1) までの長さ
+**問題文:**  
+放物線 \(y = x^2\) の原点 \((0,0)\) から点 \((1,1)\) まで放物線に沿って測った長さを求めよ。
+
+**方針:**  
+曲線の長さの公式 \(L = \int_a^b \sqrt{1 + \left( \frac{dy}{dx} \right)^2}  dx\) を用いる。(1) の結果を利用する。
+
+**解答:**  
+- \(y = x^2\) より \(\frac{dy}{dx} = 2x\)。
+- 長さの積分：
+  \[
+  L = \int_0^1 \sqrt{1 + (2x)^2}  dx = \int_0^1 \sqrt{1 + 4x^2}  dx
+  \]
+- \(\sqrt{1 + 4x^2} = \sqrt{4 \left( x^2 + \frac{1}{4} \right)} = 2 \sqrt{x^2 + \left( \frac{1}{2} \right)^2}\) より：
+  \[
+  L = 2 \int_0^1 \sqrt{x^2 + \frac{1}{4}}  dx
+  \]
+- (1) の結果で \(a = \frac{1}{2}\) として計算：
+  \[
+  \int \sqrt{x^2 + \frac{1}{4}}  dx = \frac{x}{2} \sqrt{x^2 + \frac{1}{4}} + \frac{1}{8} \ln \left| x + \sqrt{x^2 + \frac{1}{4}} \right| + C
+  \]
+- 定積分の計算：
+  \[
+  \left[ \frac{x}{2} \sqrt{x^2 + \frac{1}{4}} + \frac{1}{8} \ln \left( x + \sqrt{x^2 + \frac{1}{4}} \right) \right]_0^1
+  \]
+  - \(x=1\): \(\frac{1}{2} \sqrt{1 + \frac{1}{4}} = \frac{\sqrt{5}}{4}\), \(\frac{1}{8} \ln \left(1 + \frac{\sqrt{5}}{2}\right) = \frac{1}{8} \ln \left( \frac{2 + \sqrt{5}}{2} \right)\)
+  - \(x=0\): \(0\), \(\frac{1}{8} \ln \left( \frac{1}{2} \right)\)
+  \[
+  = \frac{\sqrt{5}}{4} + \frac{1}{8} \ln \left( \frac{2 + \sqrt{5}}{2} \right) - \frac{1}{8} \ln \left( \frac{1}{2} \right) = \frac{\sqrt{5}}{4} + \frac{1}{8} \ln (2 + \sqrt{5})
+  \]
+- \(L = 2 \times \left( \frac{\sqrt{5}}{4} + \frac{1}{8} \ln (2 + \sqrt{5}) \right) = \frac{\sqrt{5}}{2} + \frac{1}{4} \ln (2 + \sqrt{5})\)
+
+**答え:**  
+\[
+\boxed{L = \dfrac{\sqrt{5}}{2} + \dfrac{1}{4} \ln (2 + \sqrt{5})}
+\]
+
+---
+
+#### **問題3: 変数の比**
+**問題文:**  
+変数 \(x, y, z\) の間に \(\frac{x + y - 2z}{x} = \frac{-x + 2y + z}{y} = \frac{y - z}{z}\) が成り立つとき、\(x = y = z = 0\) 以外の場合の \(x, y, z\) の比を求めよ。
+
+**方針:**  
+比を共通の値 \(k\) とおき、3つの方程式を立てる。分母が0にならない条件（\(x \neq 0\), \(y \neq 0\), \(z \neq 0\)) のもとで解く。
+
+**解答:**  
+- \(\frac{x + y - 2z}{x} = k\), \(\frac{-x + 2y + z}{y} = k\), \(\frac{y - z}{z} = k\) とおく。
+- 方程式：
+  \[
+  (1 - k)x + y - 2z = 0, \quad -x + (2 - k)y + z = 0, \quad y - (k + 1)z = 0
+  \]
+- 第3式より \(y = (k + 1)z\)。
+- 第1式に代入：
+  \[
+  (1 - k)x + (k + 1)z - 2z = (1 - k)x + (k - 1)z = 0
+  \]
+  \[
+  (1 - k)(x - z) = 0
+  \]
+- **ケース1: \(k = 1\)**  
+  \(y = (1 + 1)z = 2z\)。第2式: \(-x + (2 - 1)y + z = -x + y + z = 0\)。代入: \(-x + 2z + z = 0\) より \(x = 3z\)。  
+  比 \(x:y:z = 3:2:1\)。
+- **ケース2: \(k \neq 1\)**  
+  \(x = z\)。第2式: \(-z + (2 - k)(k + 1)z + z = (2 - k)(k + 1)z = 0\)。\(z \neq 0\) より \((2 - k)(k + 1) = 0\)。  
+  - \(k = 2\): \(y = (2 + 1)z = 3z\), \(x = z\)。比 \(x:y:z = 1:3:1\)。  
+  - \(k = -1\): \(y = (-1 + 1)z = 0\)（不適、分母に \(y\) があるため）。
+- 解の検証（比を代入）:
+  - \(3:2:1\): 各分数は \(1\) で等しい。
+  - \(1:3:1\): 各分数は \(2\) で等しい。
+
+**答え:**  
+\[
+\boxed{x:y:z = 3:2:1 \quad \text{または} \quad 1:3:1}
+\]
+
+---
+
+#### **問題4: 微分方程式**
+
+##### (1) ベルヌーイ形の微分方程式の線形化
+**問題文:**  
+\(P(x), Q(x)\) が \(x\) の関数のとき、微分方程式 \(\frac{dy}{dx} + P(x)y = Q(x)y^n\) (\(n \neq 0, 1\)) が \(z = y^{1-n}\) とおけば線形微分方程式に帰着できることを示せ。
+
+**方針:**  
+\(z = y^{1-n}\) を微分し、元の方程式を代入して線形形を得る。
+
+**解答:**  
+- \(z = y^{1-n}\) の両辺を \(x\) で微分：
+  \[
+  \frac{dz}{dx} = (1 - n) y^{-n} \frac{dy}{dx}
+  \]
+- 元の方程式 \(\frac{dy}{dx} = -P(x)y + Q(x)y^n\) を代入：
+  \[
+  \frac{dz}{dx} = (1 - n) y^{-n} \left( -P(x)y + Q(x)y^n \right) = (1 - n) \left( -P(x) y^{1-n} + Q(x) \right)
+  \]
+- \(y^{1-n} = z\) より：
+  \[
+  \frac{dz}{dx} = (1 - n) \left( -P(x) z + Q(x) \right) = (1 - n) Q(x) - (1 - n) P(x) z
+  \]
+- 線形微分方程式の形に整理：
+  \[
+  \frac{dz}{dx} + (n - 1) P(x) z = (1 - n) Q(x)
+  \]
+  これは \(z\) に関する線形微分方程式である。
+
+##### (2) 微分方程式の解法
+**問題文:**  
+微分方程式 \(\frac{dy}{dx} + y + e^x y^3 = 0\) を解け。
+
+**方針:**  
+(1) を利用し、ベルヌーイ形 (\(n=3\)) として解く。\(z = y^{1-3} = y^{-2}\) とおき、線形微分方程式を解いてから逆変換する。
+
+**解答:**  
+- 方程式を標準形に変形：
+  \[
+  \frac{dy}{dx} + y = -e^x y^3
+  \]
+  \(P(x) = 1\), \(Q(x) = -e^x\), \(n = 3\)。
+- \(z = y^{1-3} = y^{-2}\) とおく。
+- (1) の結果から：
+  \[
+  \frac{dz}{dx} + (3 - 1) \cdot 1 \cdot z = (1 - 3) \cdot (-e^x)
+  \]
+  \[
+  \frac{dz}{dx} + 2z = 2e^x
+  \]
+- 積分因子 \(\mu(x) = e^{\int 2  dx} = e^{2x}\) を乗じ：
+  \[
+  e^{2x} \frac{dz}{dx} + 2e^{2x} z = 2e^{3x}
+  \]
+  \[
+  \frac{d}{dx} (z e^{2x}) = 2e^{3x}
+  \]
+- 積分：
+  \[
+  z e^{2x} = \int 2e^{3x}  dx = \frac{2}{3} e^{3x} + C
+  \]
+  \[
+  z = \frac{2}{3} e^{x} + C e^{-2x}
+  \]
+- \(z = y^{-2}\) より：
+  \[
+  y^{-2} = \frac{2}{3} e^{x} + C e^{-2x}
+  \]
+  \[
+  \frac{1}{y^2} = e^{-2x} \left( \frac{2}{3} e^{3x} + C \right) = \frac{2}{3} e^{x} + C e^{-2x}
+  \]
+- \(y\) について解く：
+  \[
+  y^2 = \frac{1}{\frac{2}{3} e^{x} + C e^{-2x}} = \frac{3}{2 e^{x} + 3C e^{-2x}}
+  \]
+  分母を整理：
+  \[
+  y = \pm \frac{1}{\sqrt{\frac{2}{3} e^{x} + C e^{-2x}}} = \pm \frac{e^{x}}{\sqrt{\frac{2}{3} e^{3x} + C}} \quad \text{または} \quad y = \pm \frac{e^{-x}}{\sqrt{\frac{2}{3} + C e^{-3x}}}
+  \]
+
+**答え:**  
+\[
+\boxed{y = \pm \dfrac{e^{-x}}{\sqrt{\dfrac{2}{3} + C e^{-3x}}} \quad (C \text{ は定数})}
+\]
+
+--- 
+
+以上で解答を完了します。

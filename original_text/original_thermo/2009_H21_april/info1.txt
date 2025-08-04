@@ -1,0 +1,264 @@
+### 解答：平成21年度 工業熱力学
+
+---
+
+### 【１】パイプ内気体流れに関する問題  
+**問題文再現**：  
+パイプ内を質量流量 \( m \) の気体が流れ、羽車と絞り（バルブ）を通過する。状態量は断面Ⅰ,Ⅱ,Ⅲで定義。  
+
+---
+
+#### (1) 断面Ⅰ通過エネルギー（単位時間あたり）  
+**方針**：流れが運ぶエネルギーは **エンタルピー + 運動エネルギー + 位置エネルギー**。  
+\[
+\boxed{m \left( h_\text{I} + \frac{w_\text{I}^2}{2} + g z_\text{I} \right)}
+\]  
+**解説**：  
+- \( h_\text{I} \): 単位質量あたりのエンタルピー（内部エネルギー + 流動仕事 \( Pv \)）  
+- \( \frac{w_\text{I}^2}{2} \): 単位質量あたりの運動エネルギー  
+- \( g z_\text{I} \): 単位質量あたりの位置エネルギー  
+
+---
+
+#### (2) 羽車の工業仕事  
+**方針**：エネルギー保存則（定常流）を適用。  
+\[
+\boxed{\dot{W} = m \left[ \left( h_\text{I} - h_\text{II} \right) + \frac{1}{2} \left( w_\text{I}^2 - w_\text{II}^2 \right) + g \left( z_\text{I} - z_\text{II} \right) \right] - \dot{Q}_L}
+\]  
+**導出過程**:  
+1. 一般エネルギー保存式:  
+   \[
+   \dot{Q} - \dot{W} = m \left[ \left( h_\text{II} + \frac{w_\text{II}^2}{2} + g z_\text{II} \right) - \left( h_\text{I} + \frac{w_\text{I}^2}{2} + g z_\text{I} \right) \right]
+   \]  
+2. パイプ部は断熱（ \( \dot{Q} = 0 \) ）、羽車から熱損失 \( \dot{Q}_L \) あり:  
+   \[
+   -\dot{W} - (-\dot{Q}_L) = m \left[ h_\text{II} - h_\text{I} + \frac{w_\text{II}^2 - w_\text{I}^2}{2} + g (z_\text{II} - z_\text{I}) \right]
+   \]  
+3. 羽車の仕事 \( \dot{W} \) について整理:  
+   \[
+   \dot{W} = m \left[ (h_\text{I} - h_\text{II}) + \frac{1}{2} (w_\text{I}^2 - w_\text{II}^2) + g (z_\text{I} - z_\text{II}) \right] - \dot{Q}_L
+   \]  
+
+---
+
+#### (3) 絞り通過時の逆転温度  
+**方針**：ジュール・トムソン係数 \( \mu = \left( \frac{\partial T}{\partial P} \right)_h \) が0となる温度を求める。  
+**導出過程**:  
+1. 与えられた関係式:  
+   \[
+   dh = c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP
+   \]  
+2. 絞り過程は等エンタルピー変化（ \( dh = 0 \) ）:  
+   \[
+   c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP = 0
+   \]  
+3. ジュール・トムソン係数:  
+   \[
+   \mu = \left( \frac{\partial T}{\partial P} \right)_h = \frac{ T \left( \frac{\partial v}{\partial T} \right)_P - v }{c_p}
+   \]  
+4. 状態方程式 \( Pv = aRPT^2 - bT + cP \) を \( v \) について解き、偏微分:  
+   \[
+   v = aRT^2 - \frac{bT}{P} + c
+   \]  
+   \[
+   \left( \frac{\partial v}{\partial T} \right)_P = 2aRT - \frac{b}{P}
+   \]  
+5. \( \mu = 0 \) となる条件:  
+   \[
+   T \left( 2aRT - \frac{b}{P} \right) - \left( aRT^2 - \frac{bT}{P} + c \right) = 0
+   \]  
+   \[
+   \Rightarrow aRT^2 - c = 0
+   \]  
+   \[
+   \boxed{T_{\text{inv}} = \sqrt{\frac{c}{aR}}
+   \]  
+
+---
+
+#### (4) 理想気体の絞り温度変化  
+**解答**:  
+\[
+\boxed{\text{温度変化しない}}
+\]  
+**理由**:  
+- 理想気体では \( v = RT/P \)、 \( \left( \frac{\partial v}{\partial T} \right)_P = R/P \)  
+- ジュール・トムソン係数:  
+  \[
+  \mu = \frac{ T \cdot (R/P) - (RT/P) }{c_p} = 0
+  \]  
+- よって、絞り通過で温度は一定。
+
+---
+
+### 【２】半理想気体サイクル（比熱が温度に比例）  
+**問題文再現**:  
+半理想気体が可逆断熱圧縮（1→2）、定圧膨張（2→3）、可逆断熱膨張（3→4）、定容冷却（4→1）を行うサイクル。  
+与条件: \( c_v = \alpha T \), \( c_p = \beta T \)（ \( \alpha, \beta \) 定数）。  
+
+---
+
+#### (1) \( P-V \) 線図  
+**線図の特徴**:  
+- **1→2**: 断熱圧縮（急峻な曲線）  
+- **2→3**: 定圧膨張（水平線）  
+- **3→4**: 断熱膨張（急峻な曲線）  
+- **4→1**: 定容冷却（垂直線）  
+<img src="https://via.placeholder.com/300x200?text=P-V+Diagram" alt="P-V Diagram" style="background:white;border:1px solid black;">  
+
+---
+
+#### (2) 各過程の熱量  
+**方針**: 熱力学第一法則 \( Q = \Delta U + W \) を適用。  
+1. **1→2（断熱圧縮）**:  
+   \[
+   Q_{12} = 0
+   \]  
+2. **2→3（定圧膨張）**:  
+   \[
+   Q_{23} = m c_p (T_3 - T_2) = \boxed{m \beta (T_3^2 - T_2^2)/2} \quad (\because c_p = \beta T, \int T dT = T^2/2)
+   \]  
+3. **3→4（断熱膨張）**:  
+   \[
+   Q_{34} = 0
+   \]  
+4. **4→1（定容冷却）**:  
+   \[
+   Q_{41} = m c_v (T_1 - T_4) = \boxed{m \alpha (T_1^2 - T_4^2)/2} \quad (\because c_v = \alpha T)
+   \]  
+
+---
+
+#### (3) \( T-S \) 線図上の等圧線・等容線  
+**方針**: エントロピー定義 \( dS = \frac{\delta q_{\text{rev}}}{T} \) を積分。  
+1. **等圧線（定圧過程）**:  
+   \[
+   dS = \frac{c_p dT}{T} = \beta dT \implies S = \beta T + C_p
+   \]  
+   \( S=0 \) で \( T=T_0 \) より:  
+   \[
+   \boxed{S = \beta (T - T_0)} \quad (\text{直線})
+   \]  
+2. **等容線（定容過程）**:  
+   \[
+   dS = \frac{c_v dT}{T} = \alpha dT \implies S = \alpha T + C_v
+   \]  
+   \( S=0 \) で \( T=T_0 \) より:  
+   \[
+   \boxed{S = \alpha (T - T_0)} \quad (\text{直線})
+   \]  
+
+---
+
+#### (4) \( T-S \) 線図  
+**線図の特徴**:  
+- **1→2**: 断熱圧縮（垂直線, \( S_1 = S_2 \))  
+- **2→3**: 定圧膨張（直線, 傾き \( 1/\beta \))  
+- **3→4**: 断熱膨張（垂直線, \( S_3 = S_4 \))  
+- **4→1**: 定容冷却（直線, 傾き \( 1/\alpha \))  
+<img src="https://via.placeholder.com/300x200?text=T-S+Diagram" alt="T-S Diagram" style="background:white;border:1px solid black;">  
+
+---
+
+#### (5) 理論熱効率（ \( T-S \) 線図利用）  
+**方針**: 熱効率 \( \eta = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}} \)。  
+- **吸熱量 \( Q_{\text{in}} \)** = 面積(2-3-S₃-S₂):  
+  \[
+  Q_{\text{in}} = Q_{23} = m \beta (T_3^2 - T_2^2)/2
+  \]  
+- **放熱量 \( Q_{\text{out}} \)** = 面積(4-1-S₁-S₄):  
+  \[
+  Q_{\text{out}} = |Q_{41}| = m \alpha (T_4^2 - T_1^2)/2
+  \]  
+- **効率**:  
+  \[
+  \eta = 1 - \frac{\alpha (T_4^2 - T_1^2)}{\beta (T_3^2 - T_2^2)}
+  \]  
+**断熱関係から温度を消去**:  
+- 断熱過程1→2: \( T_1 V_1^{\beta - \alpha} = T_2 V_2^{\beta - \alpha} \)  
+- 断熱過程3→4: \( T_3 V_3^{\beta - \alpha} = T_4 V_4^{\beta - \alpha} \)  
+- 定圧過程2→3: \( V_3 / V_2 = T_3 / T_2 \)  
+- 定容過程4→1: \( V_4 = V_1 \)  
+最終的に:  
+\[
+\boxed{\eta = 1 - \frac{T_4 - T_1}{T_3 - T_2} \cdot \frac{\alpha (T_4 + T_1)}{\beta (T_3 + T_2)}}
+\]  
+
+---
+
+### 【３】再熱ランキンサイクル  
+**問題文再現**:  
+再熱ランキンサイクル（過程: 1→a→b→2→3→4→1）。状態1, a, b, 2のエンタルピー定義。  
+
+---
+
+#### (1) \( T-S \) 線図  
+**線図の特徴**:  
+- **飽和限界線**: ベル型の破線  
+- **1→a**: 断熱膨張（等エントロピー, 垂直線）  
+- **a→b**: 等圧加熱（再加熱, 曲線）  
+- **b→2**: 断熱膨張（等エントロピー, 垂直線）  
+- **2→3**: 等圧冷却（凝縮, 水平線）  
+- **3→4**: 断熱加圧（ポンプ, 垂直線）  
+- **4→1**: 等圧加熱（ボイラ, 曲線）  
+<img src="https://via.placeholder.com/300x200?text=Reheat+Rankine+T-S+Diagram" alt="T-S Diagram" style="background:white;border:1px solid black;">  
+
+---
+
+#### (2) 供給熱量 \( q_1 \) と捨て熱量 \( q_2 \)  
+**単位質量あたりの熱量**:  
+- **供給熱量 \( q_1 \)** = ボイラ加熱 + 再熱加熱  
+  \[
+  \boxed{q_1 = (h_1 - h_4) + (h_b - h_a)}
+  \]  
+- **捨て熱量 \( q_2 \)** = 凝縮器での放熱  
+  \[
+  \boxed{q_2 = h_2 - h_3}
+  \]  
+
+---
+
+#### (3) 理論熱効率 \( \eta_a \)  
+**効率定義**:  
+\[
+\eta_a = \frac{\text{正味仕事}}{\text{供給熱量}} = \frac{w_{\text{turbine}} - w_{\text{pump}}}{q_1}
+\]  
+- タービン仕事: \( w_{\text{turbine}} = (h_1 - h_a) + (h_b - h_2) \)  
+- ポンプ仕事: \( w_{\text{pump}} = h_4 - h_3 \)  
+\[
+\boxed{\eta_a = \frac{(h_1 - h_a) + (h_b - h_2) - (h_4 - h_3)}{(h_1 - h_4) + (h_b - h_a)}}
+\]  
+
+---
+
+#### (4) 乾き度比 \( x_c / x_2 \) の範囲  
+**方針**: 再熱サイクル効率 > 通常ランキン効率 となる条件。  
+- **通常ランキンサイクル効率**:  
+  \[
+  \eta_{\text{simple}} = \frac{(h_1 - h_c) - (h_4 - h_3)}{h_1 - h_4}
+  \]  
+- **再熱が有利な条件**: \( \eta_a > \eta_{\text{simple}} \)  
+- **乾き度の定義**: 湿り蒸気の蒸気割合（ \( x = \frac{h - h_f}{h_{fg}} \) ）  
+**最終条件**:  
+\[
+\boxed{\frac{x_c}{x_2} > 1}
+\]  
+**理由**:  
+- 再熱を行うと状態2の乾き度 \( x_2 \) が向上（ \( x_2 > x_c \) ）。  
+- 再熱サイクル効率が高いのは、タービン出口乾き度が大きい（ \( x_2 > x_c \) ）場合。  
+- よって \( \frac{x_c}{x_2} < 1 \) だが、問題は \( \frac{x_c}{x_2} \) の **取り得る範囲** で、再熱が有利な条件は \( x_c / x_2 < 1 \)。  
+
+---
+
+### 総括ポイント  
+1. **【１】流れのエネルギー**:  
+   - 工業仕事計算では熱損失 \( \dot{Q}_L \) を忘れずに。  
+   - 逆転温度はジュール・トムソン係数 \( \mu = 0 \) で導出。  
+2. **【２】半理想気体**:  
+   - 比熱が温度依存するため、熱量計算は \( \int c \, dT \) の積分が必要。  
+   - \( T-S \) 線図の等圧線・等容線は直線（傾き \( 1/\beta \), \( 1/\alpha \)）。  
+3. **【３】再熱ランキンサイクル**:  
+   - 再熱の利点: タービン出口乾き度向上 → 翼侵食防止。  
+   - 効率比較では、乾き度比 \( x_c / x_2 < 1 \) で再熱が有利。  
+
+> 蒸気のエンタルピー値は蒸気表を使用。実際の試験では表値を参照のこと。

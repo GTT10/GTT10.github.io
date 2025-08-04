@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2011年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2011（H23）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2011年度の数学入試では、大問【1】で指数積分の部分積分、大問【2】で同次型微分方程式、大問【3】で3点を通る平面の方程式（行列式表現）、大問【4】でラプラス変換を用いた連立微分方程式が出題されました。積分技法・微分方程式・空間幾何・積分変換と、計算技術と理論理解の両方が求められる良問です。基本から応用まで着実に身につけていきましょう！</p>
+                <a href="../../pdfs/question/2011_H23_april/math_2011_H23_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2011年度)
+                </a>
+                <a href="../../pdfs/answer/2011_H23_april/math_2011_H23_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2011年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の積分を計算せよ。
+                        $$\int_{0}^{\infty} e^{-ax} \cos bx \, dx \quad (a>0)$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>部分積分を2回繰り返すのがポイントです！最初の部分積分で元の積分が再び現れるので、それを利用して方程式として解きます。$a > 0$なので無限遠で収束することが保証されますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず不定積分 $I = \int e^{-ax} \cos bx \, dx$ を求めます。
+                        </div>
+                        <div class="solution-step">
+                            2. 第1回部分積分：$u = \cos bx$，$dv = e^{-ax} dx$ とすると
+                            <div class="math-block">$$du = -b\sin bx \, dx，\quad v = -\frac{1}{a}e^{-ax}$$</div>
+                            <div class="math-block">$$I = -\frac{1}{a}e^{-ax}\cos bx - \frac{b}{a}\int e^{-ax}\sin bx \, dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第2回部分積分：右辺の積分で $u = \sin bx$，$dv = e^{-ax} dx$ とすると
+                            <div class="math-block">$$\int e^{-ax}\sin bx \, dx = -\frac{1}{a}e^{-ax}\sin bx + \frac{b}{a}\int e^{-ax}\cos bx \, dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 代入して整理：
+                            <div class="math-block">$$I = -\frac{1}{a}e^{-ax}\cos bx - \frac{b}{a}\left(-\frac{1}{a}e^{-ax}\sin bx + \frac{b}{a}I\right)$$</div>
+                            <div class="math-block">$$I = -\frac{1}{a}e^{-ax}\cos bx + \frac{b}{a^2}e^{-ax}\sin bx - \frac{b^2}{a^2}I$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. $I$について解くと：
+                            <div class="math-block">$$I + \frac{b^2}{a^2}I = e^{-ax}\left(-\frac{1}{a}\cos bx + \frac{b}{a^2}\sin bx\right)$$</div>
+                            <div class="math-block">$$I = \frac{e^{-ax}(-a\cos bx + b\sin bx)}{a^2 + b^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 定積分を計算：
+                            <div class="math-block">$$\int_{0}^{\infty} e^{-ax} \cos bx \, dx = \left[\frac{e^{-ax}(-a\cos bx + b\sin bx)}{a^2 + b^2}\right]_{0}^{\infty}$$</div>
+                            $x \to \infty$で$0$，$x = 0$で$-\frac{a}{a^2 + b^2}$なので：
+                            <div class="math-block">$$= 0 - \left(-\frac{a}{a^2 + b^2}\right) = \frac{a}{a^2 + b^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{a}{a^{2} + b^{2}}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分積分を2回行うと元の積分が再出現</li>
+                            <li>方程式として解く技法が重要</li>
+                            <li>$a > 0$が収束の必要条件</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>指数関数×三角関数は部分積分2回の定番</li>
+                            <li>オイラー公式 $e^{ibx} = \cos bx + i\sin bx$ も利用可</li>
+                            <li>無限積分では収束条件を確認する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の微分方程式の一般解を求めよ。
+                        $$y^2 + (2xy + x^2) \frac{dy}{dx} = 0$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは同次型微分方程式です！$y = vx$と置換すると変数分離形になります。置換後は部分分数分解が必要になるので、分解の計算を丁寧に行いましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 方程式を整理：
+                            <div class="math-block">$$\frac{dy}{dx} = -\frac{y^2}{2xy + x^2} = -\frac{y^2}{x(2y + x)}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 同次型なので$y = vx$と置換：$\frac{dy}{dx} = v + x\frac{dv}{dx}$
+                            <div class="math-block">$$v + x\frac{dv}{dx} = -\frac{(vx)^2}{x(2vx + x)} = -\frac{v^2x^2}{x^2(2v + 1)} = -\frac{v^2}{2v + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 整理すると：
+                            <div class="math-block">$$x\frac{dv}{dx} = -\frac{v^2}{2v + 1} - v = -\frac{v^2 + v(2v + 1)}{2v + 1} = -\frac{3v^2 + v}{2v + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 変数分離：
+                            <div class="math-block">$$\frac{2v + 1}{v(3v + 1)}dv = -\frac{1}{x}dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 部分分数分解：$\frac{2v + 1}{v(3v + 1)} = \frac{A}{v} + \frac{B}{3v + 1}$
+                            $2v + 1 = A(3v + 1) + Bv$より$A = 1$，$B = -1$
+                            <div class="math-block">$$\frac{2v + 1}{v(3v + 1)} = \frac{1}{v} - \frac{1}{3v + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 積分：
+                            <div class="math-block">$$\int\left(\frac{1}{v} - \frac{1}{3v + 1}\right)dv = -\int\frac{1}{x}dx$$</div>
+                            <div class="math-block">$$\ln|v| - \frac{1}{3}\ln|3v + 1| = -\ln|x| + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            7. $v = \frac{y}{x}$を代入して整理すると：
+                            <div class="math-block">$$\frac{xy^3}{x + 3y} = C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{xy^{3}}{x + 3y} = C$ （$C$は任意定数）</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次型は$y = vx$で変数分離に帰着</li>
+                            <li>部分分数分解で積分を簡単に</li>
+                            <li>解は陰関数表示でOK</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>同次判別：$M(tx,ty) = t^n M(x,y)$</li>
+                            <li>部分分数：$\frac{P(x)}{Q(x)R(x)} = \frac{A}{Q(x)} + \frac{B}{R(x)}$</li>
+                            <li>積分定数は最後にまとめて整理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">同一直線上にない3点 $(a_1, a_2, a_3)$，$(b_1, b_2, b_3)$，$(c_1, c_2, c_3)$ を通る平面の方程式を行列式を用いて示せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>3点を通る平面上の点$P(x,y,z)$について考えましょう！点$P$が平面上にある条件は、3つのベクトルが同一平面上にあること、つまりスカラー三重積が0になることです。これを行列式で表現します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 点$A(a_1, a_2, a_3)$，$B(b_1, b_2, b_3)$，$C(c_1, c_2, c_3)$，$P(x, y, z)$とします。
+                        </div>
+                        <div class="solution-step">
+                            2. ベクトルを定義：
+                            <div class="math-block">
+                                $\overrightarrow{AP} = (x - a_1, y - a_2, z - a_3)$<br>
+                                $\overrightarrow{AB} = (b_1 - a_1, b_2 - a_2, b_3 - a_3)$<br>
+                                $\overrightarrow{AC} = (c_1 - a_1, c_2 - a_2, c_3 - a_3)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 点$P$が平面上にある条件は、3つのベクトルが同一平面上にあることです：
+                            <div class="math-block">$$\overrightarrow{AP} \cdot (\overrightarrow{AB} \times \overrightarrow{AC}) = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. スカラー三重積は行列式で表現できます：
+                            <div class="math-block">$$\begin{vmatrix}
+                            x - a_1 & y - a_2 & z - a_3 \\
+                            b_1 - a_1 & b_2 - a_2 & b_3 - a_3 \\
+                            c_1 - a_1 & c_2 - a_2 & c_3 - a_3
+                            \end{vmatrix} = 0$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\begin{vmatrix} x - a_1 & y - a_2 & z - a_3 \\ b_1 - a_1 & b_2 - a_2 & b_3 - a_3 \\ c_1 - a_1 & c_2 - a_2 & c_3 - a_3 \end{vmatrix} = 0$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>3点が同一平面上⇔スカラー三重積=0</li>
+                            <li>行列式でスカラー三重積を表現</li>
+                            <li>同一直線上でない条件が重要</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>スカラー三重積：$\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})$</li>
+                            <li>行列式展開で平面方程式$Ax+By+Cz+D=0$</li>
+                            <li>幾何学的直感と代数的表現の対応</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の連立方程式が $0 \leq t$ で成立している。ラプラス変換を用いて $y(t)$ を求めよ。ただし，$y(0)=0$，$z(0)=1$ とする。
+                        $$\begin{cases}
+                        \frac{dy(t)}{dt} + y(t) + 2 \frac{dz(t)}{dt} + 3z(t) = 6e^{-2t} \\
+                        3 \frac{dy(t)}{dt} - y(t) + 4 \frac{dz(t)}{dt} + z(t) = 0
+                        \end{cases}$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>連立微分方程式をラプラス変換で代数方程式に変換しましょう！初期条件を適用して、$Y(s) = \mathcal{L}\{y(t)\}$と$Z(s) = \mathcal{L}\{z(t)\}$の連立方程式を作り、クラメールの法則で解きます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の準備：$Y(s) = \mathcal{L}\{y(t)\}$，$Z(s) = \mathcal{L}\{z(t)\}$
+                            <div class="math-block">
+                                $\mathcal{L}\left\{\frac{dy}{dt}\right\} = sY(s)$ （$y(0)=0$）<br>
+                                $\mathcal{L}\left\{\frac{dz}{dt}\right\} = sZ(s) - 1$ （$z(0)=1$）<br>
+                                $\mathcal{L}\{e^{-2t}\} = \frac{1}{s+2}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 第1式をラプラス変換：
+                            <div class="math-block">$$sY(s) + Y(s) + 2(sZ(s) - 1) + 3Z(s) = \frac{6}{s+2}$$</div>
+                            <div class="math-block">$$(s+1)Y(s) + (2s+3)Z(s) = \frac{6}{s+2} + 2 = \frac{2(s+5)}{s+2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第2式をラプラス変換：
+                            <div class="math-block">$$3sY(s) - Y(s) + 4(sZ(s) - 1) + Z(s) = 0$$</div>
+                            <div class="math-block">$$(3s-1)Y(s) + (4s+1)Z(s) = 4$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 連立方程式：
+                            <div class="math-block">$$\begin{cases}
+                            (s+1)Y(s) + (2s+3)Z(s) = \frac{2(s+5)}{s+2} \\
+                            (3s-1)Y(s) + (4s+1)Z(s) = 4
+                            \end{cases}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. クラメールの法則で$Y(s)$を求める：
+                            行列式$D = (s+1)(4s+1) - (2s+3)(3s-1) = -2s^2 - 2s + 4$<br>
+                            分子$D_Y$を計算すると：$D_Y = 14\frac{s-1}{s+2}$
+                        </div>
+                        <div class="solution-step">
+                            6. $Y(s) = \frac{D_Y}{D}$を計算：
+                            $s^2 + s - 2 = (s+2)(s-1)$より
+                            <div class="math-block">$$Y(s) = \frac{14(s-1)}{(s+2) \cdot (-2)(s+2)(s-1)} = -\frac{7}{(s+2)^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            7. 逆ラプラス変換：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{\frac{1}{(s+2)^2}\right\} = te^{-2t}$$</div>
+                            したがって：
+                            <div class="math-block">$$y(t) = -7te^{-2t}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y(t) = -7te^{-2t}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ラプラス変換で微分方程式→代数方程式</li>
+                            <li>初期条件の適用が重要</li>
+                            <li>クラメールの法則で効率的に解く</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$ は基本公式</li>
+                            <li>$\mathcal{L}^{-1}\left\{\frac{1}{(s+a)^n}\right\} = \frac{t^{n-1}e^{-at}}{(n-1)!}$</li>
+                            <li>連立方程式は行列式で系統的に解く</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

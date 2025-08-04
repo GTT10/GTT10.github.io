@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2022年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i> <!-- Font Awesomeアイコンはそのまま残す -->
+                    2022（R4）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2022年度の数学入試では、大問【1】で三角関数の極限、大問【2】で完全微分方程式、大問【3】で対角化、大問【4】で周期関数のラプラス変換が出題されました。各分野の基礎から応用まで幅広く問われる内容でした。</p>
+                <a href="../../pdfs/question/2022_R4_april/math_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+                <a href="../../pdfs/answer/2022_R4_april/math_2022_R4_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2022年度)</a>
+
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 極限値 \(\lim_{x\rightarrow0}\left(\frac{1}{x^{2}}-\cot^{2}x\right)\)の値を求めよ</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>このままでは \(x \to 0\) のとき「\(\infty - \infty\)」という形の<strong>不定形</strong>になってしまいます。こういう場合は、まず式を変形して一つの分数にまとめ、<strong>マクローリン展開</strong>や<strong>ロピタルの定理</strong>が使える形に持っていくのが定石です。今回はマクローリン展開を使ってみましょう！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず、\(\cot x = \frac{\cos x}{\sin x}\) を使って式を通分します。
+                            <div class="math-block">
+                                $$\frac{1}{x^{2}}-\cot^{2}x = \frac{1}{x^{2}} - \frac{\cos^2 x}{\sin^2 x} = \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. このままではまだ不定形なので、分母を \(x^4\) に近づけることを考えます。\(\lim_{x\to 0} \frac{\sin x}{x} = 1\) を利用します。
+                            <div class="math-block">
+                                $$\lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \left( \frac{\sin^2 x - x^2 \cos^2 x}{x^4} \cdot \frac{x^2}{\sin^2 x} \right) = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^4}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 分子をマクローリン展開します。\(x \to 0\) のとき、
+                            <div class="math-block">
+                                $$\sin x = x - \frac{x^3}{6} + O(x^5)$$
+                                $$\cos x = 1 - \frac{x^2}{2} + O(x^4)$$
+                            </div>
+                            これらを代入すると、
+                            <div class="math-block">
+                                $$\sin^2 x = \left(x - \frac{x^3}{6} + \cdots\right)^2 = x^2 - \frac{x^4}{3} + \cdots$$
+                                $$\cos^2 x = \left(1 - \frac{x^2}{2} + \cdots\right)^2 = 1 - x^2 + \cdots$$
+                                $$x^2 \cos^2 x = x^2 (1 - x^2 + \cdots) = x^2 - x^4 + \cdots$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 分子は、
+                            <div class="math-block">
+                                $$\sin^2 x - x^2 \cos^2 x = (x^2 - \frac{x^4}{3}) - (x^2 - x^4) + \dots = \frac{2}{3}x^4 + \dots$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 最後に、この結果を極限の式に戻して計算します。
+                            <div class="math-block">
+                                $$\lim_{x\rightarrow0} \frac{\frac{2}{3}x^4 + \dots}{x^4} = \frac{2}{3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{2}{3}\)</span>
+                        <div class="accordion" id="alt-solution-1">
+                            <div class="accordion-header" onclick="toggleAccordion('alt-solution-1')">
+                                <span>別解（ロピタルの定理による解法）</span>
+                                <span class="accordion-arrow">▶</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="mb-2">まず、前回と同様に通分します。</div>
+                                \[
+                                \lim_{x\rightarrow0} \left(\frac{1}{x^{2}}-\cot^{2}x\right) = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x}
+                                \]
+                                <div class="mb-2">ここで、ご提案の通り \(\cos^2 x = 1 - \sin^2 x\) を分子に代入してみます。</div>
+                                \[
+                                \sin^2 x - x^2 (1 - \sin^2 x) = \sin^2 x - x^2 + x^2 \sin^2 x
+                                \]
+                                <div class="mb-2">これを元の極限の式に戻して、3つの項に分けてみましょう。</div>
+                                \[
+                                \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 + x^2 \sin^2 x}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \left( \frac{\sin^2 x}{x^2 \sin^2 x} - \frac{x^2}{x^2 \sin^2 x} + \frac{x^2 \sin^2 x}{x^2 \sin^2 x} \right)
+                                \]
+                                \[
+                                = \lim_{x\rightarrow0} \left( \frac{1}{x^2} - \frac{1}{\sin^2 x} + 1 \right) = \lim_{x\rightarrow0} \left( \frac{\sin^2 x - x^2}{x^2 \sin^2 x} \right) + 1
+                                \]
+                                <div class="mb-2"><strong>結論</strong><br>ご覧の通り、\(\frac{\sin^2 x - x^2}{x^2 \sin^2 x}\) という部分がまだ「\(\frac{0}{0}\)」の不定形のままで、このままでは極限が求まりません。</div>
+                                <div class="mb-2">この部分を解決するために、結局はマクローリン展開を使うか、あるいは<strong>ロピタルの定理</strong>を複数回使う必要があります。</div>
+                                <div class="mb-2"><strong>ロピタルの定理で解く場合</strong><br>ロピタルの定理を使えば、マクローリン展開を避けることができます。</div>
+                                \[
+                                \lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^4} \quad ( \text{※} \lim_{x\to 0}\frac{\sin^2 x}{x^2}=1 \text{を利用} )
+                                \]
+                                <div class="mb-2">この \(\lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^4}\) にロピタルの定理を3回適用すると、</div>
+                                <ul class="solution-list">
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{2\sin x \cos x - 2x}{4x^3} = \lim_{x\rightarrow0} \frac{\sin 2x - 2x}{4x^3}\)</li>
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{2\cos 2x - 2}{12x^2}\)</li>
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{-4\sin 2x}{24x} = -\frac{4}{24} \cdot 2 = -\frac{1}{3}\)</li>
+                                </ul>
+                                <div class="mb-2">となり、全体の極限は \(-\frac{1}{3} + 1 = \frac{2}{3}\) となって、同じ答えにたどり着きます。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="problem-statement">(2) 積分 \(\int_{0}^{\frac{\pi}{4}}\frac{x+\sin 2x}{1+\cos 2x}dx\)の値を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>分母と分子に三角関数が入っていて複雑に見えますね。まずは<strong>三角関数の倍角の公式</strong>を使って、式を簡単な形にしてみましょう。そうすると、見慣れた関数の積分に変わりますよ！</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 倍角の公式 \(1+\cos 2x = 2\cos^2 x\) と \(\sin 2x = 2\sin x \cos x\) を使って、被積分関数を変形します。
+                            <div class="math-block">
+                                $$\frac{x+\sin 2x}{1+\cos 2x} = \frac{x+2\sin x \cos x}{2\cos^2 x} = \frac{x}{2}\sec^2 x + \frac{2\sin x \cos x}{2\cos^2 x} = \frac{x}{2}\sec^2 x + \tan x$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分を2つの部分に分けます。
+                            <div class="math-block">
+                                $$\int_{0}^{\frac{\pi}{4}} (\frac{x}{2}\sec^2 x + \tan x) dx = \frac{1}{2}\int_{0}^{\frac{\pi}{4}} x\sec^2 x dx + \int_{0}^{\frac{\pi}{4}} \tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第1項の \(x\sec^2 x\) の積分は、<strong>部分積分法</strong> \(\int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx\) を使います。<br>
+                            \(f(x)=x, g'(x)=\sec^2 x\) とすると、\(f'(x)=1, g(x)=\tan x\) となるので、
+                            <div class="math-block">
+                                $$\int x\sec^2 x dx = x\tan x - \int \tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. これを元の式に戻すと、面白いことに \(\tan x\) の積分の一部が相殺されます。
+                            <div class="math-block">
+                                $$\frac{1}{2} [x\tan x - \int \tan x dx]_{0}^{\frac{\pi}{4}} + \int_{0}^{\frac{\pi}{4}} \tan x dx$$<br>
+                                これを計算すると、<br>
+                                $$\frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} - \frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx + \int_{0}^{\frac{\pi}{4}}\tan x dx = \frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} + \frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 各項を計算します。
+                            <div class="math-block">
+                                $$\frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} = \frac{1}{2}(\frac{\pi}{4}\tan\frac{\pi}{4} - 0) = \frac{1}{2} \cdot \frac{\pi}{4} \cdot 1 = \frac{\pi}{8}$$<br>
+                                $$\int \tan x dx = -\ln|\cos x|$$ なので、<br>
+                                $$\frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx = \frac{1}{2}[-\ln|\cos x|]_{0}^{\frac{\pi}{4}} = \frac{1}{2}(-\ln(\cos\frac{\pi}{4}) - (-\ln(\cos 0))) = \frac{1}{2}\ln\sqrt{2} = \frac{1}{4}\ln 2$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            6. 最後に、2つの結果を足し合わせます。
+                            <div class="math-block">
+                                $$\frac{\pi}{8} + \frac{1}{4}\ln 2$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{\pi}{8} + \frac{1}{4}\ln 2\)</span>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>不定形の極限は、式変形や展開、ロピタルの定理などを活用して計算しやすい形に持ち込むのがコツ</li>
+                            <li>三角関数の積分は、公式を使って式を簡単にしてから部分積分や置換積分を検討する</li>
+                            <li>途中式を丁寧に書くことで、計算ミスや論理の飛躍を防げる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>「\(\infty - \infty\)」型や「0/0」型の極限は、必ず式変形や展開を試す</li>
+                            <li>積分は、まず被積分関数をできるだけ簡単な形に直す</li>
+                            <li>マクローリン展開や部分積分法など、頻出のテクニックは使いこなせるように練習しておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <div class="problem-statement">微分方程式①に関して、以下の問いに答えよ。</div>
+                        <div class="problem-statement">\((2xy+3y^{2})dx+(x^{2}+3xy)dy=0\)・・・①</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(1) 積分因子 \(x^m y^n\) をかけることによって微分方程式が完全形となるとき、mとnの値を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>この微分方程式は、このままでは解けません。しかし、「積分因子」という魔法の呪文（関数）をかけると、<strong>完全微分方程式</strong>という解きやすい形に変身します。完全微分方程式の条件 \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) を使って、積分因子の形を決定しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            元の式 \((2xy+3y^{2})dx+(x^{2}+3xy)dy=0\) に積分因子 \(x^m y^n\) をかけると、<br>
+                            <div class="math-block">
+                                $$ (2x^{m+1}y^{n+1}+3x^m y^{n+2})dx+(x^{m+2}y^n+3x^{m+1}y^{n+1})dy=0 $$
+                            </div>
+                            ここで、\(P(x,y) = 2x^{m+1}y^{n+1}+3x^m y^{n+2}\)、\(Q(x,y) = x^{m+2}y^n+3x^{m+1}y^{n+1}\) です。<br>
+                            完全微分方程式の条件は \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) なので、それぞれ偏微分します。<br>
+                            <div class="math-block">
+                                $$\frac{\partial P}{\partial y} = 2(n+1)x^{m+1}y^n + 3(n+2)x^m y^{n+1}$$
+                                $$\frac{\partial Q}{\partial x} = (m+2)x^{m+1}y^n + 3(m+1)x^m y^{n+1}$$
+                            </div>
+                            両者が等しくなるためには、各項の係数が一致する必要があります。<br>
+                            <ul class="solution-list">
+                                <li class="solution-step-list">\(x^{m+1}y^n\) の係数を比較: \(2(n+1) = m+2 \implies m = 2n\)</li>
+                                <li class="solution-step-list">\(x^m y^{n+1}\) の係数を比較: \(3(n+2) = 3(m+1) \implies n+2 = m+1 \implies m = n+1\)</li>
+                            </ul>
+                            この2つの式から、\(2n = n+1\) となり、\(n=1\) が求まります。<br>
+                            そして、\(m = 1+1 = 2\) となります。
+                            <span class="answer-highlight">答え: \(m=2, n=1\)</span>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(2) (1) で求めた積分因子 \(x^m y^n\) を利用して微分方程式①を解け。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            (1)で求めた積分因子 \(x^2 y\) を元の式にかけると、<br>
+                            <div class="math-block">
+                                $$ (2x^3 y^2 + 3x^2 y^3) dx + (x^4 y + 3x^3 y^2) dy = 0 $$
+                            </div>
+                            この方程式の解となる関数 \(U(x,y)=C\) (Cは定数) が存在し、<br>
+                            <div class="math-block">
+                                $$\frac{\partial U}{\partial x} = 2x^3 y^2 + 3x^2 y^3 \quad \dots (i)$$
+                                $$\frac{\partial U}{\partial y} = x^4 y + 3x^3 y^2 \quad \dots (ii)$$
+                            </div>
+                            を満たします。<br>
+                            式(i)を \(x\) で積分します。<br>
+                            <div class="math-block">
+                                $$U(x,y) = \int (2x^3 y^2 + 3x^2 y^3) dx = \frac{1}{2}x^4 y^2 + x^3 y^3 + C(y)$$
+                            </div>
+                            ここで、\(C(y)\) は \(y\) だけの関数（積分定数）です。<br>
+                            次に、この結果を \(y\) で偏微分して式(ii)と比較します。<br>
+                            <div class="math-block">
+                                $$\frac{\partial U}{\partial y} = x^4 y + 3x^3 y^2 + C'(y)$$
+                            </div>
+                            式(ii)と比べると、\(C'(y) = 0\) であることがわかります。これを積分すると \(C(y)\) は定数となります。<br>
+                            したがって、一般解は<br>
+                            <div class="math-block">
+                                $$\frac{1}{2}x^4 y^2 + x^3 y^3 = C_1$$
+                            </div>
+                            両辺を2倍して定数を置き換えれば、より綺麗な形になります。<br>
+                            <span class="answer-highlight">答え: \(x^4 y^2 + 2x^3 y^3 = C\) (Cは任意定数)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>積分因子をかけて完全微分方程式に変形するのがポイント</li>
+                            <li>完全微分方程式の条件 \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) を活用</li>
+                            <li>積分定数の扱いに注意</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>積分因子の形は経験則やパターン認識も大切</li>
+                            <li>完全微分形にできたら、積分の順序や変数の扱いに注意して計算する</li>
+                            <li>計算過程を丁寧に書くことでミスを防ぐ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===================== -->
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <div class="section-title">次の行列が対角行列に変換されるための条件を示し、変換の行列を求めて対角化せよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>行列が<strong>対角化可能</strong>であるための条件は、<strong>「すべての固有値について、その（代数的な）重複度と、対応する線形独立な固有ベクトルの個数（幾何学的重複度）が一致すること」</strong> です。この行列は固有値が簡単に求まるので、重複している固有値について、条件を満たすようにパラメータの値を決めていきましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">与えられた行列を \(A = \begin{pmatrix} 2 & \alpha & \beta \\ 0 & 1 & \gamma \\ 0 & 0 & 1 \end{pmatrix}\) とします。</li>
+                            <li class="solution-step-list"><strong>1. 固有値を求める</strong><br>\(A\)は上三角行列なので、固有値は対角成分そのものです。固有値は \(\lambda = 2\) と \(\lambda = 1\)（重複度2）です。</li>
+                            <li class="solution-step-list"><strong>2. 対角化の条件を調べる</strong><br>重複している固有値 \(\lambda = 1\) について、線形独立な固有ベクトルが2つ存在するかを調べます。固有ベクトルを \(\vec{v} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\) とすると、\((A - 1 \cdot I)\vec{v} = \vec{0}\) を満たします。<br>
+                                <div class="math-block">
+                                \[
+                                (A-I)\vec{v} = \begin{pmatrix} 1 & \alpha & \beta \\ 0 & 0 & \gamma \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+                                \]
+                                </div>
+                                これは、連立方程式<br>
+                                <div class="math-block">
+                                \[
+                                x + \alpha y + \beta z = 0
+                                \]
+                                \[
+                                \gamma z = 0
+                                \]
+                                </div>
+                                を意味します。線形独立な固有ベクトルが2つ存在するためには、この方程式の解の自由度が2である必要があります。もし \(\gamma \neq 0\) だと、\(z=0\) となり、\(x+\alpha y = 0\) という一つの関係式だけが残ります。これでは解の自由度は1しかなく、線形独立な固有ベクトルは1つしか見つかりません。したがって、<strong>対角化可能であるための条件は \(\gamma = 0\)</strong> です。</li>
+                            <li class="solution-step-list"><strong>3. 変換行列を求めて対角化する (\(\gamma=0\) の場合)</strong><br>
+                                <ul class="solution-list">
+                                    <li class="solution-step-list"><strong>\(\lambda = 2\) の固有ベクトル:</strong> \((A-2I)\vec{v} = \begin{pmatrix} 0 & \alpha & \beta \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{pmatrix}\vec{v} = \vec{0}\) より、\(y=0, z=0\)。よって固有ベクトルは \(\vec{v_1} = c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\)。</li>
+                                    <li class="solution-step-list"><strong>\(\lambda = 1\) の固有ベクトル (\(\gamma=0\)):</strong> 方程式は \(x + \alpha y + \beta z = 0\) のみ。この式を満たす線形独立なベクトルを2つ見つけます。例えば、\(\vec{v_2} = \begin{pmatrix} -\alpha \\ 1 \\ 0 \end{pmatrix}\), \(\vec{v_3} = \begin{pmatrix} -\beta \\ 0 \\ 1 \end{pmatrix}\) が選べます。</li>
+                                </ul>
+                                これらの固有ベクトルを並べて、変換行列 \(P\) を作ります。<br>
+                                <div class="math-block">
+                                \[
+                                P = (\vec{v_1}, \vec{v_2}, \vec{v_3}) = \begin{pmatrix} 1 & -\alpha & -\beta \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+                                \]
+                                </div>
+                                この \(P\) を用いると、\(A\) は対角化され、対角行列 \(D\) は固有値を対角成分に持ちます。<br>
+                                <div class="math-block">
+                                \[
+                                D = P^{-1}AP = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+                                \]
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え:<br>
+                            ・対角化されるための条件: \(\gamma=0\)<br>
+                            ・変換の行列: \(P = \begin{pmatrix} 1 & -\alpha & -\beta \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\)<br>
+                            ・対角化された行列: \(D = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\)
+                        </span>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>固有値・固有ベクトルの計算は上三角行列なら簡単</li>
+                            <li>重複固有値の幾何学的重複度に注意</li>
+                            <li>変換行列の列ベクトルは固有ベクトル</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>対角化の条件は「固有ベクトルの数」＝「行列のサイズ」</li>
+                            <li>上三角行列や下三角行列は固有値がすぐわかる</li>
+                            <li>パラメータ付き行列は条件を場合分けして考える</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== -->
+        <!-- ここから大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    <div class="example-box">
+                        <div class="section-title">以下の問いに答えよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>これらの関数は、のこぎり波や階段関数のように、周期的に形が繰り返される関数です。ラプラス変換の定義式 \(L\{f(t)\} = \int_0^\infty e^{-st} f(t) dt\) に従って、積分を区間 \(nk \le t < (n+1)k\) ごとの和 \((\sum_{n=0}^{\infty})\) で計算します。最後に、<strong>無限等比級数の和の公式</strong>を使うのがポイントです。</p>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(1) \(f(t)=\frac{t}{k}-n\) のラプラス変換</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">ラプラス変換の定義より、<br>
+                                <div class="math-block">
+                                    \[
+                                    L\{f(t)\} = \sum_{n=0}^{\infty} \int_{nk}^{(n+1)k} e^{-st} \left(\frac{t}{k}-n\right) dt
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">\(t = u + nk\) と置換積分します。（\(dt=du\), \(u: 0 \to k\)）<br>
+                                <div class="math-block">
+                                    \[
+                                    \int_{0}^{k} e^{-s(u+nk)} \left(\frac{u+nk}{k}-n\right) du = \int_{0}^{k} e^{-su}e^{-snk} \left(\frac{u}{k}\right) du = \frac{e^{-snk}}{k} \int_{0}^{k} u e^{-su} du
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">\(u e^{-su}\) の積分を部分積分で計算します。<br>
+                                <div class="math-block">
+                                    \[
+                                    \int_{0}^{k} u e^{-su} du = \left[u \frac{e^{-su}}{-s}\right]_0^k - \int_0^k \frac{e^{-su}}{-s} du = -\frac{k}{s}e^{-sk} - \frac{e^{-sk}}{s^2} + \frac{1}{s^2}
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">これを和の計算に戻し、無限等比級数の和 \(\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}\)（ただし \(r=e^{-sk}\)）を使います。<br>
+                                <div class="math-block">
+                                    \[
+                                    L\{f(t)\} = \sum_{n=0}^{\infty} \frac{e^{-snk}}{k} \left(\frac{1}{s^2} - \frac{ks+1}{s^2}e^{-sk}\right) = \frac{1}{ks^2}\left(1 - (ks+1)e^{-sk}\right) \sum_{n=0}^{\infty} (e^{-sk})^n
+                                    \]
+                                    \[
+                                    = \frac{1 - (ks+1)e^{-sk}}{ks^2(1-e^{-sk})}
+                                    \]
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: \(F(s) = \frac{1 - e^{-sk} - kse^{-sk}}{ks^2(1-e^{-sk})}\)</span>
+                    </div>
+                    <div class="example-box">
+                        <div class="section-title">(2) \(f(t)=n+1\) のラプラス変換</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">ラプラス変換の定義より、<br>
+                                <div class="math-block">
+                                    \[
+                                    L\{f(t)\} = \sum_{n=0}^{\infty} \int_{nk}^{(n+1)k} e^{-st} (n+1) dt
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">積分を計算します。<br>
+                                <div class="math-block">
+                                    \[
+                                    (n+1) \int_{nk}^{(n+1)k} e^{-st} dt = (n+1)\left[\frac{e^{-st}}{-s}\right]_{nk}^{(n+1)k} = \frac{n+1}{s}e^{-snk}(1-e^{-sk})
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">これを和の計算に戻します。<br>
+                                <div class="math-block">
+                                    \[
+                                    L\{f(t)\} = \frac{1-e^{-sk}}{s} \sum_{n=0}^{\infty} (n+1)(e^{-sk})^n
+                                    \]
+                                </div>
+                            </li>
+                            <li class="solution-step-list">ここで、級数 \(\sum_{n=0}^{\infty} (n+1)x^n\) を計算する必要があります。これは \(\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n\) の両辺を \(x\) で微分すると得られます。<br>
+                                <div class="math-block">
+                                    \[
+                                    \frac{d}{dx}\left(\frac{1}{1-x}\right) = \frac{1}{(1-x)^2} = \sum_{n=0}^{\infty} nx^{n-1} = \sum_{m=0}^{\infty} (m+1)x^m
+                                    \]
+                                </div>
+                                \(x=e^{-sk}\) を代入すると、和は \(\frac{1}{(1-e^{-sk})^2}\) となります。</li>
+                            <li class="solution-step-list">最後に、この結果を代入します。<br>
+                                <div class="math-block">
+                                    \[
+                                    L\{f(t)\} = \frac{1-e^{-sk}}{s} \cdot \frac{1}{(1-e^{-sk})^2} = \frac{1}{s(1-e^{-sk})}
+                                    \]
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: \(F(s) = \frac{1}{s(1-e^{-sk})}\)</span>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>周期関数のラプラス変換は区間ごとに分割して計算</li>
+                            <li>無限等比級数の和公式を活用</li>
+                            <li>置換積分や部分積分のテクニックを使う</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>ラプラス変換の定義式をしっかり使う</li>
+                            <li>和の計算は公式や微分を活用</li>
+                            <li>計算過程を丁寧に書くことでミスを防ぐ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

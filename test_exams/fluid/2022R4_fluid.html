@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022（R4）年	流体力学 - 大学院入試流体力学問題解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-decoration {
+            height: 8px;
+            width: 100%;
+            background-color: #2563eb;
+        }
+        .slide-title {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .example-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .problem-statement {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .solution-step {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-step::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+        .point-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* 大問タイトルの強調背景色（薄い黄色系） */
+        .main-section-title {
+            background-color: #fef9c3;
+            color: #b45309;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        /* 途中式の青色箇条書き */
+        .solution-list {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        .solution-list li {
+            color: #334155;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        .solution-list li::marker {
+            color: #2563eb;
+        }
+        
+        /* 印刷時の改ページ制御 */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+            }
+            
+            .slide-container {
+                width: 100% !important;
+                min-height: auto !important;
+                box-shadow: none !important;
+                page-break-after: always;
+            }
+            
+            .header-decoration {
+                display: none;
+            }
+            
+            .footer {
+                position: static !important;
+                margin-top: 2rem;
+                page-break-before: avoid;
+            }
+            
+            /* 要素の分割を防ぐ */
+            .example-box,
+            .point-box,
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* 見出しの前で改ページを避ける */
+            .slide-title,
+            .section-title {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            /* 解法手順の各ステップを分割しない */
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            /* 数式を含む要素の分割を防ぐ */
+            .ml-4 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                color: #334155;
+            }
+            
+            /* リストアイテムの分割を防ぐ */
+            li {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* グリッドレイアウトの印刷対応 */
+            .grid {
+                display: block !important;
+            }
+            
+            .col-span-3,
+            .col-span-2 {
+                width: 100% !important;
+                margin-bottom: 2rem;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+        .answer-highlight {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        /* アコーディオン用スタイル */
+        .accordion {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            background: #f1f5f9;
+        }
+        .accordion-header {
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #2563eb;
+            background: #e0e7ef;
+            border-radius: 0.5rem 0.5rem 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .accordion-content {
+            display: none;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        .accordion.open .accordion-content {
+            display: block;
+        }
+        .accordion-arrow {
+            transition: transform 0.2s;
+        }
+        .accordion.open .accordion-arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <h1 class="slide-title">
+                <i class="fas fa-fire mr-3 text-blue-600"></i>
+                2022（R4）年	流体力学
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <!-- 左側：例題と解法 -->
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">水槽とノズルの問題</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">図1に示された、大きな水槽の側面に取り付けられたノズルから液体が流出する状況に関する問題を解きます。圧力はゲージ圧、流体は密度 \(\rho\) の完全流体として扱います。</p>
+                        <p class="mb-3"><img src="https://i.imgur.com/Qk775tq.png" alt="図1: 水槽とノズル" style="max-width:100%; height:auto;"></p>
+                        <center>図1: 水槽とノズル</center>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <p class="problem-statement">(1) ノズル出口での流速</p>
+                            水槽の液面（点Aとする）とノズル出口（点1とする）の間でベルヌーイの定理を適用します。液面の高さは \(H\)、出口の高さは 0 です。<br>
+                            <ul>
+                                <li>点A: 圧力 \(P_A = 0\)（大気圧、ゲージ圧0）、流速 \(v_A \approx 0\)（大きな水槽のため）、高さ \(z_A = H\)</li>
+                                <li>点1: 圧力 \(P_1 = 0\)（大気へ放出、ゲージ圧0）、流速 \(v_1\)、高さ \(z_1 = 0\)</li>
+                            </ul>
+                            ベルヌーイの式は \(\frac{P}{\rho} + \frac{v^2}{2} + gz = \text{一定}\) です。<br>
+                            $$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_1}{\rho} + \frac{v_1^2}{2} + g(0)$$
+                            $$0 + 0 + gH = 0 + \frac{v_1^2}{2}$$
+                            これを解くと、ノズル出口での流速 \(v_1\) が求まります。これはトリチェリの定理として知られています。<br>
+                            $$v_1 = \sqrt{2gH}$$
+                            <span class="answer-highlight">答え: ノズル出口でのz軸方向の流速は \(\sqrt{2gH}\) です。</span>
+                        </div>
+                        <div class="solution-step">
+                            <p class="problem-statement">(2) ノズル入口での流速</p>
+                            ノズル入口（断面積 \(A_2\)）と出口（断面積 \(A_1\)）の間で、連続の式を適用します。<br>
+                            $$A_1 v_1 = A_2 v_2$$
+                            ここから、ノズル入口での流速 \(v_2\) を求めます。<br>
+                            $$v_2 = \frac{A_1}{A_2} v_1 = \frac{A_1}{A_2} \sqrt{2gH}$$
+                            <span class="answer-highlight">答え: ノズル入口でのz軸方向の流速は \(\frac{A_1}{A_2} \sqrt{2gH}\) です。</span>
+                        </div>
+                        <div class="solution-step">
+                            <p class="problem-statement">(3) ノズル入口での圧力</p>
+                            水槽の液面（点Aとする）とノズル入口（点2とする）の間でベルヌーイの定理を適用します。<br>
+                            <ul>
+                                <li>点A: 圧力 \(P_A = 0\)（大気圧、ゲージ圧0）、流速 \(v_A \approx 0\)（大きな水槽のため）、高さ \(z_A = H\)</li>
+                                <li>点2: 圧力 \(P_2\), 流速 \(v_2\), 高さ \(z_2 = 0\)</li>
+                            </ul>
+                            $$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_2}{\rho} + \frac{v_2^2}{2} + g(0)$$
+                            $$gH = \frac{P_2}{\rho} + \frac{v_2^2}{2}$$
+                            \(P_2\) について解き、\(v_2\) の結果を代入します。<br>
+                            $$P_2 = \rho \left( gH - \frac{v_2^2}{2} \right) = \rho \left( gH - \frac{1}{2} \left( \frac{A_1}{A_2} \right)^2 (2gH) \right)$$
+                            $$P_2 = \rho gH \left( 1 - \left( \frac{A_1}{A_2} \right)^2 \right)$$
+                            <span class="answer-highlight">答え: ノズル入口での圧力は \(\rho gH \left( 1 - \left( \frac{A_1}{A_2} \right)^2 \right)\) です。</span>
+                        </div>
+                        <div class="solution-step">
+                            <p class="problem-statement">(4) ノズル全体にかかる力</p>
+                            ノズル内の流体を検査体積とし、z軸方向の運動量の法則を適用します。ノズルが流体に及ぼす力を \(F_{wall}\) とすると、z軸方向の力のつり合いは以下のようになります。<br>
+                            $$P_2 A_2 - P_1 A_1 + F_{wall} = \dot{m}(v_1 - v_2)$$
+                            ここで、\(P_1=0\)（ゲージ圧）、質量流量 \(\dot{m} = \rho A_1 v_1 = \rho A_2 v_2\) です。<br>
+                            $$P_2 A_2 + F_{wall} = \rho (A_1 v_1^2 - A_2 v_2^2)$$
+                            ノズルが流体から受ける力（求めたい力 \(F\)）は、\(F_{wall}\) の反作用なので \(F = -F_{wall}\) です。<br>
+                            $$F = P_2 A_2 - \rho(A_1 v_1^2 - A_2 v_2^2) = P_2 A_2 - \rho A_1 v_1^2 + \rho A_2 v_2^2$$
+                            ここに(1), (2), (3)の結果を代入します。<br>
+                            $$F = \rho gH \left( 1 - \left(\frac{A_1}{A_2}\right)^2 \right) A_2 - \rho A_1 (2gH) + \rho A_2 \left(\frac{A_1}{A_2}\right)^2 (2gH)$$
+                            $$F = \rho gH \left( A_2 - \frac{A_1^2}{A_2} \right) - 2\rho gH A_1 + 2\rho gH \frac{A_1^2}{A_2}$$
+                            $$F = \rho gH \left( A_2 - 2A_1 + \frac{A_1^2}{A_2} \right) = \rho gH \frac{A_2^2 - 2A_1 A_2 + A_1^2}{A_2}$$
+                            $$F = \frac{\rho gH (A_2 - A_1)^2}{A_2}$$
+                            この力は正の値なので、<strong>z軸の正の向き</strong>に働きます。<br>
+                            <span class="answer-highlight">答え: ノズル全体にかかるz軸方向の力は、z軸正の向きに \(\frac{\rho gH (A_2 - A_1)^2}{A_2}\) です。</span>
+                        </div>
+</div>
+                <!-- 右側：解説とポイント -->
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>連続の式とナビエ・ストークス方程式の適用</li>
+                            <li>境界条件を用いた流速分布の導出</li>
+                            <li>体積流量と壁面せん断応力の計算</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験流体力学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>平行平板間の流れはポアズイユ流れ</li>
+                            <li>ナビエ・ストークス方程式の簡略化条件を理解する</li>
+                            <li>積分定数の決定に注意する</li>
+                        </ul>
+                    </div>
+</div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試流体力学問題解説 | 1/2
+        </div>
+    </div>
+    <!-- ===================== -->
+    <!-- ここから大問【2】 -->
+    <div class="slide-container mt-16">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-3">
+                            <div class="main-section-title">大問【2】</div>
+                            <div class="example-box mb-6">
+                                <div class="problem-statement">平行平板間の流れの問題</div>
+                            </div>
+                            <div class="point-box mb-6">
+                                <div class="section-title">
+                                    <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                                </div>
+                                <p class="mb-3">\( x=-H \) と \( x=2H \) に設置された無限に長い二枚の平板間を流れる、二次元非圧縮粘性流体に関する問題を解きます。</p>
+                                <p class="mb-3"><img src="https://i.imgur.com/dK3f0wY.png" alt="図2: 平行平板" style="max-width:100%; height:auto;"></p>
+                                <center>図2: 平行平板</center>
+                            </div>
+                            <div class="mb-6">
+                                <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                                <div class="solution-step">
+                                    <div class="section-title">(1) 二次元の連続の方程式</div>
+                                    非圧縮性流体の二次元（x, y）における連続の方程式は、x方向の流速を \(u\)、y方向の流速を \(v\) として以下のように表されます。<br>
+                                    $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$
+                                    <span class="answer-highlight">答え: \(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0\)</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(2) 二次元のナビエ・ストークス方程式</div>
+                                    密度を \(\rho\)、動粘性係数を \(\nu\) としたとき、外力がない場合の二次元ナビエ・ストークス方程式は以下の通りです。<br>
+                                    <strong>x方向:</strong><br>
+                                    $$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+                                    <strong>y方向:</strong><br>
+                                    $$\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)$$
+                                    <span class="answer-highlight">答え: 上記の2式。</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(3) 流れの名称</div>
+                                    二つの平行平板間を圧力勾配によって駆動される層流の定常流れは、<strong>平面ポアズイユ流れ</strong>（または単にポアズイユ流れ）と呼ばれます。<br>
+                                    <span class="answer-highlight">答え: 平面ポアズイユ流れ</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(4) 流れを支配する方程式の導出</div>
+                                    (3)の流れの条件を(2)の方程式に適用します。<br>
+                                    <ul>
+                                        <li><strong>定常流れ</strong>: \(\frac{\partial}{\partial t} = 0\)</li>
+                                        <li><strong>y方向の平行流</strong>: \(u=0\)</li>
+                                        <li><strong>十分に発達した流れ</strong>: y方向に流速分布は変化しないため \(\frac{\partial v}{\partial y} = 0\)</li>
+                                    </ul>
+                                    これらの条件を(1)の連続の式 \(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0\) に代入すると \(0 + 0 = 0\) となり、式は満たされます。<br>
+                                    次に、ナビエ・ストークス方程式を単純化します。<br>
+                                    <ul>
+                                        <li><strong>x方向</strong>: \(0 = - \frac{1}{\rho}\frac{\partial p}{\partial x}\) となり、圧力pはxに依存しないことがわかります。</li>
+                                        <li><strong>y方向</strong>: \(0 = - \frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} \right)\)</li>
+                                    </ul>
+                                    与えられた圧力勾配 \(\frac{\partial p}{\partial y} = -G\) を代入すると、<br>
+                                    <li>\(\frac{d^2 v}{dx^2} = -\frac{G}{\rho \nu} = -\frac{G}{\mu}\)</li>                                    （ただし \(\mu = \rho\nu\) は粘性係数）<br>                                    <span class="answer-highlight">答え: \(\frac{d^2 v}{dx^2} = -\frac{G}{\mu}\)</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(5) 流速分布</div>
+                                    (4)で得られた方程式を積分して流速分布 \(v(x)\) を求めます。<br>
+                                    $$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1$$
+                                    $$v(x) = -\frac{G}{2\mu}x^2 + C_1 x + C_2$$
+                                    壁面での滑りなし条件（no-slip condition）を境界条件として適用し、積分定数 \(C_1, C_2\) を決定します。<br>
+                                    <ul>
+                                        <li>\(x=-H\) で \(v=0\): \(0 = -\frac{G}{2\mu}(-H)^2 + C_1(-H) + C_2\) (i)</li>
+                                        <li>\(x=2H\) で \(v=0\): \(0 = -\frac{G}{2\mu}(2H)^2 + C_1(2H) + C_2\) (ii)</li>
+                                    </ul>
+                                    (ii) - (i) より、<br>
+                                    \(0 = -\frac{G}{2\mu}(4H^2 - H^2) + 3C_1 H = -\frac{3GH^2}{2\mu} + 3C_1 H \implies C_1 = \frac{GH}{2\mu}\)<br>
+                                    \(C_1\) を (i) に代入して \(C_2\) を求めます。<br>
+                                    \(C_2 = \frac{GH^2}{2\mu} + C_1 H = \frac{GH^2}{2\mu} + \left(\frac{GH}{2\mu}\right)H = \frac{GH^2}{\mu}\)<br>
+                                    したがって、流速分布は以下のようになります。<br>
+                                    $$v(x) = -\frac{G}{2\mu}x^2 + \frac{GH}{2\mu}x + \frac{GH^2}{\mu} = \frac{G}{2\mu}(-x^2 + Hx + 2H^2)$$
+                                    $$v(x) = \frac{G}{2\mu}(2H-x)(H+x)$$
+                                    <span class="answer-highlight">答え: \(v(x) = \frac{G}{2\mu}(2H-x)(H+x)\) です。</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(6) 最大流速となる位置と最大流速の値</div>
+                                    最大流速は \(\frac{dv}{dx}=0\) となる位置で生じます。<br>
+                                    $$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1 = -\frac{G}{\mu}x + \frac{GH}{2\mu} = 0$$
+                                    $$x = \frac{H}{2}$$
+                                    この位置は平板間 \((-H, 2H)\) の中央です。<br>
+                                    最大流速 \(v_{max}\) は、\(v(x)\) に \(x=H/2\) を代入して求めます。<br>
+                                    $$v_{max} = v\left(\frac{H}{2}\right) = \frac{G}{2\mu}\left(-\left(\frac{H}{2}\right)^2 + H\left(\frac{H}{2}\right) + 2H^2\right)$$
+                                    $$v_{max} = \frac{G}{2\mu}\left(-\frac{H^2}{4} + \frac{H^2}{2} + 2H^2\right) = \frac{G}{2\mu}\left(\frac{-H^2+2H^2+8H^2}{4}\right) = \frac{G}{2\mu}\left(\frac{9H^2}{4}\right)$$
+                                    $$v_{max} = \frac{9GH^2}{8\mu}$$
+                                    <span class="answer-highlight">答え: 最大流速となる位置は \(x = H/2\)、最大流速の値は \(\frac{9GH^2}{8\mu}\) です。</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(7) 体積流量</div>
+                                    平板間の体積流量 \(Q\) （単位奥行きあたり）は、流速分布を断面にわたって積分することで求められます。<br>
+                                    $$Q = \int_{-H}^{2H} v(x) dx = \int_{-H}^{2H} \frac{G}{2\mu}(-x^2 + Hx + 2H^2) dx$$
+                                    $$Q = \frac{G}{2\mu} \left[ -\frac{x^3}{3} + \frac{Hx^2}{2} + 2H^2x \right]_{-H}^{2H}$$
+                                    $$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8H^3}{3} + \frac{4H^3}{2} + 4H^3\right) - \left(\frac{H^3}{3} + \frac{H^3}{2} - 2H^3\right) \right\}$$
+                                    $$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8}{3} + 2 + 4\right)H^3 - \left(\frac{1}{3} + \frac{1}{2} - 2\right)H^3 \right\}$$
+                                    $$Q = \frac{G}{2\mu} \left\{ \frac{10}{3} - \left(-\frac{7}{6}\right) \right\}H^3 = \frac{G}{2\mu} \left(\frac{20+7}{6}\right)H^3 = \frac{G}{2\mu} \frac{27}{6}H^3$$
+                                    $$Q = \frac{9GH^3}{4\mu}$$
+                                    <span class="answer-highlight">答え: 体積流量は \(\frac{9GH^3}{4\mu}\) です。</span>
+                                </div>
+                                <div class="solution-step">
+                                    <div class="section-title">(8) 壁面せん断応力</div>
+                                    壁面せん断応力 \(\tau_w\) は \(\tau_w = \mu \frac{dv}{dx}\) で与えられます。\(x=-H\) の平板におけるせん断応力を求めます。<br>
+                                    $$\frac{dv}{dx} = -\frac{G}{\mu}x + \frac{GH}{2\mu}$$
+                                    \(x=-H\) を代入すると、<br>
+                                    $$\tau_w = \mu \left( \frac{dv}{dx} \right)_{x=-H} = \mu \left( -\frac{G}{\mu}(-H) + \frac{GH}{2\mu} \right) = \mu \left( \frac{GH}{\mu} + \frac{GH}{2\mu} \right) = \mu \left( \frac{3GH}{2\mu} \right)$$
+                                    $$\tau_w = \frac{3GH}{2}$$
+                                    この値は正なので、力は <strong>y軸の正の向き</strong> に作用します。これは流れの方向と同じです。<br>
+                                    <span class="answer-highlight">答え: 大きさは \(\frac{3GH}{2}\) で、向きはy軸の正の向きです。</span>
+                                </div>
+</div>
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>エンタルピーやエントロピーの定義・微分形を活用</li>
+                            <li>Maxwell関係式や状態方程式を使いこなす</li>
+                            <li>理想気体の特徴を押さえる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験熱力学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>導出問題は定義・法則・関係式を順序立てて使う</li>
+                            <li>理想気体のジュール・トムソン係数は必ず0になる</li>
+                            <li>微分・偏微分の扱いに慣れておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試流体力学問題解説 | 1/2
+        </div>
+    </div>
+</body>
+<script>
+function toggleAccordion(id) {
+  var acc = document.getElementById(id);
+  if (acc.classList.contains('open')) {
+    acc.classList.remove('open');
+  } else {
+    acc.classList.add('open');
+  }
+}
+</script>

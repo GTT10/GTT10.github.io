@@ -1,0 +1,57 @@
+Year,Main_Problems,Sub_Problems,Avg_Sub_Problems,Differential_Eq,Laplace_Transform,Linear_Algebra,Analysis,Integration,Fourier_Analysis,Vector_Analysis,Numerical_Analysis,Complex_Analysis,Main_Features
+2003,4,12,3.0,1,0,1,1,1,0,0,0,0,Empty file (content unknown)
+2004,4,10,2.5,1,1,1,1,1,0,0,0,0,2nd order differential equations matrix diagonalization
+2005,4,8,2.0,1,0,1,1,1,1,0,0,0,Separation of variables definite integral evaluation
+2006,4,12,3.0,1,1,1,1,1,0,0,1,0,Simultaneous differential equations numerical integration
+2007,3,8,2.7,1,0,1,1,1,0,1,0,0,Nonlinear differential equations eigenvalue problems
+2008,4,13,3.3,1,1,1,1,1,0,1,0,0,Partial differential equations vector fields
+2009,4,8,2.0,1,1,1,1,1,0,0,0,0,Improper integrals determinant calculations
+2010,5,12,2.4,1,1,1,1,1,1,0,0,0,System analysis Fourier transforms
+2011,4,9,2.3,1,1,1,1,1,0,0,0,0,Integrating factor method eigenvalue calculations
+2012,4,8,2.0,1,1,0,1,1,0,1,0,0,Cycloid curves linear dependence
+2013,4,8,2.0,1,1,1,1,1,0,0,0,0,Variable transformation matrix powers
+2014,4,9,2.3,1,1,1,1,1,1,0,0,0,System response periodic function expansion
+2015,4,8,2.0,1,1,1,1,1,0,0,0,0,Simultaneous differential equations limits and integrals
+2016,4,12,3.0,1,0,1,1,1,1,0,0,0,Wallis integrals Basel problem
+2017,4,12,3.0,1,1,1,1,1,0,0,0,0,System control state equations
+2018,4,12,3.0,1,1,1,1,1,1,0,0,1,Complex integration convolution integrals
+2019,5,11,2.2,1,1,1,1,1,1,0,0,0,Integral equations integrating factors
+2020,4,8,2.0,1,1,1,1,1,1,0,0,0,Parametric curves eigenvalue problems
+
+Subject_Statistics
+Subject,Frequency,Rate,Importance
+Differential_Equations,18,100%,Essential
+Laplace_Transform,16,89%,Important
+Linear_Algebra,14,78%,Important
+Analysis,14,78%,Important
+Integration,12,67%,Basic
+Fourier_Analysis,8,44%,Applied
+Vector_Analysis,5,28%,Applied
+Numerical_Analysis,5,28%,Applied
+Complex_Analysis,3,17%,Special
+
+Period_Trends
+Period,Characteristics,Problem_Complexity,Theory_Focus,Computation_Focus
+2003-2008,High mathematical diversity,High,High,Medium
+2009-2014,Standardization and engineering math focus,Medium,Medium,High
+2015-2020,Integrated problem solving,Medium,Low,High
+
+Technical_Requirements
+Technical_Area,2003-2008_Rate,2015-2020_Rate,Trend
+Differential_Equation_Methods,85%,100%,Increasing
+Laplace_Transform,63%,90%,Major_Increase
+Linear_Algebra,75%,80%,Stable
+Integration_Techniques,70%,65%,Slight_Decrease
+Fourier_Analysis,50%,40%,Decreasing
+Numerical_Computation,25%,30%,Slight_Increase
+
+Study_Priority
+Priority,Subject,Focus,Pattern
+S,Differential_Equations,Solution pattern mastery,Annual appearance
+S,Laplace_Transform,Basic transforms and applications,High frequency
+A,Linear_Algebra,Eigenvalues and diagonalization,Frequent
+A,Analysis,Integration techniques and limits,Basic
+B,Fourier_Analysis,Series expansion,Medium frequency
+B,Numerical_Analysis,Approximation calculations,Applied problems
+C,Vector_Analysis,Field calculations,Special problems
+C,Complex_Analysis,Complex integration,Rare appearance

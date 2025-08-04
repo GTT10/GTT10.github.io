@@ -1,0 +1,441 @@
+### 解答
+
+#### **問題1: 次の問いに答えよ．ただし \( a \) は定数とする．**
+
+##### (1) \( z = \tan^{-1}(ax) \) のとき，\( \frac{dz}{dx} \) を \( x \) を用いて表せ．
+
+**問題文:**  
+\( z = \tan^{-1}(ax) \) のとき，\( \frac{dz}{dx} \) を求めよ．ただし \( a \) は定数．
+
+**方針:**  
+逆正接関数（アークタンジェント）の微分公式と合成関数の微分法を用います．  
+公式： \( \frac{d}{du} \tan^{-1} u = \frac{1}{1 + u^2} \)．
+
+**解答:**  
+- \( u = ax \) とおくと，\( z = \tan^{-1} u \)．
+- 合成関数の微分法より：
+  \[
+  \frac{dz}{dx} = \frac{dz}{du} \cdot \frac{du}{dx} = \frac{1}{1 + u^2} \cdot a
+  \]
+- \( u = ax \) を代入：
+  \[
+  \frac{dz}{dx} = \frac{a}{1 + (ax)^2} = \frac{a}{1 + a^2 x^2}
+  \]
+
+**答え:** \(\boxed{\dfrac{a}{1 + a^2 x^2}}\)
+
+**要点・チップス:**  
+- 逆正接関数の微分は \(\frac{1}{1+u^2}\)．  
+- 合成関数の微分では，内側の関数の微分（ここでは \(a\)）を掛けるのを忘れない．  
+
+---
+
+##### (2) \( z = \tan^{-1}(xy) \) のとき，\( \frac{\partial^2 z}{\partial x \partial y} \) を求めよ．
+
+**問題文:**  
+\( z = \tan^{-1}(xy) \) のとき，\( \frac{\partial^2 z}{\partial x \partial y} \) を求めよ．
+
+**方針:**  
+まず一階偏導関数 \(\frac{\partial z}{\partial x}\) を求め，それを \(y\) で偏微分します．  
+商の微分法を用います．
+
+**解答:**  
+**ステップ1: \(\frac{\partial z}{\partial x}\) を求める**  
+- \( u = xy \) とおくと，\( z = \tan^{-1} u \)．
+- 合成関数の微分法より：
+  \[
+  \frac{\partial z}{\partial x} = \frac{1}{1 + u^2} \cdot y = \frac{y}{1 + (xy)^2} = \frac{y}{1 + x^2 y^2}
+  \]
+
+**ステップ2: \(\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial}{\partial y} \left( \frac{\partial z}{\partial x} \right)\) を求める**  
+- \(\frac{\partial z}{\partial x} = \frac{y}{1 + x^2 y^2}\) を \(y\) で偏微分．
+- 商の微分法： \(\left( \frac{u}{v} \right)' = \frac{u' v - u v'}{v^2}\)．
+  - \( u = y \), \( v = 1 + x^2 y^2 \)．
+  - \( u' = 1 \), \( v' = 2 x^2 y \)．
+- 計算：
+  \[
+  \frac{\partial}{\partial y} \left( \frac{y}{1 + x^2 y^2} \right) = \frac{ (1) \cdot (1 + x^2 y^2) - (y) \cdot (2 x^2 y) }{ (1 + x^2 y^2)^2 } = \frac{1 + x^2 y^2 - 2 x^2 y^2}{ (1 + x^2 y^2)^2 } = \frac{1 - x^2 y^2}{ (1 + x^2 y^2)^2 }
+  \]
+
+**答え:** \(\boxed{\dfrac{1 - x^2 y^2}{(1 + x^2 y^2)^2}}\)
+
+**要点・チップス:**  
+- 混合偏導関数は順序交換可能（クラメールの定理）．  
+- 商の微分法では分母の微分を忘れない（\(v' = 2x^2 y\)）．  
+- 結果は対称的： \(x\) と \(y\) を入れ替えても同じ式になる．
+
+---
+
+#### **問題2: 重力加速度 \( g \) の下で，長さ \( l \) の振り子が微小な振れ角で振動するときの周期 \( T \) は，\( T = 2\pi \sqrt{\frac{l}{g}} \) となる．\( l \)，\( g \) が微小量 \( dl \)，\( dg \) だけ変化するときの周期 \( T \) の変化を \( dT \) とすると，次式が成り立つことを示せ．**
+\[ \frac{dT}{T} = \frac{1}{2} \left( \frac{dl}{l} - \frac{dg}{g} \right) \]
+
+**方針:**  
+周期 \(T\) の式の両辺の自然対数を取り，全微分します．  
+対数微分法を用いて相対変化量を求めます．
+
+**解答:**  
+- 周期の式： \( T = 2\pi \sqrt{\frac{l}{g}} = 2\pi l^{1/2} g^{-1/2} \)．
+- 両辺の自然対数を取る：
+  \[
+  \ln T = \ln(2\pi) + \frac{1}{2} \ln l - \frac{1}{2} \ln g
+  \]
+- 全微分（各変数で偏微分）：
+  \[
+  \frac{dT}{T} = \frac{1}{2} \cdot \frac{dl}{l} - \frac{1}{2} \cdot \frac{dg}{g}
+  \]
+- 整理：
+  \[
+  \frac{dT}{T} = \frac{1}{2} \left( \frac{dl}{l} - \frac{dg}{g} \right)
+  \]
+
+**要点・チップス:**  
+- 対数微分法は相対変化率（\(\frac{dT}{T}\) など）を求めるのに有効．  
+- 定数（\(2\pi\)）は微分で消える．  
+- \(l\) が増加すると周期が長くなり，\(g\) が増加すると周期が短くなることを反映．
+
+---
+
+#### **問題3: 次の微分方程式の一般解を，\( x = e^t \) と置換して求めよ．**
+\[ x^2 \frac{d^2 y}{dx^2} + 5x \frac{dy}{dx} + 3y = (\log x)^2 \]
+
+**方針:**  
+\( x = e^t \)（つまり \( t = \ln x \)) と置換し，オイラー型微分方程式を定数係数線形微分方程式に変換します．  
+同次解と特解を求め，一般解を構成します．
+
+**解答:**  
+**ステップ1: 変数変換**  
+- \( x = e^t \) より，\( \frac{dt}{dx} = \frac{1}{x} = e^{-t} \)．
+- 微分演算子の変換：
+  \[
+  x \frac{dy}{dx} = \frac{dy}{dt}, \quad x^2 \frac{d^2 y}{dx^2} = \frac{d^2 y}{dt^2} - \frac{dy}{dt}
+  \]
+- 代入して方程式を変形：
+  \[
+  \left( \frac{d^2 y}{dt^2} - \frac{dy}{dt} \right) + 5 \frac{dy}{dt} + 3y = t^2
+  \]
+  \[
+  \frac{d^2 y}{dt^2} + 4 \frac{dy}{dt} + 3y = t^2
+  \]
+
+**ステップ2: 同次方程式の一般解**  
+- 特性方程式： \( \lambda^2 + 4\lambda + 3 = 0 \)．
+- 解： \( \lambda = \frac{-4 \pm \sqrt{4}}{2} = -1, -3 \)．
+- 同次解：
+  \[
+  y_h(t) = C_1 e^{-t} + C_2 e^{-3t} \quad (C_1, C_2 \text{は定数})
+  \]
+
+**ステップ3: 特解の決定**  
+- 非同次項 \( t^2 \) より，特解を \( y_p(t) = At^2 + Bt + C \) と仮定．
+- 微分： \( y_p' = 2At + B \), \( y_p'' = 2A \)．
+- 方程式に代入：
+  \[
+  2A + 4(2At + B) + 3(At^2 + Bt + C) = t^2
+  \]
+  \[
+  (3A)t^2 + (8A + 3B)t + (2A + 4B + 3C) = t^2
+  \]
+- 係数比較：
+  - \( t^2 \): \( 3A = 1 \) → \( A = \frac{1}{3} \)．
+  - \( t \): \( 8A + 3B = 0 \) → \( 8 \cdot \frac{1}{3} + 3B = 0 \) → \( B = -\frac{8}{9} \)．
+  - 定数項: \( 2A + 4B + 3C = 0 \) → \( 2 \cdot \frac{1}{3} + 4 \cdot (-\frac{8}{9}) + 3C = 0 \) → \( C = \frac{26}{27} \)．
+- 特解：
+  \[
+  y_p(t) = \frac{1}{3} t^2 - \frac{8}{9} t + \frac{26}{27}
+  \]
+
+**ステップ4: 一般解と変数戻し**  
+- \( t \) の一般解：
+  \[
+  y(t) = y_h(t) + y_p(t) = C_1 e^{-t} + C_2 e^{-3t} + \frac{1}{3} t^2 - \frac{8}{9} t + \frac{26}{27}
+  \]
+- \( t = \ln x \) を代入：
+  \[
+  y(x) = C_1 e^{-\ln x} + C_2 e^{-3 \ln x} + \frac{1}{3} (\ln x)^2 - \frac{8}{9} \ln x + \frac{26}{27} = \frac{C_1}{x} + \frac{C_2}{x^3} + \frac{1}{3} (\ln x)^2 - \frac{8}{9} \ln x + \frac{26}{27}
+  \]
+
+**答え:** \(\boxed{y(x) = \dfrac{C_1}{x} + \dfrac{C_2}{x^3} + \dfrac{1}{3} (\ln x)^2 - \dfrac{8}{9} \ln x + \dfrac{26}{27}}\)
+
+**要点・チップス:**  
+- \( x = e^t \) 置換でオイラー型微分方程式を定数係数化．  
+- 非同次項が多項式のとき，特解は同次多項式で仮定．  
+- 逆変換 \( t = \ln x \) で元の変数に戻す．
+
+---
+
+#### **問題4: 行列 \( A = \begin{bmatrix} 0 & a & a \\ a & 0 & a \\ a & a & 0 \end{bmatrix} \) について次の問いに答えよ．ただし \( a \) は 0 でない定数とする．**
+
+##### (1) 行列 \( A \) の余因子をすべて求めよ．また，逆行列を求めよ．
+
+**方針:**  
+余因子は各成分ごとに小行列式と符号を計算します．  
+逆行列は余因子行列と行列式で求めます．
+
+**解答:**  
+**行列式の計算:**  
+\[
+\det A = \begin{vmatrix} 0 & a & a \\ a & 0 & a \\ a & a & 0 \end{vmatrix} = 0 \cdot \begin{vmatrix} 0 & a \\ a & 0 \end{vmatrix} - a \cdot \begin{vmatrix} a & a \\ a & 0 \end{vmatrix} + a \cdot \begin{vmatrix} a & 0 \\ a & a \end{vmatrix}
+\]
+\[
+= -a (a \cdot 0 - a \cdot a) + a (a \cdot a - 0 \cdot a) = -a (-a^2) + a (a^2) = a^3 + a^3 = 2a^3
+\]
+
+**余因子の計算（\(\tilde{a}_{ij} = (-1)^{i+j} \det M_{ij}\)):**  
+- \(\tilde{a}_{11} = (+1) \det \begin{bmatrix} 0 & a \\ a & 0 \end{bmatrix} = (0 \cdot 0 - a^2) = -a^2\)
+- \(\tilde{a}_{12} = (-1) \det \begin{bmatrix} a & a \\ a & 0 \end{bmatrix} = - (a \cdot 0 - a^2) = -(-a^2) = a^2\)
+- \(\tilde{a}_{13} = (+1) \det \begin{bmatrix} a & 0 \\ a & a \end{bmatrix} = (a^2 - 0) = a^2\)
+- \(\tilde{a}_{21} = (-1) \det \begin{bmatrix} a & a \\ a & 0 \end{bmatrix} = - (a \cdot 0 - a^2) = -(-a^2) = a^2\)
+- \(\tilde{a}_{22} = (+1) \det \begin{bmatrix} 0 & a \\ a & 0 \end{bmatrix} = (0 \cdot 0 - a^2) = -a^2\)
+- \(\tilde{a}_{23} = (-1) \det \begin{bmatrix} 0 & a \\ a & a \end{bmatrix} = - (0 \cdot a - a^2) = -(-a^2) = a^2\)
+- \(\tilde{a}_{31} = (+1) \det \begin{bmatrix} a & a \\ 0 & a \end{bmatrix} = (a^2 - 0) = a^2\)
+- \(\tilde{a}_{32} = (-1) \det \begin{bmatrix} 0 & a \\ a & a \end{bmatrix} = - (0 \cdot a - a^2) = -(-a^2) = a^2\)
+- \(\tilde{a}_{33} = (+1) \det \begin{bmatrix} 0 & a \\ a & 0 \end{bmatrix} = (0 \cdot 0 - a^2) = -a^2\)
+
+**余因子行列:**  
+\[
+\begin{bmatrix} \tilde{a}_{11} & \tilde{a}_{12} & \tilde{a}_{13} \\ \tilde{a}_{21} & \tilde{a}_{22} & \tilde{a}_{23} \\ \tilde{a}_{31} & \tilde{a}_{32} & \tilde{a}_{33} \end{bmatrix} = \begin{bmatrix} -a^2 & a^2 & a^2 \\ a^2 & -a^2 & a^2 \\ a^2 & a^2 & -a^2 \end{bmatrix}
+\]
+
+**逆行列（\(A^{-1} = \frac{1}{\det A} \tilde{A}^T\)）:**  
+- 余因子行列は対称（\(\tilde{A}^T = \tilde{A}\)）．
+- \[
+  A^{-1} = \frac{1}{2a^3} \begin{bmatrix} -a^2 & a^2 & a^2 \\ a^2 & -a^2 & a^2 \\ a^2 & a^2 & -a^2 \end{bmatrix} = \frac{1}{2a} \begin{bmatrix} -1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & -1 \end{bmatrix}
+  \]
+
+**答え:**  
+余因子：  
+\[ \boxed{\begin{array}{ccc} \tilde{a}_{11} = -a^2 & \tilde{a}_{12} = a^2 & \tilde{a}_{13} = a^2 \\ \tilde{a}_{21} = a^2 & \tilde{a}_{22} = -a^2 & \tilde{a}_{23} = a^2 \\ \tilde{a}_{31} = a^2 & \tilde{a}_{32} = a^2 & \tilde{a}_{33} = -a^2 \end{array}} \]  
+逆行列：  
+\[ \boxed{A^{-1} = \dfrac{1}{2a} \begin{bmatrix} -1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & -1 \end{bmatrix}} \]
+
+**要点・チップス:**  
+- 余因子の符号 \((-1)^{i+j}\) を忘れない．  
+- 行列式が \(2a^3\) なので，逆行列に \(\frac{1}{2a^3}\) を掛ける．  
+- 逆行列の各成分は \(a\) に依存しない形で整理できる．
+
+---
+
+##### (2) 行列 \( A \) を直交行列により対角化せよ．ただし，行列 \( A \) の固有方程式は 2 重解 \( \lambda = -a \) をもつ．
+
+**方針:**  
+問題文のヒントから固有値を求め，固有ベクトルを計算します．  
+重解に対応する固有ベクトルは直交するように選び，正規直交基底を構成します．
+
+**解答:**  
+**固有値の計算（ヒント活用）:**  
+- 特性多項式： \(\det(A - \lambda I) = -(\lambda + a)^2 (\lambda - 2a)\)（問題文のヒントより）．  
+- 固有値： \(\lambda_1 = 2a\)（単根），\(\lambda_2 = -a\)（重根）．
+
+**固有ベクトルの計算:**  
+- **\(\lambda_1 = 2a\):**  
+  \((A - 2aI)\mathbf{x} = \mathbf{0}\)  
+  \[
+  \begin{bmatrix} -2a & a & a \\ a & -2a & a \\ a & a & -2a \end{bmatrix} \xrightarrow{\text{行基本変形}} \begin{bmatrix} -2 & 1 & 1 \\ 1 & -2 & 1 \\ 1 & 1 & -2 \end{bmatrix} \to \cdots
+  \]
+  方程式： \( x + y + z = 0 \)（独立な式は1つ）．  
+  解： \(\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\)（規格化： \(\frac{1}{\sqrt{3}} \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\))．  
+
+- **\(\lambda_2 = -a\)（重解）:**  
+  \((A + aI)\mathbf{x} = \mathbf{0}\)  
+  \[
+  \begin{bmatrix} a & a & a \\ a & a & a \\ a & a & a \end{bmatrix} \xrightarrow{\text{行基本変形}} \begin{bmatrix} 1 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+  \]
+  方程式： \( x + y + z = 0 \)．  
+  解空間の基底：  
+  \(\mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}\), \(\mathbf{v}_3 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}\)（直交化が必要）．  
+  **グラム・シュミット直交化:**  
+  - \(\mathbf{u}_2 = \mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}\)．  
+  - \(\mathbf{u}_3 = \mathbf{v}_3 - \frac{\langle \mathbf{v}_3, \mathbf{u}_2 \rangle}{\langle \mathbf{u}_2, \mathbf{u}_2 \rangle} \mathbf{u}_2 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} - \frac{1 \cdot 1 + 0 \cdot (-1) + (-1) \cdot 0}{1^2 + (-1)^2 + 0^2} \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} - \frac{1}{2} \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix} = \begin{bmatrix} \frac{1}{2} \\ \frac{1}{2} \\ -1 \end{bmatrix}\)．  
+  **規格化:**  
+  - \(\|\mathbf{u}_2\| = \sqrt{2}\) → \(\mathbf{q}_2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}\)．  
+  - \(\|\mathbf{u}_3\| = \sqrt{\left(\frac{1}{2}\right)^2 + \left(\frac{1}{2}\right)^2 + (-1)^2} = \sqrt{\frac{3}{2}}\) → \(\mathbf{q}_3 = \sqrt{\frac{2}{3}} \begin{bmatrix} \frac{1}{2} \\ \frac{1}{2} \\ -1 \end{bmatrix} = \frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 1 \\ -2 \end{bmatrix}\)．  
+
+**直交行列と対角化:**  
+- 直交行列 \(P\)：
+  \[
+  P = \begin{bmatrix} \mathbf{q}_1 & \mathbf{q}_2 & \mathbf{q}_3 \end{bmatrix} = \begin{bmatrix} \dfrac{1}{\sqrt{3}} & \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{6}} \\ \dfrac{1}{\sqrt{3}} & -\dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{6}} \\ \dfrac{1}{\sqrt{3}} & 0 & -\dfrac{2}{\sqrt{6}} \end{bmatrix}
+  \]
+- 対角行列：
+  \[
+  P^{-1} A P = \begin{bmatrix} 2a & 0 & 0 \\ 0 & -a & 0 \\ 0 & 0 & -a \end{bmatrix}
+  \]
+
+**答え:**  
+直交行列：  
+\[ \boxed{P = \begin{bmatrix} \dfrac{1}{\sqrt{3}} & \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{6}} \\ \dfrac{1}{\sqrt{3}} & -\dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{6}} \\ \dfrac{1}{\sqrt{3}} & 0 & -\dfrac{2}{\sqrt{6}} \end{bmatrix}} \]  
+対角行列：  
+\[ \boxed{\begin{bmatrix} 2a & 0 & 0 \\ 0 & -a & 0 \\ 0 & 0 & -a \end{bmatrix}} \]
+
+**要点・チップス:**  
+- 重解の固有ベクトルは直交化が必要（グラム・シュミット）．  
+- 直交行列の列ベクトルは正規直交基底．  
+- 対角成分は固有値（単根→\(2a\)，重根→\(-a\)）．
+
+---
+
+
+### 【問題5】
+
+図1で表される関数 f(x) のフーリエ変換を求めよ。
+
+
+
+### 【解説】
+
+この問題は、図で与えられた三角波関数のフーリエ変換を計算する問題です。計算方法はいくつかありますが、ここでは代表的な2つの方法を解説します。
+
+#### 準備：関数 f(x) の式を立てる
+
+まず、図1のグラフから関数 f(x) を数式で表します。
+この関数は、x=0 を中心とした対称な三角形で、x=0 のとき最大値 b をとり、x=±a で 0 になります。
+
+-   **区間 `0 ≤ x ≤ a`**:
+    点(0, b)と(a, 0)を通る直線なので、傾きは `(0 - b) / (a - 0) = -b/a`。y切片はbです。
+    よって、`f(x) = -(b/a)x + b = b(1 - x/a)`
+
+-   **区間 `-a ≤ x  a`**:
+    `f(x) = 0`
+
+以上をまとめると、関数 f(x) は次のように表せます。
+
+$$
+f(x) = 
+\begin{cases}
+    b(1 - \frac{x}{a}) & (0 \le x \le a) \\
+    b(1 + \frac{x}{a}) & (-a \le x  a)
+\end{cases}
+$$
+
+これは絶対値を用いて `f(x) = b(1 - |x|/a)` (`|x| ≤ a`) とも書けます。
+
+### 解法1：定義に従った直接積分
+
+フーリエ変換の定義式 F(k) は以下の通りです。
+
+$$
+F(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx
+$$
+
+この定義に従って計算を進めます。
+
+**1. 積分範囲の設定**
+f(x) は区間 `[-a, a]` の外では 0 なので、積分範囲は `[-a, a]` となります。
+
+$$
+F(k) = \int_{-a}^{a} f(x) e^{-ikx} dx
+$$
+
+**2. 関数の偶奇性を利用した計算の簡略化**
+f(x) は y軸に対して対称な**偶関数**です。`e^{-ikx} = cos(kx) - i sin(kx)` とオイラーの公式で展開すると、
+
+$$
+F(k) = \int_{-a}^{a} f(x) (\cos(kx) - i\sin(kx)) dx \\
+= \int_{-a}^{a} f(x)\cos(kx) dx - i \int_{-a}^{a} f(x)\sin(kx) dx
+$$
+
+ここで、`f(x)cos(kx)` は (偶関数) × (偶関数) = **偶関数**、`f(x)sin(kx)` は (偶関数) × (奇関数) = **奇関数** となります。奇関数を対称な区間 `[-a, a]` で積分すると0になるため、第2項は消えます。
+
+$$
+F(k) = \int_{-a}^{a} f(x)\cos(kx) dx = 2 \int_{0}^{a} f(x)\cos(kx) dx
+$$
+
+これにより、計算が半分で済みます。
+
+**3. 部分積分による計算**
+区間 `[0, a]` での `f(x) = b(1 - x/a)` を代入して、部分積分法を用いて計算します。
+
+$$
+F(k) = 2 \int_{0}^{a} b(1 - \frac{x}{a}) \cos(kx) dx \\
+= 2b \left[ (1 - \frac{x}{a}) \frac{\sin(kx)}{k} \right]_{0}^{a} - 2b \int_{0}^{a} (-\frac{1}{a}) \frac{\sin(kx)}{k} dx
+$$
+
+第1項は、x=a を代入すると `(1 - a/a) = 0`、x=0 を代入すると `sin(0) = 0` となるため、0になります。
+
+$$
+F(k) = \frac{2b}{ak} \int_{0}^{a} \sin(kx) dx \\
+= \frac{2b}{ak} \left[ -\frac{\cos(kx)}{k} \right]_{0}^{a} \\
+= \frac{2b}{ak^2} [-\cos(kx)]_{0}^{a} \\
+= \frac{2b}{ak^2} (-\cos(ka) - (-\cos(0))) \\
+= \frac{2b}{ak^2} (1 - \cos(ka))
+$$
+
+**4. 式の整理**
+三角関数の半角の公式 `1 - cos(θ) = 2sin²(θ/2)` を用いて式を整理します。
+
+$$
+F(k) = \frac{2b}{ak^2} \cdot 2\sin^2(\frac{ka}{2}) \\
+= \frac{4b}{ak^2} \sin^2(\frac{ka}{2})
+$$
+
+**補足: k=0 の場合**
+上の式は `k=0` では分母が0になるため定義できません。`k=0` の場合は別途計算します。
+
+$$
+F(0) = \int_{-a}^{a} f(x) dx
+$$
+
+これは図の三角形の面積に等しいので、
+`F(0) = (1/2) × (底辺 2a) × (高さ b) = ab`
+
+求めた `F(k)` の式で `k → 0` の極限をとると、`sin(x) ≈ x` (xが小さいとき) を利用して、
+`lim_{k \to 0} \frac{4b}{ak^2} \sin^2(\frac{ka}{2}) = \lim_{k \to 0} \frac{4b}{ak^2} (\frac{ka}{2})^2 = \lim_{k \to 0} \frac{4b}{ak^2} \frac{k^2a^2}{4} = ab`
+となり、結果が一致します。
+
+### 解法2：微分公式を用いた方法（より高度な解法）
+
+フーリエ変換の微分公式 `F[f''(x)](k) = (ik)²F[f(x)](k) = -k²F(k)` を利用すると、より簡潔に計算できます。
+
+1.  **`f(x)` の2階微分を求める**
+    `f(x)` を微分すると、不連続な関数（矩形波）になります。さらに微分すると、ディラックのデルタ関数 `δ(x)` が現れます。
+    `f'(x)` は、`-a < x < 0` で傾き `b/a`、`0 < x < a` で傾き `-b/a` となります。
+    `f''(x)` は、`f'(x)` が不連続に変化する点 `x=-a, 0, a` にデルタ関数が現れます。
+    -   `x = -a` で傾きが `0` から `b/a` に変化 → `(b/a)δ(x+a)`
+    -   `x = 0` で傾きが `b/a` から `-b/a` に変化 → `(-2b/a)δ(x)`
+    -   `x = a` で傾きが `-b/a` から `0` に変化 → `(b/a)δ(x-a)`
+    よって、
+    $$
+    f''(x) = \frac{b}{a}\delta(x+a) - \frac{2b}{a}\delta(x) + \frac{b}{a}\delta(x-a)
+    $$
+
+2.  **`f''(x)` のフーリエ変換を求める**
+    デルタ関数のフーリエ変換の公式 `F[δ(x-c)](k) = e^{-ikc}` を用います。
+    $$
+    F[f''(x)](k) = \frac{b}{a} e^{ika} - \frac{2b}{a} e^{ik \cdot 0} + \frac{b}{a} e^{-ika} \\
+    = \frac{b}{a} (e^{ika} + e^{-ika} - 2)
+    $$
+    オイラーの公式 `e^{iθ} + e^{-iθ} = 2cos(θ)` を使うと、
+    $$
+    F[f''(x)](k) = \frac{b}{a} (2\cos(ka) - 2) = \frac{2b}{a}(\cos(ka) - 1)
+    $$
+
+3.  **微分公式から `F(k)` を求める**
+    `F[f''(x)](k) = -k²F(k)` の関係から、
+    $$
+    -k^2 F(k) = \frac{2b}{a}(\cos(ka) - 1) \\
+    F(k) = -\frac{2b}{ak^2}(\cos(ka) - 1) = \frac{2b}{ak^2}(1 - \cos(ka))
+    $$
+    これは解法1の途中の式と一致し、整理すると同じ結果が得られます。
+
+### 結論
+
+図1で表される三角波関数 f(x) のフーリエ変換 F(k) は以下のようになります。
+
+$$
+F(k) = \frac{4b}{ak^2} \sin^2\left(\frac{ka}{2}\right)
+$$
+
+この結果は、`sinc(x) = sin(x)/x` というsinc関数を用いて、以下のように簡潔に書くこともできます。
+
+$$
+F(k) = ab \left( \frac{\sin(ka/2)}{ka/2} \right)^2 = ab \cdot \mathrm{sinc}^2\left(\frac{ak}{2}\right)
+$$
+
+
+**要点・チップス:**  
+- 偶関数のフーリエ変換は実数値（余弦変換）．  
+- 矩形波のフーリエ変換は \(\operatorname{sinc}\) 関数．  
+- **注:** 実際の図に基づく必要があります（例: 三角波の場合は結果が異なる）．
+
+--- 
+
+以上で解答を完了します．問題5は図がないため仮定を用いましたが，実際の問題では図を確認してください．

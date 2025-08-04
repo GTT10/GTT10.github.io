@@ -1,0 +1,286 @@
+以下、2024年度の数学問題を解き方のポイントを丁寧に説明しながら解答します。一緒に考えていきましょう！
+
+---
+
+### 【1】
+**(1) \( y = \log x \) の \( x = e \) における接線の方程式**
+
+#### 考え方
+接線の方程式は **「点と傾き」** で決まります。  
+- **点**：\( x = e \) のとき \( y = \log e = 1 \) → 点 \((e, 1)\)  
+- **傾き**：微分係数 \( y' = \frac{d}{dx}\log x = \frac{1}{x} \) → \( x = e \) で \( y' = \frac{1}{e} \)
+
+#### 解答
+接線の方程式：  
+\[
+y - 1 = \frac{1}{e}(x - e) \implies \boxed{y = \frac{1}{e}x}
+\]
+
+> 💡 **ポイント**：接線は「点と傾き」の公式 \( y - y_1 = m(x - x_1) \) で求められます。
+
+---
+
+**(2) \( y = kx^2 \) が \( y = \log x \) に接する \( k > 0 \) の値**
+
+#### 考え方
+2曲線が接する条件は：  
+1. **交点で \( y \) の値が等しい**：\( kx^2 = \log x \)  
+2. **交点で傾きが等しい**：\( \frac{d}{dx}(kx^2) = \frac{d}{dx}(\log x) \) → \( 2kx = \frac{1}{x} \)  
+
+#### ステップバイステップ
+1. **傾きの条件から \( k \) を分離**：  
+   \[
+   2kx = \frac{1}{x} \implies k = \frac{1}{2x^2} \quad \text{(★)}
+   \]
+
+2. **\( y \) の条件に代入**：  
+   \[
+   \left( \frac{1}{2x^2} \right) x^2 = \log x \implies \frac{1}{2} = \log x
+   \]
+   \[
+   \therefore x = e^{1/2} = \sqrt{e}
+   \]
+
+3. **\( k \) を求める**：  
+   (★) に代入：  
+   \[
+   k = \frac{1}{2(\sqrt{e})^2} = \frac{1}{2e}
+   \]
+
+#### 解答
+\[
+\boxed{k = \dfrac{1}{2e}}
+\]
+
+> 💡 **ポイント**：接する条件は「値が一致」かつ「微分係数が一致」です。傾きの条件から \( k \) を分離すると計算が楽になります。
+
+---
+
+### 【2】
+**(1) \( y'' + 4y = 0 \) の一般解**
+
+#### 考え方
+**特性方程式** \(\lambda^2 + 4 = 0\) を解きます。  
+\[
+\lambda^2 = -4 \implies \lambda = \pm 2i
+\]
+
+#### 解答
+虚数解が出たので、一般解は：  
+\[
+\boxed{y = C_1 \cos 2x + C_2 \sin 2x \quad (C_1, C_2 \text{：任意定数})}
+\]
+
+> 💡 **ポイント**：虚数解 \(\lambda = \alpha \pm \beta i\) のとき、解は \( e^{\alpha x}(C_1 \cos \beta x + C_2 \sin \beta x) \) です。ここでは \(\alpha=0\), \(\beta=2\) です。
+
+---
+
+**(2) \( y'' + 4y = \sin 2x + 4x \) の一般解**
+
+#### 考え方
+同次解（(1)の解）＋ 特殊解 で求めます。  
+非同次項が **\(\sin 2x\)** と **\(4x\)** の和なので、特殊解をそれぞれに対応する形で設定します。
+
+#### ステップバイステップ
+1. **同次解 \( y_h \)**:  
+   \[
+   y_h = C_1 \cos 2x + C_2 \sin 2x
+   \]
+
+2. **特殊解 \( y_p \) の設定**：  
+   - \(4x\) 部分 → **多項式**：\( y_{p1} = ax + b \)  
+   - \(\sin 2x\) 部分 → **同次解と重複**（\(\sin 2x\) が同次解に含まれる）ため、\( x \) 倍した形：  
+     \[
+     y_{p2} = x (c \cos 2x + d \sin 2x)
+     \]
+
+3. **特殊解を微分して代入**：  
+   - \( y_p = y_{p1} + y_{p2} = ax + b + x(c \cos 2x + d \sin 2x) \)  
+   - 第1項（\(4x\) 対応）：  
+     \[
+     (ax + b)'' + 4(ax + b) = 4ax + 4b = 4x
+     \]
+     → \( a=1 \), \( b=0 \)  
+   - 第2項（\(\sin 2x\) 対応）：  
+     \[
+     \begin{align*}
+     y_{p2} &= x(c \cos 2x + d \sin 2x) \\
+     y_{p2}'' + 4y_{p2} &= -4c \sin 2x + 4d \cos 2x = \sin 2x
+     \end{align*}
+     \]
+     → \( c = -\frac{1}{4} \), \( d = 0 \)  
+
+4. **一般解の完成**：  
+   \[
+   y = y_h + y_p = C_1 \cos 2x + C_2 \sin 2x + x - \frac{x}{4} \cos 2x
+   \]
+
+#### 解答
+\[
+\boxed{y = C_1 \cos 2x + C_2 \sin 2x + x - \dfrac{x}{4} \cos 2x}
+\]
+
+> 💡 **ポイント**：非同次項が同次解と重複するときは \( x \) 倍します。特殊解をパーツごとに分けて計算すると楽です。
+
+---
+
+### 【3】
+\[
+A = \begin{pmatrix} \cos x & \sin x \\ -\sin x & \cos x \end{pmatrix}
+\]
+
+**(1) \( A \) が直交行列であることの証明**
+
+#### 考え方
+直交行列の定義：**\( A^T A = I \)（単位行列）** を示せばOK。
+
+#### 解答
+\[
+A^T = \begin{pmatrix} \cos x & -\sin x \\ \sin x & \cos x \end{pmatrix}
+\]
+\[
+A^T A = \begin{pmatrix} \cos x & -\sin x \\ \sin x & \cos x \end{pmatrix} \begin{pmatrix} \cos x & \sin x \\ -\sin x & \cos x \end{pmatrix} = \begin{pmatrix} \cos^2 x + \sin^2 x & 0 \\ 0 & \sin^2 x + \cos^2 x \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\]
+よって直交行列である。□
+
+> 💡 **ポイント**：直交行列は「転置行列が逆行列」になる行列です。三角関数の公式 \(\sin^2 \theta + \cos^2 \theta = 1\) が効きます。
+
+---
+
+**(2) \( A \) の実数の固有値**
+
+#### 考え方
+**固有値方程式** \(\det(A - \lambda I) = 0\) を解きます。
+
+#### ステップバイステップ
+\[
+A - \lambda I = \begin{pmatrix} \cos x - \lambda & \sin x \\ -\sin x & \cos x - \lambda \end{pmatrix}
+\]
+\[
+\det(A - \lambda I) = (\cos x - \lambda)^2 + \sin^2 x = \lambda^2 - 2\lambda \cos x + \cos^2 x + \sin^2 x = \lambda^2 - 2\lambda \cos x + 1
+\]
+特性方程式：  
+\[
+\lambda^2 - 2\lambda \cos x + 1 = 0
+\]
+判別式：  
+\[
+D = 4\cos^2 x - 4 = -4\sin^2 x \leq 0
+\]
+実数固有値を持つのは \( D \geq 0 \) のとき、つまり \(\sin x = 0\) のとき。  
+- \(\sin x = 0\) ⇒ \( x = 0, \pi \)  
+  - \( x = 0 \)：\(\lambda^2 - 2\lambda + 1 = 0\) → \(\lambda = 1\)（重解）  
+  - \( x = \pi \)：\(\lambda^2 + 2\lambda + 1 = 0\) → \(\lambda = -1\)（重解）
+
+#### 解答
+実数の固有値は \(\boxed{\lambda = 1}\)（\(x=0\) のとき）、\(\boxed{\lambda = -1}\)（\(x=\pi\) のとき）
+
+> 💡 **ポイント**：回転行列の固有値は一般に複素数ですが、特定の角度で実数になります。
+
+---
+
+**(3) \( x = \frac{\pi}{2} \) のとき \( \sum_{k=1}^{n} A^k \)**
+
+#### 考え方
+\[
+A = \begin{pmatrix} \cos \frac{\pi}{2} & \sin \frac{\pi}{2} \\ -\sin \frac{\pi}{2} & \cos \frac{\pi}{2} \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+\]
+この行列 \( B = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \) は **90度回転** を表します。
+
+#### ステップバイステップ
+- \( B^1 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \)  
+- \( B^2 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I \)  
+- \( B^3 = B^2 \cdot B = (-I) B = -B \)  
+- \( B^4 = B^2 \cdot B^2 = (-I)(-I) = I \)  
+
+周期4で循環します。\( S_n = \sum_{k=1}^{n} B^k \) を計算：  
+- \( n = 4m \)：\( S_{4m} = (B + B^2 + B^3 + B^4) \times m = (B - I - B + I)m = 0 \)  
+- \( n = 4m+1 \)：\( S_{4m+1} = S_{4m} + B^{4m+1} = 0 + B = B \)  
+- \( n = 4m+2 \)：\( S_{4m+2} = S_{4m+1} + B^{4m+2} = B + (-I) = \begin{pmatrix} -1 & 1 \\ -1 & -1 \end{pmatrix} \)  
+- \( n = 4m+3 \)：\( S_{4m+3} = S_{4m+2} + B^{4m+3} = \begin{pmatrix} -1 & 1 \\ -1 & -1 \end{pmatrix} + (-B) = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I \)  
+
+#### 解答
+\[
+\boxed{ \sum_{k=1}^{n} A^k = \begin{cases} 
+\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} & (n \equiv 0 \pmod{4}) \\
+\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} & (n \equiv 1 \pmod{4}) \\
+\begin{pmatrix} -1 & 1 \\ -1 & -1 \end{pmatrix} & (n \equiv 2 \pmod{4}) \\
+\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} & (n \equiv 3 \pmod{4})
+\end{cases} }
+\]
+
+> 💡 **ポイント**：行列のべき乗は周期性を利用します。90度回転を繰り返すと4回で元に戻ります。
+
+---
+
+### 【4】フーリエ変換
+\[
+f(x) = \begin{cases} 
+2 - |x| & (|x| \leq 2) \\
+0 & (|x| > 2)
+\end{cases}, \quad F(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x)e^{-i\omega x}dx
+\]
+
+#### 考え方
+\( f(x) \) は **偶関数**（\( f(-x) = f(x) \)）なので、  
+\[
+F(\omega) = \sqrt{\frac{2}{\pi}} \int_{0}^{2} (2 - x) \cos(\omega x)  dx \quad (\text{偶関数のフーリエ変換})
+\]
+
+#### ステップバイステップ
+1. **\(\omega = 0\) のとき**：  
+   \[
+   F(0) = \frac{1}{\sqrt{2\pi}} \int_{-2}^{2} (2 - |x|) dx = \frac{2}{\sqrt{2\pi}} \int_{0}^{2} (2 - x) dx
+   \]
+   \[
+   \int_{0}^{2} (2 - x) dx = \left[ 2x - \frac{x^2}{2} \right]_{0}^{2} = 4 - 2 = 2
+   \]
+   \[
+   \therefore F(0) = \frac{2}{\sqrt{2\pi}} \cdot 2 = \boxed{\dfrac{4}{\sqrt{2\pi}}}
+   \]
+
+2. **\(\omega \neq 0\) のとき**：  
+   \[
+   I = \int_{0}^{2} (2 - x) \cos(\omega x)  dx
+   \]
+   **部分積分**（\( u = 2 - x \), \( dv = \cos(\omega x) dx \)）：  
+   \[
+   \begin{align*}
+   I &= \left[ (2 - x) \frac{\sin(\omega x)}{\omega} \right]_{0}^{2} - \int_{0}^{2} (-1) \frac{\sin(\omega x)}{\omega} dx \\
+   &= 0 + \frac{1}{\omega} \int_{0}^{2} \sin(\omega x) dx \\
+   &= \frac{1}{\omega} \left[ -\frac{\cos(\omega x)}{\omega} \right]_{0}^{2} \\
+   &= -\frac{1}{\omega^2} \left( \cos(2\omega) - \cos(0) \right) \\
+   &= \frac{1 - \cos(2\omega)}{\omega^2}
+   \end{align*}
+   \]
+   倍角公式 \(\cos(2\theta) = 1 - 2\sin^2 \theta\) より：  
+   \[
+   1 - \cos(2\omega) = 2 \sin^2 \omega
+   \]
+   \[
+   \therefore I = \frac{2 \sin^2 \omega}{\omega^2}
+   \]
+   最終的に：  
+   \[
+   F(\omega) = \sqrt{\frac{2}{\pi}} \cdot \frac{2 \sin^2 \omega}{\omega^2} = \boxed{\dfrac{4 \sin^2 \omega}{\sqrt{2\pi} \, \omega^2}}
+   \]
+
+#### 解答
+\[
+F(\omega) = \begin{cases}
+\dfrac{4}{\sqrt{2\pi}} & (\omega = 0) \\
+\dfrac{4 \sin^2 \omega}{\sqrt{2\pi} \, \omega^2} & (\omega \neq 0)
+\end{cases}
+\]
+
+> 💡 **ポイント**：偶関数のフーリエ変換は \(\cos\) 項だけ計算すればOK。部分積分では「微分するとシンプルになる項」を \( u \) に選びます。
+
+---
+
+### まとめ
+- **【1】** 接線・接する条件：微分で傾きを求め、連立方程式で解決  
+- **【2】** 微分方程式：特性方程式と特殊解の設定が鍵  
+- **【3】** 行列：直交性・固有値・べき乗の周期性を活用  
+- **【4】** フーリエ変換：偶関数の性質と部分積分で計算簡略化  
+
+問題を解く際は「何が問われているか」を意識すると方針が見えやすくなります。数学はパターンをつかむと楽しくなりますよ！ 🌟

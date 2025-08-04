@@ -1,0 +1,243 @@
+以下、問題文を明記し、方針・考え方と途中式を詳細に記述して解答します。
+
+---
+
+### 【1】の問題文
+xy 平面上で \( x = a \cos^3 t \), \( y = a \sin^3 t \) ( \( a > 0, 0 \leq t \leq \frac{\pi}{2} \) ) によって示される曲線の長さを求めよ。
+
+#### 方針
+パラメータ表示された曲線の長さは、次式で計算される：
+\[
+L = \int_{t_1}^{t_2} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } \, dt
+\]
+ここで、\( t \) の範囲は \( 0 \leq t \leq \frac{\pi}{2} \) である。まず \( \frac{dx}{dt} \) と \( \frac{dy}{dt} \) を計算し、被積分関数を簡略化する。
+
+#### 途中式
+1. **導関数の計算**:
+   \[
+   x = a \cos^3 t, \quad \frac{dx}{dt} = a \cdot 3 \cos^2 t \cdot (-\sin t) = -3a \cos^2 t \sin t
+   \]
+   \[
+   y = a \sin^3 t, \quad \frac{dy}{dt} = a \cdot 3 \sin^2 t \cdot \cos t = 3a \sin^2 t \cos t
+   \]
+
+2. **被積分関数の計算**:
+   \[
+   \left( \frac{dx}{dt} \right)^2 = (-3a \cos^2 t \sin t)^2 = 9a^2 \cos^4 t \sin^2 t
+   \]
+   \[
+   \left( \frac{dy}{dt} \right)^2 = (3a \sin^2 t \cos t)^2 = 9a^2 \sin^4 t \cos^2 t
+   \]
+   \[
+   \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 = 9a^2 \cos^4 t \sin^2 t + 9a^2 \sin^4 t \cos^2 t = 9a^2 \cos^2 t \sin^2 t (\cos^2 t + \sin^2 t) = 9a^2 \cos^2 t \sin^2 t \quad (\because \cos^2 t + \sin^2 t = 1)
+   \]
+   \[
+   \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } = \sqrt{9a^2 \cos^2 t \sin^2 t} = 3a |\cos t \sin t|
+   \]
+   \( t \in [0, \frac{\pi}{2}] \) では \( \cos t \geq 0, \sin t \geq 0 \) なので、
+   \[
+   \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } = 3a \cos t \sin t
+   \]
+   倍角公式 \( \cos t \sin t = \frac{1}{2} \sin 2t \) より、
+   \[
+   \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } = 3a \cdot \frac{1}{2} \sin 2t = \frac{3a}{2} \sin 2t
+   \]
+
+3. **積分の実行**:
+   \[
+   L = \int_{0}^{\frac{\pi}{2}} \frac{3a}{2} \sin 2t \, dt = \frac{3a}{2} \int_{0}^{\frac{\pi}{2}} \sin 2t \, dt
+   \]
+   \( u = 2t \) と置換（\( du = 2 \, dt \)）:
+   \[
+   \int \sin 2t \, dt = \int \sin u \cdot \frac{du}{2} = -\frac{1}{2} \cos u + C = -\frac{1}{2} \cos 2t + C
+   \]
+   \[
+   \int_{0}^{\frac{\pi}{2}} \sin 2t \, dt = \left[ -\frac{1}{2} \cos 2t \right]_{0}^{\frac{\pi}{2}} = \left( -\frac{1}{2} \cos \pi \right) - \left( -\frac{1}{2} \cos 0 \right) = \left( -\frac{1}{2} \cdot (-1) \right) - \left( -\frac{1}{2} \cdot 1 \right) = \frac{1}{2} + \frac{1}{2} = 1
+   \]
+   \[
+   L = \frac{3a}{2} \cdot 1 = \frac{3a}{2}
+   \]
+
+#### 解答
+曲線の長さは \( \dfrac{3a}{2} \).
+
+---
+
+### 【2】の問題文
+行列 \( A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \) の固有値1に対する固有ベクトルが \(\begin{bmatrix} 1 \\ -1 \end{bmatrix}\)，固有値6に対する固有ベクトルが \(\begin{bmatrix} 1 \\ 4 \end{bmatrix}\) であるとき行列Aを求めよ。
+
+#### 方針
+固有値 \( \lambda \) と固有ベクトル \( \mathbf{v} \) の定義式 \( A\mathbf{v} = \lambda \mathbf{v} \) を用いて連立方程式を立てる。固有ベクトルごとに成分を比較し、行列の要素 \( a, b, c, d \) を求める。
+
+#### 途中式
+1. **固有値1に対する条件**:
+   \[
+   A \begin{bmatrix} 1 \\ -1 \end{bmatrix} = 1 \cdot \begin{bmatrix} 1 \\ -1 \end{bmatrix} \implies \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix} = \begin{bmatrix} a - b \\ c - d \end{bmatrix} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}
+   \]
+   よって：
+   \[
+   a - b = 1 \quad \text{(i)}, \quad c - d = -1 \quad \text{(ii)}
+   \]
+
+2. **固有値6に対する条件**:
+   \[
+   A \begin{bmatrix} 1 \\ 4 \end{bmatrix} = 6 \cdot \begin{bmatrix} 1 \\ 4 \end{bmatrix} \implies \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 4 \end{bmatrix} = \begin{bmatrix} a + 4b \\ c + 4d \end{bmatrix} = \begin{bmatrix} 6 \\ 24 \end{bmatrix}
+   \]
+   よって：
+   \[
+   a + 4b = 6 \quad \text{(iii)}, \quad c + 4d = 24 \quad \text{(iv)}
+   \]
+
+3. **連立方程式の解法**:
+   - (i) と (iii) から \( a, b \) を求める:
+     \[
+     \begin{cases}
+     a - b = 1 \\
+     a + 4b = 6
+     \end{cases}
+     \]
+     (iii) - (i): \( (a + 4b) - (a - b) = 6 - 1 \implies 5b = 5 \implies b = 1 \)
+     \( a - 1 = 1 \) より \( a = 2 \)
+   - (ii) と (iv) から \( c, d \) を求める:
+     \[
+     \begin{cases}
+     c - d = -1 \\
+     c + 4d = 24
+     \end{cases}
+     \]
+     (iv) - (ii): \( (c + 4d) - (c - d) = 24 - (-1) \implies 5d = 25 \implies d = 5 \)
+     \( c - 5 = -1 \) より \( c = 4 \)
+
+#### 解答
+行列 \( A = \begin{bmatrix} 2 & 1 \\ 4 & 5 \end{bmatrix} \).
+
+---
+
+### 【3】の問題文
+次の微分方程式
+\[
+\frac{dy}{dx} = -2x^4 + 3x^2 + 2xy \quad \text{(①)}
+\]
+について，以下の問いに答えよ．
+(1) \( z = y - x^3 \) とし，①を\( z \) と\( x \) の微分方程式に変換せよ．
+(2) (1) で得られた微分方程式を利用して，①の一般解を求めよ．
+
+#### (1) 方針
+変数変換 \( z = y - x^3 \) を用いて、微分方程式を \( z \) と \( x \) の関係式に書き換える。合成微分の規則 \( \frac{dz}{dx} = \frac{dy}{dx} - 3x^2 \) を利用する。
+
+#### 途中式
+1. **変数変換**:
+   \[
+   z = y - x^3 \implies \frac{dz}{dx} = \frac{dy}{dx} - 3x^2
+   \]
+   ① の右辺に \( y = z + x^3 \) を代入:
+   \[
+   \frac{dy}{dx} = -2x^4 + 3x^2 + 2x(y) = -2x^4 + 3x^2 + 2x(z + x^3) = -2x^4 + 3x^2 + 2xz + 2x^4 = 3x^2 + 2xz
+   \]
+   したがって：
+   \[
+   \frac{dz}{dx} = (3x^2 + 2xz) - 3x^2 = 2xz
+   \]
+
+#### (1) 解答
+変換後の微分方程式: \( \dfrac{dz}{dx} = 2xz \).
+
+#### (2) 方針
+得られた微分方程式 \( \frac{dz}{dx} = 2xz \) は変数分離形である。積分して一般解を求め、\( z = y - x^3 \) を代入して \( y \) の式に戻す。
+
+#### 途中式
+1. **変数分離と積分**:
+   \[
+   \frac{dz}{dx} = 2xz \implies \frac{dz}{z} = 2x \, dx \quad (z \neq 0)
+   \]
+   \[
+   \int \frac{dz}{z} = \int 2x \, dx \implies \ln |z| = x^2 + C_1 \quad (C_1: \text{積分定数})
+   \]
+   \[
+   |z| = e^{x^2 + C_1} = e^{C_1} e^{x^2} \implies z = \pm e^{C_1} e^{x^2} = C e^{x^2} \quad (C = \pm e^{C_1} \neq 0)
+   \]
+   \( z = 0 \) も解であるが、\( C = 0 \) とすることで一般解に含まれる:
+   \[
+   z = C e^{x^2} \quad (C: \text{任意定数})
+   \]
+
+2. **\( y \) の式に戻す**:
+   \[
+   z = y - x^3 \implies y - x^3 = C e^{x^2} \implies y = x^3 + C e^{x^2}
+   \]
+
+#### (2) 解答
+一般解: \( y = x^3 + C e^{x^2} \) （\( C \) は任意定数）.
+
+---
+
+### 【4】の問題文
+図1に示す周期 \( 2\pi \) の関数 \( y = f(x) \) のフーリエ級数展開に関して，以下の問いに答えよ．  
+（注: 問題文に図1の記載はないが、(1)の積分と標準的な問題設定から、\( f(x) \) は \( [-\pi, \pi] \) で偶関数、特に \( f(x) = |x| \) と推測される。以下、この仮定で解答する。）
+
+(1) \[ \int_0^\pi x \cos nx \, dx \] (nは自然数)を求めよ．  
+(2) \( f(x) \) をフーリエ級数で表せ．
+
+#### (1) 方針
+部分積分を2回適用して計算する。\( u = x \), \( dv = \cos nx \, dx \) とおく。
+
+#### 途中式
+1. **部分積分の準備**:
+   \[
+   u = x, \quad dv = \cos nx \, dx \implies du = dx, \quad v = \frac{1}{n} \sin nx
+   \]
+   \[
+   \int_0^\pi x \cos nx \, dx = \left[ x \cdot \frac{1}{n} \sin nx \right]_0^\pi - \int_0^\pi \frac{1}{n} \sin nx \, dx
+   \]
+
+2. **第1項の評価**:
+   \[
+   \left[ \frac{x}{n} \sin nx \right]_0^\pi = \frac{\pi}{n} \sin(n\pi) - \frac{0}{n} \sin(0) = 0 \quad (\because \sin(n\pi) = 0)
+   \]
+
+3. **第2項の積分**:
+   \[
+   -\frac{1}{n} \int_0^\pi \sin nx \, dx = -\frac{1}{n} \left[ -\frac{1}{n} \cos nx \right]_0^\pi = \frac{1}{n^2} \left[ \cos nx \right]_0^\pi = \frac{1}{n^2} (\cos(n\pi) - \cos(0)) = \frac{1}{n^2} \left( (-1)^n - 1 \right)
+   \]
+
+#### (1) 解答
+\[
+\int_0^\pi x \cos nx \, dx = \frac{(-1)^n - 1}{n^2}
+\]
+
+#### (2) 方針
+\( f(x) \) は周期 \( 2\pi \) の偶関数（図1未記載のため標準設定を仮定）とし、\( [0, \pi] \) で \( f(x) = x \)。フーリエ余弦級数を展開する。係数 \( a_0 \) と \( a_n \) を計算し、級数を構成する。
+
+#### 途中式
+1. **フーリエ係数の公式**（偶関数、周期 \( 2\pi \)):
+   \[
+   a_0 = \frac{2}{\pi} \int_0^\pi f(x) \, dx, \quad a_n = \frac{2}{\pi} \int_0^\pi f(x) \cos nx \, dx \quad (n \geq 1)
+   \]
+
+2. **\( a_0 \) の計算**:
+   \[
+   a_0 = \frac{2}{\pi} \int_0^\pi x \, dx = \frac{2}{\pi} \left[ \frac{x^2}{2} \right]_0^\pi = \frac{2}{\pi} \cdot \frac{\pi^2}{2} = \pi
+   \]
+
+3. **\( a_n \) の計算**（(1) の結果利用）:
+   \[
+   a_n = \frac{2}{\pi} \int_0^\pi x \cos nx \, dx = \frac{2}{\pi} \cdot \frac{(-1)^n - 1}{n^2} = \frac{2((-1)^n - 1)}{\pi n^2}
+   \]
+   - \( n \) が偶数のとき: \( (-1)^n = 1 \) より \( a_n = 0 \)
+   - \( n \) が奇数のとき: \( n = 2k-1 \) (\( k=1,2,\ldots \)) とおき、\( (-1)^n = -1 \) より
+     \[
+     a_{2k-1} = \frac{2(-1 - 1)}{\pi (2k-1)^2} = \frac{-4}{\pi (2k-1)^2}
+     \]
+
+4. **フーリエ級数の構成**:
+   \[
+   f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos nx = \frac{\pi}{2} + \sum_{k=1}^{\infty} \frac{-4}{\pi (2k-1)^2} \cos((2k-1)x)
+   \]
+
+#### (2) 解答
+\[
+f(x) = \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}
+\]
+（注: 図1の内容が異なる場合は調整が必要だが、標準的な問題設定に基づく）
+
+---

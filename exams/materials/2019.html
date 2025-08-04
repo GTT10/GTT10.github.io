@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2019年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2019（R1）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2019年度の材料力学入試では、大問【1】で両端固定棒の軸力問題（不静定構造の解析）、大問【2】で段付きはりの曲げ問題（対称構造の利用）、大問【3】でフランジ軸継手のねじり問題（ボルト接合の強度設計）が出題されました。幅広い分野から実用的な構造解析問題が出題されています。</p>
+                <a href="../../pdfs/question/2019_R1_april/materials_2019_R1_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)</a>
+                <a href="../../pdfs/answer/2019_R1_april/materials_2019_R1_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端を壁に固定された棒に軸方向の力が作用する不静定構造について、変形の適合条件を用いて反力とひずみを求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒：長さl、断面積S、ヤング率E</li>
+                            <li>境界条件：両端A、Bで完全固定</li>
+                            <li>荷重：集中荷重P（位置a）、分布荷重q(x)</li>
+                            <li>材料：線形弾性体</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>不静定構造では力の釣り合いだけでは不十分。変形の適合条件（全体の伸びがゼロ）を併用する。重ね合わせの原理を活用して複数荷重の影響を計算します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 集中荷重による反力（RAとRB）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            不静定構造では力の釣り合いと変形の適合条件を同時に考えます。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$R_A + R_B = P$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            全体の伸びがゼロ：
+                            <div class="math-block">
+                                $$\delta_{AC} + \delta_{CB} = 0$$
+                                $$\frac{R_A \cdot a}{SE} - \frac{R_B \cdot (l-a)}{SE} = 0$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{P(l-a)}{l}, \quad R_B = \frac{Pa}{l}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) AC間とCB間の伸び</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            (1)で求めた反力を用いて各区間の伸びを計算します。
+                            <div class="math-block">
+                                AC間の伸び：$$\delta_{AC} = \frac{R_A \cdot a}{SE} = \frac{Pa(l-a)}{lSE}$$
+                                CB間の伸び：$$\delta_{CB} = -\frac{R_B \cdot (l-a)}{SE} = -\frac{Pa(l-a)}{lSE}$$
+                            </div>
+                            AC間の伸びとCB間の縮みが等しく、全体の変形がゼロになることが確認できます。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 集中荷重2つによる反力（重ね合わせ）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            重ね合わせの原理により、各荷重による影響を個別に計算して足し合わせます。
+                            <div class="math-block">
+                                P₁による反力：$$R_{A1} = \frac{P_1(l-a_1)}{l}, \quad R_{B1} = \frac{P_1 a_1}{l}$$
+                                P₂による反力：$$R_{A2} = \frac{(-P_2)(l-a_2)}{l}, \quad R_{B2} = \frac{(-P_2) a_2}{l}$$
+                            </div>
+                            <p><strong>合計の反力：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{P_1(l-a_1) - P_2(l-a_2)}{l}$$
+                                $$R_B = \frac{P_1 a_1 - P_2 a_2}{l}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 分布荷重による反力（積分解法）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            分布荷重に対しては積分を用いて解析します。
+                            <p><strong>内部力の分布：</strong></p>
+                            <div class="math-block">
+                                $$T(x) = R_A - \int_0^x q(t)dt$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            <div class="math-block">
+                                $$\int_0^l \frac{T(x)}{SE}dx = 0$$
+                            </div>
+                            <p><strong>一般解：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{1}{l} \int_0^l \left( \int_0^x q(t)dt \right) dx$$
+                                $$R_B = \int_0^l q(x)dx - R_A$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) q(x) = q₀(x/l)の場合</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            具体的な分布荷重に対して計算を実行します。
+                            <p><strong>積分計算：</strong></p>
+                            <div class="math-block">
+                                $$\int_0^x q(t)dt = \int_0^x q_0 \frac{t}{l}dt = \frac{q_0 x^2}{2l}$$
+                            </div>
+                            <p><strong>反力の計算：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{1}{l} \int_0^l \frac{q_0 x^2}{2l}dx = \frac{q_0 l}{6}$$
+                                $$R_B = \frac{q_0 l}{2} - \frac{q_0 l}{6} = \frac{q_0 l}{3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>不静定問題では力の釣り合いと変形の適合条件を連立する。</li>
+                            <li>重ね合わせの原理を活用して複数荷重の影響を計算する。</li>
+                            <li>対称構造では対称性を活用して計算を簡略化する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2019年度は伝統的な3問構成の最後の年度である。</li>
+                            <li>軸力、曲げ、ねじりの全分野がバランスよく出題されている。</li>
+                            <li>設計問題（軸継手）では各要素の強度を等しくするバランス設計が重要。</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">両端固定の段付きはり（中央部で断面が2倍）の中央に集中荷重が作用する場合の曲げモーメント、たわみ、固定モーメントを求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：全長4l、AC間（断面二次モーメントI）、CO間（断面二次モーメント2I）</li>
+                            <li>境界条件：両端A、Bで完全固定</li>
+                            <li>荷重：中央点Oに集中荷重P</li>
+                            <li>対称性：構造と荷重が左右対称</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>左右対称なので、反力は P/2、固定モーメントは両端で等しい。対称性から中央点での傾きがゼロという条件を利用してMAを決定します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 曲げモーメントM(x)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            対称性を活用して反力と曲げモーメントを求めます。
+                            <p><strong>反力の決定：</strong></p>
+                            <div class="math-block">
+                                対称性により：$$R_A = R_B = \frac{P}{2}$$
+                            </div>
+                            <p><strong>曲げモーメント（0 ≤ x ≤ 2l）：</strong></p>
+                            <div class="math-block">
+                                $$M(x) = M_A - \frac{P}{2}x$$
+                            </div>
+                            ここで、MAは固定モーメント（未知数）です。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) C点のたわみvC</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            たわみの基本式を用いてC点のたわみを求めます。
+                            <p><strong>たわみの基本式：</strong></p>
+                            <div class="math-block">
+                                $$EI \frac{d^2v}{dx^2} = -M(x)$$
+                            </div>
+                            <p><strong>AC間で2回積分：</strong></p>
+                            境界条件（x = 0で v = 0, dv/dx = 0）を適用して：
+                            <div class="math-block">
+                                $$v_C = \frac{1}{EI}\left(\frac{Pl^3}{12} - \frac{M_A l^2}{2}\right)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 固定モーメントMA</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            対称性条件（中央点Oでの傾きがゼロ）を利用してMAを決定します。
+                            <p><strong>CO間の解析：</strong></p>
+                            CO間では断面二次モーメントが2Iなので：
+                            <div class="math-block">
+                                $$2EI \frac{d^2v}{dx^2} = -M(x)$$
+                            </div>
+                            <p><strong>連続条件と対称条件：</strong></p>
+                            C点での連続性と、O点での傾きゼロ条件を適用して：
+                            <div class="math-block">
+                                $$M_A = \frac{5Pl}{12}$$
+                            </div>
+                            この値を使って、C点のたわみは \(v_C = -\frac{Pl^3}{24EI}\) となります。
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>段付きはりでは各区間で断面二次モーメントが異なる。</li>
+                            <li>対称構造では中央での傾きがゼロという条件を活用する。</li>
+                            <li>連続条件と境界条件を正確に適用する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>両端固定はりでは固定モーメントが発生する。</li>
+                            <li>対称性を最大限に活用して計算を簡略化する。</li>
+                            <li>断面の変化点での連続条件を忘れない。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">2本の軸をフランジとボルトで接続する軸継手について、軸とボルトの強度からトルク伝達能力を評価し、最適設計条件を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>軸：直径D、許容せん断応力τs</li>
+                            <li>ボルト：4本、直径d、許容せん断応力τf、ボルト円直径2R</li>
+                            <li>トルク伝達：軸のねじりとボルトのせん断で制限</li>
+                            <li>設計目標：バランスの取れた継手設計</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>軸とボルトの強度を等しくする設計により、効率的な継手設計が可能。各要素の限界状態を評価してバランス設計を実現します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 軸が伝達可能な最大トルクTs</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ねじりの基本式を用いて軸の最大トルクを求めます。
+                            <p><strong>中実円軸の断面係数：</strong></p>
+                            <div class="math-block">
+                                $$Z_p = \frac{\pi D^3}{16}$$
+                            </div>
+                            <p><strong>最大トルク：</strong></p>
+                            <div class="math-block">
+                                $$T_s = \tau_s \cdot Z_p = \frac{\pi D^3 \tau_s}{16}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) ボルトが伝達可能な最大トルクTf</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4本のボルトによるせん断力でトルクを伝達します。
+                            <p><strong>1本のボルトの最大せん断力：</strong></p>
+                            <div class="math-block">
+                                $$F = \frac{\pi d^2}{4} \tau_f$$
+                            </div>
+                            <p><strong>4本のボルトの合計トルク：</strong></p>
+                            <div class="math-block">
+                                $$T_f = 4 \times F \times R = \pi d^2 R \tau_f$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) Ts = Tfとなるボルト直径d</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            軸とボルトの強度を等しくする設計条件を求めます。
+                            <p><strong>設計条件：</strong></p>
+                            <div class="math-block">
+                                $$T_s = T_f$$
+                                $$\frac{\pi D^3 \tau_s}{16} = \pi d^2 R \tau_f$$
+                            </div>
+                            <p><strong>最終解答：</strong></p>
+                            <div class="math-block">
+                                $$d = \frac{D}{4}\sqrt{\frac{D \tau_s}{R \tau_f}}$$
+                            </div>
+                            この条件により、軸とボルトが同時に限界に達する効率的な継手設計が可能です。
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>軸継手設計では軸とボルトの強度をバランスさせる。</li>
+                            <li>中実円軸のねじり断面係数は\(Z_p = \frac{\pi D^3}{16}\)。</li>
+                            <li>ボルトのせん断力でトルクを伝達する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>設計問題では各要素の強度を等しくすることが重要。</li>
+                            <li>トルク伝達のメカニズムを理解して計算する。</li>
+                            <li>ボルトの配置とせん断面積の関係を正確に把握する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

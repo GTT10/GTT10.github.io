@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2017年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2017（H29）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2017年度の数学入試では、大問【1】で対数の微分と指数関数の積分、大問【2】で上三角行列の性質と直交行列、大問【3】で完全微分方程式、大問【4】でラプラス変換と連立微分方程式が出題されました。基本から応用まで幅広い分野をカバーした実力試験です。計算技術と理論理解の両方が問われる良問揃いですよ！</p>
+                <a href="../../pdfs/question/2017_H29_april/math_2017_H29_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)
+                </a>
+                <a href="../../pdfs/answer/2017_H29_april/math_2017_H29_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $y = \log \frac{\sqrt{x^2 + 1}}{x^2 + 1}$ の微分を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>対数の性質を使って式を簡単にしましょう！$\log \frac{A}{B} = \log A - \log B$ と $\log \sqrt{A} = \frac{1}{2}\log A$ を活用すれば、計算がぐっと楽になります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 対数の性質で式を変形：
+                            <div class="math-block">$$y = \log \sqrt{x^2 + 1} - \log (x^2 + 1)$$</div>
+                            <div class="math-block">$$= \frac{1}{2}\log(x^2 + 1) - \log(x^2 + 1) = -\frac{1}{2}\log(x^2 + 1)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 合成関数の微分：
+                            <div class="math-block">$$\frac{dy}{dx} = -\frac{1}{2} \cdot \frac{1}{x^2 + 1} \cdot 2x = -\frac{x}{x^2 + 1}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dy}{dx} = -\frac{x}{x^2 + 1}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 不定積分 $\int 3^{\sqrt{2x}} dx$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$u = \sqrt{2x}$と置換してから部分積分を使います！置換後は$\int u \cdot 3^u du$の形になるので、部分積分で処理できます。指数関数の積分は少し特殊なので注意しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $u = \sqrt{2x}$と置換：$x = \frac{u^2}{2}$，$dx = u \, du$
+                            <div class="math-block">$$\int 3^{\sqrt{2x}} dx = \int 3^u \cdot u \, du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 部分積分（$v = u$，$dw = 3^u du$）：
+                            <div class="math-block">$$\int u \cdot 3^u du = u \cdot \frac{3^u}{\ln 3} - \int \frac{3^u}{\ln 3} du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 計算を続ける：
+                            <div class="math-block">$$= \frac{u \cdot 3^u}{\ln 3} - \frac{3^u}{(\ln 3)^2} + C$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $u = \sqrt{2x}$を代入：
+                            <div class="math-block">$$= \frac{3^{\sqrt{2x}}}{\ln 3}\left(\sqrt{2x} - \frac{1}{\ln 3}\right) + C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{3^{\sqrt{2x}}}{\ln 3}\left(\sqrt{2x} - \frac{1}{\ln 3}\right) + C$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対数の性質で式を簡略化</li>
+                            <li>置換積分から部分積分へ</li>
+                            <li>指数関数の積分公式を活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\frac{d}{dx}\log f(x) = \frac{f'(x)}{f(x)}$</li>
+                            <li>$\int u \cdot a^u du$ は部分積分の定番</li>
+                            <li>$\int a^x dx = \frac{a^x}{\ln a} + C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">上三角行列 $A$，$B$ について以下を答えよ。$$
+A = \begin{bmatrix}
+a^2 & 2abc & -b^2 \\
+0 & ac & b \\
+0 & 0 & c^2
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+a^3 & 3a^2b & 3ab^2 & 3ac^2 & 2b^2c^2 \\
+0 & a^2c & 2ab^2 & 2a^2b & b^2c^2 \\
+0 & 0 & ac^2 & a^2b & bc^2 \\
+0 & 0 & 0 & c^2 & b^2c \\
+0 & 0 & 0 & 0 & c
+\end{bmatrix}
+$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>上三角行列では対角成分がとても重要です！行列式は対角成分の積、階数は独立な行の数、逆行列も上三角形を保ちます。直交行列の条件も一つずつ丁寧に確認しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 行列式 $|A|$ と $|B|$ を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 上三角行列の行列式は対角成分の積：
+                            <div class="math-block">$$|A| = a^2 \cdot (ac) \cdot c^2 = a^3 c^3$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 同様に$B$について：
+                            <div class="math-block">$$|B| = a^3 \cdot (a^2c) \cdot (ac^2) \cdot c^2 \cdot c = a^6 c^6$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $|A| = a^3 c^3$，$|B| = a^6 c^6$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $\text{rank } A = 2$ のとき、$\text{rank } B$ を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $\text{rank } A = 2$ から $|A| = a^3 c^3 = 0$
+                            したがって $a = 0$ または $c = 0$
+                        </div>
+                        <div class="solution-step">
+                            2. $a = 0$の場合:
+                        </div>
+                        <div class="math-block">$a = 0$ を $B$ に代入すると
+$$
+B = \begin{bmatrix}
+0 & 0 & 0 & 0 & 2b^2c^2 \\
+0 & 0 & 0 & 0 & b^2c^2 \\
+0 & 0 & 0 & 0 & bc^2 \\
+0 & 0 & 0 & c^2 & b^2c \\
+0 & 0 & 0 & 0 & c
+\end{bmatrix}
+$$
+
+行基本変形により、独立な行は：
+- 第4行：$(0, 0, 0, c^2, b^2c)$
+- 第5行：$(0, 0, 0, 0, c)$
+
+$c ≠ 0$ なので、これら2行は線形独立。
+$$
+\therefore \text{rank } B = 2
+$$
+                            
+                        </div>
+                        <div class="solution-step">
+                            3. $c = 0$の場合：
+                        </div>
+                        <div class="math-block">$c = 0$ を $B$ に代入すると
+$$
+B = \begin{bmatrix}
+a^3 & 3a^2b & 3ab^2 & 0 & 0 \\
+0 & 0 & 2ab^2 & 2a^2b & 0 \\
+0 & 0 & 0 & a^2b & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+$a ≠ 0$ のとき、独立な行は：
+- 第1行：$(a^3, 3a^2b, 3ab^2, 0, 0)$
+- 第2行：$(0, 0, 2ab^2, 2a^2b, 0)$
+- 第3行：$(0, 0, 0, a^2b, 0)$
+
+これら3行は線形独立。
+$$
+\therefore \text{rank } B = 3
+$$
+                        </div>
+                        <span class="answer-highlight">答え: 
+$\text{rank } B = \begin{cases}
+2 & \text{if } a = 0, c ≠ 0 \\
+3 & \text{if } c = 0, a ≠ 0
+\end{cases}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 行列 $A$ の逆行列を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 逆行列の計算<br>
+逆行列 $A^{-1}$ も上三角行列なので、次の形で仮定します：
+$$
+A^{-1} = \begin{bmatrix}
+x & y & z \\
+0 & p & q \\
+0 & 0 & r
+\end{bmatrix}
+$$
+$A A^{-1} = I$ を満たす連立方程式を解きます。
+
+<div class="solution-step">2.対角成分
+- (1,1): $$a^2 x = 1 \implies x = \frac{1}{a^2}$$
+- (2,2): $$ac p = 1 \implies p = \frac{1}{ac}$$
+- (3,3): $$c^2 r = 1 \implies r = \frac{1}{c^2}$$
+</div>
+
+<div class="solution-step">3.上三角成分
+- (1,2): $$a^2 y + 2abc p = 0$$
+  $$
+  2abc \cdot \frac{1}{ac} = 2b \implies a^2 y = -2b \implies y = -\frac{2b}{a^2}
+  $$
+
+- (2,3): $$ac q + b r = 0$$
+  $$
+  ac q = -b \cdot \frac{1}{c^2} \implies q = -\frac{b}{a c^3}
+  $$
+
+- (1,3): $$a^2 z + 2abc q - b^2 r = 0$$
+  $$
+  2abc \cdot \left(-\frac{b}{a c^3}\right) = -\frac{2 b^2}{c^2}, \quad -b^2 \cdot \frac{1}{c^2} = -\frac{b^2}{c^2}
+  $$
+  $$
+  a^2 z = \frac{2 b^2 + b^2}{c^2} = \frac{3 b^2}{c^2} \implies z = \frac{3 b^2}{a^2 c^2}
+  $$
+</div>
+
+                        </div>
+                        
+                        <span class="answer-highlight">答え: $$A^{-1} = \begin{pmatrix}
+        \dfrac{1}{a^2} & -\dfrac{2b}{a^2} & \dfrac{3b^2}{a^2c^2} \\
+        0 & \dfrac{1}{ac} & -\dfrac{b}{ac^3} \\
+        0 & 0 & \dfrac{1}{c^2}
+        \end{pmatrix}$$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(4) $A$ が直交行列になる条件を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 直交行列の条件：$AA^T = I$
+                        </div>
+                        <div class="solution-step">
+                            2. $AA^T$の非対角成分が0になる条件から：
+                            $b = 0$
+                        </div>
+                        <div class="solution-step">
+                            3. 対角成分が1になる条件から：
+                            $a^4 = 1$ → $a = \pm 1$<br>
+                            $c^4 = 1$ → $c = \pm 1$
+                        </div>
+                        <span class="answer-highlight">答え: $a = \pm 1$，$b = 0$，$c = \pm 1$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>上三角行列の行列式は対角成分の積</li>
+                            <li>階数は線形独立な行の数</li>
+                            <li>直交行列は$AA^T = I$を満たす</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>上三角行列の逆行列も上三角</li>
+                            <li>$\text{rank} = $（非ゼロ行の数）</li>
+                            <li>直交行列：$AA^T = I$，$|A| = \pm 1$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">微分方程式 $(x^2 + 2xy + y)dx + (y^2 + x^2 + x)dy = 0$ について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>完全微分方程式の判定が鍵です！$\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$を確認して、ポテンシャル関数$\psi(x,y)$を見つければ解けます。積分の順序に注意しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) この方程式が完全形であることを証明せよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $M = x^2 + 2xy + y$，$N = y^2 + x^2 + x$とおく
+                        </div>
+                        <div class="solution-step">
+                            2. 完全形の条件を確認：
+                            <div class="math-block">$$\frac{\partial M}{\partial y} = 2x + 1$$</div>
+                            <div class="math-block">$$\frac{\partial N}{\partial x} = 2x + 1$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$なので完全形
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 一般解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ポテンシャル関数$\psi(x,y)$を求める：
+                            <div class="math-block">$$\frac{\partial \psi}{\partial x} = M = x^2 + 2xy + y$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $x$で積分：
+                            <div class="math-block">$$\psi(x,y) = \frac{1}{3}x^3 + x^2y + xy + h(y)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $\frac{\partial \psi}{\partial y} = N$と比較して$h(y)$を決定：
+                            <div class="math-block">$$x^2 + x + h'(y) = y^2 + x^2 + x$$</div>
+                            したがって$h'(y) = y^2$，$h(y) = \frac{1}{3}y^3$
+                        </div>
+                        <div class="solution-step">
+                            4. 一般解：
+                            <div class="math-block">$$\frac{1}{3}x^3 + x^2y + xy + \frac{1}{3}y^3 = C$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{1}{3}x^3 + x^2y + xy + \frac{1}{3}y^3 = C$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>完全形の判定：偏微分の等価性</li>
+                            <li>ポテンシャル関数の構築</li>
+                            <li>積分順序に注意して解を求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>完全形：$\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$</li>
+                            <li>$\psi_x = M$，$\psi_y = N$ でポテンシャル関数</li>
+                            <li>一般解：$\psi(x,y) = C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">ラプラス変換について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換の基本公式と遅延定理がポイントです！指数関数や三角関数の基本形を覚えて、連立微分方程式では初期条件を忘れずに適用しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $y(t) = e^{at}$ のラプラス変換を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 定義に従って計算：
+                            <div class="math-block">$$\mathcal{L}\{e^{at}\} = \int_0^{\infty} e^{-st} e^{at} dt = \int_0^{\infty} e^{-(s-a)t} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分を実行（$s > a$）：
+                            <div class="math-block">$$= \left[-\frac{e^{-(s-a)t}}{s-a}\right]_0^{\infty} = \frac{1}{s-a}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{1}{s-a}$</span>
+                    </div>
+
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 連立微分方程式を解け：$x'=4x-2y$，$y'=-2x+y$，なお，$x(0)=1$，$y(0)=0$</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換を適用：
+                            <div class="math-block">$$\begin{cases}
+                            (s-4)X(s) + 2Y(s) = 1 \\
+                            2X(s) + (s-1)Y(s) = 0
+                            \end{cases}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 連立方程式を解く：
+                            <div class="math-block">$$Y(s) = \frac{2}{s(5-s)} = \frac{2}{5}\left(\frac{1}{s} - \frac{1}{s-5}\right)$$</div>
+                            <div class="math-block">$$X(s) = \frac{1}{5}\left(\frac{1}{s} + \frac{4}{s-5}\right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 逆ラプラス変換：
+                            <div class="math-block">$$x(t) = \frac{1}{5}(1 + 4e^{5t})$$</div>
+                            <div class="math-block">$$y(t) = \frac{2}{5}(1 - e^{5t})$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $x(t) = \frac{1}{5}(1 + 4e^{5t})$，$y(t) = \frac{2}{5}(1 - e^{5t})$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>基本公式の確実な記憶</li>
+                            <li>遅延定理の正確な適用</li>
+                            <li>連立方程式の系統的解法</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{e^{at}\} = \frac{1}{s-a}$</li>
+                            <li>遅延：$e^{-as}F(s) \leftrightarrow u(t-a)f(t-a)$</li>
+                            <li>初期条件：$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

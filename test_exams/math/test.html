@@ -1,0 +1,385 @@
+はい、承知いたしました。
+ご提供いただいた2021年度の機械工学大学院入試の過去問データを、指定のHTMLテンプレートに組み込み、一つの完全なHTMLファイルとして出力します。
+
+-----
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年度 機械工学大学院入試 - 大学院入試数学問題解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+        }
+        .header-decoration {
+            height: 8px;
+            width: 100%;
+            background-color: #2563eb;
+        }
+        .slide-title {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .example-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .problem-statement {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .solution-step {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-step::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+        .point-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+        }
+        .main-section-title {
+            background-color: #fef9c3;
+            color: #b45309;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        .answer-highlight {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-top: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <h1 class="slide-title">
+                <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                2021年度 機械工学大学院入試
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-5">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">xy 平面上で \( x = a \cos^3 t \), \( y = a \sin^3 t \) ( \( a > 0, 0 \leq t \leq \frac{\pi}{2} \) ) によって示される曲線の長さを求めよ。</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方
+                        </div>
+                        <p>パラメータ表示された曲線の長さは、次式で計算される：
+                        \[ L = \int_{t_1}^{t_2} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } \, dt \]
+                        ここで、\( t \) の範囲は \( 0 \leq t \leq \frac{\pi}{2} \) である。まず \( \frac{dx}{dt} \) と \( \frac{dy}{dt} \) を計算し、被積分関数を簡略化する。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <b>1. 導関数の計算</b><br>
+                            \( x = a \cos^3 t \implies \frac{dx}{dt} = a \cdot 3 \cos^2 t \cdot (-\sin t) = -3a \cos^2 t \sin t \)<br>
+                            \( y = a \sin^3 t \implies \frac{dy}{dt} = a \cdot 3 \sin^2 t \cdot \cos t = 3a \sin^2 t \cos t \)
+                        </div>
+                        <div class="solution-step">
+                            <b>2. 被積分関数の計算</b><br>
+                            \( \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 = (-3a \cos^2 t \sin t)^2 + (3a \sin^2 t \cos t)^2 \)<br>
+                            \( = 9a^2 \cos^4 t \sin^2 t + 9a^2 \sin^4 t \cos^2 t \)<br>
+                            \( = 9a^2 \cos^2 t \sin^2 t (\cos^2 t + \sin^2 t) = 9a^2 \cos^2 t \sin^2 t \)<br>
+                            したがって、
+                            \( \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } = \sqrt{9a^2 \cos^2 t \sin^2 t} = 3a |\cos t \sin t| \)<br>
+                            \( t \in [0, \frac{\pi}{2}] \) では \( \cos t \geq 0, \sin t \geq 0 \) なので、絶対値はそのまま外せる。<br>
+                            \( 3a \cos t \sin t = \frac{3a}{2} \sin 2t \) （倍角公式より）
+                        </div>
+                        <div class="solution-step">
+                            <b>3. 積分の実行</b><br>
+                            \( L = \int_{0}^{\frac{\pi}{2}} \frac{3a}{2} \sin 2t \, dt = \frac{3a}{2} \left[ -\frac{1}{2} \cos 2t \right]_{0}^{\frac{\pi}{2}} \)<br>
+                            \( = -\frac{3a}{4} [\cos(\pi) - \cos(0)] = -\frac{3a}{4} [-1 - 1] = -\frac{3a}{4} (-2) = \frac{3a}{2} \)
+                        </div>
+                        <span class="answer-highlight">答え: \( \dfrac{3a}{2} \)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試数学問題解説 | 1/4
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+             <h1 class="slide-title">
+                <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                2021年度 機械工学大学院入試
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-5">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">行列 \( A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \) の固有値1に対する固有ベクトルが \(\begin{bmatrix} 1 \\ -1 \end{bmatrix}\)，固有値6に対する固有ベクトルが \(\begin{bmatrix} 1 \\ 4 \end{bmatrix}\) であるとき行列Aを求めよ。</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方
+                        </div>
+                        <p>固有値 \( \lambda \) と固有ベクトル \( \mathbf{v} \) の定義式 \( A\mathbf{v} = \lambda \mathbf{v} \) を用いて連立方程式を立てる。固有ベクトルごとに成分を比較し、行列の要素 \( a, b, c, d \) を求める。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <b>1. 固有値1に対する条件</b><br>
+                            \( A \begin{bmatrix} 1 \\ -1 \end{bmatrix} = 1 \cdot \begin{bmatrix} 1 \\ -1 \end{bmatrix} \implies \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix} = \begin{bmatrix} a - b \\ c - d \end{bmatrix} = \begin{bmatrix} 1 \\ -1 \end{bmatrix} \)<br>
+                            これにより、次の連立方程式が得られる。<br>
+                            \( a - b = 1 \quad \text{(i)} \)<br>
+                            \( c - d = -1 \quad \text{(ii)} \)
+                        </div>
+                        <div class="solution-step">
+                            <b>2. 固有値6に対する条件</b><br>
+                            \( A \begin{bmatrix} 1 \\ 4 \end{bmatrix} = 6 \cdot \begin{bmatrix} 1 \\ 4 \end{bmatrix} \implies \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 4 \end{bmatrix} = \begin{bmatrix} a + 4b \\ c + 4d \end{bmatrix} = \begin{bmatrix} 6 \\ 24 \end{bmatrix} \)<br>
+                            これにより、次の連立方程式が得られる。<br>
+                            \( a + 4b = 6 \quad \text{(iii)} \)<br>
+                            \( c + 4d = 24 \quad \text{(iv)} \)
+                        </div>
+                        <div class="solution-step">
+                            <b>3. 連立方程式の解法</b><br>
+                            (i)と(iii)から、\( (a + 4b) - (a - b) = 6 - 1 \implies 5b = 5 \implies b = 1 \)。これを(i)に代入して \( a = 2 \)。<br>
+                            (ii)と(iv)から、\( (c + 4d) - (c - d) = 24 - (-1) \implies 5d = 25 \implies d = 5 \)。これを(ii)に代入して \( c = 4 \)。
+                        </div>
+                        <span class="answer-highlight">答え: \( A = \begin{bmatrix} 2 & 1 \\ 4 & 5 \end{bmatrix} \)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試数学問題解説 | 2/4
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <h1 class="slide-title">
+                <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                2021年度 機械工学大学院入試
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-5">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">次の微分方程式 \( \frac{dy}{dx} = -2x^4 + 3x^2 + 2xy \) (①) について，以下の問いに答えよ．</p>
+                    </div>
+
+                    <div class="example-box">
+                         <p class="problem-statement" style="font-size: 1.2rem; color: #334155;">(1) \( z = y - x^3 \) とし，①を\( z \) と\( x \) の微分方程式に変換せよ．</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方 (1)
+                        </div>
+                        <p>変数変換 \( z = y - x^3 \) を用いて、微分方程式を \( z \) と \( x \) の関係式に書き換える。合成微分の規則 \( \frac{dz}{dx} = \frac{dy}{dx} - 3x^2 \) を利用する。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答 (1)
+                        </div>
+                        <div class="solution-step">
+                            <b>1. 変数変換</b><br>
+                            \( z = y - x^3 \) より \( \frac{dz}{dx} = \frac{dy}{dx} - 3x^2 \)。また \( y = z + x^3 \)。<br>
+                            これらを①に代入すると、<br>
+                            \( \frac{dz}{dx} + 3x^2 = -2x^4 + 3x^2 + 2x(z + x^3) \)<br>
+                            \( \frac{dz}{dx} + 3x^2 = -2x^4 + 3x^2 + 2xz + 2x^4 \)<br>
+                            \( \frac{dz}{dx} + 3x^2 = 3x^2 + 2xz \)<br>
+                            \( \frac{dz}{dx} = 2xz \)
+                        </div>
+                        <span class="answer-highlight">答え (1): \( \dfrac{dz}{dx} = 2xz \)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement" style="font-size: 1.2rem; color: #334155;">(2) (1) で得られた微分方程式を利用して，①の一般解を求めよ．</p>
+                    </div>
+                     <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方 (2)
+                        </div>
+                        <p>得られた微分方程式 \( \frac{dz}{dx} = 2xz \) は変数分離形である。積分して一般解を求め、\( z = y - x^3 \) を代入して \( y \) の式に戻す。</p>
+                    </div>
+                     <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答 (2)
+                        </div>
+                        <div class="solution-step">
+                            <b>1. 変数分離と積分</b><br>
+                            \( \frac{dz}{z} = 2x \, dx \) として両辺を積分する（\( z \neq 0 \) の場合）。<br>
+                            \( \int \frac{dz}{z} = \int 2x \, dx \implies \ln |z| = x^2 + C_1 \)<br>
+                            \( |z| = e^{x^2 + C_1} = e^{C_1}e^{x^2} \)<br>
+                            \( z = \pm e^{C_1} e^{x^2} \)。\( C = \pm e^{C_1} \) とおくと、\( z = C e^{x^2} \)。<br>
+                            （\( z=0 \) も解であり、これは \( C=0 \) の場合に相当する）
+                        </div>
+                        <div class="solution-step">
+                             <b>2. \( y \) の式に戻す</b><br>
+                             \( z = y - x^3 \) なので、<br>
+                             \( y - x^3 = C e^{x^2} \implies y = x^3 + C e^{x^2} \)
+                        </div>
+                        <span class="answer-highlight">答え (2): 一般解は \( y = x^3 + C e^{x^2} \) （\( C \) は任意定数）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試数学問題解説 | 3/4
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+             <h1 class="slide-title">
+                <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                2021年度 機械工学大学院入試
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-5">
+                    <div class="main-section-title">大問【4】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図1に示す周期 \( 2\pi \) の関数 \( y = f(x) \) のフーリエ級数展開に関して，以下の問いに答えよ．</p>
+                        <p style="font-size: 0.9rem; margin-top: 1rem;">（注: 問題文に図1の記載はないが、(1)の積分と標準的な問題設定から、\( f(x) \) は \( [-\pi, \pi] \) で定義される偶関数、特に \( f(x) = |x| \) と推測される。以下、この仮定で解答する。）</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement" style="font-size: 1.2rem; color: #334155;">(1) \( \int_0^\pi x \cos nx \, dx \) (nは自然数)を求めよ．</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方 (1)
+                        </div>
+                        <p>部分積分 \( \int u \, dv = uv - \int v \, du \) を用いる。\( u = x \), \( dv = \cos nx \, dx \) とおく。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答 (1)
+                        </div>
+                        <div class="solution-step">
+                             <b>1. 部分積分の実行</b><br>
+                             \( \int_0^\pi x \cos nx \, dx = \left[ x \cdot \frac{1}{n} \sin nx \right]_0^\pi - \int_0^\pi \frac{1}{n} \sin nx \, dx \)<br>
+                             第1項は \( \frac{\pi}{n}\sin(n\pi) - 0 = 0 \)。<br>
+                             第2項は \( -\frac{1}{n} \int_0^\pi \sin nx \, dx = -\frac{1}{n} \left[ -\frac{1}{n} \cos nx \right]_0^\pi = \frac{1}{n^2} [\cos nx]_0^\pi \)<br>
+                             \( = \frac{1}{n^2}(\cos(n\pi) - \cos(0)) = \frac{1}{n^2}((-1)^n - 1) \)
+                        </div>
+                        <span class="answer-highlight">答え (1): \( \dfrac{(-1)^n - 1}{n^2} \)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement" style="font-size: 1.2rem; color: #334155;">(2) \( f(x) \) をフーリエ級数で表せ．</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針・考え方 (2)
+                        </div>
+                        <p>\( f(x) = |x| \) は偶関数なので、フーリエ級数は余弦（cos）項のみのフーリエ余弦級数となる。係数 \( a_0 \) と \( a_n \) を計算する。</p>
+                    </div>
+                     <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答 (2)
+                        </div>
+                        <div class="solution-step">
+                            <b>1. 係数 \( a_0 \) の計算</b><br>
+                            \( a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} |x| dx = \frac{2}{\pi} \int_0^\pi x dx = \frac{2}{\pi} \left[ \frac{x^2}{2} \right]_0^\pi = \frac{2}{\pi} \frac{\pi^2}{2} = \pi \)
+                        </div>
+                        <div class="solution-step">
+                            <b>2. 係数 \( a_n \) の計算</b><br>
+                            \( a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} |x| \cos nx dx = \frac{2}{\pi} \int_0^\pi x \cos nx dx \)<br>
+                            (1)の結果を利用して、\( a_n = \frac{2}{\pi} \cdot \frac{(-1)^n - 1}{n^2} \)<br>
+                            - \( n \) が偶数のとき: \( a_n = 0 \)<br>
+                            - \( n \) が奇数のとき: \( a_n = \frac{2}{\pi} \frac{-2}{n^2} = -\frac{4}{\pi n^2} \)
+                        </div>
+                        <div class="solution-step">
+                            <b>3. フーリエ級数の構成</b><br>
+                            \( f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos nx \)<br>
+                            \( = \frac{\pi}{2} + \sum_{n=1,3,5,\dots}^{\infty} \left( -\frac{4}{\pi n^2} \right) \cos nx \)<br>
+                            \( n = 2k-1 \) (k=1,2,...) と置き換えて、<br>
+                            \( f(x) = \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2} \)
+                        </div>
+                        <span class="answer-highlight">答え (2): \( f(x) = \dfrac{\pi}{2} - \dfrac{4}{\pi} \sum_{k=1}^{\infty} \dfrac{\cos((2k-1)x)}{(2k-1)^2} \)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            大学院入試数学問題解説 | 4/4
+        </div>
+    </div>
+
+</body>
+</html>
+```

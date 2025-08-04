@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022（R4）年　数学 - 大学院入試数学問題解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-decoration {
+            height: 8px;
+            width: 100%;
+            background-color: #2563eb;
+        }
+        .slide-title {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .example-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .problem-statement {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .solution-step {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-step::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+        .point-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* 大問タイトルの強調背景色（薄い黄色系） */
+        .main-section-title {
+            background-color: #fef9c3;
+            color: #b45309;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        /* 途中式の青色箇条書き */
+        .solution-list {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        .solution-list li {
+            color: #334155;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        .solution-list li::marker {
+            color: #2563eb;
+        }
+        
+        /* 印刷時の改ページ制御 */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+            }
+            
+            .slide-container {
+                width: 100% !important;
+                min-height: auto !important;
+                box-shadow: none !important;
+                page-break-after: always;
+            }
+            
+            .header-decoration {
+                display: none;
+            }
+            
+            .footer {
+                position: static !important;
+                margin-top: 2rem;
+                page-break-before: avoid;
+            }
+            
+            /* 要素の分割を防ぐ */
+            .example-box,
+            .point-box,
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* 見出しの前で改ページを避ける */
+            .slide-title,
+            .section-title {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            /* 解法手順の各ステップを分割しない */
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            /* 数式を含む要素の分割を防ぐ */
+            .ml-4 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                color: #334155;
+            }
+            
+            /* リストアイテムの分割を防ぐ */
+            li {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* グリッドレイアウトの印刷対応 */
+            .grid {
+                display: block !important;
+            }
+            
+            .col-span-3,
+            .col-span-2 {
+                width: 100% !important;
+                margin-bottom: 2rem;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+        .answer-highlight {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        /* アコーディオン用スタイル */
+        .accordion {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            background: #f1f5f9;
+        }
+        .accordion-header {
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #2563eb;
+            background: #e0e7ef;
+            border-radius: 0.5rem 0.5rem 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .accordion-content {
+            display: none;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        .accordion.open .accordion-content {
+            display: block;
+        }
+        .accordion-arrow {
+            transition: transform 0.2s;
+        }
+        .accordion.open .accordion-arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        
+        <div class="p-10 h-full">
+            <h1 class="slide-title">
+                <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                2022（R4）年　数学
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <!-- 左側：例題と解法 -->
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 極限値 \(\lim_{x\rightarrow0}\left(\frac{1}{x^{2}}-\cot^{2}x\right)\)の値を求めよ</p>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">このままでは \(x \to 0\) のとき「\(\infty - \infty\)」という形の<strong>不定形</strong>になってしまいます。こういう場合は、まず式を変形して一つの分数にまとめ、<strong>マクローリン展開</strong>や<strong>ロピタルの定理</strong>が使える形に持っていくのが定石です。今回はマクローリン展開を使ってみましょう！</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず、\(\cot x = \frac{\cos x}{\sin x}\) を使って式を通分します。
+                            <div class="ml-4 mt-2">
+                                $$\frac{1}{x^{2}}-\cot^{2}x = \frac{1}{x^{2}} - \frac{\cos^2 x}{\sin^2 x} = \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. このままではまだ不定形なので、分母を \(x^4\) に近づけることを考えます。\(\lim_{x\to 0} \frac{\sin x}{x} = 1\) を利用します。
+                            <div class="ml-4 mt-2">
+                                $$\lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \left( \frac{\sin^2 x - x^2 \cos^2 x}{x^4} \cdot \frac{x^2}{\sin^2 x} \right) = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^4}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 分子をマクローリン展開します。\(x \to 0\) のとき、
+                            <div class="ml-4 mt-2">
+                                * \(\sin x = x - \frac{x^3}{6} + O(x^5)\)<br>
+                                * \(\cos x = 1 - \frac{x^2}{2} + O(x^4)\)<br>
+                                これらを代入すると、<br>
+                                * \(\sin^2 x = (x - \frac{x^3}{6} + \dots)^2 = x^2 - \frac{x^4}{3} + \dots\)<br>
+                                * \(\cos^2 x = (1 - \frac{x^2}{2} + \dots)^2 = 1 - x^2 + \dots\)<br>
+                                * \(x^2 \cos^2 x = x^2 (1 - x^2 + \dots) = x^2 - x^4 + \dots\)
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 分子は、
+                            <div class="ml-4 mt-2">
+                                $$\sin^2 x - x^2 \cos^2 x = (x^2 - \frac{x^4}{3}) - (x^2 - x^4) + \dots = \frac{2}{3}x^4 + \dots$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 最後に、この結果を極限の式に戻して計算します。
+                            <div class="ml-4 mt-2">
+                                $$\lim_{x\rightarrow0} \frac{\frac{2}{3}x^4 + \dots}{x^4} = \frac{2}{3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{2}{3}\)</span>
+                        <div class="accordion" id="alt-solution-1">
+                            <div class="accordion-header" onclick="toggleAccordion('alt-solution-1')">
+                                <span>別解（ロピタルの定理による解法）</span>
+                                <span class="accordion-arrow">▶</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="mb-2">まず、前回と同様に通分します。</div>
+                                \[
+                                \lim_{x\rightarrow0} \left(\frac{1}{x^{2}}-\cot^{2}x\right) = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 \cos^2 x}{x^2 \sin^2 x}
+                                \]
+                                <div class="mb-2">ここで、ご提案の通り \(\cos^2 x = 1 - \sin^2 x\) を分子に代入してみます。</div>
+                                \[
+                                \sin^2 x - x^2 (1 - \sin^2 x) = \sin^2 x - x^2 + x^2 \sin^2 x
+                                \]
+                                <div class="mb-2">これを元の極限の式に戻して、3つの項に分けてみましょう。</div>
+                                \[
+                                \lim_{x\rightarrow0} \frac{\sin^2 x - x^2 + x^2 \sin^2 x}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \left( \frac{\sin^2 x}{x^2 \sin^2 x} - \frac{x^2}{x^2 \sin^2 x} + \frac{x^2 \sin^2 x}{x^2 \sin^2 x} \right)
+                                \]
+                                \[
+                                = \lim_{x\rightarrow0} \left( \frac{1}{x^2} - \frac{1}{\sin^2 x} + 1 \right) = \lim_{x\rightarrow0} \left( \frac{\sin^2 x - x^2}{x^2 \sin^2 x} \right) + 1
+                                \]
+                                <div class="mb-2"><strong>結論</strong><br>ご覧の通り、\(\frac{\sin^2 x - x^2}{x^2 \sin^2 x}\) という部分がまだ「\(\frac{0}{0}\)」の不定形のままで、このままでは極限が求まりません。</div>
+                                <div class="mb-2">この部分を解決するために、結局はマクローリン展開を使うか、あるいは<strong>ロピタルの定理</strong>を複数回使う必要があります。</div>
+                                <div class="mb-2"><strong>ロピタルの定理で解く場合</strong><br>ロピタルの定理を使えば、マクローリン展開を避けることができます。</div>
+                                \[
+                                \lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^2 \sin^2 x} = \lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^4} \quad ( \text{※} \lim_{x\to 0}\frac{\sin^2 x}{x^2}=1 \text{を利用} )
+                                \]
+                                <div class="mb-2">この \(\lim_{x\rightarrow0} \frac{\sin^2 x - x^2}{x^4}\) にロピタルの定理を3回適用すると、</div>
+                                <ul class="solution-list">
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{2\sin x \cos x - 2x}{4x^3} = \lim_{x\rightarrow0} \frac{\sin 2x - 2x}{4x^3}\)</li>
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{2\cos 2x - 2}{12x^2}\)</li>
+                                    <li class="solution-step-list">\(\lim_{x\rightarrow0} \frac{-4\sin 2x}{24x} = -\frac{4}{24} \cdot 2 = -\frac{1}{3}\)</li>
+                                </ul>
+                                <div class="mb-2">となり、全体の極限は \(-\frac{1}{3} + 1 = \frac{2}{3}\) となって、同じ答えにたどり着きます。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <div class="problem-statement">(2) 積分 \(\int_{0}^{\frac{\pi}{4}}\frac{x+\sin 2x}{1+\cos 2x}dx\)の値を求めよ</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">分母と分子に三角関数が入っていて複雑に見えますね。まずは<strong>三角関数の倍角の公式</strong>を使って、式を簡単な形にしてみましょう。そうすると、見慣れた関数の積分に変わりますよ！</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 倍角の公式 \(1+\cos 2x = 2\cos^2 x\) と \(\sin 2x = 2\sin x \cos x\) を使って、被積分関数を変形します。
+                            <div class="ml-4 mt-2">
+                                $$\frac{x+\sin 2x}{1+\cos 2x} = \frac{x+2\sin x \cos x}{2\cos^2 x} = \frac{x}{2\cos^2 x} + \frac{2\sin x \cos x}{2\cos^2 x} = \frac{x}{2}\sec^2 x + \tan x$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分を2つの部分に分けます。
+                            <div class="ml-4 mt-2">
+                                $$\int_{0}^{\frac{\pi}{4}} (\frac{x}{2}\sec^2 x + \tan x) dx = \frac{1}{2}\int_{0}^{\frac{\pi}{4}} x\sec^2 x dx + \int_{0}^{\frac{\pi}{4}} \tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第1項の \(x\sec^2 x\) の積分は、<strong>部分積分法</strong> \(\int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx\) を使います。<br>
+                            \(f(x)=x, g'(x)=\sec^2 x\) とすると、\(f'(x)=1, g(x)=\tan x\) となるので、
+                            <div class="ml-4 mt-2">
+                                $$\int x\sec^2 x dx = x\tan x - \int \tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. これを元の式に戻すと、面白いことに \(\tan x\) の積分の一部が相殺されます。
+                            <div class="ml-4 mt-2">
+                                $$\frac{1}{2} [x\tan x - \int \tan x dx]_{0}^{\frac{\pi}{4}} + \int_{0}^{\frac{\pi}{4}} \tan x dx$$<br>
+                                これを計算すると、<br>
+                                $$\frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} - \frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx + \int_{0}^{\frac{\pi}{4}}\tan x dx = \frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} + \frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            5. 各項を計算します。
+                            <div class="ml-4 mt-2">
+                                * \(\frac{1}{2}[x\tan x]_{0}^{\frac{\pi}{4}} = \frac{1}{2}(\frac{\pi}{4}\tan\frac{\pi}{4} - 0) = \frac{1}{2} \cdot \frac{\pi}{4} \cdot 1 = \frac{\pi}{8}\)<br>
+                                * \(\int \tan x dx = -\ln|\cos x|\) なので、<br>
+                                \(\frac{1}{2}\int_{0}^{\frac{\pi}{4}}\tan x dx = \frac{1}{2}[-\ln|\cos x|]_{0}^{\frac{\pi}{4}} = \frac{1}{2}(-\ln(\cos\frac{\pi}{4}) - (-\ln(\cos 0))) = \frac{1}{2}(-\ln\frac{1}{\sqrt{2}} + \ln 1) = \frac{1}{2}\ln\sqrt{2} = \frac{1}{4}\ln 2\)
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            6. 最後に、2つの結果を足し合わせます。
+                            <div class="ml-4 mt-2">
+                                $$\frac{\pi}{8} + \frac{1}{4}\ln 2$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: \(\frac{\pi}{8} + \frac{1}{4}\ln 2\)</span>
+                    </div>
+                </div>
+                <!-- 右側：解説とポイント -->
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>不定形の極限は、式変形や展開、ロピタルの定理などを活用して計算しやすい形に持ち込むのがコツ</li>
+                            <li>三角関数の積分は、公式を使って式を簡単にしてから部分積分や置換積分を検討する</li>
+                            <li>途中式を丁寧に書くことで、計算ミスや論理の飛躍を防げる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>「\(\infty - \infty\)」型や「0/0」型の極限は、必ず式変形や展開を試す</li>
+                            <li>積分は、まず被積分関数をできるだけ簡単な形に直す</li>
+                            <li>マクローリン展開や部分積分法など、頻出のテクニックは使いこなせるように練習しておく</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            大学院入試数学問題解説 | 4/13
+        </div>
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="slide-container mt-16">
+            <div class="header-decoration"></div>
+            <div class="p-10 h-full">
+                <div class="grid grid-cols-5 gap-6">
+                    <!-- 左側：設問 -->
+                    <div class="col-span-3">
+                        <div class="main-section-title">大問【2】</div>
+                        <div class="example-box mb-6">
+                            <div class="problem-statement">微分方程式①に関して、以下の問いに答えよ。</div>
+                            <div class="problem-statement">\((2xy+3y^{2})dx+(x^{2}+3xy)dy=0\)・・・①</div>
+                        </div>
+                        <div class="example-box mb-2">
+                            <div class="section-title">(1) 積分因子 \(x^m y^n\) をかけることによって微分方程式が完全形となるとき、mとnの値を求めよ。</div>
+                            <div class="point-box mb-0">
+                                <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                                <p>この微分方程式は、このままでは解けません。しかし、「積分因子」という魔法の呪文（関数）をかけると、<strong>完全微分方程式</strong>という解きやすい形に変身します。完全微分方程式の条件 \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) を使って、積分因子の形を決定しましょう。</p>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                元の式 \((2xy+3y^{2})dx+(x^{2}+3xy)dy=0\) に積分因子 \(x^m y^n\) をかけると、<br>
+                                $$ (2x^{m+1}y^{n+1}+3x^m y^{n+2})dx+(x^{m+2}y^n+3x^{m+1}y^{n+1})dy=0 $$
+                                ここで、\(P(x,y) = 2x^{m+1}y^{n+1}+3x^m y^{n+2}\)、\(Q(x,y) = x^{m+2}y^n+3x^{m+1}y^{n+1}\) です。<br>
+                                完全微分方程式の条件は \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) なので、それぞれ偏微分します。<br>
+                                $$\frac{\partial P}{\partial y} = 2(n+1)x^{m+1}y^n + 3(n+2)x^m y^{n+1}$$
+                                $$\frac{\partial Q}{\partial x} = (m+2)x^{m+1}y^n + 3(m+1)x^m y^{n+1}$$<br>
+                                両者が等しくなるためには、各項の係数が一致する必要があります。<br>
+                                <ul class="list-disc pl-5">
+                                    <li>\(x^{m+1}y^n\) の係数を比較: \(2(n+1) = m+2 \implies m = 2n\)</li>
+                                    <li>\(x^m y^{n+1}\) の係数を比較: \(3(n+2) = 3(m+1) \implies n+2 = m+1 \implies m = n+1\)</li>
+                                </ul>
+                                この2つの式から、\(2n = n+1\) となり、\(n=1\) が求まります。<br>
+                                そして、\(m = 1+1 = 2\) となります。
+                                <span class="answer-highlight">答え: \(m=2, n=1\)</span>
+                            </div>
+                        </div>
+                        <div class="example-box mb-2">
+                            <div class="section-title">(2)  (1) で求めた積分因子 \(x^m y^n\) を利用して微分方程式①を解け。</div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                (1)で求めた積分因子 \(x^2 y\) を元の式にかけると、<br>
+                                $$ (2x^3 y^2 + 3x^2 y^3) dx + (x^4 y + 3x^3 y^2) dy = 0 $$
+                                この方程式の解となる関数 \(U(x,y)=C\) (Cは定数) が存在し、<br>
+                                $$\frac{\partial U}{\partial x} = 2x^3 y^2 + 3x^2 y^3 \quad \dots (i)$$
+                                $$\frac{\partial U}{\partial y} = x^4 y + 3x^3 y^2 \quad \dots (ii)$$<br>
+                                を満たします。<br>
+                                式(i)を \(x\) で積分します。<br>
+                                $$U(x,y) = \int (2x^3 y^2 + 3x^2 y^3) dx = \frac{1}{2}x^4 y^2 + x^3 y^3 + C(y)$$<br>
+                                ここで、\(C(y)\) は \(y\) だけの関数（積分定数）です。<br>
+                                次に、この結果を \(y\) で偏微分して式(ii)と比較します。<br>
+                                $$\frac{\partial U}{\partial y} = x^4 y + 3x^3 y^2 + C'(y)$$<br>
+                                式(ii)と比べると、\(C'(y) = 0\) であることがわかります。これを積分すると \(C(y)\) は定数となります。<br>
+                                したがって、一般解は<br>
+                                $$\frac{1}{2}x^4 y^2 + x^3 y^3 = C_1$$<br>
+                                両辺を2倍して定数を置き換えれば、より綺麗な形になります。<br>
+                                <span class="answer-highlight">答え: \(x^4 y^2 + 2x^3 y^3 = C\) (Cは任意定数)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右側：ポイント・チップス -->
+                    <div class="col-span-2">
+                        <div class="point-box mb-6">
+                            <div class="section-title">
+                                <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                            </div>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>積分因子をかけて完全微分方程式に変形するのがポイント</li>
+                                <li>完全微分方程式の条件 \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) を活用</li>
+                                <li>積分定数の扱いに注意</li>
+                            </ul>
+                        </div>
+                        <div class="point-box">
+                            <div class="section-title">
+                                <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                            </div>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>積分因子の形は経験則やパターン認識も大切</li>
+                                <li>完全微分形にできたら、積分の順序や変数の扱いに注意して計算する</li>
+                                <li>計算過程を丁寧に書くことでミスを防ぐ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================== -->
+    <!-- ここから大問【3】 -->
+    <div class="slide-container mt-16">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box mb-2">
+                        <div class="section-title">次の行列が対角行列に変換されるための条件を示し、変換の行列を求めて対角化せよ</div>
+                    </div>
+                    <div class="point-box mb-0">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>行列が<strong>対角化可能</strong>であるための条件は、<strong>「すべての固有値について、その（代数的な）重複度と、対応する線形独立な固有ベクトルの個数（幾何学的重複度）が一致すること」</strong> です。この行列は固有値が簡単に求まるので、重複している固有値について、条件を満たすようにパラメータの値を決めていきましょう。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">与えられた行列を \(A = \begin{pmatrix} 2 & \alpha & \beta \\ 0 & 1 & \gamma \\ 0 & 0 & 1 \end{pmatrix}\) とします。</li>
+                            <li class="solution-step-list"><strong>1. 固有値を求める</strong><br>\(A\)は上三角行列なので、固有値は対角成分そのものです。固有値は \(\lambda = 2\) と \(\lambda = 1\)（重複度2）です。</li>
+                            <li class="solution-step-list"><strong>2. 対角化の条件を調べる</strong><br>重複している固有値 \(\lambda = 1\) について、線形独立な固有ベクトルが2つ存在するかを調べます。固有ベクトルを \(\vec{v} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\) とすると、\((A - 1 \cdot I)\vec{v} = \vec{0}\) を満たします。<br>
+                                \[
+                                (A-I)\vec{v} = \begin{pmatrix} 1 & \alpha & \beta \\ 0 & 0 & \gamma \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+                                \]<br>
+                                これは、連立方程式<br>
+                                \[
+                                x + \alpha y + \beta z = 0
+                                \]<br>
+                                \[
+                                \gamma z = 0
+                                \]<br>
+                                を意味します。線形独立な固有ベクトルが2つ存在するためには、この方程式の解の自由度が2である必要があります。もし \(\gamma \neq 0\) だと、\(z=0\) となり、\(x+\alpha y = 0\) という一つの関係式だけが残ります。これでは解の自由度は1しかなく、線形独立な固有ベクトルは1つしか見つかりません。したがって、<strong>対角化可能であるための条件は \(\gamma = 0\)</strong> です。</li>
+                            <li class="solution-step-list"><strong>3. 変換行列を求めて対角化する (\(\gamma=0\) の場合)</strong><br>
+                                <ul class="solution-list">
+                                    <li class="solution-step-list"><strong>\(\lambda = 2\) の固有ベクトル:</strong> \((A-2I)\vec{v} = \begin{pmatrix} 0 & \alpha & \beta \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{pmatrix}\vec{v} = \vec{0}\) より、\(y=0, z=0\)。よって固有ベクトルは \(\vec{v_1} = c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\)。</li>
+                                    <li class="solution-step-list"><strong>\(\lambda = 1\) の固有ベクトル (\(\gamma=0\)):</strong> 方程式は \(x + \alpha y + \beta z = 0\) のみ。この式を満たす線形独立なベクトルを2つ見つけます。例えば、\(\vec{v_2} = \begin{pmatrix} -\alpha \\ 1 \\ 0 \end{pmatrix}\), \(\vec{v_3} = \begin{pmatrix} -\beta \\ 0 \\ 1 \end{pmatrix}\) が選べます。</li>
+                                </ul>
+                                これらの固有ベクトルを並べて、変換行列 \(P\) を作ります。<br>
+                                \[
+                                P = (\vec{v_1}, \vec{v_2}, \vec{v_3}) = \begin{pmatrix} 1 & -\alpha & -\beta \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+                                \]<br>
+                                この \(P\) を用いると、\(A\) は対角化され、対角行列 \(D\) は固有値を対角成分に持ちます。<br>
+                                \[
+                                D = P^{-1}AP = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+                                \]
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え:<br>
+                            ・対角化されるための条件: \(\gamma=0\)<br>
+                            ・変換の行列: \(P = \begin{pmatrix} 1 & -\alpha & -\beta \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\)<br>
+                            ・対角化された行列: \(D = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\)
+                        </span>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>固有値・固有ベクトルの計算は上三角行列なら簡単</li>
+                            <li>重複固有値の幾何学的重複度に注意</li>
+                            <li>変換行列の列ベクトルは固有ベクトル</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>対角化の条件は「固有ベクトルの数」＝「行列のサイズ」</li>
+                            <li>上三角行列や下三角行列は固有値がすぐわかる</li>
+                            <li>パラメータ付き行列は条件を場合分けして考える</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- ここから大問【4】 -->
+    <div class="slide-container mt-16">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <div class="grid grid-cols-5 gap-6">
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【4】</div>
+                    <div class="example-box mb-2">
+                        <div class="section-title">以下の問いに答えよ</div>
+                        <div class="point-box mb-0">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>これらの関数は、のこぎり波や階段関数のように、周期的に形が繰り返される関数です。ラプラス変換の定義式 \(L\{f(t)\} = \int_0^\infty e^{-st} f(t) dt\) に従って、積分を区間 \(nk \le t < (n+1)k\) ごとの和 \((\sum_{n=0}^{\infty})\) で計算します。最後に、<strong>無限等比級数の和の公式</strong>を使うのがポイントです。</p>
+                        </div>
+                    </div>
+                    <div class="example-box mb-2">
+                        <div class="section-title">(1) \(f(t)=\frac{t}{k}-n\) のラプラス変換</div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">ラプラス変換の定義より、<br>
+                                \[
+                                L\{f(t)\} = \sum_{n=0}^{\infty} \int_{nk}^{(n+1)k} e^{-st} \left(\frac{t}{k}-n\right) dt
+                                \]
+                            </li>
+                            <li class="solution-step-list">\(t = u + nk\) と置換積分します。（\(dt=du\), \(u: 0 \to k\)）<br>
+                                \[
+                                \int_{0}^{k} e^{-s(u+nk)} \left(\frac{u+nk}{k}-n\right) du = \int_{0}^{k} e^{-su}e^{-snk} \left(\frac{u}{k}\right) du = \frac{e^{-snk}}{k} \int_{0}^{k} u e^{-su} du
+                                \]
+                            </li>
+                            <li class="solution-step-list">\(u e^{-su}\) の積分を部分積分で計算します。<br>
+                                \[
+                                \int_{0}^{k} u e^{-su} du = \left[u \frac{e^{-su}}{-s}\right]_0^k - \int_0^k \frac{e^{-su}}{-s} du = -\frac{k}{s}e^{-sk} - \left[\frac{e^{-su}}{s^2}\right]_0^k = -\frac{k}{s}e^{-sk} - \frac{e^{-sk}}{s^2} + \frac{1}{s^2}
+                                \]
+                            </li>
+                            <li class="solution-step-list">これを和の計算に戻し、無限等比級数の和 \(\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}\)（ただし \(r=e^{-sk}\)）を使います。<br>
+                                \[
+                                L\{f(t)\} = \sum_{n=0}^{\infty} \frac{e^{-snk}}{k} \left(\frac{1}{s^2} - \frac{ks+1}{s^2}e^{-sk}\right) = \frac{1}{ks^2}\left(1 - (ks+1)e^{-sk}\right) \sum_{n=0}^{\infty} (e^{-sk})^n
+                                \]
+                                \[
+                                = \frac{1 - (ks+1)e^{-sk}}{ks^2(1-e^{-sk})}
+                                \]
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: \(F(s) = \frac{1 - e^{-sk} - kse^{-sk}}{ks^2(1-e^{-sk})}\)</span>
+                    </div>
+                    <div class="example-box mb-2">
+                        <div class="section-title">(2) \(f(t)=n+1\) のラプラス変換</div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <ul class="solution-list">
+                            <li class="solution-step-list">ラプラス変換の定義より、<br>
+                                \[
+                                L\{f(t)\} = \sum_{n=0}^{\infty} \int_{nk}^{(n+1)k} e^{-st} (n+1) dt
+                                \]
+                            </li>
+                            <li class="solution-step-list">積分を計算します。<br>
+                                \[
+                                (n+1) \int_{nk}^{(n+1)k} e^{-st} dt = (n+1)\left[\frac{e^{-st}}{-s}\right]_{nk}^{(n+1)k} = \frac{n+1}{s}(e^{-snk}-e^{-s(n+1)k}) = \frac{n+1}{s}e^{-snk}(1-e^{-sk})
+                                \]
+                            </li>
+                            <li class="solution-step-list">これを和の計算に戻します。<br>
+                                \[
+                                L\{f(t)\} = \sum_{n=0}^{\infty} \frac{n+1}{s}e^{-snk}(1-e^{-sk}) = \frac{1-e^{-sk}}{s} \sum_{n=0}^{\infty} (n+1)(e^{-sk})^n
+                                \]
+                            </li>
+                            <li class="solution-step-list">ここで、級数 \(\sum_{n=0}^{\infty} (n+1)x^n\) を計算する必要があります。これは \(\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n\) の両辺を \(x\) で微分すると得られます。<br>
+                                \[
+                                \frac{d}{dx}\left(\frac{1}{1-x}\right) = \frac{1}{(1-x)^2} = \sum_{n=0}^{\infty} nx^{n-1} = \sum_{m=0}^{\infty} (m+1)x^m
+                                \]
+                                \(x=e^{-sk}\) を代入すると、和は \(\frac{1}{(1-e^{-sk})^2}\) となります。</li>
+                            <li class="solution-step-list">最後に、この結果を代入します。<br>
+                                \[
+                                L\{f(t)\} = \frac{1-e^{-sk}}{s} \cdot \frac{1}{(1-e^{-sk})^2} = \frac{1}{s(1-e^{-sk})}
+                                \]
+                            </li>
+                        </ul>
+                        <span class="answer-highlight">答え: \(F(s) = \frac{1}{s(1-e^{-sk})}\)</span>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>周期関数のラプラス変換は区間ごとに分割して計算</li>
+                            <li>無限等比級数の和公式を活用</li>
+                            <li>置換積分や部分積分のテクニックを使う</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>ラプラス変換の定義式をしっかり使う</li>
+                            <li>和の計算は公式や微分を活用</li>
+                            <li>計算過程を丁寧に書くことでミスを防ぐ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+function toggleAccordion(id) {
+  var acc = document.getElementById(id);
+  if (acc.classList.contains('open')) {
+    acc.classList.remove('open');
+  } else {
+    acc.classList.add('open');
+  }
+}
+</script>

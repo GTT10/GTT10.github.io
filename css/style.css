@@ -1,0 +1,561 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+.header {
+    background-color: #2E86AB;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #F18F01;
+}
+
+/* ヒーローセクション */
+.hero {
+    margin-top: 80px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-background {
+    background: linear-gradient(rgba(46, 134, 171, 0.8), rgba(46, 134, 171, 0.8)), url('../images/hero_background.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #F18F01;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(241, 143, 1, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #e07d00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241, 143, 1, 0.4);
+}
+
+/* 科目セクション */
+.subjects {
+    padding: 4rem 0;
+    background-color: #F8F9FA;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2E86AB;
+    margin-bottom: 3rem;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.subject-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: #2E86AB;
+}
+
+.subject-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background-color: #F8F9FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.subject-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.subject-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2E86AB;
+    margin-bottom: 1rem;
+}
+
+.subject-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.subject-link {
+    display: inline-block;
+    background-color: #A23B72;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.subject-link:hover {
+    background-color: #8a2f5f;
+    transform: translateY(-2px);
+}
+
+/* お知らせ・開発状況セクション */
+.notice {
+    padding: 4rem 0;
+    background-color: #FFF9E6;
+    border-top: 3px solid #F18F01;
+}
+
+.notice-content {
+    margin-top: 2rem;
+}
+
+.notice-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #F18F01;
+}
+
+.notice-box h3 {
+    color: #2E86AB;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.notice-text p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.notice-text ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: #555;
+}
+
+.notice-text li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.notice-text strong {
+    color: #2E86AB;
+}
+
+/* 開発状況テーブル */
+.progress-table-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.progress-table {
+    width: auto;
+    max-width: 400px;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 0.8rem;
+    margin: 0 auto;
+}
+
+.progress-table th {
+    background-color: #2E86AB;
+    color: white;
+    padding: 0.3rem 0.1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.7rem;
+    border: 1px solid #1a5d7a;
+    width: 35px;
+}
+
+.progress-table th:first-child {
+    background-color: #1a5d7a;
+    width: 45px;
+}
+
+.progress-table td {
+    padding: 0.2rem;
+    text-align: center;
+    border: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    width: 35px;
+    height: 28px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.progress-table td sup {
+    font-size: 0.6rem;
+    color: #666;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    line-height: 1;
+}
+
+.progress-table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.7rem;
+    width: 45px;
+    padding: 0.1rem 0.2rem;
+}
+
+.progress-table tbody tr:hover {
+    background-color: #f1f8ff;
+}
+
+.progress-table tbody tr:hover td:first-child {
+    background-color: #e3f2fd;
+}
+
+/* ステータス別スタイル（data属性ベース） */
+[data-status="a"] { color: #28a745; font-size: 1.2rem; }      /* 完成済み */
+[data-status="b"] { color: #ffc107; font-size: 1.2rem; }      /* 準完成済み */
+[data-status="c"] { color: #17a2b8; font-size: 1.2rem; }      /* 要確認 */
+[data-status="d"] { color: #fd7e14; font-size: 1.2rem; }      /* 作業中 */
+[data-status="e"] { color: #dc3545; font-size: 1.2rem; }      /* 未実装 */
+
+/* 凡例スタイル */
+.legend {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border-left: 4px solid #2E86AB;
+}
+
+.legend-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.status-icon {
+    margin-right: 0.4rem;
+    font-size: 1rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .progress-table {
+        font-size: 0.7rem;
+        max-width: 320px;
+    }
+    
+    .progress-table th {
+        padding: 0.2rem 0.05rem;
+        font-size: 0.6rem;
+        width: 30px;
+    }
+    
+    .progress-table th:first-child {
+        width: 38px;
+    }
+    
+    .progress-table td {
+        padding: 0.15rem;
+        font-size: 0.8rem;
+        width: 30px;
+        height: 25px;
+    }
+    
+    .progress-table td:first-child {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.15rem;
+        width: 38px;
+    }
+    
+    .legend-grid {
+        gap: 0.8rem;
+        justify-content: flex-start;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+}
+
+/* 利用案内セクション */
+.about {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-item {
+    padding: 1.5rem;
+    border-left: 4px solid #F18F01;
+    background-color: #F8F9FA;
+    border-radius: 8px;
+}
+
+.about-item h3 {
+    color: #2E86AB;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.about-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* FAQ セクション */
+.faq {
+    padding: 4rem 0;
+    background-color: #F8F9FA;
+}
+
+.faq-content {
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #F8F9FA;
+}
+
+.faq-question h3 {
+    color: #2E86AB;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: #F18F01;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #FAFBFC;
+}
+
+.faq-answer.show {
+    padding: 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* フッター */
+.footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-list {
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .subject-card {
+        padding: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+}

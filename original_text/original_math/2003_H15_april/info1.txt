@@ -1,0 +1,429 @@
+### 問題①  
+**問題文：**  
+関数 \(\frac{\sin x}{x}\) を \(x=0\) においてテイラー展開し、\(x\) の6次までの項を求めよ。  
+
+---
+
+#### **方針と考え方**  
+テイラー展開は、関数を \(x=0\) 周りの多項式で近似する方法です。関数 \(f(x)\) の \(n\) 次までのテイラー展開は：  
+\[
+f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \cdots + \frac{f^{(n)}(0)}{n!}x^n + \cdots
+\]  
+ただし、\(\frac{\sin x}{x}\) は \(x=0\) で定義されないため、**極限**を使って \(f(0)\) を求めます。  
+- **チップス**:  
+  - \(\sin x\) のテイラー展開を利用します（\(\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots\)）。  
+  - \(\frac{\sin x}{x}\) は偶関数（\(f(-x)=f(x)\)）なので、奇数次項はすべて0になります。  
+
+---
+
+#### **解き方と途中式**  
+1. **\(x=0\) での関数の値**：  
+   \[
+   f(0) = \lim_{x \to 0} \frac{\sin x}{x} = 1 \quad (\text{有名な極限})。
+   \]
+
+2. **\(\sin x\) のテイラー展開を利用**：  
+   \[
+   \sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots
+   \]  
+   両辺を \(x\) で割ると：  
+   \[
+   \frac{\sin x}{x} = \frac{x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots}{x} = 1 - \frac{x^2}{6} + \frac{x^4}{120} - \frac{x^6}{5040} + \cdots
+   \]
+
+3. **6次までの項を抽出**：  
+   - 定数項：\(1\)  
+   - \(x^2\) の項：\(-\frac{x^2}{6}\)  
+   - \(x^4\) の項：\(\frac{x^4}{120}\)  
+   - \(x^6\) の項：\(-\frac{x^6}{5040}\)  
+   - **奇数次の項はすべて0**（偶関数のため）。  
+
+4. **係数を整理**：  
+   \[
+   \frac{\sin x}{x} = 1 \cdot x^0 + 0 \cdot x^1 + \left(-\frac{1}{6}\right) x^2 + 0 \cdot x^3 + \frac{1}{120} x^4 + 0 \cdot x^5 + \left(-\frac{1}{5040}\right) x^6 + \cdots
+   \]
+
+---
+
+#### **解答**  
+\[
+\boxed{\dfrac{\sin x}{x} = 1 - \dfrac{x^2}{6} + \dfrac{x^4}{120} - \dfrac{x^6}{5040}}
+\]
+
+---
+
+### 問題②  
+**問題文：**  
+1880年にサンフランシスコ湾でシマスズキが \(p_0\) 匹放流され、20年後の1900年には100万倍になった。年間の増殖数は \(p(t)\) に比例（比例定数4）し、\(c\) 匹が死滅する。以下の問に答えよ。  
+(1) \(p(t)\) に対する微分方程式を書け。  
+(2) 微分方程式の解を求めよ。  
+(3) \(c\) の値を有効数字2桁で求めよ（\(\log_{10} 7 \approx 0.845\) を使用可）。  
+
+---
+
+#### **(1) 微分方程式の導出**  
+**方針と考え方**  
+- 個体数 \(p(t)\) の変化率 \(\frac{dp}{dt}\) は、**増加分**から**死滅分**を引いたもの。  
+- 増加分：\(p(t)\) に比例（比例定数は4 → \(\alpha p(t)\)）。  
+- 死滅分：一定数 \(c\)（時間に依存しない）。  
+
+**微分方程式**：  
+\[
+\boxed{\dfrac{dp}{dt} = 4p - c}
+\]
+
+---
+
+#### **(2) 微分方程式の解**  
+**方針と考え方**  
+- 変数分離形または積分因子法で解きます。  
+- 同次形 \(\frac{dp}{dt} = 4p\) の解は \(p_h = Ae^{4t}\)。  
+- 特解は定数と仮定：\(p_p = k\) とおき、微分方程式に代入。  
+
+**途中式**：  
+1. **同次方程式の解**：  
+   \[
+   \frac{dp}{dt} = 4p \implies \int \frac{dp}{p} = \int 4  dt \implies \ln|p| = 4t + C \implies p_h = Ae^{4t}.
+   \]
+
+2. **特解の決定**：  
+   定数解 \(p_p = k\) を代入：  
+   \[
+   0 = 4k - c \implies k = \frac{c}{4}.
+   \]
+
+3. **一般解**：  
+   \[
+   p(t) = p_h + p_p = Ae^{4t} + \frac{c}{4}.
+   \]
+
+4. **初期条件**（1880年：\(t=0\) で \(p(0)=p_0\)）：  
+   \[
+   p_0 = A \cdot 1 + \frac{c}{4} \implies A = p_0 - \frac{c}{4}.
+   \]
+   したがって：  
+   \[
+   p(t) = \left(p_0 - \frac{c}{4}\right)e^{4t} + \frac{c}{4}.
+   \]
+
+**解答**：  
+\[
+\boxed{p(t) = \left(p_0 - \dfrac{c}{4}\right)e^{4t} + \dfrac{c}{4}}
+\]
+
+---
+
+#### **(3) \(c\) の値の計算**  
+**方針と考え方**  
+- 1900年（\(t=20\)）で \(p(20) = 10^6 p_0\)。  
+- 一般解に代入し、\(c\) について解きます。  
+- **チップス**: 指数関数を対数で処理し、\(\log_{10} 7 \approx 0.845\) を使用します。  
+
+**途中式**：  
+1. **条件の代入**：  
+   \[
+   p(20) = \left(p_0 - \frac{c}{4}\right)e^{80} + \frac{c}{4} = 10^6 p_0.
+   \]
+
+2. **式を整理**：  
+   \[
+   \left(p_0 - \frac{c}{4}\right)e^{80} + \frac{c}{4} = 10^6 p_0.
+   \]
+   両辺を \(p_0\) で割り、\(k = \frac{c}{4p_0}\) とおく：  
+   \[
+   (1 - k)e^{80} + k = 10^6.
+   \]
+
+3. **\(k\) について解く**：  
+   \[
+   e^{80} - k e^{80} + k = 10^6 \implies k(1 - e^{80}) = 10^6 - e^{80}.
+   \]
+   \[
+   k = \frac{10^6 - e^{80}}{1 - e^{80}} = \frac{e^{80} - 10^6}{e^{80} - 1}.
+   \]
+
+4. **数値計算**：  
+   - \(e^{80}\) は非常に大きいので、\(e^{80} \gg 10^6\) と近似：  
+     \[
+     k \approx \frac{e^{80}}{e^{80}} = 1.
+     \]
+     しかし厳密に計算するため、対数を取ります。  
+   - \(e^{80} = 10^{80 / \ln(10)} \)。\(\ln(10) \approx 2.3026\) より：  
+     \[
+     \frac{80}{\ln 10} \approx \frac{80}{2.3026} \approx 34.74 \implies e^{80} \approx 10^{34.74} = 10^{34} \times 10^{0.74}.
+     \]
+     \(10^{0.74} \approx 5.5\)（電卓または近似計算）、\(10^{0.845} \approx 7\) のヒントから、  
+     \[
+     10^{0.74} = 10^{0.845 - 0.105} \approx \frac{7}{10^{0.105}} \approx \frac{7}{1.27} \approx 5.51.
+     \]
+     よって \(e^{80} \approx 5.51 \times 10^{34}\)。  
+   - \(10^6 = 1 \times 10^6\) なので：  
+     \[
+     k = \frac{5.51 \times 10^{34} - 10^6}{5.51 \times 10^{34} - 1} \approx 1 \quad (\text{分子と分母ほぼ同じ}).
+     \]
+     厳密には：  
+     \[
+     k = 1 - \frac{10^6 - 1}{e^{80} - 1} \approx 1 - \frac{10^6}{5.51 \times 10^{34}} = 1 - 1.81 \times 10^{-29}.
+     \]
+
+5. **\(c\) の計算**：  
+   \[
+   c = 4 p_0 k \approx 4 p_0 \cdot 1 = 4 p_0.
+   \]
+   しかし問題は「100万倍」なので、\(p(20) = 10^6 p_0\)。  
+   一般解で \(t=20\)：  
+   \[
+   \left(p_0 - \frac{c}{4}\right)e^{80} + \frac{c}{4} = 10^6 p_0.
+   \]
+   \(c = 4 p_0 k\) を代入：  
+   \[
+   p_0 (1 - k) e^{80} + p_0 k = 10^6 p_0 \implies (1 - k)e^{80} + k = 10^6.
+   \]
+   \(k \approx 1\) とすると左辺 \(\approx e^{80} \gg 10^6\) となり矛盾。  
+   **再検討**：  
+   \(e^{80} \gg 10^6\) なので、\((1 - k)e^{80} \approx 0\) となるため \(k \approx 10^6\)。  
+   正しい近似：  
+   \[
+   (1 - k)e^{80} \approx -k e^{80} \quad (\text{\(k\) が大きい場合}),  
+   \]
+   式：  
+   \[
+   -k e^{80} + k \approx 10^6 \implies k(1 - e^{80}) \approx 10^6.
+   \]
+   \[
+   k \approx \frac{10^6}{1 - e^{80}} \approx -\frac{10^6}{e^{80}} \quad (\text{負の値？ 不合理}).
+   \]  
+   **誤りに気付く**：初期条件 \(p(0) = p_0\) と \(p(20) = 10^6 p_0\) を再代入。  
+   一般解：  
+   \[
+   p(t) = \left(p_0 - \frac{c}{4}\right)e^{4t} + \frac{c}{4}.
+   \]
+   \(t=20\)：  
+   \[
+   \left(p_0 - \frac{c}{4}\right)e^{80} + \frac{c}{4} = 10^6 p_0. \quad \text{(A)}
+   \]  
+   \(e^{80} \gg 1\) かつ \(e^{80} \gg 10^6\) なので、  
+   \[
+   \left(p_0 - \frac{c}{4}\right)e^{80} \approx 10^6 p_0.
+   \]  
+   したがって：  
+   \[
+   p_0 - \frac{c}{4} \approx 10^6 p_0 \cdot e^{-80}.
+   \]  
+   \(e^{-80} \approx 10^{-34.74} \approx 1.82 \times 10^{-35}\) より：  
+   \[
+   p_0 - \frac{c}{4} \approx 10^6 p_0 \times 1.82 \times 10^{-35} = 1.82 \times 10^{-29} p_0.
+   \]  
+   よって：  
+   \[
+   \frac{c}{4} \approx p_0 - 1.82 \times 10^{-29} p_0 \approx p_0.
+   \]  
+   \[
+   c \approx 4 p_0.
+   \]  
+   しかし問題文に「1880年に放流された数」は \(p_0\) で、\(c\) は定数です。  
+   **厳密に解く**：  
+   式 (A) を変形：  
+   \[
+   p_0 e^{80} - \frac{c}{4} e^{80} + \frac{c}{4} = 10^6 p_0.
+   \]  
+   \[
+   p_0 (e^{80} - 10^6) = \frac{c}{4} (e^{80} - 1).
+   \]  
+   \[
+   c = 4 p_0 \frac{e^{80} - 10^6}{e^{80} - 1}.
+   \]  
+   \(e^{80} \gg 1\) かつ \(e^{80} \gg 10^6\) なので、  
+   \[
+   c \approx 4 p_0 \frac{e^{80}}{e^{80}} = 4 p_0.
+   \]  
+   問題文で「100万倍」とあるが、増殖率が大きいため死滅の影響は小さい。  
+   有効数字2桁で：  
+   \[
+   \boxed{c = 4.0 p_0}
+   \]  
+   **注**: 数値的には \(c \approx 4 p_0\) でほぼ正確です。
+
+---
+
+### 問題③  
+**問題文：**  
+ベクトル関数 \(\mathbf{A} = (A_x, A_y, A_z)\) について以下の問に答えよ。  
+(1) \(\nabla \times \mathbf{A}\) および \(\nabla (\nabla \cdot \mathbf{A})\) を成分表示せよ。  
+(2) \(\nabla \times \mathbf{A} = 0\) のとき \(\nabla^2 \mathbf{A} = \nabla (\nabla \cdot \mathbf{A})\) を示せ。  
+
+---
+
+#### **(1) 成分表示**  
+**方針と考え方**  
+- \(\nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)\) です。  
+- \(\nabla \times \mathbf{A}\) は回転（rot）、\(\nabla \cdot \mathbf{A}\) は発散（div）、\(\nabla (\nabla \cdot \mathbf{A})\) は発散の勾配です。  
+
+**解答**：  
+- **回転 \(\nabla \times \mathbf{A}\)**:  
+  \[
+  \nabla \times \mathbf{A} = \begin{vmatrix}
+  \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+  \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+  A_x & A_y & A_z
+  \end{vmatrix} = \left( \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}, \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}, \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} \right)
+  \]  
+  \[
+  \boxed{\left( \dfrac{\partial A_z}{\partial y} - \dfrac{\partial A_y}{\partial z},  \dfrac{\partial A_x}{\partial z} - \dfrac{\partial A_z}{\partial x},  \dfrac{\partial A_y}{\partial x} - \dfrac{\partial A_x}{\partial y} \right)}
+  \]
+
+- **発散の勾配 \(\nabla (\nabla \cdot \mathbf{A})\)**:  
+  まず \(\nabla \cdot \mathbf{A} = \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\)。  
+  次に勾配を取る：  
+  \[
+  \nabla (\nabla \cdot \mathbf{A}) = \left( \frac{\partial}{\partial x} (\nabla \cdot \mathbf{A}), \frac{\partial}{\partial y} (\nabla \cdot \mathbf{A}), \frac{\partial}{\partial z} (\nabla \cdot \mathbf{A}) \right)
+  \]  
+  \[
+  \boxed{\left( \dfrac{\partial^2 A_x}{\partial x^2} + \dfrac{\partial^2 A_y}{\partial x \partial y} + \dfrac{\partial^2 A_z}{\partial x \partial z},  \dfrac{\partial^2 A_x}{\partial y \partial x} + \dfrac{\partial^2 A_y}{\partial y^2} + \dfrac{\partial^2 A_z}{\partial y \partial z},  \dfrac{\partial^2 A_x}{\partial z \partial x} + \dfrac{\partial^2 A_y}{\partial z \partial y} + \dfrac{\partial^2 A_z}{\partial z^2} \right)}
+  \]  
+  （偏微分の順序は滑らかな関数で交換可能と仮定。）
+
+---
+
+#### **(2) 等式の証明**  
+**方針と考え方**  
+- \(\nabla^2 \mathbf{A} = (\nabla^2 A_x, \nabla^2 A_y, \nabla^2 A_z)\)（各成分にラプラシアン）。  
+- 条件 \(\nabla \times \mathbf{A} = 0\) は、\(\mathbf{A}\) がスカラーポテンシャルの勾配（\(\mathbf{A} = \nabla \phi\)）となることを意味します。  
+
+**証明**：  
+1. **条件の適用**：  
+   \(\nabla \times \mathbf{A} = 0\) より、\(\mathbf{A} = \nabla \phi\) となるスカラー関数 \(\phi\) が存在。  
+
+2. **左辺 \(\nabla^2 \mathbf{A}\)**:  
+   \[
+   \nabla^2 \mathbf{A} = \nabla^2 (\nabla \phi) = \nabla (\nabla^2 \phi).
+   \]  
+
+3. **右辺 \(\nabla (\nabla \cdot \mathbf{A})\)**:  
+   \[
+   \nabla \cdot \mathbf{A} = \nabla \cdot (\nabla \phi) = \nabla^2 \phi.
+   \]  
+   したがって：  
+   \[
+   \nabla (\nabla \cdot \mathbf{A}) = \nabla (\nabla^2 \phi).
+   \]  
+
+4. **等式の成立**：  
+   \[
+   \nabla^2 \mathbf{A} = \nabla (\nabla^2 \phi) = \nabla (\nabla \cdot \mathbf{A}).
+   \]  
+   \[
+   \boxed{\therefore \nabla^2 \mathbf{A} = \nabla (\nabla \cdot \mathbf{A})}
+   \]
+
+---
+
+### 問題④  
+**問題文：**  
+周期関数のラプラス変換は次式で与えられる：  
+\[
+\mathcal{L}\{f(t)\} = \frac{\int_0^a e^{-st} f(t)  dt}{1 - e^{-as}} \quad (a: \text{周期}).
+\]  
+以下の問に答えよ。  
+(1) 周期2の関数 \(f(t)\) が次で定義される：  
+\[
+f(t) = g(t) \quad \text{for} \quad 0 \leq t < 2, \quad g(t) = \begin{cases}
+t & (0 \leq t < 1) \\
+2 - t & (1 \leq t < 2)
+\end{cases}
+\]  
+\(f(t)\) のラプラス変換を求めよ。  
+(2) 上記の公式を証明せよ。  
+
+---
+
+#### **(1) ラプラス変換の計算**  
+**方針と考え方**  
+- 公式 \(\mathcal{L}\{f(t)\} = \frac{\int_0^a e^{-st} f(t)  dt}{1 - e^{-as}}\) を使用（\(a=2\)）。  
+- 積分 \(\int_0^2 e^{-st} f(t)  dt\) を計算（\(f(t) = g(t)\) を区間ごとに積分）。  
+
+**途中式**：  
+1. **積分の計算**：  
+   \[
+   \int_0^2 e^{-st} g(t)  dt = \int_0^1 e^{-st} t  dt + \int_1^2 e^{-st} (2 - t)  dt.
+   \]
+
+2. **第1項**：  
+   \[
+   \int_0^1 t e^{-st}  dt = \left[ t \cdot \frac{-e^{-st}}{s} \right]_0^1 - \int_0^1 \frac{-e^{-st}}{s}  dt = \frac{-e^{-s}}{s} + \frac{1}{s} \int_0^1 e^{-st}  dt = \frac{-e^{-s}}{s} + \frac{1}{s} \left[ \frac{-e^{-st}}{s} \right]_0^1 = \frac{-e^{-s}}{s} + \frac{1 - e^{-s}}{s^2}.
+   \]
+
+3. **第2項**：  
+   \[
+   \int_1^2 (2 - t) e^{-st}  dt = \int_1^2 2e^{-st}  dt - \int_1^2 t e^{-st}  dt.
+   \]
+   - \(\int_1^2 2e^{-st}  dt = 2 \left[ \frac{-e^{-st}}{s} \right]_1^2 = \frac{2}{s} (e^{-s} - e^{-2s})\)。  
+   - \(\int_1^2 t e^{-st}  dt = \left[ t \frac{-e^{-st}}{s} \right]_1^2 - \int_1^2 \frac{-e^{-st}}{s}  dt = \left( \frac{-2e^{-2s}}{s} + \frac{e^{-s}}{s} \right) + \frac{1}{s} \left[ \frac{-e^{-st}}{s} \right]_1^2 = \frac{-2e^{-2s}}{s} + \frac{e^{-s}}{s} + \frac{1}{s^2} (e^{-s} - e^{-2s})\)。  
+   したがって：  
+   \[
+   \int_1^2 (2 - t) e^{-st}  dt = \frac{2}{s} (e^{-s} - e^{-2s}) - \left( \frac{-2e^{-2s}}{s} + \frac{e^{-s}}{s} + \frac{e^{-s} - e^{-2s}}{s^2} \right) = \frac{e^{-s}}{s} - \frac{e^{-2s}}{s} + \frac{e^{-s} - e^{-2s}}{s^2}.
+   \]
+
+4. **合計**：  
+   \[
+   \int_0^2 e^{-st} g(t)  dt = \left( \frac{-e^{-s}}{s} + \frac{1 - e^{-s}}{s^2} \right) + \left( \frac{e^{-s}}{s} - \frac{e^{-2s}}{s} + \frac{e^{-s} - e^{-2s}}{s^2} \right) = \frac{1}{s^2} - \frac{e^{-2s}}{s} + \frac{e^{-s} - e^{-2s}}{s^2}.
+   \]  
+   整理：  
+   \[
+   = \frac{1}{s^2} (1 + e^{-s} - e^{-2s}) - \frac{e^{-2s}}{s}.
+   \]
+
+5. **ラプラス変換**：  
+   \[
+   \mathcal{L}\{f(t)\} = \frac{\frac{1}{s^2} (1 + e^{-s} - e^{-2s}) - \frac{e^{-2s}}{s}}{1 - e^{-2s}}.
+   \]  
+   分母を因数分解：\(1 - e^{-2s} = (1 - e^{-s})(1 + e^{-s})\)。  
+   分子を整理：  
+   \[
+   \frac{1}{s^2} (1 + e^{-s} - e^{-2s}) - \frac{e^{-2s}}{s} = \frac{1 + e^{-s} - e^{-2s} - s e^{-2s}}{s^2}.
+   \]  
+   最終的に：  
+   \[
+   \boxed{\mathcal{L}\{f(t)\} = \dfrac{1 + e^{-s} - e^{-2s}(1 + s)}{s^2 (1 - e^{-2s})}}
+   \]
+
+---
+
+#### **(2) 公式の証明**  
+**方針と考え方**  
+- 周期関数 \(f(t+a) = f(t)\) のラプラス変換を定義に従って計算。  
+- 積分区間を周期ごとに分割し、等比級数和を利用。  
+
+**証明**：  
+1. **ラプラス変換の定義**：  
+   \[
+   \mathcal{L}\{f(t)\} = \int_0^\infty e^{-st} f(t)  dt.
+   \]
+
+2. **積分区間を分割**：  
+   \[
+   = \sum_{n=0}^{\infty} \int_{na}^{(n+1)a} e^{-st} f(t)  dt.
+   \]
+
+3. **変数変換**（\(t = u + na\)）:  
+   \[
+   = \sum_{n=0}^{\infty} \int_0^a e^{-s(u + na)} f(u + na)  du = \sum_{n=0}^{\infty} e^{-s n a} \int_0^a e^{-s u} f(u)  du.
+   \]  
+   （周期性 \(f(u + na) = f(u)\) を使用。）
+
+4. **等比級数和**：  
+   \(\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}\) （\(|r| < 1\)）より、\(r = e^{-s a}\):  
+   \[
+   \sum_{n=0}^{\infty} (e^{-s a})^n = \frac{1}{1 - e^{-s a}}.
+   \]
+
+5. **結論**：  
+   \[
+   \mathcal{L}\{f(t)\} = \left( \int_0^a e^{-s u} f(u)  du \right) \frac{1}{1 - e^{-s a}}.
+   \]  
+   \[
+   \boxed{\therefore \mathcal{L}\{f(t)\} = \dfrac{\int_0^a e^{-st} f(t)  dt}{1 - e^{-a s}}}
+   \]
+
+---  
+以上で全ての問題の解答を完了します。

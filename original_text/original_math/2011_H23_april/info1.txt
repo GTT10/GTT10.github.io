@@ -1,0 +1,310 @@
+### 解答
+
+#### **問題1: 次の積分を計算せよ。**
+\[ \int_{0}^{\infty} e^{-ax} \cos bx  dx \quad (a>0) \]
+
+**方針:**  
+この積分は、部分積分を2回繰り返すことで解きます。部分積分の公式 \(\int u  dv = uv - \int v  du\) を使用し、元の積分が再び現れる特性を利用して方程式として解きます。\(a > 0\) なので、無限遠での収束が保証されます。
+
+**解答:**  
+まず、不定積分 \(I = \int e^{-ax} \cos bx  dx\) を考えます。部分積分を2回適用します。
+
+- **1回目の部分積分:**  
+  \(u = \cos bx\), \(dv = e^{-ax} dx\) とおく。  
+  \(du = -b \sin bx  dx\), \(v = \int e^{-ax} dx = -\frac{1}{a} e^{-ax}\)  
+  よって、  
+  \[
+  I = \cos bx \cdot \left(-\frac{1}{a} e^{-ax}\right) - \int \left(-\frac{1}{a} e^{-ax}\right) (-b \sin bx)  dx = -\frac{1}{a} e^{-ax} \cos bx - \frac{b}{a} \int e^{-ax} \sin bx  dx
+  \]
+
+- **2回目の部分積分（右辺の積分に対して）:**  
+  \(u = \sin bx\), \(dv = e^{-ax} dx\) とおく。  
+  \(du = b \cos bx  dx\), \(v = -\frac{1}{a} e^{-ax}\)  
+  よって、  
+  \[
+  \int e^{-ax} \sin bx  dx = \sin bx \cdot \left(-\frac{1}{a} e^{-ax}\right) - \int \left(-\frac{1}{a} e^{-ax}\right) (b \cos bx)  dx = -\frac{1}{a} e^{-ax} \sin bx + \frac{b}{a} \int e^{-ax} \cos bx  dx
+  \]
+
+- **代入して整理:**  
+  \[
+  I = -\frac{1}{a} e^{-ax} \cos bx - \frac{b}{a} \left( -\frac{1}{a} e^{-ax} \sin bx + \frac{b}{a} I \right) = -\frac{1}{a} e^{-ax} \cos bx + \frac{b}{a^2} e^{-ax} \sin bx - \frac{b^2}{a^2} I
+  \]
+  \(I\) について解く:  
+  \[
+  I + \frac{b^2}{a^2} I = e^{-ax} \left( -\frac{1}{a} \cos bx + \frac{b}{a^2} \sin bx \right)
+  \]
+  \[
+  I \left(1 + \frac{b^2}{a^2}\right) = e^{-ax} \left( -\frac{a}{a^2} \cos bx + \frac{b}{a^2} \sin bx \right) = e^{-ax} \cdot \frac{ -a \cos bx + b \sin bx }{a^2}
+  \]
+  \[
+  I = e^{-ax} \cdot \frac{ -a \cos bx + b \sin bx }{a^2 + b^2} + C \quad (C \text{は積分定数})
+  \]
+
+次に、定積分を計算します。  
+\[
+\int_{0}^{\infty} e^{-ax} \cos bx  dx = \left[ e^{-ax} \cdot \frac{ -a \cos bx + b \sin bx }{a^2 + b^2} \right]_{0}^{\infty}
+\]
+
+- \(x \to \infty\) のとき: \(a > 0\) より \(e^{-ax} \to 0\)、かつ \(\cos bx\) と \(\sin bx\) は有界なので、全体は \(0\)。  
+- \(x = 0\) のとき:  
+  \[
+  e^{0} \cdot \frac{ -a \cos 0 + b \sin 0 }{a^2 + b^2} = \frac{ -a \cdot 1 + b \cdot 0 }{a^2 + b^2} = -\frac{a}{a^2 + b^2}
+  \]
+
+したがって、  
+\[
+\int_{0}^{\infty} e^{-ax} \cos bx  dx = 0 - \left( -\frac{a}{a^2 + b^2} \right) = \frac{a}{a^2 + b^2}
+\]
+
+**答え:** \(\boxed{\dfrac{a}{a^2 + b^2}}\)
+
+**要点・チップス:**  
+- 部分積分を2回行うと元の積分が再び現れるので、方程式として解きます。  
+- \(a > 0\) が収束条件です（無限遠で被積分関数が0に近づく）。  
+- 別解として、オイラーの公式 \(e^{ibx} = \cos bx + i \sin bx\) を使い、\(\int_{0}^{\infty} e^{-ax} e^{ibx} dx = \int_{0}^{\infty} e^{-(a-ib)x} dx = \frac{1}{a-ib}\) の実部を取る方法もあります。
+
+---
+
+#### **問題2: 次の微分方程式の一般解を求めよ。**
+\[ y^2 + (2xy + x^2) \frac{dy}{dx} = 0 \]
+
+**方針:**  
+この方程式は同次形微分方程式です。\(y = vx\) とおいて変数分離形に変形し、部分分数分解して積分します。解は陰関数表示で求めます。
+
+**解答:**  
+まず、方程式を \(\frac{dy}{dx}\) について解きます。  
+\[
+(2xy + x^2) \frac{dy}{dx} = -y^2 \implies \frac{dy}{dx} = -\frac{y^2}{2xy + x^2} = -\frac{y^2}{x(2y + x)}
+\]
+
+ここで、\(y = vx\) とおくと、\(\frac{dy}{dx} = v + x \frac{dv}{dx}\) です。代入して、  
+\[
+v + x \frac{dv}{dx} = -\frac{(vx)^2}{x(x + 2vx)} = -\frac{v^2 x^2}{x^2 (1 + 2v)} = -\frac{v^2}{1 + 2v}
+\]
+
+整理すると、  
+\[
+x \frac{dv}{dx} = -\frac{v^2}{1 + 2v} - v = -\frac{v^2 + v(1 + 2v)}{1 + 2v} = -\frac{3v^2 + v}{1 + 2v}
+\]
+
+変数分離形にします:  
+\[
+\frac{1 + 2v}{v(3v + 1)} dv = -\frac{1}{x} dx
+\]
+
+左辺を部分分数分解します。  
+\[
+\frac{1 + 2v}{v(3v + 1)} = \frac{A}{v} + \frac{B}{3v + 1}
+\]
+両辺に \(v(3v + 1)\) を掛けて、  
+\[
+1 + 2v = A(3v + 1) + B v
+\]
+係数比較:  
+- \(v\) の係数: \(3A + B = 2\)  
+- 定数項: \(A = 1\)  
+\(A = 1\) を代入して \(B = -1\)。よって、  
+\[
+\frac{1 + 2v}{v(3v + 1)} = \frac{1}{v} - \frac{1}{3v + 1}
+\]
+
+積分します:  
+\[
+\int \left( \frac{1}{v} - \frac{1}{3v + 1} \right) dv = -\int \frac{1}{x} dx
+\]
+\[
+\ln |v| - \frac{1}{3} \ln |3v + 1| = -\ln |x| + C \quad (C \text{は積分定数})
+\]
+
+整理します:  
+\[
+\ln \left| \frac{v}{(3v + 1)^{1/3}} \right| = \ln \left| \frac{1}{x} \right| + C \implies \ln \left| \frac{v x}{(3v + 1)^{1/3}} \right| = C
+\]
+指数関数を取って、  
+\[
+\left| \frac{v x}{(3v + 1)^{1/3}} \right| = e^C \quad (\text{正の定数})
+\]
+任意定数を \(K\) とおき、絶対値を外すと、  
+\[
+\frac{v x}{(3v + 1)^{1/3}} = K \quad (K \neq 0)
+\]
+
+\(v = y/x\) を代入:  
+\[
+\frac{(y/x) x}{(3(y/x) + 1)^{1/3}} = \frac{y}{((3y + x)/x)^{1/3}} = y \left( \frac{x}{x + 3y} \right)^{1/3} = K
+\]
+\[
+\frac{y x^{1/3}}{(x + 3y)^{1/3}} = K
+\]
+両辺を3乗して、  
+\[
+\frac{y^3 x}{x + 3y} = K^3
+\]
+\(K^3\) を改めて \(C\)（任意定数）とおくと、  
+\[
+\frac{x y^3}{x + 3y} = C
+\]
+
+**答え:** \(\boxed{\dfrac{x y^3}{x + 3y} = C}\) （\(C\) は任意定数）
+
+**要点・チップス:**  
+- 同次形微分方程式は \(y = vx\) とおくと変数分離形に帰着します。  
+- 部分分数分解が鍵です。分解後は各項を積分します。  
+- 解は陰関数表示です（\(y\) について陽に解く必要はありません）。
+
+---
+
+#### **問題3: 同一直線上にない3点 \((a_1, a_2, a_3)\), \((b_1, b_2, b_3)\), \((c_1, c_2, c_3)\) を通る平面の方程式を行列式を用いて示せ。**
+
+**方針:**  
+3点を通る平面の方程式は、点 \(\mathrm{P}(x, y, z)\) が平面上にある条件として、ベクトル \(\overrightarrow{\mathrm{AP}}\), \(\overrightarrow{\mathrm{AB}}\), \(\overrightarrow{\mathrm{AC}}\) が同一平面上にあること（スカラー三重積が0）を行列式で表現します。
+
+**解答:**  
+点 \(\mathrm{A}(a_1, a_2, a_3)\), \(\mathrm{B}(b_1, b_2, b_3)\), \(\mathrm{C}(c_1, c_2, c_3)\) とし、平面上の任意の点を \(\mathrm{P}(x, y, z)\) とします。  
+ベクトル:  
+\[
+\overrightarrow{\mathrm{AP}} = (x - a_1, y - a_2, z - a_3)
+\]
+\[
+\overrightarrow{\mathrm{AB}} = (b_1 - a_1, b_2 - a_2, b_3 - a_3)
+\]
+\[
+\overrightarrow{\mathrm{AC}} = (c_1 - a_1, c_2 - a_2, c_3 - a_3)
+\]
+
+点 \(\mathrm{P}\) が平面にあるための条件は、これら3ベクトルが同一平面上にあることです。すなわち、スカラー三重積が0:  
+\[
+\overrightarrow{\mathrm{AP}} \cdot \left( \overrightarrow{\mathrm{AB}} \times \overrightarrow{\mathrm{AC}} \right) = 0
+\]
+
+これは行列式で次のように書けます:  
+\[
+\begin{vmatrix}
+x - a_1 & y - a_2 & z - a_3 \\
+b_1 - a_1 & b_2 - a_2 & b_3 - a_3 \\
+c_1 - a_1 & c_2 - a_2 & c_3 - a_3
+\end{vmatrix} = 0
+\]
+
+**答え:** \(\boxed{\begin{vmatrix} x - a_1 & y - a_2 & z - a_3 \\ b_1 - a_1 & b_2 - a_2 & b_3 - a_3 \\ c_1 - a_1 & c_2 - a_2 & c_3 - a_3 \end{vmatrix} = 0}\)
+
+**要点・チップス:**  
+- スカラー三重積が0である条件を行列式で表します。  
+- 3点が同一直線上にないため、この行列式は平面を一意に定義します。  
+- 行列式を展開すると、一般形 \(Ax + By + Cz + D = 0\) を得られます。
+
+---
+
+#### **問題4: 次の連立方程式が \(0 \leq t\) で成立している。ラプラス変換を用いて \(y(t)\) を求めよ。ただし，\(y(0)=0, z(0)=1\) とする。**
+\[
+\begin{cases}
+\dfrac{dy(t)}{dt} + y(t) + 2 \dfrac{dz(t)}{dt} + 3z(t) = 6e^{-2t} \\
+3 \dfrac{dy(t)}{dt} - y(t) + 4 \dfrac{dz(t)}{dt} + z(t) = 0
+\end{cases}
+\]
+
+**方針:**  
+ラプラス変換を適用し、連立代数方程式に変換します。初期条件を代入し、\(Y(s)\) を求めた後、逆ラプラス変換で \(y(t)\) を求めます。
+
+**解答:**  
+ラプラス変換を \(\mathcal{L}\) で表し、\(\mathcal{L}\{y(t)\} = Y(s)\), \(\mathcal{L}\{z(t)\} = Z(s)\) とおきます。初期条件: \(y(0) = 0\), \(z(0) = 1\)。  
+- \(\mathcal{L}\left\{\frac{dy}{dt}\right\} = sY(s) - y(0) = sY(s)\)  
+- \(\mathcal{L}\left\{\frac{dz}{dt}\right\} = sZ(s) - z(0) = sZ(s) - 1\)  
+- \(\mathcal{L}\{e^{-2t}\} = \frac{1}{s+2}\)  
+- \(\mathcal{L}\{y(t)\} = Y(s)\), \(\mathcal{L}\{z(t)\} = Z(s)\)  
+
+**方程式1をラプラス変換:**  
+\[
+(sY(s)) + Y(s) + 2(sZ(s) - 1) + 3Z(s) = 6 \cdot \frac{1}{s+2}
+\]
+\[
+(s + 1)Y(s) + (2s + 3)Z(s) - 2 = \frac{6}{s+2}
+\]
+\[
+(s + 1)Y(s) + (2s + 3)Z(s) = \frac{6}{s+2} + 2 = \frac{6 + 2(s+2)}{s+2} = \frac{2s + 10}{s+2} = \frac{2(s + 5)}{s+2}
+\]
+
+**方程式2をラプラス変換:**  
+\[
+3(sY(s)) - Y(s) + 4(sZ(s) - 1) + Z(s) = 0
+\]
+\[
+(3s - 1)Y(s) + (4s + 1)Z(s) - 4 = 0
+\]
+\[
+(3s - 1)Y(s) + (4s + 1)Z(s) = 4
+\]
+
+連立方程式:  
+\[
+\begin{cases}
+(s + 1)Y(s) + (2s + 3)Z(s) = \dfrac{2(s + 5)}{s+2} & \cdots (1) \\
+(3s - 1)Y(s) + (4s + 1)Z(s) = 4 & \cdots (2)
+\end{cases}
+\]
+
+\(Y(s)\) を求めるため、クラメールの法則または加減法を使用します。行列式で解きます。  
+分母行列式 \(D\):  
+\[
+D = \begin{vmatrix}
+s+1 & 2s+3 \\
+3s-1 & 4s+1
+\end{vmatrix} = (s+1)(4s+1) - (2s+3)(3s-1)
+\]
+\[
+= (4s^2 + s + 4s + 1) - (6s^2 - 2s + 9s - 3) = (4s^2 + 5s + 1) - (6s^2 + 7s - 3) = -2s^2 - 2s + 4
+\]
+
+分子行列式 \(D_Y\)（\(Y(s)\) の係数行列の1列目を右辺で置換）:  
+\[
+D_Y = \begin{vmatrix}
+\dfrac{2(s+5)}{s+2} & 2s+3 \\
+4 & 4s+1
+\end{vmatrix} = \frac{2(s+5)}{s+2} \cdot (4s+1) - (2s+3) \cdot 4
+\]
+\[
+= \frac{2(s+5)(4s+1)}{s+2} - 8s - 12
+\]
+通分:  
+\[
+= \frac{2(s+5)(4s+1) - 4(2s+3)(s+2)}{s+2}
+\]
+分子:  
+\[
+2(s+5)(4s+1) = 2(4s^2 + s + 20s + 5) = 2(4s^2 + 21s + 5) = 8s^2 + 42s + 10
+\]
+\[
+4(2s+3)(s+2) = 4(2s^2 + 4s + 3s + 6) = 4(2s^2 + 7s + 6) = 8s^2 + 28s + 24
+\]
+\[
+(8s^2 + 42s + 10) - (8s^2 + 28s + 24) = 14s - 14
+\]
+よって、  
+\[
+D_Y = \frac{14s - 14}{s+2} = 14 \frac{s - 1}{s+2}
+\]
+
+\(Y(s) = \frac{D_Y}{D}\):  
+\[
+Y(s) = \frac{14 \frac{s-1}{s+2}}{-2s^2 - 2s + 4} = \frac{14(s-1)}{(s+2) \cdot (-2)(s^2 + s - 2)}
+\]
+ここで \(s^2 + s - 2 = (s+2)(s-1)\) より、  
+\[
+Y(s) = \frac{14(s-1)}{(s+2) \cdot (-2) \cdot (s+2)(s-1)} = \frac{14}{-2 (s+2)^2} = -\frac{7}{(s+2)^2} \quad (s \neq 1)
+\]
+
+逆ラプラス変換:  
+\[
+\mathcal{L}^{-1}\left\{ \frac{1}{(s+2)^2} \right\} = t e^{-2t}
+\]
+より、  
+\[
+y(t) = \mathcal{L}^{-1}\left\{ -\frac{7}{(s+2)^2} \right\} = -7t e^{-2t}
+\]
+
+**答え:** \(\boxed{y(t) = -7t e^{-2t}}\)
+
+**要点・チップス:**  
+- ラプラス変換で微分方程式を代数方程式に変換します。初期条件を代入するのを忘れずに。  
+- 連立方程式は行列式（クラメールの法則）で効率的に解けます。  
+- 逆変換は公式 \(\mathcal{L}^{-1}\left\{ \frac{1}{(s+a)^n} \right\} = \frac{t^{n-1}e^{-at}}{(n-1)!}\) を使用します（ここでは \(n=2\), \(a=2\)）。

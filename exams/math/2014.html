@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2014年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2014（H26）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2014年度の数学入試では、大問【1】で対数微分法と広義積分、大問【2】でクレローの微分方程式（一般解と特異解）、大問【3】で行列の対角化、大問【4】でラプラス変換の遅延定理が出題されました。多彩な分野から基礎から応用まで網羅した良問です。特に微分方程式の特異解や対角化の計算技法をしっかり押さえましょう！</p>
+                <a href="../../pdfs/question/2014_H26_april/math_2014_H26_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2014年度)
+                </a>
+                <a href="../../pdfs/answer/2014_H26_april/math_2014_H26_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2014年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $y = x^{\sin x}$ ($x > 0$) の微分 $\frac{dy}{dx}$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>指数に変数が含まれる関数は対数微分法が最強です！自然対数を取ると積の微分法則が使えて計算が楽になります。$\ln y = \sin x \cdot \ln x$ の形にして微分しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 自然対数を取ります：
+                            <div class="math-block">$$\ln y = \sin x \cdot \ln x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺を$x$で微分（積の微分法則）：
+                            <div class="math-block">$$\frac{1}{y}\frac{dy}{dx} = \cos x \cdot \ln x + \sin x \cdot \frac{1}{x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $y$を代入して整理：
+                            <div class="math-block">$$\frac{dy}{dx} = y\left(\cos x \cdot \ln x + \frac{\sin x}{x}\right)$$</div>
+                            <div class="math-block">$$= x^{\sin x}\left(\cos x \cdot \ln x + \frac{\sin x}{x}\right)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dy}{dx} = x^{\sin x}\left(\cos x \cdot \ln x + \frac{\sin x}{x}\right)$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 広義積分 $\int_{-\infty}^{\infty} \frac{dx}{{\sqrt{1 + x^2}}^3}$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これは無限区間での積分なので <strong>広義積分</strong> です。また偶関数なので，0から無限大までを計算すれば十分．</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 被積分関数は偶関数です。すなわち、 $$f(-x) = \frac{1}{(1+(-x)^2)^{3/2}} = \frac{1}{(1+x^2)^{3/2}} = f(x).$$
+                            よって、積分範囲を分割して
+                            $$  I = 2 \int_0^\infty \frac{1}{(1+x^2)^{3/2}} dx  $$
+                            と書けます。計算が楽になるので、こちらを扱います。
+                        </div>
+                        <div class="solution-step">
+                            2. 置換 $x = \tan\theta$ を使う：<br>
+                            $x: 0 \to \infty$ ⇒ $\theta: 0 \to \frac{\pi}{2}$
+                            <div class="math-block">$$dx = \frac{1}{\cos^2 \theta} d\theta$$
+                        被積分関数は  
+$$
+(1+x^2)^{-\frac{3}{2}} = (1 + \tan^2 \theta)^{-\frac{3}{2}} = (\sec^2 \theta)^{-\frac{3}{2}} = \sec^{-3} \theta = \cos^3 \theta.
+$$
+
+よって積分は  
+$$
+\int_0^\infty \frac{dx}{(1+x^2)^{3/2}} = \int_0^{\pi/2} \cos^3 \theta \cdot \sec^2 \theta d\theta = \int_0^{\pi/2} \cos^3 \theta \cdot \frac{1}{\cos^2 \theta} d\theta = \int_0^{\pi/2} \cos \theta d\theta.
+$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 積分計算
+                            <div class="math-block">
+                                $$
+\int_0^{\pi/2} \cos \theta d\theta = \left[ \sin \theta \right]_0^{\pi/2} = \sin \frac{\pi}{2} - \sin 0 = 1 - 0 = 1.
+$$
+元の積分は偶関数のため  
+$$
+I = 2 \times 1 = 2.
+$$
+                        </div>
+                        <span class="answer-highlight">答え: $\int_{-\infty}^{\infty} \frac{dx}{(1+x^2)^{3/2}} = 2$</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右側：ポイント・チップス -->
+        <div class="exam-col-right">
+            <div class="point-box">
+                <div class="section-title">
+                    <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                </div>
+                <ul>
+                    <li>指数に変数が含まれる関数は対数微分</li>
+                    <li>双曲線関数の置換積分が有効</li>
+                    <li>広義積分の発散判定も重要</li>
+                </ul>
+            </div>
+            <div class="point-box">
+                <div class="section-title">
+                    <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$(\ln y)' = \frac{y'}{y}$ で対数微分の基本</li>
+                            <li>$x = \tan\theta$ の置換では、$dx = \sec^2\theta\,d\theta$ となる。<br>この微分公式を使うことで、積分区間や被積分関数が三角関数に変換され、計算が簡単になる。</li>
+                            <li>広義積分では $\frac{1}{x^p}$ 型の発散判定や、置換積分の微分公式をしっかり覚えておくと便利。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">微分方程式 $y = xy' + \sqrt{1 + y'^2}$ について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これはクレローの微分方程式です！$p = y'$とおいて両辺を微分すると、$p' = 0$または特定の条件を満たす場合に分かれます。一般解と特異解の両方を求めるのがポイントです。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 両辺を$x$で微分して導出される関係式を示せ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $p = y'$とおき、両辺を$x$で微分：
+                            <div class="math-block">$$p = p + xp' + \frac{pp'}{\sqrt{1 + p^2}}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 整理すると：
+                            <div class="math-block">$$0 = xp' + \frac{pp'}{\sqrt{1 + p^2}} = p'\left(x + \frac{p}{\sqrt{1 + p^2}}\right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. したがって：
+                            <div class="math-block">$$p' = 0 \quad \text{または} \quad x + \frac{p}{\sqrt{1 + p^2}} = 0$$</div>
+                        </div>
+                        <span class="answer-highlight">関係式: $p' = 0$ または $x + \frac{p}{\sqrt{1 + p^2}} = 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 一般解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $p' = 0$の場合：$p = C$（定数）
+                        </div>
+                        <div class="solution-step">
+                            2. $y' = C$を元の方程式に代入：
+                            <div class="math-block">$$y = xC + \sqrt{1 + C^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = Cx + \sqrt{1 + C^2}$ （$C$は任意定数）</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 特異解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $x + \frac{p}{\sqrt{1 + p^2}} = 0$から：
+                            <div class="math-block">$$p = -\frac{x}{\sqrt{1 - x^2}} \quad (|x| < 1)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 元の方程式に代入：
+                            <div class="math-block">$$y = x\left(-\frac{x}{\sqrt{1 - x^2}}\right) + \sqrt{1 + \frac{x^2}{1 - x^2}}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 計算すると：
+                            <div class="math-block">$$y = -\frac{x^2}{\sqrt{1 - x^2}} + \sqrt{\frac{1}{1 - x^2}} = \sqrt{1 - x^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = \sqrt{1 - x^2}$</span>
+                    </div>
+                <p>なお$p = +\frac{x}{\sqrt{1 - x^2}}$によって求まる$\frac{x^2+1}{\sqrt{1-x^2}}$は「2乗したことによって生じた無縁解だから」という理由で，正しくないらしい．</p>
+
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>クレローの方程式：$y = xy' + f(y')$</li>
+                            <li>一般解と特異解の両方を求める</li>
+                            <li>特異解は包絡線として幾何学的意味</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$p = y'$とおいて微分するのが定石</li>
+                            <li>特異解は$p$を消去して得られる</li>
+                            <li>幾何学的には直線群の包絡線</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">行列 $A = \begin{pmatrix} 4 & -3 \\ -1 & 2 \end{pmatrix}$ を対角化する行列 $P$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>固有値と固有ベクトルを求めて対角化行列を作ります！特性方程式$\det(A - \lambda I) = 0$を解いて固有値を求め、各固有値に対応する固有ベクトルを計算しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 固有値を求める（特性方程式）：
+                            <div class="math-block">$$\det(A - \lambda I) = \begin{vmatrix} 4-\lambda & -3 \\ -1 & 2-\lambda \end{vmatrix}$$</div>
+                            <div class="math-block">$$= (4-\lambda)(2-\lambda) - 3 = \lambda^2 - 6\lambda + 5 = 0$$</div>
+                            <div class="math-block">$$\therefore \lambda = 1, 5$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\lambda = 1$の固有ベクトル：
+                            <div class="math-block">$$(A - I)\mathbf{v} = \begin{pmatrix} 3 & -3 \\ -1 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}$$</div>
+                            $3v_1 - 3v_2 = 0$より$v_1 = v_2$なので：$\mathbf{v} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$
+                        </div>
+                        <div class="solution-step">
+                            3. $\lambda = 5$の固有ベクトル：
+                            <div class="math-block">$$(A - 5I)\mathbf{v} = \begin{pmatrix} -1 & -3 \\ -1 & -3 \end{pmatrix}\mathbf{v} = \mathbf{0}$$</div>
+                            $-v_1 - 3v_2 = 0$より$v_1 = -3v_2$なので：$\mathbf{v} = \begin{pmatrix} 3 \\ -1 \end{pmatrix}$
+                        </div>
+                        <div class="solution-step">
+                            4. 対角化行列$P$を構成：
+                            <div class="math-block">$$P = \begin{pmatrix} 1 & 3 \\ 1 & -1 \end{pmatrix}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $P = \begin{pmatrix} 1 & 3 \\ 1 & -1 \end{pmatrix}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>特性方程式で固有値を求める</li>
+                            <li>各固有値に対応する固有ベクトル計算</li>
+                            <li>固有ベクトルを列に並べて行列$P$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\det(A - \lambda I) = 0$が特性方程式</li>
+                            <li>$(A - \lambda I)\mathbf{v} = \mathbf{0}$で固有ベクトル</li>
+                            <li>$P^{-1}AP = D$（$D$は対角行列）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">ラプラス変換の遅延定理について以下を証明せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>遅延定理はラプラス変換の重要な性質です！単位ステップ関数$u(t-a)$を使って、関数の時間シフトがラプラス変換でどう表現されるかを証明します。変数変換が鍵になります。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $\mathcal{L}[f(t-a)u(t-a)] = e^{-as}\mathcal{L}[f(t)]$ を証明せよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の定義から：
+                            <div class="math-block">$$\mathcal{L}[f(t-a)u(t-a)] = \int_0^{\infty} f(t-a)u(t-a) e^{-st} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $u(t-a) = 0$ $(t < a)$，$u(t-a) = 1$ $(t \geq a)$より：
+                            <div class="math-block">$$= \int_a^{\infty} f(t-a) e^{-st} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $\tau = t - a$と置換：$t = \tau + a$，$dt = d\tau$
+                            <div class="math-block">$$= \int_0^{\infty} f(\tau) e^{-s(\tau + a)} d\tau = e^{-as} \int_0^{\infty} f(\tau) e^{-s\tau} d\tau$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 右辺は$\mathcal{L}[f(t)]$そのものです：
+                            <div class="math-block">$$= e^{-as} \mathcal{L}[f(t)]$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $\mathcal{L}[f(t)u(t-a)] = e^{-as}\mathcal{L}[f(t+a)]$ を証明せよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. ラプラス変換の定義から：
+                            <div class="math-block">$$\mathcal{L}[f(t)u(t-a)] = \int_0^{\infty} f(t)u(t-a) e^{-st} dt = \int_a^{\infty} f(t) e^{-st} dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $\tau = t - a$と置換：
+                            <div class="math-block">$$= \int_0^{\infty} f(\tau + a) e^{-s(\tau + a)} d\tau$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 整理すると：
+                            <div class="math-block">$$= e^{-as} \int_0^{\infty} f(\tau + a) e^{-s\tau} d\tau = e^{-as} \mathcal{L}[f(t+a)]$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 図1の関数のラプラス変換</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                           <p>図1で示された関数は：</p>
+  <div class="math-block">
+    $$
+    f(t) = \begin{cases}
+    0, & 0 \leq t < 1 \\
+    -(t^2 - 4t + 3), & 1 \leq t < 3 \\
+    0, & t \geq 3
+    \end{cases}
+    $$
+  </div>
+  <p>放物線部分を因数分解すると：</p>
+  <div class="math-block">$$-(t^2 - 4t + 3) = -(t-1)(t-3)$$</div></div>
+
+  <div class="solution-step">2. 使用する公式の確認</div>
+     <span class="math-block">$$(1) : \quad \mathcal{L}[f(t-a)u(t-a)] = e^{-as}\mathcal{L}[f(t)]$$</span>
+     <span class="math-block">$$(2) : \quad \mathcal{L}[f(t)u(t-a)] = e^{-as}\mathcal{L}[f(t+a)]$$</span>
+
+  <p>今回は<strong>公式(2)を主に使用</strong>します。これにより複雑な積分計算を回避できます。</p>
+
+  <div class="solution-step">3. 関数を単位ステップ関数で表現</div>
+  <p><strong>基本形への変換</strong></p>
+  <div class="math-block">$$f(t) = [-(t-1)(t-3)] \cdot [u(t-1) - u(t-3)]$$</div>
+  <p><strong>分解による表現</strong></p>
+  <div class="math-block">$$f(t) = g(t)u(t-1) - g(t)u(t-3)$$</div>
+  <p>ここで <span class="math-block">$$g(t) = -(t-1)(t-3)$$</span> とします。</p>
+  <div class="point-box">
+    <strong>重要ポイント：</strong> <span class="math-block">$$g(t)$$</span> は元の放物線関数全体を表し、単位ステップ関数が「窓」の役割を果たします。
+  </div>
+
+  <div class="solution-step">4. 公式(2)の適用</div>
+  <p><strong>ラプラス変換の分解</strong></p>
+  <div class="math-block">$$\mathcal{L}[f(t)] = \mathcal{L}[g(t)u(t-1)] - \mathcal{L}[g(t)u(t-3)]$$</div>
+  <p><strong>公式(2)の適用</strong></p>
+  <div class="math-block">$$\mathcal{L}[f(t)] = e^{-s}\mathcal{L}[g(t+1)] - e^{-3s}\mathcal{L}[g(t+3)]$$</div>
+  <p>公式(2)では、$u(t-a)$の <span class="math-inline">a</span> が指数の係数となり、関数内部では <span class="math-inline">t</span> を <span class="math-inline">t+a</span> にシフトします。</p>
+
+  <div class="solution-step">5. シフトした関数の計算</div>
+  <p><strong>g(t+1) の計算</strong></p>
+  <div class="math-block">$$g(t) = -(t-1)(t-3)$$</div>
+  <div class="math-block">$$g(t+1) = -((t+1)-1)((t+1)-3) = -t(t-2) = -t^2 + 2t$$</div>
+  <p><strong>g(t+3) の計算</strong></p>
+  <div class="math-block">$$g(t+3) = -((t+3)-1)((t+3)-3) = -(t+2)t = -t^2 - 2t$$</div>
+  <div class="point-box">
+    <strong>計算の確認：</strong><br>
+    g(t+1): 係数が (-1, +2, 0)<br>
+    g(t+3): 係数が (-1, -2, 0)
+  </div>
+
+  <div class="solution-step">6. 基本ラプラス変換の適用</div>
+  <ul>
+    <li><span class="math-block">$$\mathcal{L}[1] = \frac{1}{s}$$</span></li>
+    <li><span class="math-block">$$\mathcal{L}[t] = \frac{1}{s^2}$$</span></li>
+    <li><span class="math-block">$$\mathcal{L}[t^2] = \frac{2}{s^3}$$</span></li>
+  </ul>
+  <p><strong>各シフト関数のラプラス変換</strong></p>
+  <div class="math-block">$$\mathcal{L}[g(t+1)] = -\mathcal{L}[t^2] + 2\mathcal{L}[t] = -\frac{2}{s^3} + \frac{2}{s^2} = \frac{2(s-1)}{s^3}$$</div>
+  <div class="math-block">$$\mathcal{L}[g(t+3)] = -\mathcal{L}[t^2] - 2\mathcal{L}[t] = -\frac{2}{s^3} - \frac{2}{s^2} = \frac{-2(s+1)}{s^3}$$</div>
+
+  <div class="solution-step">7. 最終結果の統合</div>
+  <div class="math-block">$$\mathcal{L}[f(t)] = e^{-s} \cdot \frac{2(s-1)}{s^3} + e^{-3s} \cdot \frac{2(s+1)}{s^3}$$</div>
+  <span class="answer-highlight">答え：$$\boxed{F(s) = \frac{2e^{-s}(s-1) + 2e^{-3s}(s+1)}{s^3}}$$</span>
+
+
+                        
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>遅延定理は時間シフトの表現</li>
+                            <li>変数変換で積分範囲を調整</li>
+                            <li>単位ステップ関数で区間制限</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$u(t-a)$ は$t=a$でステップ関数</li>
+                            <li>時間遅延は$e^{-as}$で表現</li>
+                            <li>区間制限された関数は分解して考える</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

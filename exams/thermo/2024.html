@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024（R6）年　熱力学 - 岡山大学 大学院入試過去問ポータル</title>
+    <link rel="stylesheet" href="../../css/thermo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ヘッダーナビゲーション -->
+        <div class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-thermometer-half mr-3 text-red-600"></i>
+                    2024（R6）年　熱力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/thermodynamics.html" class="about-link">熱力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+            
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2024年度（R6年）の熱力学では、理想気体サイクルの詳細解析とボイラの熱力学を扱います。特に、p-V線図・T-S線図の作図、サイクル効率の計算、エントロピー・エクセルギー解析が重要なポイントです。</p>
+                
+                <!-- 出題トピック表示 -->
+                <div class="topic-tags">
+                    <span class="topic-tag">理想気体サイクル</span>
+                    <span class="topic-tag">ボイラ熱力学</span>
+                </div>
+                
+                <a href="../../pdfs/question/2024_R6_april/thermo_2024_R6_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_unofficial/thermo_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】: 理想気体サイクル</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <p class="problem-statement">質量mの理想気体が、状態1から状態2に断熱圧縮され、等容変化で外部から熱量
+                            Q23 を受け取り、状態3になる.状態3から断熱膨張して状態4になり、等容変化で
+                            熱量 Q41 を放出して状態1に戻るとき、以下の問いに答えよ。ただし、状態iにおけ
+                            る状態量にはそれぞれ添字iを付ける、また、気体の圧力をp, 容積を V, 温度を T, エントロピーをS, 比熱比をκ、定容比熱を cv, 圧縮比をε(=V1/V2), 圧力比をξ(=p3/p2) とする。
+                            </p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) p-V線図とT-S線図を描き、熱の出入りを示せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>サイクルの各過程（断熱圧縮、等容加熱、断熱膨張、等容冷却）の特徴を把握し、p-V線図とT-S線図を正確に描く。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-brain mr-2"></i>考え方
+                        </div>
+                        <p>断熱過程では等エントロピー変化（T-S線図で垂直線）、等容過程では体積一定（p-V線図で垂直線）の特徴を活用する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- ASCII図や線図を描く場合 -->
+                        <div class="diagram-section">
+                            <h4>p-V線図とT-S線図</h4>
+                            <pre class="ascii-diagram">p ↑
+|　　　　 3
+|　　　　/ \
+|　　　2     4
+|　　 /       \
+|　　/         \
+|　1-------------→ V
++----------------
+
+T ↑
+|　　　2-------3
+|　　　|       |
+|　　　|       |
+|　　　1-------4
++----------------→ S</pre>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>熱の出入り:</strong><br>
+                            - 加熱: 2→3（等容加熱）<br>
+                            - 放熱: 4→1（等容冷却）
+                        </div>
+                        
+                        <!-- boxed形式の最終解答 -->
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\text{上図参照}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 状態2,3,4の温度を T₁ を用いて表せ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱関係式と状態方程式を用いて各状態の温度を表現する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <strong>1→2断熱圧縮:</strong> $T_1 V_1^{\kappa-1} = T_2 V_2^{\kappa-1}$より、圧縮比 $\varepsilon = V_1/V_2$ として
+                            <div class="math-block">
+                                $$T_2 = T_1 \varepsilon^{\kappa-1}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>2→3等容変化:</strong> $\frac{p_2}{T_2} = \frac{p_3}{T_3}$より、圧力比 $\xi = p_3/p_2$ として
+                            <div class="math-block">
+                                $$T_3 = T_1 \varepsilon^{\kappa-1} \xi$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            <strong>3→4断熱膨張:</strong> サイクルが閉じることから
+                            <div class="math-block">
+                                $$T_4 = T_1 \xi$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{T_2 = T_1 \varepsilon^{\kappa-1}, \quad T_3 = T_1 \varepsilon^{\kappa-1} \xi, \quad T_4 = T_1 \xi}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 2→3の熱量 Q₂₃ と仕事 W₂₃ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等容過程では仕事は0で、熱力学第一法則より熱量は内部エネルギー変化と等しい。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            等容過程: $W_{23} = 0$（体積変化なし）
+                            <br>$Q_{23} = \Delta U = m c_v (T_3 - T_2) = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)$
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{W_{23} = 0, \quad Q_{23} = m c_v T_1 \varepsilon^{\kappa-1} (\xi - 1)}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 3→4の仕事 W₃₄ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>断熱過程では熱量は0で、仕事は内部エネルギー変化の負値と等しい。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            断熱過程: $Q_{34} = 0$
+                            <br>$W_{34} = -\Delta U = m c_v (T_3 - T_4) = m c_v T_1 \xi (\varepsilon^{\kappa-1} - 1)$
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{W_{34} = m c_v T_1 \xi (\varepsilon^{\kappa-1} - 1)}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) 4→1の熱量 Q₄₁ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等容過程では仕事は0で、熱量は内部エネルギー変化と等しい。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            等容過程: $W_{41} = 0$
+                            <br>$Q_{41} = m c_v (T_1 - T_4) = m c_v T_1 (1 - \xi)$
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{Q_{41} = m c_v T_1 (1 - \xi)}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(6) 熱効率を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>熱効率は正味仕事を吸収熱量で割ったもので、η = W_net/Q_in で計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            正味仕事: $W_{\text{net}} = Q_{23} + Q_{41} = m c_v T_1 (\xi - 1)(\varepsilon^{\kappa-1} - 1)$
+                            <br>吸収熱量: $Q_{\text{in}} = Q_{23}$
+                            <div class="math-block">
+                                $$\eta = \frac{W_{\text{net}}}{Q_{23}} = 1 - \varepsilon^{1-\kappa}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\eta = 1 - \varepsilon^{1-\kappa}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(7) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(7) 図示平均有効圧力（IMEP）の定義と物理的意味を説明せよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>IMEPは正味仕事を容積変位で割ったもので、p-V線図上でサイクルが囲む面積を表現する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            定義: $\text{IMEP} = \frac{W_{\text{net}}}{V_{\max} - V_{\min}} = \frac{W_{\text{net}}}{V_1 - V_2}$
+                            <br>物理的意味: 仕事を生む等価な平均圧力
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\text{IMEP} = \frac{W_{\text{net}}}{V_1 - V_2}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>理想気体サイクルの解析では、各過程の物理的特徴を把握し、線図を活用することで体系的に状態量を求めることができます。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>断熱関係式: $pV^κ = $ 一定</li>
+                            <li>状態方程式: $pV = mRT$</li>
+                            <li>熱効率: $η = W_{net}/Q_{in}$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>各過程の特徴を明確に把握する</li>
+                            <li>線図を正確に描いて視覚化する</li>
+                            <li>エネルギー収支を厳密に計算する</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>断熱と等容の混同に注意</li>
+                            <li>符号の取り扱いに注意（吸熱・放熱）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>熱力学のチップス
+                        </div>
+                        <ul>
+                            <li>理想気体サイクルは内燃機関の基礎</li>
+                            <li>エントロピーは不可逆性の指標</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】: ボイラの熱力学</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        
+                        <div class="problem-statement">燃焼ガスで水を加熱するボイラにおいて、燃焼ガスは、質量流量 mg, 温度 Tg1でボ
+                            イラに入り、温度 Tg2で出ていく、燃焼ガスの圧力は一定であり、定圧比熱はcpで
+                            一定とする、水は、質量流量 mw, 温度 Tw1 でボイラに入り、圧力一定のもと、飽和
+                            温度 Tw2 まで加熱され、さらに蒸発潜熱を得て、乾き飽和蒸気となる、水の比熱は
+                            cw で一定とする、周囲温度を To, ボイラ外への放熱はないものとし、以下の問いに
+                            答えよ。</div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 水の温度上昇に要する熱量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>比熱の定義を用いて温度上昇による熱量を計算する。</p>
+                    </div>
+                
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            水を $T_{w1}$ → $T_{w2}$ に加熱
+                            <div class="math-block">
+                                $$\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\dot{Q}_{\text{temp}} = \dot{m}_w c_w (T_{w2} - T_{w1})}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 水の蒸発に要する熱量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>蒸発潜熱を用いて相変化の熱量を計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            蒸発潜熱 $r$ 使用
+                            <div class="math-block">
+                                $$\dot{Q}_{\text{vap}} = \dot{m}_w r$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\dot{Q}_{\text{vap}} = \dot{m}_w r}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 燃焼ガスが失う熱量を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>燃焼ガスの定圧冷却による熱量変化を計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            燃焼ガスの定圧冷却
+                            <div class="math-block">
+                                $$\dot{Q}_g = \dot{m}_g c_p (T_{g1} - T_{g2})$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\dot{Q}_g = \dot{m}_g c_p (T_{g1} - T_{g2})}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 質量流量比 $\dot{m}_g / \dot{m}_w$ を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エネルギー収支（放熱なし）の条件を利用する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            エネルギー収支: $\dot{Q}_g = \dot{Q}_{\text{temp}} + \dot{Q}_{\text{vap}}$
+                            <div class="math-block">
+                                $$\frac{\dot{m}_g}{\dot{m}_w} = \frac{ c_w (T_{w2} - T_{w1}) + r }{ c_p (T_{g1} - T_{g2}) }$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\frac{\dot{m}_g}{\dot{m}_w} = \frac{ c_w (T_{w2} - T_{w1}) + r }{ c_p (T_{g1} - T_{g2}) }}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) 水の温度上昇のエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>可逆加熱と仮定してエントロピー変化を積分で計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            可逆加熱と仮定
+                            <div class="math-block">
+                                $$\Delta \dot{S}_w^{\text{temp}} = \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{S}_w^{\text{temp}} = \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(6) 水の蒸発のエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>等温蒸発における熱量とエントロピー変化の関係を利用する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            等温蒸発: $\Delta \dot{S}_w^{\text{vap}} = \frac{\dot{Q}_{\text{vap}}}{T_{w2}}$
+                            <div class="math-block">
+                                $$\Delta \dot{S}_w^{\text{vap}} = \dot{m}_w \frac{r}{T_{w2}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{S}_w^{\text{vap}} = \dot{m}_w \frac{r}{T_{w2}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(7) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(7) 燃焼ガスのエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>定圧冷却過程のエントロピー変化を積分で計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            定圧冷却
+                            <div class="math-block">
+                                $$\Delta \dot{S}_g = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{S}_g = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(8) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(8) 系全体のエントロピー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>水と燃焼ガスのエントロピー変化の合計を計算する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            水と燃焼ガスの合計
+                            <div class="math-block">
+                                $$\Delta \dot{S}_{\text{total}} = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}} + \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}} + \dot{m}_w \frac{r}{T_{w2}}$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{S}_{\text{total}} = \dot{m}_g c_p \ln \frac{T_{g2}}{T_{g1}} + \dot{m}_w c_w \ln \frac{T_{w2}}{T_{w1}} + \dot{m}_w \frac{r}{T_{w2}}}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(9) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(9) 水のエクセルギー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>エクセルギーの定義 $\Delta E = \Delta H - T_0 \Delta S$ を適用する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            エンタルピー変化: $\Delta h_w = c_w (T_{w2} - T_{w1}) + r$
+                            <br>エントロピー変化: $\Delta s_w = c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}}$
+                            <div class="math-block">
+                                $$\Delta \dot{E}_w = \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{E}_w = \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(10) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(10) 系全体のエクセルギー変化を求めよ。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>方針
+                        </div>
+                        <p>燃焼ガスと水のエクセルギー変化を合計する。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            燃焼ガス + 水のエクセルギー変化
+                            <div class="math-block">
+                                $$\Delta \dot{E}_{\text{total}} = \dot{m}_g \left[ c_p (T_{g2} - T_{g1}) - T_0 c_p \ln \frac{T_{g2}}{T_{g1}} \right] + \Delta \dot{E}_w$$
+                            </div>
+                        </div>
+                        
+                        <div class="final-answer">
+                            <div class="section-title">
+                                <i class="fas fa-check-circle mr-2"></i>解答
+                            </div>
+                            <div class="math-block">
+                                $$\boxed{\Delta \dot{E}_{\text{total}} = \dot{m}_g \left[ c_p (T_{g2} - T_{g1}) - T_0 c_p \ln \frac{T_{g2}}{T_{g1}} \right] + \dot{m}_w \left[ c_w (T_{w2} - T_{w1}) + r - T_0 \left( c_w \ln \frac{T_{w2}}{T_{w1}} + \frac{r}{T_{w2}} \right) \right]}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問2のまとめ
+                        </div>
+                        <p>ボイラの熱力学では、エネルギー保存則に基づいた収支計算と、エントロピー・エクセルギー解析により効率評価が可能です。</p>
+                    </div>
+                </div>
+                <!-- 右側：サイドバー（大問2用） -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>エネルギー関係式
+                        </div>
+                        <ul>
+                            <li>比熱による加熱: $Q = mc\Delta T$</li>
+                            <li>蒸発潜熱: $Q = mr$</li>
+                            <li>エントロピー変化: $\Delta S = Q/T$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>エクセルギー解析
+                        </div>
+                        <ul>
+                            <li>定義: $E = H - T_0S$</li>
+                            <li>有効エネルギーの指標</li>
+                            <li>効率評価に重要</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-industry mr-2"></i>実用ポイント
+                        </div>
+                        <ul>
+                            <li>ボイラは火力発電の基幹設備</li>
+                            <li>エクセルギーは有効エネルギー</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/script.js"></script>
+    
+    <!-- アコーディオン機能 -->
+    <script>
+    function toggleAccordion(id) {
+        const element = document.getElementById(id);
+        const content = element.querySelector('.accordion-content');
+        const arrow = element.querySelector('.accordion-arrow');
+        
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            arrow.textContent = '▶';
+        } else {
+            content.style.display = 'block';
+            arrow.textContent = '▼';
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2013年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2013（H25）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2013年度の材料力学入試では、大問【1】で片持ちはりのたわみと重ね合わせの原理の応用、大問【2】で異材接合棒の熱応力問題（自由膨張と拘束による応力発生）、大問【3】で物体の落下による衝撃荷重問題（エネルギー保存による弾性解析）が出題されました。基礎理論から実用的な衝撃解析まで幅広い内容を扱った年度です。</p>
+                <a href="../../pdfs/question/2013_H25_april/materials_2013_H25_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)</a>
+                <a href="../../pdfs/answer/2013_H25_april/materials_2013_H25_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">片持ちはりのたわみと重ね合わせの原理について、基本的なたわみ計算から複合支持条件への応用を段階的に解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さl、曲げ剛性EI</li>
+                            <li>境界条件：固定端A、自由端B</li>
+                            <li>荷重：先端に集中荷重P（下向き）</li>
+                            <li>点C：固定端から距離aの位置</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>重ね合わせの原理により、複数の荷重による変形は各荷重による変形の代数和で求まります。支点条件の変化も同様に扱えます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 自由端Bのたわみδ_{B1}</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端荷重による基本たわみを求めます。
+                            <p><strong>片持ちはりの公式：</strong></p>
+                            先端に集中荷重Pがかかる場合の先端たわみ：
+                            <div class="math-block">
+                                $$\delta_{B1} = \frac{Pl^3}{3EI}$$
+                            </div>
+                            これは材料力学の基本公式です。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 点Cのたわみδ_{C1}</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            同じ荷重条件での途中点Cのたわみを求めます。
+                            <p><strong>たわみ曲線の利用：</strong></p>
+                            固定端から距離aの点でのたわみ：
+                            <div class="math-block">
+                                $$\delta_{C1} = \frac{Pa^2(3l - a)}{6EI}$$
+                            </div>
+                            <p>これは先端荷重による一般的なたわみ曲線からx = aを代入した結果です。</p>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 点Cのたわみδ_{C2}（荷重がC点）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            C点に上向き荷重Qが作用する場合のC点たわみを求めます。
+                            <p><strong>中間荷重による変形：</strong></p>
+                            C点に上向き集中荷重Qが作用するとき：
+                            <div class="math-block">
+                                $$\delta_{C2} = -\frac{Qa^3}{3EI}$$
+                            </div>
+                            <p>負号は上向き荷重により上向き（負の）たわみが生じることを示します。</p>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 自由端Bのたわみδ_{B3}（C点支持）</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            重ね合わせの原理を用いてC点支持時のB点たわみを求めます。
+                            <p><strong>重ね合わせ条件：</strong></p>
+                            C点で支持されているため、C点でのたわみがゼロ：
+                            <div class="math-block">
+                                $$\delta_{C1} + \delta_{C2} = 0$$
+                            </div>
+                            これから反力R_Cを決定：
+                            <div class="math-block">
+                                $$\frac{Pa^2(3l - a)}{6EI} - \frac{R_C a^3}{3EI} = 0$$
+                            </div>
+                            <p>これより：</p>
+                            <div class="math-block">
+                                $$R_C = \frac{P(3l - a)}{2a}$$
+                            </div>
+                            <p><strong>B点のたわみ：</strong></p>
+                            <div class="math-block">
+                                $$\delta_{B3} = \frac{P(4al - a^2 - 3l^2)}{12EI}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>重ね合わせの原理は材料力学の基本概念。</li>
+                            <li>支持条件の変化は反力の重ね合わせで表現。</li>
+                            <li>変形の適合条件から未知反力を決定。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>片持ちはりの基本公式を確実に覚える。</li>
+                            <li>重ね合わせ計算では符号に注意する。</li>
+                            <li>支点反力は変形条件から決定する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">異材接合棒の熱応力について、自由膨張と拘束条件での応力発生、接合部の変位を解析する。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒1：長さa、線膨張係数α₁、ヤング率E₁</li>
+                            <li>棒2：長さb、線膨張係数α₂、ヤング率E₂</li>
+                            <li>断面積：両棒ともS（一定）</li>
+                            <li>温度上昇：両棒ともΔT</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>熱応力問題では自由膨張量と拘束による変形量の釣り合いを考えます。材料定数の違いにより応力分担が決まります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 両端自由のときの棒の伸びΔl</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            両端が自由な場合の各棒の熱膨張量を求めます。
+                            <p><strong>各棒の熱膨張：</strong></p>
+                            <ul>
+                                <li>棒1の伸び：α₁ · a · ΔT</li>
+                                <li>棒2の伸び：α₂ · b · ΔT</li>
+                            </ul>
+                            <p><strong>全体の伸び：</strong></p>
+                            <div class="math-block">
+                                $$\Delta l = \alpha_1 a \Delta T + \alpha_2 b \Delta T = (\alpha_1 a + \alpha_2 b) \Delta T$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 両端固定のときの圧縮応力σc</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            両端固定による拘束で発生する圧縮応力を求めます。
+                            <p><strong>拘束条件：</strong></p>
+                            自由膨張量Δlを圧縮力Pで元に戻す：
+                            <div class="math-block">
+                                $$\Delta l = \frac{Pa}{SE_1} + \frac{Pb}{SE_2}$$
+                            </div>
+                            <p>(1)の結果を代入：</p>
+                            <div class="math-block">
+                                $$(\alpha_1 a + \alpha_2 b) \Delta T = P\left(\frac{a}{SE_1} + \frac{b}{SE_2}\right)$$
+                            </div>
+                            <p><strong>圧縮応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_c = \frac{P}{S} = \frac{(\alpha_1 a + \alpha_2 b) \Delta T}{\frac{a}{E_1} + \frac{b}{E_2}}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 接合部Bの変位δB</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            固定端Aから見た接合部Bの最終変位を求めます。
+                            <p><strong>棒1の正味変形：</strong></p>
+                            熱膨張から圧縮変形を差し引く：
+                            <div class="math-block">
+                                $$\delta_B = \alpha_1 a \Delta T - \frac{\sigma_c a}{E_1}$$
+                            </div>
+                            <p>(2)のσcを代入して整理：</p>
+                            <div class="math-block">
+                                $$\delta_B = \frac{ab \Delta T (\alpha_1 E_1 - \alpha_2 E_2)}{aE_2 + bE_1}$$
+                            </div>
+                            <p>材料1の熱膨張が材料2より大きい場合は正（右向き）、小さい場合は負（左向き）の変位となります。</p>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>異材料では膨張係数の違いが重要。</li>
+                            <li>拘束により内部応力が発生する。</li>
+                            <li>接合部変位は材料特性により決まる。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>熱応力は実用構造で重要な設計因子。</li>
+                            <li>材料定数の組み合わせ効果を理解する。</li>
+                            <li>変位の符号は物理的意味を考える。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">はりへの物体の落下による衝撃荷重について、エネルギー保存則を用いた弾性解析により最大荷重、たわみ、応力を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さl、正方形断面（一辺a）、曲げ剛性EI</li>
+                            <li>境界条件：両端単純支持</li>
+                            <li>落下物：質量m、落下高さh</li>
+                            <li>衝撃位置：はりの中央</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>衝撃問題ではエネルギー保存則を用います。落下物の位置エネルギーがはりの弾性ひずみエネルギーに変換されます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) モーメントM(x)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            中央荷重Pによる曲げモーメント分布を求めます。
+                            <p><strong>支点反力：</strong></p>
+                            対称性により各支点：R = P/2
+                            <p><strong>曲げモーメント：</strong></p>
+                            <ul>
+                                <li><strong>左半分（0 ≤ x ≤ l/2）：</strong></li>
+                                <div class="math-block">
+                                    $$M(x) = \frac{P}{2}x$$
+                                </div>
+                                <li><strong>右半分（l/2 ≤ x ≤ l）：</strong></li>
+                                <div class="math-block">
+                                    $$M(x) = \frac{P}{2}(l-x)$$
+                                </div>
+                            </ul>
+                            最大モーメントは中央でPl/4となります。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 弾性ひずみエネルギーU</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            はりに蓄えられる弾性ひずみエネルギーを求めます。
+                            <p><strong>ひずみエネルギーの公式：</strong></p>
+                            <div class="math-block">
+                                $$U = \int_0^l \frac{M(x)^2}{2EI} dx$$
+                            </div>
+                            <p>対称性を利用して左半分の2倍として計算：</p>
+                            <div class="math-block">
+                                $$U = 2 \int_0^{l/2} \frac{(Px/2)^2}{2EI} dx = \frac{P^2}{4EI} \int_0^{l/2} x^2 dx$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$U = \frac{P^2 l^3}{96EI}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 最大荷重P</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            エネルギー保存則から最大荷重を求めます。
+                            <p><strong>エネルギー保存：</strong></p>
+                            位置エネルギー = 弾性ひずみエネルギー
+                            <div class="math-block">
+                                $$mgh = \frac{P^2 l^3}{96EI}$$
+                            </div>
+                            <p>これをPについて解くと：</p>
+                            <div class="math-block">
+                                $$P = \sqrt{\frac{96EI \cdot mgh}{l^3}} = 4\sqrt{\frac{6EImgh}{l^3}}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) はり中央の最大たわみδ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            中央荷重による最大たわみを求めます。
+                            <p><strong>中央たわみの公式：</strong></p>
+                            <div class="math-block">
+                                $$\delta = \frac{Pl^3}{48EI}$$
+                            </div>
+                            <p>(3)のPを代入：</p>
+                            <div class="math-block">
+                                $$\delta = \frac{4\sqrt{6EImgh/l^3} \cdot l^3}{48EI} = \sqrt{\frac{mghl^3}{24EI}}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 最大曲げ応力σmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            正方形断面の最大曲げ応力を求めます。
+                            <p><strong>断面係数：</strong></p>
+                            正方形断面（一辺a）：Z = a³/6
+                            <p><strong>最大曲げ応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{M_{max}}{Z} = \frac{Pl/4}{a^3/6} = \frac{3Pl}{2a^3}$$
+                            </div>
+                            <p>(3)のPを代入：</p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{3 \cdot 4\sqrt{6EImgh/l^3} \cdot l}{2a^3} = \frac{6l}{a^3}\sqrt{\frac{6EImgh}{l^3}}$$
+                            </div>
+                            <p>整理すると：</p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{6}{a^3}\sqrt{\frac{6EImghl^3}{l^3}} = \frac{6}{a^3}\sqrt{6EImgh}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>衝撃問題ではエネルギー保存則を活用。</li>
+                            <li>弾性ひずみエネルギーの積分計算が重要。</li>
+                            <li>静的解析結果を動的問題に応用。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2013年度は基礎から衝撃解析まで総合的出題。</li>
+                            <li>エネルギー法は動的問題の基本手法。</li>
+                            <li>断面係数の公式を正確に適用する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

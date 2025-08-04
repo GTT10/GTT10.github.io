@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2012年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2012（H24）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2012年度の材料力学入試では、大問【1】ではりのたわみと重ね合わせの原理の体系的応用、大問【2】で自重による棒の応力分布問題（垂直応力の計算と段付棒の最適設計）、大問【3】でL字レバーにおける曲げとねじりの複合問題（主応力解析と設計）が出題されました。基礎理論から実用設計まで総合的にカバーした年度です。</p>
+                <a href="../../pdfs/question/2012_H24_april/materials_2012_H24_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2012年度)</a>
+                <a href="../../pdfs/answer/2012_H24_april/materials_2012_H24_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2012年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">はりのたわみと重ね合わせの原理について、片持ちはりの基本解から両端固定はりの複合問題への段階的応用を行う。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さl、曲げ剛性EI</li>
+                            <li>荷重：集中荷重P、集中モーメントM</li>
+                            <li>境界条件：片持ち（図1a,b）、両端固定（図1c）</li>
+                            <li>目標変位：図1cでのA点たわみδ</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>重ね合わせの原理により、複数の荷重による変形は各荷重による変形の代数和で求まります。境界条件の調整も同じ原理で処理できます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 図1(a)の反力と曲げモーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端荷重による静力学的解析を行います。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$R_{B1} = P$$
+                            </div>
+                            <p><strong>モーメントの釣り合い（B点まわり）：</strong></p>
+                            <div class="math-block">
+                                $$M_{B1} = P \cdot l$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 図1(a)のたわみ角とたわみ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端荷重による変形を求めます。
+                            <p><strong>自由端Aにおけるたわみ角：</strong></p>
+                            <div class="math-block">
+                                $$\theta_{A1} = \frac{Pl^2}{2EI}$$
+                            </div>
+                            <p><strong>自由端Aにおけるたわみ：</strong></p>
+                            <div class="math-block">
+                                $$y_{A1} = \frac{Pl^3}{3EI}$$
+                            </div>
+                            これらは片持ちはりの基本公式です。
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 図1(b)の反力と曲げモーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端モーメント荷重による解析を行います。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$R_{B2} = 0$$
+                            </div>
+                            <p><strong>モーメントの釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$M_{B2} = M$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 図1(b)のたわみ角とたわみ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端モーメント荷重による変形を求めます。
+                            <p><strong>自由端Aにおけるたわみ角：</strong></p>
+                            <div class="math-block">
+                                $$\theta_{A2} = \frac{Ml}{EI}$$
+                            </div>
+                            <p><strong>自由端Aにおけるたわみ：</strong></p>
+                            <div class="math-block">
+                                $$y_{A2} = \frac{Ml^2}{2EI}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 図1(c)の反力と曲げモーメント</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            重ね合わせの原理を用いて両端固定はりの解を求めます。
+                            <p><strong>重ね合わせ条件：</strong></p>
+                            A点で：たわみ = δ、たわみ角 = 0
+                            <p>力RAとモーメントMAによる変形と(2)(4)の結果を重ね合わせ：</p>
+                            <div class="math-block">
+                                変位条件：$$\frac{R_A l^3}{3EI} + \frac{M_A l^2}{2EI} = \delta$$
+                            </div>
+                            <div class="math-block">
+                                回転条件：$$\frac{R_A l^2}{2EI} + \frac{M_A l}{EI} = 0$$
+                            </div>
+                            <p>この連立方程式を解くと：</p>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$R_A = \frac{12EI\delta}{l^3}$$
+                                $$M_A = \frac{6EI\delta}{l^2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>重ね合わせの原理は複合荷重問題の基本。</li>
+                            <li>片持ちはりの基本公式を確実に記憶する。</li>
+                            <li>境界条件から未知反力を決定する手順。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>変形条件と回転条件の両方を考慮する。</li>
+                            <li>連立方程式の解法を正確に実行する。</li>
+                            <li>重ね合わせでは符号の管理が重要。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">自重による棒の応力について、垂直応力分布の解析と段付棒の最適設計を行う。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒1：長さl₁、断面積A₁</li>
+                            <li>棒2：長さl₂、断面積A₂、下端に重りW</li>
+                            <li>材料：比重量γ、引張強さσB</li>
+                            <li>座標：下端から上向きにx</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>自重問題では任意断面にかかる力がその下部の重量と等しくなります。応力は上部ほど大きくなることが特徴です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 棒1の垂直応力σ₁(x)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            下端からx位置での棒1の垂直応力を求めます。
+                            <p><strong>下部重量：</strong></p>
+                            長さxの棒の重量：W(x) = γA₁x
+                            <p><strong>垂直応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1(x) = \frac{W(x)}{A_1} = \frac{\gamma A_1 x}{A_1} = \gamma x$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 棒1の最大応力σ₁max</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            棒1で応力が最大となる位置とその値を求めます。
+                            <p><strong>最大応力位置：</strong></p>
+                            σ₁(x) = γxより、x = l₁（棒1の最上端）で最大
+                            <p><strong>最大応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{1max} = \gamma l_1$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 棒2（重り付き）の垂直応力σ₂(x)</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            下端に重りWが付いた棒2の垂直応力を求めます。
+                            <p><strong>下部総重量：</strong></p>
+                            長さxの棒の重量 + 重りW：F(x) = γA₂x + W
+                            <p><strong>垂直応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_2(x) = \frac{F(x)}{A_2} = \frac{W + \gamma A_2 x}{A_2} = \frac{W}{A_2} + \gamma x$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 棒2の最大応力σ₂max</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            重り付き棒2の最大応力を求めます。
+                            <p><strong>最大応力位置：</strong></p>
+                            x = l₂（棒2の最上端）で最大
+                            <p><strong>最大応力：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{2max} = \frac{W}{A_2} + \gamma l_2$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 段付棒の最大長さlmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            破壊しない段付棒の最大長さを求めます。
+                            <p><strong>最危険断面の特定：</strong></p>
+                            棒1の最上端が最も危険（断面積小で荷重大）
+                            <p><strong>棒1最上端の応力：</strong></p>
+                            全荷重 = 棒1重量 + 棒2重量 = γA₁l₁ + γA₂l₂
+                            <div class="math-block">
+                                $$\sigma_{1,top} = \frac{\gamma A_1 l_1 + \gamma A_2 l_2}{A_1} = \gamma l_1 + \gamma \frac{A_2}{A_1} l_2$$
+                            </div>
+                            <p><strong>最適化条件：</strong></p>
+                            σ₁,top ≤ σB の制約下でl = l₁ + l₂を最大化
+                            <p>A₂ > A₁より、l₁ = 0（細い棒を除去）で最大：</p>
+                            <div class="math-block">
+                                $$l_{max} = \frac{\sigma_B}{\gamma}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>自重応力は位置に比例して増加する。</li>
+                            <li>段付構造では細い部分が破壊の起点。</li>
+                            <li>最適設計では制約条件を正しく設定。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>応力分布の形状を図示して理解する。</li>
+                            <li>最適化では物理的制約を見極める。</li>
+                            <li>段付棒では断面変化点に注意する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">L字レバーにおける曲げとねじりの複合問題について、モーメント解析、応力計算、主応力による設計を行う。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>L字レバー：水平アームAB（長さw）、垂直アームOA（高さh）</li>
+                            <li>荷重：B点に集中荷重P（下向き）</li>
+                            <li>断面：円形断面（直径d）</li>
+                            <li>材料：許容応力σa</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>L字構造では荷重の伝達経路により曲げとねじりが複合的に作用します。主応力による破壊条件を考慮した設計が必要です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 断面Cの曲げモーメントMc</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            水平アーム内の断面Cにおける曲げモーメントを求めます。
+                            <p><strong>片持ちはりとしての解析：</strong></p>
+                            断面CからB点までの距離がaの場合：
+                            <div class="math-block">
+                                $$M_c = P \cdot a$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 断面Dの曲げモーメントMDとねじりモーメントTD</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            垂直アーム内の断面Dにおける複合モーメントを求めます。
+                            <p><strong>ねじりモーメント：</strong></p>
+                            B点の荷重Pが水平アームの長さwでねじりを発生：
+                            <div class="math-block">
+                                $$T_D = P \cdot w$$
+                            </div>
+                            <p><strong>曲げモーメント：</strong></p>
+                            断面DからB点までの高さ（h-b）で曲げを発生：
+                            <div class="math-block">
+                                $$M_D = P(h-b)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 断面Dの応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            断面Dにおける曲げ応力とせん断応力を求めます。
+                            <p><strong>曲げ応力（最大）：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{Dmax} = \frac{M_D \cdot (d/2)}{I} = \frac{P(h-b)(d/2)}{\pi d^4/64} = \frac{32P(h-b)}{\pi d^3}$$
+                            </div>
+                            <p><strong>せん断応力（最大）：</strong></p>
+                            <div class="math-block">
+                                $$\tau_{Dmax} = \frac{T_D \cdot (d/2)}{J_p} = \frac{Pw(d/2)}{\pi d^4/32} = \frac{16Pw}{\pi d^3}$$
+                            </div>
+                            ここで、I = πd⁴/64（断面二次モーメント）、Jp = πd⁴/32（断面二次極モーメント）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) 断面Dの最大主応力</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            曲げ応力とせん断応力の合成により最大主応力を求めます。
+                            <p><strong>主応力の公式：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1 = \frac{\sigma_D}{2} + \sqrt{\left(\frac{\sigma_D}{2}\right)^2 + \tau_D^2}$$
+                            </div>
+                            <p>(3)の結果を代入：</p>
+                            <div class="math-block">
+                                $$\sigma_1 = \frac{16P(h-b)}{2\pi d^3} + \sqrt{\left(\frac{16P(h-b)}{2\pi d^3}\right)^2 + \left(\frac{16Pw}{\pi d^3}\right)^2}$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1 = \frac{16P}{\pi d^3} \left( (h-b) + \sqrt{(h-b)^2 + w^2} \right)$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) 最小の丸棒直径</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            許容応力による設計条件から最小直径を求めます。
+                            <p><strong>設計条件：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1 \leq \sigma_a$$
+                            </div>
+                            <p>(4)の結果を代入：</p>
+                            <div class="math-block">
+                                $$\frac{16P}{\pi d^3} \left( (h-b) + \sqrt{(h-b)^2 + w^2} \right) \leq \sigma_a$$
+                            </div>
+                            <p>dについて解くと：</p>
+                            <div class="math-block">
+                                $$d_{min} = \sqrt[3]{\frac{16P}{\pi \sigma_a} \left( (h-b) + \sqrt{(h-b)^2 + w^2} \right)}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>L字構造では曲げとねじりが複合的に作用。</li>
+                            <li>主応力による破壊条件を考慮する。</li>
+                            <li>設計では最も危険な断面で評価する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2012年度は重ね合わせから複合応力まで体系的出題。</li>
+                            <li>荷重の伝達経路を正確に把握する。</li>
+                            <li>主応力の物理的意味を理解する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

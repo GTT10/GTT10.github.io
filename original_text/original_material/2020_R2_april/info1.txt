@@ -1,0 +1,109 @@
+Of course. Here are the solutions to the provided materials mechanics problems.
+
+-----
+
+## 【問題1】
+
+This problem analyzes the forces and stresses on a T-shaped plate fixed to a wall with two pins. [cite: 13]
+
+\<img src="/api/download\_file?file\_path=preppy-433b9b-83c9c9/user\_uploads/PAGE\_2\_材料力学.pdf.jpg" alt="Problem 1 Diagram" width="400"/\>
+
+### (1) つり合い式 (Equilibrium Equations)
+
+For the T-shaped plate to be in static equilibrium, the sum of all forces and moments must be zero. [cite: 14]
+
+  * **Vertical Force Balance** ($\\sum F\_y = 0$):
+    $$R_A + R_B - P = 0$$
+  * **Horizontal Force Balance** ($\\sum F\_x = 0$):
+    $$F_B - F_A = 0$$
+  * **Moment Balance about Point O** ($\\sum M\_O = 0$): The external force $P$ creates a clockwise moment, while the horizontal reaction forces $F\_A$ and $F\_B$ create a counter-clockwise couple.
+    $$h F_A + h F_B - P l = 0$$
+
+### (2) 支持力 (Support Forces)
+
+We can solve for the reaction forces using the equilibrium equations from part (1). [cite: 15]
+
+  * **Horizontal Forces ($F\_A, F\_B$):**
+    From the horizontal force balance, we know $F\_A = F\_B$. Substituting this into the moment equation:
+    $h F\_A + h F\_A - P l = 0 \\implies 2h F\_A = P l$
+    $$F_A = F_B = \frac{P l}{2h}$$
+
+  * **Vertical Forces ($R\_A, R\_B$):**
+    The vertical load $P$ is applied symmetrically to the supports. Due to this symmetry, the vertical reaction forces are shared equally:
+    $$R_A = R_B = \frac{P}{2}$$
+
+### (3) せん断応力 (Shear Stress)
+
+The shear stress ($\\tau$) in each pin is the total resultant force on the pin divided by its cross-sectional area ($A\_{pin} = \\pi d^2 / 4$). [cite: 16] The total force is the vector sum of the horizontal and vertical reaction forces.
+
+  * **Resultant Force on Pins:**
+    Since $F\_A = F\_B$ and $R\_A = R\_B$, the total force is the same for both pins.
+    $S\_A = S\_B = \\sqrt{R\_A^2 + F\_A^2} = \\sqrt{\\left(\\frac{P}{2}\\right)^2 + \\left(\\frac{P l}{2h}\\right)^2} = \\frac{P}{2}\\sqrt{1 + \\left(\\frac{l}{h}\\right)^2}$
+
+  * **Shear Stress in Pins ($\\tau\_A, \\tau\_B$):**
+    $$\tau_A = \tau_B = \frac{S_A}{A_{pin}} = \frac{\frac{P}{2}\sqrt{1 + (l/h)^2}}{\pi d^2 / 4} = \frac{2P}{\pi d^2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+
+### (4) 回転角 (Rotation Angle)
+
+The rotation angle $\\theta$ at point O is caused by the bending of the vertical part of the T-plate (the flange). [cite: 17] We can model the flange as a simply supported beam of length $2h$ with a concentrated moment $M\_0 = Pl$ applied at its center (O). The rotation at the center is given by:
+$$\theta = \frac{M_0 (2h)}{16 E I_v} = \frac{(Pl)(2h)}{16 E I_v} = \frac{Plh}{8EI_v}$$The moment of inertia, $I\_v$, is for the flange cross-section (width $b$, thickness $t$) bending about its vertical axis: $I\_v = \\frac{bt^3}{12}$. Substituting this in:$$\theta = \frac{Plh}{8E \left(\frac{bt^3}{12}\right)} = \frac{12Plh}{8Ebt^3} = \frac{3Plh}{2Ebt^3}$$
+
+-----
+
+## 【問題2】
+
+This problem involves a cantilever beam with a circular cross-section, subject to both a distributed load and a concentrated load. [cite: 28]
+
+\<img src="/api/download\_file?file\_path=preppy-433b9b-83c9c9/user\_uploads/PAGE\_3\_材料力学.pdf.jpg" alt="Problem 2 Diagram" width="500"/\>
+
+### (1) 断面二次モーメント (Second Moment of Area)
+
+For a circular cross-section with diameter $d$, the second moment of area $I$ is: [cite: 29]
+$$I = \frac{\pi d^4}{64}$$
+
+### (2) 支持力と曲げモーメント (Support Reactions)
+
+At the fixed end A, we find the reaction force $R\_A$ and reaction moment $M\_A$ from static equilibrium. [cite: 30]
+
+  * **Support Force ($R\_A$):** Summing the vertical forces:
+    $R\_A = (\\text{total distributed load}) + (\\text{concentrated load})$
+    $$R_A = wl + P$$
+
+  * **Support Moment ($M\_A$):** Summing moments about A:
+    $M\_A = (\\text{moment from } w) + (\\text{moment from } P)$
+    $M\_A = (wl)\\left(\\frac{l}{2}\\right) + P\\left(\\frac{2l}{3}\\right)$
+    $$M_A = \frac{wl^2}{2} + \frac{2Pl}{3}$$
+
+### (3) せん断力 (Shear Force)
+
+The shear force ($F(x)$) changes at the point where the concentrated load is applied. [cite: 31]
+
+  * **AC section ($0 \\le x \< 2l/3$):**
+    $F\_{AC}(x) = R\_A - wx$
+    $$F_{AC}(x) = (wl + P) - wx$$
+
+  * **CB section ($2l/3 \< x \\le l$):**
+    $F\_{CB}(x) = R\_A - wx - P$
+    $F\_{CB}(x) = (wl + P) - wx - P$
+    $$F_{CB}(x) = w(l-x)$$
+
+### (4) 曲げモーメント (Bending Moment)
+
+The bending moment ($M(x)$) is found by considering the moments to the left of a section at $x$. [cite: 32] The moment at the wall, $M(0)$, is equal in magnitude to $M\_A$ but is negative by convention (hogging moment).
+
+  * **AC section ($0 \\le x \\le 2l/3$):**
+    $M\_{AC}(x) = -M\_A + R\_A x - \\frac{wx^2}{2}$
+    $$M_{AC}(x) = -\left(\frac{wl^2}{2} + \frac{2Pl}{3}\right) + (wl+P)x - \frac{wx^2}{2}$$
+
+  * **CB section ($2l/3 \\le x \\le l$):**
+    It's simpler to calculate the moment from the free end B.
+    $$M_{CB}(x) = -\frac{w(l-x)^2}{2}$$
+
+### (5) 最大曲げ応力 (Maximum Bending Stress)
+
+The maximum bending stress ($\\sigma\_{max}$) occurs where the bending moment magnitude is greatest. For a cantilever beam, this is always at the fixed support (x=0). [cite: 33]
+$$|M|_{max} = M_A = \frac{wl^2}{2} + \frac{2Pl}{3}$$
+The bending stress is calculated using the flexure formula, $\\sigma = \\frac{My}{I}$, where $y$ is the distance from the neutral axis. The maximum value for a circle is $y\_{max} = d/2$.
+
+$$\sigma_{max} = \frac{|M|_{max} \cdot y_{max}}{I} = \frac{\left(\frac{wl^2}{2} + \frac{2Pl}{3}\right) (d/2)}{\pi d^4 / 64}$$
+$$\sigma_{max} = \frac{32 \left(\frac{wl^2}{2} + \frac{2Pl}{3}\right)}{\pi d^3} = \frac{16wl^2}{\pi d^3} + \frac{64Pl}{3\pi d^3}$$

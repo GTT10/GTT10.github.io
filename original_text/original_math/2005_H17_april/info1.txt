@@ -1,0 +1,283 @@
+### 解答
+
+#### **問題1: 関数 \( F(x,y) = xe^y - y \) について**
+
+##### (1) \( F(x,y) = 0 \) によって定まる陰関数 \( y = f(x) \) のグラフの概形を \( x \geq 0, y \geq 0 \) の範囲で描け。
+
+**方針:**  
+方程式 \( xe^y - y = 0 \) を満たす陰関数 \( y = f(x) \) の挙動を解析する。  
+- \( x = 0 \) のとき \( y = 0 \)（点 \((0,0)\) を通る）。  
+- 陰関数微分により導関数を求める。  
+- \( x \geq 0, y \geq 0 \) の範囲で関数の増減と漸近線を調べる。  
+
+**解答:**  
+方程式 \( xe^y = y \) を考える。  
+- **点 \((0,0)\) の近傍**: \( F(0,0) = 0 \), \( \frac{\partial F}{\partial y}(0,0) = 0 \cdot e^0 - 1 = -1 \neq 0 \) より、陰関数定理から \( y = f(x) \) が存在し、\( f(0) = 0 \)。  
+- **導関数**:  
+  \[
+  \frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{e^y}{x e^y - 1} = \frac{e^y}{1 - x e^y}
+  \]
+  - \( x = 0 \) で \( \frac{dy}{dx} = \frac{e^0}{1 - 0 \cdot e^0} = 1 > 0 \)（増加）。  
+- **特異点**: \( 1 - x e^y = 0 \) すなわち \( x e^y = 1 \) で分母が 0 になる。  
+  - \( x = \frac{1}{e} \) のとき \( y = 1 \)（点 \(\left(\frac{1}{e}, 1\right)\)）。  
+- **挙動**:  
+  - \( x \in [0, \frac{1}{e}) \) で \( \frac{dy}{dx} > 0 \)（単調増加）。  
+  - \( x \to \left(\frac{1}{e}\right)^{-} \) で \( y \to 1^{-} \), \( \frac{dy}{dx} \to +\infty \)（垂直漸近線）。  
+  - \( x > \frac{1}{e} \) では陰関数として定義されない（分枝が不連続）。  
+
+**グラフの概形:**  
+- 原点 \((0,0)\) から始まり、傾き 1 で増加。  
+- \( x \) が \(\frac{1}{e} \approx 0.367\) に近づくと \( y \) は 1 に漸近し、接線は垂直になる。  
+- \( x \geq 0, y \geq 0 \) の範囲では、\( x \in [0, \frac{1}{e}) \) で定義される曲線。  
+
+##### (2) \( f'(x) \) を \( x \) と \( y \) で表せ。
+
+**解答:**  
+陰関数微分により、  
+\[
+f'(x) = \frac{dy}{dx} = \frac{e^y}{1 - x e^y}
+\]
+
+**答え:**  
+\[
+\boxed{f'(x) = \dfrac{e^{y}}{1 - x e^{y}}}
+\]
+
+---
+
+#### **問題2: 微分方程式に関する問題**
+
+##### (1) 直線 \( y = x \) 上に中心をもつ任意の半径の円が満たす微分方程式を求めよ。
+
+**方針:**  
+中心 \((h,h)\)、半径 \(r\) の円の方程式を立て、パラメータ \(h\) を消去して微分方程式を導く。  
+
+**解答:**  
+円の方程式:  
+\[
+(x - h)^2 + (y - h)^2 = r^2
+\]  
+両辺を \(x\) で微分（\(y\) は \(x\) の関数）:  
+\[
+2(x - h) + 2(y - h) \frac{dy}{dx} = 0
+\]  
+整理して:  
+\[
+(x - h) + (y - h) y' = 0 \quad (y' = \frac{dy}{dx})
+\]  
+さらに \(x\) で微分:  
+\[
+1 + \left( y' \cdot y' + (y - h) y'' \right) = 0
+\]  
+\[
+1 + (y')^2 + (y - h) y'' = 0
+\]  
+ここで、\( y - h = -\frac{x - h}{y'} \) (\(y' \neq 0\)) を代入:  
+\[
+1 + (y')^2 + \left(-\frac{x - h}{y'}\right) y'' = 0
+\]  
+\[
+(x - h) y'' = y' \left(1 + (y')^2\right)
+\]  
+最初の式 \((x - h) = -(y - h) y'\) を代入:  
+\[
+-(y - h) y' y'' = y' \left(1 + (y')^2\right)
+\]  
+\( y' \neq 0 \) のとき \( y' \) で割り:  
+\[
+-(y - h) y'' = 1 + (y')^2
+\]  
+再び \( y - h = -\frac{x - h}{y'} \) を代入:  
+\[
+-\left(-\frac{x - h}{y'}\right) y'' = 1 + (y')^2
+\]  
+\[
+\frac{(x - h) y''}{y'} = 1 + (y')^2
+\]  
+\[
+(x - h) y'' = y' \left(1 + (y')^2\right)
+\]  
+一方、最初の微分式から:  
+\[
+x - h = -(y - h) y'
+\]  
+これらを整理すると:  
+\[
+y'' (x - y) = (1 + (y')^2)(1 + y')
+\]  
+
+**答え:**  
+\[
+\boxed{y'' (x - y) = (1 + (y')^{2})(1 + y')}
+\]
+
+##### (2) 微分方程式 \(\frac{dy}{dx} - x(1 + y^2) = 0\) の一般解と特定解のグラフ
+
+**方針:**  
+変数分離形として解き、初期条件を適用する。  
+
+**解答:**  
+方程式:  
+\[
+\frac{dy}{dx} = x(1 + y^2)
+\]  
+変数分離:  
+\[
+\frac{dy}{1 + y^2} = x  dx
+\]  
+積分:  
+\[
+\int \frac{dy}{1 + y^2} = \int x  dx
+\]  
+\[
+\arctan y = \frac{x^2}{2} + C
+\]  
+一般解:  
+\[
+y = \tan\left(\frac{x^2}{2} + C\right)
+\]  
+初期条件 \( x = 0 \), \( y = 0 \):  
+\[
+0 = \tan(C) \implies C = k\pi \quad (k \in \mathbb{Z})
+\]  
+通常 \( C = 0 \) を採用:  
+\[
+y = \tan\left(\frac{x^2}{2}\right)
+\]  
+**定義域:** \(\frac{x^2}{2} < \frac{\pi}{2}\) すなわち \( |x| < \sqrt{\pi} \)。\( x = \pm \sqrt{\pi} \) で \( y \to \pm \infty \)。  
+
+**グラフの概形 (\(-\sqrt{\pi} \leq x \leq \sqrt{\pi}\)):**  
+- \( y \) は偶関数（\( y(-x) = y(x) \))。  
+- \( x = 0 \) で \( y = 0 \)。  
+- \( |x| \) が増加すると \( y \) も増加。  
+- \( x \to \pm \sqrt{\pi}^{-} \) で \( y \to +\infty \)（垂直漸近線）。  
+
+**答え (一般解):**  
+\[
+\boxed{y = \tan\left(\dfrac{x^{2}}{2} + C\right)}
+\]
+
+---
+
+#### **問題3: 関数 \( \phi(x,y,z) = \frac{1}{2}x^2 + y^2 + 2z^2 \) について**
+
+##### (1) 曲面 \( \phi(x,y,z) = C \) 上の点における単位法線ベクトル
+
+**方針:**  
+法線ベクトルは勾配ベクトル \(\nabla \phi\) で与えられ、単位ベクトルはノルムで割る。  
+
+**解答:**  
+勾配ベクトル:  
+\[
+\nabla \phi = \left( \frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z} \right) = (x, 2y, 4z)
+\]  
+ノルム:  
+\[
+\| \nabla \phi \| = \sqrt{x^2 + (2y)^2 + (4z)^2} = \sqrt{x^2 + 4y^2 + 16z^2}
+\]  
+単位法線ベクトル:  
+\[
+\mathbf{n} = \frac{(x, 2y, 4z)}{\sqrt{x^2 + 4y^2 + 16z^2}}
+\]  
+
+**答え:**  
+\[
+\boxed{\mathbf{n} = \dfrac{(x,\ 2y,\ 4z)}{\sqrt{x^{2} + 4y^{2} + 16z^{2}}}}
+\]
+
+##### (2) 点 \( P(1,1,1) \) を通るときの \( C \)
+
+**解答:**  
+点 \( P(1,1,1) \) を代入:  
+\[
+\phi(1,1,1) = \frac{1}{2}(1)^2 + (1)^2 + 2(1)^2 = \frac{1}{2} + 1 + 2 = \frac{7}{2}
+\]  
+
+**答え:**  
+\[
+\boxed{C = \dfrac{7}{2}}
+\]
+
+##### (3) 点 \( P \) における直線 \( x = y = z \) の方向微分係数
+
+**方針:**  
+方向微分係数は \(\nabla \phi \cdot \mathbf{u}\)（\(\mathbf{u}\) は単位方向ベクトル）。  
+
+**解答:**  
+- 勾配ベクトル at \( P(1,1,1) \):  
+  \[
+  \nabla \phi(1,1,1) = (1, 2, 4)
+  \]  
+- 直線 \( x = y = z \) の方向ベクトル: \(\mathbf{v} = (1,1,1)\)。  
+- 単位ベクトル:  
+  \[
+  \mathbf{u} = \frac{(1,1,1)}{\sqrt{3}} = \left( \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}} \right)
+  \]  
+- 方向微分係数:  
+  \[
+  \nabla \phi \cdot \mathbf{u} = (1) \cdot \frac{1}{\sqrt{3}} + (2) \cdot \frac{1}{\sqrt{3}} + (4) \cdot \frac{1}{\sqrt{3}} = \frac{7}{\sqrt{3}} = \frac{7\sqrt{3}}{3}
+  \]  
+
+**答え:**  
+\[
+\boxed{\dfrac{7\sqrt{3}}{3}}
+\]
+
+---
+
+#### **問題4: ラプラス変換**
+
+##### (1) 関係式 \( L\left[\frac{f(t)}{t}\right] = \int_{s}^{\infty} F(x)  dx \) の証明
+
+**方針:**  
+ラプラス変換の定義と積分順序の交換を用いる。  
+
+**証明:**  
+\( L[f(t)] = F(s) = \int_{0}^{\infty} e^{-s t} f(t)  dt \) とする。  
+\[
+L\left[\frac{f(t)}{t}\right] = \int_{0}^{\infty} e^{-s t} \frac{f(t)}{t}  dt
+\]  
+右辺:  
+\[
+\int_{s}^{\infty} F(x)  dx = \int_{s}^{\infty} \left( \int_{0}^{\infty} e^{-x t} f(t)  dt \right) dx
+\]  
+積分順序を交換（仮定）:  
+\[
+= \int_{0}^{\infty} f(t) \left( \int_{s}^{\infty} e^{-x t}  dx \right) dt
+\]  
+内側の積分:  
+\[
+\int_{s}^{\infty} e^{-x t}  dx = \left[ -\frac{1}{t} e^{-x t} \right]_{x=s}^{\infty} = \frac{1}{t} e^{-s t}
+\]  
+したがって:  
+\[
+\int_{s}^{\infty} F(x)  dx = \int_{0}^{\infty} e^{-s t} \frac{f(t)}{t}  dt = L\left[\frac{f(t)}{t}\right]
+\]  
+
+##### (2) \( g(t) = \frac{1 - e^{at}}{t} \) のラプラス変換
+
+**方針:**  
+(1) の結果を用い、\( f(t) = 1 - e^{at} \) のラプラス変換を積分する。  
+
+**解答:**  
+\( f(t) = 1 - e^{at} \) のラプラス変換:  
+\[
+F(s) = L[1 - e^{at}] = \frac{1}{s} - \frac{1}{s - a} \quad (\text{Re}(s) > \max(0, \text{Re}(a)))
+\]  
+(1) より:  
+\[
+L[g(t)] = \int_{s}^{\infty} F(x)  dx = \int_{s}^{\infty} \left( \frac{1}{x} - \frac{1}{x - a} \right) dx
+\]  
+積分:  
+\[
+= \left[ \ln \left| \frac{x}{x - a} \right| \right]_{s}^{\infty} = \lim_{b \to \infty} \ln \left| \frac{b}{b - a} \right| - \ln \left| \frac{s}{s - a} \right| = 0 - \ln \left( \frac{s}{s - a} \right) = \ln \left( \frac{s - a}{s} \right)
+\]  
+
+**答え:**  
+\[
+\boxed{\ln \left( \dfrac{s - a}{s} \right)}
+\]
+
+--- 
+
+以上で解答を完了します。

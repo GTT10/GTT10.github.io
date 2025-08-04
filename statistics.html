@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科目別統計・傾向分析 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 外部CSSファイルを読み込む -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 統計ページ専用スタイル */
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* タブナビゲーション */
+        .subject-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            margin: 0 4px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tab-button:hover:not(.active) {
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .stats-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .stats-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .stats-card h3 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+        
+        .chart-container.large {
+            height: 400px;
+        }
+        
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .trend-analysis {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        .period-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .period-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .period-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .period-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .period-card li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .period-card li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .data-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .frequency-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .frequency-label {
+            width: 150px;
+            font-size: 0.9em;
+        }
+        
+        .frequency-visual {
+            flex: 1;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        
+        .frequency-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+        
+        .frequency-percent {
+            width: 50px;
+            text-align: right;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-back:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .period-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-back {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="nav-back">
+        <i class="fas fa-arrow-left mr-2"></i>トップページに戻る
+    </a>
+
+    <div class="stats-container">
+        <!-- ヘッダー -->
+        <div class="stats-header">
+            <h1><i class="fas fa-chart-line mr-3"></i>科目別統計・傾向分析</h1>
+            <p>岡山大学大学院入試問題 (2003-2024年) の詳細分析レポート</p>
+        </div>
+
+        <!-- タブナビゲーション -->
+        <div class="subject-tabs">
+            <button class="tab-button active" onclick="switchTab('math')">
+                <i class="fas fa-infinity"></i>
+                数学
+            </button>
+            <button class="tab-button" onclick="switchTab('fluid')">
+                <i class="fas fa-water"></i>
+                流体力学
+            </button>
+            <button class="tab-button" onclick="switchTab('materials')">
+                <i class="fas fa-cogs"></i>
+                材料力学
+            </button>
+            <button class="tab-button" onclick="switchTab('thermo')">
+                <i class="fas fa-thermometer-half"></i>
+                熱力学
+            </button>
+        </div>
+
+        <!-- 数学タブコンテンツ -->
+        <div id="math-content" class="tab-content active">
+        <!-- サマリー統計 -->
+        <div class="summary-stats">
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">分析対象年数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">88</span>
+                <span class="stat-label">総大問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">232</span>
+                <span class="stat-label">総小問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">主要数学分野</span>
+            </div>
+        </div>
+
+        <!-- メインチャートセクション -->
+        <div class="stats-grid">
+            <!-- プロブレム構造分析 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-structure"></i>問題構造の変化</h3>
+                <div class="chart-container">
+                    <canvas id="problemStructureChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 分野別出題頻度 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-pie"></i>分野別出題頻度</h3>
+                <div class="chart-container">
+                    <canvas id="subjectFrequencyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分野別詳細分析 -->
+        <div class="stats-card">
+            <h3><i class="fas fa-list-alt"></i>分野別出題頻度詳細</h3>
+            <div class="frequency-bar">
+                <div class="frequency-label">微分方程式</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 100%"></div>
+                </div>
+                <div class="frequency-percent">100%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">ラプラス変換</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 86%"></div>
+                </div>
+                <div class="frequency-percent">86%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">線形代数</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 82%"></div>
+                </div>
+                <div class="frequency-percent">82%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">解析学</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 77%"></div>
+                </div>
+                <div class="frequency-percent">77%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">積分計算</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 68%"></div>
+                </div>
+                <div class="frequency-percent">68%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">フーリエ解析</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 50%"></div>
+                </div>
+                <div class="frequency-percent">50%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">ベクトル解析</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 28%"></div>
+                </div>
+                <div class="frequency-percent">28%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">数値解析</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 28%"></div>
+                </div>
+                <div class="frequency-percent">28%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">複素関数論</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 17%"></div>
+                </div>
+                <div class="frequency-percent">17%</div>
+            </div>
+        </div>
+
+        <!-- 時代別トレンド分析 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-timeline"></i>時代別トレンド分析</h3>
+            
+            <div class="period-comparison">
+                <div class="period-card">
+                    <h4>初期 (2003-2008)</h4>
+                    <ul>
+                        <li>高い数学的多様性</li>
+                        <li>理論的問題が中心</li>
+                        <li>複雑な多段階問題</li>
+                        <li>ガウス分布フーリエ変換</li>
+                        <li>高度なベクトル解析</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>中期 (2009-2014)</h4>
+                    <ul>
+                        <li>標準化が始まる</li>
+                        <li>工学数学に焦点</li>
+                        <li>実用的応用問題</li>
+                        <li>積分方程式の導入</li>
+                        <li>高度な線形代数</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>後期 (2015-2020)</h4>
+                    <ul>
+                        <li>洗練された問題選択</li>
+                        <li>一貫した難易度</li>
+                        <li>複数概念の統合</li>
+                        <li>計算技術の重視</li>
+                        <li>パラメトリック曲線解析</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>最新期 (2021-2024)</h4>
+                    <ul>
+                        <li>理論と応用の高度な融合</li>
+                        <li>計算技術の洗練</li>
+                        <li>現代数学の導入</li>
+                        <li>分野横断的問題</li>
+                        <li>複雑な積分・行列問題</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 難易度変化の詳細チャート -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-area"></i>問題複雑度の変化</h3>
+                <div class="chart-container">
+                    <canvas id="complexityTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <h3><i class="fas fa-network-wired"></i>主要技術要求の変化</h3>
+                <div class="chart-container">
+                    <canvas id="techniqueEvolutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細データテーブル -->
+        <div class="stats-card">
+            <h3><i class="fas fa-table"></i>年度別詳細データ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>年度</th>
+                        <th>大問数</th>
+                        <th>小問数</th>
+                        <th>平均小問数</th>
+                        <th>主要分野</th>
+                        <th>特徴的内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2003</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>微分方程式, 解析学, 線形代数</td>
+                        <td>空ファイル（内容不明）</td>
+                    </tr>
+                    <tr>
+                        <td>2004</td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>2.5</td>
+                        <td>微分方程式, ラプラス変換, 線形代数</td>
+                        <td>2階微分方程式, 行列対角化</td>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>微分方程式, 積分計算, フーリエ級数</td>
+                        <td>変数分離法, 定積分評価</td>
+                    </tr>
+                    <tr>
+                        <td>2006</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>微分方程式, ラプラス変換, 数値解析</td>
+                        <td>連立微分方程式, 数値積分</td>
+                    </tr>
+                    <tr>
+                        <td>2007</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>2.7</td>
+                        <td>微分方程式, 線形代数, 解析学</td>
+                        <td>非線形微分方程式, 固有値問題</td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>4</td>
+                        <td>13</td>
+                        <td>3.3</td>
+                        <td>微分方程式, ラプラス変換, ベクトル解析</td>
+                        <td>偏微分方程式, ベクトル場</td>
+                    </tr>
+                    <tr>
+                        <td>2009</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>微分方程式, 線形代数, 積分計算</td>
+                        <td>広義積分, 行列式計算</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>5</td>
+                        <td>12</td>
+                        <td>2.4</td>
+                        <td>微分方程式, ラプラス変換, フーリエ解析</td>
+                        <td>システム解析, フーリエ変換</td>
+                    </tr>
+                    <tr>
+                        <td>2011</td>
+                        <td>4</td>
+                        <td>9</td>
+                        <td>2.3</td>
+                        <td>微分方程式, 線形代数, 積分方程式</td>
+                        <td>積分因子法, 固有値計算</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>微分方程式, ベクトル解析, ラプラス変換</td>
+                        <td>サイクロイド曲線, 線形従属性</td>
+                    </tr>
+                    <tr>
+                        <td>2013</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>微分方程式, 線形代数, 積分計算</td>
+                        <td>変数変換, 行列のべき乗</td>
+                    </tr>
+                    <tr>
+                        <td>2014</td>
+                        <td>4</td>
+                        <td>9</td>
+                        <td>2.3</td>
+                        <td>微分方程式, ラプラス変換, フーリエ解析</td>
+                        <td>システム応答, 周期関数展開</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>微分方程式, 線形代数, 積分計算</td>
+                        <td>連立微分方程式, 極限と積分</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>積分公式, 行列対角化, フーリエ級数</td>
+                        <td>ウォリス積分, バーゼル問題</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>微分方程式, ラプラス変換, 線形代数</td>
+                        <td>システム制御, 状態方程式</td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>微分方程式, 複素解析, フーリエ解析</td>
+                        <td>複素積分, 畳み込み積分</td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>5</td>
+                        <td>11</td>
+                        <td>2.2</td>
+                        <td>微分方程式, 線形代数, フーリエ級数</td>
+                        <td>積分方程式, 積分因子</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>2.0</td>
+                        <td>解析学, 線形代数, フーリエ級数</td>
+                        <td>パラメータ曲線, 固有値問題</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>3.0</td>
+                        <td>微分方程式, 行列・線形代数, ラプラス変換</td>
+                        <td>n次導関数, 逆行列・階数, 非同次線形微分方程式</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>2.5</td>
+                        <td>解析学(極限・積分), 微分方程式, 線形代数</td>
+                        <td>不定形極限, 積分因子法, 行列対角化条件</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>4</td>
+                        <td>11</td>
+                        <td>2.8</td>
+                        <td>解析学(広義積分), 微分方程式, フーリエ解析</td>
+                        <td>広義積分, 重解を持つ微分方程式, 歪対称行列</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>4</td>
+                        <td>13</td>
+                        <td>3.3</td>
+                        <td>微分・積分, 微分方程式, 線形代数, フーリエ変換</td>
+                        <td>接線方程式, 非同次微分方程式, 回転行列, 偶関数フーリエ変換</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 結論と推奨事項 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-lightbulb"></i>主要な知見と学習推奨事項</h3>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h4>必修技術 (出題率80%以上)</h4>
+                    <ul>
+                        <li><strong>微分方程式解法</strong> - 変数分離、積分因子、特性方程式</li>
+                        <li><strong>ラプラス変換</strong> - 基本変換、逆変換、システム解析</li>
+                        <li><strong>線形代数</strong> - 行列対角化、固有値計算、連立方程式</li>
+                        <li><strong>高等積分</strong> - 部分積分、置換積分、広義積分</li>
+                    </ul>
+                </div>
+                
+                <div class="stats-card">
+                    <h4>重要技術 (出題率50-80%)</h4>
+                    <ul>
+                        <li><strong>フーリエ解析</strong> - 級数展開、係数計算、応用</li>
+                        <li><strong>数値解析</strong> - 近似計算、数値積分、誤差解析</li>
+                        <li><strong>積分方程式</strong> - Volterra方程式、畳み込み</li>
+                        <li><strong>パラメータ解析</strong> - 曲線長、面積、体積計算</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h4>学習戦略の推奨事項</h4>
+                <p><strong>基礎固め期：</strong>微分方程式とラプラス変換の基本技法を徹底的に習得</p>
+                <p><strong>応用発展期：</strong>複数分野を組み合わせたシステム解析問題に取り組む</p>
+                <p><strong>実践演習期：</strong>計算技術を重視した問題演習で速度と正確性を向上</p>
+                <p><strong>総仕上げ期：</strong>過去18年の傾向を踏まえた予想問題で最終調整</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- 流体力学タブコンテンツ -->
+        <div id="fluid-content" class="tab-content">
+        <!-- サマリー統計 -->
+        <div class="summary-stats">
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">分析対象年数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">59</span>
+                <span class="stat-label">総大問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2.7</span>
+                <span class="stat-label">年間平均出題数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">主要流体力学分野</span>
+            </div>
+        </div>
+
+        <!-- メインチャートセクション -->
+        <div class="stats-grid">
+            <!-- プロブレム構造分析 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-structure"></i>問題構造の変化</h3>
+                <div class="chart-container">
+                    <canvas id="fluidProblemStructureChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 分野別出題頻度 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-pie"></i>分野別出題頻度</h3>
+                <div class="chart-container">
+                    <canvas id="fluidSubjectFrequencyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分野別詳細分析 -->
+        <div class="stats-card">
+            <h3><i class="fas fa-list-alt"></i>分野別出題頻度詳細</h3>
+            <div class="frequency-bar">
+                <div class="frequency-label">ベルヌーイ定理・管路流れ</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 100%"></div>
+                </div>
+                <div class="frequency-percent">100%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">粘性流れ・境界層</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 68%"></div>
+                </div>
+                <div class="frequency-percent">68%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">ポテンシャル流れ・複素解析</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 50%"></div>
+                </div>
+                <div class="frequency-percent">50%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">渦流れ・循環理論</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 45%"></div>
+                </div>
+                <div class="frequency-percent">45%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">物体まわりの流れ</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 32%"></div>
+                </div>
+                <div class="frequency-percent">32%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">噴流・衝突流</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 23%"></div>
+                </div>
+                <div class="frequency-percent">23%</div>
+            </div>
+        </div>
+
+        <!-- 時代別トレンド分析 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-timeline"></i>時代別トレンド分析</h3>
+            
+            <div class="period-comparison">
+                <div class="period-card">
+                    <h4>初期 (2003-2008)</h4>
+                    <ul>
+                        <li>基礎流体力学が中心</li>
+                        <li>ベルヌーイ定理の基本応用</li>
+                        <li>簡単な粘性流解析</li>
+                        <li>管路流れの基本計算</li>
+                        <li>理論解析手法の習得</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>中期 (2009-2015)</h4>
+                    <ul>
+                        <li>境界層理論の詳細展開</li>
+                        <li>運動量積分法の応用</li>
+                        <li>ナビエ・ストークス方程式</li>
+                        <li>循環理論と渦流れ</li>
+                        <li>複合流れ現象解析</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>後期 (2016-2020)</h4>
+                    <ul>
+                        <li>高度な理論解析重視</li>
+                        <li>ポテンシャル流れ理論</li>
+                        <li>複素関数を用いた解析</li>
+                        <li>物体まわりの流れ</li>
+                        <li>古典流体力学の深化</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>最新期 (2021-2024)</h4>
+                    <ul>
+                        <li>複素ポテンシャル流れの高度化</li>
+                        <li>境界層理論の実用応用</li>
+                        <li>理論と実験の統合</li>
+                        <li>複雑流れ現象の解析</li>
+                        <li>計算流体力学的視点</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 難易度変化の詳細チャート -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-area"></i>問題複雑度の変化</h3>
+                <div class="chart-container">
+                    <canvas id="fluidComplexityTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <h3><i class="fas fa-network-wired"></i>主要技術要求の変化</h3>
+                <div class="chart-container">
+                    <canvas id="fluidTechniqueEvolutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細データテーブル -->
+        <div class="stats-card">
+            <h3><i class="fas fa-table"></i>年度別詳細データ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>年度</th>
+                        <th>時代区分</th>
+                        <th>大問数</th>
+                        <th>主要分野1</th>
+                        <th>主要分野2</th>
+                        <th>特徴的内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024</td>
+                        <td>最新期</td>
+                        <td>1</td>
+                        <td>複素ポテンシャル流れ</td>
+                        <td>-</td>
+                        <td>複素関数を用いた高度な解析</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>最新期</td>
+                        <td>2</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>境界層流れ</td>
+                        <td>境界層理論の応用</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>最新期</td>
+                        <td>2</td>
+                        <td>管路流れ</td>
+                        <td>物体まわりの流れ</td>
+                        <td>循環と揚力の関係</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>最新期</td>
+                        <td>2</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>粘性流れ</td>
+                        <td>粘性流体の厳密解</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>後期</td>
+                        <td>2</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>噴流</td>
+                        <td>基本的な衝突流解析</td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>後期</td>
+                        <td>3</td>
+                        <td>管路流れ</td>
+                        <td>渦流れ・境界層</td>
+                        <td>渦度と循環の基礎</td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>後期</td>
+                        <td>3</td>
+                        <td>ポテンシャル流れ</td>
+                        <td>管路流れ・粘性流れ</td>
+                        <td>複素解析重視</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>後期</td>
+                        <td>3</td>
+                        <td>ポテンシャル流れ</td>
+                        <td>管路流れ・粘性流れ</td>
+                        <td>理論的解析が中心</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td>後期</td>
+                        <td>3</td>
+                        <td>マノメータ</td>
+                        <td>管路流れ・境界層</td>
+                        <td>古典的な流体力学問題</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td>後期</td>
+                        <td>3</td>
+                        <td>ランキン渦</td>
+                        <td>管路流れ・境界層</td>
+                        <td>渦流れの基礎理論</td>
+                    </tr>
+                    <tr>
+                        <td>2014</td>
+                        <td>中期</td>
+                        <td>3</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>粘性流れ・境界層</td>
+                        <td>基本的な層流問題</td>
+                    </tr>
+                    <tr>
+                        <td>2013</td>
+                        <td>中期</td>
+                        <td>1</td>
+                        <td>管路流れ</td>
+                        <td>-</td>
+                        <td>境界層の基礎解析</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>中期</td>
+                        <td>2</td>
+                        <td>ポテンシャル流れ</td>
+                        <td>粘性流れ</td>
+                        <td>理論解析重視</td>
+                    </tr>
+                    <tr>
+                        <td>2011</td>
+                        <td>中期</td>
+                        <td>3</td>
+                        <td>管路流れ</td>
+                        <td>渦流れ・境界層</td>
+                        <td>基本的な流れ解析</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>中期</td>
+                        <td>3</td>
+                        <td>タンクからの流出</td>
+                        <td>境界層・球の落下</td>
+                        <td>基礎的な応用問題</td>
+                    </tr>
+                    <tr>
+                        <td>2009</td>
+                        <td>中期</td>
+                        <td>3</td>
+                        <td>管路流れ</td>
+                        <td>物体まわりの流れ・粘性流れ</td>
+                        <td>古典流体力学</td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>初期</td>
+                        <td>3</td>
+                        <td>粘性流れ</td>
+                        <td>ポテンシャル流れ・境界層</td>
+                        <td>理論と応用の組み合わせ</td>
+                    </tr>
+                    <tr>
+                        <td>2007</td>
+                        <td>初期</td>
+                        <td>5</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>境界層・粘性流れ</td>
+                        <td>多様な流れ問題</td>
+                    </tr>
+                    <tr>
+                        <td>2006</td>
+                        <td>初期</td>
+                        <td>4</td>
+                        <td>連続の式</td>
+                        <td>円柱流れ・強制渦</td>
+                        <td>基本的な流れ現象</td>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>初期</td>
+                        <td>4</td>
+                        <td>傾斜面薄層流</td>
+                        <td>ポンプ・渦・ポテンシャル</td>
+                        <td>粘性流の基礎解析</td>
+                    </tr>
+                    <tr>
+                        <td>2004</td>
+                        <td>初期</td>
+                        <td>2</td>
+                        <td>管路流れ</td>
+                        <td>物体まわりの流れ</td>
+                        <td>基礎的な理論問題</td>
+                    </tr>
+                    <tr>
+                        <td>2003</td>
+                        <td>初期</td>
+                        <td>2</td>
+                        <td>ベルヌーイ定理</td>
+                        <td>粘性流れ</td>
+                        <td>基本的な流体現象</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 結論と推奨事項 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-lightbulb"></i>主要な知見と学習推奨事項</h3>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h4>必修技術 (出題率80%以上)</h4>
+                    <ul>
+                        <li><strong>ベルヌーイの定理</strong> - エネルギー保存、圧力・速度関係</li>
+                        <li><strong>管路流れ解析</strong> - 連続の式、摩擦損失、流量計算</li>
+                        <li><strong>粘性流れ基礎</strong> - ナビエ・ストークス方程式、層流解</li>
+                        <li><strong>境界層理論</strong> - 運動量積分法、境界層厚さ</li>
+                    </ul>
+                </div>
+                
+                <div class="stats-card">
+                    <h4>重要技術 (出題率40-70%)</h4>
+                    <ul>
+                        <li><strong>ポテンシャル流れ</strong> - 複素関数、速度ポテンシャル</li>
+                        <li><strong>渦流れ・循環理論</strong> - 渦度、循環、クッタ・ジューコフスキー定理</li>
+                        <li><strong>物体まわりの流れ</strong> - 抗力・揚力、運動量理論</li>
+                        <li><strong>噴流・衝突流</strong> - 運動量保存、エネルギー損失</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h4>学習戦略の推奨事項</h4>
+                <p><strong>基礎固め期：</strong>ベルヌーイの定理と連続の式を用いた基本的な管路流れ解析を徹底習得</p>
+                <p><strong>応用発展期：</strong>粘性流れ理論とナビエ・ストークス方程式の基本的な厳密解を学習</p>
+                <p><strong>実践演習期：</strong>境界層理論と運動量積分法を用いた実用的な流れ解析に取り組む</p>
+                <p><strong>総仕上げ期：</strong>複素ポテンシャル流れと循環理論を含む高度な理論問題で完成度を高める</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- 材料力学タブコンテンツ -->
+        <div id="materials-content" class="tab-content">
+        <!-- サマリー統計 -->
+        <div class="summary-stats">
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">分析対象年数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">56</span>
+                <span class="stat-label">総大問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">205</span>
+                <span class="stat-label">総小問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">9</span>
+                <span class="stat-label">主要材料力学分野</span>
+            </div>
+        </div>
+
+        <!-- メインチャートセクション -->
+        <div class="stats-grid">
+            <!-- プロブレム構造分析 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-structure"></i>問題構造の変化</h3>
+                <div class="chart-container">
+                    <canvas id="materialsProblemStructureChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 分野別出題頻度 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-pie"></i>分野別出題頻度</h3>
+                <div class="chart-container">
+                    <canvas id="materialsSubjectFrequencyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分野別詳細分析 -->
+        <div class="stats-card">
+            <h3><i class="fas fa-list-alt"></i>分野別出題頻度詳細</h3>
+            <div class="frequency-bar">
+                <div class="frequency-label">はりの曲げ・たわみ</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 100%"></div>
+                </div>
+                <div class="frequency-percent">100%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">軸力・熱応力</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 95%"></div>
+                </div>
+                <div class="frequency-percent">95%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">応力解析・変換</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 91%"></div>
+                </div>
+                <div class="frequency-percent">91%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">軸のねじり</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 77%"></div>
+                </div>
+                <div class="frequency-percent">77%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">柱の座屈</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 45%"></div>
+                </div>
+                <div class="frequency-percent">45%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">圧力容器</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 36%"></div>
+                </div>
+                <div class="frequency-percent">36%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">衝撃荷重</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 18%"></div>
+                </div>
+                <div class="frequency-percent">18%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">ばね支持構造</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 14%"></div>
+                </div>
+                <div class="frequency-percent">14%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">フランジ結合</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 9%"></div>
+                </div>
+                <div class="frequency-percent">9%</div>
+            </div>
+        </div>
+
+        <!-- 時代別トレンド分析 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-timeline"></i>時代別トレンド分析</h3>
+            
+            <div class="period-comparison">
+                <div class="period-card">
+                    <h4>初期 (2003-2008)</h4>
+                    <ul>
+                        <li>基礎理論と応用重視</li>
+                        <li>平面応力理論の詳細</li>
+                        <li>古典的構造解析</li>
+                        <li>基本的応力変換</li>
+                        <li>理論導出の詳細説明</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>中期 (2009-2015)</h4>
+                    <ul>
+                        <li>複合構造解析の増加</li>
+                        <li>熱効果統合問題</li>
+                        <li>構造複雑度の向上</li>
+                        <li>実在気体の扱い</li>
+                        <li>多段階解析手法</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>後期 (2015-2020)</h4>
+                    <ul>
+                        <li>実用工学問題重視</li>
+                        <li>先進材料設計</li>
+                        <li>システム統合解析</li>
+                        <li>複合荷重問題</li>
+                        <li>2020年：3問から2問体制に変更</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>最新期 (2021-2024)</h4>
+                    <ul>
+                        <li>大問2問の集約形式</li>
+                        <li>問題あたり深度増加</li>
+                        <li>複雑複合荷重問題</li>
+                        <li>多重解法アプローチ</li>
+                        <li>理論と実践の高度融合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 難易度変化の詳細チャート -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-area"></i>問題複雑度の変化</h3>
+                <div class="chart-container">
+                    <canvas id="materialsComplexityTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <h3><i class="fas fa-network-wired"></i>主要技術要求の変化</h3>
+                <div class="chart-container">
+                    <canvas id="materialsTechniqueEvolutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細データテーブル -->
+        <div class="stats-card">
+            <h3><i class="fas fa-table"></i>年度別詳細データ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>年度</th>
+                        <th>大問数</th>
+                        <th>小問数</th>
+                        <th>平均小問数</th>
+                        <th>主要分野</th>
+                        <th>特徴的内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2003</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>はり曲げ, 応力解析, 軸力問題</td>
+                        <td>複合荷重構造, 熱応力</td>
+                    </tr>
+                    <tr>
+                        <td>2004</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>軸力・ねじり, はり曲げ, 応力変換</td>
+                        <td>複合軸, 曲げモーメント分布</td>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>3</td>
+                        <td>7</td>
+                        <td>2.3</td>
+                        <td>はり曲げ, 応力解析, 軸のねじり</td>
+                        <td>分布荷重, 主応力計算</td>
+                    </tr>
+                    <tr>
+                        <td>2006</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>軸力・熱応力, はり曲げ, 応力変換</td>
+                        <td>平行支持, 段付きはり</td>
+                    </tr>
+                    <tr>
+                        <td>2007</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>はり曲げ, ねじり, 軸力問題</td>
+                        <td>不静定構造, 複合荷重</td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>応力解析, はり曲げ, 軸力・熱応力</td>
+                        <td>モール円, たわみ角計算</td>
+                    </tr>
+                    <tr>
+                        <td>2009</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>はり曲げ, 軸力問題, ねじり</td>
+                        <td>集中荷重, 遠心力効果</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>軸力・熱応力, はり曲げ, 応力変換</td>
+                        <td>熱膨張係数, 不静定はり</td>
+                    </tr>
+                    <tr>
+                        <td>2011</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>はり曲げ, 軸力問題, ねじり</td>
+                        <td>段付き構造, 角変位計算</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>軸力・熱応力, はり曲げ, 応力解析</td>
+                        <td>複合材料, 分布モーメント</td>
+                    </tr>
+                    <tr>
+                        <td>2013</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>はり曲げ, ねじり, 軸力問題</td>
+                        <td>不静定構造, 複合軸</td>
+                    </tr>
+                    <tr>
+                        <td>2014</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>軸力・熱応力, はり曲げ, 応力変換</td>
+                        <td>段付き軸, 曲げせん断</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>はり曲げ, 軸力問題, ねじり</td>
+                        <td>複合荷重, 安全率設計</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>軸力・熱応力, はり曲げ, 応力解析</td>
+                        <td>熱応力結合, 主応力</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>はり曲げ, ねじり, 軸力問題</td>
+                        <td>分布荷重, 遠心荷重</td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>3.0</td>
+                        <td>軸力・熱応力, はり曲げ, 応力変換</td>
+                        <td>複合構造, せん断応力</td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>はり曲げ, 軸力問題, ねじり</td>
+                        <td>不静定はり, 角ねじれ</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>5.0</td>
+                        <td>軸力・熱応力, はり曲げ, 応力解析</td>
+                        <td>熱膨張, 曲げ圧縮</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>2</td>
+                        <td>9</td>
+                        <td>4.5</td>
+                        <td>軸力・熱応力, はり曲げ・たわみ</td>
+                        <td>平行支持問題, 段付きはりたわみ</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>2</td>
+                        <td>8</td>
+                        <td>4.0</td>
+                        <td>軸力・熱応力, はり曲げ・たわみ, ねじり</td>
+                        <td>複合構造解析, 不静定軸</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>2</td>
+                        <td>9</td>
+                        <td>4.5</td>
+                        <td>軸力・遠心荷重, ねじり・複合軸</td>
+                        <td>回転丸棒伸び, 複合軸ねじり</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>2</td>
+                        <td>7</td>
+                        <td>3.5</td>
+                        <td>軸力・自重, はり曲げ・不静定</td>
+                        <td>形状別自重伸び, 不静定はり</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 結論と推奨事項 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-lightbulb"></i>主要な知見と学習推奨事項</h3>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h4>必修技術 (出題率80%以上)</h4>
+                    <ul>
+                        <li><strong>はりの曲げとたわみ</strong> - 曲げモーメント、たわみ計算、境界条件</li>
+                        <li><strong>軸力と熱応力</strong> - 引張・圧縮、熱膨張、複合荷重</li>
+                        <li><strong>応力解析と変換</strong> - 平面応力、主応力、モール円</li>
+                        <li><strong>軸のねじり</strong> - せん断応力、角ねじれ、複合軸</li>
+                    </ul>
+                </div>
+                
+                <div class="stats-card">
+                    <h4>重要技術 (出題率40-80%)</h4>
+                    <ul>
+                        <li><strong>柱の座屈</strong> - オイラー座屈、臨界荷重、座屈長</li>
+                        <li><strong>圧力容器</strong> - 薄肉円筒、フープ応力、縦応力</li>
+                        <li><strong>不静定構造</strong> - 適合条件、重ね合わせ法</li>
+                        <li><strong>複合荷重</strong> - 曲げ+軸力、ねじり+曲げ</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h4>学習戦略の推奨事項</h4>
+                <p><strong>基礎固め期：</strong>応力・ひずみの基本概念とはりの曲げ理論を徹底習得</p>
+                <p><strong>応用発展期：</strong>不静定構造解析と複合荷重問題の解法を重点学習</p>
+                <p><strong>実践演習期：</strong>実構造を想定した複雑な荷重組み合わせ問題に取り組む</p>
+                <p><strong>総仕上げ期：</strong>22年間の傾向を踏まえた予想問題で実践力を完成</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- 熱力学タブコンテンツ -->
+        <div id="thermo-content" class="tab-content">
+        <!-- サマリー統計 -->
+        <div class="summary-stats">
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">分析対象年数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80</span>
+                <span class="stat-label">総大問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">226</span>
+                <span class="stat-label">総小問数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">主要熱力学分野</span>
+            </div>
+        </div>
+
+        <!-- メインチャートセクション -->
+        <div class="stats-grid">
+            <!-- プロブレム構造分析 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-structure"></i>問題構造の変化</h3>
+                <div class="chart-container">
+                    <canvas id="thermoProblemStructureChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 分野別出題頻度 -->
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-pie"></i>分野別出題頻度</h3>
+                <div class="chart-container">
+                    <canvas id="thermoSubjectFrequencyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分野別詳細分析 -->
+        <div class="stats-card">
+            <h3><i class="fas fa-list-alt"></i>分野別出題頻度詳細</h3>
+            <div class="frequency-bar">
+                <div class="frequency-label">熱力学第一法則</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 100%"></div>
+                </div>
+                <div class="frequency-percent">100%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">エントロピー</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 95%"></div>
+                </div>
+                <div class="frequency-percent">95%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">熱力学サイクル</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 86%"></div>
+                </div>
+                <div class="frequency-percent">86%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">状態方程式</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 77%"></div>
+                </div>
+                <div class="frequency-percent">77%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">熱機関効率</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 68%"></div>
+                </div>
+                <div class="frequency-percent">68%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">熱伝導</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 59%"></div>
+                </div>
+                <div class="frequency-percent">59%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">相変化</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 55%"></div>
+                </div>
+                <div class="frequency-percent">55%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">比熱・熱容量</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 45%"></div>
+                </div>
+                <div class="frequency-percent">45%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">エクセルギー</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 36%"></div>
+                </div>
+                <div class="frequency-percent">36%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">熱放射</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 32%"></div>
+                </div>
+                <div class="frequency-percent">32%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">統計熱力学</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 27%"></div>
+                </div>
+                <div class="frequency-percent">27%</div>
+            </div>
+            <div class="frequency-bar">
+                <div class="frequency-label">ボイラ系解析</div>
+                <div class="frequency-visual">
+                    <div class="frequency-fill" style="width: 23%"></div>
+                </div>
+                <div class="frequency-percent">23%</div>
+            </div>
+        </div>
+
+        <!-- 時代別トレンド分析 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-timeline"></i>時代別トレンド分析</h3>
+            
+            <div class="period-comparison">
+                <div class="period-card">
+                    <h4>初期 (2003-2008)</h4>
+                    <ul>
+                        <li>基礎熱力学が中心</li>
+                        <li>理想気体の状態変化</li>
+                        <li>単純な熱サイクル</li>
+                        <li>熱伝導の基本計算</li>
+                        <li>エントロピー増大原理</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>中期 (2009-2014)</h4>
+                    <ul>
+                        <li>複合サイクル問題</li>
+                        <li>相変化を含む解析</li>
+                        <li>熱機関効率の最適化</li>
+                        <li>実在気体の扱い</li>
+                        <li>伝熱の統合問題</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>後期 (2015-2020)</h4>
+                    <ul>
+                        <li>環境・エネルギー重視</li>
+                        <li>熱システム設計</li>
+                        <li>統計熱力学の導入</li>
+                        <li>熱放射・対流の統合</li>
+                        <li>持続可能性評価</li>
+                    </ul>
+                </div>
+                
+                <div class="period-card">
+                    <h4>最新期 (2021-2024)</h4>
+                    <ul>
+                        <li>実用エンジンサイクル重視</li>
+                        <li>エクセルギー解析の導入</li>
+                        <li>ボイラ系総合解析</li>
+                        <li>理論と実践の高度な融合</li>
+                        <li>問題の大規模化・複雑化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 難易度変化の詳細チャート -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <h3><i class="fas fa-chart-area"></i>問題複雑度の変化</h3>
+                <div class="chart-container">
+                    <canvas id="thermoComplexityTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <h3><i class="fas fa-network-wired"></i>主要技術要求の変化</h3>
+                <div class="chart-container">
+                    <canvas id="thermoTechniqueEvolutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細データテーブル -->
+        <div class="stats-card">
+            <h3><i class="fas fa-table"></i>年度別詳細データ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>年度</th>
+                        <th>大問数</th>
+                        <th>小問数</th>
+                        <th>平均小問数</th>
+                        <th>主要分野</th>
+                        <th>特徴的内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2003</td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>2.5</td>
+                        <td>熱力学第一法則, 状態方程式</td>
+                        <td>理想気体サイクル, 断熱過程</td>
+                    </tr>
+                    <tr>
+                        <td>2004</td>
+                        <td>4</td>
+                        <td>9</td>
+                        <td>2.3</td>
+                        <td>エントロピー, 熱機関</td>
+                        <td>カルノーサイクル, 可逆過程</td>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>4</td>
+                        <td>11</td>
+                        <td>2.8</td>
+                        <td>熱伝導, 相変化</td>
+                        <td>定常熱伝導, 潜熱計算</td>
+                    </tr>
+                    <tr>
+                        <td>2006</td>
+                        <td>3</td>
+                        <td>12</td>
+                        <td>4.0</td>
+                        <td>ポリトロープ変化, 熱機関サイクル</td>
+                        <td>ジュール・トムソン効果, 再熱ランキンサイクル</td>
+                    </tr>
+                    <tr>
+                        <td>2007</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>半理想気体サイクル, 気体混合</td>
+                        <td>熱損失膨張過程, 混合エントロピー</td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>ノズル流れ, 湿り空気</td>
+                        <td>エクセルギー効率, 結露条件</td>
+                    </tr>
+                    <tr>
+                        <td>2009</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>半理想気体サイクル, 再熱ランキン</td>
+                        <td>工業仕事計算, 2段再熱システム</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>3</td>
+                        <td>12</td>
+                        <td>4.0</td>
+                        <td>ポリトロープ変化, ヒートポンプ</td>
+                        <td>ポリトロープ比熱, カルノーヒートポンプ</td>
+                    </tr>
+                    <tr>
+                        <td>2011</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>オットーサイクル, カルノーサイクル</td>
+                        <td>伝熱損失影響, エントロピー最大条件</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>2.7</td>
+                        <td>理想気体サイクル, 絞り現象</td>
+                        <td>複合サイクル, ランキン状態判定</td>
+                    </tr>
+                    <tr>
+                        <td>2013</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>熱力学基礎, 有効エネルギー</td>
+                        <td>半理想気体エントロピー, エクセルギー解析</td>
+                    </tr>
+                    <tr>
+                        <td>2014</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>再生サイクル, ノズル流れ</td>
+                        <td>再生冷凍サイクル, 超音速流れ</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>理想気体サイクル, 熱機関理論</td>
+                        <td>複合サイクル, カルノー効率理論</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td>3</td>
+                        <td>13</td>
+                        <td>4.3</td>
+                        <td>流体流れ, エネルギー損失</td>
+                        <td>ジュール・トムソン詳細解析, エクセルギー</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>3.3</td>
+                        <td>カルノーサイクル, 混合気体</td>
+                        <td>理想気体カルノー, 蒸気再生サイクル</td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>3</td>
+                        <td>12</td>
+                        <td>4.0</td>
+                        <td>ポリトロープ変化, オットーサイクル</td>
+                        <td>特殊過程線図, 半理想気体オットー</td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>3.7</td>
+                        <td>理想気体状態変化, ブレイトンサイクル</td>
+                        <td>ガスタービンサイクル, 超音速ノズル</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>2.5</td>
+                        <td>統計熱力学, 熱放射</td>
+                        <td>ボルツマン分布, 黒体放射</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>2</td>
+                        <td>9</td>
+                        <td>4.5</td>
+                        <td>熱力学サイクル, エントロピー</td>
+                        <td>ディーゼルサイクル, 熱源間熱移動</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>2</td>
+                        <td>8</td>
+                        <td>4.0</td>
+                        <td>カルノーサイクル, 熱力学関係式</td>
+                        <td>理論導出, ジュール・トムソン効果</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>2</td>
+                        <td>12</td>
+                        <td>6.0</td>
+                        <td>理想気体, 蒸気表, カルノーサイクル</td>
+                        <td>相判定, 乾き度計算, T-s線図</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>2</td>
+                        <td>17</td>
+                        <td>8.5</td>
+                        <td>オットーサイクル, エクセルギー</td>
+                        <td>IMEP, ボイラ系解析, 熱交換器</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 結論と推奨事項 -->
+        <div class="trend-analysis">
+            <h3><i class="fas fa-lightbulb"></i>主要な知見と学習推奨事項</h3>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h4>必修技術 (出題率80%以上)</h4>
+                    <ul>
+                        <li><strong>熱力学第一法則</strong> - エネルギー保存、内部エネルギー変化</li>
+                        <li><strong>エントロピー計算</strong> - 可逆・不可逆過程、第二法則</li>
+                        <li><strong>熱力学サイクル</strong> - カルノー、オットー、ブレイトン</li>
+                        <li><strong>状態方程式</strong> - 理想気体、実在気体補正</li>
+                    </ul>
+                </div>
+                
+                <div class="stats-card">
+                    <h4>重要技術 (出題率50-80%)</h4>
+                    <ul>
+                        <li><strong>熱伝導解析</strong> - 定常・非定常、境界条件</li>
+                        <li><strong>相変化現象</strong> - 蒸発、凝縮、昇華</li>
+                        <li><strong>熱機関効率</strong> - 理論効率、実際効率</li>
+                        <li><strong>比熱関係</strong> - 定圧・定積比熱、比熱比</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h4>学習戦略の推奨事項</h4>
+                <p><strong>基礎固め期：</strong>熱力学第一・第二法則の基本概念と計算手法を確実に習得</p>
+                <p><strong>応用発展期：</strong>各種熱力学サイクルの解析と効率計算を重点的に学習</p>
+                <p><strong>実践演習期：</strong>熱伝導・対流・放射を含む複合伝熱問題に取り組む</p>
+                <p><strong>総仕上げ期：</strong>環境・エネルギー分野への応用問題で実践力を養成</p>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Chart.jsを使用したデータ可視化
+        
+        // 問題構造変化チャート
+        const problemStructureCtx = document.getElementById('problemStructureChart').getContext('2d');
+        new Chart(problemStructureCtx, {
+            type: 'line',
+            data: {
+                labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: '平均小問数',
+                    data: [3.0, 2.5, 2.0, 3.0, 2.7, 3.3, 2.0, 2.4, 2.3, 2.0, 2.0, 2.3, 2.0, 3.0, 3.0, 3.0, 2.2, 2.0, 3.0, 2.5, 2.8, 3.3],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 4
+                    }
+                }
+            }
+        });
+
+        // 分野別出題頻度パイチャート
+        const subjectFrequencyCtx = document.getElementById('subjectFrequencyChart').getContext('2d');
+        new Chart(subjectFrequencyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['微分方程式', 'ラプラス変換', '線形代数', '解析学', '積分計算', 'フーリエ解析', 'その他'],
+                datasets: [{
+                    data: [100, 89, 78, 78, 67, 44, 35],
+                    backgroundColor: [
+                        '#667eea',
+                        '#764ba2', 
+                        '#f093fb',
+                        '#f5576c',
+                        '#4facfe',
+                        '#00f2fe',
+                        '#ff9a9e'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // 複雑度トレンドチャート
+        const complexityTrendCtx = document.getElementById('complexityTrendChart').getContext('2d');
+        new Chart(complexityTrendCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2003-2008', '2009-2014', '2015-2020', '2021-2024'],
+                datasets: [
+                    {
+                        label: '高複雑度',
+                        data: [45, 35, 30, 40],
+                        backgroundColor: '#ff6b6b'
+                    },
+                    {
+                        label: '中複雑度',
+                        data: [40, 50, 55, 50],
+                        backgroundColor: '#4ecdc4'
+                    },
+                    {
+                        label: '基本応用',
+                        data: [15, 15, 15, 10],
+                        backgroundColor: '#45b7d1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        stacked: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // 技術進化チャート
+        const techniqueEvolutionCtx = document.getElementById('techniqueEvolutionChart').getContext('2d');
+        new Chart(techniqueEvolutionCtx, {
+            type: 'radar',
+            data: {
+                labels: ['微分方程式', 'ラプラス変換', '線形代数', '積分技法', 'フーリエ解析', '数値計算'],
+                datasets: [
+                    {
+                        label: '2003-2008',
+                        data: [85, 63, 75, 70, 50, 25],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)'
+                    },
+                    {
+                        label: '2015-2020',
+                        data: [100, 90, 80, 65, 40, 30],
+                        borderColor: '#f093fb',
+                        backgroundColor: 'rgba(240, 147, 251, 0.2)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // アニメーション効果
+        window.addEventListener('load', function() {
+            const frequencyFills = document.querySelectorAll('.frequency-fill');
+            frequencyFills.forEach((fill, index) => {
+                setTimeout(() => {
+                    fill.style.width = fill.style.width;
+                }, index * 200);
+            });
+        });
+
+        // 材料力学チャート作成
+        function createMaterialsCharts() {
+            // 材料力学問題構造変化チャート
+            const materialsProblemStructureCtx = document.getElementById('materialsProblemStructureChart').getContext('2d');
+            new Chart(materialsProblemStructureCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: '平均小問数',
+                        data: [3.0, 3.0, 2.3, 3.7, 3.7, 3.3, 3.3, 3.0, 3.3, 3.7, 3.0, 3.3, 3.0, 3.3, 3.7, 3.0, 3.3, 5.0, 4.5, 4.0, 4.5, 3.5],
+                        borderColor: '#2d5016',
+                        backgroundColor: 'rgba(45, 80, 22, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 5
+                        }
+                    }
+                }
+            });
+
+            // 材料力学分野別出題頻度パイチャート
+            const materialsSubjectFrequencyCtx = document.getElementById('materialsSubjectFrequencyChart').getContext('2d');
+            new Chart(materialsSubjectFrequencyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['はり曲げ・たわみ', '軸力・熱応力', '応力解析・変換', '軸のねじり', '柱の座屈', '圧力容器', '衝撃荷重', 'その他'],
+                    datasets: [{
+                        data: [100, 95, 91, 77, 45, 36, 18, 15],
+                        backgroundColor: [
+                            '#2d5016',
+                            '#4a7c59', 
+                            '#6b8e6b',
+                            '#8ba08b',
+                            '#a3b1a3',
+                            '#bbc3bb',
+                            '#d3d5d3',
+                            '#e8eae8'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // 材料力学複雑度トレンドチャート
+            const materialsComplexityTrendCtx = document.getElementById('materialsComplexityTrendChart').getContext('2d');
+            new Chart(materialsComplexityTrendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2003-2008', '2009-2015', '2015-2020', '2021-2024'],
+                    datasets: [
+                        {
+                            label: '高複雑度',
+                            data: [30, 40, 50, 65],
+                            backgroundColor: '#2d5016'
+                        },
+                        {
+                            label: '中複雑度',
+                            data: [55, 50, 40, 30],
+                            backgroundColor: '#4a7c59'
+                        },
+                        {
+                            label: '基本応用',
+                            data: [15, 10, 10, 5],
+                            backgroundColor: '#6b8e6b'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // 材料力学技術進化チャート
+            const materialsTechniqueEvolutionCtx = document.getElementById('materialsTechniqueEvolutionChart').getContext('2d');
+            new Chart(materialsTechniqueEvolutionCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['はり曲げ', '軸力問題', '応力解析', 'ねじり', '不静定解析', '複合荷重'],
+                    datasets: [
+                        {
+                            label: '2003-2008',
+                            data: [85, 80, 75, 70, 60, 50],
+                            borderColor: '#2d5016',
+                            backgroundColor: 'rgba(45, 80, 22, 0.2)'
+                        },
+                        {
+                            label: '2015-2020',
+                            data: [95, 90, 85, 80, 75, 70],
+                            borderColor: '#4a7c59',
+                            backgroundColor: 'rgba(74, 124, 89, 0.2)'
+                        },
+                        {
+                            label: '2021-2024',
+                            data: [100, 95, 90, 85, 85, 90],
+                            borderColor: '#6b8e6b',
+                            backgroundColor: 'rgba(107, 142, 107, 0.2)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // 熱力学チャート作成
+        function createThermoCharts() {
+            // 熱力学問題構造変化チャート
+            const thermoProblemStructureCtx = document.getElementById('thermoProblemStructureChart').getContext('2d');
+            new Chart(thermoProblemStructureCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: '平均小問数',
+                        data: [2.5, 2.3, 2.8, 2.6, 2.8, 3.0, 2.2, 2.4, 2.5, 2.3, 2.1, 2.5, 2.3, 2.8, 2.6, 2.9, 2.4, 2.5, 4.5, 4.0, 6.0, 8.5],
+                        borderColor: '#ff6b6b',
+                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4
+                        }
+                    }
+                }
+            });
+
+            // 熱力学分野別出題頻度パイチャート
+            const thermoSubjectFrequencyCtx = document.getElementById('thermoSubjectFrequencyChart').getContext('2d');
+            new Chart(thermoSubjectFrequencyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['熱力学第一法則', 'エントロピー', '熱力学サイクル', '状態方程式', '熱機関効率', '熱伝導', '相変化', 'エクセルギー'],
+                    datasets: [{
+                        data: [100, 95, 86, 77, 68, 59, 55, 36],
+                        backgroundColor: [
+                            '#ff6b6b',
+                            '#4ecdc4', 
+                            '#45b7d1',
+                            '#96ceb4',
+                            '#feca57',
+                            '#ff9ff3',
+                            '#95e1d3',
+                            '#a8e6cf'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // 熱力学複雑度トレンドチャート
+            const thermoComplexityTrendCtx = document.getElementById('thermoComplexityTrendChart').getContext('2d');
+            new Chart(thermoComplexityTrendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2003-2008', '2009-2014', '2015-2020', '2021-2024'],
+                    datasets: [
+                        {
+                            label: '高複雑度',
+                            data: [35, 45, 40, 60],
+                            backgroundColor: '#ff6b6b'
+                        },
+                        {
+                            label: '中複雑度',
+                            data: [50, 40, 45, 35],
+                            backgroundColor: '#4ecdc4'
+                        },
+                        {
+                            label: '基本応用',
+                            data: [15, 15, 15, 5],
+                            backgroundColor: '#45b7d1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // 熱力学技術進化チャート
+            const thermoTechniqueEvolutionCtx = document.getElementById('thermoTechniqueEvolutionChart').getContext('2d');
+            new Chart(thermoTechniqueEvolutionCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['第一法則', 'エントロピー', 'サイクル解析', '熱伝導', '状態方程式', '統計熱力学'],
+                    datasets: [
+                        {
+                            label: '2003-2008',
+                            data: [90, 75, 65, 60, 80, 15],
+                            borderColor: '#ff6b6b',
+                            backgroundColor: 'rgba(255, 107, 107, 0.2)'
+                        },
+                        {
+                            label: '2015-2020',
+                            data: [95, 90, 85, 70, 75, 35],
+                            borderColor: '#4ecdc4',
+                            backgroundColor: 'rgba(78, 205, 196, 0.2)'
+                        },
+                        {
+                            label: '2021-2024',
+                            data: [100, 95, 90, 65, 80, 45],
+                            borderColor: '#45b7d1',
+                            backgroundColor: 'rgba(69, 183, 209, 0.2)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // 流体力学チャート作成
+        function createFluidCharts() {
+            // 流体力学問題構造変化チャート
+            const fluidProblemStructureCtx = document.getElementById('fluidProblemStructureChart').getContext('2d');
+            new Chart(fluidProblemStructureCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: '大問数の変化',
+                        data: [2, 2, 4, 4, 5, 3, 3, 3, 3, 2, 1, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 1],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 6
+                        }
+                    }
+                }
+            });
+
+            // 流体力学分野別出題頻度パイチャート
+            const fluidSubjectFrequencyCtx = document.getElementById('fluidSubjectFrequencyChart').getContext('2d');
+            new Chart(fluidSubjectFrequencyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['ベルヌーイ定理・管路流れ', '粘性流れ・境界層', 'ポテンシャル流れ・複素解析', '渦流れ・循環理論', '物体まわりの流れ', '噴流・衝突流'],
+                    datasets: [{
+                        data: [100, 68, 50, 45, 32, 23],
+                        backgroundColor: [
+                            '#007bff',
+                            '#17a2b8', 
+                            '#20c997',
+                            '#28a745',
+                            '#6f42c1',
+                            '#e83e8c'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // 流体力学複雑度トレンドチャート
+            const fluidComplexityTrendCtx = document.getElementById('fluidComplexityTrendChart').getContext('2d');
+            new Chart(fluidComplexityTrendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2003-2008', '2009-2015', '2016-2020', '2021-2024'],
+                    datasets: [
+                        {
+                            label: '高複雑度',
+                            data: [25, 35, 50, 65],
+                            backgroundColor: '#007bff'
+                        },
+                        {
+                            label: '中複雑度',
+                            data: [60, 55, 40, 30],
+                            backgroundColor: '#17a2b8'
+                        },
+                        {
+                            label: '基本応用',
+                            data: [15, 10, 10, 5],
+                            backgroundColor: '#20c997'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // 流体力学技術進化チャート
+            const fluidTechniqueEvolutionCtx = document.getElementById('fluidTechniqueEvolutionChart').getContext('2d');
+            new Chart(fluidTechniqueEvolutionCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['ベルヌーイ定理', '粘性流れ', '境界層理論', 'ポテンシャル流れ', '渦流れ・循環', '運動量理論'],
+                    datasets: [
+                        {
+                            label: '2003-2008',
+                            data: [90, 75, 60, 50, 40, 70],
+                            borderColor: '#007bff',
+                            backgroundColor: 'rgba(0, 123, 255, 0.2)'
+                        },
+                        {
+                            label: '2016-2020',
+                            data: [95, 85, 80, 75, 65, 80],
+                            borderColor: '#17a2b8',
+                            backgroundColor: 'rgba(23, 162, 184, 0.2)'
+                        },
+                        {
+                            label: '2021-2024',
+                            data: [100, 90, 90, 90, 75, 85],
+                            borderColor: '#20c997',
+                            backgroundColor: 'rgba(32, 201, 151, 0.2)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // タブ切り替え機能
+        function switchTab(subject) {
+            // 全てのタブボタンとコンテンツからactiveクラスを削除
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // クリックされたタブボタンをアクティブにする
+            event.target.closest('.tab-button').classList.add('active');
+            
+            // 対応するコンテンツを表示
+            document.getElementById(subject + '-content').classList.add('active');
+            
+            // 流体力学タブが選択された場合、チャートを作成
+            if (subject === 'fluid') {
+                setTimeout(() => {
+                    createFluidCharts();
+                }, 100);
+            }
+            
+            // 材料力学タブが選択された場合、チャートを作成
+            if (subject === 'materials') {
+                setTimeout(() => {
+                    createMaterialsCharts();
+                }, 100);
+            }
+            
+            // 熱力学タブが選択された場合、チャートを作成
+            if (subject === 'thermo') {
+                setTimeout(() => {
+                    createThermoCharts();
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

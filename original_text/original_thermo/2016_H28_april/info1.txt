@@ -1,0 +1,167 @@
+### 解答：熱力学 2016年度 修士課程入試問題
+
+---
+
+#### 【1】流体の流れと熱力学
+
+**(1) 断面Ⅰで気体を押し込む仕事**  
+気体を押し込む際の仕事（流れ仕事）は、圧力 \(P\) と比容積 \(v\) の積で与えられます。単位質量あたり：  
+\[
+\boxed{P_1 v_1}
+\]
+
+**(2) タービン仕事 \(W_1\)**  
+定常流エネルギー保存則（運動エネルギー・位置エネルギー無視）より：  
+\[
+m h_1 = m h_2 + W_1 + Q \quad (\text{\(Q > 0\) は外部への放熱})  
+\]  
+\[
+\boxed{W_1 = m (h_1 - h_2) - Q}
+\]
+
+**(3) 絞り過程のエネルギー保存式（断熱・無仕事）**  
+絞りでは \(W_1 = 0\)、熱損失なし（\(Q = 0\)）、流速遅い（運動エネルギー無視）：  
+\[
+\boxed{h_1 = h_2}
+\]
+
+**(4) \(dh = T ds + v dP\) の導出**  
+- 熱力学第一法則： \( du = \delta q - \delta w = T ds - P dv \)  
+- エンタルピー定義： \( h = u + P v \)  
+- 全微分：  
+\[
+dh = du + P dv + v dP = (T ds - P dv) + P dv + v dP = \boxed{T ds + v dP}
+\]
+
+**(5) \(dh = c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP\) の導出**  
+- \( s = s(P, T) \) の全微分：  
+\[
+ds = \left( \frac{\partial s}{\partial T} \right)_P dT + \left( \frac{\partial s}{\partial P} \right)_T dP
+\]  
+- 定圧比熱 \( c_p = T \left( \frac{\partial s}{\partial T} \right)_P \) より：  
+\[
+ds = \frac{c_p}{T} dT + \left( \frac{\partial s}{\partial P} \right)_T dP
+\]  
+- マックスウェルの関係式 \(\left( \frac{\partial v}{\partial T} \right)_P = -\left( \frac{\partial s}{\partial P} \right)_T\) を代入：  
+\[
+ds = \frac{c_p}{T} dT - \left( \frac{\partial v}{\partial T} \right)_P dP
+\]  
+- (4) の結果 \( dh = T ds + v dP \) に代入：  
+\[
+dh = T \left[ \frac{c_p}{T} dT - \left( \frac{\partial v}{\partial T} \right)_P dP \right] + v dP = \boxed{c_p dT + \left[ v - T \left( \frac{\partial v}{\partial T} \right)_P \right] dP}
+\]
+
+**(6) ジュール・トムソン係数**  
+絞り過程では \( dh = 0 \)。(5) の式で \( dh = 0 \) とし、係数を定義：  
+\[
+\mu = \left( \frac{\partial T}{\partial P} \right)_h = \frac{ T \left( \frac{\partial v}{\partial T} \right)_P - v }{c_p} \quad \boxed{\mu = \frac{1}{c_p} \left[ T \left( \frac{\partial v}{\partial T} \right)_P - v \right]}
+\]
+
+**(7) 逆転温度（状態式： \( P \left( v - a + \frac{b}{RT} \right) = RT \))**  
+- 状態式を変形：  
+\[
+v = \frac{RT}{P} + a - \frac{b}{RT}
+\]  
+- 微分：  
+\[
+\left( \frac{\partial v}{\partial T} \right)_P = \frac{R}{P} + \frac{b}{R T^2}
+\]  
+- \(\mu = 0\) の条件（逆転温度）：  
+\[
+T \left( \frac{\partial v}{\partial T} \right)_P - v = 0 \implies T \left( \frac{R}{P} + \frac{b}{R T^2} \right) - \left( \frac{RT}{P} + a - \frac{b}{RT} \right) = 0
+\]  
+\[
+\frac{RT}{P} + \frac{b}{R T} - \frac{RT}{P} - a + \frac{b}{RT} = 0 \implies -\left( a - \frac{2b}{RT} \right) = 0
+\]  
+\[
+\boxed{T_{\text{inv}} = \frac{2b}{a R}
+\]
+
+**(8) 理想気体の絞り通過後の温度**  
+理想気体では \( Pv = RT \)。(7) の式で \( a = b = 0 \) とすると：  
+\[
+T \left( \frac{\partial v}{\partial T} \right)_P - v = T \cdot \frac{R}{P} - \frac{RT}{P} = 0 \implies \mu = 0
+\]  
+絞り通過後も **温度変化なし**（等エンタルピー変化）。
+
+---
+
+#### 【2】ボイラのエネルギー損失
+
+**(1) 可逆利用時のエントロピーと無効エネルギー**  
+- 高温熱源温度： \( T_H = 1400 + 273 = 1673 \, \text{K} \)  
+- 熱量： \( Q = 2800 \, \text{kJ/kg} \)  
+- 可逆利用時のエントロピー（熱源の初期エントロピー）：  
+\[
+S_{\text{initial}} = \frac{Q}{T_H} = \frac{2800}{1673} \approx \boxed{1.67 \, \text{kJ/(kg·K)}}
+\]  
+- 無効エネルギー（低温熱源 \( T_L = 273 \, \text{K} \) に関連）：  
+\[
+E_{\text{無効}} = T_L \cdot \frac{Q}{T_H} = 273 \times \frac{2800}{1673} \approx \boxed{456 \, \text{kJ/kg}}
+\]
+
+**(2) 不可逆伝熱後のエントロピー増加と無効エネルギー増加**  
+- エントロピー増加量（熱源＋水の系全体）：  
+  - 熱源のエントロピー減少： \( -\frac{Q}{T_H} = -\frac{2800}{1673} \approx -1.67 \, \text{kJ/(kg·K)} \)  
+  - 水のエントロピー増加： \( +6.6 \, \text{kJ/(kg·K)} \)  
+  \[
+  \Delta S_{\text{total}} = 6.6 - \frac{2800}{1673} \approx \boxed{4.93 \, \text{kJ/(kg·K)}}
+\]  
+- 無効エネルギー増加量：  
+  \[
+  \Delta E_{\text{無効}} = T_L \cdot \Delta S_{\text{total}} = 273 \times 4.93 \approx \boxed{1346 \, \text{kJ/kg}}
+\]
+
+---
+
+#### 【3】蒸気サイクル（表1使用）
+
+**(1) 状態4の乾き度**  
+- 状態1（ボイラ出口）： \( P_1 = 2 \, \text{MPa} \), \( s_1 = s'' = 6.3 \, \text{kJ/(kg·K)} \)  
+- 状態4（復水器入口）： \( P_4 = 0.004 \, \text{MPa} \), \( s_4 = s_1 = 6.3 \, \text{kJ/(kg·K)} \)  
+- 飽和蒸気表：  
+  - \( s' = 0.4 \, \text{kJ/(kg·K)} \), \( s'' = 8.5 \, \text{kJ/(kg·K)} \)  
+- 乾き度：  
+\[
+x_4 = \frac{s_4 - s'}{s'' - s'} = \frac{6.3 - 0.4}{8.5 - 0.4} = \frac{5.9}{8.1} \approx \boxed{0.73}
+\]
+
+**(2) サイクル熱効率**  
+- 吸熱量（ボイラ）：  
+  \[
+  q_{\text{in}} = h_1 - h_2 = 2800 - 900 = \boxed{1900 \, \text{kJ/kg}}
+\]  
+- 正味仕事（タービン仕事、ポンプ仕事無視）：  
+  \[
+  h_4 = h' + x_4 (h'' - h') = 100 + 0.73 \times (2500 - 100) = 100 + 1752 = 1852 \, \text{kJ/kg}
+\]  
+  \[
+  w_{\text{net}} = h_1 - h_4 = 2800 - 1852 = \boxed{948 \, \text{kJ/kg}}
+\]  
+- 熱効率：  
+\[
+\eta = \frac{w_{\text{net}}}{q_{\text{in}}}} = \frac{948}{1900} \approx \boxed{0.50}
+\]
+
+**(3) カルノー効率**  
+- 高温熱源温度： \( T_H = 200 + 273 = 473 \, \text{K} \)  
+- 低温熱源温度： \( T_L = 30 + 273 = 303 \, \text{K} \)  
+\[
+\eta_{\text{Carnot}} = 1 - \frac{T_L}{T_H} = 1 - \frac{303}{473} \approx \boxed{0.36}
+\]
+
+**(4) 損失と不可逆性**  
+実際の原動所で生じる主な損失：  
+1. **タービン内の不可逆膨張**：摩擦や乱流によりエントロピー増加、仕事出力減少。  
+2. **配管での熱損失**：断熱不十分で熱が外部へ逃げる。  
+3. **ポンプの不可逆性**：機械損失や内部摩擦により消費電力増加。  
+4. **復水器の過冷却**：設計値より低温で凝縮、利用可能エネルギー損失。  
+5. **燃焼の不完全性**：化学エネルギーから熱エネルギーへの変換効率低下。  
+
+--- 
+
+### まとめ
+- 流れ仕事やエネルギー保存則は流体システムの基本です。
+- ジュール・トムソン効果は実ガスで重要（例：冷凍サイクル）。
+- 蒸気サイクルでは蒸気表を使い、乾き度や効率を計算します。
+- 実際のプラントでは不可逆損失を最小化する設計が鍵！

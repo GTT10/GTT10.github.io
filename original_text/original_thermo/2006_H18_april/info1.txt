@@ -1,0 +1,232 @@
+### 解答：平成18年度 工業熱力学
+
+---
+
+### 【１】ポリトロープ変化に関する問題
+**問題文再現**：  
+理想気体が状態1→2へポリトロープ変化（\( P_1 V_1^n = P_2 V_2^n \)）。ガス定数 \( R \)，比熱比 \( \kappa \)。
+
+---
+
+#### (1) \( P-V \) 線図上の過程と \( n \) の値  
+**線図の特徴**（縦軸：\( P \)，横軸：\( V \))：  
+- **可逆断熱変化**： \( n = \kappa \) （急峻な曲線）  
+- **等温変化**： \( n = 1 \) （双曲線）  
+- **定圧変化**： \( n = 0 \) （水平線）  
+- **定容変化**： \( n = \infty \) （垂直線）  
+<img src="https://via.placeholder.com/300x200?text=P-V+Diagram" alt="P-V Diagram" style="background:white;border:1px solid black;">  
+
+---
+
+#### (2) 仕事 \( W \) と熱量 \( Q \)  
+**仕事 \( W \)**（単位：J）：  
+\[
+\boxed{W = \frac{m R}{n-1} (T_1 - T_2)} \quad (n \neq 1)
+\]  
+**導出**：  
+\[
+W = \int_{V_1}^{V_2} P  dV = P_1 V_1^n \int_{V_1}^{V_2} V^{-n} dV = \frac{P_1 V_1}{1-n} \left[ \left( \frac{V_2}{V_1} \right)^{1-n} - 1 \right]
+\]  
+状態方程式 \( P_1 V_1 = m R T_1 \) と \( \frac{T_2}{T_1} = \left( \frac{V_1}{V_2} \right)^{n-1} \) より：  
+\[
+W = \frac{m R}{1-n} (T_2 - T_1) = \frac{m R}{n-1} (T_1 - T_2)
+\]  
+
+**熱量 \( Q \)**（単位：J）：  
+\[
+\boxed{Q = m c_v \left( \frac{\kappa - n}{1 - n} \right) (T_2 - T_1)}
+\]  
+**導出**：  
+熱力学第一法則 \( Q = \Delta U + W \)。  
+\[
+\Delta U = m c_v (T_2 - T_1), \quad c_v = \frac{R}{\kappa-1}
+\]  
+代入：  
+\[
+Q = m c_v (T_2 - T_1) + \frac{m R}{n-1} (T_1 - T_2) = m c_v (T_2 - T_1) \left( 1 - \frac{R}{c_v (1-n)} \right)
+\]  
+\[
+\frac{R}{c_v} = \kappa - 1 \implies Q = m c_v (T_2 - T_1) \left( 1 - \frac{\kappa - 1}{1-n} \right) = m c_v \left( \frac{\kappa - n}{1 - n} \right) (T_2 - T_1)
+\]  
+
+---
+
+#### (3) 平均比熱 \( c_n \)  
+**定義**： \( Q = m c_n (T_2 - T_1) \)  
+(2) の結果より：  
+\[
+\boxed{c_n = c_v \frac{\kappa - n}{1 - n}}
+\]  
+
+---
+
+### 【２】熱機関サイクル（断熱+等温+断熱+定容）  
+**問題文再現**：  
+理想気体のサイクル：  
+1→2: 可逆断熱圧縮，2→3: 等温膨張，3→4: 可逆断熱膨張，4→1: 定容冷却。  
+圧縮比 \( \varepsilon = V_1 / V_2 \)，容積比 \( \varphi = V_3 / V_2 \)。  
+
+---
+
+#### (1) 線図  
+- **\( P-V \) 線図**：  
+  - 1→2: 断熱圧縮（急峻）  
+  - 2→3: 等温膨張（双曲線）  
+  - 3→4: 断熱膨張（急峻）  
+  - 4→1: 定容冷却（垂直）  
+  <img src="https://via.placeholder.com/300x200?text=P-V+Diagram" alt="P-V Diagram" style="background:white;border:1px solid black;">  
+
+- **\( T-S \) 線図**：  
+  - 1→2: 断熱（垂直，\( S_1=S_2 \))  
+  - 2→3: 等温（水平，\( T_2=T_3 \))  
+  - 3→4: 断熱（垂直，\( S_3=S_4 \))  
+  - 4→1: 定容（曲線，\( \Delta S < 0 \))  
+  <img src="https://via.placeholder.com/300x200?text=T-S+Diagram" alt="T-S Diagram" style="background:white;border:1px solid black;">  
+
+- **\( T-V \) 線図**：  
+  - 1→2: 断熱（\( T \uparrow \)，\( V \downarrow \))  
+  - 2→3: 等温（\( T=\text{const} \)，\( V \uparrow \))  
+  - 3→4: 断熱（\( T \downarrow \)，\( V \uparrow \))  
+  - 4→1: 定容（\( T \downarrow \)，\( V=\text{const} \))  
+  <img src="https://via.placeholder.com/300x200?text=T-V+Diagram" alt="T-V Diagram" style="background:white;border:1px solid black;">  
+
+---
+
+#### (2) 各過程の熱量  
+1. **1→2（断熱）**:  
+   \[
+   Q_{12} = 0
+   \]  
+2. **2→3（等温）**:  
+   \[
+   Q_{23} = W_{23} = m R T_2 \ln \left( \frac{V_3}{V_2} \right) = \boxed{m R T_2 \ln \varphi}
+   \]  
+3. **3→4（断熱）**:  
+   \[
+   Q_{34} = 0
+   \]  
+4. **4→1（定容）**:  
+   \[
+   Q_{41} = \Delta U = m c_v (T_1 - T_4) = \boxed{m \frac{R}{\kappa-1} (T_1 - T_4)} \quad (\text{負})
+   \]  
+
+---
+
+#### (3) 理論熱効率 \( \eta \)  
+**効率**： \( \eta = 1 - \frac{|Q_{\text{out}}|}{Q_{\text{in}}} = 1 - \frac{|Q_{41}|}{Q_{23}} \)  
+**温度関係**：  
+- 断熱過程1→2: \( T_1 V_1^{\kappa-1} = T_2 V_2^{\kappa-1} \implies T_2 = T_1 \varepsilon^{\kappa-1} \)  
+- 断熱過程3→4: \( T_3 V_3^{\kappa-1} = T_4 V_4^{\kappa-1} \implies T_4 = T_3 \left( \frac{V_3}{V_4} \right)^{\kappa-1} \)  
+- \( V_4 = V_1 \)，\( V_3 / V_2 = \varphi \)，\( V_1 / V_2 = \varepsilon \) より：  
+  \[
+  T_4 = T_3 \left( \frac{\varphi V_2}{V_1} \right)^{\kappa-1} = T_2 \left( \frac{\varphi}{\varepsilon} \right)^{\kappa-1} \quad (\because T_3 = T_2)
+  \]  
+**効率計算**：  
+\[
+\eta = 1 - \frac{m \frac{R}{\kappa-1} (T_4 - T_1)}{m R T_2 \ln \varphi} = 1 - \frac{(T_4 - T_1)}{(\kappa-1) T_2 \ln \varphi}
+\]  
+代入：  
+\[
+\boxed{\eta = 1 - \frac{ \left( \dfrac{\varphi}{\varepsilon} \right)^{\kappa-1} - \dfrac{1}{\varepsilon^{\kappa-1}} }{(\kappa-1) \ln \varphi}}
+\]  
+
+---
+
+#### (4) エントロピー変化  
+1. **1→2（断熱）**:  
+   \[
+   \Delta S_{12} = 0
+   \]  
+2. **2→3（等温）**:  
+   \[
+   \Delta S_{23} = \frac{Q_{23}}{T_2} = \boxed{m R \ln \varphi}
+   \]  
+3. **3→4（断熱）**:  
+   \[
+   \Delta S_{34} = 0
+   \]  
+4. **4→1（定容）**:  
+   \[
+   \Delta S_{41} = m c_v \ln \left( \frac{T_1}{T_4} \right) = \boxed{m \frac{R}{\kappa-1} \ln \left( \frac{T_1}{T_4} \right)}
+   \]  
+
+---
+
+### 【３】ランキンサイクル  
+**問題文再現**：  
+過熱蒸気（状態1）→ タービン断熱膨張（1→2）→ 復水器等圧冷却（2→3）→ ポンプ断熱加圧（3→4）→ ボイラ等圧加熱（4→1）。蒸気表値使用。  
+
+---
+
+#### (1) タービン出口乾き度 \( x_2 \)  
+**方針**： タービンは等エントロピー変化（ \( s_1 = s_2 \) ）。  
+\[
+s_2 = s_1 = s_2' + x_2 (s_2'' - s_2')
+\]  
+\[
+\boxed{x_2 = \frac{s_1 - s_2'}{s_2'' - s_2'}}
+\]  
+
+---
+
+#### (2) タービン出口比エンタルピー \( h_2 \)  
+**乾き度 \( x_2 \) から計算**：  
+\[
+\boxed{h_2 = h_2' + x_2 (h_2'' - h_2')}
+\]  
+
+---
+
+#### (3) タービン仕事 \( w_t \)（単位質量あたり）  
+**エネルギー保存則**：  
+\[
+\boxed{w_t = h_1 - h_2}
+\]  
+
+---
+
+#### (4) 理論熱効率 \( \eta_{\text{th}} \)  
+**効率**： \( \eta_{\text{th}} = \frac{\text{正味仕事}}{\text{供給熱量}} = \frac{(h_1 - h_2) - (h_4 - h_3)}{h_1 - h_4} \)  
+（ポンプ仕事 \( w_p = h_4 - h_3 \approx v_3' (P_1 - P_2) \)，ボイラ供給熱量 \( q_{\text{in}} = h_1 - h_4 \))  
+\[
+\boxed{\eta_{\text{th}} = \frac{(h_1 - h_2) - (h_4 - h_3)}{h_1 - h_4}}
+\]  
+
+---
+
+#### (5) 効率計算（ \( x_2 = 0.9 \)，蒸発熱 = 供給熱量の1/2）  
+**条件**：  
+- 蒸発熱 \( h_{fg} = h_1'' - h_1' \)  
+- 供給熱量 \( q_{\text{in}} = h_1 - h_4 \)  
+- \( h_{fg} = \frac{1}{2} q_{\text{in}}} \implies h_1'' - h_1' = \frac{1}{2} (h_1 - h_4) \)  
+
+**タービン仕事**：  
+\[
+w_t = h_1 - h_2 = h_1 - \left[ h_2' + 0.9 (h_2'' - h_2') \right]
+\]  
+
+**ポンプ仕事**（圧縮水近似）：  
+\[
+w_p = v_3' (P_1 - P_2)
+\]  
+
+**効率**：  
+\[
+\eta_{\text{th}} = \frac{w_t - w_p}{q_{\text{in}}} = \frac{w_t - w_p}{2 (h_1'' - h_1')}
+\]  
+> **注**： 具体的数値がないため、蒸気表値が必要。実際の試験では表値を代入して計算。
+
+---
+
+### 総括ポイント  
+1. **【１】ポリトロープ変化**：  
+   - 仕事 \( W \propto (T_1 - T_2) \)，熱量 \( Q \propto (\kappa - n) \)。  
+   - 平均比熱 \( c_n \) は \( n \) で制御可能。  
+2. **【２】特殊サイクル**：  
+   - \( T-V \) 線図は容積変化を直観的に表現。  
+   - 効率は \( \varepsilon, \varphi, \kappa \) でパラメータ化。  
+3. **【３】ランキンサイクル**：  
+   - 乾き度 \( x_2 \) はエントロピー保存から決定。  
+   - 蒸発熱と供給熱量の関係が効率に影響。  
+
+> 蒸気表を使用する設問では、実際の数値を代入して計算する必要があります。試験では指定の蒸気表を参照してください。

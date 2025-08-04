@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岡山大学 大学院入試過去問ポータル</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">岡山大学 大学院入試過去問ポータル</h1>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">ホーム</a></li>
+                        <li><a href="#subjects" class="nav-link">科目一覧</a></li>
+                        <li><a href="#about" class="nav-link">利用案内</a></li>
+                        <li><a href="statistics.html" class="nav-link">統計・分析</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">大学院入試の準備をサポート</h2>
+                    <p class="hero-description">
+                        岡山大学の学生専用の過去問ポータルサイトです。<br>
+                        数学・流体力学・材料力学・熱力学の過去問（2003-2024年）を<br>
+                        わかりやすく整理してお届けします。
+                    </p>
+                    <a href="#subjects" class="cta-button">科目を選択する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科目選択セクション -->
+    <section class="subjects" id="subjects">
+        <div class="container">
+            <h2 class="section-title">科目を選択してください</h2>
+            <div class="subjects-grid">
+                <!-- 数学 -->
+                <div class="subject-card" data-subject="math">
+                    <div class="subject-icon">
+                        <img src="images/math_icon.png" alt="数学アイコン">
+                    </div>
+                    <h3 class="subject-title">数学</h3>
+                    <p class="subject-description">微分積分、線形代数、微分方程式、フーリエ解析など</p>
+                    <a href="pages/math.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 流体力学 -->
+                <div class="subject-card" data-subject="fluid">
+                    <div class="subject-icon">
+                        <img src="images/fluid_mechanics_icon.png" alt="流体力学アイコン">
+                    </div>
+                    <h3 class="subject-title">流体力学</h3>
+                    <p class="subject-description">流体の運動、圧力、粘性、流れ解析など</p>
+                    <a href="pages/fluid_mechanics.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 材料力学 -->
+                <div class="subject-card" data-subject="material">
+                    <div class="subject-icon">
+                        <img src="images/material_mechanics_icon.png" alt="材料力学アイコン">
+                    </div>
+                    <h3 class="subject-title">材料力学</h3>
+                    <p class="subject-description">応力、ひずみ、強度設計、構造解析など</p>
+                    <a href="pages/material_mechanics.html" class="subject-link">過去問を見る</a>
+                </div>
+
+                <!-- 熱力学 -->
+                <div class="subject-card" data-subject="thermo">
+                    <div class="subject-icon">
+                        <img src="images/thermodynamics_icon.png" alt="熱力学アイコン">
+                    </div>
+                    <h3 class="subject-title">熱力学</h3>
+                    <p class="subject-description">熱エネルギー、エントロピー、サイクル、伝熱など</p>
+                    <a href="pages/thermodynamics.html" class="subject-link">過去問を見る</a>
+                </div>
+            </div>
+
+            <!-- 統計・分析セクション -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: #2E86AB; margin-bottom: 1rem;">📊 出題傾向を分析する</h3>
+                <p style="color: #666; margin-bottom: 1.5rem;">18年分の過去問データを統計的に分析し、効率的な学習戦略を提案します</p>
+                <a href="statistics.html" class="cta-button">統計・傾向分析を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- お知らせ・開発状況セクション -->
+    <section class="notice" id="notice">
+        <div class="container">
+            <h2 class="section-title">🚧 お知らせ・開発状況</h2>
+            <div class="notice-content">
+                <div class="notice-box">
+                    <h3>最終更新：2025年8月4日</h3>
+                    <div class="notice-text">
+                        <p><strong>現在、このサイトは開発・改良中です。</strong></p>
+                        <p>一部のコンテンツがまだ完成しておらず、随時更新・改良を行っています。</p>
+                        <ul>
+                            <li>一部の年度の解説が未完成です</li>
+                            <li>デザインやレイアウトを継続的に改善中です</li>
+                            <li>新機能の追加や既存機能の改良を予定しています</li>
+                            <li>2024年度および2008以降の答えがないため，注意が必要です．</li>
+                            <li>解析サイトの中身は結構ガバガバです．</li>
+                            <li>全年度の解説テキストは一応あります．</li>
+                            <li>図表問題とAIとの相性の問題で，正確な解答が得られないことがあります．</li>
+                            <li>”完成済み”は勉強も兼ねて増やしていく予定です．</li>
+                            <li>”完成済み”などの基準は主観です．</li>
+                        </ul>
+                        <p>不具合を発見された場合や、機能改善のご要望がございましたら、お気軽にお知らせください。皆様のフィードバックを参考に、より使いやすいサイトを目指しています。</p>
+                        
+                        <h4 style="color: #2E86AB; margin: 2rem 0 1rem 0; font-size: 1.1rem;">📊 科目別開発進捗状況</h4>
+                        <div class="progress-table-container">
+                            <table class="progress-table">
+                                <thead>
+                                    <tr>
+                                        <th>年度</th>
+                                        <th>数学</th>
+                                        <th>流体力学</th>
+                                        <th>材料力学</th>
+                                        <th>熱力学</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>2024</td><td data-status="a">●</td><td data-status="b">●</td><td data-status="b">●</td><td data-status="b">●</td></tr>
+                                    <tr><td>2023</td><td data-status="a">●</td><td data-status="b">●</td><td data-status="b">●</td><td data-status="b">●</td></tr>
+                                    <tr><td>2022</td><td data-status="a">●</td><td data-status="a">●</td><td data-status="a">●</td><td data-status="a">●</td></tr>
+                                    <tr><td>2021</td><td data-status="a">●</td><td data-status="b">●</td><td data-status="b">●</td><td data-status="b">●</td></tr>
+                                    <tr><td>2020</td><td data-status="a">●</td><td data-status="c">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2019</td><td data-status="a">●</td><td data-status="c">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2018</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2017</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2016</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2015</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2014</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2013</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2012</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="c">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2011</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="c">●</td></tr>
+                                    <tr><td>2010</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2009</td><td data-status="a">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2008</td><td data-status="c">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2007</td><td data-status="c">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2006</td><td data-status="c">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2005</td><td data-status="c">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2004</td><td data-status="c">●</td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                    <tr><td>2003</td><td data-status="e">●<sup>※1</sup></td><td data-status="e">●</td><td data-status="e">●</td><td data-status="e">●</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="legend">
+                            
+                            <div class="legend-grid">
+                                <div class="legend-item"><span class="status-icon" data-status="a">●</span> <strong>完成済み</strong> </div>
+                                <div class="legend-item"><span class="status-icon" data-status="b">●</span> <strong>準完成済み</strong> </div>
+                                <div class="legend-item"><span class="status-icon" data-status="c">●</span> <strong>要確認</strong> </div>
+                                <div class="legend-item"><span class="status-icon" data-status="d">●</span> <strong>作業中</strong> </div>
+                                <div class="legend-item"><span class="status-icon" data-status="e">●</span> <strong>未実装</strong> </div>
+                            </div>
+                            <div style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
+                                <strong>注釈:</strong> ※1 PDF読み取れなかった．
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 利用案内セクション -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">利用案内</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>対象者</h3>
+                    <p>岡山大学の学生のみご利用いただけます。</p>
+                </div>
+                <div class="about-item">
+                    <h3>収録期間</h3>
+                    <p>2003年から2024年までの過去問と解答を収録しています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>利用方法</h3>
+                    <p>上記の科目から選択し、年度別の過去問をダウンロードしてご利用ください。</p>
+                </div>
+                <div class="about-item">
+                    <h3>注意事項</h3>
+                    <p>過去問は学習目的でのみご利用ください。無断転載・配布は禁止されています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>数学解説について</h3>
+                    <p>数学科目については、2003-2020年の17年分に詳細な解説と統計分析を提供しています。</p>
+                </div>
+                <div class="about-item">
+                    <h3>統計機能</h3>
+                    <p>問題傾向の分析、出題頻度の統計、学習推奨事項などの分析データを提供しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ セクション -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問（FAQ）</h2>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>このサイトは誰が利用できますか？</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>岡山大学の学生のみのご利用を想定しています．</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>過去問の解答は正確ですか？</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>正確性を保つよう努めていますが、間違いが含まれている可能性があります。なお完成済みは，複数のモデルで二重チェックしたうえで，（公式の？）答えと照らし合わせて確認しています．疑問点がありましたら確認をお願いします。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>サイトはどのくらいの頻度で更新されますか？</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>現在開発中のため、不定期で更新しています。ただモチベ下がってきたので，更新頻度が落ちるかもしれませんが，ご了承ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>不具合を見つけた場合はどうすればよいですか？</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>不具合や改善要望がございましたら、お気軽にご連絡ください。皆様のフィードバックを参考にサイトを改良しています。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>PDFファイルが開けません</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ブラウザの設定やPDFビューアの問題が考えられます。別のブラウザでお試しいただくか、ファイルをダウンロードしてからご利用ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>どのAI（モデル）を使用していますか？</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>現在、いくつかの異なるAIモデルを使用しており、具体的には：<br>
+                            デザイン・UX・UIはmanus・gensparkでベースを作ってclaudeやcursor・copilotで修正しています。<br>
+                            解答については，数学が主にdeepseekのR1, 流体力学が主にgemini2.5pro, 熱力学が主にdeepseekのR1, 材料力学が主にgemini2.5proを使用しています。解答の確認には，perploxityのgrok4,claude・sonnet4の思考モデル，openAIのO3の推論モデルを使ってます．</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2024 岡山大学 大学院入試過去問ポータル. All rights reserved.</p>
+            <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                <a href="about.html" style="color: #ccc; text-decoration: none;">サイトについて</a> | 
+                <a href="statistics.html" style="color: #ccc; text-decoration: none;">統計・分析</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

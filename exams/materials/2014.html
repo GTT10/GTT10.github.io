@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料力学 2014年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/materials.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
+                    2014（H26）年　材料力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2014年度の材料力学入試では、大問【1】で温度変化による熱応力の問題（拘束棒の内部応力と連結棒の応力分担）、大問【2】でばね支持片持ちはりの問題（はりとばねの変形適合）、大問【3】でねじりと曲げの組み合わせ応力問題（モールの応力円と主応力解析）が出題されました。基礎理論から応用解析まで包括的にカバーした年度です。</p>
+                <a href="../../pdfs/question/2014_H26_april/materials_2014_H26_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2014年度)</a>
+                <a href="../../pdfs/answer/2014_H26_april/materials_2014_H26_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2014年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">棒の熱応力について、単独拘束棒の応力、連結棒の応力分担、連結部の変位を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>棒1：長さl₁、断面積S₁、線膨張係数α₁、ヤング率E₁</li>
+                            <li>棒2：長さl₂、断面積S₂、ヤング率E₂（温度変化なし）</li>
+                            <li>温度上昇：棒1のみ ΔT上昇</li>
+                            <li>境界条件：両端完全固定または連結構造</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>熱応力問題では「自由な熱膨張量」と「拘束による圧縮量」が等しくなる条件を活用します。連結された場合は各棒の変形の適合条件が重要です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) 拘束された棒1本に生じる応力σ₁</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            両端固定された棒の熱応力を求めます。
+                            <p><strong>熱膨張による伸び：</strong></p>
+                            自由な熱膨張量：
+                            <div class="math-block">
+                                $$\delta_T = \alpha_1 l_1 \Delta T$$
+                            </div>
+                            <p><strong>拘束力による適合条件：</strong></p>
+                            壁による圧縮力Pで元の長さに戻すため：
+                            <div class="math-block">
+                                $$\delta_T = \delta_P = \frac{P l_1}{S_1 E_1}$$
+                            </div>
+                            <p>これから：</p>
+                            <div class="math-block">
+                                $$\alpha_1 l_1 \Delta T = \frac{P l_1}{S_1 E_1}$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1 = \frac{P}{S_1} = \alpha_1 E_1 \Delta T$$
+                            </div>
+                            （圧縮応力）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 連結された棒に生じる応力σ₁とσ₂</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2本の棒が連結された場合の応力分担を求めます。
+                            <p><strong>変形の適合条件：</strong></p>
+                            全体の変形がゼロ：
+                            <div class="math-block">
+                                $$(\alpha_1 l_1 \Delta T - \frac{P l_1}{S_1 E_1}) - \frac{P l_2}{S_2 E_2} = 0$$
+                            </div>
+                            <p>これを整理すると：</p>
+                            <div class="math-block">
+                                $$\alpha_1 l_1 \Delta T = P\left(\frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2}\right)$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_1 = \frac{\alpha_1 l_1 \Delta T}{S_1 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
+                                $$\sigma_2 = \frac{\alpha_1 l_1 \Delta T}{S_2 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
+                            </div>
+                            （いずれも圧縮応力）
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 連結部Bの変位λB</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            固定端Aから見た連結部Bの変位を求めます。
+                            <p><strong>棒1の正味の変形：</strong></p>
+                            熱膨張による伸びから圧縮力による縮みを差し引く：
+                            <div class="math-block">
+                                $$\lambda_B = \alpha_1 l_1 \Delta T - \frac{P l_1}{S_1 E_1}$$
+                            </div>
+                            <p>(2)で求めたPを代入して整理：</p>
+                            <div class="math-block">
+                                $$\lambda_B = \frac{\alpha_1 l_1 l_2 \Delta T}{S_2 E_2 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
+                            </div>
+                            （右向きが正の変位）
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：サイドバー -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>熱応力は自由膨張と拘束力の釣り合いで決まる。</li>
+                            <li>連結構造では各部分の変形適合条件を使う。</li>
+                            <li>応力分担は各棒の剛性に依存する。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>熱応力問題では温度変化がない部分も考慮する。</li>
+                            <li>拘束条件により応力の大きさが決まる。</li>
+                            <li>変位は各部分の伸び縮みの累積として求める。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">ばねで支えられた片持ちはりについて、はりのたわみ、ばねの伸び、自由端の変位を求める。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>はり：長さl、曲げ剛性EI</li>
+                            <li>境界条件：固定端、自由端</li>
+                            <li>支持：自由端にばね（ばね定数k）</li>
+                            <li>荷重：自由端に集中荷重P（下向き）</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>外力Pははりが支える分P₁とばねが支える分P₂に分担されます。はりのたわみとばねの伸びが等しくなる点で釣り合います。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) はりのたわみy₁</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            片持ちはりの先端荷重によるたわみを求めます。
+                            <p><strong>片持ちはりの公式：</strong></p>
+                            先端に集中荷重P₁がかかる場合：
+                            <div class="math-block">
+                                $$y_1 = \frac{P_1 l^3}{3EI}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) ばねの伸びλ₂</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            フックの法則によりばねの伸びを求めます。
+                            <p><strong>フックの法則：</strong></p>
+                            ばね力P₂による伸び：
+                            <div class="math-block">
+                                $$\lambda_2 = \frac{P_2}{k}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 自由端Bにおける変位yB</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            力の釣り合いと変形の適合条件から変位を求めます。
+                            <p><strong>力の釣り合い：</strong></p>
+                            <div class="math-block">
+                                $$P = P_1 + P_2$$
+                            </div>
+                            <p><strong>変形の適合条件：</strong></p>
+                            はりのたわみ = ばねの伸び = 最終変位：
+                            <div class="math-block">
+                                $$y_B = y_1 = \lambda_2$$
+                            </div>
+                            <p>これから：</p>
+                            <div class="math-block">
+                                $$y_B = \frac{P_1 l^3}{3EI} = \frac{P_2}{k}$$
+                            </div>
+                            <p>P₁ = 3EI·yB/l³、P₂ = k·yBを力の釣り合いに代入：</p>
+                            <div class="math-block">
+                                $$P = \frac{3EI \cdot y_B}{l^3} + k \cdot y_B = y_B\left(k + \frac{3EI}{l^3}\right)$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$y_B = \frac{P}{k + \frac{3EI}{l^3}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>はりとばねの変形適合が解法の鍵となる。</li>
+                            <li>外力は構造要素間で分担される。</li>
+                            <li>剛性の並列結合として扱える。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>変形の適合条件は複合構造の基本原理。</li>
+                            <li>各要素の力学特性を正しく把握する。</li>
+                            <li>連立方程式を体系的に解く。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">ねじりと曲げを同時に受ける丸棒について、各応力成分、組み合わせ応力、モールの応力円による主応力解析を行う。</p>
+                        <p><strong>与えられた条件:</strong></p>
+                        <ul>
+                            <li>丸棒：直径d</li>
+                            <li>ねじりモーメント：T</li>
+                            <li>曲げモーメント：M</li>
+                            <li>外表面の角度θ位置での応力状態を解析</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ねじりによるせん断応力と曲げによる垂直応力を重ね合わせ、モールの応力円により主応力と最大せん断応力を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) ねじりのみによる最大せん断応力τmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ねじりによるせん断応力を求めます。
+                            <p><strong>ねじりの公式：</strong></p>
+                            最大せん断応力（外表面）：
+                            <div class="math-block">
+                                $$\tau_{max} = \frac{T \cdot (d/2)}{J} = \frac{T \cdot (d/2)}{\pi d^4/32} = \frac{16T}{\pi d^3}$$
+                            </div>
+                            ここで、J = πd⁴/32は断面二次極モーメント
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) 曲げのみによる軸方向の応力σx</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            曲げによる軸方向応力を角度θの位置で求めます。
+                            <p><strong>曲げ応力の公式：</strong></p>
+                            中立面からの距離y = (d/2)sinθの位置：
+                            <div class="math-block">
+                                $$\sigma_x = \frac{M \cdot y}{I} = \frac{M \cdot (d/2)\sin\theta}{\pi d^4/64} = \frac{32M \sin\theta}{\pi d^3}$$
+                            </div>
+                            ここで、I = πd⁴/64は断面二次モーメント
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) 同時作用時の最大主応力σmaxと最大せん断応力τmax</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            ねじりと曲げの組み合わせ応力から主応力を求めます。
+                            <p><strong>応力状態：</strong></p>
+                            σx = 32Msinθ/(πd³)、τ = 16T/(πd³)
+                            <p><strong>主応力の公式：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{\sigma_x}{2} + \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau^2}$$
+                            </div>
+                            <div class="math-block">
+                                $$= \frac{16M\sin\theta}{\pi d^3} + \sqrt{\left(\frac{16M\sin\theta}{\pi d^3}\right)^2 + \left(\frac{16T}{\pi d^3}\right)^2}$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\sigma_{max} = \frac{16}{\pi d^3} \left( M\sin\theta + \sqrt{M^2\sin^2\theta + T^2} \right)$$
+                            </div>
+                            <div class="math-block">
+                                $$\tau_{max} = \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau^2} = \frac{16}{\pi d^3} \sqrt{M^2\sin^2\theta + T^2}$$
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) モールの応力円と主応力の方向θp</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            モールの応力円により主応力の方向を求めます。
+                            <p><strong>モールの応力円：</strong></p>
+                            <ul>
+                                <li><strong>中心C：</strong> (σx/2, 0) = (16Msinθ/(πd³), 0)</li>
+                                <li><strong>半径R：</strong> √((σx/2)² + τ²) = (16/(πd³))√(M²sin²θ + T²)</li>
+                            </ul>
+                            <p><strong>主応力の方向：</strong></p>
+                            <div class="math-block">
+                                $$\tan(2\theta_p) = \frac{2\tau}{\sigma_x} = \frac{2 \cdot 16T/(\pi d^3)}{32M\sin\theta/(\pi d^3)} = \frac{T}{M\sin\theta}$$
+                            </div>
+                            <p><strong>解答：</strong></p>
+                            <div class="math-block">
+                                $$\theta_p = \frac{1}{2} \arctan\left(\frac{T}{M\sin\theta}\right)$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の各計算結果による</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ねじりと曲げの重ね合わせによる複合応力状態。</li>
+                            <li>モールの応力円は応力変換の強力な道具。</li>
+                            <li>主応力方向は材料の破壊条件に重要。</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
+                        </div>
+                        <ul>
+                            <li>2014年度は熱応力から複合応力まで幅広い出題。</li>
+                            <li>モールの応力円の作図法を習得する。</li>
+                            <li>主応力の物理的意味を理解する。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- アコーディオン機能のJavaScript -->
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

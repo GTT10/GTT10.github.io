@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2020年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+2020（R2）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">一覧ページに戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>ベルヌーイの定理とその適用、垂直噴流による平板衝撃、渦の運動と循環に関する問題です。基本的な流体力学の理論理解と実際への応用力が問われています。</p>
+                
+                <a href="../../pdfs/question/2020_R2_april/fluid_2020_R2_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/fluid_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】ベルヌーイの定理と垂直噴流</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">非圧縮性流体に関して以下の問いに答えよ。</p>
+                    </div>
+                    
+                    <!-- 小問(1)(a) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1)(a) ベルヌーイの定理は単位（ア）あたりの流体に対するエネルギー保存式である。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ベルヌーイの式 $\frac{1}{2}\rho V^{2}+p+\rho gh=一定$ の各項の次元を考えてみましょう。すべて圧力の次元[ML⁻¹T⁻²]を持ちます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            ベルヌーイの式の各項の次元を確認：
+                            <ul>
+                                <li>$\frac{1}{2}\rho V^{2}$: 単位体積あたりの運動エネルギー</li>
+                                <li>$p$: 圧力（単位体積あたりの圧力エネルギー）</li>
+                                <li>$\rho gh$: 単位体積あたりの位置エネルギー</li>
+                            </ul>
+                        </div>
+                        
+                        <span class="answer-highlight">答え: 体積</span>
+                    </div>
+
+                    <!-- 小問(1)(b) -->
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(1)(b) ベルヌーイの定理が成立する条件は、(イ)、(ウ)、(エ)である。</h3>
+                        </div>
+                    </div>
+                    <div class="solution-step">
+                        ベルヌーイの定理が成立するための基本条件：
+                        <ul>
+                            <li>非圧縮性の流れ（密度一定）</li>
+                            <li>非粘性の流れ（完全流体）</li>
+                            <li>定常の流れ（時間変化なし）</li>
+                        </ul>
+                    </div>
+                    <span class="answer-highlight">答え: (イ)非圧縮性流れ、(ウ)非粘性流れ、(エ)定常流れ</span>
+                    
+                    <!-- 小問(2)(a) -->
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(2)(a) 点Oにおける圧力$p_s$を（オ）または（カ）と呼ぶ。</h3>
+                        </div>
+                    </div>
+                    <div class="solution-step">
+                        流れが物体に衝突して速度がゼロになる点を「よどみ点」と呼び、その点における圧力を「よどみ点圧」または「停滞圧」と呼びます。
+                    </div>
+                    <span class="answer-highlight">答え: (オ)よどみ点、(カ)よどみ点圧（または停滞圧）</span>
+                    
+                    <!-- 小問(2)(b) -->
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(2)(b) $p_s$の値を求めよ。</h3>
+                        </div>
+                    </div>
+                    <div class="solution-step">
+                        x軸上の中心線に沿った流線で、無限遠方の点と点Oにベルヌーイの定理を適用：
+                        <div class="math-block">
+                            $$\frac{1}{2}\rho V_0^2 + p_0 = \frac{1}{2}\rho (0)^2 + p_s$$
+                        </div>
+                        <div class="math-block">
+                            $$p_s = p_0 + \frac{1}{2}\rho V_0^2$$
+                        </div>
+                    </div>
+                    <span class="answer-highlight">答え: $p_s = p_0 + \frac{1}{2}\rho V_0^2$</span>
+
+                    <!-- 小問(2)(c) -->
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(2)(c) $V_1$の値を求めよ。</h3>
+                        </div>
+                    </div>
+                    <div class="solution-step">
+                        噴流の縁に沿った流線で、無限遠方の点と流れ去る点にベルヌーイの定理を適用：
+                        <div class="math-block">
+                            $$\frac{1}{2}\rho V_0^2 + p_0 = \frac{1}{2}\rho V_1^2 + p_0$$
+                        </div>
+                        噴流の縁は大気に接しているため圧力は$p_0$のまま
+                        <div class="math-block">
+                            $$V_1 = V_0$$
+                        </div>
+                    </div>
+                    <span class="answer-highlight">答え: $V_1 = V_0$</span>
+
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>ベルヌーイの定理の基本概念と垂直噴流への適用を理解することが重要です。よどみ点圧の概念と流線に沿った圧力・速度変化の関係を正確に把握しましょう。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>ベルヌーイの定理: $\frac{1}{2}\rho V^{2}+p+\rho gh=一定$</li>
+                            <li>よどみ点圧: $p_s = p_0 + \frac{1}{2}\rho V_0^2$</li>
+                            <li>エネルギー保存則の適用</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>適切な流線を選択する</li>
+                            <li>境界条件（圧力・速度）を正確に把握する</li>
+                            <li>各項の物理的意味を理解する</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>流線の選択を間違えないこと</li>
+                            <li>よどみ点では速度がゼロになることを忘れない</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>噴流の縁は常に大気圧と等しい</li>
+                            <li>よどみ点圧は動圧と静圧の和</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】渦の運動と循環</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">流体の円形回転運動は一般的に渦と呼ばれる。渦に関して以下の問いに答えよ。ただし、流れは二次元完全流体とし、図2に示すように渦中心はxy座標の原点に位置し、渦中心からの距離をr、x軸からの偏角をθ、回転運動の接線方向速度を$v_θ$とする。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <div class="section-title">(1) 渦中心からある距離までは$v_θ$がrに比例し、a以上ではrに反比例するような渦のモデルを何と呼ぶか答えよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>渦核（中心部）では強制渦として一体回転し、外側では自由渦として速度が距離に反比例するモデルです。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            このような渦モデルは、内側で強制渦（$v_θ \propto r$）、外側で自由渦（$v_θ \propto 1/r$）の性質を持つ複合渦です。
+                        </div>
+                        <span class="answer-highlight">答え: ランキン渦</span>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <div class="section-title">(2) $0 \le r \le a$では$v_θ = Ωr^2$、$r > a$における$v_θ$を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>$r = a$で速度が連続でなければなりません。内側と外側の速度を等しくおいて比例定数を決定します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            $r = a$における内側の速度: $v_θ(a) = Ωa^2$<br>
+                            $r > a$では$v_θ = C/r$とおくと、連続性から：
+                            <div class="math-block">
+                                $$Ωa^2 = \frac{C}{a} \Rightarrow C = Ωa^3$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $v_θ = \frac{Ωa^3}{r}$</span>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <div class="section-title">(3) この流れ場において、連続の方程式が満たされることを示せ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>極座標での連続の式は$\frac{1}{r}\frac{\partial (rv_r)}{\partial r} + \frac{1}{r}\frac{\partial v_θ}{\partial θ} = 0$です。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            この流れ場では$v_r = 0$であり、$v_θ$は$θ$に依存しないため：
+                            <div class="math-block">
+                                $$\frac{1}{r}\frac{\partial (r \cdot 0)}{\partial r} + \frac{1}{r}\frac{\partial v_θ}{\partial θ} = 0 + 0 = 0$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 連続の方程式は満たされる</span>
+                    </div>
+
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <div class="section-title">(4) この流れ場の渦度を求めよ。</div>
+                    </div>
+                    <div class="solution-step">
+                        極座標での渦度: $ω = \frac{1}{r} \frac{\partial(r v_θ)}{\partial r}$
+                        <ul>
+                            <li>$0 ≤ r ≤ a$: $rv_θ = Ωr^3$ → $ω = 3Ωr$</li>
+                            <li>$r > a$: $rv_θ = Ωa^3$ (定数) → $ω = 0$</li>
+                        </ul>
+                    </div>
+                    <span class="answer-highlight">答え: $ω = 3Ωr$ (r ≤ a), $ω = 0$ (r > a)</span>
+
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <div class="section-title">(5) この流れ場において、半径rの円に沿った循環を求めよ。</div>
+                    </div>
+                    <div class="solution-step">
+                        循環$Γ = \oint_C \vec{v} \cdot d\vec{s} = \int_0^{2π} v_θ r dθ$
+                        <ul>
+                            <li>$0 ≤ r ≤ a$: $Γ = 2πΩr^3$</li>
+                            <li>$r > a$: $Γ = 2πΩa^3$ (一定)</li>
+                        </ul>
+                    </div>
+                    <span class="answer-highlight">答え: $Γ = 2πΩr^3$ (r ≤ a), $Γ = 2πΩa^3$ (r > a)</span>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>渦度と循環の概念、および渦の構造を理解することが重要です。内側では有渦流れ、外側では無渦流れという特徴があります。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ランキン渦の特徴を理解する</li>
+                            <li>連続の式の極座標表現</li>
+                            <li>渦度と循環の関係</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>渦核内では渦度が存在し、外側では無渦流れ</li>
+                            <li>循環は$r > a$で一定値を保つ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html> 

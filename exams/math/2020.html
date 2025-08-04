@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2020年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2020（R2）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2020年度の数学入試では、大問【1】でパラメータ曲線の長さ計算、大問【2】で固有値・固有ベクトルから行列の復元、大問【3】で変数変換による微分方程式の解法、大問【4】でフーリエ級数展開が出題されました。微積分・線形代数・微分方程式・フーリエ解析の基本技法が幅広く問われています。各分野の基本をしっかり押さえて取り組みましょう！</p>
+                <a href="../../pdfs/question/2020_R2_april/math_2020_R2_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)
+                </a>
+                <a href="../../pdfs/answer/2020_R2_april/math_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">パラメータ曲線の長さを求めよ: $x = a \cos^3 t$, $y = a \sin^3 t$ $(a > 0, 0 \leq t \leq \frac{\pi}{2})$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>パラメータ表示された曲線の長さは$L = \int \sqrt{(\frac{dx}{dt})^2 + (\frac{dy}{dt})^2} dt$です！まず微分を計算し、被積分関数を三角関数の恒等式で簡単にしましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 導関数の計算：
+                            <div class="math-block">$$\frac{dx}{dt} = a \cdot 3 \cos^2 t \cdot (-\sin t) = -3a \cos^2 t \sin t$$</div>
+                            <div class="math-block">$$\frac{dy}{dt} = a \cdot 3 \sin^2 t \cdot \cos t = 3a \sin^2 t \cos t$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 被積分関数の計算：
+                            <div class="math-block">$$\left( \frac{dx}{dt} \right)^2 = 9a^2 \cos^4 t \sin^2 t$$</div>
+                            <div class="math-block">$$\left( \frac{dy}{dt} \right)^2 = 9a^2 \sin^4 t \cos^2 t$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 合計：
+                            <div class="math-block">$$\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 = 9a^2 \cos^2 t \sin^2 t (\cos^2 t + \sin^2 t) = 9a^2 \cos^2 t \sin^2 t$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 平方根：
+                            <div class="math-block">$$\sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2} = 3a \cos t \sin t = \frac{3a}{2} \sin 2t$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 積分の実行：
+                            <div class="math-block">$$L = \int_{0}^{\frac{\pi}{2}} \frac{3a}{2} \sin 2t \, dt = \frac{3a}{2} \left[ -\frac{1}{2} \cos 2t \right]_{0}^{\frac{\pi}{2}}$$</div>
+                            <div class="math-block">$$= \frac{3a}{2} \cdot \frac{1}{2} \left( \cos 0 - \cos \pi \right) = \frac{3a}{4} (1 - (-1)) = \frac{3a}{2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{3a}{2}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>連鎖律で3乗の微分を計算</li>
+                            <li>三角関数の恒等式で簡略化</li>
+                            <li>倍角公式$\cos t \sin t = \frac{1}{2}\sin 2t$を活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$(\cos^n t)' = -n\cos^{n-1}t \sin t$</li>
+                            <li>$\cos^2 t + \sin^2 t = 1$</li>
+                            <li>アステロイド（星芒形）の1/4周長</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">行列$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$の固有値1に対する固有ベクトルが$\begin{bmatrix} 1 \\ -1 \end{bmatrix}$、固有値6に対する固有ベクトルが$\begin{bmatrix} 1 \\ 4 \end{bmatrix}$であるとき、行列$A$を求めよ</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>固有値$\lambda$と固有ベクトル$\mathbf{v}$の定義式$A\mathbf{v} = \lambda \mathbf{v}$を使います！各固有ベクトルに対して成分を比較し、4つの未知数を4つの方程式で求めましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 固有値1に対する条件：
+                            <div class="math-block">$$A \begin{bmatrix} 1 \\ -1 \end{bmatrix} = 1 \cdot \begin{bmatrix} 1 \\ -1 \end{bmatrix}$$</div>
+                            <div class="math-block">$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix} = \begin{bmatrix} a - b \\ c - d \end{bmatrix} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$$</div>
+                            よって：$a - b = 1$ (i), $c - d = -1$ (ii)
+                        </div>
+                        <div class="solution-step">
+                            2. 固有値6に対する条件：
+                            <div class="math-block">$$A \begin{bmatrix} 1 \\ 4 \end{bmatrix} = 6 \cdot \begin{bmatrix} 1 \\ 4 \end{bmatrix}$$</div>
+                            <div class="math-block">$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 4 \end{bmatrix} = \begin{bmatrix} a + 4b \\ c + 4d \end{bmatrix} = \begin{bmatrix} 6 \\ 24 \end{bmatrix}$$</div>
+                            よって：$a + 4b = 6$ (iii), $c + 4d = 24$ (iv)
+                        </div>
+                        <div class="solution-step">
+                            3. $a, b$を求める：
+                            <div class="math-block">$$\begin{cases}
+a - b = 1 \\
+a + 4b = 6
+\end{cases}$$</div>
+                            (iii) - (i)：$5b = 5$ → $b = 1$
+                            <br>(i)より：$a = 1 + b = 2$
+                        </div>
+                        <div class="solution-step">
+                            4. $c, d$を求める：
+                            <div class="math-block">$$\begin{cases}
+c - d = -1 \\
+c + 4d = 24
+\end{cases}$$</div>
+                            (iv) - (ii)：$5d = 25$ → $d = 5$
+                            <br>(ii)より：$c = -1 + d = 4$
+                        </div>
+                        <span class="answer-highlight">答え: $A = \begin{bmatrix} 2 & 1 \\ 4 & 5 \end{bmatrix}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>固有値・固有ベクトル定義の活用</li>
+                            <li>4つの方程式で4つの未知数を決定</li>
+                            <li>連立方程式の基本的な解法</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$A\mathbf{v} = \lambda \mathbf{v}$ が定義</li>
+                            <li>固有ベクトルは成分ごとに比較</li>
+                            <li>対角化可能性の確認も重要</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">微分方程式: $\frac{dy}{dx} = -2x^4 + 3x^2 + 2xy$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>変数変換$z = y - x^3$を使って方程式を簡単にします！変換後は変数分離型になって、積分で簡単に解けますよ。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $z = y - x^3$とし、微分方程式を$z$と$x$の関係式に変換せよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数変換の微分：
+                            <div class="math-block">$$z = y - x^3 \Rightarrow \frac{dz}{dx} = \frac{dy}{dx} - 3x^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 元の式に$y = z + x^3$を代入：
+                            <div class="math-block">$$\frac{dy}{dx} = -2x^4 + 3x^2 + 2x(z + x^3)$$</div>
+                            <div class="math-block">$$= -2x^4 + 3x^2 + 2xz + 2x^4 = 3x^2 + 2xz$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 変換式に代入：
+                            <div class="math-block">$$\frac{dz}{dx} = (3x^2 + 2xz) - 3x^2 = 2xz$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dz}{dx} = 2xz$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) (1)で得られた微分方程式を利用して、元の方程式の一般解を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数分離：
+                            <div class="math-block">$$\frac{dz}{dx} = 2xz \Rightarrow \frac{dz}{z} = 2x dx \quad (z \neq 0)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 積分：
+                            <div class="math-block">$$\int \frac{dz}{z} = \int 2x dx$$</div>
+                            <div class="math-block">$$\ln |z| = x^2 + C_1$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 指数を取る：
+                            <div class="math-block">$$|z| = e^{x^2 + C_1} = e^{C_1} e^{x^2}$$</div>
+                            <div class="math-block">$$z = Ce^{x^2} \quad (C = \pm e^{C_1})$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $y$の式に戻す：
+                            <div class="math-block">$$z = y - x^3 = Ce^{x^2}$$</div>
+                            <div class="math-block">$$y = x^3 + Ce^{x^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = x^3 + Ce^{x^2}$ ($C$は任意定数)</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>適切な変数変換で方程式を簡略化</li>
+                            <li>変数分離型に帰着</li>
+                            <li>積分して元の変数に戻す</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>変数変換は試行錯誤が必要</li>
+                            <li>$\frac{dz}{dx} = \frac{dy}{dx} - g'(x)$</li>
+                            <li>$z = 0$も解に含まれる</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">周期$2\pi$の関数$y = f(x)$のフーリエ級数展開</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>部分積分を使って積分を計算し、フーリエ係数を求めます！偶関数の場合はコサイン級数のみになるので計算が楽になりますよ。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $\int_0^\pi x \cos nx dx$ ($n$は自然数)を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 部分積分の準備：$u = x$, $dv = \cos nx dx$とすると：
+                            <div class="math-block">$$du = dx, \quad v = \frac{1}{n} \sin nx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 部分積分の実行：
+                            <div class="math-block">$$\int_0^\pi x \cos nx dx = \left[ x \cdot \frac{1}{n} \sin nx \right]_0^\pi - \int_0^\pi \frac{1}{n} \sin nx dx$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第1項の評価：
+                            <div class="math-block">$$\left[ \frac{x}{n} \sin nx \right]_0^\pi = \frac{\pi}{n} \sin(n\pi) - 0 = 0$$</div>
+                            ($\sin(n\pi) = 0$より)
+                        </div>
+                        <div class="solution-step">
+                            4. 第2項の積分：
+                            <div class="math-block">$$-\frac{1}{n} \int_0^\pi \sin nx dx = -\frac{1}{n} \left[ -\frac{1}{n} \cos nx \right]_0^\pi$$</div>
+                            <div class="math-block">$$= \frac{1}{n^2} [\cos nx]_0^\pi = \frac{1}{n^2} (\cos(n\pi) - \cos(0)) = \frac{(-1)^n - 1}{n^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{(-1)^n - 1}{n^2}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $f(x) = |x|$ ($-\pi \leq x \leq \pi$, 周期$2\pi$)をフーリエ級数で表せ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $f(x) = |x|$は偶関数なので、フーリエ余弦級数：
+                            <div class="math-block">$$a_0 = \frac{2}{\pi} \int_0^\pi x dx = \frac{2}{\pi} \left[ \frac{x^2}{2} \right]_0^\pi = \pi$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $a_n$の計算（(1)の結果を利用）：
+                            <div class="math-block">$$a_n = \frac{2}{\pi} \int_0^\pi x \cos nx dx = \frac{2}{\pi} \cdot \frac{(-1)^n - 1}{n^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 場合分け：
+                            - $n$が偶数のとき：$(-1)^n = 1$より$a_n = 0$
+                            - $n$が奇数のとき：$(-1)^n = -1$より$a_n = \frac{-4}{\pi n^2}$
+                        </div>
+                        <div class="solution-step">
+                            4. フーリエ級数の構成：
+                            <div class="math-block">$$f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} a_{2k-1} \cos((2k-1)x)$$</div>
+                            <div class="math-block">$$= \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $f(x) = \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分積分で$\int x \cos nx dx$を計算</li>
+                            <li>偶関数はコサイン級数のみ</li>
+                            <li>奇数項のみが残る</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\cos(n\pi) = (-1)^n$</li>
+                            <li>偶関数：$b_n = 0$</li>
+                            <li>$|x|$のフーリエ展開は標準問題</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

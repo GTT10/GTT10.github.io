@@ -1,0 +1,206 @@
+はい、承知いたしました。岡山大学大学院の流体力学の入学試験問題を解いていきます。各問題について、順を追って解説します。
+
+-----
+
+## 【1】 水槽とノズルの問題
+
+図1に示された、大きな水槽の側面に取り付けられたノズルから液体が流出する状況に関する問題を解きます。圧力はゲージ圧、流体は密度 $\\rho$ の完全流体として扱います。
+
+\!(httpsa://[i.imgur.com/Qk775tq.png](https://i.imgur.com/Qk775tq.png))
+\<center\>図1: 水槽とノズル [cite: 12]\</center\>
+
+### (1) ノズル出口での流速
+
+水槽の液面（点Aとする）とノズル出口（点1とする）の間でベルヌーイの定理を適用します。液面の高さは $H$、出口の高さは 0 です。
+
+  * 点A: 圧力 $P\_A = 0$（大気圧、ゲージ圧0）、流速 $v\_A \\approx 0$（大きな水槽のため）、高さ $z\_A = H$
+  * 点1: 圧力 $P\_1 = 0$（大気へ放出、ゲージ圧0）、流速 $v\_1$、高さ $z\_1 = 0$
+
+ベルヌーイの式は $\\frac{P}{\\rho} + \\frac{v^2}{2} + gz = \\text{一定}$ です。
+
+$$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_1}{\rho} + \frac{v_1^2}{2} + g(0)$$
+$$0 + 0 + gH = 0 + \frac{v_1^2}{2}$$
+
+これを解くと、ノズル出口での流速 $v\_1$ が求まります。これはトリチェリの定理として知られています。
+
+$$v_1 = \sqrt{2gH}$$
+
+**答え:** ノズル出口でのz軸方向の流速は $\\sqrt{2gH}$ です。
+
+### (2) ノズル入口での流速
+
+ノズル入口（断面積 $A\_2$）と出口（断面積 $A\_1$）の間で、連続の式を適用します。
+
+$$A_1 v_1 = A_2 v_2$$
+
+ここから、ノズル入口での流速 $v\_2$ を求めます。
+
+$$v_2 = \frac{A_1}{A_2} v_1 = \frac{A_1}{A_2} \sqrt{2gH}$$
+
+**答え:** ノズル入口でのz軸方向の流速は $\\frac{A\_1}{A\_2} \\sqrt{2gH}$ です。
+
+### (3) ノズル入口での圧力
+
+水槽の液面（点A）とノズル入口（点2）の間でベルヌーイの定理を適用します。
+
+  * 点A: $P\_A = 0$, $v\_A \\approx 0$, $z\_A = H$
+  * 点2: 圧力 $P\_2$, 流速 $v\_2$, 高さ $z\_2 = 0$
+
+$$\frac{P_A}{\rho} + \frac{v_A^2}{2} + gH = \frac{P_2}{\rho} + \frac{v_2^2}{2} + g(0)$$
+$$gH = \frac{P_2}{\rho} + \frac{v_2^2}{2}$$
+
+$P\_2$ について解き、$v\_2$ の結果を代入します。
+
+$$P_2 = \rho \left( gH - \frac{v_2^2}{2} \right) = \rho \left( gH - \frac{1}{2} \left( \frac{A_1}{A_2} \right)^2 (2gH) \right)$$
+$$P_2 = \rho gH \left( 1 - \left( \frac{A_1}{A_2} \right)^2 \right)$$
+
+**答え:** ノズル入口での圧力は $\\rho gH \\left( 1 - \\left( \\frac{A\_1}{A\_2} \\right)^2 \\right)$ です。
+
+### (4) ノズル全体にかかる力
+
+ノズル内の流体を検査体積とし、z軸方向の運動量の法則を適用します。ノズルが流体に及ぼす力を $F\_{wall}$ とすると、z軸方向の力のつり合いは以下のようになります。
+
+$$P_2 A_2 - P_1 A_1 + F_{wall} = \dot{m}(v_1 - v_2)$$
+
+ここで、$P\_1=0$（ゲージ圧）、質量流量 $\\dot{m} = \\rho A\_1 v\_1 = \\rho A\_2 v\_2$ です。
+
+$$P_2 A_2 + F_{wall} = (\rho A_1 v_1)v_1 - (\rho A_2 v_2)v_2 = \rho (A_1 v_1^2 - A_2 v_2^2)$$
+
+ノズルが流体から受ける力（求めたい力 $F$）は、$F\_{wall}$ の反作用なので $F = -F\_{wall}$ です。
+
+$$F = P_2 A_2 - \rho(A_1 v_1^2 - A_2 v_2^2) = P_2 A_2 - \rho A_1 v_1^2 + \rho A_2 v_2^2$$
+
+ここに(1), (2), (3)の結果を代入します。
+
+$$F = \rho gH \left( 1 - \left(\frac{A_1}{A_2}\right)^2 \right) A_2 - \rho A_1 (2gH) + \rho A_2 \left(\frac{A_1}{A_2}\right)^2 (2gH)$$
+$$F = \rho gH \left( A_2 - \frac{A_1^2}{A_2} \right) - 2\rho gH A_1 + 2\rho gH \frac{A_1^2}{A_2}$$
+$$F = \rho gH \left( A_2 - \frac{A_1^2}{A_2} - 2A_1 + 2\frac{A_1^2}{A_2} \right)$$
+$$F = \rho gH \left( A_2 - 2A_1 + \frac{A_1^2}{A_2} \right) = \rho gH \frac{A_2^2 - 2A_1 A_2 + A_1^2}{A_2}$$
+$$F = \frac{\rho gH (A_2 - A_1)^2}{A_2}$$
+
+この力は正の値なので、**z軸の正の向き**に働きます。
+
+**答え:** ノズル全体にかかるz軸方向の力は、z軸正の向きに $\\frac{\\rho gH (A\_2 - A\_1)^2}{A\_2}$ です。
+
+-----
+
+## 【2】 平行平板間の流れの問題
+
+$x=-H$ と $x=2H$ に設置された無限に長い二枚の平板間を流れる、二次元非圧縮粘性流体に関する問題を解きます。
+
+\!(httpsa://[i.imgur.com/dK3f0wY.png](https://i.imgur.com/dK3f0wY.png))
+\<center\>図2: 平行平板 [cite: 40]\</center\>
+
+### (1) 二次元の連続の方程式
+
+非圧縮性流体の二次元（x, y）における連続の方程式は、x方向の流速を $u$、y方向の流速を $v$ として以下のように表されます。
+
+$$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$
+
+**答え:** $\\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} = 0$
+
+### (2) 二次元のナビエ・ストークス方程式
+
+密度を $\\rho$、動粘性係数を $\\nu$ としたとき、外力がない場合の二次元ナビエ・ストークス方程式は以下の通りです。
+
+**x方向:**
+$$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+
+**y方向:**
+$$\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)$$
+
+**答え:** 上記の2式。
+
+### (3) 流れの名称
+
+二つの平行平板間を圧力勾配によって駆動される層流の定常流れは、**平面ポアズイユ流れ**（または単にポアズイユ流れ）と呼ばれます。
+
+**答え:** 平面ポアズイユ流れ
+
+### (4) 流れを支配する方程式の導出
+
+(3)の流れの条件を(2)の方程式に適用します。
+
+  * **定常流れ**: $\\frac{\\partial}{\\partial t} = 0$
+  * **y方向の平行流**: $u=0$
+  * **十分に発達した流れ**: y方向に流速分布は変化しないため $\\frac{\\partial v}{\\partial y} = 0$
+
+これらの条件を(1)の連続の式 `∂u/∂x + ∂v/∂y = 0` に代入すると `0 + 0 = 0` となり、式は満たされます。
+
+次に、ナビエ・ストークス方程式を単純化します。
+
+  * **x方向:** `0 = - (1/ρ)∂p/∂x` となり、圧力pはxに依存しないことがわかります。
+  * **y方向:** `0 + 0 + 0 = - (1/ρ)∂p/∂y + ν(∂²v/∂x² + 0)`
+
+与えられた圧力勾配 `∂p/∂y = -G` を代入すると、
+
+$$0 = - \frac{1}{\rho}(-G) + \nu \frac{d^2 v}{dx^2}$$
+ここで、$v$ は $x$ のみの関数なので、偏微分は常微分になります。整理すると、流れを支配する方程式が得られます。
+
+$$\frac{d^2 v}{dx^2} = -\frac{G}{\rho \nu} = -\frac{G}{\mu}$$
+（ただし $\\mu = \\rho\\nu$ は粘性係数）
+
+**答え:** $\\frac{d^2 v}{dx^2} = -\\frac{G}{\\mu}$
+
+### (5) 流速分布
+
+(4)で得られた方程式を積分して流速分布 $v(x)$ を求めます。
+
+$$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1$$
+$$v(x) = -\frac{G}{2\mu}x^2 + C_1 x + C_2$$
+
+壁面での滑りなし条件（no-slip condition）を境界条件として適用し、積分定数 $C\_1, C\_2$ を決定します。
+
+  * $x=-H$ で $v=0$: $0 = -\\frac{G}{2\\mu}(-H)^2 + C\_1(-H) + C\_2$  (i)
+  * $x=2H$ で $v=0$: $0 = -\\frac{G}{2\\mu}(2H)^2 + C\_1(2H) + C\_2$ (ii)
+
+(ii) - (i) より、
+$0 = -\\frac{G}{2\\mu}(4H^2 - H^2) + 3C\_1 H = -\\frac{3GH^2}{2\\mu} + 3C\_1 H \\implies C\_1 = \\frac{GH}{2\\mu}$
+
+$C\_1$ を (i) に代入して $C\_2$ を求めます。
+$C\_2 = \\frac{GH^2}{2\\mu} + C\_1 H = \\frac{GH^2}{2\\mu} + \\left(\\frac{GH}{2\\mu}\\right)H = \\frac{GH^2}{\\mu}$
+
+したがって、流速分布は以下のようになります。
+
+$$v(x) = -\frac{G}{2\mu}x^2 + \frac{GH}{2\mu}x + \frac{GH^2}{\mu} = \frac{G}{2\mu}(-x^2 + Hx + 2H^2)$$
+$$v(x) = \frac{G}{2\mu}(2H-x)(H+x)$$
+
+**答え:** $v(x) = \\frac{G}{2\\mu}(2H-x)(H+x)$
+
+### (6) 最大流速となる位置と最大流速の値
+
+最大流速は $\\frac{dv}{dx}=0$ となる位置で生じます。
+$$\frac{dv}{dx} = -\frac{G}{\mu}x + C_1 = -\frac{G}{\mu}x + \frac{GH}{2\mu} = 0$$
+$$x = \frac{H}{2}$$
+この位置は平板間 $(-H, 2H)$ の中央です。
+
+最大流速 $v\_{max}$ は、$v(x)$ に $x=H/2$ を代入して求めます。
+$$v_{max} = v\left(\frac{H}{2}\right) = \frac{G}{2\mu}\left(-\left(\frac{H}{2}\right)^2 + H\left(\frac{H}{2}\right) + 2H^2\right)$$
+$$v_{max} = \frac{G}{2\mu}\left(-\frac{H^2}{4} + \frac{H^2}{2} + 2H^2\right) = \frac{G}{2\mu}\left(\frac{-H^2+2H^2+8H^2}{4}\right) = \frac{G}{2\mu}\left(\frac{9H^2}{4}\right)$$
+$$v_{max} = \frac{9GH^2}{8\mu}$$
+
+**答え:** 最大流速となる位置は $x = H/2$、最大流速の値は $\\frac{9GH^2}{8\\mu}$ です。
+
+### (7) 体積流量
+
+平板間の体積流量 $Q$ （単位奥行きあたり）は、流速分布を断面にわたって積分することで求められます。
+
+$$Q = \int_{-H}^{2H} v(x) dx = \int_{-H}^{2H} \frac{G}{2\mu}(-x^2 + Hx + 2H^2) dx$$
+$$Q = \frac{G}{2\mu} \left[ -\frac{x^3}{3} + \frac{Hx^2}{2} + 2H^2x \right]_{-H}^{2H}$$
+$$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8H^3}{3} + \frac{4H^3}{2} + 4H^3\right) - \left(\frac{H^3}{3} + \frac{H^3}{2} - 2H^3\right) \right\}$$
+$$Q = \frac{G}{2\mu} \left\{ \left(-\frac{8}{3} + 2 + 4\right)H^3 - \left(\frac{1}{3} + \frac{1}{2} - 2\right)H^3 \right\}$$
+$$Q = \frac{G}{2\mu} \left\{ \frac{10}{3} - \left(-\frac{7}{6}\right) \right\}H^3 = \frac{G}{2\mu} \left(\frac{20+7}{6}\right)H^3 = \frac{G}{2\mu} \frac{27}{6}H^3$$
+$$Q = \frac{9GH^3}{4\mu}$$
+
+**答え:** 体積流量は $\\frac{9GH^3}{4\\mu}$ です。
+
+### (8) 壁面せん断応力
+
+壁面せん断応力 $\\tau\_w$ は $\\tau\_w = \\mu \\frac{dv}{dx}$ で与えられます。$x=-H$ の平板におけるせん断応力を求めます。
+$$\frac{dv}{dx} = -\frac{G}{\mu}x + \frac{GH}{2\mu}$$
+$x=-H$ を代入すると、
+$$\tau_w = \mu \left( \frac{dv}{dx} \right)_{x=-H} = \mu \left( -\frac{G}{\mu}(-H) + \frac{GH}{2\mu} \right) = \mu \left( \frac{GH}{\mu} + \frac{GH}{2\mu} \right) = \mu \left( \frac{3GH}{2\mu} \right)$$
+$$\tau_w = \frac{3GH}{2}$$
+この値は正なので、力は **y軸の正の向き** に作用します。これは流れの方向と同じです。
+
+**答え:** 大きさは $\\frac{3GH}{2}$ で、向きはy軸の正の向きです。

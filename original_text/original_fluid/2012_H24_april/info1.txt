@@ -1,0 +1,175 @@
+### **問題1**
+
+この問題は、速度成分が$u=x$および$v=-y$で与えられる二次元流れを扱います。
+
+#### **(1) 定義**
+
+* **(a) 流線:** 流線とは、流れのすべての点において速度ベクトルに瞬間的に接する線です。これは特定の瞬間における流体運動の方向のスナップショットを提供します。
+* **(b) 流跡線:** 流跡線とは、個々の流体粒子が一定期間にわたって辿る軌跡です。
+
+#### **(2) 流線の方程式**
+
+流線の方程式は$\frac{dy}{dx} = \frac{v}{u}$の関係によって定義されます。
+与えられた速度成分を代入すると：
+$$\frac{dy}{dx} = \frac{-y}{x}$$
+これは変数分離可能な微分方程式です。変数を分離するために項を並び替えると：
+$$\frac{dy}{y} = -\frac{dx}{x}$$
+両辺を積分すると：
+$$\int \frac{dy}{y} = -\int \frac{dx}{x}$$
+$$\ln|y| = -\ln|x| + C_1$$
+ここで$C_1$は積分定数です。これは次のように書き直すことができます：
+$$\ln|y| + \ln|x| = C_1 \implies \ln|xy| = C_1$$
+したがって、流線の方程式は：
+$$\boldsymbol{xy = C}$$
+ここで$C$は定数です。
+
+#### **(3) 流れ関数**
+
+流れ関数$\psi$は、$u = \frac{\partial \psi}{\partial y}$および$v = -\frac{\partial \psi}{\partial x}$の関係によって定義されます。
+
+$u=x$を用いて第一の関係を使うと：
+$$\frac{\partial \psi}{\partial y} = x$$
+$y$について積分すると：
+$$\psi(x, y) = xy + f(x)$$
+ここで$f(x)$は$x$の任意関数です。
+
+次に、$v=-y$を用いて第二の関係を使うと：
+$$v = -\frac{\partial \psi}{\partial x} \implies -y = -\frac{\partial}{\partial x}(xy + f(x))$$
+$$-y = -(y + f'(x)) \implies y = y + f'(x)$$
+これは$f'(x) = 0$を意味するので、$f(x)$は定数でなければなりません。簡単のためにこの定数を零とします。
+
+したがって、流れ関数は：
+$$\boldsymbol{\psi = xy}$$
+
+#### **(4) 時刻$t=\alpha$における粒子位置**
+
+流体粒子の位置$(x(t), y(t))$は次の微分方程式によって決定されます：
+$$\frac{dx}{dt} = u = x \quad \text{および} \quad \frac{dy}{dt} = v = -y$$
+$x(t)$について第一の方程式を解くと：
+$$\frac{dx}{x} = dt \implies \int \frac{dx}{x} = \int dt \implies \ln|x| = t + C_x$$
+$t=0$において初期条件$(x,y)=(1,1)$が与えられているので：
+$$\ln|1| = 0 + C_x \implies C_x = 0$$
+したがって、$\ln|x| = t$となり、$x(t) = e^t$が得られます。
+
+$y(t)$について第二の方程式を解くと：
+$$\frac{dy}{y} = -dt \implies \int \frac{dy}{y} = -\int dt \implies \ln|y| = -t + C_y$$
+$t=0$において初期条件$(x,y)=(1,1)$を使うと：
+$$\ln|1| = -0 + C_y \implies C_y = 0$$
+したがって、$\ln|y| = -t$となり、$y(t) = e^{-t}$が得られます。
+
+時刻$t$における粒子の位置は$(e^t, e^{-t})$です。$t = \alpha (>0)$において、位置は：
+$$\boldsymbol{(x(\alpha), y(\alpha)) = (e^\alpha, e^{-\alpha})}$$
+
+### **問題2**
+
+この問題は、接線速度$V_t = \frac{C}{r}$で原点O周りを回転する二次元、非圧縮性、非粘性流体に関するものです。
+
+#### **(1) 速度成分$u$および$v$**
+速度ベクトルは半径$r$の円に接します。点$(x, y)$について、半径ベクトルは$(x, y)$であり、接線ベクトル（反時計回り）は$(-y, x)$です。速度の大きさは$V_t = C/r$です。
+速度ベクトル$\vec{V} = (u,v)$は：
+$$\vec{V} = V_t \times (\text{単位接線ベクトル}) = \frac{C}{r} \frac{(-y, x)}{\sqrt{(-y)^2 + x^2}} = \frac{C}{r} \frac{(-y, x)}{r} = \frac{C}{r^2}(-y, x)$$
+$r^2 = x^2+y^2$なので、速度成分は：
+$$\boldsymbol{u = -\frac{Cy}{x^2+y^2}}, \quad \boldsymbol{v = \frac{Cx}{x^2+y^2}}$$
+
+#### **(2) 流れの渦度**
+渦度$\omega$は$\omega = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}$として定義されます。
+$$\frac{\partial v}{\partial x} = \frac{\partial}{\partial x} \left(\frac{Cx}{x^2+y^2}\right) = \frac{C(x^2+y^2) - Cx(2x)}{(x^2+y^2)^2} = \frac{C(y^2-x^2)}{(x^2+y^2)^2}$$
+$$\frac{\partial u}{\partial y} = \frac{\partial}{\partial y} \left(\frac{-Cy}{x^2+y^2}\right) = \frac{-C(x^2+y^2) - (-Cy)(2y)}{(x^2+y^2)^2} = \frac{C(y^2-x^2)}{(x^2+y^2)^2}$$
+したがって、渦度は：
+$$\omega = \frac{C(y^2-x^2)}{(x^2+y^2)^2} - \frac{C(y^2-x^2)}{(x^2+y^2)^2} = \boldsymbol{0}$$
+この流れは原点（$r=0$）の特異点を除いてあらゆる場所で無回転です。
+
+#### **(3) この流れの名称**
+この種の流れは**自由渦**または**無回転渦**と呼ばれます。
+
+#### **(4) 原点周りの循環**
+閉じた経路周りの循環$\Gamma$は線積分$\Gamma = \oint \vec{V} \cdot d\vec{l}$によって与えられます。原点を中心とする半径$r$の円経路を選びます。この経路に沿って、速度ベクトルは常に経路要素$d\vec{l}$に平行です。速度の大きさは一定で、$V_t = C/r$です。
+$$\Gamma = \int_0^{2\pi} V_t (r d\theta) = \int_0^{2\pi} \left(\frac{C}{r}\right) r d\theta = \int_0^{2\pi} C d\theta = C[\theta]_0^{2\pi}$$
+$$\boldsymbol{\Gamma = 2\pi C}$$
+
+#### **(5) 複素速度ポテンシャルW**
+複素速度ポテンシャル$W$は速度ポテンシャル$\phi$と流れ関数$\psi$の関係で表されます：
+$$\boldsymbol{W = \phi + i\psi}$$
+
+#### **(6) $W$による$u, v$の表現**
+複素変数$z = x + iy$について、複素ポテンシャル$W$の$z$に対する導関数は速度の複素共役を与えます：
+$$\boldsymbol{\frac{dW}{dz} = u - iv}$$
+
+#### **(7) $C, z$による$u, v$の表現**
+(6)の結果から、(1)の成分を使って$u-iv$の式を作ります：
+$$u - iv = \left(-\frac{Cy}{x^2+y^2}\right) - i\left(\frac{Cx}{x^2+y^2}\right) = -\frac{C(y+ix)}{x^2+y^2}$$
+$-i$を因数分解すると：
+$$u - iv = -i \frac{C(x-iy)}{x^2+y^2}$$
+$z=x+iy$、$\bar{z}=x-iy$、および$|z|^2 = z\bar{z} = x^2+y^2$を使うと：
+$$u-iv = -i \frac{C\bar{z}}{z\bar{z}} = \boldsymbol{-\frac{iC}{z}}$$
+
+#### **(8) 複素速度ポテンシャルW**
+(6)と(7)から、次の関係があります：
+$$\frac{dW}{dz} = -\frac{iC}{z}$$
+$W$を求めるために$z$について積分すると：
+$$W(z) = \int -\frac{iC}{z} dz = -iC \int \frac{1}{z} dz = -iC \ln(z) + \text{定数}$$
+積分定数を零とすると、複素速度ポテンシャルは：
+$$\boldsymbol{W(z) = -iC \ln(z)}$$
+
+### **問題3**
+
+この問題は、半径$a$の円管における非圧縮性流体の層流を解析します。軸方向速度分布は$u(r) = A(1 - \frac{r^2}{a^2})$です。
+
+#### **(1) 体積流量Q**
+流量$Q$は、管の断面積全体にわたって速度分布を積分することで求められます。
+$$Q = \int_{0}^{a} u(r) 2\pi r dr = \int_{0}^{a} A\left(1 - \frac{r^2}{a^2}\right) 2\pi r dr$$
+$$Q = 2\pi A \int_{0}^{a} \left(r - \frac{r^3}{a^2}\right) dr = 2\pi A \left[\frac{r^2}{2} - \frac{r^4}{4a^2}\right]_0^a$$
+$$Q = 2\pi A \left(\frac{a^2}{2} - \frac{a^4}{4a^2}\right) = 2\pi A \left(\frac{a^2}{4}\right)$$
+$$\boldsymbol{Q = \frac{\pi a^2 A}{2}}$$
+
+#### **(2) レイノルズ数Re**
+まず、平均速度$U$を求めます。
+$$U = \frac{Q}{\text{面積}} = \frac{\frac{1}{2}\pi a^2 A}{\pi a^2} = \frac{A}{2}$$
+レイノルズ数は$Re = \frac{U D}{\nu}$と定義され、ここで直径$D = 2a$です。
+$$Re = \frac{(A/2)(2a)}{\nu}$$
+$$\boldsymbol{Re = \frac{Aa}{\nu}}$$
+
+#### **(3) 壁面せん断応力$\tau_w$**
+せん断応力は$\tau = \mu \frac{du}{dr} = \rho\nu \frac{du}{dr}$です。壁面（$r=a$）におけるその大きさが必要です。
+まず、速度勾配を求めます：
+$$\frac{du}{dr} = \frac{d}{dr}\left[A\left(1 - \frac{r^2}{a^2}\right)\right] = A\left(-\frac{2r}{a^2}\right) = -\frac{2Ar}{a^2}$$
+壁面（$r=a$）において：
+$$\left.\frac{du}{dr}\right|_{r=a} = -\frac{2Aa}{a^2} = -\frac{2A}{a}$$
+壁面せん断応力の大きさは：
+$$\tau_w = \left|\rho\nu \left(-\frac{2A}{a}\right)\right| = \boldsymbol{\frac{2A\rho\nu}{a}}$$
+
+#### **(4) 圧力損失$\Delta p$**
+管の長さ$L$について、圧力力$(\Delta p) (\pi a^2)$は壁面での粘性せん断力$(\tau_w)(2\pi a L)$と釣り合わなければなりません。
+$$\Delta p \cdot \pi a^2 = \tau_w \cdot 2\pi a L$$
+$$\Delta p = \frac{2L\tau_w}{a}$$
+(3)から$\tau_w$の式を代入すると：
+$$\Delta p = \frac{2L}{a} \left(\frac{2A\rho\nu}{a}\right) = \boldsymbol{\frac{4LA\rho\nu}{a^2}}$$
+
+#### **(5) Reによる摩擦係数$\lambda$**
+管摩擦係数$\lambda$は$\lambda = \frac{\Delta p}{\frac{1}{2}\rho U^2 \left(\frac{L}{2a}\right)}$と定義されます。
+(4)からの$\Delta p$と(2)からの$U$の式を代入します：
+$$\lambda = \frac{\frac{4LA\rho\nu}{a^2}}{\frac{1}{2}\rho \left(\frac{A}{2}\right)^2 \left(\frac{L}{2a}\right)} = \frac{\frac{4LA\rho\nu}{a^2}}{\frac{1}{2}\rho \frac{A^2}{4} \frac{L}{2a}} = \frac{\frac{4LA\rho\nu}{a^2}}{\frac{\rho A^2 L}{16a}}$$
+$$\lambda = \frac{4LA\rho\nu}{a^2} \cdot \frac{16a}{\rho A^2 L} = \frac{64 \rho \nu L A a}{\rho A^2 L a^2} = \frac{64\nu}{Aa}$$
+(2)から$Re = \frac{Aa}{\nu}$なので、$Aa = Re \cdot \nu$です。これを代入すると：
+$$\lambda = \frac{64\nu}{Re \cdot \nu} = \boldsymbol{\frac{64}{Re}}$$
+
+#### **(6) 数値計算**
+与えられた値：
+$a = 5 \text{ mm} = 0.005 \text{ m}$
+$L = 1 \text{ m}$
+$U = 10 \text{ cm/s} = 0.1 \text{ m/s}$
+$\nu = 1 \times 10^{-6} \text{ m}^2/\text{s}$
+$\rho = 1 \times 10^{3} \text{ kg/m}^3$
+管の直径$D = 2a = 0.01 \text{ m}$。
+
+* **レイノルズ数Re：**
+    $$Re = \frac{UD}{\nu} = \frac{(0.1 \text{ m/s})(0.01 \text{ m})}{1 \times 10^{-6} \text{ m}^2/\text{s}} = \frac{0.001}{10^{-6}} = \boldsymbol{1000}$$
+
+* **管摩擦係数$\lambda$**：
+    $Re=1000 < 2300$なので流れは層流です。
+    $$\lambda = \frac{64}{Re} = \frac{64}{1000} = \boldsymbol{0.064}$$
+
+* **圧力損失$\Delta p$**：
+    $\lambda$の定義を使うと：
+    $$\Delta p = \lambda \cdot \frac{1}{2}\rho U^2 \cdot \frac{L}{D} = (0.064) \cdot \frac{1}{2}(10^3 \text{ kg/m}^3)(0.1 \text{ m/s})^2 \cdot \frac{1 \text{ m}}{0.01 \text{ m}}$$
+    $$\Delta p = (0.064) \cdot (0.5)(1000)(0.01)(100) = (0.064) \cdot (500) = \boldsymbol{32 \textbf{ Pa}}$$

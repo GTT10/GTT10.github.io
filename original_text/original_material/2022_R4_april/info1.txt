@@ -1,0 +1,127 @@
+はい、図に示された材料力学の問題を解くことができます。以下に各問題の解答と解説を示します。
+
+-----
+
+## 【問題1】
+
+図1は、壁にピンで固定された剛体棒CDが2本のワイヤーAEとBFで吊り下げられ、先端Dに荷重Pが作用している状況を示しています [cite: 11, 12]。
+
+\<img src="/api/download\_file?file\_path=preppy-433b9b-9c2f6d/user\_uploads/PAGE\_2\_01ko\_kikai\_zairyo\_202108.pdf.jpg" alt="Problem 1 Diagram" width="500"/\>
+[cite: 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+
+### (1) つり合い式 [cite: 13]
+
+物体にはたらく力のつり合いを考えます。支持力$R$とワイヤーの張力$T\_a, T\_b$を上向き、外力$P$を下向きとすると、垂直方向の力のつり合い式は以下のようになります。
+
+**力のつり合い式:**
+$$R + T_a + T_b - P = 0$$
+
+次に、点Cを回転の中心としてモーメントのつり合いを考えます。点C周りのモーメントのつり合い式は以下の通りです。
+
+**点Cに関するモーメントのつり合い式:**
+$$a T_a + b T_b - c P = 0$$
+
+### (2) ワイヤーの応力 [cite: 14]
+
+これは不静定問題なので、力のつり合いに加えて変形の適合条件を考慮する必要があります。剛体棒CDが点Cを中心に微小角度 $\\theta$ だけ回転すると、点Aと点Bの変位 $\\delta\_a, \\delta\_b$ はそれぞれワイヤーの伸びに等しくなります。
+
+変位の幾何学的関係：
+$$\delta_a = a \theta, \quad \delta_b = b \theta$$
+
+一方、ワイヤーの伸びは材料の性質から以下の式で表されます。
+$$\delta_a = \frac{T_a l_a}{E_a S_a}, \quad \delta_b = \frac{T_b l_b}{E_b S_b}$$
+
+これらの式から $\\theta$ を消去して、変形の適合条件式を得ます。
+$$\frac{\delta_a}{a} = \frac{\delta_b}{b} \implies \frac{T_a l_a}{a E_a S_a} = \frac{T_b l_b}{b E_b S_b}$$
+
+この式と(1)のモーメントのつり合い式 $a T\_a + b T\_b = c P$ を連立して、$T\_a$と$T\_b$を求めます。
+適合条件式から $T\_a$ を $T\_b$ で表すと、
+$$T_a = T_b \cdot \frac{a l_b E_a S_a}{b l_a E_b S_b}$$
+これをモーメントのつり合い式に代入して、$T\_b$ を求めます。
+$$a \left( T_b \frac{a l_b E_a S_a}{b l_a E_b S_b} \right) + b T_b = cP \implies T_b \left( \frac{a^2 l_b E_a S_a}{b l_a E_b S_b} + b \right) = cP$$
+$$T_b = \frac{c P b l_a E_b S_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+同様に、$T\_a$ は以下のようになります。
+$$T_a = \frac{c P a l_b E_a S_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+
+応力 $\\sigma$ は力 $T$ を断面積 $S$ で割ることで求められるので ($\\sigma = T/S$)、各ワイヤーの応力は次のようになります。
+
+**ワイヤーAEの応力 $\\sigma\_a$**:
+$$\sigma_a = \frac{T_a}{S_a} = \frac{c P a l_b E_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+
+**ワイヤーBFの応力 $\\sigma\_b$**:
+$$\sigma_b = \frac{T_b}{S_b} = \frac{c P b l_a E_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}$$
+
+### (3) 応力の比 [cite: 15]
+
+変形の適合条件式を応力で書き直します。
+$$\frac{(\sigma_a S_a) l_a}{a E_a S_a} = \frac{(\sigma_b S_b) l_b}{b E_b S_b} \implies \frac{\sigma_a l_a}{a E_a} = \frac{\sigma_b l_b}{b E_b}$$
+この式から応力の比を求めると、
+$$\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{b E_b l_a}$$
+問題の条件である $E\_a = E\_b$、 $2a = b$、 $l\_a = 2l\_b$ を代入します [cite: 15]。
+$$\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{(2a) E_a (2l_b)} = \frac{1}{4}$$
+
+したがって、応力 $\\sigma\_a$ は **$\\sigma\_b$ の $\\frac{1}{4}$ 倍**になります。
+
+-----
+
+## 【問題2】
+
+図2は、一端（B）が固定され、他端（A）が支持されたはりに、曲げモーメント $M\_C$ が作用している状況を示しています [cite: 32, 33]。
+
+\<img src="/api/download\_file?file\_path=preppy-433b9b-9c2f6d/user\_uploads/PAGE\_3\_01ko\_kikai\_zairyo\_202108.pdf.jpg" alt="Problem 2 Diagram" width="500"/\>
+[cite: 32, 33, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+
+### (1) 曲げモーメントとたわみ [cite: 34]
+
+支持力 $R\_A$ を既知の外力とみなし、点Aを原点としてx軸をとります。
+
+**曲げモーメント $M(x)$:**
+区間AC ($0 \\le x \\le a$) と CB ($a \\le x \\le l$) でモーメントの式は異なります。
+
+  * **区間AC ($0 \\le x \\le a$):**
+    $$M_{AC}(x) = R_A x$$
+  * **区間CB ($a \\le x \\le l$):**
+    $$M_{CB}(x) = R_A x - M_C$$
+
+**たわみ $v(x)$:**
+たわみの基本微分方程式 $EI \\frac{d^2v}{dx^2} = M(x)$ を積分して、たわみの式を求めます。
+
+  * **区間AC ($0 \\le x \\le a$):**
+    $EI \\frac{d^2v\_{AC}}{dx^2} = R\_A x$
+    $EI \\frac{dv\_{AC}}{dx} = \\frac{1}{2} R\_A x^2 + C\_1$
+    $EI v\_{AC}(x) = \\frac{1}{6} R\_A x^3 + C\_1 x + C\_2$
+  * **区間CB ($a \\le x \\le l$):**
+    $EI \\frac{d^2v\_{CB}}{dx^2} = R\_A x - M\_C$
+    $EI \\frac{dv\_{CB}}{dx} = \\frac{1}{2} R\_A x^2 - M\_C x + C\_3$
+    $EI v\_{CB}(x) = \\frac{1}{6} R\_A x^3 - \\frac{1}{2} M\_C x^2 + C\_3 x + C\_4$
+
+積分定数 ($C\_1, C\_2, C\_3, C\_4$) は、境界条件と連続条件から決定されます。
+
+1.  支持点A ($x=0$): たわみはゼロ $v\_{AC}(0) = 0$
+2.  固定端B ($x=l$): たわみはゼロ $v\_{CB}(l) = 0$
+3.  固定端B ($x=l$): たわみ角はゼロ $\\frac{dv\_{CB}}{dx}(l) = 0$
+4.  点C ($x=a$): たわみは連続 $v\_{AC}(a) = v\_{CB}(a)$
+5.  点C ($x=a$): たわみ角は連続 $\\frac{dv\_{AC}}{dx}(a) = \\frac{dv\_{CB}}{dx}(a)$
+
+これらの条件を用いて定数を $R\_A, M\_C, a, l$ で表し、たわみの式に代入します。
+
+  * 条件1から: $C\_2 = 0$
+  * 条件3, 5から: $C\_1 = M\_C(l-a) - \\frac{1}{2}R\_A l^2$
+  * 条件2, 3, 4, 5を解くと残りの定数が求まります。
+
+最終的に、たわみの式は以下のようになります。
+
+  * **たわみ $v\_{AC}(x)$:**
+    $$v_{AC}(x) = \frac{1}{EI} \left[ \frac{1}{6} R_A x^3 + \left( M_C(l-a) - \frac{1}{2}R_A l^2 \right) x \right]$$
+  * **たわみ $v\_{CB}(x)$:**
+    $$v_{CB}(x) = \frac{1}{EI} \left[ \frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + \left( M_C l - \frac{1}{2}R_A l^2 \right) x - \frac{1}{2}M_C a^2 \right]$$
+
+### (2) 支持力 $R\_A$ [cite: 35]
+
+(1)で用いた境界条件をすべて適用することで、未知数であった支持力 $R\_A$ を決定できます。(1)の積分定数を求める過程で得られる以下の関係式を用います。
+$$-\frac{1}{3}R_A l^3 + \frac{M_C}{2}(l^2-a^2) = 0$$
+
+この式を $R\_A$ について解きます。
+
+**支持力 $R\_A$**:
+$$\mathbf{R_A = \frac{3 M_C (l^2-a^2)}{2 l^3}}$$

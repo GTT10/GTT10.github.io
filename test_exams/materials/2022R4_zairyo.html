@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023年度 材料力学大学院入試問題解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-decoration {
+            height: 8px;
+            width: 100%;
+            background-color: #2563eb;
+        }
+        .slide-title {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .example-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .problem-statement {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .solution-step {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-step::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+        .point-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* 大問タイトルの強調背景色（薄い黄色系） */
+        .main-section-title {
+            background-color: #fef9c3;
+            color: #b45309;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        /* 途中式の青色箇条書き */
+        .solution-list {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        .solution-list li {
+            color: #334155;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        .solution-list li::marker {
+            color: #2563eb;
+        }
+        
+        /* 印刷時の改ページ制御 */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+            }
+            
+            .slide-container {
+                width: 100% !important;
+                min-height: auto !important;
+                box-shadow: none !important;
+                page-break-after: always;
+            }
+            
+            .header-decoration {
+                display: none;
+            }
+            
+            .footer {
+                position: static !important;
+                margin-top: 2rem;
+                page-break-before: avoid;
+            }
+            
+            /* 要素の分割を防ぐ */
+            .example-box,
+            .point-box,
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* 見出しの前で改ページを避ける */
+            .slide-title,
+            .section-title {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            /* 解法手順の各ステップを分割しない */
+            .solution-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            /* 数式を含む要素の分割を防ぐ */
+            .ml-4 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                color: #334155;
+            }
+            
+            /* リストアイテムの分割を防ぐ */
+            li {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* グリッドレイアウトの印刷対応 */
+            .grid {
+                display: block !important;
+            }
+            
+            .col-span-3,
+            .col-span-2 {
+                width: 100% !important;
+                margin-bottom: 2rem;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+        .answer-highlight {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        /* アコーディオン用スタイル */
+        .accordion {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            background: #f1f5f9;
+        }
+        .accordion-header {
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #2563eb;
+            background: #e0e7ef;
+            border-radius: 0.5rem 0.5rem 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .accordion-content {
+            display: none;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        .accordion.open .accordion-content {
+            display: block;
+        }
+        .accordion-arrow {
+            transition: transform 0.2s;
+        }
+        .accordion.open .accordion-arrow {
+            transform: rotate(90deg);
+        }
+        .problem-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-decoration"></div>
+        
+        <div class="p-10 h-full">
+            <h1 class="slide-title">
+                <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                2023年度 材料力学大学院入試問題解説
+            </h1>
+            <div class="grid grid-cols-5 gap-6">
+                <!-- 左側：例題と解法 -->
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【1】</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図1は、壁にピンで固定された剛体棒CDが2本のワイヤーAEとBFで吊り下げられ、先端Dに荷重Pが作用している状況を示しています。</p>
+                        <img src="/api/download_file?file_path=preppy-433b9b-9c2f6d/user_uploads/PAGE_2_01ko_kikai_zairyo_202108.pdf.jpg" alt="Problem 1 Diagram" class="problem-image">
+                    </div>
+
+                    <div class="example-box">
+                        <div class="problem-statement">(1) つり合い式</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">物体にはたらく力のつり合いを考えます。支持力\(R\)とワイヤーの張力\(T_a, T_b\)を上向き、外力\(P\)を下向きとして、垂直方向の力のつり合い式と点C周りのモーメントのつり合い式を立てます。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            垂直方向の力のつり合い式:
+                            \[R + T_a + T_b - P = 0\]
+                        </div>
+                        <div class="solution-step">
+                            点Cを回転の中心としてモーメントのつり合い式:
+                            \[a T_a + b T_b - c P = 0\]
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="problem-statement">(2) ワイヤーの応力</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">これは不静定問題なので、力のつり合いに加えて変形の適合条件を考慮する必要があります。剛体棒CDが点Cを中心に微小角度 \(\theta\) だけ回転すると、点Aと点Bの変位 \(\delta_a, \delta_b\) はそれぞれワイヤーの伸びに等しくなります。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            変位の幾何学的関係：
+                            \[\delta_a = a \theta, \quad \delta_b = b \theta\]
+                        </div>
+                        <div class="solution-step">
+                            ワイヤーの伸びは材料の性質から：
+                            \[\delta_a = \frac{T_a l_a}{E_a S_a}, \quad \delta_b = \frac{T_b l_b}{E_b S_b}\]
+                        </div>
+                        <div class="solution-step">
+                            変形の適合条件式：
+                            \[\frac{\delta_a}{a} = \frac{\delta_b}{b} \implies \frac{T_a l_a}{a E_a S_a} = \frac{T_b l_b}{b E_b S_b}\]
+                        </div>
+                        <div class="solution-step">
+                            つり合い式と適合条件式を連立：
+                            \[T_a = T_b \cdot \frac{a l_b E_a S_a}{b l_a E_b S_b}\]
+                            \[a \left( T_b \frac{a l_b E_a S_a}{b l_a E_b S_b} \right) + b T_b = cP\]
+                        </div>
+                        <div class="solution-step">
+                            張力 \(T_b\) と \(T_a\) を解く：
+                            \[T_b = \frac{c P b l_a E_b S_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}\]
+                            \[T_a = \frac{c P a l_b E_a S_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}\]
+                        </div>
+                        <div class="solution-step">
+                            応力 \(\sigma\) の計算：
+                            \[\sigma_a = \frac{T_a}{S_a} = \frac{c P a l_b E_a}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}\]
+                            \[\sigma_b = \frac{T_b}{S_b} = \frac{c P b l_a E_b}{a^2 l_b E_a S_a + b^2 l_a E_b S_b}\]
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <div class="problem-statement">(3) 応力の比</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p class="mb-3">変形の適合条件式を応力で書き直し、問題の条件 (\(E_a = E_b\), \(2a = b\), \(l_a = 2l_b\)) を代入して応力の比を求めます。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            適合条件式を応力で表現：
+                            \[\frac{\sigma_a l_a}{a E_a} = \frac{\sigma_b l_b}{b E_b}\]
+                        </div>
+                        <div class="solution-step">
+                            応力の比：
+                            \[\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{b E_b l_a}\]
+                        </div>
+                        <div class="solution-step">
+                            条件を代入：
+                            \[\frac{\sigma_a}{\sigma_b} = \frac{a E_a l_b}{(2a) E_a (2l_b)} = \frac{1}{4}\]
+                        </div>
+                        <span class="answer-highlight">答え: \(\sigma_a\) は \(\sigma_b\) の \(\frac{1}{4}\) 倍</span>
+                    </div>
+                </div>
+                <!-- 右側：解説とポイント -->
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>不静定問題では力のつり合いと変形の適合条件の両方を考慮</li>
+                            <li>幾何学的関係と材料特性（フックの法則）を組み合わせて解く</li>
+                            <li>ワイヤーの伸びと剛体棒の回転量の関係を明確に定義</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>不静定問題は「つり合い式」＋「変形の適合条件」が基本</li>
+                            <li>応力計算では断面積で張力を除算</li>
+                            <li>比を求める問題では単位に注意（無次元量になる）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            材料力学大学院入試問題解説 | 1/2
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- ここから大問【2】 -->
+    <div class="slide-container mt-16">
+        <div class="header-decoration"></div>
+        <div class="p-10 h-full">
+            <div class="grid grid-cols-5 gap-6">
+                <!-- 左側：設問 -->
+                <div class="col-span-3">
+                    <div class="main-section-title">大問【2】</div>
+                    <div class="example-box mb-6">
+                        <p class="problem-statement">図2は、一端（B）が固定され、他端（A）が支持されたはりに、曲げモーメント \(M_C\) が作用している状況を示しています。</p>
+                        <img src="/api/download_file?file_path=preppy-433b9b-9c2f6d/user_uploads/PAGE_3_01ko_kikai_zairyo_202108.pdf.jpg" alt="Problem 2 Diagram" class="problem-image">
+                    </div>
+
+                    <div class="example-box mb-2">
+                        <div class="problem-statement">(1) 曲げモーメントとたわみ</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>支持力 \(R_A\) を既知の外力とみなし、点Aを原点としてx軸をとります。区間AC (\(0 \le x \le a\)) と CB (\(a \le x \le l\)) で曲げモーメントの式が異なります。たわみの基本微分方程式 \(EI \frac{d^2v}{dx^2} = M(x)\) を積分し、境界条件と連続条件から積分定数を決定します。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            曲げモーメント \(M(x)\):
+                            <ul class="solution-list">
+                                <li>区間AC (\(0 \le x \le a\)): 
+                                    \[M_{AC}(x) = R_A x\]
+                                </li>
+                                <li>区間CB (\(a \le x \le l\)): 
+                                    \[M_{CB}(x) = R_A x - M_C\]
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            たわみ \(v(x)\) の微分方程式:
+                            <ul class="solution-list">
+                                <li>区間AC (\(0 \le x \le a\)): 
+                                    \[EI \frac{d^2v_{AC}}{dx^2} = R_A x\]
+                                    \[EI \frac{dv_{AC}}{dx} = \frac{1}{2} R_A x^2 + C_1\]
+                                    \[EI v_{AC}(x) = \frac{1}{6} R_A x^3 + C_1 x + C_2\]
+                                </li>
+                                <li>区間CB (\(a \le x \le l\)): 
+                                    \[EI \frac{d^2v_{CB}}{dx^2} = R_A x - M_C\]
+                                    \[EI \frac{dv_{CB}}{dx} = \frac{1}{2} R_A x^2 - M_C x + C_3\]
+                                    \[EI v_{CB}(x) = \frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + C_3 x + C_4\]
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            境界条件と連続条件:
+                            <ol class="solution-list">
+                                <li>支持点A (\(x=0\)): \(v_{AC}(0) = 0\)</li>
+                                <li>固定端B (\(x=l\)): \(v_{CB}(l) = 0\)</li>
+                                <li>固定端B (\(x=l\)): \(\frac{dv_{CB}}{dx}(l) = 0\)</li>
+                                <li>点C (\(x=a\)): \(v_{AC}(a) = v_{CB}(a)\)</li>
+                                <li>点C (\(x=a\)): \(\frac{dv_{AC}}{dx}(a) = \frac{dv_{CB}}{dx}(a)\)</li>
+                            </ol>
+                        </div>
+                        <div class="solution-step">
+                            積分定数の決定:
+                            <ul class="solution-list">
+                                <li>条件1から: \(C_2 = 0\)</li>
+                                <li>条件3, 5から: \(C_1 = M_C(l-a) - \frac{1}{2}R_A l^2\)</li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            たわみの式:
+                            <ul class="solution-list">
+                                <li>区間AC:
+                                    \[v_{AC}(x) = \frac{1}{EI} \left[ \frac{1}{6} R_A x^3 + \left( M_C(l-a) - \frac{1}{2}R_A l^2 \right) x \right]\]
+                                </li>
+                                <li>区間CB:
+                                    \[v_{CB}(x) = \frac{1}{EI} \left[ \frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + \left( M_C l - \frac{1}{2}R_A l^2 \right) x - \frac{1}{2}M_C a^2 \right]\]
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="example-box mb-2">
+                        <div class="problem-statement">(2) 支持力 \(R_A\)</div>
+                    </div>
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)で用いた境界条件をすべて適用することで、未知数であった支持力 \(R_A\) を決定できます。特に、固定端Bでのたわみ角ゼロの条件から得られる関係式を用います。</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            境界条件から得られる関係式:
+                            \[-\frac{1}{3}R_A l^3 + \frac{M_C}{2}(l^2-a^2) = 0\]
+                        </div>
+                        <div class="solution-step">
+                            \(R_A\) について解く:
+                            \[R_A = \frac{3 M_C (l^2-a^2)}{2 l^3}\]
+                        </div>
+                        <span class="answer-highlight">答え: \(R_A = \dfrac{3 M_C (l^2-a^2)}{2 l^3}\)</span>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="col-span-2">
+                    <div class="point-box mb-6">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>はりの曲げ問題では区間ごとに曲げモーメントを定義</li>
+                            <li>たわみの微分方程式を2回積分して一般解を求める</li>
+                            <li>境界条件と連続条件から積分定数を決定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>材料力学のチップス
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>固定端: たわみ=0 & たわみ角=0</li>
+                            <li>支持端: たわみ=0 & 曲げモーメント=0</li>
+                            <li>連続条件: たわみとたわみ角が接続点で連続</li>
+                            <li>たわみのn階微分は物理量と対応: 
+                                <br>0階: たわみ, 1階: たわみ角, 
+                                <br>2階: 曲げモーメント, 3階: せん断力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            材料力学大学院入試問題解説 | 2/2
+        </div>
+    </div>
+</body>
+<script>
+function toggleAccordion(id) {
+  var acc = document.getElementById(id);
+  if (acc.classList.contains('open')) {
+    acc.classList.remove('open');
+  } else {
+    acc.classList.add('open');
+  }
+}
+</script>
+</html>

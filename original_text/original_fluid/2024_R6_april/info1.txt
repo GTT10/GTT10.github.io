@@ -1,0 +1,366 @@
+はい、承知いたしました。2024年4月入学の岡山大学大学院の流体力学の入学試験問題について、解き方を知らない方にも分かりやすいように、丁寧に解説します。
+
+---
+
+## 【1】 複素ポテンシャル流れの問題
+
+**問題文**
+
+[cite_start]x軸およびy軸で与えられる複素平面がある。この平面において、粘性のない、非圧縮性流れがある。ここで、流体の密度をρとし、淀み点における圧力を大気圧とする。xおよびy方向の速度をそれぞれKx+Uおよび-Ky とするとき、この流れについて、以下の問いに答えよ。ただし、KおよびUを実数の正定数とし、問(1)に限り U=0とする。なお、虚数単位をiとする。 [cite: 139]
+
+---
+
+### (1) 流線をx,yの関数として求めよ。（ただしU=0とする）
+
+**考え方** 🧐
+
+**流線**とは、流れの中の各点での速度ベクトルに接するように引いた線のことです。いわば、流体の粒子がその瞬間にどの方向に進んでいるかを示した軌跡のようなものです。
+
+流線の式は、速度のx成分を $u$、y成分を $v$ として、以下の式で定義されます。
+
+$$\frac{dy}{dx} = \frac{v}{u}$$
+
+[cite_start]この問題では、$U=0$ の場合を考えるので、速度は $u = Kx$, $v = -Ky$ となります。 [cite: 139] これを上の式に代入して計算します。
+
+**解法** 📝
+
+1.  **流線の式を立てる**
+    $u = Kx$, $v = -Ky$ を流線の定義式に代入します。
+    $$\frac{dy}{dx} = \frac{-Ky}{Kx} = -\frac{y}{x}$$
+
+2.  **変数分離で積分する**
+    この微分方程式を解くために、xの項とyの項をそれぞれ左辺と右辺に分けます（変数分離）。
+    $$\frac{1}{y} dy = -\frac{1}{x} dx$$
+    両辺を積分します。
+    $$\int \frac{1}{y} dy = -\int \frac{1}{x} dx$$   $$\ln|y| = -\ln|x| + C_1 \quad (C_1 \text{は積分定数})$$
+
+3.  **式を整理する**
+    対数の性質（$\ln A + \ln B = \ln(AB)$）を使って整理します。
+    $$\ln|y| + \ln|x| = C_1$$   $$\ln|xy| = C_1$$
+    対数を外すと、
+    $$|xy| = e^{C_1}$$
+    $e^{C_1}$ は定数なので、これを新しい定数 $C$ とおくと、流線の式が得られます。
+
+**答え:**
+[cite_start]流線は **$xy = C$** （$C$は定数）で表される双曲線です。 [cite: 140]
+
+---
+
+### (2) 座標(1,1)と(1,-1)を結ぶ線分を通過する体積流量を求めよ。
+
+**考え方** 🧐
+
+**体積流量**とは、ある断面を単位時間に通過する流体の体積のことです。
+
+線分を通過する流量を求めるには、線分上で速度ベクトルと線分に垂直なベクトルとの内積を積分します。今回の線分は $x=1$ で、$y$が1から-1までなので、x方向の速度成分 $u$ をこの線分に沿って積分すればOKです。
+
+流量 $Q$ = $\int (\text{速度}) \cdot d(\text{面積})$
+
+**解法** 📝
+
+1.  **流量の式を立てる**
+    線分は $x=1$ 上にあります。この線上を通過する流量は、x方向の速度 $u = Kx+U$ を、線分の長さに沿って積分することで求められます。奥行きは単位幅（1）とします。
+    $$Q = \int_{-1}^{1} u(1, y) \cdot (1 \cdot dy)$$
+    $x=1$ なので、$u = K(1) + U = K+U$ となります。
+
+2.  **積分を実行する**
+    速度 $u=K+U$ はyに依存しない定数なので、積分の外に出せます。
+    $$Q = (K+U) \int_{-1}^{1} dy$$   $$Q = (K+U) [y]_{-1}^{1}$$   $$Q = (K+U) \{1 - (-1)\} = 2(K+U)$$
+
+**答え:**
+[cite_start]体積流量は **$2(K+U)$** です。 [cite: 141, 142]
+
+---
+
+### (3) 連続の方程式を示せ。
+
+**考え方** 🧐
+
+**連続の方程式**は、流体の**質量保存の法則**を表す式です。「非圧縮性」流れ（密度ρが変化しない）の場合、流れ込む量と流れ出す量が等しいことを意味し、以下の式で表されます。
+
+$$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$
+
+この式が成り立つかどうかを、与えられた速度成分 $u = Kx+U$, $v = -Ky$ で確認します。
+
+**解法** 📝
+
+1.  **各速度成分を偏微分する**
+    * $u$ を $x$ で偏微分します: $\frac{\partial u}{\partial x} = \frac{\partial (Kx+U)}{\partial x} = K$
+    * $v$ を $y$ で偏微分します: $\frac{\partial v}{\partial y} = \frac{\partial (-Ky)}{\partial y} = -K$
+
+2.  **連続の式に代入する**
+    $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = K + (-K) = 0$$
+    式が成り立つことが示されました。
+
+**答え:**
+[cite_start]与えられた速度成分 $u = Kx+U$, $v = -Ky$ を代入すると $\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = K - K = 0$ となり、**連続の方程式は満たされます**。 [cite: 143]
+
+---
+
+### (4) 渦度を求めよ。
+
+**考え方** 🧐
+
+**渦度（うずど）**とは、流れの中の微小な流体要素がどれくらい回転しているかを表す量です。二次元流れでは、渦度 $\omega$ は以下の式で計算されます。
+
+$$\omega = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}$$
+
+**解法** 📝
+
+1.  **各速度成分を偏微分する**
+    * $v = -Ky$ を $x$ で偏微分します: $\frac{\partial v}{\partial x} = \frac{\partial (-Ky)}{\partial x} = 0$
+    * $u = Kx+U$ を $y$ で偏微分します: $\frac{\partial u}{\partial y} = \frac{\partial (Kx+U)}{\partial y} = 0$
+
+2.  **渦度の式に代入する**
+    $$\omega = 0 - 0 = 0$$
+    渦度がゼロである流れを「**渦なしの流れ**（irrotational flow）」と呼びます。
+
+**答え:**
+[cite_start]渦度は **0** です。 [cite: 144]
+
+---
+
+### (5) 複素速度ポテンシャルを求めよ。
+
+**考え方** 🧐
+
+**複素速度ポテンシャル** $f(z)$ は、流れの情報をまとめて扱える便利な数学的ツールで、$z = x + iy$ の関数です。その導関数 $df/dz$ は、複素速度 $u - iv$ になります。
+
+$$f(z) = \phi(x,y) + i\psi(x,y)$$
+ここで、$\phi$は速度ポテンシャル、$\psi$は流れ関数です。
+また、速度成分との関係は以下のようになります。
+$$u = \frac{\partial \phi}{\partial x} = \frac{\partial \psi}{\partial y}, \quad v = \frac{\partial \phi}{\partial y} = -\frac{\partial \psi}{\partial x}$$
+
+**解法** 📝
+
+1.  **速度ポテンシャル $\phi$ を求める**
+    $u = \frac{\partial \phi}{\partial x} = Kx + U$ を $x$ で積分します。
+    $$\phi = \int (Kx+U) dx = \frac{1}{2}Kx^2 + Ux + C(y) \quad (C(y)\text{はyの関数})$$
+    これを $y$ で偏微分して $v$ と比較します。
+    $$\frac{\partial \phi}{\partial y} = \frac{dC(y)}{dy} = v = -Ky$$
+    $y$ で積分すると、$C(y) = -\frac{1}{2}Ky^2 + C_0$ ($C_0$は定数)
+    よって、速度ポテンシャルは $\phi = \frac{1}{2}K(x^2 - y^2) + Ux$ （定数は無視できる）
+
+2.  **複素速度ポテンシャルを構成する**
+    $z = x+iy$ を使うと、$z^2 = (x+iy)^2 = x^2 - y^2 + 2ixy$ です。
+    これを利用して $\phi$ を $z$ で表現することを考えます。
+    $\phi = \frac{1}{2}K \cdot \text{Re}(z^2) + U \cdot \text{Re}(z)$
+    複素ポテンシャルは、この実数部（Re）をそのまま複素数に置き換えたものになります。
+    $$f(z) = \frac{1}{2}Kz^2 + Uz$$
+
+**答え:**
+[cite_start]複素速度ポテンシャルは **$f(z) = \frac{1}{2}Kz^2 + Uz$** です。 [cite: 145]
+
+---
+
+### (6) 淀み点の座標を求めよ。
+
+**考え方** 🧐
+
+**淀み点**とは、流れの速度がゼロになる点のことです。つまり、$u=0$ かつ $v=0$ となる点を探します。
+
+**解法** 📝
+
+1.  **速度がゼロになる条件式を立てる**
+    * $u = Kx + U = 0$
+    * $v = -Ky = 0$
+
+2.  **連立方程式を解く**
+    * $-Ky = 0$ より、$K$は正の定数なので **$y=0$** となります。
+    * $Kx + U = 0$ より、**$x = -U/K$** となります。
+
+**答え:**
+[cite_start]淀み点の座標は **$(-U/K, 0)$** です。 [cite: 146]
+
+---
+
+### (7) 流れ場のゲージ圧を求めよ。
+
+**考え方** 🧐
+
+**ゲージ圧**とは、大気圧を基準（0）とした圧力のことです。非粘性・定常流れなので、**ベルヌーイの定理**が使えます。重力は考えないので、以下の式になります。
+
+$$\frac{1}{2}\rho V^2 + p_{gauge} = \text{一定}$$
+ここで、$V$は速度の大きさ（$V^2 = u^2+v^2$）、$p_{gauge}$はゲージ圧です。
+「一定」の値は、条件が分かっている点で計算します。この問題では「淀み点における圧力を大気圧とする」とあるので、淀み点（速度0）でのゲージ圧は0です。
+
+**解法** 📝
+
+1.  **ベルヌーイの定理を適用する**
+    淀み点（速度0, ゲージ圧0）と、任意の点$(x,y)$（速度$V$, ゲージ圧$p$）でベルヌーイの定理を立てます。
+    $$\frac{1}{2}\rho (0)^2 + 0 = \frac{1}{2}\rho V^2 + p$$   $$p = -\frac{1}{2}\rho V^2$$
+
+2.  **速度の大きさの2乗 $V^2$ を計算する**
+    $$V^2 = u^2 + v^2 = (Kx+U)^2 + (-Ky)^2$$   $$V^2 = K^2x^2 + 2K Ux + U^2 + K^2y^2$$
+
+3.  **圧力の式に代入する**
+    $$p(x,y) = -\frac{1}{2}\rho (K^2x^2 + 2K Ux + U^2 + K^2y^2)$$
+
+**答え:**
+[cite_start]ゲージ圧は **$p(x,y) = -\frac{1}{2}\rho (K^2x^2 + 2K Ux + U^2 + K^2y^2)$** です。 [cite: 147]
+
+---
+---
+
+## 【2】 ナビエ・ストークス方程式の導出
+
+**問題文**
+
+[cite_start]図1に示す二次元の流体粒子 ABCDのy方向のナビエ・ストークス方程式を導出する。流体粒子の一辺の長さは∆x, ∆y, 密度はρで紙面に垂直な奥行き方向に一様とする。流体粒子には図中の矢印の方向に、垂直応力σ、せん断応力τがそれぞれ働いているものとし、以下の問いに答えよ。 [cite: 149]
+
+---
+
+### (1) 流体粒子の単位奥行き当りの質量とこの流体粒子に働く重力の大きさ(単位奥行き当り)を求めよ。
+
+**考え方** 🧐
+
+* **質量** = 密度 × 体積
+* **重力** = 質量 × 重力加速度
+
+単位奥行きあたりで考えるので、体積は (面積) × 1 となります。
+
+**解法** 📝
+
+* **質量**:
+    体積は $\Delta x \cdot \Delta y \cdot 1$ なので、
+    質量 $m = \rho \cdot (\Delta x \Delta y)$
+
+* **重力**:
+    重力はy軸の負の向きに働くので、
+    重力 $F_g = m \cdot g = \rho g \Delta x \Delta y$
+
+**答え:**
+[cite_start]質量は **$\rho \Delta x \Delta y$**、重力の大きさは **$\rho g \Delta x \Delta y$** です。 [cite: 150]
+
+### (2) 辺 ADに働くy方向の力 (単位奥行き当り)を図中の記号を用いて示せ。
+
+**考え方** 🧐
+
+辺ADに働く応力は、せん断応力 $\tau$ です。力は (応力) × (面積) で計算できます。図を見ると、辺ADに働くせん断応力は $\tau(x - \frac{1}{2}\Delta x, y)$ で、y軸の負の方向（下向き）に作用しています。
+
+**解法** 📝
+
+* 辺ADの長さは $\Delta y$、奥行きは1なので、面積は $\Delta y \cdot 1$ です。
+* 力 = $\tau(x - \frac{1}{2}\Delta x, y) \times \Delta y$
+* 向きはy軸負の向きなので、マイナスをつけます。
+
+**答え:**
+[cite_start]力は **$-\tau(x - \frac{1}{2}\Delta x, y) \Delta y$** です。 [cite: 151]
+
+### (3) 辺BCに働くy方向の力 (単位奥行き当り)を図中の記号を用いて示せ。
+
+**考え方** 🧐
+
+辺BCも同様です。辺BCに働くせん断応力は $\tau(x + \frac{1}{2}\Delta x, y)$ で、y軸の正の方向（上向き）に作用しています。
+
+**解法** 📝
+
+* 辺BCの長さは $\Delta y$、面積は $\Delta y$ です。
+* 力 = $\tau(x + \frac{1}{2}\Delta x, y) \times \Delta y$
+* 向きはy軸正の向きです。
+
+**答え:**
+[cite_start]力は **$\tau(x + \frac{1}{2}\Delta x, y) \Delta y$** です。 [cite: 152]
+
+### (4) (2)と(3)で求めたy方向の力の和を、応力の偏導関数を用いて書き換えよ。
+
+**考え方** 🧐
+
+(2)と(3)の力の和を求め、テイラー展開の考え方を使って偏微分の形に近似します。
+ある関数 $f(x)$ について、$f(x+\Delta x) - f(x)$ は、$\Delta x$ が小さいとき $\frac{\partial f}{\partial x}\Delta x$ と近似できます。
+
+**解法** 📝
+
+1.  **力の和を計算する**
+    $$F_{shear} = \tau(x + \frac{1}{2}\Delta x, y) \Delta y - \tau(x - \frac{1}{2}\Delta x, y) \Delta y$$   $$F_{shear} = \left\{ \tau(x + \frac{1}{2}\Delta x, y) - \tau(x - \frac{1}{2}\Delta x, y) \right\} \Delta y$$
+
+2.  **テイラー展開で近似する**
+    {}の中は、中心$x$からの変化量 $\Delta x$ に対する $\tau$ の変化と見なせます。
+    $$\tau(x + \frac{1}{2}\Delta x, y) - \tau(x - \frac{1}{2}\Delta x, y) \approx \frac{\partial \tau}{\partial x} \Delta x$$
+
+3.  **式を書き換える**
+    $$F_{shear} \approx \left( \frac{\partial \tau}{\partial x} \Delta x \right) \Delta y = \frac{\partial \tau}{\partial x} \Delta x \Delta y$$
+
+**答え:**
+[cite_start]力の和は **$\frac{\partial \tau}{\partial x} \Delta x \Delta y$** となります。 [cite: 154, 155]
+
+### (5) 辺ABとDCに働くy方向の力の和を、応力の偏導関数を用いて示せ。
+
+**考え方** 🧐
+
+今度はy方向の垂直応力 $\sigma$ について、(4)と全く同じように考えます。
+* 辺AB（下面）には、$\sigma(x, y - \frac{1}{2}\Delta y)$ がy軸負の向きに働く。力は $-\sigma(x, y - \frac{1}{2}\Delta y) \Delta x$
+* 辺DC（上面）には、$\sigma(x, y + \frac{1}{2}\Delta y)$ がy軸正の向きに働く。力は $\sigma(x, y + \frac{1}{2}\Delta y) \Delta x$
+
+**解法** 📝
+
+1.  **力の和を計算する**
+    $$F_{normal} = \sigma(x, y + \frac{1}{2}\Delta y) \Delta x - \sigma(x, y - \frac{1}{2}\Delta y) \Delta x$$   $$F_{normal} = \left\{ \sigma(x, y + \frac{1}{2}\Delta y) - \sigma(x, y - \frac{1}{2}\Delta y) \right\} \Delta x$$
+
+2.  **テイラー展開で近似する**
+    {}の中は、中心$y$からの変化量 $\Delta y$ に対する $\sigma$ の変化と見なせます。
+    $$\sigma(x, y + \frac{1}{2}\Delta y) - \sigma(x, y - \frac{1}{2}\Delta y) \approx \frac{\partial \sigma}{\partial y} \Delta y$$
+
+3.  **式を書き換える**
+    $$F_{normal} \approx \left( \frac{\partial \sigma}{\partial y} \Delta y \right) \Delta x = \frac{\partial \sigma}{\partial y} \Delta x \Delta y$$
+
+**答え:**
+[cite_start]力の和は **$\frac{\partial \sigma}{\partial y} \Delta x \Delta y$** となります。 [cite: 155]
+
+### (6) (1), (4), (5) を用いて、流体粒子のy方向の運動方程式を導出せよ。
+
+**考え方** 🧐
+
+**ニュートンの運動方程式** $F=ma$ (力 = 質量 × 加速度) を立てます。
+* **力 $F$**: (1)の重力、(4)のせん断力の和、(5)の垂直応力の和をすべて足し合わせます。
+* **質量 $m$**: (1)で求めた質量です。
+* **加速度 $a$**: y方向の加速度は、y方向速度 $v$ の時間変化率で、$\frac{Dv}{Dt}$（ラグランジュ微分）で表されます。
+
+**解法** 📝
+
+1.  **y方向の力の合計を求める**
+    $$\sum F_y = (\text{垂直応力の和}) + (\text{せん断力の和}) + (\text{重力})$$   $$\sum F_y = \frac{\partial \sigma}{\partial y} \Delta x \Delta y + \frac{\partial \tau}{\partial x} \Delta x \Delta y - \rho g \Delta x \Delta y$$
+
+2.  **運動方程式を立てる**
+    $$m \frac{Dv}{Dt} = \sum F_y$$   $$(\rho \Delta x \Delta y) \frac{Dv}{Dt} = \left( \frac{\partial \sigma}{\partial y} + \frac{\partial \tau}{\partial x} - \rho g \right) \Delta x \Delta y$$
+
+3.  **両辺を $\Delta x \Delta y$ で割る**
+    $$\rho \frac{Dv}{Dt} = \frac{\partial \sigma}{\partial y} + \frac{\partial \tau}{\partial x} - \rho g$$
+    ここで、ラグランジュ微分は $\frac{Dv}{Dt} = \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}$ と展開できます。
+
+**答え:**
+[cite_start]運動方程式は **$\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = \frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} - \rho g$** となります。 [cite: 158]
+
+### (7) 流れが非圧縮で...ナビエ・ストークス方程式を導出せよ。
+
+**考え方** 🧐
+
+最後に、(6)で求めた運動方程式に、問題で与えられた応力 $\sigma$ と $\tau$ の具体的な式を代入して、よく知られたナビエ・ストークス方程式の形に変形します。
+
+[cite_start]与えられた式： [cite: 162, 163]
+* $\sigma = -p + 2\mu \frac{\partial v}{\partial y}$
+* $\tau = \mu (\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y})$
+
+**解法** 📝
+
+1.  **応力式を偏微分する**
+    * $\frac{\partial \sigma}{\partial y} = \frac{\partial}{\partial y}(-p + 2\mu \frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + 2\mu \frac{\partial^2 v}{\partial y^2}$
+    * $\frac{\partial \tau}{\partial x} = \frac{\partial}{\partial x}(\mu (\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y})) = \mu \frac{\partial^2 v}{\partial x^2} + \mu \frac{\partial^2 u}{\partial x \partial y}$
+
+2.  **(6)の運動方程式に代入する**
+    右辺の応力項は、
+    $$\frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} = \left( \mu \frac{\partial^2 v}{\partial x^2} + \mu \frac{\partial^2 u}{\partial x \partial y} \right) + \left( -\frac{\partial p}{\partial y} + 2\mu \frac{\partial^2 v}{\partial y^2} \right)$$   $$= -\frac{\partial p}{\partial y} + \mu \frac{\partial^2 v}{\partial x^2} + 2\mu \frac{\partial^2 v}{\partial y^2} + \mu \frac{\partial^2 u}{\partial x \partial y}$$
+
+3.  **非圧縮性の連続の式を使う**
+    非圧縮性の連続の式は $\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$ です。この両辺を $y$ で偏微分すると、
+    $$\frac{\partial^2 u}{\partial y \partial x} + \frac{\partial^2 v}{\partial y^2} = 0 \implies \frac{\partial^2 v}{\partial y^2} = -\frac{\partial^2 u}{\partial x \partial y}$$
+    この関係を使って、(2)の式の最後の2項をまとめます。
+    $$2\mu \frac{\partial^2 v}{\partial y^2} + \mu \frac{\partial^2 u}{\partial x \partial y} = \mu \frac{\partial^2 v}{\partial y^2} + \mu \frac{\partial^2 v}{\partial y^2} + \mu \frac{\partial^2 u}{\partial x \partial y}$$   $$= \mu \frac{\partial^2 v}{\partial y^2} + \mu \left( \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 u}{\partial x \partial y} \right) = \mu \frac{\partial^2 v}{\partial y^2} + \mu (0) = \mu \frac{\partial^2 v}{\partial y^2}$$
+
+4.  **最終的な形にまとめる**
+    応力項の和は、結局、
+    $$\frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} = -\frac{\partial p}{\partial y} + \mu \frac{\partial^2 v}{\partial x^2} + \mu \frac{\partial^2 v}{\partial y^2} = -\frac{\partial p}{\partial y} + \mu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)$$
+    これを(6)の運動方程式の右辺に戻すと、ナビエ・ストークス方程式のy成分が得られます。
+
+**答え:**
+[cite_start]$\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}) - \rho g$ [cite: 160]

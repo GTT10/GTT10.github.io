@@ -1,0 +1,168 @@
+### 解答：工業熱力学 2013年度 修士課程入試問題
+
+---
+
+#### 【１】熱力学の基礎
+
+**(1) \( du = c_v dT \) および \( dh = c_p dT \) の導出**  
+- **比内部エネルギー \( du \)**（定容過程）:  
+  熱力学第一法則: \( du = \delta q - \delta w \)  
+  定容過程 (\( dv = 0 \)): \( \delta w = P dv = 0 \)  
+  \( \delta q = c_v dT \)（定容比熱の定義）より:  
+  \[
+  \boxed{du = c_v dT}
+  \]
+
+- **比エンタルピー \( dh \)**（定圧過程）:  
+  エンタルピー定義: \( h = u + P v \)  
+  全微分: \( dh = du + P dv + v dP \)  
+  定圧過程 (\( dP = 0 \)): \( dh = du + P dv \)  
+  熱力学第一法則: \( du = \delta q - P dv \)  
+  代入: \( dh = (\delta q - P dv) + P dv = \delta q \)  
+  \( \delta q = c_p dT \)（定圧比熱の定義）より:  
+  \[
+  \boxed{dh = c_p dT}
+  \]
+
+**(2) \( c_p \) と \( c_v \) の差**  
+理想気体の状態方程式: \( P v = R T \)  
+エンタルピー定義: \( h = u + P v = u + R T \)  
+微分: \( dh = du + R dT \)  
+(1) の結果を代入:  
+\[
+c_p dT = c_v dT + R dT \implies \boxed{c_p - c_v = R}
+\]
+
+**(3) 理想気体の比エントロピー**  
+- **(i) 定容変化**:  
+  \[
+  ds = \frac{\delta q_{\text{rev}}}{T} = \frac{c_v dT}{T} \implies \boxed{s = c_v \ln T + \text{const}}
+  \]
+- **(ii) 定圧変化**:  
+  \[
+  ds = \frac{c_p dT}{T} \implies \boxed{s = c_p \ln T + \text{const}}
+  \]
+
+**(4) T-s線図**  
+```
+温度 T ↑
+|　　　　　　　（定圧線: 傾き緩やか）
+|　　　　　　／
+|　　　　　／（定容線: 傾き急）
+|　　　　／
+|　　　／
+|　　／
++----------------→ 比エントロピー s
+```
+- **理由**: \( c_p > c_v \) のため、定圧線の傾き \( dT/ds = T/c_p \) が定容線 \( dT/ds = T/c_v \) より緩やか。
+
+**(5) 半理想気体の比エントロピー**  
+\( c_v = a + bT + cT^2 \) の場合:  
+- **(i) 定容変化**:  
+  \[
+  ds = \frac{c_v dT}{T} = \left( \frac{a}{T} + b + cT \right) dT \implies \boxed{s = a \ln T + b T + \frac{c}{2} T^2 + \text{const}}
+  \]
+- **(ii) 定圧変化**:  
+  \( c_p = c_v + R = a + R + bT + cT^2 \)  
+  \[
+  ds = \frac{c_p dT}{T} = \left( \frac{a + R}{T} + b + cT \right) dT \implies \boxed{s = (a + R) \ln T + b T + \frac{c}{2} T^2 + \text{const}}
+  \]
+
+---
+
+#### 【２】有効エネルギーと無効エネルギー  
+周囲温度 \( T_0 = 300 \, \text{K} \), 平均比熱 \( c_p = 4.0 \, \text{kJ/(kg·K)} \), \( \ln 1.5 = 0.4 \)  
+**(1) 300K → 450K の水の加熱**  
+- エンタルピー変化:  
+  \[
+  \Delta h = c_p (T_2 - T_1) = 4.0 \times (450 - 300) = \boxed{600 \, \text{kJ/kg}}
+  \]
+- エントロピー変化:  
+  \[
+  \Delta s = c_p \ln \frac{T_2}{T_1} = 4.0 \times \ln \frac{450}{300} = 4.0 \times \ln 1.5 = 4.0 \times 0.4 = \boxed{1.6 \, \text{kJ/(kg·K)}}
+  \]
+- 有効エネルギー:  
+  \[
+  \Delta e = \Delta h - T_0 \Delta s = 600 - 300 \times 1.6 = \boxed{120 \, \text{kJ/kg}}
+  \]
+- 無効エネルギー:  
+  \[
+  \Delta i = T_0 \Delta s = 300 \times 1.6 = \boxed{480 \, \text{kJ/kg}}
+  \]
+
+**(2) 450K 飽和水 → 飽和蒸気**  
+- 蒸発潜熱: \( \Delta h = 1800 \, \text{kJ/kg} \)（等温過程）  
+- エントロピー変化:  
+  \[
+  \Delta s = \frac{\Delta h}{T_{\text{sat}}} = \frac{1800}{450} = \boxed{4.0 \, \text{kJ/(kg·K)}}
+  \]
+- 有効エネルギー:  
+  \[
+  \Delta e = \Delta h - T_0 \Delta s = 1800 - 300 \times 4.0 = \boxed{600 \, \text{kJ/kg}}
+  \]
+- 無効エネルギー:  
+  \[
+  \Delta i = T_0 \Delta s = 300 \times 4.0 = \boxed{1200 \, \text{kJ/kg}}
+  \]
+
+**(3) 全体 (300K 水 → 飽和蒸気)**  
+- エンタルピー変化:  
+  \[
+  \Delta h_{\text{total}} = 600 + 1800 = \boxed{2400 \, \text{kJ/kg}}
+  \]
+- エントロピー変化:  
+  \[
+  \Delta s_{\text{total}} = 1.6 + 4.0 = \boxed{5.6 \, \text{kJ/(kg·K)}}
+  \]
+- 有効エネルギー:  
+  \[
+  \Delta e_{\text{total}} = 120 + 600 = \boxed{720 \, \text{kJ/kg}}
+  \]
+- 無効エネルギー:  
+  \[
+  \Delta i_{\text{total}} = 480 + 1200 = \boxed{1680 \, \text{kJ/kg}}
+  \]
+
+---
+
+#### 【３】ランキンサイクル  
+**(1) タービン仕事**  
+図1(b) より:  
+- タービン入口比エンタルピー \( h_1 \)（過熱蒸気）  
+- タービン出口比エンタルピー \( h_2 \)（復水器入口）  
+\[
+\boxed{w_T = h_1 - h_2} \quad (\text{図から値を読み取る})
+\]
+
+**(2) 熱効率**  
+- ボイラ加熱量: \( q_{\text{in}} = h_1 - h_3 \)（\( h_3 \): 復水器出口の飽和水エンタルピー）  
+- ポンプ仕事無視:  
+\[
+\eta = \frac{w_T}{q_{\text{in}}}} = \boxed{\frac{h_1 - h_2}{h_1 - h_3}}
+\]
+
+**(3) 損失と不可逆性**  
+1. **タービン内部損失**: 摩擦や乱流によるエントロピー生成  
+2. **配管熱損失**: 断熱不十分による熱逃げ  
+3. **復水器過冷却**: 設計より低温で凝縮、利用可能エネルギー損失  
+4. **燃焼不完全**: 化学エネルギーから熱エネルギーへの変換効率低下  
+5. **ポンプの機械損失**: 軸仕事の一部が熱に変換  
+
+**(4) タービン効率 80% の場合**  
+- 等エントロピー仕事: \( w_{s} = h_1 - h_{2s} \)（可逆断熱膨張）  
+- 実際のタービン仕事:  
+\[
+w_T = \eta_{\text{turb}} \times w_{s} = 0.8 \times (h_1 - h_{2s})
+\]
+- 実際の熱効率:  
+\[
+\eta_{\text{actual}} = \frac{w_T}{h_1 - h_3} = \boxed{\frac{0.8 (h_1 - h_{2s})}{h_1 - h_3}}
+\]
+
+---
+
+### ポイントまとめ  
+- **熱力学第一法則**から比熱と状態量の関係を導出（【1】）。  
+- **有効エネルギー**は周囲温度を基準に計算（【2】）。  
+- **ランキンサイクル**ではh-s線図が重要（【3】）。  
+- 実際のプラントでは**不可逆損失**を最小化する設計が不可欠！

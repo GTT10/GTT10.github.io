@@ -1,0 +1,267 @@
+はい、承知いたしました。流体力学の問題を、初心者の方にも分かりやすいように、方針や計算過程を丁寧に解説しながら解いていきます。一緒に頑張りましょう！
+
+-----
+
+### 大問【https://www.google.com/search?q=1】 平行平板間の流れ
+
+まずは、大問【https://www.google.com/search?q=1】から解いていきましょう。この問題は、平行なhttps://www.google.com/search?q=2枚の板の間を流れる流体の最も基本的な流れの一つで、「クエット・ポアズイユ流れ」と呼ばれるものです。圧力と板の動きの両方が流れを駆動する、少し応用的な設定ですね。
+
+-----
+
+#### [cite\_start]問題文 [cite: https://www.google.com/search?q=10]
+
+間隔が $https://www.google.com/search?q=2h$ なる無限平板間の非圧縮性粘性流体（粘性係数を $\\mu$ とする）に対する二次元定常流を考える。平板間の中央に座標原点を持つ $(x, y)$ 座標を取る。$y=-h$ の平板は静止し、$y=h$ の平板は $x$ 方向に一定速度 $U(\>0)$ で動いている。また、$x$ 方向に一定の圧力勾配 $\\partial p / \\partial x$ がある。重力は考えない。このとき次の問に答えよ。
+
+[cite\_start](https://www.google.com/search?q=1) 流れは $x$ 方向のみであり、また、その流速 $u$ は $x$ によらないと考えられる。$u$ に対する基礎式とその境界条件を書け。 [cite: https://www.google.com/search?q=10]
+[cite\_start](https://www.google.com/search?q=2) 上式を解き流速分布を求めよ。 [cite: https://www.google.com/search?q=1https://www.google.com/search?q=1]
+[cite\_start](https://www.google.com/search?q=3) 平板間の流量が0であるとき、圧力勾配と $U$ との関係を求めよ。 [cite: https://www.google.com/search?q=1https://www.google.com/search?q=2]
+[cite\_start](https://www.google.com/search?q=4) 問(https://www.google.com/search?q=3)の状態にあるとき、各平板に働く平板の接線方向の応力を、$\\mu, h, U$ で表せ。 [cite: https://www.google.com/search?q=1https://www.google.com/search?q=3]
+
+-----
+
+#### (https://www.google.com/search?q=1) 基礎方程式と境界条件
+
+##### **方針・考え方**
+
+流体の運動は、**ナビエ・ストークス方程式**という、いわば「流体の運動方程式」で記述されます。この問題では、流れが「定常（時間で変化しない）」で「$x$ 方向のみ」など、いくつかの単純化できる条件が与えられています。これらの条件を使って、複雑なナビエ・ストークス方程式を簡単な形にしてみましょう。
+
+##### **計算過程**
+
+1.  **ナビエ・ストークス方程式の単純化**
+    $x$ 方向のナビエ・ストークス方程式は一般に次の形で書かれます。
+
+    $$
+    $$$$\\rho \\left( \\frac{\\partial u}{\\partial t} + u \\frac{\\partial u}{\\partial x} + v \\frac{\\partial u}{\\partial y} \\right) = -\\frac{\\partial p}{\\partial x} + \\mu \\left( \\frac{\\partial^https://www.google.com/search?q=2 u}{\\partial x^https://www.google.com/search?q=2} + \\frac{\\partial^https://www.google.com/search?q=2 u}{\\partial y^https://www.google.com/search?q=2} \\right)
+
+    $$
+    $$$$ここに、問題文の条件を適用していきます。
+
+      * **定常流**: 時間によって変化しないので、$\\frac{\\partial u}{\\partial t} = 0$
+      * **流れは $x$ 方向のみ**: $y$ 方向の流速は $v=0$ です。
+      * **流速 $u$ は $x$ によらない**: $u$ は $y$ だけの関数 $u(y)$ なので、$\\frac{\\partial u}{\\partial x} = 0$ であり、$\\frac{\\partial^https://www.google.com/search?q=2 u}{\\partial x^https://www.google.com/search?q=2} = 0$ となります。
+
+    これらの条件を代入すると、方程式の左辺は $0$ になり、右辺の多くの項も消えます。
+
+    $$
+    $$$$\\rho (0 + 0 + 0) = -\\frac{\\partial p}{\\partial x} + \\mu \\left( 0 + \\frac{d^https://www.google.com/search?q=2 u}{d y^https://www.google.com/search?q=2} \\right)
+
+    $$
+    $$$$$u$ は $y$ だけの関数なので、偏微分 $\\partial$ を常微分 $d$ に書き換えています。
+    整理すると、非常にシンプルな以下の式が得られます。これがこの問題の**基礎方程式**です。
+
+    $$
+    $$$$\\frac{d^https://www.google.com/search?q=2 u}{d y^https://www.google.com/search?q=2} = \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x}
+
+    $$
+    $$$$
+    $$
+2.  **境界条件**
+    流体は壁にくっつくと、壁と同じ速度で動くという性質があります（**滑りなし条件**）。
+
+      * 下の平板 ($y=-h$) は静止しているので、流速は $0$ です。
+        $u = 0 \\quad (\\text{at } y = -h)$
+      * 上の平板 ($y=h$) は速度 $U$ で動いているので、流速は $U$ です。
+        $u = U \\quad (\\text{at } y = h)$
+
+##### **答え**
+
+  * **基礎方程式**:
+    $$
+    $$$$\\frac{d^https://www.google.com/search?q=2 u}{d y^https://www.google.com/search?q=2} = \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x}
+    $$
+    $$$$
+    $$
+  * **境界条件**:
+    $$
+    $$$$\\begin{cases}
+    u = 0 & \\text{at } y = -h \\
+    u = U & \\text{at } y = h
+    \\end{cases}
+    $$
+    $$$$
+    $$
+
+-----
+
+#### (https://www.google.com/search?q=2) 流速分布
+
+##### **方針・考え方**
+
+(https://www.google.com/search?q=1)で求めた基礎方程式は、単純なhttps://www.google.com/search?q=2階の常微分方程式です。これを $y$ についてhttps://www.google.com/search?q=2回積分すれば、流速 $u(y)$ の一般形がわかります。その後、境界条件を使って積分定数を決定すれば、流速分布が完全に求まります。
+
+##### **計算過程**
+
+1.  **方程式の積分**
+    基礎方程式を $y$ でhttps://www.google.com/search?q=1回積分します。
+
+    $$
+    $$$$\\frac{du}{dy} = \\int \\left( \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x} \\right) dy = \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x} y + C\_https://www.google.com/search?q=1
+
+    $$
+    $$$$($C\_https://www.google.com/search?q=1$ は積分定数)
+
+    さらにもうhttps://www.google.com/search?q=1回 $y$ で積分します。
+
+    $$
+    $$$$u(y) = \\int \\left( \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x} y + C\_https://www.google.com/search?q=1 \\right) dy = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} y^https://www.google.com/search?q=2 + C\_https://www.google.com/search?q=1 y + C\_https://www.google.com/search?q=2
+
+    $$
+    $$$$($C\_https://www.google.com/search?q=2$ はhttps://www.google.com/search?q=2つ目の積分定数)
+
+2.  **積分定数の決定**
+    境界条件を使って、$C\_https://www.google.com/search?q=1$ と $C\_https://www.google.com/search?q=2$ を求めます。
+
+      * $u(-h) = 0$ を代入:
+        $0 = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} (-h)^https://www.google.com/search?q=2 + C\_https://www.google.com/search?q=1(-h) + C\_https://www.google.com/search?q=2 \\quad \\Rightarrow \\quad 0 = \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} - C\_https://www.google.com/search?q=1 h + C\_https://www.google.com/search?q=2 \\quad \\cdots ①$
+      * $u(h) = U$ を代入:
+        $U = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} (h)^https://www.google.com/search?q=2 + C\_https://www.google.com/search?q=1(h) + C\_https://www.google.com/search?q=2 \\quad \\Rightarrow \\quad U = \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} + C\_https://www.google.com/search?q=1 h + C\_https://www.google.com/search?q=2 \\quad \\cdots ②$
+
+    ②式から①式を引いて $C\_https://www.google.com/search?q=1$ を求めます。
+    $U - 0 = (C\_https://www.google.com/search?q=1 h) - (-C\_https://www.google.com/search?q=1 h) \\quad \\Rightarrow \\quad U = https://www.google.com/search?q=2C\_https://www.google.com/search?q=1 h \\quad \\Rightarrow \\quad C\_https://www.google.com/search?q=1 = \\frac{U}{https://www.google.com/search?q=2h}$
+
+    次に、①式と②式を足して $C\_https://www.google.com/search?q=2$ を求めます。
+    $U + 0 = \\left( \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} + C\_https://www.google.com/search?q=2 \\right) + \\left( \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} + C\_https://www.google.com/search?q=2 \\right) \\quad \\Rightarrow \\quad U = \\frac{h^https://www.google.com/search?q=2}{\\mu} \\frac{\\partial p}{\\partial x} + https://www.google.com/search?q=2C\_https://www.google.com/search?q=2 \\quad \\Rightarrow \\quad C\_https://www.google.com/search?q=2 = \\frac{U}{https://www.google.com/search?q=2} - \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x}$
+
+3.  **流速分布の式の完成**
+    求めた $C\_https://www.google.com/search?q=1$ と $C\_https://www.google.com/search?q=2$ を $u(y)$ の式に戻します。
+
+    $$
+    $$$$u(y) = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} y^https://www.google.com/search?q=2 + \\left( \\frac{U}{https://www.google.com/search?q=2h} \\right) y + \\left( \\frac{U}{https://www.google.com/search?q=2} - \\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} \\right)
+
+    $$
+    $$$$このままでも正解ですが、少し整理すると物理的な意味が分かりやすくなります。
+
+    $$
+    $$$$u(y) = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} (y^https://www.google.com/search?q=2 - h^https://www.google.com/search?q=2) + \\frac{U}{https://www.google.com/search?q=2h}y + \\frac{U}{https://www.google.com/search?q=2}
+
+    $$
+    $$$$さらに整理すると、以下のようになります。
+
+##### **答え**
+
+流速分布は次式で与えられます。
+$$u(y) = \frac{1}{2\mu} \frac{\partial p}{\partial x} (y^2 - h^2) + \frac{U}{2} \left( \frac{y}{h} + 1 \right)$$
+
+> **💡 要点・チップス**
+> この流速分布の式は、https://www.google.com/search?q=2つの流れの「重ね合わせ」と見なせます。
+>
+>   * 第https://www.google.com/search?q=1項 $\\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} (y^https://www.google.com/search?q=2 - h^https://www.google.com/search?q=2)$：圧力差によって生じる流れ（**ポアズイユ流れ**）。速度分布が放物線（https://www.google.com/search?q=2次関数）になります。
+>   * 第https://www.google.com/search?q=2項 $\\frac{U}{https://www.google.com/search?q=2} ( \\frac{y}{h} + https://www.google.com/search?q=1 )$：平板の運動によって引きずられて生じる流れ（**クエット流れ**）。速度分布が直線（https://www.google.com/search?q=1次関数）になります。
+>     このように、複雑な流れも単純な流れの足し算で理解できることがあります。
+
+-----
+
+#### (https://www.google.com/search?q=3) 流量が0のときの関係式
+
+##### **方針・考え方**
+
+流量 $Q$ とは、ある断面を単位時間に通過する流体の体積のことです。流速 $u(y)$ は場所によって異なるので、断面全体で積分することで総流量を計算できます。
+$$Q = \int_{\text{断面積}} u \, dA$$
+この問題では、単位奥行きあたり（奥行きをhttps://www.google.com/search?q=1と考える）の流量を考え、積分範囲を $y=-h$ から $y=h$ として計算し、その結果が $0$ になるという条件を使います。
+
+##### **計算過程**
+
+1.  **流量の積分計算**
+    単位奥行きあたりの流量 $Q$ は次のように計算されます。
+
+    $$
+    $$$$Q = \\int\_{-h}^{h} u(y) , dy = \\int\_{-h}^{h} \\left[ \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} (y^https://www.google.com/search?q=2 - h^https://www.google.com/search?q=2) + \\frac{U}{https://www.google.com/search?q=2} \\left( \\frac{y}{h} + https://www.google.com/search?q=1 \\right) \\right] dy
+
+    $$
+    $$$$項別に積分します。
+
+      * $\\int\_{-h}^{h} (y^https://www.google.com/search?q=2 - h^https://www.google.com/search?q=2) dy = \\left[ \\frac{y^https://www.google.com/search?q=3}{https://www.google.com/search?q=3} - h^https://www.google.com/search?q=2 y \\right]\_{-h}^{h} = \\left(\\frac{h^https://www.google.com/search?q=3}{https://www.google.com/search?q=3} - h^https://www.google.com/search?q=3\\right) - \\left(-\\frac{h^https://www.google.com/search?q=3}{https://www.google.com/search?q=3} + h^https://www.google.com/search?q=3\\right) = -\\frac{https://www.google.com/search?q=2}{https://www.google.com/search?q=3}h^https://www.google.com/search?q=3 - \\frac{https://www.google.com/search?q=2}{https://www.google.com/search?q=3}h^https://www.google.com/search?q=3 = -\\frac{https://www.google.com/search?q=4}{https://www.google.com/search?q=3}h^https://www.google.com/search?q=3$
+      * $\\int\_{-h}^{h} \\left( \\frac{y}{h} + https://www.google.com/search?q=1 \\right) dy = \\left[ \\frac{y^https://www.google.com/search?q=2}{https://www.google.com/search?q=2h} + y \\right]\_{-h}^{h} = \\left(\\frac{h^https://www.google.com/search?q=2}{https://www.google.com/search?q=2h} + h\\right) - \\left(\\frac{(-h)^https://www.google.com/search?q=2}{https://www.google.com/search?q=2h} - h\\right) = \\left(\\frac{h}{https://www.google.com/search?q=2} + h\\right) - \\left(\\frac{h}{https://www.google.com/search?q=2} - h\\right) = \\frac{https://www.google.com/search?q=3}{https://www.google.com/search?q=2}h - (-\\frac{h}{https://www.google.com/search?q=2}) = https://www.google.com/search?q=2h$
+
+    積分結果をまとめると、流量 $Q$ は
+
+    $$
+    $$$$Q = \\frac{https://www.google.com/search?q=1}{https://www.google.com/search?q=2\\mu} \\frac{\\partial p}{\\partial x} \\left(-\\frac{https://www.google.com/search?q=4}{https://www.google.com/search?q=3}h^https://www.google.com/search?q=3\\right) + \\frac{U}{https://www.google.com/search?q=2} (https://www.google.com/search?q=2h) = -\\frac{https://www.google.com/search?q=2h^https://www.google.com/search?q=3}{https://www.google.com/search?q=3\\mu} \\frac{\\partial p}{\\partial x} + Uh
+
+    $$
+    $$$$
+    $$
+2.  **流量0の条件を適用**
+    $Q=0$ なので、
+
+    $$
+    $$$$-\\frac{https://www.google.com/search?q=2h^https://www.google.com/search?q=3}{https://www.google.com/search?q=3\\mu} \\frac{\\partial p}{\\partial x} + Uh = 0
+
+    $$
+    $$$$この式を $\\frac{\\partial p}{\\partial x}$ について解きます。
+
+    $$
+    $$$$\\frac{https://www.google.com/search?q=2h^https://www.google.com/search?q=3}{https://www.google.com/search?q=3\\mu} \\frac{\\partial p}{\\partial x} = Uh
+    $$   $$
+    \\frac{\\partial p}{\\partial x} = \\frac{https://www.google.com/search?q=3\\mu U h}{https://www.google.com/search?q=2h^https://www.google.com/search?q=3} = \\frac{https://www.google.com/search?q=3\\mu U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2}
+
+    $$
+    $$$$
+    $$
+##### **答え**
+
+流量が0となるとき、圧力勾配と $U$ の関係は以下のようになります。
+$$\frac{\partial p}{\partial x} = \frac{3\mu U}{2h^2}$$
+
+-----
+
+#### (https://www.google.com/search?q=4) 各平板に働くせん断応力
+
+##### **方針・考え方**
+
+流体中では、速度差がある場所に**せん断応力**（接線応力）が発生します。これは流体の粘性によるもので、**ニュートンの粘性法則**で計算できます。
+$$\tau = \mu \frac{du}{dy}$$
+この $\\tau$ は、流体が物体に及ぼす力の向きと大きさを表します。まず流速 $u(y)$ を微分して $\\frac{du}{dy}$ を求め、(https://www.google.com/search?q=3)で求めた関係式を代入し、最後に各平板の位置 ($y=h$ と $y=-h$) での値を計算します。
+
+##### **計算過程**
+
+1.  **流速勾配 $\\frac{du}{dy}$ の計算**
+    (https://www.google.com/search?q=2)の途中で計算したように、
+
+    $$
+    $$$$\\frac{du}{dy} = \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x} y + C\_https://www.google.com/search?q=1 = \\frac{https://www.google.com/search?q=1}{\\mu} \\frac{\\partial p}{\\partial x} y + \\frac{U}{https://www.google.com/search?q=2h}
+
+    $$
+    $$$$
+    $$
+2.  **問(https://www.google.com/search?q=3)の条件を代入**
+    流量が0の条件 $\\frac{\\partial p}{\\partial x} = \\frac{https://www.google.com/search?q=3\\mu U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2}$ を上の式に代入します。
+
+    $$
+    $$$$\\frac{du}{dy} = \\frac{https://www.google.com/search?q=1}{\\mu} \\left( \\frac{https://www.google.com/search?q=3\\mu U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2} \\right) y + \\frac{U}{https://www.google.com/search?q=2h} = \\frac{https://www.google.com/search?q=3U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2} y + \\frac{U}{https://www.google.com/search?q=2h}
+
+    $$
+    $$$$
+    $$
+3.  **各平板でのせん断応力の計算**
+
+      * **上の平板 ($y=h$) に働く応力 $\\tau\_h$**:
+
+        $$
+        $$$$\\tau\_h = \\mu \\left( \\frac{du}{dy} \\right)\_{y=h} = \\mu \\left( \\frac{https://www.google.com/search?q=3U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2}h + \\frac{U}{https://www.google.com/search?q=2h} \\right) = \\mu \\left( \\frac{https://www.google.com/search?q=3U}{https://www.google.com/search?q=2h} + \\frac{U}{https://www.google.com/search?q=2h} \\right) = \\mu \\left( \\frac{https://www.google.com/search?q=4U}{https://www.google.com/search?q=2h} \\right) = \\frac{https://www.google.com/search?q=2\\mu U}{h}
+
+        $$
+        $$$$この値は正なので、平板の運動方向（$+x$ 方向）に働く応力です。
+
+      * **下の平板 ($y=-h$) に働く応力 $\\tau\_{-h}$**:
+
+        $$
+        $$$$\\tau\_{-h} = \\mu \\left( \\frac{du}{dy} \\right)\_{y=-h} = \\mu \\left( \\frac{https://www.google.com/search?q=3U}{https://www.google.com/search?q=2h^https://www.google.com/search?q=2}(-h) + \\frac{U}{https://www.google.com/search?q=2h} \\right) = \\mu \\left( -\\frac{https://www.google.com/search?q=3U}{https://www.google.com/search?q=2h} + \\frac{U}{https://www.google.com/search?q=2h} \\right) = \\mu \\left( -\\frac{https://www.google.com/search?q=2U}{https://www.google.com/search?q=2h} \\right) = -\\frac{\\mu U}{h}
+
+        $$
+        $$$$この値は負なので、平板の運動と逆方向（$-x$ 方向）に働く応力です。
+
+##### **答え**
+
+  * **上の平板 ($y=h$) に働く接線方向の応力**:
+    $$
+    $$$$\\tau\_h = \\frac{https://www.google.com/search?q=2\\mu U}{h} \\quad (\\text{Uと同じ向き})
+    $$
+    $$$$
+    $$
+  * **下の平板 ($y=-h$) に働く接線方向の応力**:
+    $$
+    $$$$\\tau\_{-h} = -\\frac{\\mu U}{h} \\quad (\\text{Uと逆向き、大きさは } \\frac{\\mu U}{h})
+    $$
+    $$$$
+    $$

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2023年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $...$ と \( ... \) を追加
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+                    2023（R5）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2023年度の流体力学入試では、大問【1】で二次元流れの基礎理論（連続の式、流線、渦度、循環、流跡線、圧力分布）、大問【2】で平板への噴流衝突問題が出題されました。流体力学の基本概念から応用まで幅広い知識が問われる内容でした。</p>
+                <a href="../../pdfs/question/2023_R5_april/fluid_2023_R5_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/answer/2023_R5_april/fluid_2023_R5_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】二次元流れの基礎理論</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">x軸およびy軸で与えられる二次元直交座標系において、密度がρである非圧縮非粘性定常流れがある。xおよびy方向の速度をそれぞれ-KyおよびKxとするとき、以下の問(1)〜(4)に答えよ。ただし、Kを正の定数とする。</p>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>この流れは回転流（solid body rotation）と呼ばれる特殊な流れです。各小問を通じて、流体力学の基本概念（連続の式、流線、渦度、循環）を理解しましょう。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        
+                        <!-- 小問(1) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(1) この流れの連続の方程式を示せ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            二次元非圧縮性流れの連続の方程式は次式で与えられます。
+                            $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$
+                            与えられた速度成分を代入すると：
+                            $$\frac{\partial (-Ky)}{\partial x} + \frac{\partial (Kx)}{\partial y} = 0 + 0 = 0$$
+                        </div>
+                        <span class="answer-highlight">答え: 連続の方程式$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$は満たされる</span>
+                        
+                        <!-- 小問(2) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(2) この流れの流線をx,yの関数として求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            流線の定義式は$\frac{dx}{u} = \frac{dy}{v}$です。
+                            $$\frac{dx}{-Ky} = \frac{dy}{Kx}$$
+                            $$x dx = -y dy$$
+                            両辺を積分します：
+                            $$\int x dx = -\int y dy$$
+                            $$\frac{1}{2}x^2 = -\frac{1}{2}y^2 + C'$$
+                            $$x^2 + y^2 = 2C' = C \quad (C\text{は積分定数})$$
+                        </div>
+                        <span class="answer-highlight">答え: 流線は$x^2 + y^2 = C$（Cは定数）で表される円</span>
+                        
+                        <!-- 小問(3) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(3) この流れの渦度を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            二次元流れの渦度$\omega$は次式で与えられます。
+                            $$\omega = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}$$
+                            $$\omega = \frac{\partial (Kx)}{\partial x} - \frac{\partial (-Ky)}{\partial y} = K - (-K) = 2K$$
+                        </div>
+                        <span class="answer-highlight">答え: 渦度は$2K$</span>
+                        
+                        <!-- 小問(4) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(4) $x^2+y^2=1$で囲まれた領域における、この流れの循環を求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            循環$\Gamma$は、渦度を面積分することで求められます（ストークスの定理）。
+                            $$\Gamma = \iint_S \omega dA$$
+                            ここで、$S$は$x^2+y^2=1$で囲まれた円領域（面積$\pi \cdot 1^2 = \pi$）です。渦度は一定値$2K$なので：
+                            $$\Gamma = (2K) \times (\text{面積}) = 2K \cdot \pi = 2\pi K$$
+                        </div>
+                        <span class="answer-highlight">答え: 循環は$2\pi K$</span>
+                    </div>
+                    
+                    <!-- 第2部分：別の速度場での問題 -->
+                    <div class="example-box">
+                        <p class="problem-statement">次に、xおよびy方向の速度をそれぞれ$\frac{Ky}{x^2+y^2}$および$\frac{-Kx}{x^2+y^2}$とするとき、以下の問(5)〜(6)に答えよ。ただし、原点からみて無限遠にある点での圧力を大気圧P_atmとする。</p>
+                    </div>
+                    
+                    <div>
+                        <!-- 小問(5) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(5) この流れの流跡線をx,yの関数として求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            定常流れなので、流跡線は流線と一致します。流線の定義式に代入します。
+                            $$\frac{dx}{u} = \frac{dy}{v}$$
+                            $$\frac{dx}{Ky/(x^2+y^2)} = \frac{dy}{-Kx/(x^2+y^2)}$$
+                            $$-x dx = y dy$$
+                            これを積分すると：
+                            $$-\frac{1}{2}x^2 = \frac{1}{2}y^2 + C'$$
+                            $$x^2 + y^2 = -2C' = C \quad (C\text{は積分定数})$$
+                        </div>
+                        <span class="answer-highlight">答え: 流跡線は$x^2 + y^2 = C$（Cは定数）で表される円</span>
+                        
+                        <!-- 小問(6) -->
+                        <div class="example-box">
+                            <div class="section-title">
+                                <h3>(6) この流れの圧力をx,yの関数として求めよ</h3>
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            非粘性・定常流れなのでベルヌーイの定理が適用できます。重力は無視できるので：
+                            $$\frac{1}{2}\rho V^2 + p = \text{一定}$$
+                            速度の大きさ$V$の2乗を計算します：
+                            $$V^2 = u^2 + v^2 = \left(\frac{Ky}{x^2+y^2}\right)^2 + \left(\frac{-Kx}{x^2+y^2}\right)^2$$
+                            $$V^2 = \frac{K^2y^2 + K^2x^2}{(x^2+y^2)^2} = \frac{K^2(x^2+y^2)}{(x^2+y^2)^2} = \frac{K^2}{x^2+y^2}$$
+                            ベルヌーイの式より：
+                            $$p(x,y) + \frac{1}{2}\rho \frac{K^2}{x^2+y^2} = C_{const}$$
+                            無限遠（$x^2+y^2 \to \infty$）で圧力は$p_{atm}$なので：
+                            $$p_{atm} + \frac{1}{2}\rho \cdot 0 = C_{const} \implies C_{const} = p_{atm}$$
+                            したがって、圧力分布は：
+                            $$p(x,y) = p_{atm} - \frac{\rho K^2}{2(x^2+y^2)}$$
+                        </div>
+                        <span class="answer-highlight">答え: 圧力は$p(x,y) = p_{atm} - \frac{\rho K^2}{2(x^2+y^2)}$</span>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>第1部は剛体回転流、第2部は渦流れ（vortex flow）の特性を表しています。どちらも流線が同心円となりますが、渦度や圧力分布が異なることに注意しましょう。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>連続の方程式の確認は基本中の基本</li>
+                            <li>流線の方程式は変数分離で解く</li>
+                            <li>渦度の定義を正確に覚える</li>
+                            <li>ストークスの定理で循環を求める</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>剛体回転流と渦流れの違いを理解する</li>
+                            <li>ベルヌーイの定理の適用条件を確認する</li>
+                            <li>定常流れでは流線と流跡線が一致する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】平板への噴流衝突問題</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">図1に示すようにxy平面の原点に設置されたノズルから流体が噴出し、x=Hに設置されたy軸に平行で無限に長い平板に衝突している。流れは紙面に垂直な奥行き方向に一様な二次元非圧縮粘性定常流れ（密度ρ、粘性係数μ）で、噴流はノズル出口において幅b₀で、x軸に平行かつ幅方向に一様な流速U₀を持っているものとする。このとき以下の問いに答えよ。なお、噴流には大気圧がかかっており、重力の影響は無視できるものとする。また平板に衝突して生じる流れは層流で、|y|≥y₁において十分平板に平行となっており、噴流外縁を流れる流体（平板衝突後も含む）は粘性の影響を受けないものとする。</p>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <div class="section-title">(1) 単位奥行きあたりの体積流量と質量流量を求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>体積流量は流速×断面積、質量流量は密度×体積流量で計算できます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            単位奥行きあたりの体積流量$Q$は、(流速) × (断面積) で計算できます。
+                            $$Q = U_0 \times (b_0 \times 1) = U_0 b_0$$
+                            単位奥行きあたりの質量流量$\dot{m}$は、(密度) × (体積流量) です。
+                            $$\dot{m} = \rho Q = \rho U_0 b_0$$
+                        </div>
+                        <span class="answer-highlight">答え: 体積流量は$U_0 b_0$、質量流量は$\rho U_0 b_0$</span>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <div class="section-title">(2) 平板にかかる力の向きと大きさを求めよ</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>運動量保存則を用いて、噴流が平板に与える力を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            ノズル出口から平板手前までの領域を検査体積とし、x方向の運動量方程式を適用します。平板が流体に及ぼす力を$F_x$とすると：
+                            $$\sum (\text{外力})_x = (\text{出ていく運動量})_x - (\text{入ってくる運動量})_x$$
+                            外力は圧力と平板からの力ですが、噴流全体が大気圧にさらされているため圧力による力は相殺されます。したがって外力は$F_x$のみです。
+                            $$F_x = 0 - (\dot{m} U_0) = -(\rho U_0 b_0) U_0 = -\rho b_0 U_0^2$$
+                            流体が平板から受ける力はx軸負の向きに$\rho b_0 U_0^2$です。作用・反作用の法則により、平板が流体から受ける力は、この反作用となります。
+                        </div>
+                        <span class="answer-highlight">答え: 力の向きは**x軸の正の向き**、大きさは$\rho b_0 U_0^2$</span>
+                    </div>
+                    
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <div class="section-title">(3) 噴流外縁を流れる流体の速度の大きさを求めよ</div>
+                    </div>
+                    <div class="solution-step">
+                        噴流の外縁をなぞる流線を考えます。ノズル出口（速度$U_0$, 圧力$p_{atm}$）と、平板衝突後にy軸に平行に流れる点（速度$V_{edge}$, 圧力$p_{atm}$）でベルヌーイの定理を適用します。
+                        $$\frac{1}{2}\rho U_0^2 + p_{atm} = \frac{1}{2}\rho V_{edge}^2 + p_{atm}$$
+                        $$V_{edge} = U_0$$
+                    </div>
+                    <span class="answer-highlight">答え: 噴流外縁を流れる流体の速度の大きさは$U_0$</span>
+                    
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <div class="section-title">(4) $y \geq y_1$における流れの支配方程式を導出せよ</div>
+                    </div>
+                    <div class="solution-step">
+                        $y \geq y_1$における流れは、y軸方向の壁面噴流と見なせます。流れはy方向に十分に発達し、x方向の速度勾配はy方向の速度勾配に比べて無視できます（$\frac{\partial}{\partial x} \ll \frac{\partial}{\partial y}$）。また、圧力勾配は無視できるとされているので、ナビエ・ストークス方程式は以下のように簡略化されます。<br><br>
+                        x方向の速度を$u_w$, y方向の速度を$v_w$とすると、流れはy軸に平行なので$u_w=0$。支配的な運動方程式はy方向の式です。
+                        $$u_w\frac{\partial v_w}{\partial x} + v_w\frac{\partial v_w}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v_w}{\partial x^2} + \frac{\partial^2 v_w}{\partial y^2} \right)$$
+                        $u_w=0$, $\frac{\partial v_w}{\partial y}=0$（十分に発達）、$\frac{\partial p}{\partial y}=0$より：
+                        $$0 = \nu \frac{d^2 v_w}{d x^2}$$
+                    </div>
+                    <span class="answer-highlight">答え: $\frac{d^2 v}{dx^2} = 0$（vはy方向流速）</span>
+                    
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <div class="section-title">(5) 速度分布を求めよ</div>
+                    </div>
+                    <div class="solution-step">
+                        (4)の支配方程式$\frac{d^2 v}{dx^2} = 0$を積分します。
+                        $$v(x) = C_1 x + C_2$$
+                        境界条件を適用します：
+                        <ul>
+                            <li>壁面（$x=H$）: 滑りなし条件より$v(H) = 0$</li>
+                            <li>噴流外縁（$x=H-b_1$）: 粘性の影響を受けず、速度は(3)で求めた$U_0$になるので$v(H-b_1) = U_0$</li>
+                        </ul>
+                        $v(H) = C_1 H + C_2 = 0 \implies C_2 = -C_1 H$<br>
+                        $v(H-b_1) = C_1(H-b_1) + C_2 = C_1(H-b_1) - C_1 H = -C_1 b_1 = U_0 \implies C_1 = -\frac{U_0}{b_1}$<br>
+                        よって$C_2 = -(-\frac{U_0}{b_1})H = \frac{U_0 H}{b_1}$<br>
+                        速度分布は：
+                        $$v(x) = -\frac{U_0}{b_1}x + \frac{U_0 H}{b_1} = \frac{U_0}{b_1}(H-x)$$
+                    </div>
+                    <span class="answer-highlight">答え: 速度分布は$v(x) = \frac{U_0}{b_1}(H-x)$（ただし$H-b_1 \leq x \leq H$）</span>
+                    
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <div class="section-title">(6) 噴流の厚み$b_1$を求めよ</div>
+                    </div>
+                    <div class="solution-step">
+                        ノズル出口の体積流量と、平板衝突後の上下に分かれた流れの体積流量の合計は等しいはずです（質量保存）。対称性から、上半分（$y>0$）の流量は$Q/2 = U_0 b_0 / 2$となります。<br><br>
+                        上方向への流量$Q_{up}$は(5)の速度分布を積分して求めます：
+                        $$Q_{up} = \int_{H-b_1}^{H} v(x) dx = \int_{H-b_1}^{H} \frac{U_0}{b_1}(H-x) dx$$
+                        $$Q_{up} = \frac{U_0}{b_1} \left[ Hx - \frac{x^2}{2} \right]_{H-b_1}^{H}$$
+                        計算を進めると：
+                        $$Q_{up} = \frac{U_0 b_1}{2}$$
+                        流量保存より$Q_{up} = Q/2$なので：
+                        $$\frac{U_0 b_1}{2} = \frac{U_0 b_0}{2}$$
+                        $$b_1 = b_0$$
+                    </div>
+                    <span class="answer-highlight">答え: $b_1 = b_0$</span>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>噴流衝突問題では、運動量保存則、ベルヌーイの定理、質量保存則を組み合わせて解析します。特に境界層理論の簡略化された形での支配方程式の導出が重要です。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>運動量保存則を正確に適用する</li>
+                            <li>ベルヌーイの定理の適用条件を確認する</li>
+                            <li>境界条件を正しく設定する</li>
+                            <li>質量保存による流量バランスを理解する</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>検査体積の設定を適切に行う</li>
+                            <li>圧力の作用する面を正確に把握する</li>
+                            <li>滑りなし条件の適用を忘れない</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+    <script>
+        // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
+        function toggleAccordion(id) {
+            var acc = document.getElementById(id);
+            if (acc.classList.contains('open')) {
+                acc.classList.remove('open');
+            } else {
+                acc.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>

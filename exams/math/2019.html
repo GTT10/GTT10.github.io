@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2019年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2019（H31/R1）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2019年度の数学入試では、大問【1】で積分方程式、大問【2】で微分方程式と積分因子、大問【3】でラプラス変換を用いた連立微分方程式、大問【4】で線形代数のランク解析、大問【5】でフーリエ級数が出題されました。幅広い分野の応用問題が揃った総合的な問題構成です。一つ一つ丁寧に取り組んでいきましょう！</p>
+                <a href="../../pdfs/question/2019_H31_R1_april/math_2019_H31_R1_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)
+                </a>
+                <a href="../../pdfs/answer/2019_H31_R1_april/math_2019_H31_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">積分方程式に関する問題</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>積分方程式は「微分して微分方程式に帰着」が定石です！ライプニッツの積分則と積の微分法を駆使して解きましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $\int_a^x (x-t)f(t)dt$ の$x$微分を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 積分を分解：
+                            <div class="math-block">$$\int_a^x (x-t)f(t)dt = x \int_a^x f(t)dt - \int_a^x t f(t)dt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 各項を微分（積の微分法則）：
+                            <div class="math-block">$$\frac{d}{dx} \left( x \int_a^x f(t)dt \right) = \int_a^x f(t)dt + x f(x)$$</div>
+                            <div class="math-block">$$\frac{d}{dx} \left( \int_a^x t f(t)dt \right) = x f(x)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 結果：
+                            <div class="math-block">$$\frac{d}{dx} \left( \int_a^x (x-t)f(t)dt \right) = \left( \int_a^x f(t)dt + x f(x) \right) - x f(x) = \int_a^x f(t)dt$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\int_a^x f(t) dt$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $(x+1)e^{-x} + b$ の微分を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            積の微分法則：$(uv)' = u'v + uv'$ を使用
+                            <div class="math-block">$$\frac{d}{dx} \left( (x+1)e^{-x} \right) = (1) \cdot e^{-x} + (x+1) \cdot (-e^{-x}) = e^{-x} - (x+1)e^{-x} = -x e^{-x}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $-x e^{-x}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) $\int_a^x (x-t)f(t)dt = (x+1)e^{-x} + b$ を満たす$f(x)$, $a$, $b$を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. (1)の結果で左辺を微分し、(2)の結果と比較：
+                            <div class="math-block">$$\int_a^x f(t)dt = -x e^{-x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 上式を$x$で微分：
+                            <div class="math-block">$$f(x) = \frac{d}{dx}(-x e^{-x}) = -(e^{-x} - x e^{-x}) = (x - 1) e^{-x}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $f(t) = (t-1)e^{-t}$を元の式に代入し、部分積分で計算：
+                            <div class="math-block">$$\int_a^x (t-1)e^{-t} dt = -x e^{-x}$$</div>
+                            左辺は$[-t e^{-t}]_a^x = -x e^{-x} + a e^{-a}$なので：
+                            <div class="math-block">$$a e^{-a} = 0 \Rightarrow a = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 元の式で$x=0$を代入：$0 = 1 + b$ より$b = -1$
+                        </div>
+                        <span class="answer-highlight">答え: $f(x) = (x-1)e^{-x}$, $a = 0$, $b = -1$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ライプニッツの積分則を活用</li>
+                            <li>積分方程式は微分で微分方程式に</li>
+                            <li>初期条件で定数を決定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>積分上限が変数なら「積分の中身＋上限微分」</li>
+                            <li>$(e^{-x})' = -e^{-x}$</li>
+                            <li>部分積分：$\int uv' = uv - \int u'v$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">微分方程式: $\left( x - \frac{2y}{x} \right) dx + \left( \frac{e^{2y}}{x} - 2 \right) dy = 0$ $(x>0)$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>完全微分形でない場合は積分因子を求めます！$\mu = x$, $\mu = e^{ky}$, $\mu = x^k$などを試してみましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 完全微分形でないことを証明せよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $P = x - \frac{2y}{x}$, $Q = \frac{e^{2y}}{x} - 2$として：
+                            <div class="math-block">$$\frac{\partial P}{\partial y} = -\frac{2}{x}, \quad \frac{\partial Q}{\partial x} = -\frac{e^{2y}}{x^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            $-\frac{2}{x} \neq -\frac{e^{2y}}{x^2}$（一般に成立しない）
+                        </div>
+                        <span class="answer-highlight">よって完全微分形ではない</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 積分因子を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            積分因子$\mu = x$を試す：
+                            <div class="math-block">$$\mu P = x \left( x - \frac{2y}{x} \right) = x^2 - 2y$$</div>
+                            <div class="math-block">$$\mu Q = x \left( \frac{e^{2y}}{x} - 2 \right) = e^{2y} - 2x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            検証：
+                            <div class="math-block">$$\frac{\partial}{\partial y}(\mu P) = -2, \quad \frac{\partial}{\partial x}(\mu Q) = -2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            $\frac{\partial}{\partial y}(\mu P) = \frac{\partial}{\partial x}(\mu Q) = -2$ なので完全微分形になる
+                        </div>
+                        <span class="answer-highlight">答え: $\mu = x$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 一般解を求めよ</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            積分因子$\mu = x$を乗じた式：
+                            <div class="math-block">$$(x^2 - 2y) dx + (e^{2y} - 2x) dy = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            $\frac{\partial \Phi}{\partial x} = x^2 - 2y$を積分：
+                            <div class="math-block">$$\Phi(x,y) = \frac{1}{3}x^3 - 2xy + h(y)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            $\frac{\partial \Phi}{\partial y} = -2x + h'(y) = e^{2y} - 2x$より：
+                            <div class="math-block">$$h'(y) = e^{2y} \Rightarrow h(y) = \frac{1}{2} e^{2y}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{1}{3}x^3 - 2xy + \frac{1}{2} e^{2y} = C$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>完全微分形の判定は偏導関数の一致</li>
+                            <li>積分因子$\mu = x$を見つける</li>
+                            <li>ポテンシャル関数$\Phi$で一般解</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>完全微分形：$\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$</li>
+                            <li>積分因子は試行錯誤が必要</li>
+                            <li>一般解：$\Phi(x,y) = C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">連立微分方程式をラプラス変換で解け:</p>
+                        <div class="math-block">$$\begin{cases}
+x' + y' + y = 0 \\
+x' + 2x + 6 \int_0^t y \, d\tau = -2u(t)
+\end{cases}$$</div>
+                        <p>$x(0) = -5$, $y(0) = 6$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換が威力を発揮します！単位ステップ関数$u(t)$は$\frac{1}{s}$、積分項$\int_0^t y d\tau$は$\frac{Y(s)}{s}$に変換されます。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 第1式をラプラス変換：
+                            <div class="math-block">$$sX(s) - x(0) + sY(s) - y(0) + Y(s) = 0$$</div>
+                            <div class="math-block">$$sX(s) + 5 + sY(s) - 6 + Y(s) = 0$$</div>
+                            <div class="math-block">$$sX(s) + (s+1)Y(s) = 1 \quad \text{(A)}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 第2式をラプラス変換：
+                            <div class="math-block">$$sX(s) - x(0) + 2X(s) + 6 \frac{Y(s)}{s} = -2 \cdot \frac{1}{s}$$</div>
+                            <div class="math-block">$$sX(s) + 5 + 2X(s) + \frac{6Y(s)}{s} = -\frac{2}{s}$$</div>
+                            <div class="math-block">$$(s+2)X(s) + \frac{6Y(s)}{s} = -5 - \frac{2}{s} \quad \text{(B)}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. (A)と(B)を連立して解く：
+                            (A)より$X(s) = \frac{1 - (s+1)Y(s)}{s}$を(B)に代入し整理すると：
+                            <div class="math-block">$$Y(s) = \frac{6s+4}{(s+4)(s-1)} = \frac{4}{s+4} + \frac{2}{s-1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 逆ラプラス変換：
+                            <div class="math-block">$$y(t) = 4e^{-4t} + 2e^{t}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 第1式から$x(t)$を求める：
+                            $x' = -y' - y$より積分して初期条件を適用すると：
+                            <div class="math-block">$$x(t) = -3e^{-4t} - 4e^{t} + 2$$</div>
+                        </div>
+                        <span class="answer-highlight">答え:
+                            <br> $x(t) = -3e^{-4t} - 4e^{t} + 2$
+                            <br>$y(t) = 4e^{-4t} + 2e^{t}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ラプラス変換で代数方程式に変換</li>
+                            <li>連立方程式を解いて逆変換</li>
+                            <li>初期条件で未定定数を決定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$</li>
+                            <li>$\mathcal{L}\{\int_0^t f d\tau\} = \frac{F(s)}{s}$</li>
+                            <li>$\mathcal{L}\{u(t)\} = \frac{1}{s}$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">連立同次方程式の解空間の自由度を求めよ:</p>
+                        <div class="math-block">$$\begin{cases}
+x_1 + x_2 + x_3 + x_4 = 0 \\
+a x_1 + b x_2 + c x_3 + (a+b+c) x_4 = 0 \\
+a^2 x_1 + b^2 x_2 + c^2 x_3 + (a^2 + b^2 + c^2) x_4 = 0
+\end{cases}$$</div>
+                        <p>ただし$abc \neq 0$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>係数行列の階数（ランク）を求めます！解の自由度 = 変数の数 - 階数です。ヴァンデモンド行列の性質を活用しましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            <strong>(i) $a$, $b$, $c$が異なる場合</strong>
+                        </div>
+                        <div class="solution-step">
+                            1. 係数行列：
+                            <div class="math-block">$$A = \begin{pmatrix}
+1 & 1 & 1 & 1 \\
+a & b & c & a+b+c \\
+a^2 & b^2 & c^2 & a^2+b^2+c^2
+\end{pmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 行基本変形を実行：
+                            第2行 - $a$ × 第1行：
+                            <div class="math-block">$$(b-a)x_2 + (c-a)x_3 + (b+c)x_4 = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            第3行 - $a^2$ × 第1行：
+                            <div class="math-block">$$(b^2-a^2)x_2 + (c^2-a^2)x_3 + (b^2+c^2)x_4 = 0$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. さらに変形すると、係数行列の左上3×3の部分はヴァンデモンド行列：
+                            <div class="math-block">$$\det \begin{pmatrix}
+1 & 1 & 1 \\
+a & b & c \\
+a^2 & b^2 & c^2
+\end{pmatrix} = (b-a)(c-a)(c-b)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $a$, $b$, $c$が異なる値のとき、$(b-a)(c-a)(c-b) \neq 0$なので、ランクは3
+                            自由度 = 4 - 3 = 1
+                        </div>
+                        <div class="solution-step">
+                            <strong>(ii) $a = b = c$の場合</strong>
+                        </div>
+                        <div class="solution-step">
+                            5. $a = b = c$を代入すると、係数行列は：
+                            <div class="math-block">$$A = \begin{pmatrix}
+1 & 1 & 1 & 1 \\
+a & a & a & 3a \\
+a^2 & a^2 & a^2 & 3a^2
+\end{pmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 第3行 = $a$ × 第2行なので、実質的に独立な行は2行のみ。
+                            よってランクは2、自由度 = 4 - 2 = 2
+                        </div>
+                        <span class="answer-highlight">答え: $a$, $b$, $c$が異なる場合は1、$a = b = c$の場合は2</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>ヴァンデモンド行列の性質を利用</li>
+                            <li>係数行列の階数が3</li>
+                            <li>解空間の次元は1</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>自由度 = 変数の数 - ランク</li>
+                            <li>ヴァンデモンド行列式 = $\prod (b_j - a_i)$</li>
+                            <li>同次方程式の解空間は部分空間</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【5】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【5】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">周期関数のフーリエ級数を求めよ:</p>
+                        <div class="math-block">$$f(t) = \begin{cases} 
+1 & (0 < t < 1) \\
+0 & (1 \leq t < 4)
+\end{cases}$$</div>
+                        <p>周期$T=4$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>周期$T=4$なので基本振動数$\omega_0 = \frac{2\pi}{4} = \frac{\pi}{2}$です！フーリエ係数を計算し、各周波数成分の振幅を求めましょう。</p>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. フーリエ係数の計算：
+                            <div class="math-block">$$a_0 = \frac{2}{T} \int_0^T f(t) dt = \frac{2}{4} \int_0^1 1 dt = \frac{1}{2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $a_n$係数：
+                            <div class="math-block">$$a_n = \frac{2}{4} \int_0^1 \cos \frac{n\pi t}{2} dt = \frac{1}{n\pi} \sin \frac{n\pi}{2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $b_n$係数：
+                            <div class="math-block">$$b_n = \frac{2}{4} \int_0^1 \sin \frac{n\pi t}{2} dt = -\frac{1}{n\pi} \left( \cos \frac{n\pi}{2} - 1 \right)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. フーリエ級数：
+                            <div class="math-block">$$f(t) = \frac{1}{4} + \sum_{n=1}^{\infty} \left[ \frac{1}{n\pi} \sin \frac{n\pi}{2} \cos \frac{n\pi t}{2} - \frac{1}{n\pi} \left( \cos \frac{n\pi}{2} - 1 \right) \sin \frac{n\pi t}{2} \right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 振動数$\frac{n\pi}{2}$の振幅：
+                            <div class="math-block">$$c_n = \sqrt{a_n^2 + b_n^2} = \sqrt{ \left( \frac{1}{n\pi} \sin \frac{n\pi}{2} \right)^2 + \left( \frac{1}{n\pi} \left(1 - \cos \frac{n\pi}{2}\right) \right)^2 }$$</div>
+                        </div>
+                        <span class="answer-highlight">フーリエ級数と振幅の公式を導出</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>基本振動数$\omega_0 = \frac{2\pi}{T}$</li>
+                            <li>矩形波のフーリエ展開</li>
+                            <li>各周波数成分の振幅計算</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>振幅 = $\sqrt{a_n^2 + b_n^2}$</li>
+                            <li>矩形波は奇数倍周波数が主成分</li>
+                            <li>$\sin\frac{n\pi}{2}$は$n$が奇数で$\pm 1$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+もちろんです！もっとカジュアルでフレンドリーに、まるで友達に教えるような感じで説明しますね。問題の内容はそのままに、話し方を柔らかくしてみますよ～。
+
+### 【1】二次元非圧縮性流れの問題
+
+#### (1) インクの軌跡について
+**問題**: 注射針からインクが流れるとき、インクが描く軌跡は何と呼ばれる？ 0 ≤ t ≤ 4の軌跡を図に描いてね。  
+**考え方**:  
+- インクの軌跡は「流跡線（りゅうせきせん）」って呼ぶよ。固定された注射針から出るインクの動きを追ったものだね。  
+- 軌跡を描くには、各区間の速度を積分すればOK。注射針の位置は図に書いてないけど、とりあえず原点(0,0)からスタートするとしよう。  
+
+**計算の流れ**:  
+1. **0 ≤ t < 1**: 速度(2,2) → 1秒後は(2,2)に移動。  
+2. **1 ≤ t < 3**: 速度(0,1) → x=2でyだけ増加。3秒後は(2,4)。  
+3. **3 ≤ t ≤ 4**: 速度(-1,0) → y=4でxだけ減少。4秒後は(1,4)。  
+
+**答え**:  
+- 軌跡の名前: **流跡線（pathline）**  
+- 軌跡の形: (0,0)→(2,2)→(2,4)→(1,4) の折れ線。  
+
+---
+
+#### (2) 小球の軌跡について
+**問題**: 小球が流れに乗って動くときの軌跡は？ 0 ≤ t ≤ 4の軌跡を描いて。  
+**考え方**:  
+- これも「流跡線」だよ！ (1)と同じ計算で、初期位置を(0,0)とすると全く同じ軌跡になるね。  
+
+**答え**:  
+- 軌跡の名前: **流跡線（pathline）**  
+- 軌跡の形: (1)と同じ折れ線。  
+
+---
+
+#### (3) 抗力係数とレイノルズ数の関係
+**問題**: 小球の抗力係数 \( C_D \) とレイノルズ数 Re の正しい関係は？  
+**ヒント**:  
+- 小球の場合、Reが小さいと \( C_D \) は大きく、Reが大きくなるほど \( C_D \) は減っていくよ。  
+- 選択肢は見えないけど、多分「Reが増えると \( C_D \) が減るグラフ」が正解。  
+
+**答え**:  
+- 正しい関係: **b)**（減少する曲線）  
+
+---
+
+#### (4) 流線の式
+**問題**: t > 4 のときの流線を y = f(x) で表して。  
+**解き方**:  
+- 流線は「瞬間的な流れの線」で、速度場 \( (u,v) = (k/x, -k y) \) から計算。  
+- 流線の式は \( \frac{dy}{dx} = \frac{v}{u} = -x y \) → 変数分離で解くと…  
+
+**答え**:  
+- \( y = A e^{-x^2 / 2} \) （Aは定数）  
+
+---
+
+### 【
+
+### 【2】定常流中の物体に関する問題
+**問題文全体**: x軸の正の方向に向かう流速Uの定常流中に代表長さDの物体が静止しているとし，以下の問いに答えよ。ただし流れは二次元非圧縮粘性流れとし，流体の密度はρ，動粘性係数はν（問題文では"v"だが標準記号νを使用），圧力はp，x方向の速度はu，y方向の速度はvとする。
+
+#### (1)  
+**問題文**: x方向のナビエ・ストークス方程式を書け。  
+**方針・考え方**:  
+- 二次元非圧縮粘性流れのナビエ・ストークス方程式（x成分）を記述する。定常流のため時間微分項はゼロ。  
+- 標準的な形: 加速度項、圧力項、粘性項からなる。  
+**解答**:  
+  - x方向のナビエ・ストークス方程式:  
+    \[
+    \rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
+    \]  
+    （μ は粘度、ν = μ/ρ であるが、方程式は μ で表記。定常のため ∂u/∂t = 0）  
+
+#### (2)  
+**問題文**: (1) のナビエ・ストークス方程式をUとDを使って無次元化せよ。なおpの無次元化に用いた物理量は設問中の記号を用いて明記すること。ただし無次元化された物理量の右上には*をつけよ。  
+**方針・考え方**:  
+- 無次元化のスケール: 長さ D、速度 U、圧力 ρU²（動圧を基準）。無次元変数を定義:  
+  \[
+  x^* = \frac{x}{D}, \quad y^* = \frac{y}{D}, \quad u^* = \frac{u}{U}, \quad v^* = \frac{v}{U}, \quad p^* = \frac{p - p_\infty}{\rho U^2}
+  \]  
+  （p∞ は参照圧力、通常遠方の圧力）  
+- 微分演算子を変換: ∂/∂x = (1/D) ∂/∂x^*, など。  
+- 方程式を無次元変数で表し、レイノルズ数 Re = UD/ν を導入。  
+**途中式**:  
+  - 元の方程式:  
+    \[
+    \rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
+    \]  
+  - 無次元変数代入（例: u = U u^*, ∂/∂x = (1/D) ∂/∂x^*）:  
+    - 左辺:  
+      \[
+      \rho \left( (U u^*) \frac{\partial (U u^*)}{\partial x} + (U v^*) \frac{\partial (U u^*)}{\partial y} \right) = \rho \left( U u^* \cdot \frac{U}{D} \frac{\partial u^*}{\partial x^*} + U v^* \cdot \frac{U}{D} \frac{\partial u^*}{\partial y^*} \right) = \frac{\rho U^2}{D} \left( u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} \right)
+      \]  
+    - 圧力項:  
+      \[
+      -\frac{\partial p}{\partial x} = -\frac{\partial}{\partial x} \left( \rho U^2 p^* + p_\infty \right) = -\rho U^2 \frac{\partial p^*}{\partial x} \cdot \frac{1}{D} = -\frac{\rho U^2}{D} \frac{\partial p^*}{\partial x^*}
+      \]  
+    - 粘性項:  
+      \[
+      \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) = \mu \left( \frac{\partial^2 (U u^*)}{\partial x^2} + \frac{\partial^2 (U u^*)}{\partial y^2} \right) = \mu U \left( \frac{1}{D^2} \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{1}{D^2} \frac{\partial^2 u^*}{\partial y^{*2}} \right) = \frac{\mu U}{D^2} \nabla^{*2} u^*
+      \]  
+      （\(\nabla^{*2} = \frac{\partial^2}{\partial x^{*2}} + \frac{\partial^2}{\partial y^{*2}}}\))  
+  - 全体を \(\frac{\rho U^2}{D}\) で割る:  
+    \[
+    u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{\mu}{\rho U D} \nabla^{*2} u^*
+    \]  
+  - \(\frac{\mu}{\rho U D} = \frac{\nu}{U D} = \frac{1}{\text{Re}}\)（Re = UD/ν）より:  
+    \[
+    u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \nabla^{*2} u^*
+    \]  
+**解答**:  
+  - 無次元化された方程式:  
+    \[
+    u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)
+    \]  
+  - p の無次元化に用いた物理量: **ρU²**（動圧）  
+
+#### (3)  
+**問題文**: レイノルズ数Reを設問中の記号を用いて示せ。  
+**方針・考え方**:  
+- レイノルズ数は代表速度 U、代表長さ D、動粘性係数 ν で定義される。  
+**解答**:  
+  \[
+  \text{Re} = \frac{U D}{\nu}
+  \]  
+
+#### (4)  
+**問題文**: yが一定の断面に働く粘性せん断応力τ_yを設問中の記号を用いて示せ。  
+**方針・考え方**:  
+- y = const の断面（法線ベクトルが y 方向）における粘性せん断応力は、x 方向成分 τ_{yx} を指す（問題文の τ_y は τ_{yx} と解釈）。  
+- 非圧縮ニュートン流体では、τ_{yx} = μ (∂u/∂y + ∂v/∂x)。  
+**解答**:  
+  \[
+  \tau_y = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)
+  \]  
+  （τ_y は τ_{yx} を意味し、y 一定面での x 方向せん断応力）  
+
+#### (5)  
+**問題文**: (4) のτ_yをReと無次元化された物理量を用いて書き換えよ。なお無次元化された物理量の右上には*をつけよ。  
+**方針・考え方**:  
+- τ_y を無次元化する。せん断応力の無次元化にはスケール μU/D を使用。  
+- 無次元せん断応力を τ_y^* = τ_y / (μU/D) と定義。  
+- (4) の式を無次元変数で表す。  
+**途中式**:  
+  - τ_y = μ (∂u/∂y + ∂v/∂x)  
+  - 無次元変数: u = U u^*, v = U v^*, ∂/∂y = (1/D) ∂/∂y^*, ∂/∂x = (1/D) ∂/∂x^*  
+    \[
+    \frac{\partial u}{\partial y} = \frac{\partial (U u^*)}{\partial y} = \frac{U}{D} \frac{\partial u^*}{\partial y^*}, \quad \frac{\partial v}{\partial x} = \frac{\partial (U v^*)}{\partial x} = \frac{U}{D} \frac{\partial v^*}{\partial x^*}
+    \]  
+  - 代入:  
+    \[
+    \tau_y = \mu \left( \frac{U}{D} \frac{\partial u^*}{\partial y^*} + \frac{U}{D} \frac{\partial v^*}{\partial x^*} \right) = \frac{\mu U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)
+    \]  
+  - 無次元化: τ_y^* = \frac{\tau_y}{\mu U / D} = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}  
+  - Re は式中に不要（無次元化された変数のみで表現可能）。  
+**解答**:  
+  \[
+  \tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}
+  \]  
+
+
+#### (6) 模型の流速と抗力
+**問題**: 実車の1/10サイズの模型で風洞実験するとき、流速は？ 抗力は何倍？  
+**ポイント**:  
+- 相似則で「レイノルズ数を同じに」がキーワード。  
+- 模型の長さ1/10 → 流速は10倍にすればOK（Re = (流速)×(長さ) だから）。  
+- 抗力は「流速² × 面積」で計算。面積は1/100倍だが、流速²が100倍なのでトータルで1倍（実車と同じ）。  
+
+**答え**:  
+- 風洞の流速: **10V**  
+- 抗力の倍率: **1倍**  
+
+---
+
+こんな感じでどうかな？ 堅苦しさを減らして、ポイントを絞って説明してみたよ！ もしわかりにくいところがあったら、どんどん聞いてね～ 😊

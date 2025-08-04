@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2018年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2018（H30）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2018年度の数学入試では、大問【1】で対数微分と双曲線関数積分、大問【2】で連立一次方程式の解の存在条件、大問【3】で2階線形微分方程式、大問【4】でラプラス変換と積分方程式が出題されました。計算力と理論的理解の両方が求められる本格的な問題構成です。各分野の基本をしっかり押さえて挑みましょう！</p>
+                <a href="../../pdfs/question/2018_H30_april/math_2018_H30_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)
+                </a>
+                <a href="../../pdfs/answer/2018_H30_april/math_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 関数 $y = \frac{x^x}{\sqrt{\cos x}}$ ($0 < x < \frac{\pi}{2}$) の微分を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$x^x$と$\sqrt{\cos x}$が組み合わさった複雑な関数は対数微分法がベストです！自然対数を取ってから微分すると、計算がずっと簡単になります。積の微分と合成関数の微分を組み合わせて使いましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $y = x^x (\cos x)^{-1/2}$ として自然対数を取る：
+                            <div class="math-block">$$\ln y = \ln(x^x) + \ln((\cos x)^{-1/2}) = x\ln x - \frac{1}{2}\ln(\cos x)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺を$x$で微分（積の微分法）：
+                            <div class="math-block">$$\frac{1}{y}\frac{dy}{dx} = \ln x + x \cdot \frac{1}{x} - \frac{1}{2} \cdot \frac{1}{\cos x} \cdot (-\sin x)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 整理する：
+                            <div class="math-block">$$\frac{1}{y}\frac{dy}{dx} = \ln x + 1 + \frac{1}{2}\tan x$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. $y$を乗じて最終解答：
+                            <div class="math-block">$$\frac{dy}{dx} = \frac{x^x}{\sqrt{\cos x}}\left(\ln x + 1 + \frac{\tan x}{2}\right)$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dy}{dx} = \frac{x^x}{\sqrt{\cos x}}\left(\ln x + 1 + \frac{\tan x}{2}\right)$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 定積分 $\int_0^{\infty} \frac{4}{e^x + e^{-x}} dx$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>分母の$e^x + e^{-x}$に注目！分母分子に$e^x$を掛けると置換積分しやすい形になります。最終的に$\arctan$の積分になって、きれいな答えが出ますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 分母分子に$e^x$を掛ける：
+                            <div class="math-block">$$\frac{4}{e^x + e^{-x}} = \frac{4e^x}{e^{2x} + 1}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. $u = e^x$と置換：$du = e^x dx$，積分範囲は$x: 0 \to \infty$で$u: 1 \to \infty$
+                            <div class="math-block">$$\int_1^{\infty} \frac{4}{u^2 + 1} du$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $\arctan$の積分公式を適用($u=\tan \theta$と置換すると導出できる)：
+                            <div class="math-block">$$4[\arctan u]_1^{\infty} = 4\left(\frac{\pi}{2} - \frac{\pi}{4}\right) = 4 \cdot \frac{\pi}{4} = \pi$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\pi$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対数微分法で複雑な関数を簡単に</li>
+                            <li>双曲線関数の積分は置換がポイント</li>
+                            <li>$\arctan$の積分で美しい答え</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$(\ln \cos x)' = -\tan x$</li>
+                            <li>$e^x + e^{-x} = 2\cosh x$</li>
+                            <li>$\int \frac{1}{u^2 + 1} du = \arctan u + C$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の x, y, z, u に関する連立一次方程式について,以下の問いに答えよ.ただしa,bは実定数とする.
+                            \[\begin{cases}
+x + z = 0 \\
+x + y + 3z + 2au = 0 \\
+2x + y + 5z + au = 0 \\
+3x - y + z - au = b
+\end{cases}\]
+                        </p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>連立一次方程式の解の存在は、係数行列と拡大係数行列の階数で決まります！行基本変形で階段行列にして、パラメータごとに場合分けして考察しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 一意解をもつ条件を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 係数行列の階数が4（=変数の数）になる条件を調べます。拡大係数行列を設定：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 3 & 2a & 0 \\
+2 & 1 & 5 & a & 0 \\
+3 & -1 & 1 & -a & b
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 行基本変形を実行：
+                            <div class="math-block">
+                                第2行 - 第1行：$(0, 1, 2, 2a | 0)$<br>
+                                第3行 - 2×第1行：$(0, 1, 3, a | 0)$<br>
+                                第4行 - 3×第1行：$(0, -1, -2, -a | b)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. さらに変形：
+                            <div class="math-block">
+                                第3行 - 第2行：$(0, 0, 1, -a | 0)$<br>
+                                第4行 + 第2行：$(0, 0, 0, a | b)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 最終的な階段形：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 2a & 0 \\
+0 & 0 & 1 & -a & 0 \\
+0 & 0 & 0 & a & b
+\end{array}\right]$$</div>
+                            係数行列の階数が4になるには、第4行4列目の$a \neq 0$が必要
+                        </div>
+                        <span class="answer-highlight">答え: $a \neq 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 無数の解をもつ条件を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 係数行列の階数 = 拡大係数行列の階数 < 4となる条件を調べます
+                        </div>
+                        <div class="solution-step">
+                            2. (1)の階段形で、$a = 0$の場合を考察：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & b
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第4行が$0 = b$となるので：
+                            <br>・$b = 0$の場合：係数行列の階数 = 拡大係数行列の階数 = 3 < 4 → 無数の解
+                            <br>・$b \neq 0$の場合：係数行列の階数 = 3 < 拡大係数行列の階数 = 4 → 解なし
+                        </div>
+                        <span class="answer-highlight">答え: $a = 0$ かつ $b = 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 解が存在しない条件を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 係数行列の階数 < 拡大係数行列の階数となる条件を調べます
+                        </div>
+                        <div class="solution-step">
+                            2. (2)で求めた$a = 0$の階段形で、$b \neq 0$の場合：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & b
+\end{array}\right]\quad (b \neq 0)$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 第4行が$0 = b$（$b \neq 0$）となり矛盾が生じる：
+                            <br>・係数行列の階数 = 3
+                            <br>・拡大係数行列の階数 = 4
+                            <br>・3 < 4 なので解が存在しない
+                        </div>
+                        <span class="answer-highlight">答え: $a = 0$ かつ $b \neq 0$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(4) $a = 1$, $b = -2$のときの解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $a = 1$, $b = -2$を代入した拡大係数行列：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 3 & 2 & 0 \\
+2 & 1 & 5 & 1 & 0 \\
+3 & -1 & 1 & -1 & -2
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. (1)で求めた行基本変形を適用：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 2 & 0 \\
+0 & 0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 1 & -2
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 後退代入で解を求める：
+                            <br>第4行から：$u = -2$
+                            <br>第3行から：$z - u = 0$ → $z = u = -2$
+                            <br>第2行から：$y + 2z + 2u = 0$ → $y = -2(-2) - 2(-2) = 4 + 4 = 8$
+                            <br>第1行から：$x + z = 0$ → $x = -z = -(-2) = 2$
+                        </div>
+                        <div class="solution-step">
+                            4. 検算：各式に代入して確認
+                            <div class="math-block">
+                                第1式：$2 + (-2) = 0$ ✓<br>
+                                第2式：$2 + 8 + 3(-2) + 2(1)(-2) = 2 + 8 - 6 - 4 = 0$ ✓<br>
+                                第3式：$2(2) + 8 + 5(-2) + 1(-2) = 4 + 8 - 10 - 2 = 0$ ✓<br>
+                                第4式：$3(2) - 8 + (-2) - 1(-2) = 6 - 8 - 2 + 2 = -2$ ✓
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $x = 2$, $y = 8$, $z = -2$, $u = -2$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>係数行列と拡大係数行列の階数比較</li>
+                            <li>行基本変形で解の構造を見抜く</li>
+                            <li>パラメータによる場合分け</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>一意解：$\text{rank}(A) = n$</li>
+                            <li>無数解：$\text{rank}(A) = \text{rank}([A|b]) < n$</li>
+                            <li>解なし：$\text{rank}(A) < \text{rank}([A|b])$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">2階線形微分方程式 $y'' + 3y' - 4y = 2x^2$ を解け。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>2階線形微分方程式は「同次解＋特殊解」で構成されます！まず特性方程式で同次解を求め、次に非同次項の形に応じて特殊解を仮定します。多項式の非同次項には多項式で対応しましょう。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 同次方程式の一般解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 特性方程式：$\lambda^2 + 3\lambda - 4 = 0$
+                        </div>
+                        <div class="solution-step">
+                            2. 解の公式で解く：
+                            <div class="math-block">$$\lambda = \frac{-3 \pm \sqrt{9 + 16}}{2} = \frac{-3 \pm 5}{2}$$</div>
+                            したがって$\lambda = 1, -4$
+                        </div>
+                        <div class="solution-step">
+                            3. 同次方程式の一般解：
+                            <div class="math-block">$$y_h = C_1 e^x + C_2 e^{-4x}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y_h = C_1 e^x + C_2 e^{-4x}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 特殊解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 非同次項が$2x^2$なので、$y_p = Ax^2 + Bx + C$と仮定
+                        </div>
+                        <div class="solution-step">
+                            2. 微分：$y_p' = 2Ax + B$，$y_p'' = 2A$
+                        </div>
+                        <div class="solution-step">
+                            3. 元の方程式に代入：
+                            <div class="math-block">$$2A + 3(2Ax + B) - 4(Ax^2 + Bx + C) = 2x^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 係数比較：
+                            $x^2$: $-4A = 2$ → $A = -\frac{1}{2}$<br>
+                            $x^1$: $6A - 4B = 0$ → $B = -\frac{3}{4}$<br>
+                            $x^0$: $2A + 3B - 4C = 0$ → $C = -\frac{13}{16}$
+                        </div>
+                        <div class="solution-step">
+                            5. 特殊解：
+                            <div class="math-block">$$y_p = -\frac{1}{2}x^2 - \frac{3}{4}x - \frac{13}{16}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y_p = -\frac{1}{2}x^2 - \frac{3}{4}x - \frac{13}{16}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 一般解を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            同次解と特殊解を加える：
+                            <div class="math-block">$$y = y_h + y_p = C_1 e^x + C_2 e^{-4x} - \frac{1}{2}x^2 - \frac{3}{4}x - \frac{13}{16}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y = C_1 e^x + C_2 e^{-4x} - \frac{1}{2}x^2 - \frac{3}{4}x - \frac{13}{16}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>特性方程式で同次解を求める</li>
+                            <li>非同次項に応じて特殊解を仮定</li>
+                            <li>係数比較で未定係数を決定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$a\lambda^2 + b\lambda + c = 0$の解で同次解</li>
+                            <li>多項式の非同次項→多項式の特殊解</li>
+                            <li>一般解 = 同次解 + 特殊解</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">ラプラス変換について以下を答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ラプラス変換の基本公式と積和公式、遅延定理がポイントです！三角関数の積は積和公式で単純な形にして、線形性を活用しましょう。積分方程式は畳み込み定理が使えるかもしれません。</p>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $2\sin 5t \cos 4t + \cos 5t$ のラプラス変換を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 積和公式を適用：
+                            <div class="math-block">$$2\sin 5t \cos 4t = \sin(5t + 4t) + \sin(5t - 4t) = \sin 9t + \sin t$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 各項のラプラス変換：
+                            <div class="math-block">$$\mathcal{L}\{\sin 9t\} = \frac{9}{s^2 + 81}$$</div>
+                            <div class="math-block">$$\mathcal{L}\{\sin t\} = \frac{1}{s^2 + 1}$$</div>
+                            <div class="math-block">$$\mathcal{L}\{\cos 5t\} = \frac{s}{s^2 + 25}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 線形性により：
+                            <div class="math-block">$$\mathcal{L}\{2\sin 5t \cos 4t + \cos 5t\} = \frac{9}{s^2 + 81} + \frac{1}{s^2 + 1} + \frac{s}{s^2 + 25}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{9}{s^2 + 81} + \frac{1}{s^2 + 1} + \frac{s}{s^2 + 25}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $\frac{se^{-as}}{s^2 + b^2}$ のラプラス逆変換を求めよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 基本形を確認：
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{\frac{s}{s^2 + b^2}\right\} = \cos bt$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 遅延定理を適用：$e^{-as}$は$t$方向に$a$だけシフト
+                            <div class="math-block">$$\mathcal{L}^{-1}\left\{\frac{se^{-as}}{s^2 + b^2}\right\} = u(t-a)\cos(b(t-a))$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $u(t-a)\cos(b(t-a))$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 積分方程式 $f(t) + 4\int_0^t (t-\lambda)f(\lambda) d\lambda = t$ を解け。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. <strong>畳み込み形への書き換え</strong><br>
+畳み込みは  
+$$
+(f * g)(t)=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau .
+$$
+
+与えられた積分項は
+$$
+4\int_{0}^{t}(t-\lambda)\,f(\lambda)\,d\lambda
+   =4\int_{0}^{t}f(\lambda)\,(t-\lambda)\,d\lambda
+   =4\underbrace{\int_{0}^{t}f(\lambda)\,(t-\lambda)\,d\lambda}_{(f * h)(t)},
+$$
+ただし
+$$
+h(t)=t.
+$$
+
+したがって方程式は  
+$$
+f(t)+4\,(f*h)(t)=t. \tag{★}
+$$
+                        </div>
+                        <div class="solution-step">
+                            2.  <strong>ラプラス変換を適用</strong><br>
+ラプラス変換を $$\mathcal{L}\{f\}(s)=F(s)$$ と書く。
+
+1. 基本変換  
+   $$
+   \mathcal{L}\{t\}(s)=\frac{1}{s^{2}},\qquad
+   \mathcal{L}\{h(t)\}(s)=\frac{1}{s^{2}}.
+   $$
+
+2. 畳み込み定理  
+   $$
+   \mathcal{L}\{(f*h)(t)\}(s)=F(s)\,H(s)=F(s)\frac{1}{s^{2}}.
+   $$
+
+3. 方程式 (★) を変換  
+   $$
+   F(s)+4F(s)\frac{1}{s^{2}}=\frac{1}{s^{2}}.
+   $$
+                        </div>
+                        <div class="solution-step">
+                            3. <strong>s‐領域で解く</strong><br>
+$$
+F(s)\left(1+\frac{4}{s^{2}}\right)=\frac{1}{s^{2}}
+\quad\Longrightarrow\quad
+F(s)=\frac{1}{s^{2}}\Bigl(1+\frac{4}{s^{2}}\Bigr)^{-1}
+      =\frac{1}{s^{2}+4}. \tag{◆}
+$$
+                        </div>
+                        <div class="solution-step">
+                            4. <strong>逆ラプラス変換で時間領域へ</strong><br>
+既知の公式  
+$$
+\mathcal{L}^{-1}\!\Bigl\{\frac{1}{s^{2}+a^{2}}\Bigr\}=\frac{1}{a}\sin(at).
+$$
+
+(◆) では $$a=2$$ だから
+
+$$
+f(t)=\frac{1}{2}\sin(2t).
+$$
+                        </div>
+                        <div class="solution-step">
+                            5. <strong>検算（任意だが安心のため）</strong><br>
+積分方程式左辺：
+$$
+\begin{aligned}
+f(t)&=\frac{1}{2}\sin 2t,\\
+(f*h)(t)&=\int_{0}^{t}\frac{1}{2}\sin(2\lambda)\,(t-\lambda)\,d\lambda
+         =\frac{t}{4}-\frac{\sin2t}{8}.
+\end{aligned}
+$$
+
+よって
+$$
+f(t)+4(f*h)(t)=\frac{1}{2}\sin2t+4\left(\frac{t}{4}-\frac{\sin2t}{8}\right)
+               =t,
+$$
+で元の右辺に一致。
+
+                        </div>
+                        <span class="answer-highlight">答え：$f(t)=\frac{1}{2}\sin(2t)\quad(0\le t<\infty)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>積和公式で三角関数の積を分解</li>
+                            <li>遅延定理で時間シフトを処理</li>
+                            <li>畳み込み定理で積分方程式を変換</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\mathcal{L}\{\sin at\} = \frac{a}{s^2 + a^2}$</li>
+                            <li>$\mathcal{L}\{\cos at\} = \frac{s}{s^2 + a^2}$</li>
+                            <li>遅延：$e^{-as}F(s) \leftrightarrow u(t-a)f(t-a)$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

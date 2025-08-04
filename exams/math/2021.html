@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2021年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2021（R3）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2021年度の数学入試では、大問【1】でn次導関数、大問【2】で行列の性質（行列式・逆行列・階数）、大問【3】で微分方程式、大問【4】でラプラス変換が出題されました。解析・線形代数・微分方程式・応用数学と、幅広い分野からバランスよく問われています。基礎理論から応用計算まで、一つひとつ丁寧に解き方を学んでいきましょう！</p>
+                <a href="../../pdfs/question/2021_R3_april/math_2021_R3_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)
+                </a>
+                <a href="../../pdfs/answer/2021_R3_april/math_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $f(x)=\frac{1}{a-x}$ ($x \neq a$) とし、$a$は実数の定数とする。</p>
+                        <p class="problem-statement">(i) $f(x)$ の導関数 $f'(x)$ と2次導関数 $f''(x)$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>$f(x) = (a-x)^{-1}$ と見ると合成関数の微分が使えますね！内側の関数は $a-x$、外側の関数は $u^{-1}$ です。連鎖律を使って丁寧に計算していきましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $f(x) = (a-x)^{-1}$ として合成関数の微分法を使います。
+                            <div class="math-block">
+                                $$f'(x) = (-1)(a-x)^{-2} \cdot (-1) = (a-x)^{-2} = \frac{1}{(a-x)^2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. さらに微分して2次導関数を求めます。
+                            <div class="math-block">
+                                $$f''(x) = (-2)(a-x)^{-3} \cdot (-1) = 2(a-x)^{-3} = \frac{2}{(a-x)^3}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $f'(x) = \frac{1}{(a-x)^2}$, $f''(x) = \frac{2}{(a-x)^3}$</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(ii) $f(x)$ のn次導関数 $f^{(n)}(x)$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(i)の結果から規則性を見つけましょう！分子には階乗$n!$が、分母の指数には$n+1$が現れるパターンが見えてきますね。数学的帰納法で証明することもできます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. (i)の結果から規則性を観察します。
+                            <div class="math-block">
+                                $f'(x) = 1! \cdot (a-x)^{-(1+1)}$<br>
+                                $f''(x) = 2! \cdot (a-x)^{-(2+1)}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 3次導関数も計算して確認します。
+                            <div class="math-block">
+                                $$f'''(x) = 2 \cdot (-3)(a-x)^{-4} \cdot (-1) = 6(a-x)^{-4} = 3!(a-x)^{-(3+1)}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. 規則性から、n次導関数の一般形が導けます。
+                            <div class="math-block">
+                                $$f^{(n)}(x) = n!(a-x)^{-(n+1)} = \frac{n!}{(a-x)^{n+1}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $f^{(n)}(x) = \frac{n!}{(a-x)^{n+1}}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $g(x)=\frac{-5x+8}{x^{2}-3x+2}$ ($x>2$) とするとき、$g(x)$ のn次導関数 $g^{(n)}(x)$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>このままでは微分が難しいので、まず<strong>部分分数分解</strong>をしましょう！分母は $x^2-3x+2=(x-1)(x-2)$ と因数分解できて、(1)で求めた形に持ち込めますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 部分分数分解を行います。
+                            <div class="math-block">
+                                $$g(x) = \frac{-5x+8}{(x-1)(x-2)} = \frac{A}{x-1} + \frac{B}{x-2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺に $(x-1)(x-2)$ をかけて係数を求めます。
+                            <div class="math-block">
+                                $-5x+8 = A(x-2) + B(x-1)$<br>
+                                $x=1$を代入：$3 = -A \Rightarrow A=-3$<br>
+                                $x=2$を代入：$-2 = B \Rightarrow B=-2$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            3. よって $g(x) = \frac{-3}{x-1} + \frac{-2}{x-2} = \frac{3}{1-x} + \frac{2}{2-x}$ となります。
+                        </div>
+                        <div class="solution-step">
+                            4. (1)の結果を利用して各項をn回微分します。
+                            <div class="math-block">
+                                $\left(\frac{3}{1-x}\right)^{(n)} = 3 \cdot \frac{n!}{(1-x)^{n+1}}$<br>
+                                $\left(\frac{2}{2-x}\right)^{(n)} = 2 \cdot \frac{n!}{(2-x)^{n+1}}$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $g^{(n)}(x) = \frac{3 \cdot n!}{(1-x)^{n+1}} + \frac{2 \cdot n!}{(2-x)^{n+1}}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>合成関数の微分では連鎖律を正しく適用する</li>
+                            <li>規則性を見つけてn次導関数の一般形を導く</li>
+                            <li>部分分数分解で複雑な関数を簡単な形に変形</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$(a-x)^{-n}$ の微分では符号と指数に注意</li>
+                            <li>部分分数分解では代入法で係数を求める</li>
+                            <li>n次導関数は規則性を見つけて一般化する</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">行列 $A=\begin{bmatrix}-1&1&a\\ 1&a&1\\ a&1&-1\end{bmatrix}$ について、以下の問いに答えよ。ただし、$a$は実数で $a<0$ とする。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>行列の基本的な性質を問う問題ですね！(1)はサラスの公式、(2)は「逆行列を持つ ⇔ 行列式≠0」、(3)は余因子行列、(4)は行基本変形を使いましょう。</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(1) 行列 $A$ の行列式を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            サラスの公式を用いて計算します。
+                            <div class="math-block">
+                                $$\det(A) = ((-1)(a)(-1)) + (1 \cdot 1 \cdot a) + (a \cdot 1 \cdot 1)$$
+                                $$- [(a \cdot a \cdot a) + (1 \cdot 1 \cdot (-1)) + ((-1) \cdot 1 \cdot 1)]$$
+                                $$= a + a + a - [a^3 - 1 - 1] = 3a - a^3 + 2$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $\det(A) = -a^3+3a+2$</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(2) 行列 $A$ が逆行列をもつための $a$ の必要十分条件を示せ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            逆行列をもつのは $\det(A)\neq0$ のときです。$\det(A)=0$ となる $a$ を求めます。
+                            <div class="math-block">
+                                $-a^{3}+3a+2=0$<br>
+                                $a=-1$ を代入すると $1-3+2=0$ となるので $(a+1)$ が因数です。<br>
+                                因数分解すると $-(a+1)^{2}(a-2)=0$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            零点は $a=-1,\;2$ です。ただし問題条件では $a<0$ と仮定しているため、許されない値は $a=-1$ のみとなります。
+                        </div>
+                        <span class="answer-highlight">答え: $a \neq -1$（かつ $a<0$）</span>
+                    </div>
+                    
+                    
+                    <div class="example-box">
+                        <div class="section-title">(3) $a$が(2)の条件を満たすとき、行列$A$の逆行列を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            $A^{-1} = \frac{1}{\det(A)}\text{adj}(A)$ を計算します。余因子行列の各成分を求めます。
+                            <div class="math-block">
+                                $$\text{adj}(A) = \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $A^{-1} = \frac{1}{-a^3+3a+2} \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}
+                            = \frac{1}{(a+1)(a-2)} \begin{pmatrix} 1 & -1 & a-1 \\ -1 & a-1 & -1 \\ a-1 & -1 & 1 \end{pmatrix}$</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(4) 行列$A$が逆行列をもたないとき、行列$A$の階数（ランク）を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            逆行列をもたないのは、$a=-1$ または $a=2$ のときです。条件 $a<0$ より、$a=-1$ の場合を考えます。
+                        </div>
+                        <div class="solution-step">
+                            $a=-1$ を行列$A$に代入します。
+                            <div class="math-block">
+                                $$A = \begin{pmatrix} -1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & -1 \end{pmatrix}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            行基本変形を行うと、2行目に1行目を足し、3行目に1行目を足すと、
+                            <div class="math-block">
+                                $$\begin{pmatrix} -1 & 1 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+                            </div>
+                            0でない行は1つだけなので、ランクは1です。
+                        </div>
+                        <span class="answer-highlight">答え: 1</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>行列式の計算はサラスの公式が便利</li>
+                            <li>逆行列の存在は行列式が0でないことと同値</li>
+                            <li>階数は行基本変形で0でない行の数を数える</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>行列式=0の方程式は因数分解で解く</li>
+                            <li>余因子行列の計算では符号に注意</li>
+                            <li>行基本変形は上三角行列を目指す</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">次の微分方程式①について、以下の問いに答えよ。</div>
+                        <div class="math-block">$$y'' + y' - 6y = -\sin x \quad \cdots①$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>これは定数係数2階線形非同次微分方程式ですね！(1)で同次解、(2)で特殊解、(3)で一般解という流れで解いていきます。右辺が$-\sin x$なので、未定係数法が使えますよ。</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(1) 微分方程式 $y'' + y' - 6y = 0$ の一般解を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            特性方程式は $m^2+m-6=0$ です。これを因数分解すると、
+                            <div class="math-block">
+                                $$(m+3)(m-2)=0$$
+                                $$m = 2, -3$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            よって、同次方程式の一般解は次のようになります。
+                        </div>
+                        <span class="answer-highlight">答え: $y_h = C_1 e^{2x} + C_2 e^{-3x}$ （$C_1, C_2$は任意定数）</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(2) 微分方程式①の特殊解を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            特殊解を $y_p = A\cos x + B\sin x$ とおきます。
+                            <div class="math-block">
+                                $y_p' = -A\sin x + B\cos x$<br>
+                                $y_p'' = -A\cos x - B\sin x$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            これらを元の微分方程式①に代入します。
+                            <div class="math-block">
+                                $$(-A\cos x - B\sin x) + (-A\sin x + B\cos x) - 6(A\cos x + B\sin x) = -\sin x$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            $\cos x$ と $\sin x$ の項でまとめると、
+                            <div class="math-block">
+                                $(-7A+B)\cos x + (-A-7B)\sin x = 0\cdot\cos x - 1\cdot\sin x$
+                            </div>
+                            係数を比較して：$-7A + B = 0$、$-A - 7B = -1$
+                        </div>
+                        <div class="solution-step">
+                            $B=7A$ を代入すると、$-A - 7(7A) = -1$ より $-50A = -1$、よって $A = \frac{1}{50}$、$B = \frac{7}{50}$
+                        </div>
+                        <span class="answer-highlight">答え: $y_p = \frac{1}{50}\cos x + \frac{7}{50}\sin x$</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(3) 微分方程式①の一般解を求めよ。</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            微分方程式①の一般解は、(1)の一般解$y_h$と(2)の特殊解$y_p$の和です。
+                        </div>
+                        <span class="answer-highlight">答え: $y = C_1 e^{2x} + C_2 e^{-3x} + \frac{1}{50}\cos x + \frac{7}{50}\sin x$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>同次解は特性方程式を解いて求める</li>
+                            <li>特殊解は非同次項の形に応じて仮定</li>
+                            <li>一般解は同次解と特殊解の和</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>特性方程式の解が実数なら指数関数の形</li>
+                            <li>$\sin x, \cos x$項には$A\cos x + B\sin x$を試す</li>
+                            <li>係数比較では同じ関数の係数同士を比較</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(1) 次のラプラス変換の式を証明せよ。</div>
+                        <div class="math-block">$$L\{\cos bt\} = \int_{0}^{\infty}e^{-st}\cos bt \, dt=\frac{s}{s^{2}+b^{2}}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>定義に従って積分計算をします！<strong>部分積分を2回</strong>行うと、元の積分と同じ形が現れるので、それを解くことで証明できますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            $I = \int e^{-st}\cos(bt) dt$ として、部分積分を2回行います。
+                        </div>
+                        <div class="solution-step">
+                            1回目の部分積分：$I = -\frac{1}{s}e^{-st}\cos(bt) - \frac{b}{s}\int e^{-st}\sin(bt)dt$
+                        </div>
+                        <div class="solution-step">
+                            2回目の部分積分：$\int e^{-st}\sin(bt)dt = -\frac{1}{s}e^{-st}\sin(bt) + \frac{b}{s}\int e^{-st}\cos(bt)dt$
+                        </div>
+                        <div class="solution-step">
+                            これらを整理すると、$\int e^{-st}\cos(bt) dt = \frac{e^{-st}}{s^2+b^2}(-s\cos(bt) + b\sin(bt))$ となります。
+                        </div>
+                        <div class="solution-step">
+                            積分範囲を$[0, \infty]$で計算すると、
+                            <div class="math-block">
+                                $$L\{\cos bt\} = \left[ \frac{e^{-st}}{s^2+b^2}(-s\cos(bt) + b\sin(bt)) \right]_0^\infty = \frac{s}{s^2+b^2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">証明完了</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(2) 次のラプラス逆変換を求めよ。</div>
+                        <div class="math-block">$$F(s)=\frac{5s+14}{s^{2}+4s+13}$$</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>まず分母を<strong>平方完成</strong>しましょう！その後、分子を分母の形に合わせて変形し、ラプラス変換の公式が使える形に持っていきます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            まず、分母を平方完成します。
+                            <div class="math-block">
+                                $$s^2+4s+13 = (s^2+4s+4)+9 = (s+2)^2+3^2$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            次に、分子を$s+2$を使って変形します。
+                            <div class="math-block">
+                                $$5s+14 = 5(s+2)+4$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            よって、
+                            <div class="math-block">
+                                $$F(s) = \frac{5(s+2)+4}{(s+2)^2+3^2} = 5\frac{s+2}{(s+2)^2+3^2} + \frac{4}{3}\frac{3}{(s+2)^2+3^2}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            公式 $L^{-1}\left\{\frac{s+a}{(s+a)^2+b^2}\right\} = e^{-at}\cos(bt)$、$L^{-1}\left\{\frac{b}{(s+a)^2+b^2}\right\} = e^{-at}\sin(bt)$ を使います。
+                        </div>
+                        <span class="answer-highlight">答え: $f(t) = 5e^{-2t}\cos(3t) + \frac{4}{3}e^{-2t}\sin(3t)$</span>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="section-title">(3) ラプラス変換を用いて次の微分方程式を解け。</div>
+                        <div class="math-block">$$y''(t)+9y(t)=\cos t, \quad y(0)=0, \quad y'(0)=0$$</div>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            両辺をラプラス変換します。$L\{y(t)\} = Y(s)$ とおくと、
+                            <div class="math-block">
+                                $L\{y''\} = s^2Y(s)-sy(0)-y'(0) = s^2Y(s)$<br>
+                                $L\{9y\} = 9Y(s)$<br>
+                                $L\{\cos t\} = \frac{s}{s^2+1}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            これらを合わせると、
+                            <div class="math-block">
+                                $$s^2Y(s)+9Y(s) = \frac{s}{s^2+1}$$
+                                $$Y(s)(s^2+9) = \frac{s}{s^2+1}$$
+                                $$Y(s) = \frac{s}{(s^2+1)(s^2+9)}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            部分分数分解を行います。
+                            <div class="math-block">
+                                $$Y(s) = \frac{1}{8}\left(\frac{s}{s^2+1} - \frac{s}{s^2+9}\right)$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            これを逆ラプラス変換します。
+                        </div>
+                        <span class="answer-highlight">答え: $y(t) = \frac{1}{8}\cos(t) - \frac{1}{8}\cos(3t)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>部分積分を繰り返して積分公式を導出</li>
+                            <li>平方完成で標準形に変形</li>
+                            <li>初期値を利用してラプラス変換で微分方程式を解く</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>ラプラス変換では部分積分のパターンを覚える</li>
+                            <li>逆変換では分母を$(s+a)^2+b^2$の形にする</li>
+                            <li>微分方程式では初期値を忘れずに代入</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

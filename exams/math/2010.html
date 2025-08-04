@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学 2010年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/math.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content">
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-infinity mr-3 text-blue-600"></i>
+                    2010（H22）年　数学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2010年度の数学入試では、大問【1】で逆三角関数の微分・偏微分、大問【2】で振り子の周期と誤差解析、大問【3】でオイラー型微分方程式、大問【4】で行列の余因子と対角化、大問【5】でフーリエ変換が出題されました。微分積分・微分方程式・線形代数・積分変換と、数学の主要分野を網羅した総合問題です。理論と応用の両面から着実に学習していきましょう！</p>
+                <a href="../../pdfs/question/2010_H22_april/math_2010_H22_question.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2010年度)
+                </a>
+                <a href="../../pdfs/answer/2010_H22_april/math_2010_H22_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2010年度)</a>
+
+            </div>
+            
+            <hr class="separator-line">
+
+            <!-- 大問【1】 -->
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) $z = \tan^{-1}(ax)$ のとき，$\frac{dz}{dx}$ を $x$ を用いて表せ。ただし $a$ は定数とする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>逆三角関数の微分公式と合成関数の微分法を組み合わせましょう！$\frac{d}{du}\tan^{-1} u = \frac{1}{1 + u^2}$ の公式を使って、内側の関数 $ax$ の微分も忘れずに掛けます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. $u = ax$ とおくと、$z = \tan^{-1} u$ です。
+                        </div>
+                        <div class="solution-step">
+                            2. 合成関数の微分法を適用：
+                            <div class="math-block">$$\frac{dz}{dx} = \frac{dz}{du} \cdot \frac{du}{dx} = \frac{1}{1 + u^2} \cdot a$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. $u = ax$ を代入：
+                            <div class="math-block">$$\frac{dz}{dx} = \frac{a}{1 + (ax)^2} = \frac{a}{1 + a^2 x^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{dz}{dx} = \frac{a}{1 + a^{2} x^{2}}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $z = \tan^{-1}(xy)$ のとき，$\frac{\partial^2 z}{\partial x \partial y}$ を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>まず一階偏微分 $\frac{\partial z}{\partial x}$ を求めて、それを $y$ で偏微分します！商の微分法が必要になるので、分母の微分も忘れずに計算しましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. まず $\frac{\partial z}{\partial x}$ を求めます（$u = xy$ として）：
+                            <div class="math-block">$$\frac{\partial z}{\partial x} = \frac{1}{1 + (xy)^2} \cdot y = \frac{y}{1 + x^2 y^2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 次に $\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial}{\partial y}\left(\frac{\partial z}{\partial x}\right)$ を計算。商の微分法を使います：
+                            $u = y$，$v = 1 + x^2 y^2$ とすると
+                            <div class="math-block">$$u' = 1，\quad v' = 2x^2 y$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 商の微分法を適用：
+                            <div class="math-block">$$\frac{\partial}{\partial y}\left(\frac{y}{1 + x^2 y^2}\right) = \frac{1 \cdot (1 + x^2 y^2) - y \cdot (2x^2 y)}{(1 + x^2 y^2)^2}$$</div>
+                            <div class="math-block">$$= \frac{1 + x^2 y^2 - 2x^2 y^2}{(1 + x^2 y^2)^2} = \frac{1 - x^2 y^2}{(1 + x^2 y^2)^2}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{\partial^{2} z}{\partial x \partial y} = \frac{1 - x^{2} y^{2}}{(1 + x^{2} y^{2})^{2}}$</span>
+                    </div>
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>逆正接関数の微分公式を正確に適用</li>
+                            <li>合成関数の微分では内側の微分を忘れない</li>
+                            <li>混合偏微分では商の微分法が重要</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\frac{d}{dx}\tan^{-1} u = \frac{1}{1+u^2} \cdot \frac{du}{dx}$</li>
+                            <li>商の微分法：$\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$</li>
+                            <li>混合偏微分は順序交換可能（クレローの定理）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">重力加速度 $g$ の下で，長さ $l$ の振り子が微小な振れ角で振動するときの周期 $T$ は，$T = 2\pi \sqrt{\frac{l}{g}}$ となる。$l$，$g$ が微小量 $dl$，$dg$ だけ変化するときの周期 $T$ の変化を $dT$ とすると，次式が成り立つことを示せ。
+                        $$\frac{dT}{T} = \frac{1}{2}\left(\frac{dl}{l} - \frac{dg}{g}\right)$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>対数微分法を使いましょう！周期の式の両辺の自然対数を取ってから全微分すると、相対変化率 $\frac{dT}{T}$ を簡単に求められます。定数項は微分で消えることに注意してください。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 周期の式を指数形で書き直します：
+                            <div class="math-block">$$T = 2\pi \sqrt{\frac{l}{g}} = 2\pi l^{1/2} g^{-1/2}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 両辺の自然対数を取ります：
+                            <div class="math-block">$$\ln T = \ln(2\pi) + \frac{1}{2}\ln l - \frac{1}{2}\ln g$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 全微分を行います（各変数で偏微分）：
+                            <div class="math-block">$$\frac{dT}{T} = 0 + \frac{1}{2} \cdot \frac{dl}{l} - \frac{1}{2} \cdot \frac{dg}{g}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            4. 整理すると：
+                            <div class="math-block">$$\frac{dT}{T} = \frac{1}{2}\left(\frac{dl}{l} - \frac{dg}{g}\right)$$</div>
+                        </div>
+                        <span class="answer-highlight">証明完了！$l$ が増加すると周期が長くなり、$g$ が増加すると周期が短くなることを表しています。</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>対数微分法で相対変化率を簡単に求める</li>
+                            <li>定数項$2\pi$は微分で消える</li>
+                            <li>物理的意味を理解して結果を確認</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>$\frac{d}{dx}\ln u = \frac{1}{u}\frac{du}{dx}$ を活用</li>
+                            <li>指数法則：$\sqrt{u} = u^{1/2}$，$\frac{1}{\sqrt{u}} = u^{-1/2}$</li>
+                            <li>誤差解析では相対変化率が重要</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">次の微分方程式の一般解を，$x = e^t$ と置換して求めよ。
+                        $$x^2 \frac{d^2 y}{dx^2} + 5x \frac{dy}{dx} + 3y = (\log x)^2$$</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>これはオイラー型微分方程式です！$x = e^t$（つまり$t = \ln x$）と置換すると、定数係数線形微分方程式に変換できます。微分演算子の変換公式をしっかり覚えておきましょう。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 変数変換 $x = e^t$（$t = \ln x$）により、微分演算子を変換：
+                            <div class="math-block">
+                                $x\frac{dy}{dx} = \frac{dy}{dt}$<br>
+                                $x^2\frac{d^2y}{dx^2} = \frac{d^2y}{dt^2} - \frac{dy}{dt}$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            2. 元の方程式を $t$ の方程式に変換：
+                            <div class="math-block">$$\left(\frac{d^2y}{dt^2} - \frac{dy}{dt}\right) + 5\frac{dy}{dt} + 3y = t^2$$</div>
+                            <div class="math-block">$$\frac{d^2y}{dt^2} + 4\frac{dy}{dt} + 3y = t^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 同次方程式の解を求めます。特性方程式：$\lambda^2 + 4\lambda + 3 = 0$
+                            <div class="math-block">$$\lambda = \frac{-4 \pm \sqrt{16-12}}{2} = \frac{-4 \pm 2}{2} = -1, -3$$</div>
+                            同次解：$y_h(t) = C_1 e^{-t} + C_2 e^{-3t}$
+                        </div>
+                        <div class="solution-step">
+                            4. 非同次項$t^2$に対する特解を求めます。$y_p(t) = At^2 + Bt + C$と仮定：
+                            $y_p' = 2At + B$，$y_p'' = 2A$
+                            <div class="math-block">$$2A + 4(2At + B) + 3(At^2 + Bt + C) = t^2$$</div>
+                            <div class="math-block">$$3At^2 + (8A + 3B)t + (2A + 4B + 3C) = t^2$$</div>
+                        </div>
+                        <div class="solution-step">
+                            5. 係数比較により：$A = \frac{1}{3}$，$B = -\frac{8}{9}$，$C = \frac{26}{27}$
+                            特解：$y_p(t) = \frac{1}{3}t^2 - \frac{8}{9}t + \frac{26}{27}$
+                        </div>
+                        <div class="solution-step">
+                            6. $t = \ln x$を代入して元の変数に戻します：
+                            <div class="math-block">$$y(x) = C_1 e^{-\ln x} + C_2 e^{-3\ln x} + \frac{1}{3}(\ln x)^2 - \frac{8}{9}\ln x + \frac{26}{27}$$</div>
+                            <div class="math-block">$$= \frac{C_1}{x} + \frac{C_2}{x^3} + \frac{1}{3}(\ln x)^2 - \frac{8}{9}\ln x + \frac{26}{27}$$</div>
+                        </div>
+                        <span class="answer-highlight">答え: $y(x) = \frac{C_{1}}{x} + \frac{C_{2}}{x^{3}} + \frac{1}{3}(\ln x)^{2} - \frac{8}{9}\ln x + \frac{26}{27}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>$x = e^t$ 置換でオイラー型→定数係数化</li>
+                            <li>特性方程式で同次解を求める</li>
+                            <li>非同次項に対応した特解を仮定</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>微分演算子変換公式を覚える</li>
+                            <li>多項式非同次項→多項式特解で仮定</li>
+                            <li>逆変換$t = \ln x$で元の変数に戻す</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 大問【4】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【4】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 行列 $A = \begin{bmatrix} 0 & a & a \\ a & 0 & a \\ a & a & 0 \end{bmatrix}$ について余因子をすべて求めよ。また，逆行列を求めよ。ただし $a$ は0でない定数とする。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>余因子は各成分ごとに小行列式と符号$(-1)^{i+j}$を計算します！まず行列式を求めて、各余因子を計算してから逆行列を作りましょう。対称行列なので余因子行列も対称になります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 行列式を計算：
+                            <div class="math-block">$$\det A = 0 \cdot \begin{vmatrix} 0 & a \\ a & 0 \end{vmatrix} - a \cdot \begin{vmatrix} a & a \\ a & 0 \end{vmatrix} + a \cdot \begin{vmatrix} a & 0 \\ a & a \end{vmatrix}$$</div>
+                            <div class="math-block">$$= -a(-a^2) + a(a^2) = a^3 + a^3 = 2a^3$$</div>
+                        </div>
+                        <div class="solution-step">
+                            2. 各余因子を計算（$\tilde{a}_{ij} = (-1)^{i+j}\det M_{ij}$）：
+                            <div class="math-block">
+                                $\tilde{a}_{11} = +\begin{vmatrix} 0 & a \\ a & 0 \end{vmatrix} = -a^2$<br>
+                                $\tilde{a}_{12} = -\begin{vmatrix} a & a \\ a & 0 \end{vmatrix} = a^2$<br>
+                                $\tilde{a}_{13} = +\begin{vmatrix} a & 0 \\ a & a \end{vmatrix} = a^2$
+                            </div>
+                            同様に計算すると：
+                            <div class="math-block">$$\tilde{A} = \begin{bmatrix} -a^2 & a^2 & a^2 \\ a^2 & -a^2 & a^2 \\ a^2 & a^2 & -a^2 \end{bmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 逆行列を計算：
+                            <div class="math-block">$$A^{-1} = \frac{1}{\det A}\tilde{A}^T = \frac{1}{2a^3}\begin{bmatrix} -a^2 & a^2 & a^2 \\ a^2 & -a^2 & a^2 \\ a^2 & a^2 & -a^2 \end{bmatrix}$$</div>
+                            <div class="math-block">$$= \frac{1}{2a}\begin{bmatrix} -1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & -1 \end{bmatrix}$$</div>
+                        </div>
+                        <span class="answer-highlight">余因子: $\tilde{a}_{11} = \tilde{a}_{22} = \tilde{a}_{33} = -a^2$，他は$a^2$<br>逆行列: $A^{-1} = \frac{1}{2a}\begin{bmatrix} -1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & -1 \end{bmatrix}$</span>
+                    </div>
+
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 行列 $A$ を直交行列により対角化せよ。ただし，行列 $A$ の固有方程式は2重解 $\lambda = -a$ をもつ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>問題文のヒントから固有値は$2a$（単根）と$-a$（重根）です！重解に対応する固有ベクトルは2つ必要で、それらを直交化してから正規化します。グラム・シュミット直交化が必要になりますよ。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            1. 固有値は$\lambda_1 = 2a$（単根），$\lambda_2 = -a$（重根）です。
+                        </div>
+                        <div class="solution-step">
+                            2. $\lambda_1 = 2a$の固有ベクトルを求めます：
+                            $(A - 2aI)\mathbf{x} = \mathbf{0}$より
+                            <div class="math-block">$$\begin{bmatrix} -2a & a & a \\ a & -2a & a \\ a & a & -2a \end{bmatrix}\mathbf{x} = \mathbf{0}$$</div>
+                            解：$\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$（正規化：$\frac{1}{\sqrt{3}}\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$）
+                        </div>
+                        <div class="solution-step">
+                            3. $\lambda_2 = -a$の固有ベクトルを求めます：
+                            $(A + aI)\mathbf{x} = \mathbf{0}$より$x + y + z = 0$
+                            基底：$\mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}$，$\mathbf{v}_3 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}$
+                        </div>
+                        <div class="solution-step">
+                            4. グラム・シュミット直交化を行います：
+                            $\mathbf{u}_2 = \mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}$
+                            $\mathbf{u}_3 = \mathbf{v}_3 - \frac{\langle\mathbf{v}_3,\mathbf{u}_2\rangle}{\langle\mathbf{u}_2,\mathbf{u}_2\rangle}\mathbf{u}_2 = \begin{bmatrix} 1/2 \\ 1/2 \\ -1 \end{bmatrix}$
+                        </div>
+                        <div class="solution-step">
+                            5. 正規化して直交行列を構成：
+                            <div class="math-block">$$P = \begin{bmatrix} \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} \\ \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} \\ \frac{1}{\sqrt{3}} & 0 & -\frac{2}{\sqrt{6}} \end{bmatrix}$$</div>
+                        </div>
+                        <span class="answer-highlight">対角化: $P^{-1}AP = \begin{bmatrix} 2a & 0 & 0 \\ 0 & -a & 0 \\ 0 & 0 & -a \end{bmatrix}$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>余因子の符号$(-1)^{i+j}$に注意</li>
+                            <li>重解の固有ベクトルは直交化が必要</li>
+                            <li>直交行列の列は正規直交基底</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>逆行列：$A^{-1} = \frac{1}{\det A}\tilde{A}^T$</li>
+                            <li>グラム・シュミット：$\mathbf{u}_k = \mathbf{v}_k - \sum_{j<k} \text{proj}_{\mathbf{u}_j}\mathbf{v}_k$</li>
+                            <li>対角成分は固有値の順序に対応</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================================================
+             大問【5】 - パターン選択エリア
+             ===================================================== -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【5】</div>
+                    
+                    <div class="example-box">
+                        <p class="problem-statement">図1で表される関数 $f(x)$ のフーリエ変換を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>三角波関数のフーリエ変換を求める問題です！関数の偶奇性を利用して計算を簡略化し、部分積分または微分公式を使って解くことができます。偶関数なので虚数部は消え、実数のフーリエ変換になります。</p>
+                    </div>
+                    
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        
+                        <div class="solution-step">
+                            1. 関数 $f(x)$ の式を立てる
+                            <br>図1より、$x=0$ を中心とした対称な三角形で、$x=0$ で最大値 $b$、$x=\pm a$ で 0 になります：
+                            <div class="math-block">$$f(x) = \begin{cases}
+                                b(1 + \frac{x}{a}) & (-a \le x < 0) \\
+                                b(1 - \frac{x}{a}) & (0 \le x \le a) \\
+                                0 & (|x| > a)
+                            \end{cases}$$</div>
+                            これは $f(x) = b(1 - |x|/a)$ （$|x| \leq a$）とも書けます。
+                        </div>
+                        
+                        <div class="solution-step">
+                            2. フーリエ変換の定義式を適用
+                            <div class="math-block">$$F(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx = \int_{-a}^{a} f(x) e^{-ikx} dx$$</div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            3. 偶関数の性質を利用して計算を簡略化
+                            <br>$f(x)$ は偶関数なので、$e^{-ikx} = \cos(kx) - i\sin(kx)$ の虚数部は消えます：
+                            <div class="math-block">$$F(k) = \int_{-a}^{a} f(x)\cos(kx) dx = 2 \int_{0}^{a} f(x)\cos(kx) dx$$</div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            4. 部分積分による計算
+                            <br>区間 $[0, a]$ で $f(x) = b(1 - x/a)$ を代入：
+                            <div class="math-block">$$F(k) = 2b \int_{0}^{a} (1 - \frac{x}{a}) \cos(kx) dx$$</div>
+                            部分積分を2回適用すると：
+                            <div class="math-block">$$F(k) = \frac{2b}{ak^2} (1 - \cos(ka))$$</div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            5. 三角関数の半角公式で整理
+                            <br>$1 - \cos(\theta) = 2\sin^2(\theta/2)$ を使って：
+                            <div class="math-block">$$F(k) = \frac{2b}{ak^2} \cdot 2\sin^2(\frac{ka}{2}) = \frac{4b}{ak^2} \sin^2(\frac{ka}{2})$$</div>
+                        </div>
+                        
+                        <div class="solution-step">
+                            6. 最終結果をsinc関数で表現
+                            <br>$\text{sinc}(x) = \frac{\sin(x)}{x}$ を用いると：
+                            <div class="math-block">$$F(k) = ab \left(\frac{\sin(ka/2)}{ka/2}\right)^2 = ab \cdot \text{sinc}^2\left(\frac{ka}{2}\right)$$</div>
+                        </div>
+                        
+                        <span class="answer-highlight">答え: $F(k) = \frac{4b}{ak^{2}} \sin^{2}\left(\frac{ka}{2}\right) = ab \cdot \text{sinc}^{2}\left(\frac{ka}{2}\right)$</span>
+                    </div>
+                </div>
+                
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>偶関数のフーリエ変換は実数値（余弦変換）</li>
+                            <li>部分積分を2回使って計算</li>
+                            <li>三角関数の半角公式で式を整理</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
+                        </div>
+                        <ul>
+                            <li>偶関数×偶関数=偶関数、偶関数×奇関数=奇関数</li>
+                            <li>$1 - \cos(\theta) = 2\sin^2(\theta/2)$ 半角公式</li>
+                            <li>sinc関数：$\text{sinc}(x) = \frac{\sin(x)}{x}$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>
