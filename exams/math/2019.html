@@ -47,10 +47,10 @@
             <div class="problem-overview-section">
                 <h2>問題概要</h2>
                 <p>2019年度の数学入試では、大問【1】で積分方程式、大問【2】で微分方程式と積分因子、大問【3】でラプラス変換を用いた連立微分方程式、大問【4】で線形代数のランク解析、大問【5】でフーリエ級数が出題されました。幅広い分野の応用問題が揃った総合的な問題構成です。一つ一つ丁寧に取り組んでいきましょう！</p>
-                <a href="../../pdfs/question/2019_R1_april/math_2019_R1_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2019_H31_R1_april/math_2019_H31_R1_question.pdf" class="pdf-link" target="_blank">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)
                 </a>
-                <a href="../../pdfs/answer/2019_R1_april/math_2019_R1_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+                <a href="../../pdfs/answer/2019_H31_R1_april/math_2019_H31_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
 
             </div>
             
@@ -322,7 +322,9 @@ x' + 2x + 6 \int_0^t y \, d\tau = -2u(t)
                             $x' = -y' - y$より積分して初期条件を適用すると：
                             <div class="math-block">$$x(t) = -3e^{-4t} - 4e^{t} + 2$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $x(t) = -3e^{-4t} - 4e^{t} + 2$, $y(t) = 4e^{-4t} + 2e^{t}$</span>
+                        <span class="answer-highlight">答え:
+                            <br> $x(t) = -3e^{-4t} - 4e^{t} + 2$
+                            <br>$y(t) = 4e^{-4t} + 2e^{t}$</span>
                     </div>
                 </div>
                 
@@ -378,6 +380,9 @@ a^2 x_1 + b^2 x_2 + c^2 x_3 + (a^2 + b^2 + c^2) x_4 = 0
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
+                            <strong>(i) $a$, $b$, $c$が異なる場合</strong>
+                        </div>
+                        <div class="solution-step">
                             1. 係数行列：
                             <div class="math-block">$$A = \begin{pmatrix}
 1 & 1 & 1 & 1 \\
@@ -403,10 +408,25 @@ a^2 & b^2 & c^2
 \end{pmatrix} = (b-a)(c-a)(c-b)$$</div>
                         </div>
                         <div class="solution-step">
-                            4. $abc \neq 0$かつ$a,b,c$が一般的に異なる値のとき、ランクは3
+                            4. $a$, $b$, $c$が異なる値のとき、$(b-a)(c-a)(c-b) \neq 0$なので、ランクは3
                             自由度 = 4 - 3 = 1
                         </div>
-                        <span class="answer-highlight">答え: 1</span>
+                        <div class="solution-step">
+                            <strong>(ii) $a = b = c$の場合</strong>
+                        </div>
+                        <div class="solution-step">
+                            5. $a = b = c$を代入すると、係数行列は：
+                            <div class="math-block">$$A = \begin{pmatrix}
+1 & 1 & 1 & 1 \\
+a & a & a & 3a \\
+a^2 & a^2 & a^2 & 3a^2
+\end{pmatrix}$$</div>
+                        </div>
+                        <div class="solution-step">
+                            6. 第3行 = $a$ × 第2行なので、実質的に独立な行は2行のみ。
+                            よってランクは2、自由度 = 4 - 2 = 2
+                        </div>
+                        <span class="answer-highlight">答え: $a$, $b$, $c$が異なる場合は1、$a = b = c$の場合は2</span>
                     </div>
                 </div>
                 

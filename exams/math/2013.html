@@ -98,39 +98,27 @@
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(2) 広義積分 $\int_{0}^{\infty} \frac{\log x}{x^3} dx$ を求めよ。</p>
+                        <p class="problem-statement">(2) 広義積分 $\int_{1}^{\infty} \frac{\log x}{x^3} dx$ を求めよ。</p>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
-                        <p>広義積分では収束性の判定が重要です！$x = 0$と$x = \infty$の両方で特異性があるので、積分を$[0,1]$と$[1,\infty)$に分けて考えましょう。部分積分も使います。</p>
+                        <p>この広義積分は、$x \to \infty$での収束性と、分母の$x^3$による減衰がポイントです。$x = 1$以降の区間で特異性はありませんが、$x \to \infty$での挙動を確認し、部分積分を使って計算します。</p>
                     </div>
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
+                        
                         <div class="solution-step">
-                            1. 積分を分割：
-                            <div class="math-block">$$\int_{0}^{\infty} \frac{\log x}{x^3} dx = \int_{0}^{1} \frac{\log x}{x^3} dx + \int_{1}^{\infty} \frac{\log x}{x^3} dx$$</div>
-                        </div>
-                        <div class="solution-step">
-                            2. $\int_{1}^{\infty} \frac{\log x}{x^3} dx$ を部分積分：
+                            1. $\int_{1}^{\infty} \frac{\log x}{x^3} dx$ を部分積分：
                             $u = \log x$，$dv = x^{-3}dx$ とすると
                             <div class="math-block">$$du = \frac{1}{x}dx，\quad v = -\frac{1}{2}x^{-2}$$</div>
                             <div class="math-block">$$\int_{1}^{\infty} = \left[-\frac{\log x}{2x^2}\right]_{1}^{\infty} + \frac{1}{2}\int_{1}^{\infty} x^{-3}dx = 0 + \frac{1}{2} \cdot \frac{1}{4} = \frac{1}{4}$$</div>
                         </div>
-                        <div class="solution-step">
-                            3. $\int_{0}^{1} \frac{\log x}{x^3} dx$ の収束性を調べる：
-                            $x \to 0^+$で$\log x \to -\infty$，$x^{-3} \to +\infty$
-                            部分積分すると：$-\frac{\log x}{2x^2} - \frac{1}{4x^2}$
-                        </div>
-                        <div class="solution-step">
-                            4. $x \to 0^+$での極限：
-                            $-\frac{\log x}{2x^2} \to +\infty$ （$\log x$の発散が$x^{-2}$より強い）
-                            したがって積分は発散します。
-                        </div>
-                        <span class="answer-highlight">答え: 発散</span>
+
+                        <span class="answer-highlight">答え: $\frac{1}{4}$</span>
                     </div>
                 </div>
                 

@@ -115,7 +115,7 @@
                             <div class="math-block">$$\int_1^{\infty} \frac{4}{u^2 + 1} du$$</div>
                         </div>
                         <div class="solution-step">
-                            3. $\arctan$の積分公式を適用：
+                            3. $\arctan$の積分公式を適用($u=\tan \theta$と置換すると導出できる)：
                             <div class="math-block">$$4[\arctan u]_1^{\infty} = 4\left(\frac{\pi}{2} - \frac{\pi}{4}\right) = 4 \cdot \frac{\pi}{4} = \pi$$</div>
                         </div>
                         <span class="answer-highlight">答え: $\pi$</span>
@@ -155,7 +155,14 @@
                     <div class="main-section-title">大問【2】</div>
                     
                     <div class="example-box">
-                        <p class="problem-statement">連立一次方程式の解の存在について、パラメータ$a$, $b$の条件を求めよ。</p>
+                        <p class="problem-statement">次の x, y, z, u に関する連立一次方程式について,以下の問いに答えよ.ただしa,bは実定数とする.
+                            \[\begin{cases}
+x + z = 0 \\
+x + y + 3z + 2au = 0 \\
+2x + y + 5z + au = 0 \\
+3x - y + z - au = b
+\end{cases}\]
+                        </p>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
@@ -172,13 +179,38 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 係数行列の階数が4（=変数の数）になる条件を調べます
+                            1. 係数行列の階数が4（=変数の数）になる条件を調べます。拡大係数行列を設定：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 3 & 2a & 0 \\
+2 & 1 & 5 & a & 0 \\
+3 & -1 & 1 & -a & b
+\end{array}\right]$$</div>
                         </div>
                         <div class="solution-step">
-                            2. 行基本変形により、最終的に第4行が$0 \cdot u = 0$ではなく、$a \cdot u = \text{何か}$の形になる必要があります
+                            2. 行基本変形を実行：
+                            <div class="math-block">
+                                第2行 - 第1行：$(0, 1, 2, 2a | 0)$<br>
+                                第3行 - 2×第1行：$(0, 1, 3, a | 0)$<br>
+                                第4行 - 3×第1行：$(0, -1, -2, -a | b)$
+                            </div>
                         </div>
                         <div class="solution-step">
-                            3. したがって$a \neq 0$が必要条件
+                            3. さらに変形：
+                            <div class="math-block">
+                                第3行 - 第2行：$(0, 0, 1, -a | 0)$<br>
+                                第4行 + 第2行：$(0, 0, 0, a | b)$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            4. 最終的な階段形：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 2a & 0 \\
+0 & 0 & 1 & -a & 0 \\
+0 & 0 & 0 & a & b
+\end{array}\right]$$</div>
+                            係数行列の階数が4になるには、第4行4列目の$a \neq 0$が必要
                         </div>
                         <span class="answer-highlight">答え: $a \neq 0$</span>
                     </div>
@@ -191,13 +223,21 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 係数行列の階数 = 拡大係数行列の階数 < 4となる条件
+                            1. 係数行列の階数 = 拡大係数行列の階数 < 4となる条件を調べます
                         </div>
                         <div class="solution-step">
-                            2. 行基本変形後、最終行が$0 = 0$となる必要があります
+                            2. (1)の階段形で、$a = 0$の場合を考察：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & b
+\end{array}\right]$$</div>
                         </div>
                         <div class="solution-step">
-                            3. これは$a = 0$かつ$b = 0$の場合に実現されます
+                            3. 第4行が$0 = b$となるので：
+                            <br>・$b = 0$の場合：係数行列の階数 = 拡大係数行列の階数 = 3 < 4 → 無数の解
+                            <br>・$b \neq 0$の場合：係数行列の階数 = 3 < 拡大係数行列の階数 = 4 → 解なし
                         </div>
                         <span class="answer-highlight">答え: $a = 0$ かつ $b = 0$</span>
                     </div>
@@ -210,13 +250,22 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 係数行列の階数 < 拡大係数行列の階数となる条件
+                            1. 係数行列の階数 < 拡大係数行列の階数となる条件を調べます
                         </div>
                         <div class="solution-step">
-                            2. 行基本変形後、最終行が$0 = b$（$b \neq 0$）となる場合
+                            2. (2)で求めた$a = 0$の階段形で、$b \neq 0$の場合：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & b
+\end{array}\right]\quad (b \neq 0)$$</div>
                         </div>
                         <div class="solution-step">
-                            3. これは$a = 0$かつ$b \neq 0$の場合に実現されます
+                            3. 第4行が$0 = b$（$b \neq 0$）となり矛盾が生じる：
+                            <br>・係数行列の階数 = 3
+                            <br>・拡大係数行列の階数 = 4
+                            <br>・3 < 4 なので解が存在しない
                         </div>
                         <span class="answer-highlight">答え: $a = 0$ かつ $b \neq 0$</span>
                     </div>
@@ -229,11 +278,38 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 拡大係数行列を行基本変形して階段行列に変換
+                            1. $a = 1$, $b = -2$を代入した拡大係数行列：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 3 & 2 & 0 \\
+2 & 1 & 5 & 1 & 0 \\
+3 & -1 & 1 & -1 & -2
+\end{array}\right]$$</div>
                         </div>
                         <div class="solution-step">
-                            2. 後退代入により：
-                            $u = -2$，$z = -2$，$y = 8$，$x = 2$
+                            2. (1)で求めた行基本変形を適用：
+                            <div class="math-block">$$\left[\begin{array}{cccc|c}
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 2 & 2 & 0 \\
+0 & 0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 1 & -2
+\end{array}\right]$$</div>
+                        </div>
+                        <div class="solution-step">
+                            3. 後退代入で解を求める：
+                            <br>第4行から：$u = -2$
+                            <br>第3行から：$z - u = 0$ → $z = u = -2$
+                            <br>第2行から：$y + 2z + 2u = 0$ → $y = -2(-2) - 2(-2) = 4 + 4 = 8$
+                            <br>第1行から：$x + z = 0$ → $x = -z = -(-2) = 2$
+                        </div>
+                        <div class="solution-step">
+                            4. 検算：各式に代入して確認
+                            <div class="math-block">
+                                第1式：$2 + (-2) = 0$ ✓<br>
+                                第2式：$2 + 8 + 3(-2) + 2(1)(-2) = 2 + 8 - 6 - 4 = 0$ ✓<br>
+                                第3式：$2(2) + 8 + 5(-2) + 1(-2) = 4 + 8 - 10 - 2 = 0$ ✓<br>
+                                第4式：$3(2) - 8 + (-2) - 1(-2) = 6 - 8 - 2 + 2 = -2$ ✓
+                            </div>
                         </div>
                         <span class="answer-highlight">答え: $x = 2$, $y = 8$, $z = -2$, $u = -2$</span>
                     </div>
@@ -431,28 +507,97 @@
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(3) 積分方程式 $f(t) + 4\int_0^t f'(t-\lambda)f(\lambda) d\lambda = t$ を解け。</p>
+                        <p class="problem-statement">(3) 積分方程式 $f(t) + 4\int_0^t (t-\lambda)f(\lambda) d\lambda = t$ を解け。</p>
                     </div>
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 積分は畳み込み：$\int_0^t f'(t-\lambda)f(\lambda) d\lambda = (f' * f)(t)$
+                            1. <strong>畳み込み形への書き換え</strong><br>
+畳み込みは  
+$$
+(f * g)(t)=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau .
+$$
+
+与えられた積分項は
+$$
+4\int_{0}^{t}(t-\lambda)\,f(\lambda)\,d\lambda
+   =4\int_{0}^{t}f(\lambda)\,(t-\lambda)\,d\lambda
+   =4\underbrace{\int_{0}^{t}f(\lambda)\,(t-\lambda)\,d\lambda}_{(f * h)(t)},
+$$
+ただし
+$$
+h(t)=t.
+$$
+
+したがって方程式は  
+$$
+f(t)+4\,(f*h)(t)=t. \tag{★}
+$$
                         </div>
                         <div class="solution-step">
-                            2. ラプラス変換（$f(0) = 0$と仮定）：
-                            <div class="math-block">$$F(s) + 4 \cdot sF(s) \cdot F(s) = \frac{1}{s^2}$$</div>
+                            2.  <strong>ラプラス変換を適用</strong><br>
+ラプラス変換を $$\mathcal{L}\{f\}(s)=F(s)$$ と書く。
+
+1. 基本変換  
+   $$
+   \mathcal{L}\{t\}(s)=\frac{1}{s^{2}},\qquad
+   \mathcal{L}\{h(t)\}(s)=\frac{1}{s^{2}}.
+   $$
+
+2. 畳み込み定理  
+   $$
+   \mathcal{L}\{(f*h)(t)\}(s)=F(s)\,H(s)=F(s)\frac{1}{s^{2}}.
+   $$
+
+3. 方程式 (★) を変換  
+   $$
+   F(s)+4F(s)\frac{1}{s^{2}}=\frac{1}{s^{2}}.
+   $$
                         </div>
                         <div class="solution-step">
-                            3. $F(s)$について整理：
-                            <div class="math-block">$$F(s)(1 + 4sF(s)) = \frac{1}{s^2}$$</div>
+                            3. <strong>s‐領域で解く</strong><br>
+$$
+F(s)\left(1+\frac{4}{s^{2}}\right)=\frac{1}{s^{2}}
+\quad\Longrightarrow\quad
+F(s)=\frac{1}{s^{2}}\Bigl(1+\frac{4}{s^{2}}\Bigr)^{-1}
+      =\frac{1}{s^{2}+4}. \tag{◆}
+$$
                         </div>
                         <div class="solution-step">
-                            4. この形の解析的解は複雑で、数値的手法が必要です。
-                            初期条件$f(0)$の値によって解の形が変わります。
+                            4. <strong>逆ラプラス変換で時間領域へ</strong><br>
+既知の公式  
+$$
+\mathcal{L}^{-1}\!\Bigl\{\frac{1}{s^{2}+a^{2}}\Bigr\}=\frac{1}{a}\sin(at).
+$$
+
+(◆) では $$a=2$$ だから
+
+$$
+f(t)=\frac{1}{2}\sin(2t).
+$$
                         </div>
-                        <span class="answer-highlight">初期条件が不十分で厳密解の導出は困難</span>
+                        <div class="solution-step">
+                            5. <strong>検算（任意だが安心のため）</strong><br>
+積分方程式左辺：
+$$
+\begin{aligned}
+f(t)&=\frac{1}{2}\sin 2t,\\
+(f*h)(t)&=\int_{0}^{t}\frac{1}{2}\sin(2\lambda)\,(t-\lambda)\,d\lambda
+         =\frac{t}{4}-\frac{\sin2t}{8}.
+\end{aligned}
+$$
+
+よって
+$$
+f(t)+4(f*h)(t)=\frac{1}{2}\sin2t+4\left(\frac{t}{4}-\frac{\sin2t}{8}\right)
+               =t,
+$$
+で元の右辺に一致。
+
+                        </div>
+                        <span class="answer-highlight">答え：$f(t)=\frac{1}{2}\sin(2t)\quad(0\le t<\infty)$</span>
                     </div>
                 </div>
                 

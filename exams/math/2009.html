@@ -62,7 +62,7 @@
                     <div class="main-section-title">大問【1】</div>
                     
                     <div class="example-box">
-                        <p class="problem-statement">次の広義積分を求めよ: $\int_{-1}^1 \frac{dx}{\sqrt[3]{(x-a)^2}}$ $(0<a<1)$</p>
+                        <p class="problem-statement">次の広義積分を求めよ: $\int_{-1}^1 \frac{dx}{\sqrt[3]{(x-a)^2}} \quad (0\lt a\lt 1)$</p>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
@@ -77,23 +77,44 @@
                         </div>
                         <div class="solution-step">
                             1. 変数変換 $u = x - a$ とすると、$dx = du$、積分区間は：
-                            <div class="math-block">$$x = -1 \text{のとき} u = -1 - a, \quad x = 1 \text{のとき} u = 1 - a$$</div>
+                            <div class="math-block">
+$$
+x = -1 \text{のとき}\ u = -1 - a, \\
+x = 1 \text{のとき}\ u = 1 - a
+$$
+                            </div>
                         </div>
                         <div class="solution-step">
                             2. 積分は：
-                            <div class="math-block">$$\int_{-1-a}^{1-a} u^{-2/3} du$$</div>
+                            <div class="math-block">
+$$
+\int_{-1-a}^{1-a} u^{-2/3} du
+$$
+                            </div>
                         </div>
                         <div class="solution-step">
                             3. 被積分関数 $u^{-2/3}$ の原始関数：
-                            <div class="math-block">$$\int u^{-2/3} du = \frac{u^{1/3}}{1/3} = 3u^{1/3} + C$$</div>
+                            <div class="math-block">
+$$
+\int u^{-2/3} du = \frac{u^{1/3}}{1/3} = 3u^{1/3} + C
+$$
+                            </div>
                         </div>
                         <div class="solution-step">
                             4. 定積分を計算：
-                            <div class="math-block">$$\left[ 3u^{1/3} \right]_{-1-a}^{1-a} = 3(1-a)^{1/3} - 3(-1-a)^{1/3}$$</div>
+                            <div class="math-block">
+$$
+\left[ 3u^{1/3} \right]_{-1-a}^{1-a} = 3(1-a)^{1/3} - 3(-1-a)^{1/3}
+$$
+                            </div>
                         </div>
                         <div class="solution-step">
                             5. $(-1-a)^{1/3} = -(1+a)^{1/3}$（実数範囲で立方根は負）なので：
-                            <div class="math-block">$$3(1-a)^{1/3} - 3(-(1+a)^{1/3}) = 3(1-a)^{1/3} + 3(1+a)^{1/3}$$</div>
+                            <div class="math-block">
+$$
+3(1-a)^{1/3} - 3(-(1+a)^{1/3}) = 3(1-a)^{1/3} + 3(1+a)^{1/3}
+$$
+                            </div>
                         </div>
                         <span class="answer-highlight">答え: $3 \left( (1-a)^{1/3} + (1+a)^{1/3} \right)$</span>
                     </div>
@@ -239,7 +260,7 @@
                         <div class="solution-step">
                             5. 詳細な計算（行基本変形・余因子展開）により：
                         </div>
-                        <span class="answer-highlight">答え: $-3$</span>
+                        <span class="answer-highlight">答え: $-3x^2+3x=-3$</span>
                     </div>
                 </div>
                 

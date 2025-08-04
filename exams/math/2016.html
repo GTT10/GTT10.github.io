@@ -230,15 +230,30 @@
                     <div>
                         <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
                         <div class="solution-step">
-                            固有値ごとの等比級数の和を利用:
+                            $s=\sum_{k=1}^{n-1} A^k$とする:
+                            $$s=2^1+2^2+.....+2^{n-1}$$
+                            $$2s=0+2^1+2^2+.....+2^{n-1}+2^n$$
+                            引き算すると，
+                            $$(2-1)s=2^n-2$$
+                            同様にして，
                             <div class="math-block">
-                                $$\sum_{k=1}^{n-1} 2^k = 2^n - 2, \quad \sum_{k=1}^{n-1} 3^k = \frac{3^n - 3}{2}$$
+                                $$\sum_{k=1}^{n-1} 2^k = 2^n - 2, \quad \sum_{k=1}^{n-1} 3^k = \frac{3^n - 3}{2}, \quad \sum_{k=1}^{n-1} 2^{k+1} = 2^{n+1} - 4$$
                             </div>
+                            これらを用いてそれぞれ和を求めます。
                             <div class="math-block">
-                                $$S = P \begin{bmatrix} 2^n - 2 & 0 \\ 0 & \frac{3^n - 3}{2} \end{bmatrix} P^{-1}$$
+                                $$S = \begin{bmatrix}
+                                2^{n+1} - \frac{3^n}{2} - \frac{5}{2} & -2^{n+1} + 3^n + 1 \\
+                                2^n - \frac{3^n}{2} - \frac{1}{2} & -2^n + 3^n - 1
+                                \end{bmatrix}
+                                $$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: $S = \begin{bmatrix} 2(2^n - 2) & 2^n - 2 \\ 2^n - 2 & \frac{2^n - 2 + 3^n - 3}{2} \end{bmatrix}$</span>
+                        <span class="answer-highlight">答え: $$
+S = \begin{bmatrix}
+2^{n+1} - \frac{3^n}{2} - \frac{5}{2} & -2^{n+1} + 3^n + 1 \\
+2^n - \frac{3^n}{2} - \frac{1}{2} & -2^n + 3^n - 1
+\end{bmatrix}
+$$</span>
                     </div>
 
                     <div class="point-box">

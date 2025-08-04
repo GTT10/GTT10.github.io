@@ -258,7 +258,7 @@ x_1 - 2x_2 - 5x_4 = -3
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(2) 積分を求めよ: $\int_{0}^{\infty} t e^{-t} dt$</p>
+                        <p class="problem-statement">(2) 積分を求めよ: $\int_{0}^{\infty} t e^{-2t} dt$</p>
                     </div>
 
                     <div>
@@ -266,18 +266,18 @@ x_1 - 2x_2 - 5x_4 = -3
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            部分積分を用いる：$u = t$, $dv = e^{-t} dt$とすると：
-                            <div class="math-block">$$du = dt, \quad v = -e^{-t}$$</div>
+                            部分積分を用いる：$u = t$, $dv = e^{-2t} dt$とすると：
+                            <div class="math-block">$$du = dt, \quad v = -\frac{1}{2} e^{-2t}$$</div>
                         </div>
                         <div class="solution-step">
                             部分積分の公式：
-                            <div class="math-block">$$\int_{0}^{\infty} t e^{-t} dt = \left[ -t e^{-t} \right]_{0}^{\infty} + \int_{0}^{\infty} e^{-t} dt$$</div>
+                            <div class="math-block">$$\int_{0}^{\infty} t e^{-2t} dt = \left[ -\frac{1}{2} t e^{-2t} \right]_{0}^{\infty} +  \int_{0}^{\infty} \frac{1}{2} e^{-2t} dt$$</div>
                         </div>
                         <div class="solution-step">
                             第1項は$0$、第2項は：
-                            <div class="math-block">$$\int_{0}^{\infty} e^{-t} dt = \left[ -e^{-t} \right]_{0}^{\infty} = 0 - (-1) = 1$$</div>
+                            <div class="math-block">$$\int_{0}^{\infty} e^{-2t} dt = \left[ -\frac{1}{2} e^{-2t} \right]_{0}^{\infty} = 0 - (-\frac{1}{2}) = \frac{1}{2}$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $1$</span>
+                        <span class="answer-highlight">答え: $\frac{1}{4}$</span>
                     </div>
                 </div>
                 

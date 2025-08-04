@@ -223,23 +223,24 @@
                     </div>
                     
                     <div class="example-box">
-                        <div class="section-title">(2) 行列$A$が逆行列をもつための$a$の必要十分条件を示せ。</div>
+                        <div class="section-title">(2) 行列 $A$ が逆行列をもつための $a$ の必要十分条件を示せ。</div>
                     </div>
                     <div>
                         <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
                         <div class="solution-step">
-                            逆行列をもつのは $\det(A) \neq 0$ のときです。$\det(A)=0$ となる$a$を求めます。
+                            逆行列をもつのは $\det(A)\neq0$ のときです。$\det(A)=0$ となる $a$ を求めます。
                             <div class="math-block">
-                                $-a^3+3a+2=0$<br>
-                                $a=-1$ を代入すると $1-3+2=0$ となるので、$(a+1)$ が因数です。<br>
-                                因数分解すると $-(a+1)^2(a-2)=0$
+                                $-a^{3}+3a+2=0$<br>
+                                $a=-1$ を代入すると $1-3+2=0$ となるので $(a+1)$ が因数です。<br>
+                                因数分解すると $-(a+1)^{2}(a-2)=0$
                             </div>
                         </div>
                         <div class="solution-step">
-                            よって、$a=-1$ または $a=2$ のときに行列式は0になります。
+                            零点は $a=-1,\;2$ です。ただし問題条件では $a<0$ と仮定しているため、許されない値は $a=-1$ のみとなります。
                         </div>
-                        <span class="answer-highlight">答え: $a \neq -1$ かつ $a \neq 2$</span>
+                        <span class="answer-highlight">答え: $a \neq -1$（かつ $a<0$）</span>
                     </div>
+                    
                     
                     <div class="example-box">
                         <div class="section-title">(3) $a$が(2)の条件を満たすとき、行列$A$の逆行列を求めよ。</div>
@@ -252,7 +253,8 @@
                                 $$\text{adj}(A) = \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: $A^{-1} = \frac{1}{-a^3+3a+2} \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}$</span>
+                        <span class="answer-highlight">答え: $A^{-1} = \frac{1}{-a^3+3a+2} \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}
+                            = \frac{1}{(a+1)(a-2)} \begin{pmatrix} 1 & -1 & a-1 \\ -1 & a-1 & -1 \\ a-1 & -1 & 1 \end{pmatrix}$</span>
                     </div>
                     
                     <div class="example-box">

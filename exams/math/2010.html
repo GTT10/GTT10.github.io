@@ -398,46 +398,68 @@
             </div>
         </div>
 
-        <!-- 大問【5】 -->
+        <!-- =====================================================
+             大問【5】 - パターン選択エリア
+             ===================================================== -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【5】</div>
                     
                     <div class="example-box">
-                        <p class="problem-statement">図で表される関数 $f(x)$ のフーリエ変換を求めよ。<br>（注：問題には図が添付されていますが、ここでは幅$2a$の矩形波 $f(x) = \begin{cases} 1 & |x| \leq a \\ 0 & |x| > a \end{cases}$ として解答します）</p>
+                        <p class="problem-statement">図1で表される関数 $f(x)$ のフーリエ変換を求めよ。</p>
                     </div>
                     <div class="point-box">
-                        <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
-                        </div>
-                        <p>フーリエ変換の定義 $\hat{f}(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx$ を使いましょう！矩形波は偶関数なので、虚部は消えて実部（余弦変換）だけになります。結果はsinc関数になりますよ。</p>
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>三角波関数のフーリエ変換を求める問題です！関数の偶奇性を利用して計算を簡略化し、部分積分または微分公式を使って解くことができます。偶関数なので虚数部は消え、実数のフーリエ変換になります。</p>
                     </div>
+                    
                     <div>
-                        <div class="section-title">
-                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
-                        </div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        
                         <div class="solution-step">
-                            1. 矩形波関数 $f(x) = \begin{cases} 1 & |x| \leq a \\ 0 & |x| > a \end{cases}$ を仮定します。
+                            1. 関数 $f(x)$ の式を立てる
+                            <br>図1より、$x=0$ を中心とした対称な三角形で、$x=0$ で最大値 $b$、$x=\pm a$ で 0 になります：
+                            <div class="math-block">$$f(x) = \begin{cases}
+                                b(1 + \frac{x}{a}) & (-a \le x < 0) \\
+                                b(1 - \frac{x}{a}) & (0 \le x \le a) \\
+                                0 & (|x| > a)
+                            \end{cases}$$</div>
+                            これは $f(x) = b(1 - |x|/a)$ （$|x| \leq a$）とも書けます。
                         </div>
+                        
                         <div class="solution-step">
-                            2. フーリエ変換を計算：
-                            <div class="math-block">$$\hat{f}(k) = \int_{-a}^{a} e^{-ikx} dx$$</div>
+                            2. フーリエ変換の定義式を適用
+                            <div class="math-block">$$F(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx = \int_{-a}^{a} f(x) e^{-ikx} dx$$</div>
                         </div>
+                        
                         <div class="solution-step">
-                            3. $f(x)$は偶関数なので、虚部は消えます：
-                            <div class="math-block">$$\hat{f}(k) = \int_{-a}^{a} \cos(kx) dx = 2\int_{0}^{a} \cos(kx) dx$$</div>
+                            3. 偶関数の性質を利用して計算を簡略化
+                            <br>$f(x)$ は偶関数なので、$e^{-ikx} = \cos(kx) - i\sin(kx)$ の虚数部は消えます：
+                            <div class="math-block">$$F(k) = \int_{-a}^{a} f(x)\cos(kx) dx = 2 \int_{0}^{a} f(x)\cos(kx) dx$$</div>
                         </div>
+                        
                         <div class="solution-step">
-                            4. 積分を実行：
-                            <div class="math-block">$$= 2\left[\frac{\sin(kx)}{k}\right]_{0}^{a} = \frac{2\sin(ka)}{k}$$</div>
+                            4. 部分積分による計算
+                            <br>区間 $[0, a]$ で $f(x) = b(1 - x/a)$ を代入：
+                            <div class="math-block">$$F(k) = 2b \int_{0}^{a} (1 - \frac{x}{a}) \cos(kx) dx$$</div>
+                            部分積分を2回適用すると：
+                            <div class="math-block">$$F(k) = \frac{2b}{ak^2} (1 - \cos(ka))$$</div>
                         </div>
+                        
                         <div class="solution-step">
-                            5. sinc関数で表現：
-                            <div class="math-block">$$\hat{f}(k) = 2a \cdot \operatorname{sinc}(ka)$$</div>
-                            ここで $\operatorname{sinc}(u) = \frac{\sin u}{u}$ です。
+                            5. 三角関数の半角公式で整理
+                            <br>$1 - \cos(\theta) = 2\sin^2(\theta/2)$ を使って：
+                            <div class="math-block">$$F(k) = \frac{2b}{ak^2} \cdot 2\sin^2(\frac{ka}{2}) = \frac{4b}{ak^2} \sin^2(\frac{ka}{2})$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $\hat{f}(k) = \frac{2\sin(ka)}{k}$（$k \neq 0$），$\hat{f}(0) = 2a$</span>
+                        
+                        <div class="solution-step">
+                            6. 最終結果をsinc関数で表現
+                            <br>$\text{sinc}(x) = \frac{\sin(x)}{x}$ を用いると：
+                            <div class="math-block">$$F(k) = ab \left(\frac{\sin(ka/2)}{ka/2}\right)^2 = ab \cdot \text{sinc}^2\left(\frac{ka}{2}\right)$$</div>
+                        </div>
+                        
+                        <span class="answer-highlight">答え: $F(k) = \frac{4b}{ak^{2}} \sin^{2}\left(\frac{ka}{2}\right) = ab \cdot \text{sinc}^{2}\left(\frac{ka}{2}\right)$</span>
                     </div>
                 </div>
                 
@@ -447,9 +469,9 @@
                             <i class="fas fa-lightbulb mr-2"></i>全体のポイント
                         </div>
                         <ul>
-                            <li>偶関数のフーリエ変換は実数値</li>
-                            <li>矩形波のフーリエ変換はsinc関数</li>
-                            <li>$k=0$での値は積分で直接計算</li>
+                            <li>偶関数のフーリエ変換は実数値（余弦変換）</li>
+                            <li>部分積分を2回使って計算</li>
+                            <li>三角関数の半角公式で式を整理</li>
                         </ul>
                     </div>
                     <div class="point-box">
@@ -457,9 +479,9 @@
                             <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
                         </div>
                         <ul>
-                            <li>$\hat{f}(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} dx$</li>
-                            <li>偶関数：$\int_{-a}^a f(x) dx = 2\int_0^a f(x) dx$</li>
-                            <li>$\operatorname{sinc}(u) = \frac{\sin u}{u}$は信号処理で重要</li>
+                            <li>偶関数×偶関数=偶関数、偶関数×奇関数=奇関数</li>
+                            <li>$1 - \cos(\theta) = 2\sin^2(\theta/2)$ 半角公式</li>
+                            <li>sinc関数：$\text{sinc}(x) = \frac{\sin(x)}{x}$</li>
                         </ul>
                     </div>
                 </div>

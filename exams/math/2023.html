@@ -109,6 +109,56 @@
                         </div>
                         <span class="answer-highlight">答え: $\int_{0}^{1} \frac{\log x}{\sqrt{x}} \, dx = -4$</span>
                     </div>
+                <div class="accordion" id="alt-solution-1">
+                            <div class="accordion-header" onclick="toggleAccordion('alt-solution-1')">
+                                <span>別解（\(y=\sqrt{x}\) と置換）</span>
+                                <span class="accordion-arrow">▶</span>
+                            </div>
+                            <div class="accordion-content">
+                                <!-- 別解はaccordion-content内に1セットのみ。section-title等はaccordion-content外で使う -->
+                                <div class="solution-step">
+                                    <strong>題意：</strong><br>
+                                    $$I=\int_{0}^{1}\frac{\log x}{\sqrt{x}}\;dx$$<br>
+                                    この積分を <strong>$$y=\sqrt{x}$$</strong> という置換で評価する。
+                                </div>
+                                <div class="solution-step">
+                                    <strong>1. 置換 $y=\sqrt{x}$ の準備</strong><br>
+                                    置換式：$$x = y^{2}$$<br>
+                                    微分：$$dx = 2y\,dy$$<br>
+                                    積分区間の変換：<br>
+                                    &emsp;$x=0$ に対して $y=0$，$x=1$ に対して $y=1$
+                                </div>
+                                <div class="solution-step">
+                                    <strong>2. 被積分関数と微分の変換</strong><br>
+                                    $$\frac{\log x}{\sqrt{x}}=\frac{\log(y^{2})}{\sqrt{y^{2}}}$$<br>
+                                    $\sqrt{y^{2}} = y$（$y\ge0$），$\log(y^{2}) = 2\log y$<br>
+                                    よって $$\frac{\log x}{\sqrt{x}} = \frac{2\log y}{y}$$<br>
+                                    これに $dx=2y\,dy$ を掛けると $$4\log y \, dy$$
+                                </div>
+                                <div class="solution-step">
+                                    <strong>3. 置換後の積分</strong><br>
+                                    $$I = \int_{y=0}^{1} 4\log y \; dy = 4\int_{0}^{1} \log y \; dy$$
+                                </div>
+                                <div class="solution-step">
+                                    <strong>4. 基本積分 $\int_{0}^{1} \log y \, dy$ を評価</strong><br>
+                                    $$\int_{0}^{1}\log y \; dy = -1$$（\(y'\)を無理やりねじこんだ部分積分で示せる）
+                                </div>
+                                <div class="solution-step">
+                                    <strong>5. 結果</strong><br>
+                                    $$I = 4(-1) = -4$$
+                                </div>
+                                <span class="answer-highlight">答え: $\boxed{\displaystyle \int_{0}^{1}\frac{\log x}{\sqrt{x}}\;dx = -4}$</span>
+                                <div class="point-box">
+                                    <div class="section-title">
+                                        <i class="fas fa-lightbulb mr-2"></i>別解のポイント
+                                    </div>
+                                    <ul>
+                                        <li>置換で積分区間・被積分関数・微分をすべて変換</li>
+                                        <li>計算が単なる対数積分へ帰着し，数値評価も容易</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 右側：ポイント・チップス -->
@@ -161,7 +211,7 @@
                             <div class="math-block">
                                 $$\lambda^2 - 6\lambda + 9 = 0$$
                                 $$(\lambda - 3)^2 = 0$$
-                                $$\lambda = 3 \text{（2重解）}$$
+                                $$\lambda = 3 \text{（重解）}$$
                             </div>
                         </div>
                         <div class="solution-step">
