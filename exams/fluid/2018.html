@@ -1,9 +1,373 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2018</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 {{YEAR}}年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+2018（H30）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2018年度（平成30年度）の流体力学試験問題。ポテンシャル流、管路内流れ、粘性流れの3つの大問で構成。複素速度ポテンシャル、ベルヌーイの定理、ナビエ・ストークス方程式など流体力学の基本理論を幅広く扱う。</p>
+                
+                <a href="../../pdfs/question/2018_H30_april/fluid_2018_H30_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/answer/2018_H30_april/fluid_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】半円状突起物体まわりのポテンシャル流</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">無限遠方で$$x$$方向の速度$$U$$，圧力$$p_0$$の一様流が，図1に示すように半径$$a$$の半円状の突起物体のまわりを流れるとする．流れは2次元非圧縮・非粘性・ポテンシャル流とし，以下の問いに答えよ．ただし，流体の密度は$$\rho$$とする．</p>
+                        <!-- 図表がある場合の表示 -->
+                        <div class="my-6 text-center">
+                            <img src="../../images/fluid_2018_1.png" alt="図1：半円状突起物体まわりの流れ" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図1：半円状突起物体まわりの流れ</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 図1の流れの複素速度ポテンシャルを$$W(z)$$，$$z = x + iy$$とする．$$W(z)$$を，一様流の複素速度ポテンシャル$$Uz$$と，二重吹出しの複素速度ポテンシャル$$-\mu/z$$の和で表すとき，図1の流れを適切に表す$$\mu$$の値を求めよ．</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>「無限遠方における一様流＋半円状突起」のポテンシャル流問題です。複素速度ポテンシャルで解くのが一般的で、流れの重ね合わせ原理を利用します。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            複素速度ポテンシャルの全体：$$W(z) = Uz - \frac{\mu}{z}$$
+                            <br>「半径$$a$$の円柱」の場合の標準的な形：$$W(z) = U \left(z + \frac{a^2}{z}\right)$$
+                            <div class="math-block">
+                                $$U\left(z + \frac{a^2}{z}\right) = Uz + \frac{Ua^2}{z}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            これを$$Uz - \frac{\mu}{z}$$の形と比較すると：$$\frac{Ua^2}{z} = -\frac{\mu}{z}$$
+                            <div class="math-block">
+                                $$\mu = -Ua^2$$
+                            </div>
+                        </div>
+                        
+                        <span class="answer-highlight">答え: $$\mu = -Ua^2$$</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <div class="section-title">
+                            <h3>(2) 壁面の$$x = -a$$から$$x = a$$の部分に流体から加わる$$y$$方向の力を求めよ．</h3>
+                        </div>
+                    </div>
+                    <div class="solution-step">
+                        非粘性・非圧縮のポテンシャル流なので圧力分布による力を計算します。半円壁面のパラメータ化：$$z = a e^{i\theta} \quad (\theta: 0 \leq \theta \leq \pi)$$
+                        <br><br>
+                        壁面上の速度：$$|\vec{V}| = 2U |\sin\theta|$$
+                        <br>ベルヌーイの定理より圧力分布：$$p(\theta) = p_0 + \frac{1}{2}\rho U^2 - 2\rho U^2\sin^2\theta$$
+                        <br>法線方向の$$y$$成分：$$n_y = \sin\theta$$
+                        <div class="math-block">
+                            $$F_y = -a \int_0^{\pi} p(\theta) \sin\theta d\theta = -a\left(2p_0 - \frac{5}{3}\rho U^2\right)$$
+                        </div>
+                    </div>
+                    <span class="answer-highlight">答え: $$F_y = -a\left(2p_0 - \frac{5}{3}\rho U^2\right)$$</span>
+                    
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>ポテンシャル流では複素速度ポテンシャルを用いて流れを解析します。一様流と二重吹出しの重ね合わせで円柱まわりの流れを表現でき、境界条件から係数を決定します。圧力分布から物体に作用する力も求められます。</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>一様流の複素速度ポテンシャル：$$W_{uniform} = Uz$$</li>
+                            <li>二重吹出しの複素速度ポテンシャル：$$W_{doublet} = -\mu/z$$</li>
+                            <li>円柱まわりの流れ：$$W(z) = U \left(z + \frac{a^2}{z}\right)$$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>流れの重ね合わせ原理を活用する</li>
+                            <li>境界条件（壁面で法線方向速度=0）を適用</li>
+                            <li>複素速度ポテンシャルの微分から速度場を求める</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>二重吹出し成分の符号に注意（−μ/z）</li>
+                            <li>力の計算では圧力の向きと法線ベクトルの向きを確認</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>ポテンシャル流では「抗力0、揚力有り」が特徴</li>
+                            <li>極座標パラメータ化（θ）は積分計算で便利</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：設問 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】直径が変化する円管内の非圧縮・非粘性流れ</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">図2に示すような、直径が$$d_1$$から$$d_2$$へと不連続に増加した後、また$$d_1$$へと不連続に減少する円管を通る密度$$\rho$$の非圧縮・非粘性流れについて以下の問いに答えよ。なお、流入面Aにおける圧力は$$p_a$$、流速は$$V_a$$であるとし、直径$$d_1$$の円管は十分長いものとする。流れは面A,面G,および直径$$d_2$$の管中央部にある面Dで一様流であり、面C,面Eは円環面を示す。</p>
+                        <!-- 図表がある場合の表示 -->
+                        <div class="my-6 text-center">
+                            <img src="../../images/fluid_2018_2.png" alt="図2：直径が変化する円管内の流れ" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図2：直径が変化する円管内の流れ</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <div class="section-title">(1) 面Dにおける流速を求めよ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>非圧縮・非粘性流体なので流量保存（連続の式）が適用できます。断面積と流速の積が一定となります。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            連続の式：$$Q = A \cdot V = \text{一定}$$
+                            <br>断面積：$$A_1 = \frac{\pi d_1^2}{4}$$, $$A_2 = \frac{\pi d_2^2}{4}$$
+                            <div class="math-block">
+                                $$A_1 V_a = A_2 V_D \implies V_D = \frac{A_1}{A_2} V_a = \left(\frac{d_1}{d_2}\right)^2 V_a$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $$V_D = \left(\frac{d_1}{d_2}\right)^2 V_a$$</span>
+                    </div>
+                    
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <div class="section-title">(2) 面C上の圧力が面B上の圧力に等しいと仮定したとき、面D上の圧力を$$d_1,d_2,p_a,V_a,\rho$$を用いて表せ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>ベルヌーイの定理を面AとD間に適用します。損失なしの仮定で、速度と圧力の関係を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            ベルヌーイの定理（A→D間）：$$p_a + \frac{1}{2}\rho V_a^2 = p_D + \frac{1}{2}\rho V_D^2$$
+                            <br>(1)の結果を代入：$$V_D = \left(\frac{d_1}{d_2}\right)^2 V_a$$
+                            <div class="math-block">
+                                $$p_D = p_a + \frac{1}{2}\rho V_a^2 \left[1 - \left(\frac{d_1}{d_2}\right)^4\right]$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $$p_D = p_a + \frac{1}{2}\rho V_a^2 \left[1 - \left(\frac{d_1}{d_2}\right)^4\right]$$</span>
+                    </div>
+                    
+                    <!-- 小問(3)〜(8)の追加パターン（必要に応じて使用） -->
+                    <div class="example-box">
+                        <div class="section-title">(3) 流体が面Fを通過するときにベルヌーイの定理が成立すると仮定したとき、面Gにおける圧力と流速を$$d_1,d_2,p_a,V_a,\rho$$を用いて表せ。</div>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>面Gは再び直径$$d_1$$の管なので、連続の式から流速が分かります。ベルヌーイの定理でA→G間を考えます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            連続の式より：$$V_G = V_a$$（断面積が同じため）
+                            <br>ベルヌーイの定理（A→G間）：$$p_a + \frac{1}{2}\rho V_a^2 = p_G + \frac{1}{2}\rho V_G^2$$
+                            <div class="math-block">
+                                $$V_G = V_a, \quad p_G = p_a$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $$V_G = V_a$$, $$p_G = p_a$$</span>
+                    </div>
+                    
+                    <!-- 追加の小問（4）〜（8）のテンプレート -->
+                    <!-- 必要に応じてコメントアウトを外して使用 -->
+                    <!--
+                    <div class="example-box">
+                        <div class="section-title">(4) {{PROBLEM_2_4}}</div>
+                    </div>
+                    <div class="solution-step">
+                        {{SOLUTION_2_4}}
+                        <div class="math-block">$${{FORMULA_2_4}}$$</div>
+                    </div>
+                    <span class="answer-highlight">答え: {{ANSWER_2_4}}</span>
+                    -->
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>管路内の非圧縮・非粘性流れでは連続の式とベルヌーイの定理が基本です。断面積変化により流速が変わり、それに伴って圧力も変化します。流量保存とエネルギー保存の原理を理解することが重要です。</p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>連続の式：$$Q = AV = \text{一定}$$</li>
+                            <li>ベルヌーイの定理：$$p + \frac{1}{2}\rho V^2 = \text{一定}$$</li>
+                            <li>断面積比と流速比の関係：$$\frac{V_2}{V_1} = \frac{A_1}{A_2}$$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>直径比の2乗が断面積比、4乗が圧力項に関係</li>
+                            <li>理想流体では入口と出口で全エネルギーが保存される</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===================== -->
+        <!-- ここから大問【3】（3問構成の場合のみ使用） -->
+        <!-- 2問構成の場合はこのセクション全体をコメントアウト -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】二枚平板間の非圧縮粘性流れ</div>
+                    <div class="example-box">
+                        <p class="problem-statement">図3に示すように、$$y = \pm 2H$$ に設置された無限に広い平板間を流れる非圧縮粘性流体について、以下の問いに答えよ。ただし、流体の密度は$$\rho$$、$$x$$方向の流速は$$u$$、$$y$$方向の流速は$$v$$、圧力は$$p$$、粘性係数は$$\mu$$とする。<br><br>
+                        (1) 2次元$$(x-y)$$平面の連続の式を書け。<br>
+                        (2) 2次元$$(x-y)$$平面のナビエ・ストークス方程式を書け。<br>
+                        (3) 平板間の流体に一定の圧力勾配$$\frac{\partial p}{\partial x} = -G \, (G>0)$$が加えられ、$$x$$軸の正の向きに層流の定常流れが生じている場合、連続の式とナビエ・ストークス方程式はそれぞれどのように近似されるか書け。<br>
+                        (4) (3) で求めたナビエ・ストークス方程式を解き、速度分布を求めよ。<br>
+                        (5) 図4に示すように、平板間の$$|y|\leq H$$に$$\mu=2\mu_0$$、$$H<|y|\leq 2H$$に$$\mu=\mu_1$$の粘性係数の異なる2種類の非圧縮粘性流体が満たされ、(3)と同じ圧力勾配によって層流の定常流れが生じている。2種類の流体の密度はどちらも$$\rho$$で、流体は互いに混合せず、界面で互いにすべらないとし、それぞれの流体の速度分布を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>粘性流体の基礎方程式（連続の式、ナビエ・ストークス方程式）を扱います。定常・一方向流れの仮定で簡素化し、ポアズイユ流の速度分布を求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                        <div class="solution-step">
+                            (1) 連続の式：$$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$$<br><br>
+                            (2) ナビエ・ストークス方程式：<br>
+                            $$x$$方向：$$\rho \left( \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$<br>
+                            $$y$$方向：$$\rho \left( \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} \right) = -\frac{\partial p}{\partial y} + \mu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)$$<br><br>
+                            (3) 定常・一方向流れ：$$u=u(y)$$、$$v=0$$、$$\frac{\partial u}{\partial t}=0$$より<br>
+                            $$0 = -\frac{\partial p}{\partial x} + \mu\frac{d^2 u}{d y^2} = G + \mu\frac{d^2 u}{d y^2}$$<br><br>
+                            (4) 速度分布：境界条件$$u(\pm 2H)=0$$を用いて積分すると
+                            <div class="math-block">
+                                $$u(y) = \frac{G}{2\mu}\left[ (2H)^2 - y^2 \right]$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: 上記の通り</span>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>まとめ
+                        </div>
+                        <p>ポアズイユ流では圧力勾配と粘性効果のバランスでパラボラ型の速度分布が形成されます。異なる粘性を持つ層状流体では、界面での速度連続性とせん断応力連続性を境界条件として用います。</p>
+                    </div>
+                </div>
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>全体のポイント
+                        </div>
+                        <ul>
+                            <li>定常・一方向流れの仮定で方程式を簡素化</li>
+                            <li>壁面でのノースリップ条件：$$u(\pm 2H)=0$$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-circle mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>ポアズイユ流は「圧力勾配＋粘性」の典型例</li>
+                            <li>界面条件：速度連続性＋せん断応力連続性</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>
