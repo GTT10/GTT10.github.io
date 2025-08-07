@@ -227,9 +227,9 @@ p.description {
     /* 特にスタイルは不要だが、意味付けとしてクラスを残す */
 }
 
-.main-section-title { /* 大問タイトルの強調背景色（薄い水色系） */
-    background-color: #e0f9f9;
-    color: #004d4d;
+.main-section-title { /* 大問タイトルの強調背景色（薄い黄色系） */
+    background-color: #fef9c3;
+    color: #b45309;
     font-size: 1.3rem;
     font-weight: bold;
     padding: 0.5rem 1rem;

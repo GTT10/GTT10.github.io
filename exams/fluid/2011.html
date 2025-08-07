@@ -1,9 +1,500 @@
 <!DOCTYPE html>
+<!-- 
+    流体力学試験ページテンプレート（改良版）
+    
+    🎯 テンプレート使用方法:
+    
+    【基本情報】
+    {{YEAR}} - 年度（例：2024）
+    {{H_YEAR}} - 令和年度（例：R6）
+    {{SUBJECT_OVERVIEW}} - 問題概要説明
+    {{TOPIC_1}}, {{TOPIC_2}} - 出題トピック（例：ベルヌーイの定理、ナビエ・ストークス方程式）
+    
+    【大問1関連】
+    {{MAIN_TOPIC_1}} - 大問1のメインテーマ（例：ベルヌーイの定理と運動量保存則）
+    {{PROBLEM_1_MAIN}} - 大問1の問題文全体
+    {{PROBLEM_1_1}}, {{PROBLEM_1_2}}, {{PROBLEM_1_3}}, {{PROBLEM_1_4}} - 各小問の問題文
+    
+    【解法構造（各小問共通）】
+    {{STRATEGY_1_1}} - 解答方針・アプローチ
+    {{CONCEPT_1_1}} - 考え方・理論背景
+    {{SOLUTION_1_1_STEP1}}, {{SOLUTION_1_1_STEP2}} - 解答手順
+    {{FORMULA_1_1_1}}, {{FORMULA_1_1_2}} - LaTeX数式
+    {{ANSWER_1_1}} - 最終解答
+    {{POINT_1_1}} - 重要ポイント
+    
+    【図表・線図】
+    {{DIAGRAM_TITLE_1_1}} - 図表タイトル
+    {{IMAGE_PATH_1_1}} - 図表画像のパス
+    
+    
+    【サイドバー（右側）】
+    {{FORMULA_KEY_1}}, {{FORMULA_KEY_2}}, {{FORMULA_KEY_3}} - 重要公式
+    {{SOLVING_POINT_1}}, {{SOLVING_POINT_2}}, {{SOLVING_POINT_3}} - 解法ポイント
+    {{CAUTION_POINT_1}}, {{CAUTION_POINT_2}} - 注意点
+    {{FLUID_TIP_1}}, {{FLUID_TIP_2}} - 流体力学のチップス
+    
+    【まとめ】
+    {{SUMMARY_1}}, {{SUMMARY_2}} - 各大問のまとめ
+
+
+    【大問2関連】および【大問3関連（存在する場合）】【大問4関連（存在する場合）】【大問5関連（存在する場合）】
+    【大問1関連】と同じ構造で繰り返す
+    
+-->
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2011</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 {{YEAR}}年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+{{YEAR}}（{{H_YEAR}}）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>                    
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>{{SUBJECT_OVERVIEW}}</p>
+                
+                <a href="../../pdfs/question/{{YEAR}}_{{H_YEAR}}_april/fluid_{{YEAR}}_{{H_YEAR}}_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード ({{YEAR}}年度)</a>
+                <a href="../../pdfs/answer/{{YEAR}}_{{H_YEAR}}_april/fluid_{{YEAR}}_{{H_YEAR}}_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード ({{YEAR}}年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】{{MAIN_TOPIC_1}}</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">{{PROBLEM_1_MAIN}}</p>
+                        <!-- 図表がある場合の表示 -->
+                        <div class="my-6 text-center">
+                            <img src="{{IMAGE_PATH_1_1}}" alt="{{DIAGRAM_TITLE_1_1}}" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">{{DIAGRAM_TITLE_1_1}}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ここから小問の典型例（これを各大問ごと，各小問ごとに繰り返す．） -->
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) {{PROBLEM_1_1}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_1_1}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_1_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_1_1_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_1_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_1_1_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_1_1}}</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) {{PROBLEM_1_2}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_1_2}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_2_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_1_2_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_2_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_1_2_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_1_2}}</span>
+                    </div>
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) {{PROBLEM_1_3}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_1_3}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_3_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_1_3_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_3_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_1_3_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_1_3}}</span>
+                    </div>
+                    <!-- 以降，小問(n)については以下を内容を繰り返す -->
+                     <!-- 小問(n)ここから始まり -->
+                    <!-- 小問(n) --
+                    <div class="example-box">
+                        <p class="problem-statement">(n) {{PROBLEM_1_n}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_1_n}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_n_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_1_n_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_n_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_1_n_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_1_n}}</span>
+                    </div>
+                    -- 小問(n)ここまで -->
+
+
+                    
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>{{SUMMARY_1}}</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>{{FORMULA_KEY_1}}</li>
+                            <li>{{FORMULA_KEY_2}}</li>
+                            <li>{{FORMULA_KEY_3}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>{{SOLVING_POINT_1}}</li>
+                            <li>{{SOLVING_POINT_2}}</li>
+                            <li>{{SOLVING_POINT_3}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>{{CAUTION_POINT_1}}</li>
+                            <li>{{CAUTION_POINT_2}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>{{FLUID_TIP_1}}</li>
+                            <li>{{FLUID_TIP_2}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】（存在する場合は大問3以降もこれを繰り返す．） -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】{{MAIN_TOPIC_2}}</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">{{PROBLEM_2_MAIN}}</p>
+                        <!-- 図表がある場合の表示 -->
+                        <div class="my-6 text-center">
+                            <img src="{{IMAGE_PATH_2_1}}" alt="{{DIAGRAM_TITLE_2_1}}" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">{{DIAGRAM_TITLE_2_1}}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ここから小問の典型例（これを各大問ごと，各小問ごとに繰り返す．） -->
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) {{PROBLEM_1_1}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_2_1}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_1_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_2_1_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_1_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_2_1_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_2_1}}</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) {{PROBLEM_2_2}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_2_2}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_2_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_2_2_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_2_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_2_2_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_2_2}}</span>
+                    </div>
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) {{PROBLEM_2_3}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_2_3}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_3_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_2_3_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_3_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_2_3_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_2_3}}</span>
+                    </div>
+                    <!-- 以降，小問(n)については以下を内容を繰り返す -->
+                     <!-- 小問(n)ここから始まり -->
+                    <!-- 
+                    <div class="example-box">
+                        <p class="problem-statement">(n) {{PROBLEM_2_n}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_2_n}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_n_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_2_n_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_n_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_2_n_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_2_n}}</span>
+                    </div>
+                     -->
+                    <!-- 小問(n)ここまで -->
+
+
+                    
+                    <!-- 大問2全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問2のまとめ
+                        </div>
+                        <p>{{SUMMARY_2}}</p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>{{FORMULA_KEY_1}}</li>
+                            <li>{{FORMULA_KEY_2}}</li>
+                            <li>{{FORMULA_KEY_3}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>{{SOLVING_POINT_1}}</li>
+                            <li>{{SOLVING_POINT_2}}</li>
+                            <li>{{SOLVING_POINT_3}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>{{CAUTION_POINT_1}}</li>
+                            <li>{{CAUTION_POINT_2}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>{{FLUID_TIP_1}}</li>
+                            <li>{{FLUID_TIP_2}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ここまで大問【2】 -->
+
+
+        <!-- ここから必要に応じて，大問【3】および大問【4】...と続く -->
+
+
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

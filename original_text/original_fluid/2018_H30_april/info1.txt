@@ -101,94 +101,125 @@ $$
 
 ## 【途中式・計算過程】
 
-### 1. 半円壁面のパラメータ化
-$$
-z = a e^{i\theta} \qquad (\theta: 0 \leq \theta \leq \pi)
-$$
 
-### 2. 壁面上の速度分布
-- 前問の結果より、
-  $$
-  W(z) = U\left(z + \frac{a^2}{z}\right)
-  $$
-- 速度ベクトルは$\frac{dW}{dz}$の実部・虚部（$u$,$v$）で計算。
+### ステップ1：突起物表面の流速を求める
 
-- 微小要素$ds = a d\theta$
+まず、流れの速度を計算します。(1)の議論から、この流れの複素速度ポテンシャル $$W(z)$$ は、半径$$a$$の円柱周りの流れの式で与えられます。
 
-### 3. ベルヌーイの定理で壁面上の圧力
-$$
-p = p_0 + \frac{1}{2}\rho U^2 - \frac{1}{2}\rho |\vec{V}|^2
-$$
+$$ W(z) = U \left( z + \frac{a^2}{z} \right) $$
 
-### 4. 法線方向の$y$成分
-- 半円なので$$n_y = \sin\theta$$
+速度は、この$$W(z)$$を$$z$$で微分した複素速度$$dW/dz$$から求められます。
 
-### 5. 合計力の式
-$$
-F_y = -\int_0^{\pi} p\,\sin\theta\,a d\theta
-$$
-（向きに注意：力の符号は圧力が内向き→壁に作用）
+$$ \frac{dW}{dz} = U \left( 1 - \frac{a^2}{z^2} \right) $$
 
-### 6. 壁面上の速度大きさ$|\vec{V}|$
-- $z = a e^{i\theta}$をW(z)で評価、
-  $$
-  \frac{dW}{dz} = U\left(1 - \frac{a^2}{z^2}\right)
-  $$
-  $$
-  \left.\frac{dW}{dz}\right|_{z = a e^{i\theta}} = U\left(1 - e^{-2i\theta}\right)
-  $$
-- 速度の大きさ
-  $$
-  |\vec{V}| = |U (1 - e^{-2i\theta})| = 2U |\sin\theta|
-  $$
+突起物の表面は、原点を中心とする半径$$a$$の円周上（の上半分）にあります。この表面上の点は、極座標を用いると $$z = ae^{i\theta}$$ と表現できます。ここで、$$\theta$$はx軸の正の向きから反時計回りに測った角度で、半円なので$$0 \le \theta \le \pi$$の範囲を動きます。
 
-### 7. 圧力分布
-$$
-p(\theta) = p_0 + \frac{1}{2}\rho U^2 - \frac{1}{2}\rho (2U\sin\theta)^2 \\
-= p_0 + \frac{1}{2}\rho U^2 - 2\rho U^2\sin^2\theta
-$$
-
-### 8. 積分で$y$方向の力を計算
+この$$z = ae^{i\theta}$$を複素速度の式に代入します。
 
 $$
-F_y = -a \int_0^{\pi} p(\theta) \sin\theta d\theta
+\begin{aligned}
+\frac{dW}{dz} \Big|_{z=ae^{i\theta}} &= U \left( 1 - \frac{a^2}{(ae^{i\theta})^2} \right) \\
+&= U \left( 1 - \frac{a^2}{a^2e^{i2\theta}} \right) \\
+&= U (1 - e^{-i2\theta})
+\end{aligned}
 $$
 
-$p(\theta)$を代入して分解：
+流速の大きさ（速さ）$$q$$は、この複素速度の絶対値 $$|dW/dz|$$ です。
 
 $$
-F_y = -a \left[
-\int_0^{\pi} p_0 \sin\theta d\theta +
-\int_0^{\pi} \frac{1}{2}\rho U^2 \sin\theta d\theta -
-\int_0^{\pi} 2\rho U^2 \sin^3\theta d\theta
-\right]
+\begin{aligned}
+q &= \left| U (1 - e^{-i2\theta}) \right| \\
+&= U |1 - (\cos(2\theta) - i\sin(2\theta))| \\
+&= U |(1 - \cos(2\theta)) + i\sin(2\theta)| \\
+&= U \sqrt{(1 - \cos(2\theta))^2 + \sin^2(2\theta)} \\
+&= U \sqrt{1 - 2\cos(2\theta) + \cos^2(2\theta) + \sin^2(2\theta)} \\
+&= U \sqrt{2 - 2\cos(2\theta)} \\
+&= U \sqrt{4\sin^2(\theta)} \quad (\text{半角の公式 } 1-\cos(2\theta) = 2\sin^2(\theta) \text{ を利用}) \\
+&= 2U|\sin(\theta)|
+\end{aligned}
 $$
 
-- 各積分値は以下：
-  - $\int_0^{\pi} \sin\theta d\theta = 2$
-  - $\int_0^{\pi} \sin^3\theta d\theta = \frac{4}{3}$
+$$\theta$$の範囲は$$0 \le \theta \le \pi$$なので、$$\sin(\theta) \ge 0$$です。したがって、絶対値を外すことができ、突起物表面の速さは次のようになります。
+
+$$ q(\theta) = 2U\sin(\theta) $$
+
+これは、突起物の根元（$$\theta=0, \pi$$）で流速がゼロ（よどみ点）となり、頂点（$$\theta=\pi/2$$）で最も速く（$$2U$$）なることを示しています。
+
+### ステップ2：突起物表面の圧力を求める
+
+次に、**ベルヌーイの定理**を使って圧力$$p$$を求めます。無限遠方（圧力$$p_0$$、速さ$$U$$）と、突起物表面（圧力$$p(\theta)$$、速さ$$q(\theta)$$）との間でエネルギー保存則を考えます。
+
+$$ p(\theta) + \frac{1}{2}\rho q(\theta)^2 = p_0 + \frac{1}{2}\rho U^2 $$
+
+この式を$$p(\theta)$$について解き、ステップ1で求めた$$q(\theta) = 2U\sin(\theta)$$を代入します。
 
 $$
-F_y = -a \left[p_0\cdot2 + \frac{1}{2}\rho U^2\cdot2 - 2\rho U^2\cdot\frac{4}{3}\right]
+\begin{aligned}
+p(\theta) &= p_0 + \frac{1}{2}\rho (U^2 - q(\theta)^2) \\
+&= p_0 + \frac{1}{2}\rho (U^2 - (2U\sin(\theta))^2) \\
+&= p_0 + \frac{1}{2}\rho U^2 (1 - 4\sin^2(\theta))
+\end{aligned}
 $$
 
-$$
-F_y = -a \left[2p_0 + \rho U^2 - \frac{8}{3}\rho U^2\right]
-$$
+これが、突起物表面の圧力分布を角度$$\theta$$の関数として表した式です。
+
+### ステップ3：圧力を積分してy方向の力を求める
+
+最後に、この圧力を積分してy方向の力$$F_y$$を求めます。
+
+
+
+図のように、突起物表面の微小な弧$$ds$$を考えます。この弧の長さは $$ds = a \, d\theta$$ です。
+この微小な部分に働く力の大きさ$$dF$$は、圧力×面積なので、$$dF = p(\theta) \times ds = p(\theta) a \, d\theta$$ となります。この力は、円の中心から外向き（法線方向）に働きます。
+
+私たちが求めたいのは、この力の**y方向成分**$$dF_y$$です。法線方向がy軸となす角は $$( \pi/2 - \theta )$$ ですが、法線ベクトルとy軸のなす角を考えて、y方向の成分は$$dF \sin(\theta)$$と書くことができます。
+
+$$ dF_y = dF \sin(\theta) = p(\theta) \sin(\theta) a \, d\theta $$
+
+これを半円全体（$$\theta=0$$から$$\theta=\pi$$まで）で積分すると、合計のy方向の力$$F_y$$が求まります。
 
 $$
-F_y = -a \left[2p_0 - \frac{5}{3}\rho U^2\right]
+\begin{aligned}
+F_y &= \int_0^\pi dF_y \\
+&= \int_0^\pi p(\theta) \sin(\theta) a \, d\theta \\
+&= \int_0^\pi \left[ p_0 + \frac{1}{2}\rho U^2 (1 - 4\sin^2(\theta)) \right] a \sin(\theta) \, d\theta \\
+&= a \int_0^\pi \left( p_0 \sin(\theta) + \frac{1}{2}\rho U^2 \sin(\theta) - 2\rho U^2 \sin^3(\theta) \right) d\theta
+\end{aligned}
 $$
 
-## 【最終答え】初心者向け解説
+この積分を項ごとに計算します。
 
-### 壁面に流体から加わる$y$方向の力
+*   **第1項:**
+    $$ \int_0^\pi p_0 \sin(\theta) \, d\theta = p_0 [-\cos(\theta)]_0^\pi = p_0 (-\cos(\pi) - (-\cos(0))) = p_0(1 - (-1)) = 2p_0 $$
+
+*   **第2項:**
+    $$ \int_0^\pi \frac{1}{2}\rho U^2 \sin(\theta) \, d\theta = \frac{1}{2}\rho U^2 [-\cos(\theta)]_0^\pi = \frac{1}{2}\rho U^2 \times 2 = \rho U^2 $$
+
+*   **第3項:**（$$\sin^3\theta$$の積分）
+    $$ \int_0^\pi \sin^3(\theta) \, d\theta = \int_0^\pi \sin(\theta)(1-\cos^2(\theta)) \, d\theta = \left[-\cos(\theta) + \frac{1}{3}\cos^3(\theta)\right]_0^\pi $$
+    $$ = \left(-\cos(\pi) + \frac{\cos^3(\pi)}{3}\right) - \left(-\cos(0) + \frac{\cos^3(0)}{3}\right) $$
+    $$ = \left(1 - \frac{1}{3}\right) - \left(-1 + \frac{1}{3}\right) = \frac{2}{3} - \left(-\frac{2}{3}\right) = \frac{4}{3} $$
+    よって、第3項全体では
+    $$ -2\rho U^2 \int_0^\pi \sin^3(\theta) \, d\theta = -2\rho U^2 \left(\frac{4}{3}\right) = -\frac{8}{3}\rho U^2 $$
+
+最後に、これらの結果を合計します。
 
 $$
-\boxed{
-F_y = -a\left(2p_0 - \frac{5}{3}\rho U^2\right)
-}
+\begin{aligned}
+F_y &= a \left( 2p_0 + \rho U^2 - \frac{8}{3}\rho U^2 \right) \\
+&= a \left( 2p_0 - \frac{5}{3}\rho U^2 \right)
+\end{aligned}
 $$
+
+### 結論
+
+壁面の$$x = -a$$から$$x = a$$の部分（半円状突起物）に流体から加わるy方向の力は、次式で与えられます。
+
+$$ F_y = 2ap_0 - \frac{5}{3}a\rho U^2 $$
+
+この結果は、y方向に働く力が、無限遠方の静圧$$p_0$$による上向きの力（$$2ap_0$$）と、流れの動圧（$$\rho U^2$$）に起因する下向きの力（$$-\frac{5}{3}a\rho U^2$$）の和で表されることを示しています。流れがあることによって、突起物の上面の圧力が下がり、結果として物体を壁に押し付けるような力が働くことを意味します。
+
+
 
 - $p_0$は遠方の圧力、$U$は遠方の速度、$\rho$は密度、$a$は半円の半径です。
 - $y$方向（上向き）への力が求まります。
@@ -225,47 +256,110 @@ $$
 A_1 V_a = A_2 V_D \implies V_D = \frac{A_1}{A_2} V_a = \left(\frac{d_1}{d_2}\right)^2 V_a
 $$
 
-#### (2) 面D上の圧力
 
-- **ベルヌーイの定理**を軸に使います（損失無し仮定）。
-- 面AとDに適用：
+### (2) 面D上の圧力を求めよ
 
-$$
-p_a + \frac{1}{2}\rho V_a^2 = p_D + \frac{1}{2}\rho V_D^2
-$$
+これは**運動量の法則**を用いて解きます。管が急拡大する部分では、流れの剥離と渦の発生によりエネルギー損失が起こるため、単純にベルヌーイの定理は使えません。そこで、図の面Bから面Dまでを**検査体積（コントロールボリューム）**として設定し、この範囲での力のつり合いを考えます。[1]
 
-$$
-p_D = p_a + \frac{1}{2}\rho (V_a^2 - V_D^2)
-$$
-- (1)の$$V_D$$を代入して整理：
 
-$$
-p_D = p_a + \frac{1}{2}\rho \left[ V_a^2 - \left( \frac{d_1}{d_2} \right)^4 V_a^2 \right] 
-= p_a + \frac{1}{2}\rho V_a^2 \left[1 - \left( \frac{d_1}{d_2} \right)^4 \right]
-$$
 
-#### (3) 面Gにおける圧力と流速
+検査体積に働くx方向の力は以下の通りです。
 
-- **不連続管の先に再び$$d_1$$管**なので、連続の式から$$V_G = V_a$$。
-- ベルヌーイの定理（A→G間）：
+1.  **面Bに働く力:** 圧力$$p_a$$が面積$$A_a$$に働く力。右向きを正とすると $$p_a A_a$$。
+2.  **面Cに働く力:** 問題の仮定より、この円環状の面には圧力$$p_a$$が働いていると考えます。面積は$$(A_d - A_a)$$なので、力は $$p_a (A_d - A_a)$$ です。
+3.  **面Dに働く力:** 圧力$$p_d$$（求めたい値）が面積$$A_d$$に働く力。左向きなので $$-p_d A_d$$。
 
+これらの力の合計が、検査体積を通過する流体の運動量の変化率（$$(\text{出ていく運動量}) - (\text{入ってくる運動量})$$）に等しくなります。
+
+*   入ってくる運動量（面B）: $$\dot{m} V_a = (\rho A_a V_a) V_a = \rho A_a V_a^2$$
+*   出ていく運動量（面D）: $$\dot{m} V_d = (\rho A_d V_d) V_d = \rho A_d V_d^2$$
+
+運動量の法則の式は以下のようになります。
 $$
-p_a + \frac{1}{2}\rho V_a^2 = p_G + \frac{1}{2}\rho V_G^2
+(\text{力の合計}) = (\text{運動量の変化率})
 $$
 $$
-\rightarrow p_G = p_a
+p_a A_a + p_a(A_d - A_a) - p_d A_d = \rho A_d V_d^2 - \rho A_a V_a^2
 $$
 
-### 【最終答えとポイントまとめ】
+左辺を整理します。
+$$
+p_a A_d - p_d A_d = \rho (A_d V_d^2 - A_a V_a^2)
+$$
 
-| 項目 | 式 |
-|---|---|
-| 面Dの流速 | $$\displaystyle V_D = \left( \frac{d_1}{d_2} \right)^2 V_a $$ |
-| 面Dの圧力 | $$\displaystyle p_D = p_a + \frac{1}{2} \rho V_a^2 \left[ 1 - \left(\frac{d_1}{d_2}\right)^4 \right] $$ |
-| 面Gの流速 | $$V_G = V_a$$ |
-| 面Gの圧力 | $$p_G = p_a$$ |
+両辺を$$A_d$$で割ります。
+$$
+p_a - p_d = \rho \left( V_d^2 - \frac{A_a}{A_d} V_a^2 \right)
+$$
 
-#### ★解き方・チップス
+ここで、$$A_a/A_d = (d_1/d_2)^2$$ なので、
+$$
+p_a - p_d = \rho \left( V_d^2 - \left(\frac{d_1}{d_2}\right)^2 V_a^2 \right)
+$$
+
+$$p_d$$について解きます。
+$$
+p_d = p_a - \rho \left( V_d^2 - \left(\frac{d_1}{d_2}\right)^2 V_a^2 \right)
+$$
+
+(1)の結果 $$V_d = (d_1/d_2)^2 V_a$$ を代入して、式を$$V_a$$で整理します。
+$$
+\begin{aligned}
+p_d &= p_a - \rho \left( \left(\left(\frac{d_1}{d_2}\right)^2 V_a\right)^2 - \left(\frac{d_1}{d_2}\right)^2 V_a^2 \right) \\
+&= p_a - \rho \left( \left(\frac{d_1}{d_2}\right)^4 V_a^2 - \left(\frac{d_1}{d_2}\right)^2 V_a^2 \right) \\
+&= p_a - \rho V_a^2 \left( \frac{d_1}{d_2} \right)^2 \left( \left(\frac{d_1}{d_2}\right)^2 - 1 \right)
+\end{aligned}
+$$
+
+**【回答(2)】 面D上の圧力$$p_d$$は、$$p_d = p_a - \rho V_a^2 \left(\frac{d_1}{d_2}\right)^2 \left(\left(\frac{d_1}{d_2}\right)^2 - 1\right)$$ です。
+
+### (3) 面Gにおける圧力と流速を求めよ
+
+まず、**面Gにおける流速$$V_g$$**を求めます。
+面Gの直径は$$d_1$$であり、面Aと同じです。連続の式から、断面積が同じであれば流速も同じになります。
+$$
+A_d V_d = A_g V_g
+$$
+ここで、$$A_g = A_a$$なので、$$A_d V_d = A_a V_g$$となります。
+また、$$A_a V_a = A_d V_d$$だったので、結局 $$A_a V_a = A_a V_g$$ となり、
+$$
+V_g = V_a
+$$
+
+次に、**面Gにおける圧力$$p_g$$**を求めます。
+問題の仮定「流体が面Fを通過するときにベルヌーイの定理が成立する」は、管が十分に長い面Dから、縮小して十分に安定した面Gまでの流れにおいて、エネルギー損失が無視できることを意味します。[2][3]
+したがって、面Dと面Gの間で**ベルヌーイの定理**を適用します。
+
+$$
+p_d + \frac{1}{2}\rho V_d^2 = p_g + \frac{1}{2}\rho V_g^2
+$$
+
+求めたい$$p_g$$について解きます。
+$$
+p_g = p_d + \frac{1}{2}\rho (V_d^2 - V_g^2)
+$$
+
+この式に、これまで求めた結果を代入していきます。
+*   $$p_d = p_a - \rho V_a^2 \left(\frac{d_1}{d_2}\right)^2 \left(\left(\frac{d_1}{d_2}\right)^2 - 1\right)$$
+*   $$V_d = \left(\frac{d_1}{d_2}\right)^2 V_a$$
+*   $$V_g = V_a$$
+
+$$
+\begin{aligned}
+p_g &= \left[ p_a - \rho V_a^2 \left(\frac{d_1}{d_2}\right)^2 \left(\left(\frac{d_1}{d_2}\right)^2 - 1\right) \right] + \frac{1}{2}\rho \left( \left(\left(\frac{d_1}{d_2}\right)^2 V_a\right)^2 - V_a^2 \right) \\
+&= p_a - \rho V_a^2 \left(\frac{d_1}{d_2}\right)^4 + \rho V_a^2 \left(\frac{d_1}{d_2}\right)^2 + \frac{1}{2}\rho V_a^2 \left(\frac{d_1}{d_2}\right)^4 - \frac{1}{2}\rho V_a^2 \\
+&= p_a - \frac{1}{2}\rho V_a^2 - \frac{1}{2}\rho V_a^2 \left(\frac{d_1}{d_2}\right)^4 + \rho V_a^2 \left(\frac{d_1}{d_2}\right)^2 \\
+&= p_a - \frac{1}{2}\rho V_a^2 \left( 1 + \left(\frac{d_1}{d_2}\right)^4 - 2\left(\frac{d_1}{d_2}\right)^2 \right) \\
+&= p_a - \frac{1}{2}\rho V_a^2 \left( 1 - \left(\frac{d_1}{d_2}\right)^2 \right)^2
+\end{aligned}
+$$
+
+**【回答(3)】**
+*   **面Gにおける流速$$V_g$$は、$$V_g = V_a$$ です。**
+*   **面Gにおける圧力$$p_g$$は、$$p_g = p_a - \frac{1}{2}\rho V_a^2 \left( 1 - \left(\frac{d_1}{d_2}\right)^2 \right)^2$$ です。**
+
+この圧力$$p_g$$が流入時の圧力$$p_a$$よりも低くなっているのは、管の急拡大部で発生したエネルギー損失（圧力損失）によるものです。
+
 
 - 「断面積変化→流速が変わる→ベルヌーイで圧力も変わる」の流れを押さえよう！
 - 非圧縮・非粘性（理想流体）：流量保存とエネルギー保存（損失ゼロ）が基本。

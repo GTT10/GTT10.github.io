@@ -1,9 +1,747 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
+<!-- 
+    流体力学試験ページテンプレート（改良版）
+    
+    🎯 テンプレート使用方法:
+    
+    【基本情報】
+    {{YEAR}} - 年度（例：2024）
+    {{H_YEAR}} - 令和年度（例：R6）
+    {{SUBJECT_OVERVIEW}} - 問題概要説明
+    {{TOPIC_1}}, {{TOPIC_2}} - 出題トピック（例：ベルヌーイの定理、ナビエ・ストークス方程式）
+    
+    【大問1関連】
+    {{MAIN_TOPIC_1}} - 大問1のメインテーマ（例：ベルヌーイの定理と運動量保存則）
+    {{PROBLEM_1_MAIN}} - 大問1の問題文全体
+    {{PROBLEM_1_1}}, {{PROBLEM_1_2}}, {{PROBLEM_1_3}}, {{PROBLEM_1_4}} - 各小問の問題文
+    
+    【解法構造（各小問共通）】
+    {{STRATEGY_1_1}} - 解答方針・アプローチ
+    {{CONCEPT_1_1}} - 考え方・理論背景
+    {{SOLUTION_1_1_STEP1}}, {{SOLUTION_1_1_STEP2}} - 解答手順
+    {{FORMULA_1_1_1}}, {{FORMULA_1_1_2}} - LaTeX数式
+    {{ANSWER_1_1}} - 最終解答
+    {{POINT_1_1}} - 重要ポイント
+    
+    【図表・線図】
+    {{DIAGRAM_TITLE_1_1}} - 図表タイトル
+    {{IMAGE_PATH_1_1}} - 図表画像のパス
+    
+    
+    【サイドバー（右側）】
+    {{FORMULA_KEY_1}}, {{FORMULA_KEY_2}}, {{FORMULA_KEY_3}} - 重要公式
+    {{SOLVING_POINT_1}}, {{SOLVING_POINT_2}}, {{SOLVING_POINT_3}} - 解法ポイント
+    {{CAUTION_POINT_1}}, {{CAUTION_POINT_2}} - 注意点
+    {{FLUID_TIP_1}}, {{FLUID_TIP_2}} - 流体力学のチップス
+    
+    【まとめ】
+    {{SUMMARY_1}}, {{SUMMARY_2}} - 各大問のまとめ
+
+
+    【大問2関連】および【大問3関連（存在する場合）】【大問4関連（存在する場合）】【大問5関連（存在する場合）】
+    【大問1関連】と同じ構造で繰り返す
+    
+-->
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>流体力学 2017</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流体力学 2017年度 解説 - 大学院入試過去問ポータル</title>
+    <!-- Google Fontsの読み込み（共通） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesomeの読み込み（アイコン用） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- 外部CSSファイルを読み込む（パス修正） -->
+    <link rel="stylesheet" href="../../css/fluid.css">
+    <!-- MathJaxスクリプト -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJaxの数式表示設定
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $ ... $ または \( ... \)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
+            },
+            svg: {
+                fontCache: 'global' // フォントキャッシュをグローバルに
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="header-decoration"></div>
+        
+        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
+            <div class="header-nav">
+                <h1 class="exam-title">
+                    <i class="fas fa-water mr-3 text-blue-600"></i> <!-- 流体力学なので水のアイコン -->
+2017（H29）年　流体力学
+                </h1>
+                <div class="nav-buttons">
+                    <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>                    
+                    <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- 問題概要とPDFダウンロード -->
+            <div class="problem-overview-section">
+                <h2>問題概要</h2>
+                <p>2017年度（平成29年）大学院入試・流体力学の過去問と解説ページです。典型的な流体力学の理論問題（ベルヌーイの定理、複素ポテンシャル、ストークス抗力と模型実験）が出題されています。各大問ごとに詳細な解説・要点まとめ付き。</p>
+                
+                <a href="../../pdfs/question/2017_H29_april/fluid_2017_H29_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
+                <a href="../../pdfs/answer/2017_H29_april/fluid_2017_H29_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
+            </div>
+            
+            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
+            <hr class="separator-line">
+
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【1】ベルヌーイの定理と運動量保存則</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">図1に示すように、断面積Sの円管が水面から深さhまで水中に入り、さらに90°折れ曲がって水平に長さl伸びている。最初、水平円管の左端は仕切りでふさがれており、時刻t=0でその仕切りを取り除いたとする。</p>
+                        <!-- 図表がある場合の表示 -->
+                        <div class="my-6 text-center">
+                            <img src="../../images/fluid_2017_1.png" alt="{{DIAGRAM_TITLE_1_1}}" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">{{DIAGRAM_TITLE_1_1}}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ここから小問の典型例（これを各大問ごと，各小問ごとに繰り返す．） -->
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 水が垂直円管へ到達する前の水平円管内の水の流速$V_1$を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>損失や粘性を無視、外部と管出口の圧力がともに大気圧で等しいので、ベルヌーイの定理もしくはトリチェリの定理を用いる。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            水面を位置1、高さ$h$下の管出口を位置2とする。ベルヌーイの式：
+                            <div class="math-block">
+                                $$P_1 + \frac{1}{2}\rho V_1^2 + \rho g h_1 = P_2 + \frac{1}{2}\rho V_2^2 + \rho g h_2$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            どちらも大気圧（$P_1 = P_2$）、水面の速度ゼロ（$V_1 = 0$）、$h_1 = h, \; h_2 = 0$より：
+                            <div class="math-block">
+                                $$\rho g h = \frac{1}{2} \rho V_1^2 \quad \therefore \quad V_1 = \sqrt{2gh}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $V_1 = \sqrt{2gh}$</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 水が上昇を始めた後、垂直円管内の水面が深さ$z$になったときの水面の上昇速度$V_2(z)$を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>(1)と同様にベルヌーイの定理もしくはトリチェリの定理を用いる。エネルギー保存より、水面から管出口までの位置エネルギー変化が流体の運動エネルギーとなる。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            水面を位置1、高さ$ z $下の管出口を位置2としたときのベルヌーイの定理を考える：
+                            <div class="math-block">
+                                $$\rho g z = \frac{1}{2} \rho V_2(z)^2$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            両辺を整理して上昇速度$V_2(z)$を解く：
+                            <div class="math-block">
+                                $$g z = \frac{1}{2} V_2(z)^2 \quad \therefore \quad V_2(z) = \sqrt{2gz}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $V_2(z) = \sqrt{2gz}$</span>
+                    </div>
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 垂直円管内の水面が円管外部の水面の位置に到達する時刻を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>水平管を通過する時間と、垂直に上昇する時間の合計を求める。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            (a) 水平管部分の時間$t_1$
+                            <div class="math-block">
+                                $$
+                                t_1 = \frac{l}{V_1} = \frac{l}{\sqrt{2gh}}
+                                $$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            (b) 垂直上昇部分:
+                            <br>上昇速度の微分方程式
+                            <div class="math-block">
+                                $$
+                                \frac{dz}{dt} = V_2(z) = \sqrt{2g(h-z)}
+                                $$
+                            </div>
+                            両辺を分離して積分
+                            <div class="math-block">
+                                $$
+                                \int_0^h \frac{dz}{\sqrt{2g(h-z)}} = \int_0^{t_2} dt
+                                $$
+                            </div>
+                            $u = h - z$ と置換（$dz = -du$）、範囲が $z=0 \to u=h$、$z=h \to u=0$。
+                            <div class="math-block">
+                                $$
+                                \int_{u=h}^{u=0} \frac{-du}{\sqrt{2g\,u}} = t_2
+                                $$
+                                $$
+                                \int_0^{h} \frac{du}{\sqrt{2g\,u}} = t_2
+                                $$
+                                $$
+                                \int_0^h \frac{du}{\sqrt{2g\,u}} = \frac{1}{\sqrt{2g}}\int_0^h u^{-1/2} du = \frac{1}{\sqrt{2g}} [2u^{1/2}]_0^h
+                                $$
+                                $$
+                                = \frac{2\sqrt{h}}{\sqrt{2g}} = \sqrt{\frac{2h}{g}}
+                                $$
+                            </div>
+                            よって、垂直上昇に要する時間は $t_2 = \sqrt{\frac{2h}{g}}$
+                        </div>
+                        <div class="solution-step">
+                            (c) 合計時間
+                            <div class="math-block">
+                                $$
+                                t = t_1 + t_2 = \frac{l}{\sqrt{2gh}} + \sqrt{\frac{2h}{g}}
+                                $$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $t = \frac{l}{\sqrt{2gh}} + \sqrt{\frac{2h}{g}}$</span>
+                    </div>
+                    <!-- 以降，小問(n)については以下を内容を繰り返す -->
+                     <!-- 小問(n)ここから始まり -->
+                    <!-- 小問(n) --
+                    <div class="example-box">
+                        <p class="problem-statement">(n) {{PROBLEM_1_n}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_1_n}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_n_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_1_n_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_1_n_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_1_n_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_1_n}}</span>
+                    </div>
+                    -- 小問(n)ここまで -->
+
+
+                    
+                    <!-- 大問1全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問1のまとめ
+                        </div>
+                        <p>
+                            ・水平管内の流速は$V_1 = \sqrt{2gh}$<br>
+                            ・垂直管内の水面上昇速度は$V_2(z) = \sqrt{2gz}$<br>
+                            ・水面が最上部に到達するまでの合計時間は$t = \frac{l}{\sqrt{2gh}} + \sqrt{\frac{2h}{g}}$
+                        </p>
+                    </div>
+
+                </div>
+                
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>ベルヌーイの定理：$P + \frac{1}{2}\rho v^2 + \rho g h = \text{定数}$</li>
+                            <li>$V_1 = \sqrt{2gh}$</li>
+                            <li>$V_2(z) = \sqrt{2g(h-z)}$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>ベルヌーイの定理を各断面で適用</li>
+                            <li>移動距離・速度から時間を積分で計算</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>圧力差や高さの取り方に注意</li>
+                            <li>積分範囲の設定ミスに注意</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>ベルヌーイの定理はエネルギー保存の視点で理解</li>
+                            <li>積分計算は物理的意味を意識</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== -->
+        <!-- ここから大問【2】（存在する場合は大問3以降もこれを繰り返す．） -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【2】複素ポテンシャルと二重吹き出し</div>
+                    
+                    <!-- 問題文再現 -->
+                    <div class="example-box">
+                        <p class="problem-statement">二次元非粘性・非圧縮流について、点(0, h)に強さmの吹き出し、点(0, 0)に強さmの吸い込みがある。</p>
+                        
+                    </div>
+                    
+                    <!-- ここから小問の典型例（これを各大問ごと，各小問ごとに繰り返す．） -->
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) これらの吹き出しと吸い込みによる複素速度ポテンシャル$W_1(z)$を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ソース・シンクの複素ポテンシャルは$W(z)=m\log(z-z_0)$型。重ね合わせの原理で合成。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            吹き出し: $m\log(z-ih)$、吸い込み: $-m\log z$<br>
+                            合計: $W_1(z)=m\log\left(\frac{z-ih}{z}\right)$
+                            <div class="math-block">
+                                $$W_1(z) = m\log\left(\frac{z-ih}{z}\right)$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $W_1(z) = m\log\left(\frac{z-ih}{z}\right)$</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) $\mu=mh$を一定に保ち$m\to\infty$の極限$W(z)$を$\mu$で表せ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>テイラー展開で$h\to0$の極限をとり、二重吹き出し（双極子）ポテンシャルを導出。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $W_1(z) = m\log(1-\frac{ih}{z}) \approx -\frac{mih}{z}$<br>
+                            $\mu=mh$で$W(z) = -\frac{i\mu}{z}$
+                            <div class="math-block">
+                                $$W(z) = -\frac{i\mu}{z}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $W(z) = -\frac{i\mu}{z}$</span>
+                    </div>
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 流れ関数を$x, y$の関数で求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>複素ポテンシャル$W(z)=\varphi+i\psi$の虚部が流れ関数。$z=x+iy$で展開。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $W(z) = -\frac{i\mu}{x+iy} = \frac{\mu y}{x^2+y^2} - i\frac{\mu x}{x^2+y^2}$<br>
+                            よって流れ関数$\psi(x, y) = -\frac{\mu x}{x^2+y^2}$
+                            <div class="math-block">
+                                $$\psi(x, y) = -\frac{\mu x}{x^2+y^2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $\psi(x, y) = -\frac{\mu x}{x^2+y^2}$</span>
+                    </div>
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 流線の式を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>流線は流れ関数$\psi$が定数$C$となる曲線。$\psi(x, y) = C$で整理。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $\psi = -\frac{\mu x}{x^2+y^2} = C$<br>
+                            $x^2+y^2 = -\frac{\mu x}{C}$<br>
+                            完全平方で整理：
+                            <div class="math-block">
+                                $$\left(x+\frac{\mu}{2C}\right)^2 + y^2 = \left(\frac{\mu}{2C}\right)^2$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $\left(x+\frac{\mu}{2C}\right)^2 + y^2 = \left(\frac{\mu}{2C}\right)^2$</span>
+                    </div>
+                    <!-- 以降，小問(n)については以下を内容を繰り返す -->
+                     <!-- 小問(n)ここから始まり -->
+                    <!-- 
+                    <div class="example-box">
+                        <p class="problem-statement">(n) {{PROBLEM_2_n}}</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>{{CONCEPT_2_n}}</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_n_STEP1}}
+                            <div class="math-block">
+                                $${{FORMULA_2_n_1}}$$
+                            </div>
+                        </div>
+                        <div class="solution-step">
+                            {{SOLUTION_2_n_STEP2}}
+                            <div class="math-block">
+                                $${{FORMULA_2_n_2}}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: {{ANSWER_2_n}}</span>
+                    </div>
+                     -->
+                    <!-- 小問(n)ここまで -->
+
+
+                    
+                    <!-- 大問2全体のまとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問2のまとめ
+                        </div>
+                        <p>
+                            ・複素ポテンシャルで流れを表現<br>
+                            ・二重吹き出しの極限で双極子流れを導出<br>
+                            ・流線は円の族になる
+                        </p>
+                    </div>
+
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>複素ポテンシャル$W(z)=\varphi+i\psi$</li>
+                            <li>ソース$W(z)=m\log(z-z_0)$、二重吹き出し$W(z)=-i\mu/z$</li>
+                            <li>流れ関数$\psi(x, y) = -\frac{\mu x}{x^2+y^2}$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>重ね合わせの原理を活用</li>
+                            <li>テイラー展開で極限をとる</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>複素対数の枝切りに注意</li>
+                            <li>極限操作時の変数の扱いに注意</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>流線は等値線で視覚化</li>
+                            <li>双極子流れは多くの応用例あり</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ここまで大問【2】 -->
+
+
+        <!-- ここから大問【3】 -->
+        <div class="page-content">
+            <div class="exam-grid">
+                <!-- 左側：例題と解法 -->
+                <div class="exam-col-left">
+                    <div class="main-section-title">大問【3】ストークス抗力と模型実験</div>
+                    <div class="example-box">
+                        <p class="problem-statement">密度$\rho$、粘性係数$\mu$の静止大気中を直径$D$の水滴が流速$V$で落下している。</p>
+                    </div>
+                    <!-- 小問(1) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(1) 水滴に働く抗力の大きさを答えよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>小さな球に対する抗力はストークスの法則：$F_d = 6\pi \mu r u$ （$r = D/2$、$\mu$ は周囲流体の粘性係数）。<br>
+ ここでは大気中なので $\mu$ を使い、方向は速度 $u$ に逆向きですが、大きさだけ求めます。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            半径$r=D/2$、$F_d=6\pi\mu r u=3\pi\mu D u$
+                            <div class="math-block">
+                                $$F_d=3\pi\mu D u$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $F_d=3\pi\mu D u$</span>
+                    </div>
+                    <!-- 小問(2) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(2) 水滴の運動方程式を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>水滴の運動は重力、浮力、抗力のバランスで決まる。質量 m の水滴に対し、鉛直方向の運動方程式を立てる。浮力はアルキメデスの原理（大気の密度 ρ を用いて ρ (4/3)π (D/2)^3 g）。重力は m g = ρ_w (4/3)π (D/2)^3 g。抗力は(1)の F_d で、上向き（落下方向を正とする）。加速度 a = dv/dt。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            水滴の体積 $Vol = \frac{4}{3}\pi (D/2)^3 = \frac{\pi D^3}{6}$<br>
+質量 $m = \rho_w Vol = \rho_w \frac{\pi D^3}{6}$  <br>
+重力: $m g = \rho_w \frac{\pi D^3}{6} g $（下向き）<br>  
+浮力: $\rho Vol g = \rho \frac{\pi D^3}{6} g$ （上向き）<br>  
+抗力: $F_d = 3\pi \mu D u$ （上向き）<br>
+運動方程式 (ニュートンの第2法則、落下方向正):  
+$m a = (重力) - (浮力) - (抗力)$  <br>
+$$\rho_w \frac{\pi D^3}{6} \cdot a = \rho_w \frac{\pi D^3}{6} \cdot g - \rho \frac{\pi D^3}{6} \cdot g - 3\pi \mu D u$$
+両辺を $\frac{\pi D^3}{6}$ で割る:  
+$$\rho_w a = \rho_w g - \rho g - \frac{18 \mu u}{D^2}$$ 
+                            <div class="math-block">
+                                $$\rho_w a=(\rho_w-\rho)g-\frac{18\mu u}{D^2}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $\rho_w a=(\rho_w-\rho)g-\frac{18\mu u}{D^2}$</span>
+                    </div>
+                    <!-- 小問(3) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(3) 水滴の終端速度を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>加速度$a=0$で力のつり合いから終端速度を導出。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $a = 0$ のとき:  
+$$0 = (\rho_w - \rho) g - \frac{18 \mu V_t}{D^2}$$
+$$\frac{18 \mu V_t}{D^2} = (\rho_w - \rho) g$$
+$$V_t = \frac{(\rho_w - \rho) g D^2}{18 \mu}$$
+                            <div class="math-block">
+                                $$V_t=\frac{(\rho_w-\rho)g D^2}{18\mu}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $V_t=\frac{(\rho_w-\rho)g D^2}{18\mu}$</span>
+                    </div>
+                    <!-- 小問(4) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(4) 終端速度とレイノルズ数を計算せよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>数値代入し、$Re=\frac{\rho V_t D}{\mu}$で計算。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $V_t\approx0.25\,\mathrm{m/s}$、$Re\approx1.25$
+                            <div class="math-block">
+                                $$V_t\approx0.25\,\mathrm{m/s},\quad Re\approx1.25$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $V_t\approx0.25\,\mathrm{m/s}$, $Re\approx1.25$</span>
+                    </div>
+                    <!-- 小問(5) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(5) 模型の終端速度を求めよ。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>レイノルズ数一致条件で模型の終端速度を計算。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $V_m=\frac{Re\,\mu_E}{\rho_E D_m}\approx0.25\,\mathrm{m/s}$
+                            <div class="math-block">
+                                $$V_m\approx0.25\,\mathrm{m/s}$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $V_m\approx0.25\,\mathrm{m/s}$</span>
+                    </div>
+                    <!-- 小問(6) -->
+                    <div class="example-box">
+                        <p class="problem-statement">(6) 模型に働く抗力は水滴の何倍か。</p>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>ストークス抗力の比を計算。</p>
+                    </div>
+                    <div>
+                        <div class="section-title">
+                            <i class="fas fa-list-ol mr-2"></i>途中式と解答
+                        </div>
+                        <div class="solution-step">
+                            $\frac{F_{dE}}{F_d}=2.0\times10^7$
+                            <div class="math-block">
+                                $$\frac{F_{dE}}{F_d}=2.0\times10^7$$
+                            </div>
+                        </div>
+                        <span class="answer-highlight">答え: $2.0\times10^7$倍</span>
+                    </div>
+                    <!-- まとめ -->
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-clipboard-check mr-2"></i>大問3のまとめ
+                        </div>
+                        <p>
+                            ・ストークス抗力と終端速度の理論<br>
+                            ・模型実験はレイノルズ数一致がポイント<br>
+                            ・抗力は模型で大きく増幅される
+                        </p>
+                    </div>
+                </div>
+                <!-- 右側：ポイント・チップス -->
+                <div class="exam-col-right">
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-key mr-2"></i>重要公式・関係式
+                        </div>
+                        <ul>
+                            <li>ストークス抗力$F_d=3\pi\mu D u$</li>
+                            <li>終端速度$V_t=\frac{(\rho_w-\rho)g D^2}{18\mu}$</li>
+                            <li>レイノルズ数$Re=\frac{\rho V D}{\mu}$</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>解法のポイント
+                        </div>
+                        <ul>
+                            <li>力のバランスで運動方程式を立てる</li>
+                            <li>模型実験は相似則（Re一致）を活用</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
+                        </div>
+                        <ul>
+                            <li>単位・桁数のミスに注意</li>
+                            <li>模型と実物のパラメータ対応に注意</li>
+                        </ul>
+                    </div>
+                    <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
+                        </div>
+                        <ul>
+                            <li>ストークス流はRe≪1で有効</li>
+                            <li>模型実験で小さな力を大きく測定できる</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- サイト共通フッター -->
+    <footer class="site-footer">
+        © 2024 大学院入試過去問ポータル. All rights reserved.
+    </footer>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>
