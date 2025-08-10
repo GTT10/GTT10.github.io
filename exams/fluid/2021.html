@@ -78,65 +78,210 @@
                         
                         <!-- 小問(1) -->
                         <div class="example-box">
-                            <div class="section-title">
-                                <h3>(1) インクの軌跡について</h3>
+                            <div class="section-title">(1) 注射針からインクが流れるとき、インクが描く軌跡は何と呼ばれるか。0 ≤ t ≤ 4の軌跡を図に描け。</div>
+                        </div>
+                        <div class="point-box">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>固定された注射針から連続的に放出されるインクの軌跡を考えます。これは流体力学における重要な概念の一つです。</p>
+                        </div>
+                        <div>
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                <strong>流脈線の定義</strong><br>
+                                インクの軌跡は「流脈線（streamtube）」と呼ばれます。固定された注射針から出るインクの動きを追ったものです。
+                                <div class="my-6 text-center">
+                                    <img src="../../images/fluid_2021_1.png" alt="流脈線" class="mx-auto rounded-lg shadow-md">
+                                    <p class="text-sm text-gray-600 mt-2">流脈線</p>
+                                </div>
                             </div>
+                            <span class="answer-highlight">答え: 軌跡の名前は<strong>流脈線（streamtube）</strong></span>
                         </div>
-                        <div class="solution-step">
-                            <strong>問題:</strong> 注射針からインクが流れるとき、インクが描く軌跡は何と呼ばれる？ 0 ≤ t ≤ 4の軌跡を図に描いてね。<br><br>
-                            <strong>考え方:</strong><br>
-                            - インクの軌跡は「流跡線（りゅうせきせん）」って呼ぶよ。固定された注射針から出るインクの動きを追ったものだね。<br>
-                            - 軌跡を描くには、各区間の速度を積分すればOK。注射針の位置は図に書いてないけど、とりあえず原点(0,0)からスタートするとしよう。<br><br>
-                            <strong>計算の流れ:</strong><br>
-                            1. **0 ≤ t < 1**: 速度(2,2) → 1秒後は(2,2)に移動。<br>
-                            2. **1 ≤ t < 3**: 速度(0,1) → x=2でyだけ増加。3秒後は(2,4)。<br>
-                            3. **3 ≤ t ≤ 4**: 速度(-1,0) → y=4でxだけ減少。4秒後は(1,4)。
-                        </div>
-                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(0,0)→(2,2)→(2,4)→(1,4)の折れ線</span>
                         
                         <!-- 小問(2) -->
                         <div class="example-box">
-                            <div class="section-title">
-                                <h3>(2) 小球の軌跡について</h3>
+                            <div class="section-title">(2) 小球が流れに乗って動くときの軌跡は何と呼ばれるか。0 ≤ t ≤ 4の軌跡を描け。</div>
+                        </div>
+                        <div class="point-box">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>流体中に置かれた小球が時間とともに描く軌跡を考えます。これは流体粒子の運動を表す重要な概念です。</p>
+                        </div>
+                        <div>
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                <strong>流跡線の定義</strong><br>
+                                小球が流れに乗って動くときの軌跡は「流跡線（pathline）」と呼ばれます。これは特定の流体粒子の時間的な軌跡を表します。
+                                <div class="my-6 text-center">
+                                    <img src="../../images/fluid_2021_2.png" alt="流跡線" class="mx-auto rounded-lg shadow-md">
+                                    <p class="text-sm text-gray-600 mt-2">流跡線</p>
+                                </div>
                             </div>
+                            <span class="answer-highlight">答え: 軌跡の名前は<strong>流跡線（pathline）</strong></span>
                         </div>
-                        <div class="solution-step">
-                            <strong>問題:</strong> 小球が流れに乗って動くときの軌跡は？ 0 ≤ t ≤ 4の軌跡を描いて。<br><br>
-                            <strong>考え方:</strong><br>
-                            - これも「流跡線」だよ！ (1)と同じ計算で、初期位置を(0,0)とすると全く同じ軌跡になるね。
-                        </div>
-                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(1)と同じ折れ線</span>
                         
                         <!-- 小問(3) -->
                         <div class="example-box">
-                            <div class="section-title">
-                                <h3>(3) 抗力係数とレイノルズ数の関係</h3>
+                            <div class="section-title">(3) 小球の抗力係数$C_D$とレイノルズ数Reの正しい関係を選べ。</div>
+                        </div>
+                        <div class="point-box">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>レイノルズ数は「慣性力」と「粘性力」の比を表す無次元数です。球体の抗力係数とレイノルズ数の関係は流体力学の重要な特性曲線です。</p>
+                        </div>
+                        <div>
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                <strong>レイノルズ数とは？―「慣性」vs「粘性」の綱引き</strong><br>
+                                $$Re = \frac{\text{慣性力}}{\text{粘性力}} = \frac{\rho v L}{\mu}$$
+                                まず、「レイノルズ数（Re）」が何を表しているかを理解するのが重要です。<br><br>
+                                一言でいうと、レイノルズ数は<strong>「流体の勢い（慣性力）」</strong>と<strong>「流体の粘り気（粘性力）」</strong>の力比べを表す数値です。
+                                <ul>
+                                    <li><strong>慣性力（分子）:</strong> 流体がその勢いのまま、まっすぐ進み続けようとする力。物体の速度が速いほど、また流体が重い（密度が高い）ほど大きくなります。</li>
+                                    <li><strong>粘性力（分母）:</strong> 流体のネバネバ、ドロドロした性質による力。流れにくさ、内部の摩擦を表します。ハチミツは粘性が高く、水は低いです。</li>
+                                </ul>
+                                
                             </div>
-                        </div>
-                        <div class="solution-step">
-                            <strong>問題:</strong> 小球の抗力係数$C_D$とレイノルズ数Reの正しい関係は？<br><br>
-                            <strong>ヒント:</strong><br>
-                            - 小球の場合、Reが小さいと$C_D$は大きく、Reが大きくなるほど$C_D$は減っていくよ。<br>
-                            - 選択肢は見えないけど、多分「Reが増えると$C_D$が減るグラフ」が正解。
-                        </div>
-                        <span class="answer-highlight">答え: 正しい関係は**b)（減少する曲線）**</span>
+                            <div class="solution-step">
+                                <strong>レイノルズ数と抗力係数の関係の詳細解析</strong><br>
+                                レイノルズ数の値によって、流れの特性と抗力係数が大きく変化します。以下に各領域での特徴を詳しく説明します。
+                            </div>
+                            
+                            <!-- レイノルズ数領域1：ストークス領域 -->
+                            <div class="point-box" style="border-left: 4px solid #3B82F6; background: linear-gradient(135deg, #EBF8FF 0%, #DBEAFE 100%);">
+                                <div class="section-title" style="color: #1E40AF;">
+                                    <i class="fas fa-tint mr-2"></i><strong>1. レイノルズ数が小さい時（Re &lt; 1）- ストークス領域</strong>
+                                </div>
+                                <div style="margin-left: 20px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.7);">
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-info-circle mr-2" style="color: #3B82F6;"></i><strong style="color: #1E40AF;">物理的意味:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            粘性力が慣性力に圧勝している状態です。ハチミツの中をビーズがゆっくり沈んでいくような、ねっとりとした流れをイメージしてください。
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-wind mr-2" style="color: #10B981;"></i><strong style="color: #059669;">流れの特徴:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            非常に滑らかで規則正しい「層流」になります。流体粒子は乱れることなく、整然と流れます。
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-chart-line mr-2" style="color: #F59E0B;"></i><strong style="color: #D97706;">抗力係数:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            レイノルズ数に反比例して大きくなります（$C_D = \frac{24}{Re}$）。流れがネバネバでまとわりつくため、抵抗が大きくなります。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- レイノルズ数領域2：ニュートン域 -->
+                            <div class="point-box" style="border-left: 4px solid #10B981; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);">
+                                <div class="section-title" style="color: #065F46;">
+                                    <i class="fas fa-balance-scale mr-2"></i><strong>2. レイノルズ数が中程度の時（10³ &lt; Re &lt; 2×10⁵）- ニュートン域</strong>
+                                </div>
+                                <div style="margin-left: 20px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.7);">
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-info-circle mr-2" style="color: #10B981;"></i><strong style="color: #065F46;">物理的意味:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            慣性力が強くなり、粘性力の影響が相対的に小さくなります。日常的に観察される多くの流れがこの領域に該当します。
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-wind mr-2" style="color: #3B82F6;"></i><strong style="color: #1E40AF;">流れの特徴:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            物体の後ろで流れが剥がれ、渦が発生し始めます。物体周りの流れが複雑になります。
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-chart-line mr-2" style="color: #F59E0B;"></i><strong style="color: #D97706;">抗力係数:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            ある程度まで下がった後、ほぼ一定の値（約0.4〜0.5）になります。この領域を「ニュートン域」と呼びます。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- レイノルズ数領域3：抵抗の危機 -->
+                            <div class="point-box" style="border-left: 4px solid #EF4444; background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%);">
+                                <div class="section-title" style="color: #991B1B;">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i><strong>3. レイノルズ数が非常に大きい時（Re &gt; 3×10⁵）- 抵抗の危機</strong>
+                                </div>
+                                <div style="margin-left: 20px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.7);">
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-info-circle mr-2" style="color: #EF4444;"></i><strong style="color: #991B1B;">物理的意味:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            慣性力が圧倒的に支配的になります。高速で運動する物体周りの流れに相当します。
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 12px;">
+                                        <i class="fas fa-wind mr-2" style="color: #3B82F6;"></i><strong style="color: #1E40AF;">流れの特徴:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            物体表面の流れ（境界層）が、滑らかな層流から乱れた「乱流」に変化します。これが「境界層遷移」と呼ばれる現象です。
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 15px;">
+                                        <i class="fas fa-chart-line mr-2" style="color: #F59E0B;"></i><strong style="color: #D97706;">抗力係数:</strong><br>
+                                        <div style="margin-left: 25px; margin-top: 5px;">
+                                            急激にガクンと下がります。これは<strong style="color: #991B1B;">「抵抗の危機（drag crisis）」</strong>と呼ばれる現象です。
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 抵抗の危機のメカニズム説明 -->
+                                    <div style="background: #FFF7ED; border: 2px dashed #F59E0B; border-radius: 8px; padding: 12px; margin-top: 10px;">
+                                        <div style="color: #C2410C; font-weight: bold; margin-bottom: 8px;">
+                                            <i class="fas fa-cogs mr-2"></i>抵抗の危機のメカニズム:
+                                        </div>
+                                        <div style="margin-left: 15px; color: #92400E;">
+                                            乱流になった方が、意外にも物体の後ろにできる渦の領域（後流）が小さくなり、結果として全体の抵抗が減るために起こります。ゴルフボールのデコボコ（ディンプル）は、意図的にこの現象を低いレイノルズ数で起こして空気抵抗を減らし、飛距離を伸ばすための工夫です。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <strong>結論：レイノルズ数が大きいとどうなる？</strong><br>
+                                まとめると、レイノルズ数が大きいということは、<strong>「粘性力に比べて慣性力が圧倒的に強い」</strong>状態を意味します。<br><br>
+                                その結果、流れは以下のような特徴を示します：
+                                <ul>
+                                    <li><strong>乱流化:</strong> 流れは滑らかさを失い、不規則で、渦を巻くような乱れた「乱流」になります。エネルギーの散逸が激しくなります。</li>
+                                    <li><strong>予測困難性:</strong> 各流体粒子がバラバラに動こうとする力が強くなるため、流れは複雑で予測が困難になります。数値計算も困難になります。</li>
+                                    <li><strong>混合促進:</strong> 乱流による混合効果が大きくなり、熱や物質の移動が促進されます。</li>
+                                </ul>
+                                <p class="mt-3"><strong>身近な例での理解:</strong><br>
+                                ゆっくり流れる小川は水面が滑らか（低レイノルズ数・層流）ですが、激しく流れる急流は白く泡立ち、渦を巻いていますよね（高レイノルズ数・乱流）。これがレイノルズ数の大小による流れの違いの典型例です。</p>
+                            </div>
+                            
+</div>
+                            <span class="answer-highlight">答え: 正しい関係は<strong>b)（減少する曲線）</strong></span>
+                        
                         
                         <!-- 小問(4) -->
                         <div class="example-box">
-                            <div class="section-title">
-                                <h3>(4) 流線の式</h3>
+                            <div class="section-title">(4) $t > 4$のときの流線を$y = f(x)$で表せ。</div>
+                        </div>
+                        <div class="point-box">
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <p>流線は瞬間的な流れの方向を表す線です。速度場$(u,v) = (\frac{k}{x}, -ky)$から流線方程式を立てて解きます。</p>
+                        </div>
+                        <div>
+                            <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
+                            <div class="solution-step">
+                                <strong>流線方程式の設定</strong><br>
+                                流線上では、接線方向が速度ベクトルと一致するため：
+                                $$\frac{dy}{dx} = \frac{v}{u} = \frac{-ky}{\frac{k}{x}} = -xy$$
                             </div>
+                            <div class="solution-step">
+                                <strong>変数分離法で解く</strong><br>
+                                微分方程式を変数分離します：
+                                $$\frac{dy}{y} = -x dx$$
+                                両辺を積分すると：
+                                $$\int \frac{dy}{y} = \int -x dx$$
+                                $$\ln|y| = -\frac{x^2}{2} + C$$
+                            </div>
+                            <div class="solution-step">
+                                <strong>最終解の導出</strong><br>
+                                積分定数をCからAに置き換えて：
+                                $$y = A e^{-\frac{x^2}{2}}$$
+                                ここで、Aは任意の定数です。
+                            </div>
+                            <span class="answer-highlight">答え: $y = A e^{-\frac{x^2}{2}}$（Aは定数）</span>
                         </div>
-                        <div class="solution-step">
-                            <strong>問題:</strong> t > 4のときの流線をy = f(x)で表して。<br><br>
-                            <strong>解き方:</strong><br>
-                            - 流線は「瞬間的な流れの線」で、速度場$(u,v) = (k/x, -k y)$から計算。<br>
-                            - 流線の式は$\frac{dy}{dx} = \frac{v}{u} = -x y$→ 変数分離で解くと…<br><br>
-                            $$\frac{dy}{y} = -x dx$$
-                            $$\ln|y| = -\frac{x^2}{2} + C$$
-                            $$y = A e^{-x^2/2} \quad (A\text{は定数})$$
-                        </div>
-                        <span class="answer-highlight">答え: $y = A e^{-x^2 / 2}$（Aは定数）</span>
                     </div>
                     
                     <div class="point-box">
@@ -207,10 +352,10 @@
                         </div>
                         <div class="solution-step">
                             二次元非圧縮粘性流れのナビエ・ストークス方程式（x成分）を記述します。定常流のため時間微分項はゼロです。
-                            $$\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+                            $$\rho \left(\frac{\partial u}{\partial t} +  u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
                             （μは粘度、ν = μ/ρ、定常のため∂u/∂t = 0）
                         </div>
-                        <span class="answer-highlight">答え: $\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$</span>
+                        <span class="answer-highlight">答え: $\rho \left(\frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$</span>
                         
                         <!-- 小問(2) -->
                         <div class="example-box">
@@ -218,18 +363,62 @@
                                 <h3>(2) ナビエ・ストークス方程式をUとDを使って無次元化せよ</h3>
                             </div>
                         </div>
+                       
                         <div class="solution-step">
-                            無次元化のスケールを設定します：長さD、速度U、圧力ρU²（動圧を基準）<br>
-                            無次元変数を定義：
-                            $$x^* = \frac{x}{D}, \quad y^* = \frac{y}{D}, \quad u^* = \frac{u}{U}, \quad v^* = \frac{v}{U}, \quad p^* = \frac{p - p_\infty}{\rho U^2}$$
-                            
-                            元の方程式に無次元変数を代入し、$\frac{\rho U^2}{D}$で割ると：
-                            $$u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)$$
-                            
-                            ここで、レイノルズ数Re = UD/νが現れます。
+                            <strong>Step 1: 無次元量の定義</strong><br>
+                            以下の無次元量を定義します：
+                            <ul>
+                                <li>$x^* = \frac{x}{D}$, $y^* = \frac{y}{D}$ （長さ：代表長さDで割る）</li>
+                                <li>$u^* = \frac{u}{U}$, $v^* = \frac{v}{U}$ （速度：代表速度Uで割る）</li>
+                                <li>$p^* = \frac{p}{\rho U^2}$ （圧力：動圧で割る）</li>
+                            </ul>
                         </div>
-                        <span class="answer-highlight">答え: $u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \nabla^{*2} u^*$、pの無次元化に用いた物理量：**ρU²**</span>
                         
+                        <div class="solution-step">
+                            <strong>Step 2: 微分演算子の変換</strong><br>
+                            微分演算子を無次元変数で表すと：
+                            <ul>
+                                <li>$\frac{\partial}{\partial x} = \frac{1}{D} \frac{\partial}{\partial x^*}$</li>
+                                <li>$\frac{\partial}{\partial y} = \frac{1}{D} \frac{\partial}{\partial y^*}$</li>
+                                <li>$\frac{\partial^2}{\partial x^2} = \frac{1}{D^2} \frac{\partial^2}{\partial x^{*2}}$ </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>Step 3: 各項の変換</strong><br>
+                            <strong>慣性項：</strong><br>
+                            $$u \frac{\partial u}{\partial x} = (U u^*) \frac{\partial}{\partial x} (U u^*) = \frac{U^2}{D} u^* \frac{\partial u^*}{\partial x^*}$$
+                            $$v \frac{\partial u}{\partial y} = \frac{U^2}{D} v^* \frac{\partial u^*}{\partial y^*}$$
+                            
+                            <strong>圧力項：</strong><br>
+                            $$-\frac{1}{\rho} \frac{\partial p}{\partial x} = -\frac{1}{\rho} \frac{\partial}{\partial x} (\rho U^2 p^*) = -\frac{U^2}{D} \frac{\partial p^*}{\partial x^*}$$
+                            
+                            <strong>粘性項：</strong><br>
+                            $$\nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) = \frac{\nu U}{D^2} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)$$
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>Step 4: 全体を$U^2/D$で割って整理</strong><br>
+                            全ての項を$U^2/D$で割ると：
+                            $$u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = - \frac{\partial p^*}{\partial x^*} + \frac{\nu}{U D} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)$$
+                            
+                            ここで、$\frac{\nu}{U D} = \frac{1}{Re}$（Reはレイノルズ数）
+                        </div>
+                        
+                        <div class="solution-step">
+                            <strong>最終形：無次元化されたx方向運動方程式</strong><br>
+                            $$\boxed{u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = - \frac{\partial p^*}{\partial x^*} + \frac{1}{Re} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)}$$
+                            
+                            <strong>重要なポイント：</strong>
+                            <ul>
+                                <li>レイノルズ数$Re = \frac{UD}{\nu}$が唯一のパラメータとして現れる</li>
+                                <li>無次元化により、問題の物理的スケールが明確になる</li>
+                                <li>$1/Re$の項が粘性効果の相対的重要性を表す</li>
+                            </ul>
+                        </div>
+                        <span class="answer-highlight">答え:$$\boxed{u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = - \frac{\partial p^*}{\partial x^*} + \frac{1}{Re} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)}$$
+                                                        pの無次元化に用いた物理量：$\rho U²$</span>
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -262,17 +451,51 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            τ_yを無次元化します。せん断応力の無次元化にはスケールμU/Dを使用：
-                            $$\tau_y^* = \frac{\tau_y}{\mu U / D}$$
-                            
-                            (4)の式を無次元変数で表すと：
-                            $$\tau_y = \frac{\mu U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
-                            
-                            したがって無次元せん断応力は：
-                            $$\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$$
+                            <h4>ステップ: (4)の式 τ を Re と無次元量で整理</h4>
+                            <p>元の定義（ニュートン流体のせん断応力）:</p>
+                            <p>
+                                $$\tau_{xy} = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$$
+                            </p>
+                            <ul>
+                                <li>μ は<strong>粘性係数（動粘度）</strong>で、<span style="white-space:nowrap;">μ = ρν</span></li>
+                                <li>ν は<strong>動粘性係数</strong></li>
+                            </ul>
+
+                            <h5>無次元量の定義</h5>
+                            <ul>
+                                <li>u = U u^*, v = U v^*</li>
+                                <li>x = D x^*, y = D y^*</li>
+                            </ul>
+                            <p>したがって微分は</p>
+                            <ul>
+                                <li>$$\dfrac{\partial u}{\partial y} = \dfrac{U}{D} \dfrac{\partial u^*}{\partial y^*}$$</li>
+                                <li>$$\dfrac{\partial v}{\partial x} = \dfrac{U}{D} \dfrac{\partial v^*}{\partial x^*}$$</li>
+                            </ul>
+
+                            <h5>代入して整理</h5>
+                            <p>
+                                $$\tau_{xy} = \mu \frac{U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
+                            </p>
+
+                            <h5>μ を ρ, ν に置き換え</h5>
+                            <p>
+                                $$\tau_{xy} = \rho \, \nu \, \frac{U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
+                            </p>
+
+                            <h5>レイノルズ数 Re の導入</h5>
+                            <p>
+                                $$Re = \frac{UD}{\nu} \quad \Rightarrow \quad \nu = \frac{UD}{Re}$$
+                            </p>
+                            <p>
+                                $$\therefore\; \tau_{xy} = \rho \, \frac{U^2}{Re} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
+                            </p>
+
+                            <div class="answer-highlight" style="display:inline-block; margin-top: 6px;">
+                                $$\boxed{\tau_{xy} = \frac{\rho U^2}{Re} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)}$$
+                            </div>
                         </div>
-                        <span class="answer-highlight">答え: $\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$</span>
-                        
+                        <span class="answer-highlight">答え:$\tau_{xy} = \frac{\rho U^2}{Re} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$</span>
+
                         <!-- 小問(6) -->
                         <div class="example-box">
                             <div class="section-title">
