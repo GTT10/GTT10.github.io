@@ -16,7 +16,7 @@
         // MathJaxの数式表示設定
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']], // インライン数式 \( ... \)
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // インライン数式 $...$ と \( ... \) を追加
                 displayMath: [['$$', '$$'], ['\\[', '\\]']] // ディスプレイ数式 $$ ... $$ または \[ ... \]
             },
             svg: {
@@ -85,13 +85,15 @@
                         <div class="solution-step">
                             <strong>考え方：</strong><br>
                             円柱では断面積が一定なので、計算が比較的単純です。下端からx の高さにある断面には、それより下にある部分（長さxの円柱）の重さがかかります。
-                            
-                            <strong>応力の計算：</strong><br>
-                            - 断面積：\(A = \frac{\pi d_0^2}{4}\)<br>
-                            - 下端からxまでの重さ：\(W(x) = \rho g A x\)<br>
-                            - 応力：\(\sigma_{AB}(x) = \frac{W(x)}{A} = \rho g x\)
-                            
-                            <strong>伸びの計算：</strong><br>
+                        </div>
+                        <div class="solution-step">
+                            <strong>応力の計算</strong><br>
+                             断面積：\(A = \frac{\pi d_0^2}{4}\)<br>
+                             下端からxまでの重さ：\(W(x) = \rho g A x\)<br>
+                             応力：\(\sigma_{AB}(x) = \frac{W(x)}{A} = \rho g x\)
+                        </div>
+                        <div class="solution-step">
+                            <strong>伸びの計算</strong><br>
                             微小部分\(dx\)の伸び：\(d\delta = \frac{\sigma_{AB}(x)}{E} dx = \frac{\rho g x}{E} dx\)<br>
                             全体の伸び：
                             $$\delta_{AB} = \int_0^l \frac{\rho g x}{E} dx = \frac{\rho g}{E} \left[\frac{x^2}{2}\right]_0^l = \frac{\rho g l^2}{2E}$$
@@ -107,16 +109,19 @@
                         <div class="solution-step">
                             <strong>考え方：</strong><br>
                             円錐では断面積が位置によって変化します。下端で直径0、上端で直径\(d_0\)なので、断面積は高さに比例して変化します。
-                            
+                        </div>
+                        <div class="solution-step">    
                             <strong>断面積の変化：</strong><br>
-                            - 直径：\(d(x) = \frac{d_0}{l} x\)<br>
-                            - 断面積：\(A(x) = \frac{\pi d(x)^2}{4} = \frac{\pi d_0^2 x^2}{4l^2}\)
-                            
+                             直径：\(d(x) = \frac{d_0}{l} x\)<br>
+                            断面積：\(A(x) = \frac{\pi d(x)^2}{4} = \frac{\pi d_0^2 x^2}{4l^2}\)
+                        </div>
+                        <div class="solution-step">
                             <strong>応力の計算：</strong><br>
-                            - 下端からxまでの体積（小さな円錐）：\(V(x) = \frac{1}{3} A(x) x\)<br>
-                            - 重さ：\(W(x) = \rho g V(x) = \rho g \frac{1}{3} A(x) x\)<br>
-                            - 応力：\(\sigma_{CD}(x) = \frac{W(x)}{A(x)} = \frac{\rho g x}{3}\)
-                            
+                             下端からxまでの体積（小さな円錐）：\(V(x) = \frac{1}{3} A(x) x\)<br>
+                             重さ：\(W(x) = \rho g V(x) = \rho g \frac{1}{3} A(x) x\)<br>
+                             応力：\(\sigma_{CD}(x) = \frac{W(x)}{A(x)} = \frac{\rho g x}{3}\)
+                        </div>
+                        <div class="solution-step">
                             <strong>伸びの計算：</strong><br>
                             $$\delta_{CD} = \int_0^l \frac{\sigma_{CD}(x)}{E} dx = \int_0^l \frac{\rho g x}{3E} dx = \frac{\rho g l^2}{6E}$$
                         </div>
@@ -128,21 +133,104 @@
                                 <h3>(3) 切れた円錐EFの応力と伸び</h3>
                             </div>
                         </div>
+                        <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                        <p>1. 切れた円錐の断面積 $ A(x) $ を求める
+   下端からの距離 $ x $ における直径 $ d(x) $ を線形補間し，  
+   $ A(x) = \frac{\pi}{4} [d(x)]^2 $ を求める。
+
+2. その高さ $ x $ で受ける「上側部分の重さ」を求める。  
+   $$\sigma(x) = \frac{W_{\text{上部}}}{A(x)}$$  
+   （上部の重さ＝密度 $\rho$ × 体積 × g）
+
+3. 応力分布が求まったら伸びを計算  
+   伸び $\delta$ は  
+   $$
+   \delta = \int_0^l \frac{\sigma(x)}{E}\, dx
+   $$
+   で求める（断面積変化に注意）。
+</p>
+                    </div>
                         <div class="solution-step">
-                            <strong>考え方：</strong><br>
-                            切れた円錐（円錐台）は、大きな円錐から小さな円錐を切り取った形状です。下端で直径\(d_0/2\)、上端で直径\(d_0\)となります。
-                            
-                            <strong>断面積の変化：</strong><br>
-                            - 直径：\(d(x) = \frac{d_0}{2} + \frac{d_0 x}{2l}\)<br>
-                            - 断面積：\(A(x) = \frac{\pi d(x)^2}{4}\)
-                            
-                            <strong>応力の計算：</strong><br>
-                            複雑な計算を経て、応力は以下のようになります：
-                            $$\sigma_{EF}(x) = \frac{\rho g}{3} \left( (x+l) - \frac{l^3}{(x+l)^2} \right)$$
-                            
-                            <strong>伸びの計算：</strong><br>
-                            $$\delta_{EF} = \int_0^l \frac{\sigma_{EF}(x)}{E} dx = \frac{\rho g l^2}{3E}$$
+                            <strong>1. 直径の線形変化</strong><br>
+                            上端E（\(x=l\)）の直径：\(d_0\)<br>
+                            下端F（\(x=0\)）の直径：\(d_0/2\)<br>
+                            線形補間より
+                            $$
+                            d(x) = \frac{d_0}{2} + \left( d_0 - \frac{d_0}{2} \right) \frac{x}{l}
+                            = \frac{d_0}{2} + \frac{d_0}{2} \cdot \frac{x}{l}
+                            = \frac{d_0}{2} \left( 1 + \frac{x}{l} \right)
+                            $$
                         </div>
+                        <div class="solution-step">
+                            <strong>2. 断面積</strong><br>
+                            $$
+                            A(x) = \frac{\pi}{4} [d(x)]^2
+                            = \frac{\pi}{4} \left[ \frac{d_0}{2} \left(1 + \frac{x}{l} \right) \right]^2
+                            = \frac{\pi d_0^2}{16} \left(1 + \frac{x}{l} \right)^2
+                            = \frac{\pi d_0^2}{16 l^2} \left(l + x \right)^2
+                            $$
+                        </div>
+                        <div class="solution-step">
+
+                            <strong>3. 下端からの自重 \(F(x)\) の計算</strong><br>
+                            位置\(x\)での応力は、その位置より下部（0から\(x\)まで）の自重が断面積\(A(x)\)にかかる引張力として発生します。まず、下部の質量を積分で求めます。
+                            
+                            下部の体積は \( \int_0^x A(s)\,ds \)、質量は \(\rho\) 倍、自重力は \(\rho g\) 倍。
+                            
+                            $$
+                            \int_0^x A(s) \, ds = \int_0^x \pi \frac{d_0^2 (s + l)^2}{16 l^2} \, ds = \pi \frac{d_0^2}{16 l^2} \int_0^x (s + l)^2 \, ds
+                            $$
+                            
+                            積分: $$ \int (s + l)^2 \, ds = \frac{(s + l)^3}{3} \Big|_0^x = \frac{(x + l)^3}{3} - \frac{l^3}{3} $$
+                            
+                            よって，体積：
+                            $$
+                            \pi \frac{d_0^2}{16 l^2} \cdot \frac{1}{3} \left[ (x + l)^3 - l^3 \right]
+                            $$
+                            
+                            自重力：
+                            $$
+                            F(x) = \rho g \cdot \pi \frac{d_0^2}{16 l^2} \cdot \frac{1}{3} \left[ (x + l)^3 - l^3 \right]
+                            $$
+                        </div>
+                        <div class="solution-step">
+                            <strong>4. 応力 \(\sigma_{EF}(x)\) の導出</strong><br>
+                            応力は \(\sigma(x) = F(x)/A(x)\)。
+                            
+                            $$
+                            \sigma_{EF}(x) = \frac{ \rho g \cdot \pi \frac{d_0^2}{16 l^2} \cdot \frac{1}{3} \left[ (x + l)^3 - l^3 \right] }{ \pi \frac{d_0^2 (x + l)^2}{16 l^2} } = \rho g \cdot \frac{1}{3} \cdot \frac{ (x + l)^3 - l^3 }{ (x + l)^2 }
+                            $$
+                            
+                            整理すると，
+                            
+                            $$
+                            \sigma_{EF}(x) = \frac{\rho g}{3} \left[ (x + l) - \frac{l^3}{(x + l)^2} \right]
+                            $$
+                            
+                            すなわち \( \frac{ (x + l)^3 - l^3 }{ (x + l)^2 } = (x + l) - \frac{ l^3 }{ (x + l)^2 } \) です。
+                        </div>
+                        <div class="solution-step">   
+                            <strong>5. 全体の伸び \(\delta_{EF}\) の導出</strong><br>
+                            フックの法則より，微小要素の伸び \( d\delta = \sigma(x)\,dx/E \)。全体で積分：
+                            
+                            $$
+                            \delta_{EF} = \int_0^l \frac{\sigma_{EF}(x)}{E} \, dx = \frac{\rho g}{3E} \int_0^l \left[ (x + l) - \frac{l^3}{(x + l)^2} \right] \, dx
+                            $$
+                            
+                            積分を2つに分ける：
+                            
+                            第1項: $$ \int_0^l (x + l) \, dx = \left[ \frac{x^2}{2} + l x \right]_0^l = \frac{l^2}{2} + l^2 = \frac{3 l^2}{2} $$
+                            
+                            第2項: $$ -\int_0^l \frac{l^3}{(x + l)^2} \, dx = - l^3 \int_0^l (x + l)^{-2} \, dx = - l^3 \left[ -\frac{1}{x + l} \right]_0^l = l^3 \left[ \frac{1}{x + l} \right]_0^l = l^3 \left( \frac{1}{2l} - \frac{1}{l} \right) = l^3 \left( -\frac{1}{2l} \right) = -\frac{l^2}{2} $$
+                            
+                            よって合計は \(l^2\)。
+                            $$
+                            \delta_{EF} = \frac{\rho g}{3E} \cdot l^2 = \frac{\rho g l^2}{3E}
+                            $$
+                            
+                            </div>
+                        
                         <span class="answer-highlight">答え: 応力 \(\sigma_{EF}(x) = \frac{\rho g}{3} \left( (x+l) - \frac{l^3}{(x+l)^2} \right)\)、伸び \(\delta_{EF} = \frac{\rho g l^2}{3E}\)</span>
                     </div>
                     
@@ -252,8 +340,100 @@
                             - A点（x=0）：たわみ = 0（単純支持）
                             - B点（x=l）：たわみ = 0（固定端）
                             - B点（x=l）：たわみ角 = 0（固定端）
-                            
-                            これらの条件から積分定数と未知反力を決定します。
+                        </div>
+                        <div class="accordion" id="alt-solution-2">
+                            <div class="accordion-header" onclick="toggleAccordion('alt-solution-2')">
+                                <span>計算過程</span>
+                                <span class="accordion-arrow">▶</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="mb-2">
+                                    
+この梁は静定ではない（不静定度1）ので、力の釣合いだけでは解けず、変形の適合条件（境界条件）を使って解きます。等分布荷重 $ q $ は下向き正とします。
+
+<strong>ステップ1: 静的釣合い式の確認</strong>
+- y方向の力の釣合い（下向き正）: $ R_A + R_B = q l $ （これは(1)の答え）。
+- モーメントの釣合い（A点周り、反時計回り正）: B端の $ M_B $ と荷重のモーメントを考慮。実際には不静定なので、後で使います。
+
+<strong>ステップ2: 曲げモーメント $ M(x) $ の式（(2)の答え）</strong>
+位置 $ x $ （Aから右向き）での $ M(x) $ は、 $ R_A $ の寄与と分布荷重の寄与から:
+$$
+M(x) = R_A x - \frac{q x^2}{2}
+$$
+（分布荷重のモーメントは $ \int_0^x q \cdot s \, ds = \frac{q x^2}{2} $、符号は反時計回り正でマイナス）。
+
+注: B端での $ M(l) = M_B $、つまり $ M_B = R_A l - \frac{q l^2}{2} $。これを後で使います。
+
+<strong>ステップ3: 微分方程式の設定と積分</strong>
+撓みの微分方程式: $ EI \frac{d^2 y}{dx^2} = M(x) $ （y下向き正のconvention）。
+$$
+\frac{d^2 y}{dx^2} = \frac{1}{EI} \left( R_A x - \frac{q x^2}{2} \right)
+$$
+
+- 1回積分（傾き $ y' $）:
+$$
+\frac{dy}{dx} = \frac{1}{EI} \left( \frac{R_A x^2}{2} - \frac{q x^3}{6} \right) + C_1
+$$
+
+- 2回積分（撓み $ y $）:
+$$
+y(x) = \frac{1}{EI} \left( \frac{R_A x^3}{6} - \frac{q x^4}{24} \right) + C_1 x + C_2
+$$
+
+<strong>ステップ4: 境界条件の適用</strong>
+- 条件1: $ x = 0 $ で $ y(0) = 0 $ （A端単純支持、撓みゼロ）:
+$$
+y(0) = \frac{1}{EI} (0) + C_1 \cdot 0 + C_2 = 0 \quad \Rightarrow \quad C_2 = 0
+$$
+
+- 条件2: $ x = l $ で $ y'(l) = 0 $ （B端固定、回転ゼロ）:
+$$
+y'(l) = \frac{1}{EI} \left( \frac{R_A l^2}{2} - \frac{q l^3}{6} \right) + C_1 = 0
+$$
+$$
+C_1 = -\frac{1}{EI} \left( \frac{R_A l^2}{2} - \frac{q l^3}{6} \right)
+$$
+
+- 条件3: $ x = l $ で $ y(l) = 0 $ （B端固定、撓みゼロ）:
+$$
+y(l) = \frac{1}{EI} \left( \frac{R_A l^3}{6} - \frac{q l^4}{24} \right) + C_1 l = 0
+$$
+ここに $ C_1 $ を代入:
+$$
+\frac{1}{EI} \left( \frac{R_A l^3}{6} - \frac{q l^4}{24} \right) + l \left[ -\frac{1}{EI} \left( \frac{R_A l^2}{2} - \frac{q l^3}{6} \right) \right] = 0
+$$
+
+<strong>ステップ5: 方程式の整理と $ R_A $ の解</strong>
+EIをかけて簡略化:
+$$
+\frac{R_A l^3}{6} - \frac{q l^4}{24} - l \left( \frac{R_A l^2}{2} - \frac{q l^3}{6} \right) = 0
+$$
+展開:
+$$
+\frac{R_A l^3}{6} - \frac{q l^4}{24} - \frac{R_A l^3}{2} + \frac{q l^4}{6} = 0
+$$
+$$ R_A $$ 項の結合: $$ R_A l^3 \left( \frac{1}{6} - \frac{1}{2} \right) = R_A l^3 \left( \frac{1}{6} - \frac{3}{6} \right) = -\frac{1}{3} R_A l^3 $$
+$$ q $$ 項の結合: $$ -\frac{q l^4}{24} + \frac{q l^4}{6} = q l^4 \left( -\frac{1}{24} + \frac{4}{24} \right) = \frac{3}{24} q l^4 = \frac{1}{8} q l^4 $$
+よって:
+$$
+-\frac{1}{3} R_A l^3 + \frac{1}{8} q l^4 = 0
+$$
+$$
+\frac{1}{3} R_A l^3 = \frac{1}{8} q l^4
+$$
+$$
+R_A = \frac{1}{8} q l^4 \cdot \frac{3}{l^3} = \frac{3}{8} q l
+$$
+
+<strong>ステップ6: $ R_B $ と $ M_B $ の計算</strong>
+- $ R_B $: 力の釣合いから $ R_B = q l - R_A = q l - \frac{3}{8} q l = \frac{5}{8} q l $
+- $ M_B $: $ M_B = R_A l - \frac{q l^2}{2} = \frac{3}{8} q l \cdot l - \frac{q l^2}{2} = \frac{3}{8} q l^2 - \frac{4}{8} q l^2 = -\frac{1}{8} q l^2 $
+
+これで(3)の答えです。$$ M_B $$ の負符号は、B端で時計回りの反応が必要なためです（図の方向によるが、絶対値は $$ \frac{1}{8} q l^2 $$）。
+
+
+                                </div>
+                            </div>
                         </div>
                         <div class="solution-step">
                             <strong>計算結果：</strong><br>
@@ -272,17 +452,44 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            <strong>最大モーメントの探索：</strong><br>
-                            曲げモーメントの最大値は以下の位置で生じる可能性があります：
-                            
-                            1. **せん断力が0になる点：** \(V(x) = R_A - qx = 0\)より\(x = \frac{3l}{8}\)
-                            2. **固定端B：** \(x = l\)
-                            
-                            各点でのモーメントの大きさを比較します：
-                            - \(x = \frac{3l}{8}\)でのモーメント：\(M = \frac{9ql^2}{128}\)
-                            - B点でのモーメント：\(|M_B| = \frac{ql^2}{8}\)
-                            
-                            $$\frac{ql^2}{8} > \frac{9ql^2}{128}$$
+                            <strong>ステップ1: 曲げモーメント\(M(x)\)の式を準備</strong><br>
+                            (2)の結果から、点A（\(x=0\)）から距離\(x\)での曲げモーメントは:
+                            $$
+                            M(x) = R_A x - \frac{q x^2}{2}
+                            $$
+                            ここに\(R_A = \frac{3}{8} q l\)を代入:
+                            $$
+                            M(x) = \frac{3}{8} q l \cdot x - \frac{q x^2}{2}
+                            $$
+                            これは二次関数で、\(x\)に対する放物線を描きます。モーメントの正方向は反時計回り正と仮定（ただし、後で絶対値を取るので符号は調整可能）。
+                        </div>
+                        <div class="solution-step">
+                            <strong>ステップ2: モーメントの極値位置を求める（微分で）</strong><br>
+                            モーメントの最大・最小を求めるために、\(M(x)\)を\(x\)で微分して0に置きます:
+                            $$
+                            \frac{dM}{dx} = \frac{3}{8} q l - q x = 0
+                            $$
+                            $$
+                            q x = \frac{3}{8} q l \quad \Rightarrow \quad x = \frac{3}{8} l
+                            $$
+                            この位置で極値が発生します。二階微分\(\frac{d^2 M}{dx^2} = -q < 0\)なので極大です。
+                        </div>
+                        <div class="solution-step">
+                            <strong>ステップ3: 各点でのモーメント値を計算</strong><br>
+                            主要な点でのモーメント値を計算します：
+                            <ul>
+                                <li>\(x = 0\): \(M(0) = 0\)</li>
+                                <li>\(x = \frac{3}{8}l\): \(M\left(\frac{3}{8}l\right) = \frac{9}{128} q l^2\)（正の最大）</li>
+                                <li>\(x = l\): \(M(l) = -\frac{1}{8} q l^2\)（負の最大）</li>
+                            </ul>
+                        </div>
+                        <div class="solution-step">
+                            <strong>ステップ4: 最大絶対値\(|M_{\max}|\)を決定</strong><br>
+                            正の最大\(\frac{9}{128} q l^2 = 0.0703 q l^2\)と負の最大の絶対値\(\frac{1}{8} q l^2 = 0.125 q l^2\)を比較すると、絶対値の最大はB端のものです:
+                            $$
+                            |M_{\max}| = \frac{q l^2}{8}
+                            $$
+                            これは梁の設計で重要な値で、B端の固定部が最も負荷がかかることを示します。
                         </div>
                         <span class="answer-highlight">答え: \(|M|_{max} = \frac{1}{8}ql^2\)（固定端Bで発生）</span>
                     </div>
