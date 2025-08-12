@@ -82,14 +82,16 @@
                                 <h3>(1) 端部の重りのみを考慮した場合の伸び</h3>
                             </div>
                         </div>
-                        <div class="solution-step">
-                            <strong>考え方：</strong><br>
+                        <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
                             棒の質量を無視し、端部の重りによる遠心力のみを考慮します。この場合、棒全体に一定の張力がかかります。
-                            
+                    </div>
+                        <div class="solution-step">
                             <strong>遠心力の計算：</strong><br>
-                            - 各重りの回転半径：\(r = \frac{l}{2}\)<br>
-                            - 各重りの遠心力：\(F = mr\omega^2 = m \cdot \frac{l}{2} \cdot \omega^2 = \frac{ml\omega^2}{2}\)
-                            
+                             各重りの回転半径：\(r = \frac{l}{2}\)<br>
+                             各重りの遠心力：\(F = mr\omega^2 = m \cdot \frac{l}{2} \cdot \omega^2 = \frac{ml\omega^2}{2}\)
+                        </div>
+                        <div class="solution-step">    
                             <strong>伸びの計算：</strong><br>
                             - 棒の断面積：\(A = \frac{\pi d^2}{4}\)<br>
                             - 張力：\(T = F = \frac{ml\omega^2}{2}\)（棒全体で一定）<br>
@@ -105,18 +107,22 @@
                                 <h3>(2) 棒の質量も考慮した場合の伸び</h3>
                             </div>
                         </div>
-                        <div class="solution-step">
-                            <strong>考え方：</strong><br>
+                        <div class="point-box">
+                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
                             棒自身の質量による遠心力も考慮します。この場合、張力は位置によって変化するため、積分による解析が必要です。
-                            
+                    </div>
+                        <div class="solution-step">
+                             
                             <strong>可変張力の計算：</strong><br>
-                            中心からの距離xにおける張力\(T(x)\)は：
-                            - 端部重りによる張力：\(\frac{ml\omega^2}{2}\)
-                            - 棒の外側部分による張力：\(\int_x^{l/2} (\rho A dr) r \omega^2 = \frac{\rho A \omega^2}{2}\left(\frac{l^2}{4} - x^2\right)\)
-                            
+                            中心からの距離xにおける張力\(T(x)\)は：<br>
+                            端部重りによる張力：\(\frac{ml\omega^2}{2}\)<br>
+                            棒の外側部分による張力：\(\int_x^{l/2} (\rho A dr) r \omega^2 = \frac{\rho A \omega^2}{2}\left(\frac{l^2}{4} - x^2\right)\)
+                         </div>  
+                            <div class="solution-step"> 
                             したがって：
                             $$T(x) = \frac{ml\omega^2}{2} + \frac{\rho A \omega^2}{2}\left(\frac{l^2}{4} - x^2\right)$$
-                            
+                        </div>
+                        <div class="solution-step">    
                             <strong>伸びの計算：</strong><br>
                             微小要素\(dx\)の伸び：\(d\delta = \frac{T(x)}{AE}dx\)<br>
                             
@@ -211,15 +217,35 @@
                             </div>
                         </div>
                         <div class="solution-step">
+                            各区間で断面を切り、<strong>断面の右側の部分</strong>に注目して平衡を考えます<br>
                             <strong>内部トルクの表現：</strong><br>
                             反力トルク\(T_B\)を基準として、各区間の内部トルクを表現します。
-                            
-                            - **区間DB：** \(T_{DB} = -T_B\)
-                            - **区間CD：** \(T_{CD} = T_2 - T_B\)
-                            - **区間AC：** \(T_{AC} = T_1 + T_2 - T_B\)
+                            <br>
+                            <h4><strong>DB間</strong></h4>
+                            <ul>
+                                <li>右側にはB点のT_B（時計回り）のみが作用</li>
+                                <li>平衡条件：内力 + T_B = 0</li>
+                                <li><strong>DB間のねじりモーメント = -T_B</strong></li>
+                            </ul><br>
+
+                            <h4><strong>CD間</strong></h4>
+                            <ul>
+                                <li>右側にはD点のT₂（反時計回り）とB点のT_B（時計回り）が作用</li>
+                                <li>平衡条件：内力 - T₂ + T_B = 0</li>
+                                <li><strong>CD間のねじりモーメント = T₂ - T_B</strong></li>
+                            </ul><br>
+
+                            <h4><strong>AC間</strong></h4>
+                            <ul>
+                                <li>右側にはC点のT₁（反時計回り）、D点のT₂（反時計回り）、B点のT_B（時計回り）が作用</li>
+                                <li>平衡条件：内力 - T₁ - T₂ + T_B = 0</li>
+                                <li><strong>AC間のねじりモーメント = T₁ + T₂ - T_B</strong></li>
+                            </ul><br>
                         </div>
-                        <span class="answer-highlight">答え: \(T_{DB} = -T_B\)、\(T_{CD} = T_2 - T_B\)、\(T_{AC} = T_1 + T_2 - T_B\)</span>
-                        
+                        <span class="answer-highlight">答え: $$T_{DB} = -T_B$$
+                            $$T_{CD} = T_2 - T_B$$
+                            $$T_{AC} = T_1 + T_2 - T_B$$</span>
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -230,9 +256,11 @@
                             <strong>ねじり角の計算：</strong><br>
                             ねじり角は\(\phi = \frac{TL}{GJ}\)の関係で計算されます。
                             
-                            - **区間AC：** \(\phi_{AC} = \frac{(T_1 + T_2 - T_B)a}{G_1 J}\)
-                            - **区間CD：** \(\phi_{CD} = \frac{(T_2 - T_B)b}{G_2 J}\)
-                            - **区間DB：** \(\phi_{DB} = \frac{-T_B c}{G_1 J}\)
+                            <ul>
+                                <li><strong>区間AC：</strong> \(\phi_{AC} = \frac{(T_1 + T_2 - T_B)a}{G_1 J}\)</li>
+                                <li><strong>区間CD：</strong> \(\phi_{CD} = \frac{(T_2 - T_B)b}{G_2 J}\)</li>
+                                <li><strong>区間DB：</strong> \(\phi_{DB} = \frac{-T_B c}{G_1 J}\)</li>
+                            </ul>
                         </div>
                         <span class="answer-highlight">答え: \(\phi_{AC} = \frac{(T_1 + T_2 - T_B)a}{G_1 J}\)、\(\phi_{CD} = \frac{(T_2 - T_B)b}{G_2 J}\)、\(\phi_{DB} = \frac{-T_B c}{G_1 J}\)</span>
                         
@@ -252,12 +280,14 @@
                             
                             整理すると：
                             $$T_B = \frac{aG_2(T_1 + T_2) + bG_1 T_2}{(a+c)G_2 + bG_1}$$
-                            
+                        </div>
+                        <div class="solution-step">
                             <strong>静力学的つり合い：</strong><br>
                             \(T_A + T_B = T_1 + T_2\)より：
                             $$T_A = \frac{cG_2(T_1 + T_2) + bG_1 T_1}{(a+c)G_2 + bG_1}$$
                         </div>
-                        <span class="answer-highlight">答え: \(T_A = \frac{cG_2(T_1 + T_2) + bG_1 T_1}{(a+c)G_2 + bG_1}\)、\(T_B = \frac{aG_2(T_1 + T_2) + bG_1 T_2}{(a+c)G_2 + bG_1}\)</span>
+                        <span class="answer-highlight">答え: $$T_A = \frac{cG_2(T_1 + T_2) + bG_1 T_1}{(a+c)G_2 + bG_1}$$
+                            $$T_B = \frac{aG_2(T_1 + T_2) + bG_1 T_2}{(a+c)G_2 + bG_1}$$</span>
                     </div>
                     
                     <div class="point-box">

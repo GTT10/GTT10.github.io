@@ -29,11 +29,9 @@
     <div class="page-wrapper">
         <div class="header-decoration"></div>
         
-        <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
-            <div class="header-nav">
+        <header class="page-content"> <div class="header-nav">
                 <h1 class="exam-title">
-                    <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコン -->
-                    2024（R6）年　材料力学
+                    <i class="fas fa-cube mr-3 text-blue-600"></i> 2024（R6）年　材料力学
                 </h1>
                 <div class="nav-buttons">
                     <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
@@ -43,7 +41,6 @@
         </header>
 
         <div class="page-content">
-            <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
                 <h2>問題概要</h2>
                 <p>2024年度の材料力学入試では、大問【1】で自重による伸びの計算（円柱、円錐、切れた円錐）、大問【2】で不静定はりの曲げ問題が出題されました。基礎的な応力・ひずみの関係から、複雑な梁の解析まで幅広い知識が問われる内容でした。</p>
@@ -51,15 +48,12 @@
                 <a href="../../pdfs/answer/2024_unofficial/materials_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
             </div>
             
-            <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
             <div class="exam-grid">
-                <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】自重による伸びの計算</div>
                     
-                    <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">棒自身の重さ（自重）によって生じる伸びを、3つの異なる形状（円柱、円錐、切れた円錐）について計算せよ。各部材の長さはl、密度はρ、縦弾性係数はEとする。</p>
                     </div>
@@ -76,7 +70,6 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         
-                        <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(1) 円柱ABの応力と伸び</h3>
@@ -88,9 +81,9 @@
                         </div>
                         <div class="solution-step">
                             <strong>応力の計算</strong><br>
-                             断面積：\(A = \frac{\pi d_0^2}{4}\)<br>
-                             下端からxまでの重さ：\(W(x) = \rho g A x\)<br>
-                             応力：\(\sigma_{AB}(x) = \frac{W(x)}{A} = \rho g x\)
+                            断面積：\(A = \frac{\pi d_0^2}{4}\)<br>
+                            下端からxまでの重さ：\(W(x) = \rho g A x\)<br>
+                            応力：\(\sigma_{AB}(x) = \frac{W(x)}{A} = \rho g x\)
                         </div>
                         <div class="solution-step">
                             <strong>伸びの計算</strong><br>
@@ -100,7 +93,6 @@
                         </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{AB}(x) = \rho g x\)、伸び \(\delta_{AB} = \frac{\rho g l^2}{2E}\)</span>
                         
-                        <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(2) 円錐CDの応力と伸び</h3>
@@ -112,14 +104,14 @@
                         </div>
                         <div class="solution-step">    
                             <strong>断面積の変化：</strong><br>
-                             直径：\(d(x) = \frac{d_0}{l} x\)<br>
+                            直径：\(d(x) = \frac{d_0}{l} x\)<br>
                             断面積：\(A(x) = \frac{\pi d(x)^2}{4} = \frac{\pi d_0^2 x^2}{4l^2}\)
                         </div>
                         <div class="solution-step">
                             <strong>応力の計算：</strong><br>
-                             下端からxまでの体積（小さな円錐）：\(V(x) = \frac{1}{3} A(x) x\)<br>
-                             重さ：\(W(x) = \rho g V(x) = \rho g \frac{1}{3} A(x) x\)<br>
-                             応力：\(\sigma_{CD}(x) = \frac{W(x)}{A(x)} = \frac{\rho g x}{3}\)
+                            下端からxまでの体積（小さな円錐）：\(V(x) = \frac{1}{3} A(x) x\)<br>
+                            重さ：\(W(x) = \rho g V(x) = \rho g \frac{1}{3} A(x) x\)<br>
+                            応力：\(\sigma_{CD}(x) = \frac{W(x)}{A(x)} = \frac{\rho g x}{3}\)
                         </div>
                         <div class="solution-step">
                             <strong>伸びの計算：</strong><br>
@@ -127,30 +119,27 @@
                         </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{CD}(x) = \frac{\rho g x}{3}\)、伸び \(\delta_{CD} = \frac{\rho g l^2}{6E}\)</span>
                         
-                        <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(3) 切れた円錐EFの応力と伸び</h3>
                             </div>
                         </div>
                         <div class="point-box">
-                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
-                        <p>1. 切れた円錐の断面積 $ A(x) $ を求める
-   下端からの距離 $ x $ における直径 $ d(x) $ を線形補間し，  
-   $ A(x) = \frac{\pi}{4} [d(x)]^2 $ を求める。
-
-2. その高さ $ x $ で受ける「上側部分の重さ」を求める。  
-   $$\sigma(x) = \frac{W_{\text{上部}}}{A(x)}$$  
-   （上部の重さ＝密度 $\rho$ × 体積 × g）
-
-3. 応力分布が求まったら伸びを計算  
-   伸び $\delta$ は  
-   $$
-   \delta = \int_0^l \frac{\sigma(x)}{E}\, dx
-   $$
-   で求める（断面積変化に注意）。
-</p>
-                    </div>
+                            <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
+                            <div class="hint-content">
+                                <p><strong>1. 切れた円錐の断面積を求める</strong><br>
+                                下端からの距離\(x\)における直径\(d(x)\)を線形補間し、\(A(x) = \frac{\pi}{4} [d(x)]^2\)を求める。</p>
+                                
+                                <p><strong>2. その高さで受ける「上側部分の重さ」を求める</strong><br>
+                                $$\sigma(x) = \frac{W_{\text{上部}}}{A(x)}$$
+                                （上部の重さ＝密度\(\rho\) × 体積 × g）</p>
+                                
+                                <p><strong>3. 応力分布が求まったら伸びを計算</strong><br>
+                                伸び\(\delta\)は
+                                $$\delta = \int_0^l \frac{\sigma(x)}{E}\, dx$$
+                                で求める（断面積変化に注意）。</p>
+                            </div>
+                        </div>
                         <div class="solution-step">
                             <strong>1. 直径の線形変化</strong><br>
                             上端E（\(x=l\)）の直径：\(d_0\)<br>
@@ -172,7 +161,6 @@
                             $$
                         </div>
                         <div class="solution-step">
-
                             <strong>3. 下端からの自重 \(F(x)\) の計算</strong><br>
                             位置\(x\)での応力は、その位置より下部（0から\(x\)まで）の自重が断面積\(A(x)\)にかかる引張力として発生します。まず、下部の質量を積分で求めます。
                             
@@ -210,7 +198,7 @@
                             
                             すなわち \( \frac{ (x + l)^3 - l^3 }{ (x + l)^2 } = (x + l) - \frac{ l^3 }{ (x + l)^2 } \) です。
                         </div>
-                        <div class="solution-step">   
+                        <div class="solution-step">  
                             <strong>5. 全体の伸び \(\delta_{EF}\) の導出</strong><br>
                             フックの法則より，微小要素の伸び \( d\delta = \sigma(x)\,dx/E \)。全体で積分：
                             
@@ -222,18 +210,17 @@
                             
                             第1項: $$ \int_0^l (x + l) \, dx = \left[ \frac{x^2}{2} + l x \right]_0^l = \frac{l^2}{2} + l^2 = \frac{3 l^2}{2} $$
                             
-                            第2項: $$ -\int_0^l \frac{l^3}{(x + l)^2} \, dx = - l^3 \int_0^l (x + l)^{-2} \, dx = - l^3 \left[ -\frac{1}{x + l} \right]_0^l = l^3 \left[ \frac{1}{x + l} \right]_0^l = l^3 \left( \frac{1}{2l} - \frac{1}{l} \right) = l^3 \left( -\frac{1}{2l} \right) = -\frac{l^2}{2} $$
+                            第2項: $$ -\int_0^l \frac{l^3}{(x + l)^2} \, dx = - l^3 \int_0^l (x + l)^{-2} \, dx = - l^3 \left[ -\frac{1}{x + l} \right]_0^l = l^3 \left[ \frac{1}{x + l} \right]_0^l $$
+                             $$ = l^3 \left( \frac{1}{2l} - \frac{1}{l} \right) = l^3 \left( -\frac{1}{2l} \right) = -\frac{l^2}{2} $$
                             
                             よって合計は \(l^2\)。
                             $$
                             \delta_{EF} = \frac{\rho g}{3E} \cdot l^2 = \frac{\rho g l^2}{3E}
                             $$
-                            
-                            </div>
-                        
+                        </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{EF}(x) = \frac{\rho g}{3} \left( (x+l) - \frac{l^3}{(x+l)^2} \right)\)、伸び \(\delta_{EF} = \frac{\rho g l^2}{3E}\)</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -242,7 +229,6 @@
                     </div>
 
                 </div>
-                <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -270,15 +256,11 @@
             </div>
         </div>
         
-        <!-- ===================== -->
-        <!-- ここから大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
-                <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】不静定はりの曲げ問題</div>
                     
-                    <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">一端が固定され、他端が単純支持されたはり（プロップトカンチレバー）に、単位長さあたりqの一様分布荷重が作用している。このはりについて以下の問いに答えよ。</p>
                     </div>
@@ -295,7 +277,6 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         
-                        <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(1) y方向の力のつり合い式</h3>
@@ -310,7 +291,6 @@
                         </div>
                         <span class="answer-highlight">答え: \(R_A + R_B - ql = 0\)</span>
                         
-                        <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(2) 曲げモーメントM</h3>
@@ -327,7 +307,6 @@
                         </div>
                         <span class="answer-highlight">答え: \(M(x) = R_A x - \frac{q x^2}{2}\)</span>
                         
-                        <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(3) 支持力\(R_A\), \(R_B\)、支持モーメント\(M_B\)</h3>
@@ -445,7 +424,6 @@ $$
                         </div>
                         <span class="answer-highlight">答え: \(R_A = \frac{3}{8}ql\), \(R_B = \frac{5}{8}ql\), \(M_B = \frac{1}{8}ql^2\)</span>
                         
-                        <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
                                 <h3>(4) 曲げモーメントの大きさの最大値</h3>
@@ -501,7 +479,6 @@ $$
                         <p>不静定はりの解析では、静力学のつり合い式に加えて、変形に関する境界条件を活用することが重要です。特に固定端では大きなモーメントが発生することに注意が必要です。</p>
                     </div>
                 </div>
-                <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -530,12 +507,10 @@ $$
         </div>
     </div>
 
-    <!-- サイト共通フッター -->
     <footer class="site-footer">
         © 2024 大学院入試過去問ポータル. All rights reserved.
     </footer>
 
-    <!-- 外部JavaScriptファイルを読み込む -->
     <script src="../../js/script.js"></script>
     <script>
         // アコーディオンのトグル機能 (script.jsに移動済みであれば不要)
