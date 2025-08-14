@@ -1,54 +1,128 @@
-Of course. Here are the solutions to the provided materials mechanics problems.
 
------
+### 設問(1) T字型板に関する鉛直方向と水平方向の力のつり合い式、点Oに関するモーメントのつり合い式を書け。
 
-## 【問題1】
+**解説:**
+これは静力学の基本だな。物体が静止しているとき、作用する力の合計とモーメントの合計はゼロになる。T字型板に作用する力は、外力 $P$ と、ピンA, Bからの支持力($R_A, F_A, R_B, F_B$)だ。問題文の指示通り、図に示された矢印の向きを正として式を立てていこう。
 
-This problem analyzes the forces and stresses on a T-shaped plate fixed to a wall with two pins. [cite: 13]
+*   **鉛直方向の力のつり合い ($\sum V = 0$)**
+    上向きの力はピンからの支持力 $R_A$ と $R_B$。下向きの力は外力 $P$。
+    よって、上向きの力の合計と下向きの力の合計がつり合うので、
+    $R_A + R_B = P$
 
-\<img src="/api/download\_file?file\_path=preppy-433b9b-83c9c9/user\_uploads/PAGE\_2\_材料力学.pdf.jpg" alt="Problem 1 Diagram" width="400"/\>
+*   **水平方向の力のつり合い ($\sum H = 0$)**
+    水平方向に作用する力は、ピンからの支持力 $F_A$ と $F_B$ のみだ。水平方向には他に外力がかかっていないので、これらの力の合計はゼロになる。
+    $F_A + F_B = 0$
+    （これは、$F_A$と$F_B$は大きさが同じで向きが逆であることを意味するな）
 
-### (1) つり合い式 (Equilibrium Equations)
+*   **点Oに関するモーメントのつり合い ($\sum M_O = 0$)**
+    モーメントは「力 × 腕の長さ」で計算する。反時計回りを正(+)とする。
+    *   外力Pによるモーメント: 力 $P$ が腕の長さ $l$ で作用し、時計回りに回転させる。よって $-P \times l$。
+    *   支持力FAによるモーメント: 力 $F_A$ が腕の長さ $a$ で作用し、時計回りに回転させる。よって $-F_A \times a$。
+    *   支持力FBによるモーメント: 力 $F_B$ が腕の長さ $a$ で作用し、反時計回りに回転させる。よって $+F_B \times a$。
+    *   支持力RAとRBは作用点が点Oを通るので、腕の長さがゼロ。モーメントは発生しない。
+    これらの合計がゼロになるので、
+    $F_B \times a - F_A \times a - P \times l = 0$
+    これを整理して、
+    $(F_B - F_A)a = Pl$
 
-For the T-shaped plate to be in static equilibrium, the sum of all forces and moments must be zero. [cite: 14]
+**【設問(1)の答え】**
+*   鉛直方向のつり合い式: $R_A + R_B = P$
+*   水平方向のつり合い式: $F_A + F_B = 0$
+*   点Oに関するモーメントのつり合い式: $(F_B - F_A)a = Pl$
 
-  * **Vertical Force Balance** ($\\sum F\_y = 0$):
-    $$R_A + R_B - P = 0$$
-  * **Horizontal Force Balance** ($\\sum F\_x = 0$):
-    $$F_B - F_A = 0$$
-  * **Moment Balance about Point O** ($\\sum M\_O = 0$): The external force $P$ creates a clockwise moment, while the horizontal reaction forces $F\_A$ and $F\_B$ create a counter-clockwise couple.
-    $$h F_A + h F_B - P l = 0$$
+***
 
-### (2) 支持力 (Support Forces)
+### 設問(2) T字型板がピンAから受ける支持力 $R_A$と$F_A$、ピンBから受ける支持力 $R_B$と$F_B$を求めよ。
 
-We can solve for the reaction forces using the equilibrium equations from part (1). [cite: 15]
+**解説:**
+設問(1)で立てた式を使って、これらの支持力を求めていこう。
 
-  * **Horizontal Forces ($F\_A, F\_B$):**
-    From the horizontal force balance, we know $F\_A = F\_B$. Substituting this into the moment equation:
-    $h F\_A + h F\_A - P l = 0 \\implies 2h F\_A = P l$
-    $$F_A = F_B = \frac{P l}{2h}$$
+*   **水平力 $F_A, F_B$ の計算**
+    まず、水平力$F_A, F_B$からだ。
+    水平方向のつり合い式 $F_A + F_B = 0$ より $F_B = -F_A$ となる。
+    この関係をモーメントのつり合い式 $(F_B - F_A)a = Pl$ に代入すると、
+    $(-F_A - F_A)a = Pl$
+    $-2F_A a = Pl$
+    よって、$F_A = -\frac{Pl}{2a}$
+    これを $F_B = -F_A$ に代入して、
+    $F_B = \frac{Pl}{2a}$
 
-  * **Vertical Forces ($R\_A, R\_B$):**
-    The vertical load $P$ is applied symmetrically to the supports. Due to this symmetry, the vertical reaction forces are shared equally:
-    $$R_A = R_B = \frac{P}{2}$$
+*   **鉛直力 $R_A, R_B$ の計算**
+    次に鉛直力$R_A, R_B$を求める。
+    鉛直方向のつり合い式は $R_A + R_B = P$ の一つしかない。未知数が2つなので、これだけでは解けないな。こういうのを「不静定問題」という。
+    ここでは、構造の対称性を利用する。鉛直方向の外力Pは、ピンAとBの中点であるOを通る軸上に作用している。このような場合、荷重Pは左右の支点AとBに均等に分配されると考えるのが妥当だ。
+    したがって、$R_A = R_B$ となる。
+    この関係をつり合い式 $R_A + R_B = P$ に代入すると、
+    $R_A + R_A = P \rightarrow 2R_A = P$
+    よって、$R_A = \frac{P}{2}$
+    したがって、$R_B = \frac{P}{2}$
 
-### (3) せん断応力 (Shear Stress)
+**【設問(2)の答え】**
+*   $F_A = -\frac{Pl}{2a}$
+*   $R_A = \frac{P}{2}$
+*   $F_B = \frac{Pl}{2a}$
+*   $R_B = \frac{P}{2}$
+（$F_A$が負の値になったということは、実際の力の向きは図の矢印とは逆、つまり**右向き**だということを示しているぞ。）
 
-The shear stress ($\\tau$) in each pin is the total resultant force on the pin divided by its cross-sectional area ($A\_{pin} = \\pi d^2 / 4$). [cite: 16] The total force is the vector sum of the horizontal and vertical reaction forces.
+***
 
-  * **Resultant Force on Pins:**
-    Since $F\_A = F\_B$ and $R\_A = R\_B$, the total force is the same for both pins.
-    $S\_A = S\_B = \\sqrt{R\_A^2 + F\_A^2} = \\sqrt{\\left(\\frac{P}{2}\\right)^2 + \\left(\\frac{P l}{2h}\\right)^2} = \\frac{P}{2}\\sqrt{1 + \\left(\\frac{l}{h}\\right)^2}$
+### 設問(3) ピンAとピンBに作用するせん断応力 $\tau_A$ と $\tau_B$ を求めよ。
 
-  * **Shear Stress in Pins ($\\tau\_A, \\tau\_B$):**
-    $$\tau_A = \tau_B = \frac{S_A}{A_{pin}} = \frac{\frac{P}{2}\sqrt{1 + (l/h)^2}}{\pi d^2 / 4} = \frac{2P}{\pi d^2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+**解説:**
+せん断応力 $\tau$ は、ピンに作用するせん断力 $S$ を、ピンがせん断される面の断面積 $A_{pin}$ で割って求める ($\tau = \frac{S}{A_{pin}}$)。
 
-### (4) 回転角 (Rotation Angle)
+1.  **ピンに作用するせん断力 S の計算**
+    ピンに作用するせん断力は、ピンがT字型板から受ける力の合力に等しい。
+    *   **ピンAに作用する力**:
+        T字型板がピンAから受ける力は、右向きの力 $|F_A| = \frac{Pl}{2a}$ と上向きの力 $R_A = \frac{P}{2}$ だった。作用・反作用の法則により、ピンAはT字型板から**左向き**に $\frac{Pl}{2a}$、**下向き**に $\frac{P}{2}$ の力を受ける。この2つの力の合力がせん断力 $S_A$ だ。三平方の定理で求める。
+        $S_A = \sqrt{ (\frac{Pl}{2a})^2 + (\frac{P}{2})^2 } = \sqrt{ \frac{P^2 l^2}{4a^2} + \frac{P^2}{4} } = \frac{P}{2} \sqrt{ \frac{l^2}{a^2} + 1 }$
+    *   **ピンBに作用する力**:
+        同様に、ピンBはT字型板から**右向き**に $\frac{Pl}{2a}$、**下向き**に $\frac{P}{2}$ の力を受ける。合力 $S_B$ の大きさは $S_A$ と同じになる。
+        $S_B = \frac{P}{2} \sqrt{ \frac{l^2}{a^2} + 1 }$
 
-The rotation angle $\\theta$ at point O is caused by the bending of the vertical part of the T-plate (the flange). [cite: 17] We can model the flange as a simply supported beam of length $2h$ with a concentrated moment $M\_0 = Pl$ applied at its center (O). The rotation at the center is given by:
-$$\theta = \frac{M_0 (2h)}{16 E I_v} = \frac{(Pl)(2h)}{16 E I_v} = \frac{Plh}{8EI_v}$$The moment of inertia, $I\_v$, is for the flange cross-section (width $b$, thickness $t$) bending about its vertical axis: $I\_v = \\frac{bt^3}{12}$. Substituting this in:$$\theta = \frac{Plh}{8E \left(\frac{bt^3}{12}\right)} = \frac{12Plh}{8Ebt^3} = \frac{3Plh}{2Ebt^3}$$
+2.  **ピンのせん断断面積 $A_{pin}$ の計算**
+    ピンは直径 $d$ の円形だ。T字型板によって1つの面でせん断される（単せん断）。
+    断面積 $A_{pin}$ は $A_{pin} = \pi (\frac{d}{2})^2 = \frac{\pi d^2}{4}$。
 
------
+3.  **せん断応力 $\tau$ の計算**
+    $\tau_A = \frac{S_A}{A_{pin}} = \frac{ \frac{P}{2} \sqrt{(\frac{l}{a})^2 + 1} }{ \frac{\pi d^2}{4} } = \frac{2P}{\pi d^2} \sqrt{ (\frac{l}{a})^2 + 1 }$
+    $S_A = S_B$ なので、$\tau_A = \tau_B$ だ。
+
+**【設問(3)の答え】**
+*   $\tau_A = \tau_B = \frac{2P}{\pi d^2} \sqrt{ (\frac{l}{a})^2 + 1 }$
+
+***
+
+### 設問(4) 点Oの回転角$\theta$を求めよ。
+
+**解説:**
+点Oの回転は、T字型板の縦板部がモーメント $M = Pl$ によって曲げられることで生じる。ここでは、T字型板の縦板部を「長さ $2a$ で両端をピン支持されたはり」と見なす。このはりの中心点Oに、時計回りのモーメント $M = Pl$ が作用する問題として考えることができる。
+
+1.  **回転角の基本式**
+    このような条件のとき、はりの中心点Oの回転角 $\theta$ は、以下の式で与えられる。（これは弾性曲線式を積分することで導出できる）
+    $\theta = \frac{Ma}{6EI}$
+    ここで、
+    *   $M = Pl$ (作用するモーメント)
+    *   $E$ はヤング率
+    *   $I$ は曲げを受ける断面の断面二次モーメントだ。
+
+2.  **断面二次モーメント I の計算**
+    縦板部の断面は、幅 $b$、厚さ $t$ の長方形だ。回転軸は板面に垂直な方向なので、断面二次モーメントは $I = \frac{tb^3}{12}$ となる。
+
+3.  **回転角 $\theta$ の計算**
+    これらを回転角の式に代入する。
+    $\theta = \frac{Pla}{6E(\frac{tb^3}{12})} = \frac{12 Pla}{6 Etb^3}$
+    約分して、最終的な答えを得る。
+    $\theta = \frac{2Pla}{Etb^3}$
+
+**【設問(4)の答え】**
+*   $\theta = \frac{2Pla}{Etb^3}$
+
+***
+
+
+
+
 
 ## 【問題2】
 

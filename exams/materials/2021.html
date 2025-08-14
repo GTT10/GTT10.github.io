@@ -62,6 +62,10 @@
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">長さlの3本の丸棒A、B、Cが上下から剛体板で挟まれ、その剛体板に外力Pが作用している。丸棒の中心は互いにaだけ離れており、外力Pによってすべての丸棒は等しく縮むものとする。丸棒A、B、Cの縦弾性係数および断面積は、それぞれ順にE₁、E₂、E₃およびA₁、A₂、A₃とする。</p>
+                    <div class="my-6 text-center">
+                            <img src="../../images/materials_2021_1.png" alt="Problem 1 Diagram" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図1：問題1の説明図</p>
+                        </div>
                     </div>
                     
                     <div class="point-box">
@@ -110,9 +114,9 @@
                             外力Pの作用位置は、モーメントのつり合いから決まります。丸棒Aを基準点として、モーメントのつり合いを考えます。
                             
                             <strong>モーメントのつり合い（点A基準）：</strong><br>
-                            - 丸棒Bの位置：Aからa
-                            - 丸棒Cの位置：Aから2a
-                            - 外力Pの位置：Aからx
+                            丸棒Bの位置：Aからa<br>
+                            丸棒Cの位置：Aから2a<br>
+                            外力Pの位置：Aからx
                             
                             $$F_B \cdot a + F_C \cdot 2a = P \cdot x$$
                             
@@ -209,6 +213,10 @@
                             \end{cases}$$
                         </div>
                         <p class="problem-statement">AB及びDE間の断面二次モーメントをI、長さをl、BD間の断面二次モーメントを2I、長さを2lとする。</p>
+                    <div class="my-6 text-center">
+                            <img src="../../images/materials_2021_2.png" alt="Problem 2 Diagram" class="mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-600 mt-2">図2：問題2の説明図</p>
+                        </div>
                     </div>
                     
                     <div class="point-box">
@@ -256,15 +264,15 @@
                         <div class="solution-step">
                             <strong>せん断力の計算（l ≤ x ≤ 2l）：</strong><br>
                             左側の力のつり合いから：
-                            $$F(x) = -R_A + \int_l^x w(\xi)d\xi$$
+                            $$F(x) = R_A - \int_l^x w(\xi)d\xi$$
                             
                             分布荷重の積分：
                             $$\int_l^x \frac{w_0}{l}(\xi-l)d\xi = \frac{w_0}{2l}(x-l)^2$$
                             
                             \(R_A = \frac{1}{2}w_0 l\)を代入：
-                            $$F_{BC}(x) = -\frac{1}{2}w_0 l + \frac{w_0}{2l}(x-l)^2$$
+                            $$F_{BC}(x) = \frac{1}{2}w_0 l - \frac{w_0}{2l}(x-l)^2$$
                         </div>
-                        <span class="answer-highlight">答え: \(F_{BC}(x) = \frac{w_0}{2l}(x-l)^2 - \frac{1}{2}w_0 l\) (l ≤ x ≤ 2l)</span>
+                        <span class="answer-highlight">答え: \(F_{BC}(x) = - \frac{w_0}{2l}(x-l)^2 + \frac{1}{2}w_0 l\) (l ≤ x ≤ 2l)</span>
                         
                         <!-- 小問(3) -->
                         <div class="example-box">
@@ -272,16 +280,55 @@
                                 <h3>(3) BC間の曲げモーメントM_BCを求めよ</h3>
                             </div>
                         </div>
+                        <div class="point-box">
+                        <div class="section-title">
+                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
+                        </div>
+                        <p>材料力学の重要な関係式に、「曲げモーメントを微分するとせん断力になる（`dM/dx = F`）」というのがあったな。これを逆に利用して、<strong>「せん断力を積分すれば曲げモーメントになる」</strong>という方針で計算していくぞ</p>
+                    </div>
                         <div class="solution-step">
-                            <strong>曲げモーメントの計算：</strong><br>
-                            左側のモーメントのつり合いから：
-                            $$M(x) = R_A \cdot x - \int_l^x w(\xi)(x-\xi)d\xi$$
+                            <strong>せん断力の積分による曲げモーメントの導出：</strong><br>
+                            この\(F_{BC}(x)\)を\(x\)で積分すると、曲げモーメント\(M_{BC}(x)\)の式が得られます。
+
+                            $$ M_{BC}(x) = \int F_{BC}(x) dx = \int \left\{ \frac{w_0 l}{2} - \frac{w_0}{2l} (x-l)^2 \right\} dx $$
+
+                            積分を実行すると：
+                            $$ M_{BC}(x) = \frac{w_0 l}{2} x - \frac{w_0}{2l} \cdot \frac{1}{3}(x-l)^3 + C $$
+                            $$ M_{BC}(x) = \frac{w_0 l}{2} x - \frac{w_0}{6l} (x-l)^3 + C $$
                             
-                            分布荷重によるモーメント：
-                            $$\int_l^x \frac{w_0}{l}(\xi-l)(x-\xi)d\xi = \frac{w_0}{6l}(x-l)^3$$
-                            
-                            したがって：
-                            $$M_{BC}(x) = \frac{w_0 l}{2}x - \frac{w_0}{6l}(x-l)^3$$
+                            ここで\(C\)は積分定数です。
+
+                            <strong>積分定数Cの決定：</strong><br>
+                            この積分定数\(C\)を求めるには、<strong>区間の境界での値</strong>が必要になります。具体的には、<strong>点B（\(x=l\)）における曲げモーメントの値</strong>を求め、それを上の式に代入して\(C\)を決定します。
+
+                            <ol>
+                                <li><strong>点Bでの曲げモーメント\(M_B\)を求める</strong><br>
+                                    点Bのモーメントは、その左隣の区間ABの式から求めることができます。
+                                    <ul>
+                                        <li>区間AB（\(0 \leq x \leq l\)）には分布荷重がない</li>
+                                        <li>せん断力\(F_{AB}\)は反力\(R_A\)と等しく一定：\(F_{AB}(x) = R_A = \frac{w_0l}{2}\)</li>
+                                        <li>これを積分すると：\(M_{AB}(x) = \int\frac{w_0l}{2} dx = \frac{w_0l}{2}x + C'\)</li>
+                                        <li>支点A（\(x=0\)）はピン支持なのでモーメントは0：\(M_{AB}(0) = 0\)より積分定数\(C' = 0\)</li>
+                                        <li>つまり：\(M_{AB}(x) = \frac{w_0l}{2}x\)</li>
+                                    </ul>
+
+                                    この式に\(x=l\)を代入すれば、点Bでのモーメントが求まります：
+                                    $$ M_B = M_{AB}(l) = \frac{w_0 l}{2} \cdot l = \frac{w_0 l^2}{2} $$
+                                </li>
+
+                                <li><strong>\(C\)を決定する</strong><br>
+                                    求めた\(M_{BC}(x)\)の式は、\(x=l\)のとき\(M_B\)と等しくならなければなりません：
+                                    $$ M_{BC}(l) = \frac{w_0 l}{2} \cdot l - \frac{w_0}{6l} (l-l)^3 + C = \frac{w_0 l^2}{2} $$
+                                    $$ \frac{w_0 l^2}{2} - 0 + C = \frac{w_0 l^2}{2} $$
+                                    
+                                    この式から、積分定数<strong>\(C = 0\)</strong>であることがわかります。
+                                </li>
+                            </ol>
+
+                            <strong>最終式：</strong><br>
+                            積分定数\(C\)が0だとわかったので、最終的な曲げモーメント\(M_{BC}\)の式が完成します：
+
+                            $$ M_{BC}(x) = \frac{w_0 l}{2} x - \frac{w_0}{6l} (x-l)^3 \quad (l \leq x \leq 2l) $$
                         </div>
                         <span class="answer-highlight">答え: \(M_{BC}(x) = \frac{w_0 l}{2}x - \frac{w_0}{6l}(x-l)^3\) (l ≤ x ≤ 2l)</span>
                         
@@ -303,9 +350,38 @@
                             
                             <strong>境界条件：</strong><br>
                             x = 0でv = 0より\(C_2 = 0\)<br>
-                            連続条件と対称性から\(C_1 = \frac{29}{48}\frac{w_0 l^3}{EI}\)
-                            
-                            $$v_{AB}(x) = \frac{w_0 l}{EI}\left(-\frac{1}{12}x^3 + \frac{29}{48}l^2 x\right)$$
+                        </div>
+                        <div class="solution-step">C1 を求めるには、区間ABだけの情報では足りない。はし全体の条件を使う必要がある。
+    このはりは<strong>左右対称</strong>だから、<strong>中央点C (<code>x=2l</code>) での傾き（たわみ角）がゼロ</strong>になるはずだ。
+    $$ \frac{dv}{dx} \bigg|_{x=2l} = 0 $$
+    この条件を使って <code>C1</code> を探していく。
+
+    <ul>
+        <li>まず、<strong>区間BCのたわみ角</strong>の式が必要だ。
+            <code>M_BC = (w_0l/2)x - (w_0/6l)(x-l)³</code> で、区間BCの断面二次モーメントは <strong><code>2I</code></strong> だったな。
+            $$ E(2I) \frac{d^2v_{BC}}{dx^2} = \frac{w_0 l}{2} x - \frac{w_0}{6l}(x-l)^3 $$
+            これを1回積分すると、
+            $$ E(2I) \frac{dv_{BC}}{dx} = \frac{w_0 l}{4} x^2 - \frac{w_0}{24l}(x-l)^4 + C_3 $$
+        </li>
+
+        <li>ここで<strong>対称条件 <code>dv/dx(2l) = 0</code></strong> を使うと、
+            $$ 0 = \frac{w_0 l}{4}(2l)^2 - \frac{w_0}{24l}(2l-l)^4 + C_3 $$
+            $$ 0 = w_0 l^3 - \frac{w_0 l^3}{24} + C_3 \quad \implies \quad \mathbf{C_3 = -\frac{23}{24}w_0 l^3} $$
+        </li>
+
+        <li>次に、<strong>点B (<code>x=l</code>) で傾きは連続</strong>している（滑らかにつながっている）はずだ。
+            $$ \frac{dv_{AB}}{dx} \bigg|_{x=l} = \frac{dv_{BC}}{dx} \bigg|_{x=l} $$
+            この式に、それぞれのたわみ角の式を代入する。
+            $$ \frac{1}{EI} \left( \frac{w_0 l}{4}l^2 + C_1 \right) = \frac{1}{2EI} \left( \frac{w_0 l}{4}l^2 - \frac{w_0}{24l}(l-l)^4 + C_3 \right) $$
+            $$ \frac{w_0 l^3}{4} + C_1 = \frac{1}{2} \left( \frac{w_0 l^3}{4} + C_3 \right) $$
+            <code>C3</code> の値を代入して <code>C1</code> について解くと...
+            $$ C_1 = \frac{w_0 l^3}{8} + \frac{C_3}{2} - \frac{w_0 l^3}{4} = \frac{1}{2}\left(-\frac{23}{24}w_0 l^3\right) - \frac{w_0 l^3}{8} $$
+            $$ C_1 = -\frac{23}{48}w_0 l^3 - \frac{6}{48}w_0 l^3 = \mathbf{-\frac{29}{48}w_0 l^3} $$
+        </li>
+    </ul>
+
+    よって
+    $$v_{AB}(x) = \frac{w_0 l}{EI}\left(-\frac{1}{12}x^3 + \frac{29}{48}l^2 x\right)$$
                         </div>
                         <span class="answer-highlight">答え: \(v_{AB}(x) = \frac{w_0 l}{EI}\left(-\frac{1}{12}x^3 + \frac{29}{48}l^2 x\right)\) (0 ≤ x ≤ l)</span>
                         
