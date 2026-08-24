@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2014年度の材料力学入試では、大問【1】で温度変化による熱応力の問題（拘束棒の内部応力と連結棒の応力分担）、大問【2】でばね支持片持ちはりの問題（はりとばねの変形適合）、大問【3】でねじりと曲げの組み合わせ応力問題（モールの応力円と主応力解析）が出題されました。基礎理論から応用解析まで包括的にカバーした年度です。</p>
-                <a href="../../pdfs/question/2014_H26_april/materials_2014_H26_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2014年度)</a>
-                <a href="../../pdfs/answer/2014_H26_april/materials_2014_H26_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2014年度)</a>
+                <a href="../../pdfs/question/2014_H26_april/materials_2014_H26_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2014年度)</a>
+                <a href="../../pdfs/answer/2014_H26_april/materials_2014_H26_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2014年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -101,9 +105,9 @@
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
-                                $$\sigma_1 = \frac{P}{S_1} = \alpha_1 E_1 \Delta T$$
+                                $$\sigma_1 = -\frac{P}{S_1} = -\alpha_1 E_1 \Delta T$$
                             </div>
-                            （圧縮応力）
+                            （引張を正とした符号。圧縮応力の大きさは α₁E₁ΔT。）
                         </div>
                         <div class="example-box">
                             <div class="section-title">
@@ -123,10 +127,10 @@
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
-                                $$\sigma_1 = \frac{\alpha_1 l_1 \Delta T}{S_1 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
-                                $$\sigma_2 = \frac{\alpha_1 l_1 \Delta T}{S_2 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
+                                $$\sigma_1 = -\frac{\alpha_1 l_1 \Delta T}{S_1 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
+                                $$\sigma_2 = -\frac{\alpha_1 l_1 \Delta T}{S_2 \left( \frac{l_1}{S_1 E_1} + \frac{l_2}{S_2 E_2} \right)}$$
                             </div>
-                            （いずれも圧縮応力）
+                            （P>0 を圧縮力の大きさとした。したがって両式は符号付き圧縮応力。）
                         </div>
                         <div class="example-box">
                             <div class="section-title">
@@ -149,7 +153,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -175,7 +179,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -259,7 +263,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -346,47 +350,48 @@
                         <div class="solution-step">
                             ねじりと曲げの組み合わせ応力から主応力を求めます。
                             <p><strong>応力状態：</strong></p>
-                            σx = 32Msinθ/(πd³)、τ = 16T/(πd³)
+                            外表面で曲げ応力が最大となる位置（\(|\sin\theta|=1\)）を考える。以下、M,T は大きさとする：
+                            $$\sigma_x = \frac{32M}{\pi d^3}, \qquad \tau = \frac{16T}{\pi d^3}$$
                             <p><strong>主応力の公式：</strong></p>
                             <div class="math-block">
                                 $$\sigma_{max} = \frac{\sigma_x}{2} + \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau^2}$$
                             </div>
                             <div class="math-block">
-                                $$= \frac{16M\sin\theta}{\pi d^3} + \sqrt{\left(\frac{16M\sin\theta}{\pi d^3}\right)^2 + \left(\frac{16T}{\pi d^3}\right)^2}$$
+                                $$= \frac{16M}{\pi d^3} + \sqrt{\left(\frac{16M}{\pi d^3}\right)^2 + \left(\frac{16T}{\pi d^3}\right)^2}$$
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
-                                $$\sigma_{max} = \frac{16}{\pi d^3} \left( M\sin\theta + \sqrt{M^2\sin^2\theta + T^2} \right)$$
+                                $$\sigma_{max} = \frac{16}{\pi d^3} \left( M + \sqrt{M^2 + T^2} \right)$$
                             </div>
                             <div class="math-block">
-                                $$\tau_{max} = \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau^2} = \frac{16}{\pi d^3} \sqrt{M^2\sin^2\theta + T^2}$$
+                                $$\tau_{max} = \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau^2} = \frac{16}{\pi d^3} \sqrt{M^2 + T^2}$$
                             </div>
                         </div>
                         <div class="example-box">
                             <div class="section-title">
-                                <h3>(4) モールの応力円と主応力の方向θp</h3>
+                                <h3>(4) モールの応力円と主応力の方向φ</h3>
                             </div>
                         </div>
                         <div class="solution-step">
                             モールの応力円により主応力の方向を求めます。
                             <p><strong>モールの応力円：</strong></p>
                             <ul>
-                                <li><strong>中心C：</strong> (σx/2, 0) = (16Msinθ/(πd³), 0)</li>
-                                <li><strong>半径R：</strong> √((σx/2)² + τ²) = (16/(πd³))√(M²sin²θ + T²)</li>
+                                <li><strong>中心C：</strong> (σx/2, 0) = (16M/(πd³), 0)</li>
+                                <li><strong>半径R：</strong> √((σx/2)² + τ²) = (16/(πd³))√(M² + T²)</li>
                             </ul>
                             <p><strong>主応力の方向：</strong></p>
                             <div class="math-block">
-                                $$\tan(2\theta_p) = \frac{2\tau}{\sigma_x} = \frac{2 \cdot 16T/(\pi d^3)}{32M\sin\theta/(\pi d^3)} = \frac{T}{M\sin\theta}$$
+                                $$\tan(2\phi) = \frac{2\tau}{\sigma_x} = \frac{2 \cdot 16T/(\pi d^3)}{32M/(\pi d^3)} = \frac{T}{M}$$
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
-                                $$\theta_p = \frac{1}{2} \arctan\left(\frac{T}{M\sin\theta}\right)$$
+                                $$\phi = \frac{1}{2} \arctan\left(\frac{T}{M}\right)$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -418,7 +423,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

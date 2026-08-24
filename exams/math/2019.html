@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2019年度の数学入試では、大問【1】で積分方程式、大問【2】で微分方程式と積分因子、大問【3】でラプラス変換を用いた連立微分方程式、大問【4】で線形代数のランク解析、大問【5】でフーリエ級数が出題されました。幅広い分野の応用問題が揃った総合的な問題構成です。一つ一つ丁寧に取り組んでいきましょう！</p>
-                <a href="../../pdfs/question/2019_H31_R1_april/math_2019_H31_R1_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2019_H31_R1_april/math_2019_H31_R1_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)
                 </a>
-                <a href="../../pdfs/answer/2019_H31_R1_april/math_2019_H31_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+                <a href="../../pdfs/answer/2019_H31_R1_april/math_2019_H31_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">積分方程式に関する問題</p>
                     </div>
@@ -138,7 +142,7 @@
                         <span class="answer-highlight">答え: $f(x) = (x-1)e^{-x}$, $a = 0$, $b = -1$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -164,13 +168,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">微分方程式: $\left( x - \frac{2y}{x} \right) dx + \left( \frac{e^{2y}}{x} - 2 \right) dy = 0$ $(x>0)$</p>
                     </div>
@@ -245,7 +249,7 @@
                         <span class="answer-highlight">答え: $\frac{1}{3}x^3 - 2xy + \frac{1}{2} e^{2y} = C$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -276,7 +280,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">連立微分方程式をラプラス変換で解け:</p>
                         <div class="math-block">$$\begin{cases}
@@ -327,7 +331,7 @@ x' + 2x + 6 \int_0^t y \, d\tau = -2u(t)
                             <br>$y(t) = 4e^{-4t} + 2e^{t}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -358,7 +362,7 @@ x' + 2x + 6 \int_0^t y \, d\tau = -2u(t)
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">連立同次方程式の解空間の自由度を求めよ:</p>
                         <div class="math-block">$$\begin{cases}
@@ -380,7 +384,7 @@ a^2 x_1 + b^2 x_2 + c^2 x_3 + (a^2 + b^2 + c^2) x_4 = 0
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            <strong>(i) $a$, $b$, $c$が異なる場合</strong>
+                            <strong>(i) $a$, $b$, $c$がすべて異なる場合</strong>
                         </div>
                         <div class="solution-step">
                             1. 係数行列：
@@ -412,7 +416,11 @@ a^2 & b^2 & c^2
                             自由度 = 4 - 3 = 1
                         </div>
                         <div class="solution-step">
-                            <strong>(ii) $a = b = c$の場合</strong>
+                            <strong>(ii) ちょうど2つだけ等しい場合</strong>
+                            例えば$a=b\ne c$なら、第1,3,4列から作る3次小行列式は$-2ac(c-a)\ne0$である。他の等しい組も同様なので、ランクは3、自由度は1となる。
+                        </div>
+                        <div class="solution-step">
+                            <strong>(iii) $a = b = c$の場合</strong>
                         </div>
                         <div class="solution-step">
                             5. $a = b = c$を代入すると、係数行列は：
@@ -426,10 +434,10 @@ a^2 & a^2 & a^2 & 3a^2
                             6. 第3行 = $a$ × 第2行なので、実質的に独立な行は2行のみ。
                             よってランクは2、自由度 = 4 - 2 = 2
                         </div>
-                        <span class="answer-highlight">答え: $a$, $b$, $c$が異なる場合は1、$a = b = c$の場合は2</span>
+                        <span class="answer-highlight">答え: $a=b=c$の場合は自由度2、それ以外（ちょうど2つが等しい場合を含む）は自由度1</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -460,10 +468,10 @@ a^2 & a^2 & a^2 & 3a^2
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【5】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">周期関数のフーリエ級数を求めよ:</p>
-                        <div class="math-block">$$f(t) = \begin{cases} 
+                        <div class="math-block">$$f(t) = \begin{cases}
 1 & (0 < t < 1) \\
 0 & (1 \leq t < 4)
 \end{cases}$$</div>
@@ -503,7 +511,7 @@ a^2 & a^2 & a^2 & 3a^2
                         <span class="answer-highlight">フーリエ級数と振幅の公式を導出</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -521,7 +529,7 @@ a^2 & a^2 & a^2 & 3a^2
                         </div>
                         <ul>
                             <li>振幅 = $\sqrt{a_n^2 + b_n^2}$</li>
-                            <li>矩形波は奇数倍周波数が主成分</li>
+                            <li>この周期4のパルス波では、$n$ が4の倍数の係数が消え、その他の調波が残る</li>
                             <li>$\sin\frac{n\pi}{2}$は$n$が奇数で$\pm 1$</li>
                         </ul>
                     </div>

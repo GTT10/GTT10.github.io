@@ -1,9 +1,62 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>数学 2004</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2004年度の問題概要、独立再計算、非公式解説。">
+  <title>熱力学 2004年度 問題解説・独立再計算</title>
+  <link rel="stylesheet" href="../../css/thermo.css">
+  <script>MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
+  <div class="page-wrapper"><div class="header-decoration"></div><div class="page-content">
+    <nav class="header-nav" aria-label="ページ内ナビゲーション"><h1>熱力学 2004年度</h1><div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div></nav>
+    <p class="description">H16年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
+    <div class="accuracy-notice"><strong>検算済み・非公式</strong>問題PDF全3ページを確認し、状態量・熱量・エントロピーを独立再計算しました。<a href="../../pdfs/question/2004_H16_april/thermo_2004_H16_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2004_unofficial/thermo_2004_H16_april_answer.pdf">非公式解答PDF</a>。</div>
+    <section class="problem-overview-section"><h2>問題概要と検証範囲</h2><p>第1問は可逆断熱変化、第2問は断熱・定容・等温過程を組み合わせたサイクル、第3問は湿り空気線図の読取りです。熱量は系への流入正、線図の数値は原本の条件に合わせています。</p></section>
+    <div class="exam-grid"><main class="exam-col-left">
+      <section>
+        <h2 class="main-section-title">第1問　可逆断熱変化</h2>
+        <div class="example-box"><p class="problem-statement">問題概要</p><p>理想気体、\(\kappa=c_p/c_v\) 一定。状態1 \((P_1,T_1,V_1)\) から状態2 \((P_2,T_2,V_2)\) へ可逆断熱変化します。</p></div>
+        <h3 class="section-title">途中式と状態式</h3>
+        <div class="math-block">\[mc_vdT=-P\,dV,\qquad P=\frac{mRT}{V},\qquad \frac{dT}{T}=-(\kappa-1)\frac{dV}{V}.\]</div>
+        <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[TV^{\kappa-1}=\mathrm{const},\qquad PV^\kappa=\mathrm{const},\qquad TP^{(1-\kappa)/\kappa}=\mathrm{const}.\]</div></div>
+        <h3 class="section-title">仕事の比</h3>
+        <p class="solution-step">断熱線を微分すると \(dP=-\kappa P,dV/V\)。したがって同じ区間で絶対仕事を積分した \(W_T\) と通常の境界仕事 \(W_{12}\) の大きさは</p>
+        <div class="math-block">\[|W_T|=\kappa|W_{12}|,\qquad \frac{|W_{12}|}{|W_T|}=\frac{1}{\kappa}.\]</div>
+        <p class="solution-step">両者を同じ入力仕事の符号で定義する場合も \(W_{12}/W_T=1/\kappa\) です。</p>
+      </section>
+      <hr class="separator-line">
+      <section>
+        <h2 class="main-section-title">第2問　変形サイクルの熱効率とエントロピー</h2>
+        <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>1→2可逆断熱圧縮、2→3定容加熱、3→4等温膨張、4→5可逆断熱膨張、5→1定容放熱。\(\epsilon=V_1/V_2\)、\(\xi=P_3/P_2\)、\(\rho=V_4/V_3\)、\(\kappa\) 一定です。</p></div>
+        <h3 class="section-title">状態量</h3>
+        <div class="math-block">\[\frac{T_2}{T_1}=\epsilon^{\kappa-1},\quad \frac{P_2}{P_1}=\epsilon^\kappa,\quad \frac{T_3}{T_2}=\xi,\quad V_4=\rho V_3,\quad T_4=T_3,\quad V_5=V_1.\]</div>
+        <div class="math-block">\[\frac{T_5}{T_1}=\xi\rho^{\kappa-1},\qquad \frac{P_5}{P_1}=\xi\rho^{\kappa-1}.\]</div>
+        <h3 class="section-title">各過程の熱量</h3>
+        <div class="math-block">\[Q_{12}=Q_{45}=0,\quad Q_{23}=mc_vT_1\epsilon^{\kappa-1}(\xi-1),\quad Q_{34}=mRT_1\epsilon^{\kappa-1}\xi\ln\rho,\]</div>
+        <div class="math-block">\[Q_{51}=mc_vT_1[1-\xi\rho^{\kappa-1}].\]</div>
+        <div class="final-answer"><div class="section-title">最終答 - 熱効率</div><div class="math-block">\[\eta=1-\frac{mc_vT_1(\xi\rho^{\kappa-1}-1)}{mc_vT_1\epsilon^{\kappa-1}(\xi-1)+mRT_1\epsilon^{\kappa-1}\xi\ln\rho}.\]</div></div>
+        <h3 class="section-title">エントロピーの全小問</h3>
+        <div class="math-block">\[\Delta S_{12}=0,\quad \Delta S_{23}=\frac{mR}{\kappa-1}\ln\xi,\quad \Delta S_{34}=mR\ln\rho,\quad \Delta S_{45}=0,\]</div>
+        <div class="math-block">\[\Delta S_{51}=-\frac{mR}{\kappa-1}\ln\xi-mR\ln\rho,\qquad \sum\Delta S=0.\]</div>
+      </section>
+      <hr class="separator-line">
+      <section>
+        <h2 class="main-section-title">第3問　湿り空気線図</h2>
+        <div class="example-box"><p class="problem-statement">問題概要</p><p>乾き空気質量 \(m_a\)、水蒸気質量 \(m_w\)、分圧 \(P_a,P_w\)、飽和蒸気圧 \(P_s\)、相対湿度 \(\phi\) を用い、線図条件は \(P=1013\) hPaです。</p></div>
+        <h3 class="section-title">絶対湿度の導出</h3>
+        <div class="math-block">\[x=\frac{m_w}{m_a}=\frac{R_a}{R_w}\frac{P_w}{P_a}=0.622\frac{\phi P_s}{P-\phi P_s}.\]</div>
+        <h3 class="section-title">線図読取りと加水量</h3>
+        <p class="solution-step">12℃・\(\phi=0.30\) では \(P_s\simeq1.402\) kPa、\(x_1\simeq0.00259\) kg/kg乾き空気。24℃まで加熱しても加水しなければ絶対湿度は不変です。26℃・\(\phi=0.70\) では \(P_s\simeq3.361\) kPa、\(x_2\simeq0.01479\) kg/kg乾き空気。</p>
+        <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[x_2-x_1\simeq0.01220\ \mathrm{kg/kg_{da}}=12.2\ \mathrm{g/kg_{da}}.\]</div><p>線図の補間による近似値なので末尾桁には読み取り誤差があります。</p></div>
+      </section>
+    </main><aside class="exam-col-right">
+      <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 3ページを全ページ確認</li><li>第1問 状態式・仕事比</li><li>第2問 状態量・熱量・効率・全エントロピー</li><li>第3問 定義・式導出・2条件の線図読取り</li></ul></div>
+      <div class="point-box"><h2 class="section-title">注意</h2><p>第3問の数値は湿り空気線図からの読取りを再計算した近似値です。任意の表の補間方法により末尾桁が変わり得ます。</p></div>
+    </aside></div>
+    <footer class="site-footer"><a href="2003.html">← 2003年度</a>　<a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2005.html">2005年度 →</a></footer>
+  </div></div>
 </body>
-</html> 
+</html>

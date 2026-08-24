@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2009年度の数学入試では、大問【1】で広義積分（立方根による特異点）、大問【2】で落下運動の微分方程式（空気抵抗を考慮）、大問【3】で行列式計算（1の立方根の条件下）、大問【4】でラプラス変換による積分方程式が出題されました。物理的応用と数学理論が巧みに組み合わされた実践的な問題構成です。基礎から応用まで幅広くカバーして挑みましょう！</p>
-                <a href="../../pdfs/question/2009_H21_april/math_2009_H21_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2009_H21_april/math_2009_H21_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2009年度)
                 </a>
-                <a href="../../pdfs/answer/2009_H21_april/math_2009_H21_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2009年度)</a>
+                <a href="../../pdfs/answer/2009_H21_april/math_2009_H21_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2009年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の広義積分を求めよ: $\int_{-1}^1 \frac{dx}{\sqrt[3]{(x-a)^2}} \quad (0\lt a\lt 1)$</p>
                     </div>
@@ -119,7 +123,7 @@ $$
                         <span class="answer-highlight">答え: $3 \left( (1-a)^{1/3} + (1+a)^{1/3} \right)$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -145,13 +149,13 @@ $$
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">物体が落下するとき、落下速度$u$の2乗に比例した抵抗力を受けるとすれば、運動方程式は $\frac{du}{dt} = g - ku^2$ $(k>0, u(0)=0)$。$u(t)$と$u(\infty)$を求めよ。</p>
                     </div>
@@ -197,7 +201,7 @@ $$
                         <span class="answer-highlight">答え: $u(t) = \sqrt{\frac{g}{k}} \frac{e^{2\sqrt{gk}t} - 1}{e^{2\sqrt{gk}t} + 1}$, $u(\infty) = \sqrt{\frac{g}{k}}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -228,7 +232,7 @@ $$
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の行列式の値を求めよ。ただし、$x^3=1$, $x \neq 1$。</p>
                         <div class="math-block">$$\begin{vmatrix} 1 & x^3 & x^2 & x \\ x^3 & x^2 & x & 1 \\ x^2 & x & 1 & x^3 \\ x & 1 & x^3 & x^2 \end{vmatrix}$$</div>
@@ -260,10 +264,10 @@ $$
                         <div class="solution-step">
                             5. 詳細な計算（行基本変形・余因子展開）により：
                         </div>
-                        <span class="answer-highlight">答え: $-3x^2+3x=-3$</span>
+                        <span class="answer-highlight">答え: $3(x-x^2)=\pm 3i\sqrt{3}$（$x=\omega$ または $\omega^2$ に応じて符号が変わる）</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -294,7 +298,7 @@ $$
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の方程式が$0 \leq t$で成立。ラプラス変換で$y(t)$を求めよ。ただし$y(0)=0$。</p>
                         <div class="math-block">$$\frac{dy}{dt} + 3 \int_0^t y dt = \sin t$$</div>
@@ -339,7 +343,7 @@ $$
                         <span class="answer-highlight">答え: $y(t) = \frac{1}{2} \left( \cos t - \cos(\sqrt{3}t) \right)$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

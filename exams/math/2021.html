@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2021年度の数学入試では、大問【1】でn次導関数、大問【2】で行列の性質（行列式・逆行列・階数）、大問【3】で微分方程式、大問【4】でラプラス変換が出題されました。解析・線形代数・微分方程式・応用数学と、幅広い分野からバランスよく問われています。基礎理論から応用計算まで、一つひとつ丁寧に解き方を学んでいきましょう！</p>
-                <a href="../../pdfs/question/2021_R3_april/math_2021_R3_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2021_R3_april/math_2021_R3_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)
                 </a>
-                <a href="../../pdfs/answer/2021_R3_april/math_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/answer/2021_R3_april/math_2021_R3_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) $f(x)=\frac{1}{a-x}$ ($x \neq a$) とし、$a$は実数の定数とする。</p>
                         <p class="problem-statement">(i) $f(x)$ の導関数 $f'(x)$ と2次導関数 $f''(x)$ を求めよ。</p>
@@ -89,7 +93,7 @@
                         </div>
                         <span class="answer-highlight">答え: $f'(x) = \frac{1}{(a-x)^2}$, $f''(x) = \frac{2}{(a-x)^3}$</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(ii) $f(x)$ のn次導関数 $f^{(n)}(x)$ を求めよ。</p>
                     </div>
@@ -165,7 +169,7 @@
                         <span class="answer-highlight">答え: $g^{(n)}(x) = \frac{3 \cdot n!}{(1-x)^{n+1}} + \frac{2 \cdot n!}{(2-x)^{n+1}}$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -191,13 +195,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">行列 $A=\begin{bmatrix}-1&1&a\\ 1&a&1\\ a&1&-1\end{bmatrix}$ について、以下の問いに答えよ。ただし、$a$は実数で $a<0$ とする。</div>
                     </div>
@@ -205,7 +209,7 @@
                         <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
                         <p>行列の基本的な性質を問う問題ですね！(1)はサラスの公式、(2)は「逆行列を持つ ⇔ 行列式≠0」、(3)は余因子行列、(4)は行基本変形を使いましょう。</p>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(1) 行列 $A$ の行列式を求めよ。</div>
                     </div>
@@ -221,7 +225,7 @@
                         </div>
                         <span class="answer-highlight">答え: $\det(A) = -a^3+3a+2$</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(2) 行列 $A$ が逆行列をもつための $a$ の必要十分条件を示せ。</div>
                     </div>
@@ -240,8 +244,8 @@
                         </div>
                         <span class="answer-highlight">答え: $a \neq -1$（かつ $a<0$）</span>
                     </div>
-                    
-                    
+
+
                     <div class="example-box">
                         <div class="section-title">(3) $a$が(2)の条件を満たすとき、行列$A$の逆行列を求めよ。</div>
                     </div>
@@ -256,7 +260,7 @@
                         <span class="answer-highlight">答え: $A^{-1} = \frac{1}{-a^3+3a+2} \begin{pmatrix} -a-1 & a+1 & 1-a^2 \\ a+1 & 1-a^2 & a+1 \\ 1-a^2 & a+1 & -a-1 \end{pmatrix}
                             = \frac{1}{(a+1)(a-2)} \begin{pmatrix} 1 & -1 & a-1 \\ -1 & a-1 & -1 \\ a-1 & -1 & 1 \end{pmatrix}$</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(4) 行列$A$が逆行列をもたないとき、行列$A$の階数（ランク）を求めよ。</div>
                     </div>
@@ -281,7 +285,7 @@
                         <span class="answer-highlight">答え: 1</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -312,7 +316,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">次の微分方程式①について、以下の問いに答えよ。</div>
                         <div class="math-block">$$y'' + y' - 6y = -\sin x \quad \cdots①$$</div>
@@ -321,7 +325,7 @@
                         <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
                         <p>これは定数係数2階線形非同次微分方程式ですね！(1)で同次解、(2)で特殊解、(3)で一般解という流れで解いていきます。右辺が$-\sin x$なので、未定係数法が使えますよ。</p>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(1) 微分方程式 $y'' + y' - 6y = 0$ の一般解を求めよ。</div>
                     </div>
@@ -339,7 +343,7 @@
                         </div>
                         <span class="answer-highlight">答え: $y_h = C_1 e^{2x} + C_2 e^{-3x}$ （$C_1, C_2$は任意定数）</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(2) 微分方程式①の特殊解を求めよ。</div>
                     </div>
@@ -370,7 +374,7 @@
                         </div>
                         <span class="answer-highlight">答え: $y_p = \frac{1}{50}\cos x + \frac{7}{50}\sin x$</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(3) 微分方程式①の一般解を求めよ。</div>
                     </div>
@@ -382,7 +386,7 @@
                         <span class="answer-highlight">答え: $y = C_1 e^{2x} + C_2 e^{-3x} + \frac{1}{50}\cos x + \frac{7}{50}\sin x$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -413,7 +417,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(1) 次のラプラス変換の式を証明せよ。</div>
                         <div class="math-block">$$L\{\cos bt\} = \int_{0}^{\infty}e^{-st}\cos bt \, dt=\frac{s}{s^{2}+b^{2}}$$</div>
@@ -444,7 +448,7 @@
                         </div>
                         <span class="answer-highlight">証明完了</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(2) 次のラプラス逆変換を求めよ。</div>
                         <div class="math-block">$$F(s)=\frac{5s+14}{s^{2}+4s+13}$$</div>
@@ -478,7 +482,7 @@
                         </div>
                         <span class="answer-highlight">答え: $f(t) = 5e^{-2t}\cos(3t) + \frac{4}{3}e^{-2t}\sin(3t)$</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(3) ラプラス変換を用いて次の微分方程式を解け。</div>
                         <div class="math-block">$$y''(t)+9y(t)=\cos t, \quad y(0)=0, \quad y'(0)=0$$</div>
@@ -513,7 +517,7 @@
                         <span class="answer-highlight">答え: $y(t) = \frac{1}{8}\cos(t) - \frac{1}{8}\cos(3t)$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

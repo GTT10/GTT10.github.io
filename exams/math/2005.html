@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2005年度の数学入試では、大問【1】で陰関数微分と曲線解析、大問【2】で微分方程式（曲線族・変数分離形）、大問【3】で多変数関数の勾配と方向微分、大問【4】でラプラス変換の応用が出題されました。微分積分・微分方程式・多変数解析・積分変換と、理論と応用のバランスが取れた内容です。概念をしっかり理解して、計算テクニックと併せて学習していきましょう！</p>
-                <a href="../../pdfs/question/2005_H17_april/math_2005_H17_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2005_H17_april/math_2005_H17_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2005年度)
                 </a>
-                <a href="../../pdfs/answer/2005_unofficial/2005_math.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2005年度)</a>
+                <a href="../../pdfs/answer/2005_unofficial/2005_math.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2005年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 関数 $F(x,y) = xe^y - y$ について、方程式 $F(x,y) = 0$ によって定まる陰関数 $y = f(x)$ のグラフの概形を $x \geq 0, y \geq 0$ の範囲で描け。</p>
                     </div>
@@ -90,12 +94,14 @@
                             これを $xe^y = y$ に代入すると $y = 1$、$x = \frac{1}{e} \approx 0.368$
                         </div>
                         <div class="solution-step">
-                            5. 曲線の挙動：
-                            - $x \in [0, \frac{1}{e})$ で単調増加
-                            - $x \to \frac{1}{e}^-$ で $y \to 1^-$、接線は垂直になる
-                            - $x > \frac{1}{e}$ では陰関数として定義されない
+                            5. 曲線の挙動：$x=ye^{-y}$ と書けるので、$0&lt;x&lt;\frac{1}{e}$ では同じ$x$に対して2つの枝がある。
+                            <ul>
+                                <li>下側の枝は $(0,0)$ から $(\frac{1}{e},1)$ まで単調増加する。</li>
+                                <li>上側の枝は $x\to0^+$ で $y\to\infty$ から $(\frac{1}{e},1)$ まで単調減少する。</li>
+                                <li>$(\frac{1}{e},1)$ は両枝が接する垂直接線の点で、$x&gt;\frac{1}{e}$ には解がない。</li>
+                            </ul>
                         </div>
-                        <span class="answer-highlight">グラフ: 原点から始まり、点$(\frac{1}{e}, 1)$に向かって増加する曲線</span>
+                        <span class="answer-highlight">グラフ: $(0,0)$から上側・下側の2枝が出て、$(\frac{1}{e},1)$で接する（$0&lt;x&lt;\frac{1}{e}$では2値）</span>
                     </div>
 
                     <div class="example-box">
@@ -118,7 +124,7 @@
                         <span class="answer-highlight">答え: $f'(x) = \frac{e^{y}}{1 - xe^{y}}$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -144,13 +150,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 直線 $y = x$ 上に中心をもつ任意の半径の円が満たす微分方程式を求めよ。</p>
                     </div>
@@ -229,7 +235,7 @@
                         <span class="answer-highlight">一般解: $y = \tan\left(\frac{x^{2}}{2} + C\right)$　特解: $y = \tan\left(\frac{x^{2}}{2}\right)$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -260,7 +266,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 関数 $\phi(x,y,z) = \frac{1}{2}x^2 + y^2 + 2z^2$ について、曲面 $\phi(x,y,z) = C$ 上の点における単位法線ベクトルを求めよ。</p>
                     </div>
@@ -284,9 +290,9 @@
                         </div>
                         <div class="solution-step">
                             3. 単位法線ベクトルは：
-                            <div class="math-block">$$\mathbf{n} = \frac{\nabla \phi}{\| \nabla \phi \|} = \frac{(x, 2y, 4z)}{\sqrt{x^2 + 4y^2 + 16z^2}}$$</div>
+                            <div class="math-block">$$\mathbf{n} = \pm\frac{\nabla \phi}{\| \nabla \phi \|} = \pm\frac{(x, 2y, 4z)}{\sqrt{x^2 + 4y^2 + 16z^2}}\quad (\nabla\phi\ne\mathbf{0})$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $\mathbf{n} = \frac{(x,\ 2y,\ 4z)}{\sqrt{x^{2} + 4y^{2} + 16z^{2}}}$</span>
+                        <span class="answer-highlight">答え: $\mathbf{n} = \pm\frac{(x,\ 2y,\ 4z)}{\sqrt{x^{2} + 4y^{2} + 16z^{2}}}$（勾配が零でない点）</span>
                     </div>
 
                     <div class="example-box">
@@ -340,7 +346,7 @@
                         <span class="answer-highlight">答え: $\frac{7\sqrt{3}}{3}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -371,7 +377,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 関係式 $L\left[\frac{f(t)}{t}\right] = \int_{s}^{\infty} F(x) dx$ を証明せよ。ただし、$F(s) = L[f(t)]$ とする。</p>
                     </div>
@@ -424,6 +430,7 @@
                         <div class="solution-step">
                             1. $f(t) = 1 - e^{at}$ のラプラス変換を求めます：
                             <div class="math-block">$$F(s) = L[1 - e^{at}] = L[1] - L[e^{at}] = \frac{1}{s} - \frac{1}{s - a}$$</div>
+                            実数 $a$ に対して、以下では収束域 $s>\max(0,a)$ を仮定します。
                         </div>
                         <div class="solution-step">
                             2. (1)の結果を適用：
@@ -440,7 +447,7 @@
                         <span class="answer-highlight">答え: $\ln\left(\frac{s - a}{s}\right)$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

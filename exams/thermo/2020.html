@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,19 +40,23 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>理想気体冷凍機サイクルの理論解析と水の蒸気表を用いた実用計算の2つの大問から構成されています。冷凍機サイクルでは線図描画から成績係数導出まで体系的に解析し、蒸気表問題では実際の水蒸気の諸性質を計算します。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">カルノー冷凍機</span>
                     <span class="topic-tag">蒸気表計算</span>
                 </div>
-                
-                <a href="../../pdfs/question/2020_R2_april/thermo_2020_R2_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
-                <a href="../../pdfs/answer/2020_R2_april/thermo_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+
+                <a href="../../pdfs/question/2020_R2_april/thermo_2020_R2_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/thermo_2020_R2_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -60,30 +64,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: 理想気体冷凍機サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">理想気体を作動流体とするサイクルについて考える。このサイクルは、低温熱源（温度$T_L$）と高温熱源（温度$T_H$）の間で動作し、以下の4つの過程から構成される：1→2（等温膨張）、2→3（等容加熱）、3→4（等温圧縮）、4→1（等容冷却）。以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) このサイクルは熱機関か冷凍機か、理由とともに答えよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>サイクルの運転方向と熱の出入りを分析します。低温熱源から熱を吸収し、高温熱源へ熱を放出し、正味の仕事が入力される場合は冷凍機です。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -97,24 +101,24 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) このサイクルの$P-V$線図および$T-S$線図を描け。また、各過程における熱の出入りを明記せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各過程の特徴を把握し、線図上に正確にプロットします。等温過程、等容過程の特徴と熱の出入りを明確に示します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>P-V線図</h4>
                             <pre class="ascii-diagram">
@@ -145,7 +149,7 @@
        S₂          S₁
                             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -157,24 +161,24 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 各過程における熱量を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等温過程では$Q = mRT\ln(V_2/V_1)$、等容過程では$Q = mc_v\Delta T$の公式を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>各過程の熱量計算</strong>
                             <ul>
@@ -184,7 +188,7 @@
                                 <li><strong>4→1（等容冷却）:</strong> $Q_{41} = mc_v(T_L - T_H)$ （放熱、負）</li>
                             </ul>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -201,24 +205,24 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 各過程におけるエントロピー変化量を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等温過程では$\Delta S = mR\ln(V_2/V_1)$、等容過程では$\Delta S = mc_v\ln(T_2/T_1)$を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -235,24 +239,24 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) 再生器を使用した場合の成績係数（COP）を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>再生器により4→1の放熱を2→3の加熱に再利用します。成績係数は冷凍効果を仕事入力で割ったものです。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>再生器使用時の分析</strong>
                             <ul>
@@ -262,7 +266,7 @@
                                 <li>正味仕事入力: $W_{\text{net}} = mR \ln \frac{V_2}{V_1}(T_H - T_L)$</li>
                             </ul>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -273,24 +277,24 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <p class="problem-statement">(6) 定容比熱が$c_v = a + bT + cT^2$で表される半理想気体の場合、各過程のエントロピー変化を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
-                        <p>比熱が温度の関数の場合、エントロピー変化は$\Delta S = \int c_v \frac{dT}{T}$で計算します。等温過程では変化なしです。</p>
+                        <p>比熱が温度の関数の場合、温度変化に伴う寄与は$\Delta S_T = \int c_v \frac{dT}{T}$で計算します。等温過程ではこの温度積分は0ですが、体積変化に伴う$mR\ln(V_2/V_1)$の寄与は残ります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -308,7 +312,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -323,7 +327,7 @@
                             <li>成績係数: $\text{COP} = \frac{Q_{\text{cold}}}{W_{\text{net}}}$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -335,7 +339,7 @@
                             <li>比熱が温度依存の場合の積分計算</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -349,7 +353,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -357,25 +361,25 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: 水の蒸気表（圧力2.0MPa）</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">圧力2.0MPaにおける水の蒸気表（表1：飽和蒸気表、表2：過熱蒸気表）を使用して、以下の問いに答えよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 沸騰温度を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>圧力2.0MPaでの飽和温度を蒸気表から読み取ります。</p>
                     </div>
-                
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -385,12 +389,12 @@
                             $$\boxed{212.37 \, ^\circ\text{C}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 全蒸気化時の比容積を求めよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -400,12 +404,12 @@
                             $$\boxed{0.0995361 \, \text{m}^3/\text{kg}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 蒸発に必要な熱量（蒸発潜熱）を求めよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算過程
@@ -413,7 +417,7 @@
                         <div class="solution-step">
                             蒸発潜熱: $r = h'' - h' = 2797.2 - 908.588 = 1888.612 \, \text{kJ/kg}$
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -423,12 +427,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 乾き度0.3の湿り蒸気の比エンタルピーを求めよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算過程
@@ -438,7 +442,7 @@
                                 $$h = h' + x(h'' - h') = 908.588 + 0.3 \times 1888.612 = 1475.1716 \, \text{kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -448,12 +452,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) 飽和水の比内部エネルギーを求めよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算過程
@@ -463,7 +467,7 @@
                                 $$u' = h' - pv' = 908.588 - 2000 \times 0.00117661 = 906.23478 \, \text{kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -473,12 +477,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <p class="problem-statement">(6) 200°C圧縮水から240°C過熱蒸気への加熱に必要な熱量を求めよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算過程
@@ -488,7 +492,7 @@
                                 $$q = h_{\text{240°C}} - h_{\text{200°C}} = 2875.9 - 852.6 = 2023.3 \, \text{kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -498,19 +502,19 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(7) -->
                     <div class="example-box">
                         <p class="problem-statement">(7) 215°C蒸気の状態を判定せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>飽和温度212.37°Cと比較して状態を判定します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -521,7 +525,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -535,7 +539,7 @@
                             <li>蒸発潜熱: $r = h'' - h'$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>状態判定

@@ -1,0 +1,6 @@
+*.pdf -text -diff
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.ico -text

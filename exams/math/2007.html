@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2007年度の数学入試では、大問【1】でラプラス変換とインパルス応答、大問【2】で積分計算（三角置換・曲線長）、大問【3】で変数の比に関する方程式、大問【4】でベルヌーイ型微分方程式が出題されました。ラプラス変換の実用性、積分の技巧、代数的推論、微分方程式の線形化と、幅広い分野をカバーした良問です。応用数学の実践的な側面もしっかり学んでいきましょう！</p>
-                <a href="../../pdfs/question/2007_H19_april/math_2007_H19_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2007_H19_april/math_2007_H19_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2007年度)
                 </a>
-                <a href="../../pdfs/answer/2007_unofficial/2007_math.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2007年度)</a>
+                <a href="../../pdfs/answer/2007_unofficial/2007_math.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2007年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 微分方程式 $\frac{d^2x(t)}{dt^2} + 4x(t) = \delta(t)$ （$\delta(t)$ は単位インパルス関数）を初期条件 $x(0) = 0$，$\left.\frac{dx(t)}{dt}\right|_{t=0} = 1$ のもとでラプラス変換し、$X(s)$ を求めよ。</p>
                     </div>
@@ -119,13 +123,13 @@
                         <div class="solution-step">
                             3. 初期条件の確認：
                             - $x(0) = \sin(0) = 0$ ✓
-                            - $x'(t) = 2\cos(2t)$，$x'(0) = 2\cos(0) = 2$ 
-                            インパルス効果により速度が瞬間的にジャンプするため整合します。
+                            - $x'(t) = 2\cos(2t)$，$x'(0) = 2\cos(0) = 2$
+                            インパルスを$t=0$で積分すると$x'(0^+)-x'(0^-)=1$となる。したがって問題の$x'(0)=1$を$x'(0^-)$と解釈すれば$x'(0^+)=2$で整合する（右側解は$x(t)=\sin2t$）。$x'(0)$を右微分と解釈する convention では、問題の初期条件自体に注意が必要である。
                         </div>
                         <span class="answer-highlight">答え: $x(t) = \sin 2t \quad (t \geq 0)$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -151,13 +155,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 不定積分 $\int \sqrt{a^2 + x^2} \, dx$ を導出過程とともに示せ。</p>
                     </div>
@@ -231,7 +235,7 @@
                         <span class="answer-highlight">答え: $L = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -262,7 +266,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">変数 $x, y, z$ の間に $\frac{x + y - 2z}{x} = \frac{-x + 2y + z}{y} = \frac{y - z}{z}$ が成り立つとき、$x = y = z = 0$ 以外の場合の $x, y, z$ の比を求めよ。</p>
                     </div>
@@ -299,7 +303,7 @@
                             <strong>ケース1:</strong> $k = 1$ のとき
                             - $y = 2z$，式(2)より $-x + 2y + z = 0$ → $x = 3z$
                             - 比 $x:y:z = 3:2:1$
-                            
+
                             <strong>ケース2:</strong> $k \neq 1$ のとき
                             - $x = z$，式(2)より $-z + (2-k)(k+1)z + z = 0$
                             - $(2-k)(k+1) = 0$ より $k = 2$ または $k = -1$
@@ -309,7 +313,7 @@
                         <span class="answer-highlight">答え: $x:y:z = 3:2:1$ または $1:3:1$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -340,7 +344,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) $P(x), Q(x)$ が $x$ の関数のとき、微分方程式 $\frac{dy}{dx} + P(x)y = Q(x)y^n$ ($n \neq 0, 1$) が $z = y^{1-n}$ とおけば線形微分方程式に帰着できることを示せ。</p>
                     </div>
@@ -370,7 +374,7 @@
                         </div>
                         <div class="solution-step">
                             4. 線形微分方程式の形に整理：
-                            <div class="math-block">$$\frac{dz}{dx} + (n-1)P(x)z = (1-n)Q(x)$$</div>
+                            <div class="math-block">$$\frac{dz}{dx} + (1-n)P(x)z = (1-n)Q(x)$$</div>
                             これは $z$ に関する線形微分方程式です。
                         </div>
                         <span class="answer-highlight">証明完了</span>
@@ -396,27 +400,30 @@
                         </div>
                         <div class="solution-step">
                             2. $z = y^{1-3} = y^{-2}$ とおき、(1)の結果を適用：
-                            <div class="math-block">$$\frac{dz}{dx} + 2z = 2e^x$$</div>
+                            <div class="math-block">$$\frac{dz}{dx} - 2z = 2e^x$$</div>
                         </div>
                         <div class="solution-step">
-                            3. 積分因子 $\mu(x) = e^{2x}$ を使って解きます：
-                            <div class="math-block">$$e^{2x}\frac{dz}{dx} + 2e^{2x}z = 2e^{3x}$$</div>
-                            <div class="math-block">$$\frac{d}{dx}(ze^{2x}) = 2e^{3x}$$</div>
+                            3. 積分因子 $\mu(x) = e^{-2x}$ を使って解きます：
+                            <div class="math-block">$$e^{-2x}\frac{dz}{dx} - 2e^{-2x}z = 2e^{-x}$$</div>
+                            <div class="math-block">$$\frac{d}{dx}(ze^{-2x}) = 2e^{-x}$$</div>
                         </div>
                         <div class="solution-step">
                             4. 積分：
-                            <div class="math-block">$$ze^{2x} = \int 2e^{3x} dx = \frac{2}{3}e^{3x} + C$$</div>
-                            <div class="math-block">$$z = \frac{2}{3}e^x + Ce^{-2x}$$</div>
+                            <div class="math-block">$$ze^{-2x} = \int 2e^{-x} dx = -2e^{-x} + C$$</div>
+                            <div class="math-block">$$z = -2e^x + Ce^{2x}$$</div>
                         </div>
                         <div class="solution-step">
                             5. $z = y^{-2}$ より：
-                            <div class="math-block">$$\frac{1}{y^2} = \frac{2}{3}e^x + Ce^{-2x}$$</div>
-                            <div class="math-block">$$y = \pm\frac{e^{-x}}{\sqrt{\frac{2}{3} + Ce^{-3x}}}$$</div>
+                            <div class="math-block">$$\frac{1}{y^2} = -2e^x + Ce^{2x}$$</div>
+                            <div class="math-block">$$y = \pm\frac{1}{\sqrt{-2e^x + Ce^{2x}}}$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $y = \pm\frac{e^{-x}}{\sqrt{\frac{2}{3} + Ce^{-3x}}}$ （$C$ は定数）</span>
+                        <div class="solution-step">
+                            6. 変換$z=y^{-2}$では$y=0$を除外しているため、$y=0$も元の方程式の特別解として加えます。
+                        </div>
+                        <span class="answer-highlight">答え: $y=0$ または $y = \pm\frac{1}{\sqrt{-2e^x + Ce^{2x}}}$ （実数解では根号内が正、$C$ は定数）</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

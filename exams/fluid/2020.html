@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,13 +45,17 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>ベルヌーイの定理とその適用、垂直噴流による平板衝撃、渦の運動と循環に関する問題です。基本的な流体力学の理論理解と実際への応用力が問われています。</p>
-                
-                <a href="../../pdfs/question/2020_R2_april/fluid_2020_R2_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
-                <a href="../../pdfs/answer/2020_R2_april/fluid_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+
+                <a href="../../pdfs/question/2020_R2_april/fluid_2020_R2_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/fluid_2020_R2_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -59,12 +63,12 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】ベルヌーイの定理と垂直噴流</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">非圧縮性流体に関して以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1)(a) -->
                     <div class="example-box">
                         <p class="problem-statement">(1)(a) ベルヌーイの定理は単位（ア）あたりの流体に対するエネルギー保存式である。</p>
@@ -87,7 +91,7 @@
                                 <li>$\rho gh$: 単位体積あたりの位置エネルギー</li>
                             </ul>
                         </div>
-                        
+
                         <span class="answer-highlight">答え: 体積</span>
                     </div>
 
@@ -100,13 +104,13 @@
                     <div class="solution-step">
                         ベルヌーイの定理が成立するための基本条件：
                         <ul>
-                            <li>非圧縮性の流れ（密度一定）</li>
-                            <li>非粘性の流れ（完全流体）</li>
                             <li>定常の流れ（時間変化なし）</li>
+                            <li>非粘性の流れ（完全流体）</li>
+                            <li>渦なしの流れ（または同一流線上で適用）</li>
                         </ul>
                     </div>
-                    <span class="answer-highlight">答え: (イ)非圧縮性流れ、(ウ)非粘性流れ、(エ)定常流れ</span>
-                    
+                        <span class="answer-highlight">答え: (イ)定常流れ、(ウ)非粘性流れ、(エ)渦なし</span>
+
                     <!-- 小問(2)(a) -->
                     <div class="example-box">
                         <div class="section-title">
@@ -114,10 +118,10 @@
                         </div>
                     </div>
                     <div class="solution-step">
-                        流れが物体に衝突して速度がゼロになる点を「よどみ点」と呼び、その点における圧力を「よどみ点圧」または「停滞圧」と呼びます。
+                        流れが物体に衝突して速度がゼロになる点を「よどみ点」と呼び、その点の圧力$p_s$を「停滞（点）圧」または「全圧（総圧）」と呼びます。
                     </div>
-                    <span class="answer-highlight">答え: (オ)よどみ点、(カ)よどみ点圧（または停滞圧）</span>
-                    
+                    <span class="answer-highlight">答え: (オ)停滞（点）圧、(カ)全圧（または総圧）</span>
+
                     <!-- 小問(2)(b) -->
                     <div class="example-box">
                         <div class="section-title">
@@ -174,7 +178,7 @@
                             <li>エネルギー保存則の適用</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -185,7 +189,7 @@
                             <li>各項の物理的意味を理解する</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
@@ -195,7 +199,7 @@
                             <li>よどみ点では速度がゼロになることを忘れない</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
@@ -208,7 +212,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -216,12 +220,12 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】渦の運動と循環</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">流体の円形回転運動は一般的に渦と呼ばれる。渦に関して以下の問いに答えよ。ただし、流れは二次元完全流体とし、図2に示すように渦中心はxy座標の原点に位置し、渦中心からの距離をr、x軸からの偏角をθ、回転運動の接線方向速度を$v_θ$とする。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <div class="section-title">(1) 渦中心からある距離までは$v_θ$がrに比例し、a以上ではrに反比例するような渦のモデルを何と呼ぶか答えよ。</div>
@@ -237,10 +241,10 @@
                         </div>
                         <span class="answer-highlight">答え: ランキン渦</span>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
-                        <div class="section-title">(2) $0 \le r \le a$では$v_θ = Ωr^2$、$r > a$における$v_θ$を求めよ。</div>
+                        <div class="section-title">(2) $0 \le r \le a$では$v_θ = \Omega' r^2$、$r > a$における$v_θ$を求めよ。</div>
                     </div>
                     <div class="point-box">
                         <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
@@ -249,15 +253,15 @@
                     <div>
                         <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
                         <div class="solution-step">
-                            $r = a$における内側の速度: $v_θ(a) = Ωa^2$<br>
+                            $r = a$における内側の速度: $v_θ(a) = \Omega'a^2$<br>
                             $r > a$では$v_θ = C/r$とおくと、連続性から：
                             <div class="math-block">
-                                $$Ωa^2 = \frac{C}{a} \Rightarrow C = Ωa^3$$
+                                $$\Omega'a^2 = \frac{C}{a} \Rightarrow C = \Omega'a^3$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: $v_θ = \frac{Ωa^3}{r}$</span>
+                        <span class="answer-highlight">答え: $v_θ = \frac{\Omega'a^3}{r}$</span>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <div class="section-title">(3) この流れ場において、連続の方程式が満たされることを示せ。</div>
@@ -284,11 +288,11 @@
                     <div class="solution-step">
                         極座標での渦度: $ω = \frac{1}{r} \frac{\partial(r v_θ)}{\partial r}$
                         <ul>
-                            <li>$0 ≤ r ≤ a$: $rv_θ = Ωr^3$ → $ω = 3Ωr$</li>
-                            <li>$r > a$: $rv_θ = Ωa^3$ (定数) → $ω = 0$</li>
+                            <li>$0 ≤ r ≤ a$: $rv_θ = \Omega'r^3$ → $ω = 3\Omega'r$</li>
+                            <li>$r > a$: $rv_θ = \Omega'a^3$ (定数) → $ω = 0$</li>
                         </ul>
                     </div>
-                    <span class="answer-highlight">答え: $ω = 3Ωr$ (r ≤ a), $ω = 0$ (r > a)</span>
+                    <span class="answer-highlight">答え: $ω = 3\Omega'r$ (r ≤ a), $ω = 0$ (r > a)</span>
 
                     <!-- 小問(5) -->
                     <div class="example-box">
@@ -297,12 +301,12 @@
                     <div class="solution-step">
                         循環$Γ = \oint_C \vec{v} \cdot d\vec{s} = \int_0^{2π} v_θ r dθ$
                         <ul>
-                            <li>$0 ≤ r ≤ a$: $Γ = 2πΩr^3$</li>
-                            <li>$r > a$: $Γ = 2πΩa^3$ (一定)</li>
+                            <li>$0 ≤ r ≤ a$: $Γ = 2π\Omega'r^3$</li>
+                            <li>$r > a$: $Γ = 2π\Omega'a^3$ (一定)</li>
                         </ul>
                     </div>
-                    <span class="answer-highlight">答え: $Γ = 2πΩr^3$ (r ≤ a), $Γ = 2πΩa^3$ (r > a)</span>
-                    
+                    <span class="answer-highlight">答え: $Γ = 2π\Omega'r^3$ (r ≤ a), $Γ = 2π\Omega'a^3$ (r > a)</span>
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -345,4 +349,4 @@
     <!-- 外部JavaScriptファイルを読み込む -->
     <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

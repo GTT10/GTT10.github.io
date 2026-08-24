@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2024年度の材料力学入試では、大問【1】で自重による伸びの計算（円柱、円錐、切れた円錐）、大問【2】で不静定はりの曲げ問題が出題されました。基礎的な応力・ひずみの関係から、複雑な梁の解析まで幅広い知識が問われる内容でした。</p>
-                <a href="../../pdfs/question/2024_R6_april/materials_2024_R6_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
-                <a href="../../pdfs/answer/2024_unofficial/materials_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/question/2024_R6_april/materials_2024_R6_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_unofficial/materials_2024_R6_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -58,24 +62,24 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】自重による伸びの計算</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">棒自身の重さ（自重）によって生じる伸びを、3つの異なる形状（円柱、円錐、切れた円錐）について計算せよ。各部材の長さはl、密度はρ、縦弾性係数はEとする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
                         <p>自重による伸びの問題では、「ある位置にかかる力は、それより下にある部分の重さに等しい」という考え方が基本です。形状によって断面積が変化する場合は、その変化を正確に把握することが重要です。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -85,19 +89,19 @@
                         <div class="solution-step">
                             <strong>考え方：</strong><br>
                             円柱では断面積が一定なので、計算が比較的単純です。下端からx の高さにある断面には、それより下にある部分（長さxの円柱）の重さがかかります。
-                            
+
                             <strong>応力の計算：</strong><br>
                             - 断面積：\(A = \frac{\pi d_0^2}{4}\)<br>
                             - 下端からxまでの重さ：\(W(x) = \rho g A x\)<br>
                             - 応力：\(\sigma_{AB}(x) = \frac{W(x)}{A} = \rho g x\)
-                            
+
                             <strong>伸びの計算：</strong><br>
                             微小部分\(dx\)の伸び：\(d\delta = \frac{\sigma_{AB}(x)}{E} dx = \frac{\rho g x}{E} dx\)<br>
                             全体の伸び：
                             $$\delta_{AB} = \int_0^l \frac{\rho g x}{E} dx = \frac{\rho g}{E} \left[\frac{x^2}{2}\right]_0^l = \frac{\rho g l^2}{2E}$$
                         </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{AB}(x) = \rho g x\)、伸び \(\delta_{AB} = \frac{\rho g l^2}{2E}\)</span>
-                        
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -107,21 +111,21 @@
                         <div class="solution-step">
                             <strong>考え方：</strong><br>
                             円錐では断面積が位置によって変化します。下端で直径0、上端で直径\(d_0\)なので、断面積は高さに比例して変化します。
-                            
+
                             <strong>断面積の変化：</strong><br>
                             - 直径：\(d(x) = \frac{d_0}{l} x\)<br>
                             - 断面積：\(A(x) = \frac{\pi d(x)^2}{4} = \frac{\pi d_0^2 x^2}{4l^2}\)
-                            
+
                             <strong>応力の計算：</strong><br>
                             - 下端からxまでの体積（小さな円錐）：\(V(x) = \frac{1}{3} A(x) x\)<br>
                             - 重さ：\(W(x) = \rho g V(x) = \rho g \frac{1}{3} A(x) x\)<br>
                             - 応力：\(\sigma_{CD}(x) = \frac{W(x)}{A(x)} = \frac{\rho g x}{3}\)
-                            
+
                             <strong>伸びの計算：</strong><br>
                             $$\delta_{CD} = \int_0^l \frac{\sigma_{CD}(x)}{E} dx = \int_0^l \frac{\rho g x}{3E} dx = \frac{\rho g l^2}{6E}$$
                         </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{CD}(x) = \frac{\rho g x}{3}\)、伸び \(\delta_{CD} = \frac{\rho g l^2}{6E}\)</span>
-                        
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -131,21 +135,21 @@
                         <div class="solution-step">
                             <strong>考え方：</strong><br>
                             切れた円錐（円錐台）は、大きな円錐から小さな円錐を切り取った形状です。下端で直径\(d_0/2\)、上端で直径\(d_0\)となります。
-                            
+
                             <strong>断面積の変化：</strong><br>
                             - 直径：\(d(x) = \frac{d_0}{2} + \frac{d_0 x}{2l}\)<br>
                             - 断面積：\(A(x) = \frac{\pi d(x)^2}{4}\)
-                            
+
                             <strong>応力の計算：</strong><br>
                             複雑な計算を経て、応力は以下のようになります：
                             $$\sigma_{EF}(x) = \frac{\rho g}{3} \left( (x+l) - \frac{l^3}{(x+l)^2} \right)$$
-                            
+
                             <strong>伸びの計算：</strong><br>
                             $$\delta_{EF} = \int_0^l \frac{\sigma_{EF}(x)}{E} dx = \frac{\rho g l^2}{3E}$$
                         </div>
                         <span class="answer-highlight">答え: 応力 \(\sigma_{EF}(x) = \frac{\rho g}{3} \left( (x+l) - \frac{l^3}{(x+l)^2} \right)\)、伸び \(\delta_{EF} = \frac{\rho g l^2}{3E}\)</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -181,7 +185,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -189,24 +193,24 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】不静定はりの曲げ問題</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">一端が固定され、他端が単純支持されたはり（プロップトカンチレバー）に、単位長さあたりqの一様分布荷重が作用している。このはりについて以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
                         <p>不静定はりは、力のつり合い式だけでは解けません。はりのたわみに関する境界条件（支点での変位・回転角の条件）を利用して解く必要があります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -217,11 +221,11 @@
                             <strong>力のつり合い：</strong><br>
                             上向きの力：A点の支点反力\(R_A\)とB点の支点反力\(R_B\)<br>
                             下向きの力：分布荷重の合力\(ql\)
-                            
+
                             $$R_A + R_B - ql = 0$$
                         </div>
                         <span class="answer-highlight">答え: \(R_A + R_B - ql = 0\)</span>
-                        
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -231,14 +235,14 @@
                         <div class="solution-step">
                             <strong>曲げモーメントの計算：</strong><br>
                             A点から距離xにある断面で、左側の部分を考えます。
-                            
+
                             - \(R_A\)によるモーメント：\(R_A x\)（上に凸）
                             - 分布荷重によるモーメント：\(-\frac{qx^2}{2}\)（下に凸）
-                            
+
                             $$M(x) = R_A x - \frac{q x^2}{2}$$
                         </div>
                         <span class="answer-highlight">答え: \(M(x) = R_A x - \frac{q x^2}{2}\)</span>
-                        
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -248,23 +252,23 @@
                         <div class="solution-step">
                             <strong>境界条件を用いた解法：</strong><br>
                             たわみの基本式：\(EI\frac{d^2v}{dx^2} = -M(x)\)を2回積分し、以下の境界条件を適用します：
-                            
+
                             - A点（x=0）：たわみ = 0（単純支持）
                             - B点（x=l）：たわみ = 0（固定端）
                             - B点（x=l）：たわみ角 = 0（固定端）
-                            
+
                             これらの条件から積分定数と未知反力を決定します。
                         </div>
                         <div class="solution-step">
                             <strong>計算結果：</strong><br>
                             境界条件を適用して連立方程式を解くと：
-                            
+
                             $$R_A = \frac{3}{8}ql$$
                             $$R_B = \frac{5}{8}ql$$
-                            $$M_B = \frac{1}{8}ql^2$$
+                            $$M_B = -\frac{1}{8}ql^2$$
                         </div>
-                        <span class="answer-highlight">答え: \(R_A = \frac{3}{8}ql\), \(R_B = \frac{5}{8}ql\), \(M_B = \frac{1}{8}ql^2\)</span>
-                        
+                        <span class="answer-highlight">答え: \(R_A = \frac{3}{8}ql\), \(R_B = \frac{5}{8}ql\), \(M_B = -\frac{1}{8}ql^2\)（大きさは \(ql^2/8\)）</span>
+
                         <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -274,19 +278,19 @@
                         <div class="solution-step">
                             <strong>最大モーメントの探索：</strong><br>
                             曲げモーメントの最大値は以下の位置で生じる可能性があります：
-                            
+
                             1. **せん断力が0になる点：** \(V(x) = R_A - qx = 0\)より\(x = \frac{3l}{8}\)
                             2. **固定端B：** \(x = l\)
-                            
+
                             各点でのモーメントの大きさを比較します：
                             - \(x = \frac{3l}{8}\)でのモーメント：\(M = \frac{9ql^2}{128}\)
                             - B点でのモーメント：\(|M_B| = \frac{ql^2}{8}\)
-                            
+
                             $$\frac{ql^2}{8} > \frac{9ql^2}{128}$$
                         </div>
                         <span class="answer-highlight">答え: \(|M|_{max} = \frac{1}{8}ql^2\)（固定端Bで発生）</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ

@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,13 +45,17 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>タンクからの流出問題、複素速度ポテンシャルによる流れ解析、ストークスの第一問題（突然運動する平板）の3問構成です。流体力学の基礎理論から粘性流体の非定常問題まで幅広く問われています。</p>
-                
-                <a href="../../pdfs/question/2019_H31_R1_april/fluid_2019_H31_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)</a>
-                <a href="../../pdfs/answer/2019_H31_R1_april/fluid_2019_H31_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
+
+                <a href="../../pdfs/question/2019_H31_R1_april/fluid_2019_H31_R1_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2019年度)</a>
+                <a href="../../pdfs/answer/2019_H31_R1_april/fluid_2019_H31_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2019年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -59,12 +63,12 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】タンクからの流出</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">図1のような円筒形状の水槽に高さHまで密度ρの完全流体が入っている。底面に面積aの小さな流出孔が開いており、その孔から水槽内の流体が流出するとき、以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 水面から深さzのとき、流出孔から流出する流体の流速wを求めよ。</p>
@@ -89,7 +93,7 @@
                                 $$\rho g z = \frac{1}{2}\rho w^2$$
                             </div>
                         </div>
-                        
+
                         <span class="answer-highlight">答え: $w = \sqrt{2gz}$</span>
                     </div>
 
@@ -106,7 +110,7 @@
                         </div>
                     </div>
                     <span class="answer-highlight">答え: $dV = a\sqrt{2gz} \, dt$</span>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <div class="section-title">
@@ -121,7 +125,7 @@
                         負号は液面が下がることを表す。
                     </div>
                     <span class="answer-highlight">答え: $dV = -\pi R^2 \, dz$</span>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <div class="section-title">
@@ -164,7 +168,7 @@
                             <li>質量保存の法則</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -175,7 +179,7 @@
                             <li>微分方程式の分離変数法</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
@@ -185,7 +189,7 @@
                             <li>積分の上下限の設定</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-graduation-cap mr-2"></i>流体力学のチップス
@@ -198,7 +202,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -206,12 +210,12 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】複素速度ポテンシャルによる流れ解析</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">複素速度ポテンシャル$W(z) = -z^2$が、$x-y$平面における$x, y \ge 0$の領域で表す流れについて、以下の問いに答えよ。ただし$z = x + iy$、$i$は虚数単位である。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <div class="section-title">(1) 点A(2, 2)を通る流線の式を求めよ。</div>
@@ -236,7 +240,7 @@
                         </div>
                         <span class="answer-highlight">答え: $xy = 4$</span>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <div class="section-title">(2) (1)で求めた流線の概形を描け。また、x方向、y方向の速度を求め、流れの方向を示せ。</div>
@@ -260,7 +264,7 @@
                         </div>
                         <span class="answer-highlight">答え: 流線$xy = 4$（双曲線）、$u = -2x$、$v = 2y$、左上方向の流れ</span>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <div class="section-title">(3) 原点O(0, 0)と点Aを結ぶ線分OAを通過する体積流量を求めよ。</div>
@@ -284,7 +288,7 @@
                         </div>
                         <span class="answer-highlight">答え: $Q = -8$（体積流量の大きさは8）</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -326,7 +330,7 @@
                     <div class="example-box">
                         <p class="problem-statement">静止した非圧縮・粘性流体中におかれた無限平板が、急に一定速度Uでx軸方向に動き出し、流体中に速度が誘起された。このとき以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <div class="section-title">(1) 2次元における非圧縮・粘性流体の連続の方程式を書け。</div>
@@ -426,4 +430,4 @@
     <!-- 外部JavaScriptファイルを読み込む -->
     <script src="../../js/script.js"></script>
 </body>
-</html> 
+</html>

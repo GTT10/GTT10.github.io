@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>材料力学 2004</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 材料力学 2004年度の問題原本と全問独立再計算による非公式解説。">
+  <title>材料力学 2004年度 非公式解答・解説</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/archive.css">
+  <style>
+    .solution-content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .solution-section { margin: 1.5rem 0; padding: 1.25rem; background: #fff; border: 1px solid #d8e3e8; border-radius: 10px; box-shadow: 0 4px 14px rgba(18,62,87,.06); }
+    .solution-section h3 { margin-top: 0; color: #123e57; border-bottom: 2px solid #d8e3e8; padding-bottom: .55rem; }
+    .solution-block { margin: .8rem 0; padding: .7rem .85rem; border-left: 4px solid #b7d1dc; }
+    .solution-block h4 { margin: 0 0 .35rem; font-size: .9rem; color: #345; }
+    .solution-block p { margin: 0; line-height: 1.8; white-space: normal; }
+    .solution-block--answer { background: #f1f7fa; border-left-color: #247a9b; }
+    .solution-block--assumption { color: #555; background: #fafafa; }
+    .solution-block--audit { color: #555; font-size: .92rem; background: #fffdf2; border-left-color: #caa94b; }
+    .source-note { max-width: 1000px; margin: 0 auto; padding: 0 1rem 1rem; color: #555; }
+    .source-note a { margin-right: 1rem; }
+  </style>
 </head>
 <body>
-</body>
-</html> 
+  <header class="header header--static"><div class="container header-content">
+    <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
+    <nav class="nav" aria-label="主要ナビゲーション"><ul class="nav-list">
+      <li><a href="../../index.html" class="nav-link">ホーム</a></li>
+      <li><a href="../../pages/material_mechanics.html" class="nav-link">材料力学一覧</a></li>
+      <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
+    </ul></nav>
+  </div></header>
+  <main>
+    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト"><div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/material_mechanics.html">材料力学</a><span aria-hidden="true">/</span><span>2004年度</span></div></nav>
+    <section class="archive-hero"><div class="container archive-hero__inner">
+      <p class="eyebrow">2004年度（H16）・全問再計算</p><h1>材料力学 2004年度</h1>
+      <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
+      <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答PDF・詳細解説あり</span><span>原本を優先してご確認ください</span></div>
+    </div></section>
+    <section class="archive-content"><div class="container archive-layout"><div>
+      <h2>原本と解答PDF</h2><div class="resource-grid">
+        <a class="resource-card resource-card--question" href="../../pdfs/question/2004_H16_april/materials_2004_H16_question.pdf" target="_blank" rel="noopener"><span class="resource-kicker">原本</span><strong>問題PDFを開く</strong><span>全ページを確認した原本です。</span></a>
+        <a class="resource-card resource-card--answer" href="../../pdfs/answer/2004_unofficial/2004_materials.pdf" target="_blank" rel="noopener"><span class="resource-kicker">非公式解答案</span><strong>解答PDFを開く</strong><span>このページと同じ導出を収録しています。</span></a>
+      </div>
+      <section class="study-guide"><h2>利用上の注意</h2><p>本ページと解答PDFは学習用の非公式資料です。記号、符号、単位、図の読み方は必ず問題原本と照合してください。</p><p>以下では各小問の問題条件、仮定、途中式、最終結果を順に示します。</p></section>
+    </div><aside class="archive-note"><h2>検算状態</h2><p>問題PDFの全関連ページをPopplerで画像化して確認し、独立計算を行いました。</p><p>原本と解答PDFの疑義・解釈は監査記録に明記しています。</p><a href="../../about.html">詳しい利用案内を見る</a></aside></div></section>
+    <section class="solution-content" aria-labelledby="solution-title"><h2 id="solution-title">年度別詳細解説</h2><section class="solution-section" aria-labelledby="q2004-1"><h3 id="q2004-1">大問 1　中実棒と中空円筒の組合せ棒</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>長さ l の中実円柱 A と中空円筒 B を同軸に配置し、剛体円板 C, D で両端を固定する。各材料の E, alpha, A を E1, alpha1, A1 および E2, alpha2, A2 とする。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>2本は同じ端板間変位を受ける。D0 = E1*A1 + E2*A2 と置く。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(1) 軸方向荷重 P では共通ひずみ epsilon = lambda/l。力の釣合い P=(E1*A1+E2*A2)*epsilon。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) sigma_1=E1*P/D0、sigma_2=E2*P/D0、lambda=P*l/D0。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(2) B だけを t だけ昇温し、外力なし。共通変位 delta に対して sigma_1=E1*delta/l、sigma_2=E2*(delta/l-alpha2*t)。全軸力 E1*A1*delta/l + E2*A2*(delta/l-alpha2*t)=0。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) delta/l=E2*A2*alpha2*t/D0。sigma_1=E1*E2*A2*alpha2*t/D0（A は引張）、sigma_2=-E1*E2*A1*alpha2*t/D0（B は圧縮）。組合せ棒の伸び lambda=l*E2*A2*alpha2*t/D0。</p></div></section><section class="solution-section" aria-labelledby="q2004-2"><h3 id="q2004-2">大問 2　AC に等分布荷重を受ける片端固定他端支持ばり</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>長さ 2l のばり AB。A は固定端、B は単純支持端、C は A から l の位置。AC のみに等分布荷重 w。E, I は一定。原図の x は B から左向きだが、計算は A から右向きの s を使う。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>下側引張りの曲げモーメントを正、上向き反力を正とする。A からの距離を s とし、B の変位 y(2l)=0 を使う。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>原図の x（B から左向き）で切断すると、0&lt;=x&lt;=l では M(x)=R_B*x、l&lt;=x&lt;=2l では M(x)=R_B*x-w*(x-l)^2/2。たわみの基礎式は EI*y&#x27;&#x27;=M。A の固定端条件は y(2l)=0, y&#x27;(2l)=0、B の支持条件は y(0)=0。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>B の反力を未知とし、固定端片持ちばりの B 点たわみを重ね合わせる。AC の w によるたわみは 7*w*l^4/(24*E*I)、B の上向き反力 R_B によるたわみは 8*R_B*l^3/(3*E*I)。適合条件より R_B=7*w*l/64。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>反力 R_A=57*w*l/64、R_B=7*w*l/64。固定端外力モーメントの大きさは M_A=9*w*l^2/32（反時計回り）。A から右向き s=2l-x で書けば、内部曲げモーメントは 0&lt;=s&lt;=l で M(s)=-9*w*l^2/32+(57*w*l/64)*s-w*s^2/2、l&lt;=s&lt;=2l で M(s)=-9*w*l^2/32+(57*w*l/64)*s-w*l*(s-l/2)。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>せん断力（s を A から右向き）は 0&lt;s&lt;l で V=57*w*l/64-w*s、l&lt;s&lt;2l で V=-7*w*l/64。SFD は C で傾きがゼロになり、B で +7*w*l/64 跳ぶ。BMD は M(A)=-18*w*l^2/64、M(C)=+7*w*l^2/64、M(B)=0。原図の x を使うなら s=2l-x で、0&lt;=x&lt;=l では M=7*w*l*x/64、l&lt;=x&lt;=2l では M=w*l^2*(-32+71*x/l-32*(x/l)^2)/64。</p></div></section><section class="solution-section" aria-labelledby="q2004-3"><h3 id="q2004-3">大問 3　円棒のねじり</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>直径 d の中実丸棒にねじりモーメント T。極断面二次モーメント、比ねじれ角、表面の応力状態、最大主応力を求める。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) Ip=integral(r^2 dA)=pi*d^4/32。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) 比ねじれ角 theta = T/(G*Ip)=32*T/(pi*G*d^4)。全長 l のねじれ角は l*theta。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(3) 半径 r のせん断応力は tau(r)=T*r/Ip で半径に比例する。表面 r=d/2 で最大。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(3) tau_max=16*T/(pi*d^3)。表面では法線応力 0、せん断応力 tau_max の純せん断状態。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(4) 純せん断の主応力は +tau_max と -tau_max。最大主応力 sigma_1=16*T/(pi*d^3)。</p></div></section></section>
+    <nav class="year-pagination container" aria-label="年度間ナビゲーション"><a href="2003.html">← 2003年度</a><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2005.html">2005年度 →</a></nav>
+  </main>
+  <footer class="footer"><div class="container"><p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p><p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p></div></footer>
+</body></html>

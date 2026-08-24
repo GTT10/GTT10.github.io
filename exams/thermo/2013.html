@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,9 +40,13 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>熱力学の基礎関係式、有効エネルギーと無効エネルギー、ランキンサイクルの解析の3つの大問から構成されています。基礎的な熱力学第一法則から実用的な蒸気サイクルまで幅広く扱い、工業熱力学の理論と応用を総合的に問います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">熱力学基礎関係式</span>
@@ -50,11 +54,11 @@
                     <span class="topic-tag">ランキンサイクル</span>
                     <span class="topic-tag">タービン効率</span>
                 </div>
-                
-                <a href="../../pdfs/question/2013_H25_april/thermo_2013_H25_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)</a>
-                <a href="../../pdfs/answer/2013_H25_april/thermo_2013_H25_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
+
+                <a href="../../pdfs/question/2013_H25_april/thermo_2013_H25_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)</a>
+                <a href="../../pdfs/answer/2013_H25_april/thermo_2013_H25_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -62,30 +66,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: 熱力学の基礎</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">熱力学第一法則から基本関係式を導出し、理想気体および半理想気体の性質について解析せよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) $du = c_v dT$および$dh = c_p dT$を導出せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱力学第一法則とエンタルピーの定義、定容・定圧比熱の定義を用いて導出します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>比内部エネルギー$du$の導出：</strong>
                             <p>熱力学第一法則：$du = \delta q - \delta w$</p>
@@ -95,7 +99,7 @@
                                 $$\boxed{du = c_v dT}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>比エンタルピー$dh$の導出：</strong>
                             <p>エンタルピーの定義：$h = u + Pv$</p>
@@ -109,31 +113,31 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) $c_p$と$c_v$の差を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>理想気体の状態方程式とエンタルピーの定義を組み合わせます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>理想気体の状態方程式：$Pv = RT$</p>
                             <p>エンタルピーの定義：$h = u + Pv = u + RT$</p>
                             <p>微分：$dh = du + R dT$</p>
                             <p>(1)の結果を代入：$c_p dT = c_v dT + R dT$</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -143,20 +147,20 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 理想気体の比エントロピーを求めよ。<br>
                         (i) 定容変化　(ii) 定圧変化</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エントロピーの定義$ds = \delta q_{\text{rev}}/T$と(1)の結果を使用します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -172,17 +176,17 @@
                             $$\boxed{s = c_p \ln T + \text{const}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) T-s線図を描き、定容線と定圧線の傾きの違いを説明せよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>T-s線図</h4>
                             <pre class="ascii-diagram">
@@ -197,7 +201,7 @@
 +-------------------→ 比エントロピー s
             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -210,20 +214,20 @@
                             <p><strong>理由：</strong>$c_p > c_v$のため、定圧線の傾きが定容線より緩やかになります。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) 半理想気体（$c_v = a + bT + cT^2$）の比エントロピーを求めよ。<br>
                         (i) 定容変化　(ii) 定圧変化</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>比熱が温度の関数として与えられているので、積分を実行します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -241,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -255,7 +259,7 @@
                             <li>エントロピー定義：$ds = \delta q_{\text{rev}}/T$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -267,7 +271,7 @@
                             <li>積分計算の実行</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -281,7 +285,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -289,44 +293,44 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: 有効エネルギーと無効エネルギー</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">周囲温度$T_0 = 300$ K、平均比熱$c_p = 4.0$ kJ/(kg·K)、$\ln 1.5 = 0.4$として、水の加熱過程における有効・無効エネルギーを計算せよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 300 K → 450 Kの水の加熱における各エネルギーを求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>有効エネルギーは$\Delta e = \Delta h - T_0\Delta s$、無効エネルギーは$\Delta i = T_0\Delta s$で計算します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>エンタルピー変化：</strong>
                             <div class="math-block">
                                 $$\Delta h = c_p(T_2 - T_1) = 4.0 \times (450 - 300) = 600 \text{ kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>エントロピー変化：</strong>
                             <div class="math-block">
                                 $$\Delta s = c_p \ln\frac{T_2}{T_1} = 4.0 \times \ln\frac{450}{300} = 4.0 \times \ln 1.5 = 4.0 \times 0.4 = 1.6 \text{ kJ/(kg·K)}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -339,38 +343,38 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 450 K飽和水→飽和蒸気の相変化における各エネルギーを求めよ。蒸発潜熱は1800 kJ/kgとする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等温過程の相変化では、エントロピー変化は潜熱を温度で割った値になります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>エンタルピー変化：</strong>
                             <div class="math-block">
                                 $$\Delta h = 1800 \text{ kJ/kg} \quad \text{（蒸発潜熱）}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>エントロピー変化（等温過程）：</strong>
                             <div class="math-block">
                                 $$\Delta s = \frac{\Delta h}{T_{\text{sat}}} = \frac{1800}{450} = 4.0 \text{ kJ/(kg·K)}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -383,12 +387,12 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 全体（300 K水→飽和蒸気）の各エネルギーを求めよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -402,7 +406,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -416,7 +420,7 @@
                             <li>省エネルギーの指標</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>計算のポイント
@@ -428,7 +432,7 @@
                             <li>エネルギーの質の評価</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-key mr-2"></i>重要な関係式
@@ -443,7 +447,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【3】 -->
         <div class="page-content">
@@ -451,76 +455,78 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】: ランキンサイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
-                        <div class="problem-statement">ランキンサイクルについて、h-s線図を参照してタービン仕事と熱効率を求め、損失要因とタービン効率の影響を解析せよ。</div>
+
+                        <div class="problem-statement">入口エンタルピー$h_1=3300$ kJ/kgの蒸気を6 kPaまで断熱膨張させるランキンサイクルを考える。理想タービン出口の乾き度は$x_2=0.8$、6 kPaにおける飽和液・飽和蒸気エンタルピーはそれぞれ$h_f=150$、$h_g=2600$ kJ/kgであり、ポンプ仕事は無視する。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) タービン仕事を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>定常流でのエネルギー保存則を適用し、運動・位置エネルギーは無視します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
                         </div>
-                        <p>タービン入口（過熱蒸気）から出口（復水器入口）まで：</p>
+                        <p>理想タービン出口の比エンタルピーを乾き度から求めます。</p>
                         <div class="math-block">
-                            $$\boxed{w_T = h_1 - h_2}$$
+                            $$h_{2s}=h_f+x_2(h_g-h_f)
+                            =150+0.8(2600-150)=2110\ \text{kJ/kg}$$
+                            $$\boxed{w_{T,s}=h_1-h_{2s}=3300-2110=1190\ \text{kJ/kg}}$$
                         </div>
-                        <p>ここで、$h_1$：タービン入口比エンタルピー、$h_2$：タービン出口比エンタルピー</p>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率は正味仕事を吸熱量で割った値です。ポンプ仕事は無視できるとします。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>ボイラでの吸熱量：</p>
                             <div class="math-block">
-                                $$q_{\text{in}} = h_1 - h_3$$
+                                $$q_{\text{in}} = h_1 - h_3 = 3300-150=3150\ \text{kJ/kg}$$
                             </div>
                             <p>ここで、$h_3$：復水器出口の飽和水エンタルピー</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\eta = \frac{w_T}{q_{\text{in}}} = \boxed{\frac{h_1 - h_2}{h_1 - h_3}}$$
+                                $$\eta = \frac{w_{T,s}}{q_{\text{in}}}
+                                = \frac{1190}{3150}=0.3778 \simeq \boxed{0.378\ (37.8\%)}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 実際の原動所で生じる損失と不可逆性を列挙せよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -534,51 +540,53 @@
                             <li><strong>ポンプの機械損失</strong>：軸仕事の一部が熱に変換</li>
                         </ol>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) タービン効率が80%の場合の実際の熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>タービン効率は等エントロピー仕事に対する実際の仕事の比として定義されます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>等エントロピー仕事（理想的なタービン仕事）：</p>
                             <div class="math-block">
-                                $$w_s = h_1 - h_{2s}$$
+                                $$w_s = h_1 - h_{2s}=1190\ \text{kJ/kg}$$
                             </div>
                             <p>ここで、$h_{2s}$：等エントロピー膨張での出口エンタルピー</p>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>実際のタービン仕事：</p>
                             <div class="math-block">
-                                $$w_T = \eta_{\text{turb}} \times w_s = 0.8 \times (h_1 - h_{2s})$$
+                                $$w_T = \eta_{\text{turb}} w_s = 0.8 \times 1190
+                                =952\ \text{kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <p>実際の熱効率：</p>
                             <div class="math-block">
-                                $$\eta_{\text{actual}} = \frac{w_T}{h_1 - h_3} = \boxed{\frac{0.8(h_1 - h_{2s})}{h_1 - h_3}}$$
+                                $$\eta_{\text{actual}} = \frac{w_T}{h_1-h_3}
+                                =\frac{952}{3150}=0.3022 \simeq \boxed{0.302\ (30.2\%)}$$
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -592,7 +600,7 @@
                             <li>効率向上の工夫</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>解析のポイント
@@ -604,7 +612,7 @@
                             <li>h-s線図の読み方</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-key mr-2"></i>重要な関係式

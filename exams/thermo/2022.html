@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,11 +45,15 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2022年度の熱力学入試では、大問【1】でカルノーサイクル、大問【2】で熱力学関係式の導出（エンタルピー、ジュール・トムソン係数）が出題されました。熱力学の基礎概念と関係式の導出能力が問われる内容でした。</p>
-                <a href="../../pdfs/question/2022_R4_april/thermo_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+                <a href="../../pdfs/question/2022_R4_april/thermo_2022_R4_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -191,7 +195,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -210,10 +214,10 @@
                             1. 比エンタルピー \(h\) の定義 \(h = u + pv\) より、\(dh = du + p dv + v dp\)。
                         </div>
                         <div class="solution-step">
-                            2. 熱力学第一法則 \(dq = du + p dv\)、これを代入して \(dh = dq + v dp\)。
+                            2. 準静的な境界仕事を仮定した熱力学第一法則 \(\delta q_{\rm rev} = du + p\,dv\) を代入して \(dh = \delta q_{\rm rev} + v\,dp\)。
                         </div>
                         <div class="solution-step">
-                            3. 熱力学第二法則 \(dq = T ds\) より、\(dh = T ds + v dp\)。
+                            3. 可逆経路の熱力学第二法則 \(\delta q_{\rm rev} = T ds\) より、\(dh = T ds + v\,dp\)。
                         </div>
                         <div class="solution-step">
                             4. 定圧過程 (\(dp=0\)) で \(dh = T ds\)。

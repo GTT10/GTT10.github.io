@@ -1,9 +1,110 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>流体力学 2005</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 流体力学 2005年度の問題原本と全問独立再計算による非公式解説。">
+  <title>流体力学 2005年度 非公式解答・解説</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/archive.css">
 </head>
 <body>
+  <header class="header header--static">
+    <div class="container header-content">
+      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <ul class="nav-list">
+          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
+          <li><a href="../../pages/fluid_mechanics.html" class="nav-link">流体力学一覧</a></li>
+          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
+      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/fluid_mechanics.html">流体力学</a><span aria-hidden="true">/</span><span>2005年度</span></div>
+    </nav>
+
+    <section class="archive-hero">
+      <div class="container archive-hero__inner">
+        <p class="eyebrow">2005年度（H17）・全問再計算</p>
+        <h1>流体力学 2005年度</h1>
+        <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
+        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
+      </div>
+    </section>
+
+    <section class="archive-content">
+      <div class="container archive-layout">
+        <div>
+          <h2>収録資料</h2>
+          <div class="resource-grid">
+            <a class="resource-card resource-card--question" href="../../pdfs/question/2005_H17_april/fluid_2005_H17_question.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">原本</span>
+              <strong>問題PDFを開く</strong>
+              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
+            </a>
+            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2005_unofficial/2005_fluid.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">非公式解答案</span>
+              <strong>解答PDFを開く</strong>
+              <span>全大問を独立計算。原本と照合しながら利用してください。</span>
+            </a>
+          </div>
+
+          <section class="study-guide" aria-labelledby="solution-title">
+            <h2 id="solution-title">全問の独立再計算（非公式）</h2>
+            <p class="note">問題PDF全3ページを確認。以下は問題文の仮定を明示した要約・途中式・最終答です。</p>
+            <h3>大問1　球の抵抗の相似実験</h3>
+            <p><strong>仮定：</strong>実機の球径を <span class="formula">d<sub>0</sub></span>、模型径を <span class="formula">d<sub>0</sub>/10</span> とし、模型流体は実機流体の <span class="formula">1000</span> 倍の密度・<span class="formula">10</span> 倍の粘度を持つ。実機速度を <span class="formula">u<sub>0</sub></span>、模型抵抗を <span class="formula">F<sub>1</sub></span> とし、Mach 数の影響は無視する。</p>
+            <p><strong>(1) 模型速度：</strong><span class="formula">Re<sub>m</sub>/Re<sub>o</sub>=(1000/10/10)(u<sub>m</sub>/u<sub>0</sub>)=10u<sub>m</sub>/u<sub>0</sub></span>。相似条件 <span class="formula">Re<sub>m</sub>=Re<sub>o</sub></span> から <span class="formula">u<sub>m</sub>=u<sub>0</sub>/10</span>。</p>
+            <p><strong>(2) 抵抗の換算：</strong><span class="formula">F=&frac12;C<sub>D</sub>&rho;u<sup>2</sup>S</span>、<span class="formula">S<sub>m</sub>/S<sub>o</sub>=1/100</span> より <span class="formula">F<sub>1</sub>/F<sub>o</sub>=1000&times;(1/10)<sup>2</sup>&times;(1/100)=1/10</span>、従って <span class="formula">F<sub>o</sub>=10F<sub>1</sub></span>。</p>
+            <h3>大問2　傾斜面上の薄膜流れ</h3>
+            <p><strong>仮定・座標：</strong><span class="formula">x</span> を斜面下向き、<span class="formula">y</span> を斜面から垂直外向きとし、重力成分を <span class="formula">(g&nbsp;sin&theta;,-g&nbsp;cos&theta;)</span> とする。一般の二次元運動方程式は <span class="formula">&rho;Du/Dt=-p<sub>x</sub>+&mu;&nabla;<sup>2</sup>u+&rho;g&nbsp;sin&theta;</span>、<span class="formula">&rho;Dv/Dt=-p<sub>y</sub>+&mu;&nabla;<sup>2</sup>v-&rho;g&nbsp;cos&theta;</span>。</p>
+            <p><strong>(1) 速度・圧力：</strong>完全発達流れ <span class="formula">u=u(y), v=0</span>、壁面 <span class="formula">u(0)=0</span>、自由表面 <span class="formula">p(h)=p<sub>0</sub>, &mu;u&#39;(h)=0</span>、かつ <span class="formula">p<sub>x</sub>=0</span> とすると、<span class="formula">p<sub>y</sub>=-&rho;g&nbsp;cos&theta;</span>、<span class="formula">&mu;u&#39;&#39;+&rho;g&nbsp;sin&theta;=0</span>。従って <span class="formula">p(y)=p<sub>0</sub>+&rho;g&nbsp;cos&theta;(h-y)</span>、<span class="formula">u(y)=(&rho;g&nbsp;sin&theta;/&mu;)(hy-y<sup>2</sup>/2)</span>。</p>
+            <p><strong>(2) 壁面せん断：</strong><span class="formula">&tau;<sub>xy</sub>(y)=&mu;u&#39;(y)=&rho;g&nbsp;sin&theta;(h-y)</span>、したがって流体の応力成分は <span class="formula">&tau;<sub>xy</sub>(0)=&rho;gh&nbsp;sin&theta;</span>（斜面が受ける接線力は反作用で逆向き）。</p>
+            <h3>大問3　一様流中の時計回り渦に働く力</h3>
+            <p><strong>符号規約：</strong><span class="formula">W=&phi;+i&psi;</span>、<span class="formula">dW/dz=u-iv</span>、時計回り循環の大きさを <span class="formula">&Gamma;&gt;0</span>、<span class="formula">&gamma;=&Gamma;/(2&pi;)</span> とする。</p>
+            <p><strong>(1) 複素ポテンシャル：</strong>時計回り渦では <span class="formula">u<sub>&theta;</sub>=-&gamma;/r</span> なので <span class="formula">W=U<sub>&infin;</sub>z+i&gamma;log&nbsp;z</span>。</p>
+            <p><strong>(2) 速度・圧力：</strong><span class="formula">u=U<sub>&infin;</sub>+&gamma;y/r<sup>2</sup></span>、<span class="formula">v=-&gamma;x/r<sup>2</sup></span>、<span class="formula">p=p<sub>&infin;</sub>-&rho;U<sub>&infin;</sub>&gamma;y/r<sup>2</sup>-&rho;&gamma;<sup>2</sup>/(2r<sup>2</sup>)</span>。</p>
+            <p><strong>(3) 断面の流入運動量：</strong>左面 <span class="formula">AB:x=-L</span> からの流入は <span class="formula">&rho;&int;<sub>-h</sub><sup>h</sup>u(-L,y)<sup>2</sup>dy</span>、<span class="formula">&rho;&int;<sub>-h</sub><sup>h</sup>u(-L,y)v(-L,y)dy</span>。下面 <span class="formula">AD:y=-h</span> は <span class="formula">v&gt;0</span> の部分、すなわち <span class="formula">-L&le;x&lt;0</span> だけが流入である。</p>
+            <p><strong>(4) y 方向収支：</strong>全区間の符号付き流束を用いると <span class="formula">P<sub>y</sub>=&int;<sub>-L</sub><sup>L</sup>[p(x,-h)-p(x,h)]dx=4&rho;U<sub>&infin;</sub>&gamma;tan<sup>-1</sup>(L/h)</span>、<span class="formula">I<sub>y</sub>=-4&rho;U<sub>&infin;</sub>&gamma;tan<sup>-1</sup>(h/L)</span>。よって渦が受ける力は <span class="formula">F<sub>y</sub>=P<sub>y</sub>-I<sub>y</sub>=2&pi;&rho;U<sub>&infin;</sub>&gamma;=&rho;U<sub>&infin;</sub>&Gamma;</span>（<span class="formula">+y</span> 向き、流体が渦に及ぼす力は逆向き）。</p>
+            <h3>大問4　球座標の連続の式</h3>
+            <p><strong>仮定・座標：</strong><span class="formula">&theta;</span> は <span class="formula">+z</span> 軸からの極角、<span class="formula">&phi;</span> は <span class="formula">xy</span> 平面への射影と <span class="formula">+x</span> 軸のなす角、速度成分は <span class="formula">(V<sub>r</sub>,V<sub>&theta;</sub>,V<sub>&phi;</sub>)</span> とする。微小体積 <span class="formula">r<sup>2</sup>sin&theta;&nbsp;dr&nbsp;d&theta;&nbsp;d&phi;</span> の質量収支から、<span class="formula">&part;&rho;/&part;t+(1/r<sup>2</sup>)&part;(r<sup>2</sup>&rho;V<sub>r</sub>)/&part;r+(1/(r&nbsp;sin&theta;))&part;(sin&theta;&rho;V<sub>&theta;</sub>)/&part;&theta;+(1/(r&nbsp;sin&theta;))&part;(&rho;V<sub>&phi;</sub>)/&part;&phi;=0</span>。</p>
+          </section>
+
+          <section class="study-guide" aria-labelledby="study-guide-title">
+            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
+            <ol>
+              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
+              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
+              <li>教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。</li>
+            </ol>
+          </section>
+        </div>
+
+        <aside class="archive-note">
+          <h2>利用上の注意</h2>
+          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
+          <p>解答案は非公式の独立計算です。原本の座標・符号規約を明記し、原本の判読上の不確実性は監査記録に残しています。なお、この年度の原本は大問4までで、大問5はありません。</p>
+          <a href="../../about.html">詳しい利用案内を見る</a>
+        </aside>
+      </div>
+    </section>
+
+    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
+      <a href="2004.html">← 2004年度</a>
+      <a href="../../pages/fluid_mechanics.html">年度一覧</a>
+      <a href="2006.html">2006年度 →</a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
+      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>

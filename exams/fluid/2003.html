@@ -1,9 +1,120 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>流体力学 2003</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 流体力学 2003年度の問題原本と全問独立再計算による非公式解説。">
+  <title>流体力学 2003年度 非公式解答・解説</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/archive.css">
 </head>
 <body>
+  <header class="header header--static">
+    <div class="container header-content">
+      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <ul class="nav-list">
+          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
+          <li><a href="../../pages/fluid_mechanics.html" class="nav-link">流体力学一覧</a></li>
+          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
+      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/fluid_mechanics.html">流体力学</a><span aria-hidden="true">/</span><span>2003年度</span></div>
+    </nav>
+
+    <section class="archive-hero">
+      <div class="container archive-hero__inner">
+        <p class="eyebrow">2003年度（H15）・全問再計算</p>
+        <h1>流体力学 2003年度</h1>
+        <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
+        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
+      </div>
+    </section>
+
+    <section class="archive-content">
+      <div class="container archive-layout">
+        <div>
+          <h2>収録資料</h2>
+          <div class="resource-grid">
+            <a class="resource-card resource-card--question" href="../../pdfs/question/2003_H15_april/fluid_2003_H15_question.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">原本</span>
+              <strong>問題PDFを開く</strong>
+              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
+            </a>
+            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2003_unofficial/2003_fluid.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">非公式解答案</span>
+              <strong>解答PDFを開く</strong>
+              <span>全大問を独立計算。原本と照合しながら利用してください。</span>
+            </a>
+          </div>
+
+          <section class="study-guide" aria-labelledby="solution-title">
+            <h2 id="solution-title">全問の独立再計算（非公式）</h2>
+            <p class="note">問題PDF全3ページを確認。以下は問題文の仮定を明示した要約・途中式・最終答です。</p>
+            <h3>大問1　相似則</h3>
+            <p><strong>仮定：</strong>油模型と水模型で <span class="formula">Re=&rho;VD/&mu;</span> を一致させる。<span class="formula">&rho;<sub>o</sub>=0.8&rho;<sub>w</sub>, &mu;<sub>o</sub>=40&mu;<sub>w</sub>, D<sub>o</sub>=1 m, D<sub>w</sub>=0.02 m, V<sub>o</sub>=0.30 m/s</span>。</p>
+            <p><strong>途中式・答：</strong><span class="formula">V<sub>w</sub>=(&rho;<sub>o</sub>/&rho;<sub>w</sub>)(&mu;<sub>w</sub>/&mu;<sub>o</sub>)(D<sub>o</sub>/D<sub>w</sub>)V<sub>o</sub>=0.30 m/s=30 cm/s</span>。粘度比は掛けずに割る。</p>
+            <h3>大問2　茶葉のパラドックス</h3>
+            <p><strong>仮定・説明：</strong>容器底の粘着条件を含む旋回流では、半径方向の圧力勾配 <span class="formula">&part;p/&part;r=&rho;u<sub>&theta;</sub><sup>2</sup>/r</span> に対し底面近くの旋回速度が小さい。底面境界層で内向き流れ、中心で上昇、上面で外向きの二次循環が生じる。</p>
+            <p><strong>最終答：</strong>茶葉は底面の中心付近に集まる。遠心力だけを考える一様回転の議論ではこの境界層効果を落とす。</p>
+            <h3>大問3　糸を巻いた軽い円筒</h3>
+            <p><strong>仮定：</strong>糸端は固定、糸は滑らず、円筒軸は水平。巻き半径 <span class="formula">r</span>、質量 <span class="formula">M</span>、慣性モーメント <span class="formula">I</span>。</p>
+            <p><strong>途中式：</strong><span class="formula">a=r&alpha;, Mg-T=Ma, Tr=I&alpha;</span> より <span class="formula">a=Mg/(M+I/r<sup>2</sup>), T=MgI/(I+Mr<sup>2</sup>), &alpha;=a/r</span>。薄肉中空円筒なら <span class="formula">I&asymp;Mr<sup>2</sup></span> なので <span class="formula">a&asymp;g/2</span>。</p>
+            <p><strong>最終答：</strong>重心は下向きに落ち、糸をほどきながら軸回りに回転する（方向は巻き方で決まる）。</p>
+            <h3>大問4　底孔からの流出 (1)-(3)</h3>
+            <p><strong>仮定：</strong>非粘性、大気圧、<span class="formula">R&gg;r</span>、出口速度一様。連続の式とベルヌーイを使う。</p>
+            <p><strong>途中式・答：</strong>(1) <span class="formula">&pi;R<sup>2</sup>(-H&#775;)=&pi;r<sup>2</sup>v</span> より水面下降速度 <span class="formula">r<sup>2</sup>v/R<sup>2</sup></span>。 (2) <span class="formula">v<sup>2</sup>/2=gH</span> より <span class="formula">v=&radic;(2gH)</span>。 (3) 板は孔より距離 <span class="formula">H</span> 下にあるため、板直前の速度は <span class="formula">V<sub>H</sub>=&radic;(v<sup>2</sup>+2gH)=&radic;2v</span>、連続の式は <span class="formula">A<sub>H</sub>V<sub>H</sub>=&pi;r<sup>2</sup>v</span>。従って下向き力 <span class="formula">F=&rho;A<sub>H</sub>V<sub>H</sub><sup>2</sup>=&radic;2&rho;&pi;r<sup>2</sup>v<sup>2</sup>=2&radic;2&rho;gH&pi;r<sup>2</sup></span>。</p>
+            <h3>大問5　球の抵抗 (1)-(2)</h3>
+            <p><strong>注意：</strong>表の <span class="formula">m=1 g, v=0</span> は浮力を無視すると矛盾する。同半径球の共通浮力を <span class="formula">B=1 gf</span> と読む条件付き解釈を採用する。</p>
+            <p><strong>途中式・答：</strong><span class="formula">mg-B=kv<sup>n</sup></span> に表を入れると <span class="formula">n=1</span>、抵抗は速度に一次比例。連結球では <span class="formula">(1+2-2)gf=2kv</span> より <span class="formula">v=0.5 cm/s</span>。浮力を無視する読みでは数値は一意に定まらない。</p>
+            <h3>大問6　流線に沿う微小流管の運動量収支</h3>
+            <p><strong>記号：</strong>流線座標を <span class="formula">s</span>、流管断面積を <span class="formula">A(s,t)</span>、流線方向速度を <span class="formula">W(s,t)</span> とし、断面1から2への流入を正とする。</p>
+            <p><strong>(1) 断面1の流入：</strong>時間 <span class="formula">&Delta;t</span> に流入する質量・流線方向運動量は <span class="formula">m<sub>1</sub>=&rho;<sub>1</sub>A<sub>1</sub>W<sub>1</sub>&Delta;t</span>、<span class="formula">M<sub>1</sub>=&rho;<sub>1</sub>A<sub>1</sub>W<sub>1</sub><sup>2</sup>&Delta;t</span>。</p>
+            <p><strong>(2) 断面2の流出：</strong><span class="formula">m<sub>2</sub>=&rho;<sub>2</sub>A<sub>2</sub>W<sub>2</sub>&Delta;t</span>、<span class="formula">M<sub>2</sub>=&rho;<sub>2</sub>A<sub>2</sub>W<sub>2</sub><sup>2</sup>&Delta;t</span>。</p>
+            <p><strong>(3) 初期保有量：</strong>時刻 <span class="formula">t=0</span> の検査空間の質量・運動量は <span class="formula">m<sub>0</sub>=&int;<sub>s<sub>1</sub></sub><sup>s<sub>2</sub></sup>&rho;A&nbsp;ds</span>、<span class="formula">M<sub>0</sub>=&int;<sub>s<sub>1</sub></sub><sup>s<sub>2</sub></sup>&rho;AW&nbsp;ds</span>。</p>
+            <p><strong>(4) 終時刻の保有量：</strong>時刻 <span class="formula">&Delta;t</span> の保有量は <span class="formula">m<sub>&Delta;t</sub>=&int;<sub>s<sub>1</sub></sub><sup>s<sub>2</sub></sup>&rho;(s,&Delta;t)A(s)&nbsp;ds</span>、<span class="formula">M<sub>&Delta;t</sub>=&int;<sub>s<sub>1</sub></sub><sup>s<sub>2</sub></sup>&rho;(s,&Delta;t)A(s)W(s,&Delta;t)&nbsp;ds</span>。</p>
+            <p><strong>(5) 連続の式：</strong>質量収支 <span class="formula">m<sub>&Delta;t</sub>-m<sub>0</sub>=m<sub>1</sub>-m<sub>2</sub></span> を微小極限に取ると <span class="formula">&part;(&rho;A)/&part;t+&part;(&rho;AW)/&part;s=0</span>（定常なら <span class="formula">&rho;AW=const.</span>）。</p>
+            <p><strong>(6) 圧力の力積：</strong>断面1・2からは <span class="formula">I<sub>1</sub>=p<sub>1</sub>A<sub>1</sub>&Delta;t</span>、<span class="formula">I<sub>2</sub>=-p<sub>2</sub>A<sub>2</sub>&Delta;t</span>。側壁は <span class="formula">I<sub>s</sub>=-&Delta;t;&int;<sub>S<sub>w</sub></sub>p&nbsp;n<sub>s</sub>dS</span>、合力 <span class="formula">I<sub>p</sub>=I<sub>1</sub>+I<sub>2</sub>+I<sub>s</sub>=-A(&part;p/&part;s)&Delta;s&Delta;t</span>。</p>
+            <p><strong>(7) 外力の力積：</strong>単位質量当たりの流線方向外力を <span class="formula">F</span> とすると <span class="formula">I<sub>F</sub>=&Delta;t;&int;<sub>CV</sub>&rho;F&nbsp;dV&asymp;&rho;AF&Delta;s&Delta;t</span>。</p>
+            <p><strong>(8) 運動量収支・最終答：</strong><span class="formula">M<sub>&Delta;t</sub>-M<sub>0</sub>=M<sub>1</sub>-M<sub>2</sub>+I<sub>p</sub>+I<sub>F</sub></span> を微分化すると <span class="formula">&part;(&rho;AW)/&part;t+&part;(&rho;AW<sup>2</sup>)/&part;s=-A&part;p/&part;s+&rho;AF</span>。連続の式で整理すれば <span class="formula">&rho;(&part;W/&part;t+W&part;W/&part;s)=-&part;p/&part;s+&rho;F</span>。重力だけなら <span class="formula">F=-g&part;z/&part;s</span>。</p>
+          </section>
+
+          <section class="study-guide" aria-labelledby="study-guide-title">
+            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
+            <ol>
+              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
+              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
+              <li>教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。</li>
+            </ol>
+          </section>
+        </div>
+
+        <aside class="archive-note">
+          <h2>利用上の注意</h2>
+          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
+          <p>解答案は非公式の独立計算です。大問5の浮力解釈などの不確実性は監査記録に明記しています。</p>
+          <a href="../../about.html">詳しい利用案内を見る</a>
+        </aside>
+      </div>
+    </section>
+
+    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
+      <span></span>
+      <a href="../../pages/fluid_mechanics.html">年度一覧</a>
+      <a href="2004.html">2004年度 →</a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
+      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>

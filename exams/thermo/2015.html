@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,9 +40,13 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>理想気体サイクルの解析、熱機関の理論計算、蒸気表を用いた各種熱量計算の3つの大問から構成されています。基礎的なサイクル解析から実用的な蒸気物性計算まで幅広く扱い、熱力学の基本概念と実用計算技法を総合的に問います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">理想気体サイクル</span>
@@ -50,11 +54,11 @@
                     <span class="topic-tag">カルノー効率</span>
                     <span class="topic-tag">蒸気表計算</span>
                 </div>
-                
-                <a href="../../pdfs/question/2015_H27_april/thermo_2015_H27_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2015年度)</a>
-                <a href="../../pdfs/answer/2015_H27_april/thermo_2015_H27_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2015年度)</a>
+
+                <a href="../../pdfs/question/2015_H27_april/thermo_2015_H27_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2015年度)</a>
+                <a href="../../pdfs/answer/2015_H27_april/thermo_2015_H27_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2015年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -62,30 +66,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: 理想気体サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">等温放熱、等容加熱、断熱圧縮から構成される理想気体サイクルについて以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) このサイクルの$P-V$線図および$T-S$線図を描け。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各過程を順に辿り、状態変化を線図上に表現します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>P-V線図</h4>
                             <pre class="ascii-diagram">
@@ -120,7 +124,7 @@
 +------------------→ エントロピー S
             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -133,19 +137,19 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 各過程における熱量の出入りを求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各過程の特性に応じて熱量を計算します。断熱過程では熱の出入りはありません。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -154,68 +158,70 @@
                             $$\boxed{
                             \begin{aligned}
                             Q_{\text{in}} &= m c_v (T_3 - T_2) = m c_v (T_3 - T_1) \quad (2→3\text{の等容加熱}) \\
-                            Q_{\text{out}} &= m R T_1 \ln \frac{V_2}{V_1} \quad (1→2\text{の等温放熱})
+                                Q_{\text{out}} &= m R T_1 \ln \frac{V_1}{V_2}
+                                =mRT_1\ln\frac{P_2}{P_1} \quad (1→2\text{の等温放熱量})
                             \end{aligned}
                             }$$
                         </div>
                         <p>断熱過程（3→1）では熱の出入りはありません。</p>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) このサイクルの熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率は$\eta = W_{\text{net}}/Q_{\text{in}} = 1 - Q_{\text{out}}/Q_{\text{in}}$で定義されます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>正味仕事：</p>
                             <div class="math-block">
-                                $$W_{\text{net}} = Q_{\text{in}} - Q_{\text{out}} = m c_v (T_3 - T_1) - m R T_1 \ln \frac{V_2}{V_1}$$
+                            $$W_{\text{net}} = Q_{\text{in}} - Q_{\text{out}} = m c_v (T_3 - T_1) - m R T_1 \ln \frac{V_1}{V_2}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>熱効率：</p>
                             <div class="math-block">
-                                $$\eta = \frac{W_{\text{net}}}{Q_{\text{in}}} = 1 - \frac{R T_1 \ln \frac{V_2}{V_1}}{c_v (T_3 - T_1)}$$
+                            $$\eta = \frac{W_{\text{net}}}{Q_{\text{in}}} = 1 - \frac{R T_1 \ln \frac{V_1}{V_2}}{c_v (T_3 - T_1)}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>比熱比$\kappa = c_p/c_v = (c_v + R)/c_v$より$R = c_v(\kappa - 1)$を代入：</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\boxed{\eta = 1 - \frac{(\kappa - 1) T_1 \ln \frac{V_2}{V_1}}{T_3 - T_1}}$$
+                            $$\boxed{\eta = 1 - \frac{(\kappa - 1) T_1 \ln \frac{V_1}{V_2}}{T_3 - T_1}}
+                            =\boxed{1 - \frac{(\kappa - 1) T_1 \ln \frac{P_2}{P_1}}{T_3 - T_1}}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) $T_1 = 400$ K, $T_3 = 800$ K, $\kappa = 1.40$のとき熱効率を計算せよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>断熱過程（3→1）の関係から：</p>
                             <div class="math-block">
@@ -223,28 +229,28 @@
                                 $$\frac{V_1}{V_3} = \left( \frac{T_3}{T_1} \right)^{\frac{1}{\kappa-1}} = \left( \frac{800}{400} \right)^{\frac{1}{0.4}} = 2^{2.5} = 5.656$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>等容変化（2→3）で$V_2 = V_3$より：</p>
                             <div class="math-block">
-                                $$\frac{V_2}{V_1} = \frac{V_3}{V_1} = \frac{1}{5.656}$$
-                                $$\ln \frac{V_2}{V_1} = \ln \frac{1}{5.656} = -\ln 5.656 \approx -1.732$$
+                            $$\frac{V_1}{V_2} = \frac{V_1}{V_3} = 5.656$$
+                            $$\ln \frac{V_1}{V_2} = \ln 5.656 \approx 1.73$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\eta = 1 - \frac{(1.40 - 1) \times 400 \times (-1.732)}{800 - 400}$$
-                                $$= 1 - \frac{0.4 \times 400 \times (-1.732)}{400} = 1 + 0.693 = \boxed{0.307}$$
+                            $$\eta = 1 - \frac{(1.40 - 1) \times 400 \times 1.73}{800 - 400}$$
+                            $$= 1 - 0.692 \simeq \boxed{0.31\ (31\%)}$$
                             </div>
                             <p class="note">注：符号を正しく処理すると効率は約30.7%となります。</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -258,7 +264,7 @@
                             <li>熱効率：$\eta = 1 - Q_{\text{out}}/Q_{\text{in}}$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -270,7 +276,7 @@
                             <li>符号の正確な処理</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -284,7 +290,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -292,25 +298,25 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: 熱機関の理論</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">高温熱源（温度$T_H$）と低温熱源（温度$T_L$）間で動作する熱機関について、カルノー効率に基づく理論計算を行え。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 高温熱源から熱量$Q_H$を受け取るとき、最大仕事$W_{1\text{max}}$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>カルノー効率が理論的最大効率であることを利用します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -320,12 +326,12 @@
                             $$\boxed{W_{1\max} = Q_H \left(1 - \frac{T_L}{T_H}\right)}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) この場合の最大熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -335,45 +341,45 @@
                             $$\boxed{\eta_{\max} = 1 - \frac{T_L}{T_H}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 最大出力$W_{2\max}$で運転するとき、必要な冷却水流量$M$を求めよ。冷却水の比熱を$c_p$、温度上昇を$\Delta T$とする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>低温熱源への放熱量と冷却水の熱容量からエネルギー収支を立てます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>最大出力時のエネルギー収支：</p>
                             <div class="math-block">
                                 $$W_{2\max} = \dot{Q}_H - \dot{Q}_L = \dot{Q}_H \left(1 - \frac{T_L}{T_H}\right)$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>低温熱源への放熱量：</p>
                             <div class="math-block">
                                 $$\dot{Q}_L = \dot{Q}_H - W_{2\max} = \frac{W_{2\max} T_L}{T_H - T_L}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>冷却水の熱収支：</p>
                             <div class="math-block">
                                 $$M c_p \Delta T = \dot{Q}_L$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -384,7 +390,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -398,7 +404,7 @@
                             <li>実用サイクルの上限</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>計算のポイント
@@ -413,7 +419,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【3】 -->
         <div class="page-content">
@@ -421,30 +427,30 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】: 蒸気表を用いた計算（圧力1MPa）</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">圧力1MPaにおける水・蒸気の物性について、蒸気表を用いて各種熱量と比熱を計算せよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 液体熱を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>0℃の圧縮水から飽和水までの熱量を計算します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>蒸気表から：</p>
                             <ul>
@@ -452,7 +458,7 @@
                                 <li>0℃圧縮水エンタルピー：$h_{0℃} = 0.975$ kJ/kg（表1）</li>
                             </ul>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -462,19 +468,19 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 圧縮水の平均比熱を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>0℃から飽和温度までの温度区間での平均比熱を計算します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -484,19 +490,19 @@
                             $$c_{\text{avg}} = \frac{h' - h_{0℃}}{T' - T_0} = \frac{761.63}{179.88 - 0} = \boxed{4.235 \text{ kJ/(kg·K)}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 蒸発熱を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>飽和水から飽和蒸気への相変化で必要な熱量です。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -506,19 +512,19 @@
                             $$r = h'' - h' = 2776.2 - 762.605 = \boxed{2013.595 \text{ kJ/kg}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 500℃における過熱度を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>過熱度は過熱蒸気温度から飽和温度を引いたものです。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -527,19 +533,19 @@
                             $$\text{過熱度} = 500 - 179.88 = \boxed{320.12 \text{℃}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) 過熱熱を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>飽和蒸気から過熱蒸気への加熱で必要な熱量です。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -549,19 +555,19 @@
                             $$\text{過熱熱} = h_{500℃} - h'' = 3478.3 - 2776.2 = \boxed{702.1 \text{ kJ/kg}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <p class="problem-statement">(6) 過熱蒸気の平均比熱を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>飽和温度から500℃までの温度区間での平均比熱を計算します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -571,7 +577,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -585,7 +591,7 @@
                             <li>過熱熱：飽和蒸気→過熱蒸気</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>計算のポイント
@@ -597,7 +603,7 @@
                             <li>過熱度の定義理解</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-key mr-2"></i>重要な関係式

@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,20 +40,24 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>ポリトロープ変化の理論解析、オットーサイクルの詳細検討、蒸気サイクルの実用計算の3つの大問から構成されています。基本的な熱力学過程から実用的な動力サイクルまで幅広く扱い、熱力学の応用力を総合的に問います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">ポリトロープ変化</span>
                     <span class="topic-tag">オットーサイクル</span>
                     <span class="topic-tag">蒸気サイクル</span>
                 </div>
-                
-                <a href="../../pdfs/question/2018_H30_april/thermo_2018_H30_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
-                <a href="../../pdfs/answer/2018_H30_april/thermo_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+
+                <a href="../../pdfs/question/2018_H30_april/thermo_2018_H30_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/answer/2018_H30_april/thermo_2018_H30_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -61,30 +65,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: ポリトロープ変化</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">理想気体が$pv^n = \text{一定}$に従うポリトロープ変化を行う場合について、以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 単位質量あたりの仕事$w$と熱量$q$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>ポリトロープ変化の関係式$pv^n = \text{一定}$と熱力学第一法則を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>仕事$w$の計算：</strong>
                             <div class="math-block">
@@ -97,7 +101,7 @@
                                 $$w = \frac{R(T_1 - T_2)}{n-1}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>熱量$q$の計算：</strong>
                             <p>熱力学第一法則$q = \Delta u + w$より：</p>
@@ -107,7 +111,7 @@
                                 $$= (T_2 - T_1)\left(c_v - \frac{R}{n-1}\right)$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -122,24 +126,24 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) ポリトロープ比熱$c_n$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>比熱の定義$dq = c_n dT$と(1)の結果を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>(1)の結果から：</p>
                             <div class="math-block">
@@ -150,7 +154,7 @@
                                 $$c_n = c_v - \frac{c_p - c_v}{n-1} = c_v\left(1 - \frac{\kappa - 1}{n-1}\right)$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -160,24 +164,24 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 比エントロピー変化$\Delta s$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エントロピーの定義$ds = dq_{\text{rev}}/T$を積分し、ポリトロープ関係を用いて整理します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <div class="math-block">
                                 $$\Delta s = c_v \ln\frac{T_2}{T_1} + R \ln\frac{v_2}{v_1}$$
@@ -188,37 +192,37 @@
                             </div>
                             <p>これを代入して整理すると：</p>
                             <div class="math-block">
-                                $$\Delta s = c_v\left(\frac{n-\kappa}{n}\right)\ln\frac{p_1}{p_2}$$
+                                $$\Delta s = c_v\left(\frac{\kappa-n}{n}\right)\ln\frac{p_1}{p_2}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\boxed{\Delta s = c_v\left(\frac{n-\kappa}{n}\right)\ln\frac{p_1}{p_2}}$$
+                                $$\boxed{\Delta s = c_v\left(\frac{\kappa-n}{n}\right)\ln\frac{p_1}{p_2}}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) $n = 0, 1, \kappa$の特殊な場合について、$p-v$線図と$T-s$線図を描け。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各特殊値での過程の特徴を把握し、線図上での表現を描画します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>n = 0（等圧過程）</h4>
                             <div style="display: flex; gap: 20px;">
@@ -243,7 +247,7 @@ T ↑
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>n = 1（等温過程）</h4>
                             <div style="display: flex; gap: 20px;">
@@ -271,7 +275,7 @@ T ↑
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>n = κ（断熱過程）</h4>
                             <div style="display: flex; gap: 20px;">
@@ -301,7 +305,7 @@ T ↑
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -314,7 +318,7 @@ T ↑
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -328,7 +332,7 @@ T ↑
                             <li>エントロピー変化: $\Delta s = c_v\frac{n-\kappa}{n}\ln\frac{p_1}{p_2}$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -340,7 +344,7 @@ T ↑
                             <li>特殊値での線図の特徴把握</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -354,7 +358,7 @@ T ↑
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -362,30 +366,30 @@ T ↑
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: オットーサイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">理想気体によるオットーサイクル（火花点火機関の理論サイクル）について考える。圧縮比を$\varepsilon = V_1/V_2$とし、以下の問いに答えよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) このサイクルの$p-V$線図および$T-S$線図を描け。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>オットーサイクルは1→2（断熱圧縮）、2→3（等容加熱）、3→4（断熱膨張）、4→1（等容冷却）の4過程です。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>p-V線図</h4>
                             <pre class="ascii-diagram">
@@ -419,7 +423,7 @@ T ↑
         S₁=S₂   S₃=S₄
                             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -428,19 +432,19 @@ T ↑
                             <p><strong>T-S線図</strong>: 1→2（垂直線上昇）、2→3（右上がり曲線）、3→4（垂直線下降）、4→1（左下がり曲線）</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 各過程における熱量の出入りを求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等容過程2→3で吸熱、等容過程4→1で放熱します。断熱過程では熱の出入りはありません。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -454,24 +458,24 @@ T ↑
                             }$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 各状態の温度を状態1の温度$T_1$と圧縮比$\varepsilon$を用いて表せ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>断熱過程では$TV^{\kappa-1} = \text{一定}$の関係を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>状態2（断熱圧縮）：</strong>
                             <div class="math-block">
@@ -479,7 +483,7 @@ T ↑
                                 $$T_2 = T_1\left(\frac{V_1}{V_2}\right)^{\kappa-1} = T_1\varepsilon^{\kappa-1}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>状態4（断熱膨張）：</strong>
                             <div class="math-block">
@@ -487,7 +491,7 @@ T ↑
                                 $$T_4 = T_3\left(\frac{V_3}{V_4}\right)^{\kappa-1} = T_3\varepsilon^{1-\kappa}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -503,24 +507,24 @@ T ↑
                             <p>（$T_3$は等容加熱過程での最高温度として与えられる）</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) このサイクルの熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率は$\eta = 1 - Q_{\text{out}}/Q_{\text{in}}$で定義されます。(3)の結果を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <div class="math-block">
                                 $$\eta = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}} = 1 - \frac{mc_v(T_4 - T_1)}{mc_v(T_3 - T_2)} = 1 - \frac{T_4 - T_1}{T_3 - T_2}$$
@@ -530,7 +534,7 @@ T ↑
                                 $$\eta = 1 - \frac{T_3\varepsilon^{1-\kappa} - T_1}{T_3 - T_1\varepsilon^{\kappa-1}} = 1 - \varepsilon^{1-\kappa}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -540,24 +544,24 @@ T ↑
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) 定容比熱が$c_v = a + bT$の場合、2→3過程のエントロピー変化を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>温度依存比熱の等容過程でのエントロピー変化は$\Delta S = \int c_v \frac{dT}{T}$で計算します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <div class="math-block">
                                 $$\Delta S_{23} = m\int_{T_2}^{T_3} \frac{c_v}{T} dT = m\int_{T_2}^{T_3} \frac{a + bT}{T} dT$$
@@ -565,7 +569,7 @@ T ↑
                                 $$= m\left[a\ln T + bT\right]_{T_2}^{T_3}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -575,24 +579,24 @@ T ↑
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <p class="problem-statement">(6) 断熱過程が不可逆の場合、$T-S$線図はどのように変化するか描け。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>不可逆断熱過程ではエントロピーが増加するため、T-S線図で右向きの変化となります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>不可逆断熱過程のT-S線図</h4>
                             <pre class="ascii-diagram">
@@ -608,7 +612,7 @@ T ↑
         S₁<S₂   S₃<S₄'
                             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -617,7 +621,7 @@ T ↑
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -631,7 +635,7 @@ T ↑
                             <li>ノッキング限界による制約</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>重要な関係式
@@ -646,7 +650,7 @@ T ↑
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【3】 -->
         <div class="page-content">
@@ -654,96 +658,90 @@ T ↑
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】: 乾き飽和蒸気サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
-                        <div class="problem-statement">乾き飽和蒸気を使用する蒸気サイクルについて考える。加熱量を$Q_{\text{in}} = 5000$ kJ/kg、高温熱源温度$T_H = 1500$ K、低温熱源温度$T_L = 300$ Kとし、以下の問いに答えよ。</div>
+
+                        <div class="problem-statement">乾き飽和蒸気サイクルABCDAを考える。ABは$T_1=500$ Kでの等温蒸発、BCは可逆断熱膨張、CDは$T_2=300$ Kでの等温凝縮、DAは可逆断熱圧縮である。高温熱源は$T_H=1500$ K、低温熱源は$T_L=T_2=300$ Kで、作動流体への供給熱量は$Q=5000$ kJ/kgとする。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
-                        <p class="problem-statement">(1) このサイクルの熱効率と正味仕事を求めよ。（蒸気表を使用）</p>
+                        <p class="problem-statement">(1) この乾き飽和蒸気サイクルの熱効率と仕事を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
-                        <p>蒸気サイクルの基本的な解析手順に従い、各状態点でのエンタルピーを求めて熱効率を計算します。</p>
+                        <p>$T-s$線図は二つの等温線と二つの等エントロピー線からなるため、サイクル効率は作動流体側の温度$T_1,T_2$で定まります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
-                            <i class="fas fa-list-ol mr-2"></i>解析手順
+                            <i class="fas fa-list-ol mr-2"></i>計算と解答
                         </div>
-                        
+
                         <div class="solution-step">
-                            <strong>サイクル構成：</strong>
-                            <ul>
-                                <li>A→B: ボイラーでの加熱（等圧）</li>
-                                <li>B→C: タービンでの膨張（断熱）</li>
-                                <li>C→D: 復水器での冷却（等圧）</li>
-                                <li>D→A: ポンプでの圧縮（断熱）</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="solution-step">
-                            <strong>各仕事の計算：</strong>
+                            <strong>熱効率：</strong>
                             <div class="math-block">
-                                $$w_T = h_B - h_C \quad (\text{タービン仕事})$$
-                                $$w_P = v_f(p_A - p_D) \approx v_f \Delta p \quad (\text{ポンプ仕事})$$
-                                $$w_{\text{net}} = w_T - w_P \approx w_T \quad (\text{ポンプ仕事は通常無視可能})$$
+                                $$\eta=1-\frac{T_2}{T_1}=1-\frac{300}{500}=0.40$$
                             </div>
                         </div>
-                        
+
+                        <div class="solution-step">
+                            <strong>サイクル仕事：</strong>
+                            <div class="math-block">
+                                $$w=\eta Q=0.40\times5000=2000\ \text{kJ/kg}$$
+                            </div>
+                        </div>
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
-                            <p><strong>注意：</strong>具体的な数値計算には蒸気表が必要です。一般的な解析手順は以下の通りです：</p>
                             <div class="math-block">
                                 $$\boxed{
                                 \begin{aligned}
-                                \eta &= \frac{w_{\text{net}}}{Q_{\text{in}}} = \frac{h_B - h_C}{Q_{\text{in}}} \\
-                                w_{\text{net}} &= \eta \times Q_{\text{in}}
+                                \eta &=0.40\quad(40\%) \\
+                                w &=2000\ \text{kJ/kg}
                                 \end{aligned}
                                 }$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 同一熱源間で動作するカルノー機関の熱効率と仕事を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>カルノー効率は温度のみで決定され、$\eta_{\text{Carnot}} = 1 - T_L/T_H$で計算できます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>カルノー効率：</strong>
                             <div class="math-block">
                                 $$\eta_{\text{Carnot}} = 1 - \frac{T_L}{T_H} = 1 - \frac{300}{1500} = 1 - 0.2 = 0.8$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>カルノー機関の仕事：</strong>
                             <div class="math-block">
                                 $$w_{\text{Carnot}} = \eta_{\text{Carnot}} \times Q_{\text{in}} = 0.8 \times 5000 = 4000 \text{ kJ/kg}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -758,64 +756,65 @@ T ↑
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) エクセルギー効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エクセルギー効率は実際のサイクルの仕事とカルノー機関の仕事の比で定義されます。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
                         </div>
                         <div class="math-block">
-                            $$\boxed{\eta_{\text{ex}} = \frac{w_{\text{net}}}{w_{\text{Carnot}}}}$$
+                            $$\boxed{\eta_{\text{ex}} = \frac{w}{w_{\text{Carnot}}}=\frac{2000}{4000}=0.50}$$
                         </div>
-                        <p>（$w_{\text{net}}$は(1)で求めた実際のサイクルの正味仕事）</p>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
-                        <p class="problem-statement">(4) 高温熱源から蒸気への熱移動時の高温熱源のエントロピー変化を求めよ。</p>
+                        <p class="problem-statement">(4) 高温熱源から作動流体への伝熱に伴うエントロピー変化を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
-                        <p>高温熱源から熱量$Q_{\text{in}}$が取り去られるときのエントロピー変化は$\Delta S = -Q/T_H$です。</p>
+                        <p>熱源と作動流体の両方についてエントロピー収支をとり、有限温度差伝熱によるエントロピー生成を求めます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>計算と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <div class="math-block">
-                                $$\Delta S_{\text{source}} = -\frac{Q_{\text{in}}}{T_H} = -\frac{5000}{1500} = -3.333 \text{ kJ/(kg·K)}$$
+                                $$\Delta s_{\text{source}}=-\frac{Q}{T_H}=-\frac{5000}{1500}=-3.333\ \text{kJ/(kg·K)}$$
+                                $$\Delta s_{\text{fluid}}=\frac{Q}{T_1}=\frac{5000}{500}=10.000\ \text{kJ/(kg·K)}$$
+                                $$s_{\text{gen}}=\Delta s_{\text{source}}+\Delta s_{\text{fluid}}=6.667\ \text{kJ/(kg·K)}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\boxed{\Delta S_{\text{source}} = -3.33 \text{ kJ/(kg·K)}}$$
+                                $$\boxed{s_{\text{gen}}=6.67\ \text{kJ/(kg·K)}}$$
                             </div>
-                            <p>（負の値は熱源からエントロピーが取り去られることを示す）</p>
+                            <p>高温熱源単体の変化は$-3.33$ kJ/(kg·K)、作動流体単体の変化は$+10.0$ kJ/(kg·K)です。</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -829,7 +828,7 @@ T ↑
                             <li>カルノー効率が理論的上限</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>エクセルギー解析

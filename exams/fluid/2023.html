@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2023年度の流体力学入試では、大問【1】で二次元流れの基礎理論（連続の式、流線、渦度、循環、流跡線、圧力分布）、大問【2】で平板への噴流衝突問題が出題されました。流体力学の基本概念から応用まで幅広い知識が問われる内容でした。</p>
-                <a href="../../pdfs/question/2023_R5_april/fluid_2023_R5_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
-                <a href="../../pdfs/answer/2023_R5_april/fluid_2023_R5_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/question/2023_R5_april/fluid_2023_R5_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/answer/2023_R5_april/fluid_2023_R5_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -58,24 +62,24 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】二次元流れの基礎理論</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">x軸およびy軸で与えられる二次元直交座標系において、密度がρである非圧縮非粘性定常流れがある。xおよびy方向の速度をそれぞれ-KyおよびKxとするとき、以下の問(1)〜(4)に答えよ。ただし、Kを正の定数とする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
                         <p>この流れは回転流（solid body rotation）と呼ばれる特殊な流れです。各小問を通じて、流体力学の基本概念（連続の式、流線、渦度、循環）を理解しましょう。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -89,7 +93,7 @@
                             $$\frac{\partial (-Ky)}{\partial x} + \frac{\partial (Kx)}{\partial y} = 0 + 0 = 0$$
                         </div>
                         <span class="answer-highlight">答え: 連続の方程式$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$は満たされる</span>
-                        
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -106,7 +110,7 @@
                             $$x^2 + y^2 = 2C' = C \quad (C\text{は積分定数})$$
                         </div>
                         <span class="answer-highlight">答え: 流線は$x^2 + y^2 = C$（Cは定数）で表される円</span>
-                        
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -119,7 +123,7 @@
                             $$\omega = \frac{\partial (Kx)}{\partial x} - \frac{\partial (-Ky)}{\partial y} = K - (-K) = 2K$$
                         </div>
                         <span class="answer-highlight">答え: 渦度は$2K$</span>
-                        
+
                         <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -134,12 +138,12 @@
                         </div>
                         <span class="answer-highlight">答え: 循環は$2\pi K$</span>
                     </div>
-                    
+
                     <!-- 第2部分：別の速度場での問題 -->
                     <div class="example-box">
-                        <p class="problem-statement">次に、xおよびy方向の速度をそれぞれ$\frac{Ky}{x^2+y^2}$および$\frac{-Kx}{x^2+y^2}$とするとき、以下の問(5)〜(6)に答えよ。ただし、原点からみて無限遠にある点での圧力を大気圧P_atmとする。</p>
+                        <p class="problem-statement">次に、xおよびy方向の速度をそれぞれ$\frac{-Ky}{x^2+y^2}$および$\frac{Kx}{x^2+y^2}$とするとき、以下の問(5)〜(6)に答えよ。ただし、原点からみて無限遠にある点での圧力を大気圧P_atmとする。</p>
                     </div>
-                    
+
                     <div>
                         <!-- 小問(5) -->
                         <div class="example-box">
@@ -150,14 +154,14 @@
                         <div class="solution-step">
                             定常流れなので、流跡線は流線と一致します。流線の定義式に代入します。
                             $$\frac{dx}{u} = \frac{dy}{v}$$
-                            $$\frac{dx}{Ky/(x^2+y^2)} = \frac{dy}{-Kx/(x^2+y^2)}$$
+                            $$\frac{dx}{-Ky/(x^2+y^2)} = \frac{dy}{Kx/(x^2+y^2)}$$
                             $$-x dx = y dy$$
                             これを積分すると：
                             $$-\frac{1}{2}x^2 = \frac{1}{2}y^2 + C'$$
                             $$x^2 + y^2 = -2C' = C \quad (C\text{は積分定数})$$
                         </div>
                         <span class="answer-highlight">答え: 流跡線は$x^2 + y^2 = C$（Cは定数）で表される円</span>
-                        
+
                         <!-- 小問(6) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -168,7 +172,7 @@
                             非粘性・定常流れなのでベルヌーイの定理が適用できます。重力は無視できるので：
                             $$\frac{1}{2}\rho V^2 + p = \text{一定}$$
                             速度の大きさ$V$の2乗を計算します：
-                            $$V^2 = u^2 + v^2 = \left(\frac{Ky}{x^2+y^2}\right)^2 + \left(\frac{-Kx}{x^2+y^2}\right)^2$$
+                            $$V^2 = u^2 + v^2 = \left(\frac{-Ky}{x^2+y^2}\right)^2 + \left(\frac{Kx}{x^2+y^2}\right)^2$$
                             $$V^2 = \frac{K^2y^2 + K^2x^2}{(x^2+y^2)^2} = \frac{K^2(x^2+y^2)}{(x^2+y^2)^2} = \frac{K^2}{x^2+y^2}$$
                             ベルヌーイの式より：
                             $$p(x,y) + \frac{1}{2}\rho \frac{K^2}{x^2+y^2} = C_{const}$$
@@ -179,7 +183,7 @@
                         </div>
                         <span class="answer-highlight">答え: 圧力は$p(x,y) = p_{atm} - \frac{\rho K^2}{2(x^2+y^2)}$</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -214,7 +218,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -222,12 +226,12 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】平板への噴流衝突問題</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">図1に示すようにxy平面の原点に設置されたノズルから流体が噴出し、x=Hに設置されたy軸に平行で無限に長い平板に衝突している。流れは紙面に垂直な奥行き方向に一様な二次元非圧縮粘性定常流れ（密度ρ、粘性係数μ）で、噴流はノズル出口において幅b₀で、x軸に平行かつ幅方向に一様な流速U₀を持っているものとする。このとき以下の問いに答えよ。なお、噴流には大気圧がかかっており、重力の影響は無視できるものとする。また平板に衝突して生じる流れは層流で、|y|≥y₁において十分平板に平行となっており、噴流外縁を流れる流体（平板衝突後も含む）は粘性の影響を受けないものとする。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <div class="section-title">(1) 単位奥行きあたりの体積流量と質量流量を求めよ</div>
@@ -246,7 +250,7 @@
                         </div>
                         <span class="answer-highlight">答え: 体積流量は$U_0 b_0$、質量流量は$\rho U_0 b_0$</span>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <div class="section-title">(2) 平板にかかる力の向きと大きさを求めよ</div>
@@ -266,7 +270,7 @@
                         </div>
                         <span class="answer-highlight">答え: 力の向きは**x軸の正の向き**、大きさは$\rho b_0 U_0^2$</span>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <div class="section-title">(3) 噴流外縁を流れる流体の速度の大きさを求めよ</div>
@@ -277,7 +281,7 @@
                         $$V_{edge} = U_0$$
                     </div>
                     <span class="answer-highlight">答え: 噴流外縁を流れる流体の速度の大きさは$U_0$</span>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <div class="section-title">(4) $y \geq y_1$における流れの支配方程式を導出せよ</div>
@@ -290,7 +294,7 @@
                         $$0 = \nu \frac{d^2 v_w}{d x^2}$$
                     </div>
                     <span class="answer-highlight">答え: $\frac{d^2 v}{dx^2} = 0$（vはy方向流速）</span>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <div class="section-title">(5) 速度分布を求めよ</div>
@@ -310,7 +314,7 @@
                         $$v(x) = -\frac{U_0}{b_1}x + \frac{U_0 H}{b_1} = \frac{U_0}{b_1}(H-x)$$
                     </div>
                     <span class="answer-highlight">答え: 速度分布は$v(x) = \frac{U_0}{b_1}(H-x)$（ただし$H-b_1 \leq x \leq H$）</span>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <div class="section-title">(6) 噴流の厚み$b_1$を求めよ</div>
@@ -327,7 +331,7 @@
                         $$b_1 = b_0$$
                     </div>
                     <span class="answer-highlight">答え: $b_1 = b_0$</span>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ

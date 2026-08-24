@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2020年度の材料力学入試では、大問【1】でT型板のピン支持構造問題（静力学的平衡とせん断応力）、大問【2】で片持ちはりの曲げ問題（分布荷重と集中荷重の組合せ）が出題されました。この年度から大問数が3問から2問に変更され、各問題の深度が増加しました。</p>
-                <a href="../../pdfs/question/2020_R2_april/materials_2020_R2_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
-                <a href="../../pdfs/answer/2020_R2_april/materials_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/question/2020_R2_april/materials_2020_R2_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/materials_2020_R2_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -59,12 +63,12 @@
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
                     <div class="example-box">
-                        <p class="problem-statement">T型板が壁面に2つのピンA、Bで固定され、先端に集中荷重Pが作用する構造について、静力学的平衡、支持力、せん断応力、回転角の解析を行う。</p>
+                        <p class="problem-statement">厚さtのT字型板を、中心Oから上下に距離aだけ離れたピンA、Bで固定し、Oから距離lの先端に集中荷重Pが作用する構造について解析する。</p>
                         <p><strong>与えられた条件:</strong></p>
                         <ul>
-                            <li>T型板：縦板（長さl、厚さt）、横板（高さ2h、幅b、厚さt）</li>
-                            <li>ピン：直径d、2つのピンA、Bで壁面に固定</li>
-                            <li>荷重：先端に集中荷重P（垂直下向き）</li>
+                            <li>T型板：ピン間の縦板は長さ2a、幅b、厚さt（AO=OB=a）</li>
+                            <li>ピン：直径d、壁面との摩擦は無視</li>
+                            <li>荷重：Oから距離lの板先端に集中荷重P（垂直下向き）</li>
                             <li>材料：ヤング率E</li>
                         </ul>
                     </div>
@@ -88,11 +92,11 @@
                             <p><strong>力の釣り合い：</strong></p>
                             <div class="math-block">
                                 垂直方向：$$R_A + R_B - P = 0$$
-                                水平方向：$$F_B - F_A = 0$$
+                                水平方向：$$F_A + F_B = 0$$
                             </div>
                             <p><strong>モーメントの釣り合い（点Oまわり）：</strong></p>
                             <div class="math-block">
-                                $$h F_A + h F_B - P l = 0$$
+                                $$a F_A + P l - a F_B = 0$$
                             </div>
                             ここで、\(R_A, R_B\)は鉛直反力、\(F_A, F_B\)は水平反力です。
                         </div>
@@ -105,8 +109,8 @@
                             つり合い式を解いて反力を求めます。
                             <p><strong>水平反力：</strong></p>
                             <div class="math-block">
-                                水平力の釣り合いから \(F_A = F_B\)。これをモーメント式に代入：
-                                $$2h F_A = P l \implies F_A = F_B = \frac{P l}{2h}$$
+                                水平力の釣り合いから \(F_B=-F_A\)。これをモーメント式に代入：
+                                $$2a F_A + P l = 0 \implies F_A = -\frac{P l}{2a}, \quad F_B = \frac{P l}{2a}$$
                             </div>
                             <p><strong>鉛直反力：</strong></p>
                             <div class="math-block">
@@ -122,13 +126,12 @@
                             各ピンにかかる合力とせん断応力を計算します。
                             <p><strong>ピンにかかる合力：</strong></p>
                             <div class="math-block">
-                                $$S_A = S_B = \sqrt{R_A^2 + F_A^2} = \sqrt{\left(\frac{P}{2}\right)^2 + \left(\frac{P l}{2h}\right)^2}$$
-                                $$= \frac{P}{2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+                                $$S_A = S_B = \sqrt{R_A^2 + F_A^2} = \frac{P}{2a}\sqrt{a^2+l^2}$$
                             </div>
                             <p><strong>せん断応力：</strong></p>
                             <div class="math-block">
                                 ピン断面積 \(A_{pin} = \frac{\pi d^2}{4}\) を用いて：
-                                $$\tau_A = \tau_B = \frac{S_A}{A_{pin}} = \frac{2P}{\pi d^2}\sqrt{1 + \left(\frac{l}{h}\right)^2}$$
+                                $$\tau_A = \tau_B = \frac{2P}{\pi d^2 a}\sqrt{a^2+l^2}$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -137,20 +140,20 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            横板を単純支持梁として解析し、中央での回転角を求めます。
+                            ピン間の縦板を、長さ2aの単純支持はりとして解析する。Oに作用する荷重の偶力は \(Pl\) である。
                             <div class="math-block">
-                                中央にモーメント \(M_0 = Pl\) が作用する場合：
-                                $$\theta = \frac{M_0 (2h)}{16 E I_v} = \frac{Plh}{8EI_v}$$
+                                中央にモーメント \(M_0=Pl\) が作用する場合：
+                                $$\theta = \frac{M_0 a}{6 E I_v} = \frac{Pla}{6EI_v}$$
                             </div>
-                            <p>横板の断面二次モーメント：\(I_v = \frac{bt^3}{12}\)</p>
+                            <p>縦板の断面二次モーメント：\(I_v=\frac{t b^3}{12}\)</p>
                             <div class="math-block">
-                                $$\theta = \frac{3Plh}{2Ebt^3}$$
+                                $$\theta = \frac{2Pla}{E t b^3}$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -176,7 +179,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -228,6 +231,7 @@
                             <div class="math-block">
                                 $$M_A = \frac{wl^2}{2} + \frac{2Pl}{3}$$
                             </div>
+                            <p>ここで \(M_A\) は大きさを表す。正曲げを正とする断面式では固定端の符号付き反力モーメントは \(-M_A\) である。</p>
                         </div>
                         <div class="example-box">
                             <div class="section-title">
@@ -278,7 +282,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -310,7 +314,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

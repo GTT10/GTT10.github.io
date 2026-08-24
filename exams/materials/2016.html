@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2016年度の材料力学入試では、大問【1】で両端固定段付き丸棒の軸力問題（不静定構造の極限解析）、大問【2】で両端突き出しはりの曲げ問題（対称構造のたわみ最適化）、大問【3】で傾斜荷重を受ける片持ちはりの問題（2軸曲げの重ね合わせ）が出題されました。理論と実用設計を組み合わせた総合的な年度です。</p>
-                <a href="../../pdfs/question/2016_H28_april/materials_2016_H28_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2016年度)</a>
-                <a href="../../pdfs/answer/2016_H28_april/materials_2016_H28_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2016年度)</a>
+                <a href="../../pdfs/question/2016_H28_april/materials_2016_H28_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2016年度)</a>
+                <a href="../../pdfs/answer/2016_H28_april/materials_2016_H28_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2016年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -62,8 +66,8 @@
                         <p class="problem-statement">両端固定された段付き丸棒の中間点に集中荷重が作用する不静定構造について、反力、変位、極限条件を解析する。</p>
                         <p><strong>与えられた条件:</strong></p>
                         <ul>
-                            <li>棒AB：長さa、断面積S₁ = πd²/4、ヤング率E₁</li>
-                            <li>棒BD：長さb+c、断面積S₂ = πd²/4、ヤング率E₂</li>
+                            <li>棒AB：長さa、直径2d（断面積S₁ = πd²）、ヤング率E₁</li>
+                            <li>棒BD：長さb+c、直径d（断面積S₂ = πd²/4）、ヤング率E₂</li>
                             <li>境界条件：両端A、Dで完全固定</li>
                             <li>荷重：B点に集中荷重P（右向き）</li>
                         </ul>
@@ -95,7 +99,7 @@
                                 $$\delta_{AB} + \delta_{BD} = 0$$
                                 $$-\frac{R_A \cdot a}{S_1 E_1} + \frac{R_D \cdot (b+c)}{S_2 E_2} = 0$$
                             </div>
-                            <p>S₁ = S₂ = πd²/4の条件を用いて連立すると：</p>
+                            <p>S₁ = πd²、S₂ = πd²/4を用いて連立すると：</p>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
                                 $$R_A = \frac{4P(b+c)E_1}{aE_2 + 4(b+c)E_1}$$
@@ -141,7 +145,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -167,7 +171,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -280,7 +284,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -338,17 +342,10 @@
                         </div>
                         <div class="solution-step">
                             傾斜荷重を2成分に分解し、各軸まわりのモーメントを求めます。
-                            <p><strong>荷重の成分分解：</strong></p>
+                            <p><strong>荷重の成分分解：</strong> 水平成分は梁軸方向の軸力 \(P\cos\theta\)、鉛直成分は \(P\sin\theta\) である。荷重点は断面下端にあるため、軸力にも偏心 \(h/2\) が生じる。</p>
+                            <p><strong>固定端の曲げモーメント：</strong></p>
                             <div class="math-block">
-                                垂直成分：P_y = P\cos\theta
-                            </div>
-                            <div class="math-block">
-                                水平成分：P_x = P\sin\theta
-                            </div>
-                            <p><strong>各軸まわりの曲げモーメント：</strong></p>
-                            <div class="math-block">
-                                z軸まわり：$$M_z = P\cos\theta \cdot L$$
-                                y軸まわり：$$M_y = P\sin\theta \cdot L$$
+                                $$M = P\left(-L\sin\theta + \frac{h}{2}\cos\theta\right)$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -357,16 +354,17 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            2軸曲げによる応力を重ね合わせて最大応力を求めます。
-                            <p><strong>各軸まわりの曲げ応力：</strong></p>
+                            軸力による一様応力と、偏心を含む曲げ応力を重ね合わせます。
+                            <p><strong>最大引張応力：</strong></p>
                             <div class="math-block">
-                                z軸まわり：$$\sigma_z = \frac{M_z \cdot (h/2)}{I_z} = \frac{6PL\cos\theta}{bh^2}$$
-                                y軸まわり：$$\sigma_y = \frac{M_y \cdot (b/2)}{I_y} = \frac{6PL\sin\theta}{b^2h}$$
+                                $$\sigma_N = \frac{P\cos\theta}{bh}, \qquad \sigma_M = \frac{6P}{bh^2}\left(-L\sin\theta + \frac{h}{2}\cos\theta\right)$$
                             </div>
-                            <p>ここで、Iz = bh³/12、Iy = b³h/12</p>
-                            <p><strong>最大引張応力（断面右上隅）：</strong></p>
+                            <p>曲げモーメントの符号が変わる角度は \(\theta_0=\tan^{-1}(h/(2L))\)。したがって、引張側の隅での最大値は：</p>
                             <div class="math-block">
-                                $$\sigma_{max} = \sigma_z + \sigma_y = \frac{6PL}{bh}\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right)$$
+                                $$\sigma_{max}=\begin{cases}
+                                \displaystyle \frac{P\cos\theta}{bh}+\frac{6P}{bh^2}\left(-L\sin\theta+\frac{h}{2}\cos\theta\right), & \theta\leq\theta_0,\\[6pt]
+                                \displaystyle \frac{P\cos\theta}{bh}-\frac{6P}{bh^2}\left(-L\sin\theta+\frac{h}{2}\cos\theta\right), & \theta>\theta_0.
+                                \end{cases}$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -382,17 +380,20 @@
                             </div>
                             <p>(2)の結果を代入：</p>
                             <div class="math-block">
-                                \frac{6PL}{bh}\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right) \leq \sigma_t
+                                $$\sigma_{max}\leq\sigma_t$$
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
-                                $$P_{max} = \frac{\sigma_t bh}{6L\left(\frac{\cos\theta}{h} + \frac{\sin\theta}{b}\right)}$$
+                                $$P_{max}=\begin{cases}
+                                \displaystyle \frac{\sigma_t b h^2}{4h\cos\theta-6L\sin\theta}, & \theta\leq\tan^{-1}\!\left(\frac{h}{2L}\right),\\[6pt]
+                                \displaystyle \frac{\sigma_t b h^2}{6L\sin\theta-2h\cos\theta}, & \theta>\tan^{-1}\!\left(\frac{h}{2L}\right).
+                                \end{cases}$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -424,7 +425,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

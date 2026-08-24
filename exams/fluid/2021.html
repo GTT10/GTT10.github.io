@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2021年度の流体力学入試では、大問【1】で二次元非圧縮性流れにおける流跡線・流線・抗力係数・レイノルズ数の関係に関する問題、大問【2】で定常流中の物体に関する問題（ナビエ・ストークス方程式の無次元化、レイノルズ数、せん断応力、風洞実験の相似則）が出題されました。基礎理論から実験工学まで幅広い内容でした。</p>
-                <a href="../../pdfs/question/2021_R3_april/fluid_2021_R3_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)</a>
-                <a href="../../pdfs/answer/2021_R3_april/fluid_2021_R3_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/question/2021_R3_april/fluid_2021_R3_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2021年度)</a>
+                <a href="../../pdfs/answer/2021_R3_april/fluid_2021_R3_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2021年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -58,24 +62,24 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】二次元非圧縮性流れの問題</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">二次元非圧縮性流れにおいて、時間の経過とともに速度場が変化する非定常流れが与えられている。以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
-                        <p>この問題では、流跡線（pathline）と流線（streamline）の違い、さらに抗力係数とレイノルズ数の関係を理解することが重要です。特に非定常流れでは流線と流跡線が異なることに注意しましょう。</p>
+                        <p>この問題では、連続的に染料を放出したときの流脈線（streakline）と、個々の粒子を追う流跡線（pathline）を区別することが重要です。非定常流れでは両者は一般に異なります。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -85,15 +89,19 @@
                         <div class="solution-step">
                             <strong>問題:</strong> 注射針からインクが流れるとき、インクが描く軌跡は何と呼ばれる？ 0 ≤ t ≤ 4の軌跡を図に描いてね。<br><br>
                             <strong>考え方:</strong><br>
-                            - インクの軌跡は「流跡線（りゅうせきせん）」って呼ぶよ。固定された注射針から出るインクの動きを追ったものだね。<br>
-                            - 軌跡を描くには、各区間の速度を積分すればOK。注射針の位置は図に書いてないけど、とりあえず原点(0,0)からスタートするとしよう。<br><br>
-                            <strong>計算の流れ:</strong><br>
-                            1. **0 ≤ t < 1**: 速度(2,2) → 1秒後は(2,2)に移動。<br>
-                            2. **1 ≤ t < 3**: 速度(0,1) → x=2でyだけ増加。3秒後は(2,4)。<br>
-                            3. **3 ≤ t ≤ 4**: 速度(-1,0) → y=4でxだけ減少。4秒後は(1,4)。
+                            注射針は図1の固定点$(4,0)$にあり、そこから連続的に放出されたインクの空間的軌跡は「流脈線（streakline）」である。単一粒子を積分する流跡線ではない。観測時刻を$t=4$、放出時刻を$\tau$とすると、$0\leq\tau\leq4$について各粒子を$(4,0)$から$t=4$まで運べばよい。<br>
+                            その結果は
+                            $$
+                            \begin{cases}
+                            (x,y)=(\tau,0), & 3\leq\tau\leq4,\\
+                            (x,y)=(3,3-\tau), & 1\leq\tau\leq3,\\
+                            (x,y)=(5-2\tau,4-2\tau), & 0\leq\tau\leq1.
+                            \end{cases}
+                            $$
+                            すなわち図Aでは、$(4,0)$から左向きの線分、$x=3$上の線分、$(3,2)$から$(5,4)$への線分を描く。
                         </div>
-                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(0,0)→(2,2)→(2,4)→(1,4)の折れ線</span>
-                        
+                        <span class="answer-highlight">答え: 流脈線（streakline）。注射針の位置は$(4,0)$であり、図Aは上の$\tau$表示の折れ線を描く。</span>
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -103,10 +111,10 @@
                         <div class="solution-step">
                             <strong>問題:</strong> 小球が流れに乗って動くときの軌跡は？ 0 ≤ t ≤ 4の軌跡を描いて。<br><br>
                             <strong>考え方:</strong><br>
-                            - これも「流跡線」だよ！ (1)と同じ計算で、初期位置を(0,0)とすると全く同じ軌跡になるね。
+                            小球は図1の$(-1,0)$から出発する個々の物質粒子なので、その軌跡は「流跡線（pathline）」である。速度場を区間ごとに積分すると、$(-1,0)\to(1,2)\to(1,4)\to(0,4)$となる。
                         </div>
-                        <span class="answer-highlight">答え: 軌跡の名前は**流跡線（pathline）**、軌跡の形は(1)と同じ折れ線</span>
-                        
+                        <span class="answer-highlight">答え: 流跡線（pathline）、軌跡は$(-1,0)\to(1,2)\to(1,4)\to(0,4)$。</span>
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -120,7 +128,7 @@
                             - 選択肢は見えないけど、多分「Reが増えると$C_D$が減るグラフ」が正解。
                         </div>
                         <span class="answer-highlight">答え: 正しい関係は**b)（減少する曲線）**</span>
-                        
+
                         <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -138,7 +146,7 @@
                         </div>
                         <span class="answer-highlight">答え: $y = A e^{-x^2 / 2}$（Aは定数）</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -173,7 +181,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -181,24 +189,24 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】定常流中の物体に関する問題</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">x軸の正の方向に向かう流速Uの定常流中に代表長さDの物体が静止しているとし、以下の問いに答えよ。ただし流れは二次元非圧縮粘性流れとし、流体の密度はρ、動粘性係数はν、圧力はp、x方向の速度はu、y方向の速度はvとする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
                         <p>この問題では、ナビエ・ストークス方程式の記述から無次元化、レイノルズ数、せん断応力の計算、そして相似則までの幅広い理論を扱います。各概念の関係性を理解しながら解きましょう。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -207,11 +215,11 @@
                         </div>
                         <div class="solution-step">
                             二次元非圧縮粘性流れのナビエ・ストークス方程式（x成分）を記述します。定常流のため時間微分項はゼロです。
-                            $$\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
-                            （μは粘度、ν = μ/ρ、定常のため∂u/∂t = 0）
+                            $$u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$$
+                            （νは動粘性係数、定常のため∂u/∂t = 0）
                         </div>
-                        <span class="answer-highlight">答え: $\rho \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$</span>
-                        
+                        <span class="answer-highlight">答え: $u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)$</span>
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -222,14 +230,14 @@
                             無次元化のスケールを設定します：長さD、速度U、圧力ρU²（動圧を基準）<br>
                             無次元変数を定義：
                             $$x^* = \frac{x}{D}, \quad y^* = \frac{y}{D}, \quad u^* = \frac{u}{U}, \quad v^* = \frac{v}{U}, \quad p^* = \frac{p - p_\infty}{\rho U^2}$$
-                            
+
                             元の方程式に無次元変数を代入し、$\frac{\rho U^2}{D}$で割ると：
                             $$u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \left( \frac{\partial^2 u^*}{\partial x^{*2}} + \frac{\partial^2 u^*}{\partial y^{*2}} \right)$$
-                            
+
                             ここで、レイノルズ数Re = UD/νが現れます。
                         </div>
                         <span class="answer-highlight">答え: $u^* \frac{\partial u^*}{\partial x^*} + v^* \frac{\partial u^*}{\partial y^*} = -\frac{\partial p^*}{\partial x^*} + \frac{1}{\text{Re}} \nabla^{*2} u^*$、pの無次元化に用いた物理量：**ρU²**</span>
-                        
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -241,7 +249,7 @@
                             $$\text{Re} = \frac{U D}{\nu}$$
                         </div>
                         <span class="answer-highlight">答え: $\text{Re} = \frac{U D}{\nu}$</span>
-                        
+
                         <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -250,11 +258,11 @@
                         </div>
                         <div class="solution-step">
                             y = const の断面における粘性せん断応力は、非圧縮ニュートン流体では：
-                            $$\tau_y = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$$
+                            $$\tau_y = \rho\nu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$$
                             （τ_yはτ_{yx}を意味し、y一定面でのx方向せん断応力）
                         </div>
-                        <span class="answer-highlight">答え: $\tau_y = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$</span>
-                        
+                        <span class="answer-highlight">答え: $\tau_y = \rho\nu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right)$</span>
+
                         <!-- 小問(5) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -262,17 +270,13 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            τ_yを無次元化します。せん断応力の無次元化にはスケールμU/Dを使用：
-                            $$\tau_y^* = \frac{\tau_y}{\mu U / D}$$
-                            
-                            (4)の式を無次元変数で表すと：
-                            $$\tau_y = \frac{\mu U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
-                            
-                            したがって無次元せん断応力は：
-                            $$\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$$
+                            (4)の式を無次元変数で表す。$\partial/\partial x=(1/D)\partial/\partial x^*$、$u=Uu^*$などより：
+                            $$\tau_y = \frac{\rho\nu U}{D} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
+                            さらに$\mathrm{Re}=UD/\nu$を用いると、設問の形は
+                            $$\tau_y = \frac{\rho U^2}{\mathrm{Re}} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$$
                         </div>
-                        <span class="answer-highlight">答え: $\tau_y^* = \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*}$</span>
-                        
+                        <span class="answer-highlight">答え: $\tau_y = \frac{\rho U^2}{\mathrm{Re}} \left( \frac{\partial u^*}{\partial y^*} + \frac{\partial v^*}{\partial x^*} \right)$</span>
+
                         <!-- 小問(6) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -281,29 +285,29 @@
                         </div>
                         <div class="solution-step">
                             実車の1/10サイズの模型で風洞実験を行う場合の相似則について考えます。<br><br>
-                            
+
                             <strong>相似則のポイント：</strong><br>
                             - レイノルズ数を同じにすることがキーワード<br>
                             - 模型の長さ1/10 → 流速は10倍にすればOK（Re = (流速)×(長さ) だから）<br><br>
-                            
+
                             **詳細計算：**<br>
                             レイノルズ数の相似条件：$Re_{model} = Re_{actual}$<br>
                             $$\frac{\rho V_{model} L_{model}}{\mu} = \frac{\rho V_{actual} L_{actual}}{\mu}$$
-                            
+
                             $L_{model} = L_{actual}/10$なので：<br>
                             $$V_{model} \cdot \frac{L_{actual}}{10} = V_{actual} \cdot L_{actual}$$
                             $$V_{model} = 10 V_{actual} = 10V$$
-                            
+
                             抗力の計算：<br>
                             $$F_D = \frac{1}{2}\rho V^2 C_D A$$
-                            
+
                             - 模型の面積：$A_{model} = A_{actual}/100$<br>
                             - 模型の流速²：$V_{model}^2 = (10V)^2 = 100V^2$<br>
                             - 模型の抗力：$F_{D,model} = \frac{1}{2}\rho (100V^2) C_D (A_{actual}/100) = F_{D,actual}$
                         </div>
                         <span class="answer-highlight">答え: 風洞の流速は**10V**、抗力の倍率は**1倍**</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ

@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2020年度の数学入試では、大問【1】でパラメータ曲線の長さ計算、大問【2】で固有値・固有ベクトルから行列の復元、大問【3】で変数変換による微分方程式の解法、大問【4】でフーリエ級数展開が出題されました。微積分・線形代数・微分方程式・フーリエ解析の基本技法が幅広く問われています。各分野の基本をしっかり押さえて取り組みましょう！</p>
-                <a href="../../pdfs/question/2020_R2_april/math_2020_R2_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2020_R2_april/math_2020_R2_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2020年度)
                 </a>
-                <a href="../../pdfs/answer/2020_R2_april/math_2020_R2_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
+                <a href="../../pdfs/answer/2020_R2_april/math_2020_R2_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2020年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">パラメータ曲線の長さを求めよ: $x = a \cos^3 t$, $y = a \sin^3 t$ $(a > 0, 0 \leq t \leq \frac{\pi}{2})$</p>
                     </div>
@@ -101,7 +105,7 @@
                         <span class="answer-highlight">答え: $\frac{3a}{2}$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -127,13 +131,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">行列$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$の固有値1に対する固有ベクトルが$\begin{bmatrix} 1 \\ -1 \end{bmatrix}$、固有値6に対する固有ベクトルが$\begin{bmatrix} 1 \\ 4 \end{bmatrix}$であるとき、行列$A$を求めよ</p>
                     </div>
@@ -181,7 +185,7 @@ c + 4d = 24
                         <span class="answer-highlight">答え: $A = \begin{bmatrix} 2 & 1 \\ 4 & 5 \end{bmatrix}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -212,7 +216,7 @@ c + 4d = 24
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">微分方程式: $\frac{dy}{dx} = -2x^4 + 3x^2 + 2xy$</p>
                     </div>
@@ -277,7 +281,7 @@ c + 4d = 24
                         <span class="answer-highlight">答え: $y = x^3 + Ce^{x^2}$ ($C$は任意定数)</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -308,7 +312,7 @@ c + 4d = 24
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">周期$2\pi$の関数$y = f(x)$のフーリエ級数展開</p>
                     </div>
@@ -349,7 +353,7 @@ c + 4d = 24
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(2) $f(x) = |x|$ ($-\pi \leq x \leq \pi$, 周期$2\pi$)をフーリエ級数で表せ</p>
+                        <p class="problem-statement">(2) $f(x) = \pi-|x|$ ($-\pi \leq x \leq \pi$, 周期$2\pi$)をフーリエ級数で表せ</p>
                     </div>
 
                     <div>
@@ -357,27 +361,27 @@ c + 4d = 24
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. $f(x) = |x|$は偶関数なので、フーリエ余弦級数：
-                            <div class="math-block">$$a_0 = \frac{2}{\pi} \int_0^\pi x dx = \frac{2}{\pi} \left[ \frac{x^2}{2} \right]_0^\pi = \pi$$</div>
+                            1. $f(x) = \pi-|x|$は偶関数なので、フーリエ余弦級数：
+                            <div class="math-block">$$a_0 = \frac{2}{\pi} \int_0^\pi (\pi-x) dx = \pi$$</div>
                         </div>
                         <div class="solution-step">
                             2. $a_n$の計算（(1)の結果を利用）：
-                            <div class="math-block">$$a_n = \frac{2}{\pi} \int_0^\pi x \cos nx dx = \frac{2}{\pi} \cdot \frac{(-1)^n - 1}{n^2}$$</div>
+                            <div class="math-block">$$a_n = \frac{2}{\pi} \int_0^\pi (\pi-x)\cos nx dx = \frac{2}{\pi}\cdot\frac{1-(-1)^n}{n^2}$$</div>
                         </div>
                         <div class="solution-step">
                             3. 場合分け：
                             - $n$が偶数のとき：$(-1)^n = 1$より$a_n = 0$
-                            - $n$が奇数のとき：$(-1)^n = -1$より$a_n = \frac{-4}{\pi n^2}$
+                            - $n$が奇数のとき：$(-1)^n = -1$より$a_n = \frac{4}{\pi n^2}$
                         </div>
                         <div class="solution-step">
                             4. フーリエ級数の構成：
                             <div class="math-block">$$f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} a_{2k-1} \cos((2k-1)x)$$</div>
-                            <div class="math-block">$$= \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$$</div>
+                            <div class="math-block">$$= \frac{\pi}{2} + \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $f(x) = \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$</span>
+                        <span class="answer-highlight">答え: $f(x) = \frac{\pi}{2} + \frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\cos((2k-1)x)}{(2k-1)^2}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -396,7 +400,7 @@ c + 4d = 24
                         <ul>
                             <li>$\cos(n\pi) = (-1)^n$</li>
                             <li>偶関数：$b_n = 0$</li>
-                            <li>$|x|$のフーリエ展開は標準問題</li>
+                            <li>$\pi-|x|$のフーリエ展開は標準問題</li>
                         </ul>
                     </div>
                 </div>

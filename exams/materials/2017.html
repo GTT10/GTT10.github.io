@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2017年度の材料力学入試では、大問【1】で3本のワイヤで吊り下げられた剛体棒の問題（不静定構造の変形解析）、大問【2】で一端固定・他端支持はりの曲げ問題（不静定はりの境界条件）、大問【3】で両端固定丸棒のねじり問題（不静定ねじりの反力分布）が出題されました。全て不静定問題で構成された難易度の高い年度です。</p>
-                <a href="../../pdfs/question/2017_H29_april/materials_2017_H29_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
-                <a href="../../pdfs/answer/2017_H29_april/materials_2017_H29_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
+                <a href="../../pdfs/question/2017_H29_april/materials_2017_H29_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
+                <a href="../../pdfs/answer/2017_H29_april/materials_2017_H29_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -157,7 +161,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -183,7 +187,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -264,7 +268,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -391,7 +395,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -423,7 +427,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2023年度の数学入試では、大問【1】で広義積分、大問【2】で微分方程式の同次・非同次形、大問【3】でフーリエ級数と級数の和、大問【4】で行列の階数と連立方程式が出題されました。解析・微分方程式・フーリエ解析・線形代数と、幅広い分野からバランスよく問われています。一つひとつ丁寧に解き方を学んでいきましょう！</p>
-                <a href="../../pdfs/question/2023_R5_april/math_2023_R5_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2023_R5_april/math_2023_R5_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)
                 </a>
-                <a href="../../pdfs/answer/2023_R5_april/math_2023_R5_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/answer/2023_R5_april/math_2023_R5_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の広義積分を求めよ。ただし導出過程も示せ。</p>
                         <div class="math-block">$$\int_{0}^{1} \frac{\log x}{\sqrt{x}} \, dx$$</div>
@@ -160,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -186,13 +190,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) $y'' - 6y' + 9y = 0$ の一般解を求めよ。</p>
                     </div>
@@ -272,7 +276,7 @@
                         <span class="answer-highlight">答え: $y = \left( C_1 + C_2 x + \frac{1}{2} x^2 \right) e^{3x}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -303,7 +307,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 一周期の区間で、次式で定義される周期関数のフーリエ級数展開式を求めよ。</p>
                         <div class="math-block">$$f(t) = \begin{cases} 0 & -\pi < t \leq 0 \\ \sin t & 0 < t \leq \pi \end{cases}$$</div>
@@ -337,22 +341,32 @@
                             <div class="math-block">
                                 $$a_n = \frac{1}{\pi} \int_{0}^{\pi} \sin t \cos(nt) dt$$
                             </div>
-                            計算結果、$n=1$ のときは0、$n \geq 2$ のときも0になります（関数の対称性から）。
+                            計算すると、$n$ が奇数のとき（$n=1$を含む）は $a_n=0$、$n=2k$（$k\geq1$）のときは
+                            <div class="math-block">
+                                $$a_{2k}=-\frac{2}{\pi(4k^2-1)}$$
+                            </div>
+                            となります。したがって、偶数次の余弦項は残ります。
                         </div>
                         <div class="solution-step">
-                            4. $b_n$ を計算します。特に重要なのは $n=1$ のときで、
+                            4. $b_n$ を計算します。$f(t)=\sin t$（$0<t\leq\pi$）なので、
                             <div class="math-block">
-                                $$b_1 = \frac{1}{\pi} \int_{0}^{\pi} \sin^2 t \, dt = \frac{1}{\pi} \cdot \frac{\pi}{2} = \frac{1}{2}$$
+                                $$b_n=\frac{1}{\pi}\int_0^\pi \sin^2t\sin(nt)\,dt$$
                             </div>
-                            $n \geq 2$ のときは積和公式を使って計算できます。
+                            積和公式を使うと、$n$ が偶数のときは $b_n=0$、$n$ が奇数のときは
+                            <div class="math-block">
+                                $$b_n=-\frac{4}{\pi n(n^2-4)}=\frac{4}{\pi n(4-n^2)}$$
+                            </div>
+                            です。特に $b_1=\frac{4}{3\pi}$ であり、$b_3,b_5,\ldots$ も一般には0ではありません。
                         </div>
                         <div class="solution-step">
                             5. 最終的なフーリエ級数展開は、
                             <div class="math-block">
-                                $$f(t) = \frac{1}{\pi} + \frac{1}{2} \sin t - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{\cos(2kt)}{4k^2-1}$$
+                                $$f(t) = \frac{1}{\pi} - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{\cos(2kt)}{4k^2-1}
+                                + \frac{4}{\pi} \sum_{k=1}^{\infty}
+                                \frac{\sin((2k-1)t)}{(2k-1)\{4-(2k-1)^2\}}$$
                             </div>
                         </div>
-                        <span class="answer-highlight">答え: $f(t) = \frac{1}{\pi} + \frac{1}{2} \sin t - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{\cos(2kt)}{4k^2-1}$</span>
+                        <span class="answer-highlight">答え: 上記の余弦項と奇数次の正弦項からなるフーリエ級数</span>
                     </div>
 
                     <div class="example-box">
@@ -370,33 +384,32 @@
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. (1)の結果で $t = \frac{\pi}{2}$ を代入します。このとき $\sin \frac{\pi}{2} = 1$、$\cos(k\pi) = (-1)^k$ なので、
+                            1. この級数は部分分数分解と交代調和級数から直接評価できます：
                             <div class="math-block">
-                                $$f\left(\frac{\pi}{2}\right) = \frac{1}{\pi} + \frac{1}{2} - \frac{2}{\pi} \sum_{k=1}^{\infty} \frac{(-1)^k}{4k^2-1}$$
+                                $$\frac{1}{4n^2-1}=\frac12\left(\frac{1}{2n-1}-\frac{1}{2n+1}\right)$$
                             </div>
                         </div>
                         <div class="solution-step">
-                            2. 関数の定義より $f\left(\frac{\pi}{2}\right) = \sin \frac{\pi}{2} = 1$ なので、
+                            2. $A=\sum_{n=1}^{\infty}\frac{(-1)^n}{2n-1}=-\frac{\pi}{4}$ とおくと、添字をずらして
                             <div class="math-block">
-                                $$1 = \frac{1}{\pi} + \frac{1}{2} - \frac{2}{\pi} \sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1}$$
+                                $$\begin{aligned}
+                                \sum_{n=1}^{\infty}\frac{(-1)^n}{4n^2-1}
+                                &=\frac12\left(A-\sum_{n=1}^{\infty}\frac{(-1)^n}{2n+1}\right)\\
+                                &=\frac12\left(A+(A+1)\right)=A+\frac12.
+                                \end{aligned}$$
                             </div>
                         </div>
                         <div class="solution-step">
-                            3. この方程式を解くと、
+                            3. したがって、
                             <div class="math-block">
-                                $$\frac{2}{\pi} \sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{1}{\pi} + \frac{1}{2} - 1 = \frac{1}{\pi} - \frac{1}{2}$$
-                            </div>
-                        </div>
-                        <div class="solution-step">
-                            4. したがって、
-                            <div class="math-block">
-                                $$\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{\pi}{2} \left( \frac{1}{\pi} - \frac{1}{2} \right) = \frac{1}{2} - \frac{\pi}{4}$$
+                                $$\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1}
+                                =\frac12-\frac{\pi}{4}$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: $\sum_{n=1}^{\infty} \frac{(-1)^n}{4n^2-1} = \frac{1}{2} - \frac{\pi}{4}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -427,11 +440,11 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">ただし、$abc \neq 0$ とする。</div>
                     </div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 次の行列の階数を求めよ。</p>
                         <div class="math-block">$$A = \begin{bmatrix} 0 & -a & -c \\ a & 0 & -b \\ c & b & 0 \end{bmatrix}$$</div>
@@ -477,7 +490,7 @@
                     <div class="example-box">
                         <p class="problem-statement">(2) 次の連立一次方程式の解が存在するかどうか判定し，解が存在する場合には解の自由度を求めよ。</p>
                         <div class="math-block">
-                            $$\begin{cases} ax_2 - cx_3 = a - c \\ ax_1 - bx_3 = a - b \\ cx_1 + bx_2 = c - b \end{cases}$$
+                            $$\begin{cases} -ax_2 - cx_3 = a - c \\ ax_1 - bx_3 = a - b \\ cx_1 + bx_2 = c - b \end{cases}$$
                         </div>
                     </div>
                     <div class="point-box">
@@ -493,14 +506,14 @@
                         <div class="solution-step">
                             1. 係数行列は(1)の行列$A$の転置と同じ構造で、階数は2です。拡大係数行列を作ると、
                             <div class="math-block">
-                                $$[B|\mathbf{b}] = \left[ \begin{array}{ccc|c} 0 & a & -c & a-c \\ a & 0 & -b & a-b \\ c & b & 0 & c-b \end{array} \right]$$
+                                $$[B|\mathbf{b}] = \left[ \begin{array}{ccc|c} 0 & -a & -c & a-c \\ a & 0 & -b & a-b \\ c & b & 0 & c-b \end{array} \right]$$
                             </div>
                         </div>
                         <div class="solution-step">
                             2. 行基本変形で拡大係数行列の階数を調べます。行の交換と消去を行うと、第3行が第1,2行の線形結合になることが確認できます。
                         </div>
                         <div class="solution-step">
-                            3. 具体的に計算すると、第3行 = $-\frac{c}{a} \times$ 第1行 $+ \frac{b}{a} \times$ 第2行 となり、右辺も同様の関係が成り立ちます。
+                            3. 具体的に計算すると、第3行 = $-\frac{b}{a} \times$ 第1行 $+ \frac{c}{a} \times$ 第2行 となり、右辺も同様の関係が成り立ちます。
                         </div>
                         <div class="solution-step">
                             4. $\text{rank}(B) = \text{rank}([B|\mathbf{b}]) = 2$ なので解が存在します。変数の数は3、階数は2なので、解の自由度は $3 - 2 = 1$ です。
@@ -508,7 +521,7 @@
                         <span class="answer-highlight">答え: 解は存在し、自由度は1</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

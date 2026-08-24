@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>数学 2008</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 材料力学 2008年度の問題原本と全問独立再計算による非公式解説。">
+  <title>材料力学 2008年度 非公式解答・解説</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/archive.css">
+  <style>
+    .solution-content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .solution-section { margin: 1.5rem 0; padding: 1.25rem; background: #fff; border: 1px solid #d8e3e8; border-radius: 10px; box-shadow: 0 4px 14px rgba(18,62,87,.06); }
+    .solution-section h3 { margin-top: 0; color: #123e57; border-bottom: 2px solid #d8e3e8; padding-bottom: .55rem; }
+    .solution-block { margin: .8rem 0; padding: .7rem .85rem; border-left: 4px solid #b7d1dc; }
+    .solution-block h4 { margin: 0 0 .35rem; font-size: .9rem; color: #345; }
+    .solution-block p { margin: 0; line-height: 1.8; white-space: normal; }
+    .solution-block--answer { background: #f1f7fa; border-left-color: #247a9b; }
+    .solution-block--assumption { color: #555; background: #fafafa; }
+    .solution-block--audit { color: #555; font-size: .92rem; background: #fffdf2; border-left-color: #caa94b; }
+    .source-note { max-width: 1000px; margin: 0 auto; padding: 0 1rem 1rem; color: #555; }
+    .source-note a { margin-right: 1rem; }
+  </style>
 </head>
 <body>
-</body>
-</html> 
+  <header class="header header--static"><div class="container header-content">
+    <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
+    <nav class="nav" aria-label="主要ナビゲーション"><ul class="nav-list">
+      <li><a href="../../index.html" class="nav-link">ホーム</a></li>
+      <li><a href="../../pages/material_mechanics.html" class="nav-link">材料力学一覧</a></li>
+      <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
+    </ul></nav>
+  </div></header>
+  <main>
+    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト"><div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/material_mechanics.html">材料力学</a><span aria-hidden="true">/</span><span>2008年度</span></div></nav>
+    <section class="archive-hero"><div class="container archive-hero__inner">
+      <p class="eyebrow">2008年度（H20）・全問再計算</p><h1>材料力学 2008年度</h1>
+      <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
+      <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答PDF・詳細解説あり</span><span>原本を優先してご確認ください</span></div>
+    </div></section>
+    <section class="archive-content"><div class="container archive-layout"><div>
+      <h2>原本と解答PDF</h2><div class="resource-grid">
+        <a class="resource-card resource-card--question" href="../../pdfs/question/2008_H20_april/materials_2008_H20_question.pdf" target="_blank" rel="noopener"><span class="resource-kicker">原本</span><strong>問題PDFを開く</strong><span>全ページを確認した原本です。</span></a>
+        <a class="resource-card resource-card--answer" href="../../pdfs/answer/2008_unofficial/2008_materials.pdf" target="_blank" rel="noopener"><span class="resource-kicker">非公式解答案</span><strong>解答PDFを開く</strong><span>このページと同じ導出を収録しています。</span></a>
+      </div>
+      <section class="study-guide"><h2>利用上の注意</h2><p>本ページと解答PDFは学習用の非公式資料です。記号、符号、単位、図の読み方は必ず問題原本と照合してください。</p><p>以下では各小問の問題条件、仮定、途中式、最終結果を順に示します。</p></section>
+    </div><aside class="archive-note"><h2>検算状態</h2><p>問題PDFの全関連ページをPopplerで画像化して確認し、独立計算を行いました。</p><p>原本と解答PDFの疑義・解釈は監査記録に明記しています。</p><a href="../../about.html">詳しい利用案内を見る</a></aside></div></section>
+    <section class="solution-content" aria-labelledby="solution-title"><h2 id="solution-title">年度別詳細解説</h2><section class="solution-section" aria-labelledby="q2008-1"><h3 id="q2008-1">大問 1　段付き丸棒の軸応力と熱応力</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>直径 d1、長さ l1 の棒を両端に2本、直径 d2、長さ l2 の棒を中央に1本直列につないだ段付き棒。材料定数は外側 E1, alpha1、中央 E2, alpha2。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>A1=pi*d1^2/4、A2=pi*d2^2/4。引張力を正とする。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) 両端引張荷重 P では直列なので各棒の軸力は P。sigma_1=P/A1、sigma_2=P/A2。全伸び lambda=P*(2*l1/(E1*A1)+l2/(E2*A2))。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(2) 両端固定で温度が t K 上昇。直列全体の伸びが 0。圧縮軸力を N とすると、機械的変形 N*(2*l1/(E1*A1)+l2/(E2*A2)) と熱伸び t*(2*alpha1*l1+alpha2*l2) の和が 0。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) N=-t*(2*alpha1*l1+alpha2*l2)/(2*l1/(E1*A1)+l2/(E2*A2))。sigma_1=N/A1、sigma_2=N/A2（通常の正の t では圧縮）。</p></div></section><section class="solution-section" aria-labelledby="q2008-2"><h3 id="q2008-2">大問 2　ばね支持端をもつ片持ちばり</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>長さ l の片持ちばり AB。A 固定、B にばね定数 k の鉛直ばねを取り付け、全長に等分布荷重 w。E, I は一定。原図は下向き y。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>下向きたわみ y を正、内部曲げは下側引張りを正、ばね反力 R_B は上向きとする。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>A から x を測ると、未知反力を含む内部曲げは M(x)=-M_A+R_A*x-w*x^2/2。A の境界は y(0)=0、y&#x27;(0)=0。B の条件は R_B=k*y(l)。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>片持ちばりの B 点たわみを重ね合わせると y(l)=w*l^4/(8EI)-R_B*l^3/(3EI)。ばね条件から R_B/k=y(l)。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>R_B=3*k*w*l^4/[8*(3*E*I+k*l^3)]、y(l)=3*w*l^4/[8*(3*E*I+k*l^3)]、R_A=w*l-R_B、M_A=w*l^2/2-R_B*l。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>SFD は V(x)=R_A-w*x（0&lt;x&lt;l）。BMD は M(x)=-M_A+R_A*x-w*x^2/2 で、M(0)=-M_A、M(l)=0。k=0 では通常の片持ちばり、k -&gt; infinity では剛支点の極限にも一致する。</p></div></section><section class="solution-section" aria-labelledby="q2008-3"><h3 id="q2008-3">大問 3　平面応力の一般化フック則と面応力</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>等方弾性体 E, nu, G。平面応力 sigma_z=0 のもとで sigma_x, sigma_y, tau_xy とひずみ成分、面の応力ベクトルを求める。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) epsilon_x=(sigma_x-nu*sigma_y)/E、epsilon_y=(sigma_y-nu*sigma_x)/E、gamma_xy=tau_xy/G。G=E/[2*(1+nu)]。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) epsilon_z=-nu*(sigma_x+sigma_y)/E。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(3) x 軸に垂直な面の法線 n=(1,0) では p1=(sigma_x,tau_xy)、|p1|=sqrt(sigma_x^2+tau_xy^2)。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(4) y 軸に垂直な面 n=(0,1) では p2=(tau_xy,sigma_y)、|p2|=sqrt(sigma_y^2+tau_xy^2)。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(5) 一般の n=(l,m) では p_nx=sigma_x*l+tau_xy*m、p_ny=tau_xy*l+sigma_y*m、|p_n|=sqrt(p_nx^2+p_ny^2)。</p></div></section></section>
+    <nav class="year-pagination container" aria-label="年度間ナビゲーション"><a href="2007.html">← 2007年度</a><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2009.html">2009年度 →</a></nav>
+  </main>
+  <footer class="footer"><div class="container"><p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p><p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p></div></footer>
+</body></html>

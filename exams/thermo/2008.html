@@ -1,9 +1,61 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>数学 2008</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2008年度の問題概要、独立再計算、非公式解説。">
+  <title>熱力学 2008年度 問題解説・独立再計算</title>
+  <link rel="stylesheet" href="../../css/thermo.css">
+  <script>MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body>
-</body>
-</html> 
+<body><div class="page-wrapper"><div class="header-decoration"></div><div class="page-content">
+  <nav class="header-nav" aria-label="ページ内ナビゲーション"><h1>熱力学 2008年度</h1><div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div></nav>
+  <p class="description">H20年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
+  <div class="accuracy-notice"><strong>検算済み・非公式</strong>問題PDF全2ページをPopplerで画像化し、旧Adobe-Japan1文字コードはCMapで復号して原文を確認しました。<a href="../../pdfs/question/2008_H20_april/thermo_2008_H20_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2008_unofficial/thermo_2008_H20_april_answer.pdf">非公式解答PDF</a>。</div>
+  <section class="problem-overview-section"><h2>問題概要と検証範囲</h2><p>第1問はエントロピーと仕事、第2問はノズルの速度・エクセルギー効率、第3問は湿り空気の絶対湿度と露点です。全小問について式の導出、単位、数値表の読みを確認しました。</p></section>
+  <div class="exam-grid"><main class="exam-col-left">
+    <section>
+      <h2 class="main-section-title">第1問　エントロピーと仕事</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>質量mの理想気体、\(c_p,R\) 一定。エントロピー表示、状態1→2のエントロピー変化、可逆断熱関係、T-S図による仕事を求めます。</p></div>
+      <h3 class="section-title">(1)(2) 基本式と状態間の変化</h3>
+      <div class="math-block">\[T\,dS=mc_p\,dT-mRT\frac{dP}{P},\qquad dS=mc_p\frac{dT}{T}-mR\frac{dP}{P}.\]</div>
+      <div class="math-block">\[\Delta S=mc_p\ln\frac{T_2}{T_1}-mR\ln\frac{P_2}{P_1}.\]</div>
+      <h3 class="section-title">(3) 可逆断熱</h3>
+      <div class="math-block">\[\Delta S=0\quad\Rightarrow\quad \frac{P}{T^{\kappa/(\kappa-1)}}=\mathrm{const},\qquad \frac{P_2}{P_1}=\left(\frac{T_2}{T_1}\right)^{\kappa/(\kappa-1)}.\]</div>
+      <h3 class="section-title">(4) T-S図と絶対仕事</h3>
+      <p class="solution-step">状態1から状態2へ補助的な等容線を引くと、等容線に沿う面積は \(\int T\,dS=mc_v(T_2-T_1)\) です。可逆断熱線はS一定の鉛直線で面積を持たないため、この等容線部分が圧縮仕事の大きさに対応します。</p>
+      <div class="final-answer"><div class="section-title">最終答</div><p>\(\Delta S\) は上式、可逆断熱では \(\Delta S=0\)、T-S図の補助等容線の面積が絶対仕事です。</p></div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第2問　ノズルの速度とエクセルギー効率</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>入口速度を無視した定常ノズル。断熱、軸仕事なし、位置エネルギー無視で、摩擦がある実際流れと可逆断熱理想気体を比較します。</p></div>
+      <h3 class="section-title">(1) 出口速度</h3>
+      <div class="math-block">\[h_1=h_2+\frac{w_2^2}{2},\qquad w_2=\sqrt{2(h_1-h_2)}.\]</div>
+      <p class="solution-step">\(h\) をkJ/kgで与える場合は \(w_2=\sqrt{2000(h_1-h_2)}\) m/sです。</p>
+      <h3 class="section-title">(2) エクセルギー効率</h3>
+      <p class="solution-step">摩擦を含む断熱流れでは \(\Delta s>0\)、不可逆損失は基準温度 \(T_0\) に対する \(T_0\Delta s\) です。</p>
+      <div class="math-block">\[\eta_{ex}=\frac{h_1-h_2}{h_1-h_2+T_0\Delta s}.\]</div>
+      <h3 class="section-title">(3) 可逆断熱理想気体</h3>
+      <div class="math-block">\[\frac{T_2}{T_1}=\left(\frac{P_2}{P_1}\right)^{(\kappa-1)/\kappa},\qquad c_p=\frac{\kappa R}{\kappa-1}.\]</div>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[w_2=\sqrt{\frac{2\kappa}{\kappa-1}RT_1\left[1-\left(\frac{P_2}{P_1}\right)^{(\kappa-1)/\kappa}\right]}.\]</div></div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第3問　湿り空気と露点</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>絶対湿度 \(x=m_w/m_a\)、相対湿度 \(\phi=P_w/P_s\)、乾き空気分圧 \(P_a=P-P_w\) とします。後半は \(t_1=30\,^{\circ}\mathrm{C}\)、\(\phi=0.5\)、\(P=1\) barの表読取りです。</p></div>
+      <h3 class="section-title">(1)(2) 絶対湿度の導出</h3>
+      <div class="math-block">\[x=\frac{m_w}{m_a}=\frac{R_a}{R_w}\frac{P_w}{P_a}=0.622\frac{\phi P_s}{P-\phi P_s}.\]</div>
+      <h3 class="section-title">(3) 露点</h3>
+      <p class="solution-step">表から \(P_s(30^{\circ}\mathrm{C})=0.0424\) bar。したがって水蒸気分圧は \(P_w=0.5\times0.0424=0.0212\) barです。冷却して結露が始まる温度は \(P_s(t_2)=0.0212\) barを満たします。</p>
+      <div class="math-block">\[P_s(18^{\circ}\mathrm{C})=0.0206\ \mathrm{bar},\qquad P_s(20^{\circ}\mathrm{C})=0.0234\ \mathrm{bar}.\]</div>
+      <div class="final-answer"><div class="section-title">最終答</div><p>表の2℃刻みでは \(t_2=18^{\circ}\mathrm{C}\) 以下で結露開始。連続補間なら露点は約18.4℃です。</p></div>
+    </section>
+  </main><aside class="exam-col-right">
+    <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 2ページを全ページ確認</li><li>第1問 4小問</li><li>第2問 3小問</li><li>第3問 3小問</li><li>旧字体PDFはCMap復号で照合</li></ul></div>
+    <div class="point-box"><h2 class="section-title">注意</h2><p>露点は問題指定の表の刻みでは18℃以下という答え、連続値では18.4℃程度です。表の丸めで末尾は変わり得ます。</p></div>
+  </aside></div>
+  <footer class="site-footer"><a href="2007.html">← 2007年度</a>　<a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2009.html">2009年度 →</a></footer>
+</div></div></body>
+</html>

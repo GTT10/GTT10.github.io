@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2018年度の数学入試では、大問【1】で対数微分と双曲線関数積分、大問【2】で連立一次方程式の解の存在条件、大問【3】で2階線形微分方程式、大問【4】でラプラス変換と積分方程式が出題されました。計算力と理論的理解の両方が求められる本格的な問題構成です。各分野の基本をしっかり押さえて挑みましょう！</p>
-                <a href="../../pdfs/question/2018_H30_april/math_2018_H30_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2018_H30_april/math_2018_H30_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)
                 </a>
-                <a href="../../pdfs/answer/2018_H30_april/math_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/answer/2018_H30_april/math_2018_H30_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 関数 $y = \frac{x^x}{\sqrt{\cos x}}$ ($0 < x < \frac{\pi}{2}$) の微分を求めよ。</p>
                     </div>
@@ -121,7 +125,7 @@
                         <span class="answer-highlight">答え: $\pi$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -147,13 +151,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の x, y, z, u に関する連立一次方程式について,以下の問いに答えよ.ただしa,bは実定数とする.
                             \[\begin{cases}
@@ -314,7 +318,7 @@ x + y + 3z + 2au = 0 \\
                         <span class="answer-highlight">答え: $x = 2$, $y = 8$, $z = -2$, $u = -2$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -345,7 +349,7 @@ x + y + 3z + 2au = 0 \\
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">2階線形微分方程式 $y'' + 3y' - 4y = 2x^2$ を解け。</p>
                     </div>
@@ -422,7 +426,7 @@ x + y + 3z + 2au = 0 \\
                         <span class="answer-highlight">答え: $y = C_1 e^x + C_2 e^{-4x} - \frac{1}{2}x^2 - \frac{3}{4}x - \frac{13}{16}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -453,7 +457,7 @@ x + y + 3z + 2au = 0 \\
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">ラプラス変換について以下を答えよ。</p>
                     </div>
@@ -515,7 +519,7 @@ x + y + 3z + 2au = 0 \\
                         </div>
                         <div class="solution-step">
                             1. <strong>畳み込み形への書き換え</strong><br>
-畳み込みは  
+畳み込みは
 $$
 (f * g)(t)=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau .
 $$
@@ -531,7 +535,7 @@ $$
 h(t)=t.
 $$
 
-したがって方程式は  
+したがって方程式は
 $$
 f(t)+4\,(f*h)(t)=t. \tag{★}
 $$
@@ -540,18 +544,18 @@ $$
                             2.  <strong>ラプラス変換を適用</strong><br>
 ラプラス変換を $$\mathcal{L}\{f\}(s)=F(s)$$ と書く。
 
-1. 基本変換  
+1. 基本変換
    $$
    \mathcal{L}\{t\}(s)=\frac{1}{s^{2}},\qquad
    \mathcal{L}\{h(t)\}(s)=\frac{1}{s^{2}}.
    $$
 
-2. 畳み込み定理  
+2. 畳み込み定理
    $$
    \mathcal{L}\{(f*h)(t)\}(s)=F(s)\,H(s)=F(s)\frac{1}{s^{2}}.
    $$
 
-3. 方程式 (★) を変換  
+3. 方程式 (★) を変換
    $$
    F(s)+4F(s)\frac{1}{s^{2}}=\frac{1}{s^{2}}.
    $$
@@ -567,7 +571,7 @@ $$
                         </div>
                         <div class="solution-step">
                             4. <strong>逆ラプラス変換で時間領域へ</strong><br>
-既知の公式  
+既知の公式
 $$
 \mathcal{L}^{-1}\!\Bigl\{\frac{1}{s^{2}+a^{2}}\Bigr\}=\frac{1}{a}\sin(at).
 $$
@@ -600,7 +604,7 @@ $$
                         <span class="answer-highlight">答え：$f(t)=\frac{1}{2}\sin(2t)\quad(0\le t<\infty)$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

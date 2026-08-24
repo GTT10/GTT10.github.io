@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,20 +40,24 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>理想的カルノーサイクルの理論解析、混合気体の物性計算、再生蒸気サイクルの性能評価の3つの大問から構成されています。基礎的なサイクル理論から実用的な混合気体・蒸気サイクルまで幅広く扱い、熱力学の理論と応用を総合的に問います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">カルノーサイクル</span>
                     <span class="topic-tag">混合気体</span>
                     <span class="topic-tag">再生蒸気サイクル</span>
                 </div>
-                
-                <a href="../../pdfs/question/2017_H29_april/thermo_2017_H29_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
-                <a href="../../pdfs/answer/2017_H29_april/thermo_2017_H29_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
+
+                <a href="../../pdfs/question/2017_H29_april/thermo_2017_H29_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2017年度)</a>
+                <a href="../../pdfs/answer/2017_H29_april/thermo_2017_H29_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2017年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -61,30 +65,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: カルノーサイクル（理想気体）</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">理想気体を作動流体とするカルノーサイクルについて考える。高温熱源温度$T_H$、低温熱源温度$T_L$として、以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) このサイクルの$p-V$線図および$T-S$線図を描け。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>カルノーサイクルは2つの等温過程と2つの断熱過程から構成される理想的な可逆サイクルです。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図の描画と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>p-V線図</h4>
                             <pre class="ascii-diagram">
@@ -123,7 +127,7 @@
        S₁=S₄    S₂=S₃
                             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -137,19 +141,19 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 各過程における熱量の出入りを求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等温過程では$Q = mRT\ln(V_2/V_1)$、断熱過程では$Q = 0$を使用します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -164,19 +168,19 @@
                         </div>
                         <p>断熱過程（2→3、4→1）では熱の出入りはありません。</p>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 各過程におけるエントロピー変化を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エントロピー変化は$\Delta S = Q_{\text{rev}}/T$で計算します。断熱過程では$\Delta S = 0$です。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -186,31 +190,31 @@
                             \begin{aligned}
                             \Delta S_{12} &= \frac{Q_{\text{in}}}{T_H} = mR\ln\frac{V_2}{V_1} \quad (\text{増加}) \\
                             \Delta S_{23} &= 0 \quad (\text{断熱}) \\
-                            \Delta S_{34} &= \frac{Q_{\text{out}}}{T_L} = mR\ln\frac{V_4}{V_3} \quad (\text{減少}) \\
+                            \Delta S_{34} &= -\frac{Q_{\text{out}}}{T_L} = mR\ln\frac{V_4}{V_3} \quad (\text{減少}) \\
                             \Delta S_{41} &= 0 \quad (\text{断熱})
                             \end{aligned}
                             }$$
                         </div>
                         <p>サイクル全体では$\Delta S_{\text{total}} = 0$（可逆サイクル）</p>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) このサイクルの熱効率を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率は$\eta = 1 - Q_{\text{out}}/Q_{\text{in}}$で定義されます。断熱過程の関係を用いて簡略化します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>断熱過程の関係から：$TV^{\kappa-1} = \text{一定}$</p>
                             <div class="math-block">
@@ -218,14 +222,14 @@
                             </div>
                             <p>これより：$\frac{V_2}{V_1} = \frac{V_3}{V_4}$</p>
                         </div>
-                        
+
                         <div class="solution-step">
                             <div class="math-block">
                                 $$\eta = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}} = 1 - \frac{T_L\ln(V_3/V_4)}{T_H\ln(V_2/V_1)}$$
                                 $$= 1 - \frac{T_L}{T_H} \quad (\because V_2/V_1 = V_3/V_4)$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -237,7 +241,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -251,7 +255,7 @@
                             <li>カルノー効率: $\eta = 1 - T_L/T_H$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -263,7 +267,7 @@
                             <li>理論的上限としての意義</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -277,7 +281,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -285,30 +289,30 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: 混合気体の性質</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">温度300 K、圧力0.1 MPaで、CH₄（1 m³）、O₂（2 m³）、CO₂（3 m³）、N₂（4 m³）の混合気体について、以下の問いに答えよ。ただし、各気体の分子量は、CH₄: 16、O₂: 32、CO₂: 44、N₂: 28とする。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 混合気体の平均分子量$M_{\text{avg}}$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各気体のモル数を計算し、総質量を総モル数で割って平均分子量を求めます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>各気体のモル数計算：</strong>
                             <p>理想気体の状態方程式$pV = nRT$より：</p>
@@ -320,7 +324,7 @@
                             </div>
                             <p>総モル数：$n_{\text{total}} = 0.0401 + 0.0802 + 0.1203 + 0.1604 = 0.4010$ kmol</p>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>各気体の質量計算：</strong>
                             <div class="math-block">
@@ -331,7 +335,7 @@
                             </div>
                             <p>総質量：$m_{\text{total}} = 0.6416 + 2.5664 + 5.2932 + 4.4912 = 12.9924$ kg</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -341,19 +345,19 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 混合気体の平均ガス定数$R_{\text{avg}}$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>平均ガス定数は万能ガス定数を平均分子量で割ったものです。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -362,12 +366,12 @@
                             $$R_{\text{avg}} = \frac{R_{\text{universal}}}{M_{\text{avg}}} = \frac{8.314}{32.40} = \boxed{0.2566 \text{ kJ/(kg·K)}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 混合気体の全質量を求めよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -378,7 +382,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -392,7 +396,7 @@
                             <li>モル分率と体積分率は等しい</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>計算のポイント
@@ -407,7 +411,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【3】 -->
         <div class="page-content">
@@ -415,114 +419,114 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】: 再生蒸気サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">再生器付き蒸気サイクルについて考える。タービンから一部の蒸気を抽気し、給水を予熱する再生サイクルについて、以下の問いに答えよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 抽気量の割合$m$を求めよ。ただし、混合室でのエネルギー収支を考慮せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>混合室でのエネルギー収支式を立て、抽気量の割合を求めます。ポンプ仕事は通常無視できます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <p>混合室でのエネルギー収支（単位質量の蒸気あたり）：</p>
                             <div class="math-block">
-                                $$h_6 = m \cdot h_5 + (1-m) \cdot h_2$$
+                                $$m h_2+(1-m)h_4=h_5$$
                             </div>
                             <p>ここで：</p>
                             <ul>
                                 <li>$m$: 抽気量の割合</li>
-                                <li>$h_6$: 混合後の給水エンタルピー</li>
-                                <li>$h_5$: 抽気蒸気のエンタルピー</li>
-                                <li>$h_2$: 復水器出口の給水エンタルピー</li>
+                                <li>$h_2$: 抽気蒸気のエンタルピー</li>
+                                <li>$h_4$: 復水器から供給される給水のエンタルピー</li>
+                                <li>$h_5$: 混合後の給水エンタルピー</li>
                             </ul>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <p>上式を$m$について解くと：</p>
                             <div class="math-block">
-                                $$\boxed{m = \frac{h_6 - h_2}{h_5 - h_2}}$$
+                                $$\boxed{m=\frac{h_5-h_4}{h_2-h_4}}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) このサイクルの熱効率$\eta$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率は$\eta = W_{\text{net}}/Q_{\text{in}}$で定義されます。正味仕事と吸熱量を求めます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>吸熱量（ボイラーでの加熱）：</strong>
                             <div class="math-block">
-                                $$Q_{\text{in}} = h_1 - h_6$$
+                                $$Q_{\text{in}} = h_1-h_5$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>正味仕事（タービン仕事 - ポンプ仕事）：</strong>
                             <div class="math-block">
-                                $$W_{\text{net}} = (h_1 - h_5) + (1-m)(h_5 - h_4)$$
+                                $$W_{\text{net}}=(h_1-h_2)+(1-m)(h_2-h_3)$$
                             </div>
                             <p>第1項：高圧段タービン仕事、第2項：低圧段タービン仕事</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\boxed{\eta = \frac{(h_1 - h_5) + (1-m)(h_5 - h_4)}{h_1 - h_6}}$$
+                                $$\boxed{\eta=\frac{(h_1-h_2)+(1-m)(h_2-h_3)}{h_1-h_5}}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) タービンが不可逆の場合、$T-S$線図はどのように変化するか説明せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>不可逆タービンでは摩擦によりエントロピーが増加し、理想的な等エントロピー線から右側にずれます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図と解答
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>不可逆タービンのT-S線図</h4>
                             <pre class="ascii-diagram">
@@ -540,7 +544,7 @@
            S₁    S₂>S₁
                             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -556,7 +560,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -570,7 +574,7 @@
                             <li>実用発電所で広く採用</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>解析のポイント

@@ -1,9 +1,59 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>数学 2006</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2006年度の問題概要、独立再計算、非公式解説。">
+  <title>熱力学 2006年度 問題解説・独立再計算</title>
+  <link rel="stylesheet" href="../../css/thermo.css">
+  <script>MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body>
-</body>
-</html> 
+<body><div class="page-wrapper"><div class="header-decoration"></div><div class="page-content">
+  <nav class="header-nav" aria-label="ページ内ナビゲーション"><h1>熱力学 2006年度</h1><div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div></nav>
+  <p class="description">H18年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
+  <div class="accuracy-notice"><strong>検算済み・非公式</strong>問題PDF全3ページを画像で確認し、ポリトロープ、サイクル、蒸気表の式を独立再計算しました。<a href="../../pdfs/question/2006_H18_april/thermo_2006_H18_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2006_unofficial/thermo_2006_H18_april_answer.pdf">非公式解答PDF</a>。</div>
+  <section class="problem-overview-section"><h2>問題概要と検証範囲</h2><p>第1問はポリトロープ変化、第2問は等温膨張を含むサイクル、第3問は湿り蒸気を含むRankineサイクルです。熱量は系への流入正、放熱は大きさを併記しました。</p></section>
+  <div class="exam-grid"><main class="exam-col-left">
+    <section>
+      <h2 class="main-section-title">第1問　ポリトロープ変化</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>閉じた理想気体で \(PV^n=\mathrm{const}\)、\(\kappa=c_p/c_v\)。P-V図では \(n=0\) が定圧、\(n=1\) が等温、\(n=\kappa\) が可逆断熱、\(n\to\infty\) が定容です。</p></div>
+      <h3 class="section-title">(1) 図と指数の意味</h3><p class="solution-step">上記4本の極限・代表曲線を、状態1→2の体積変化方向に沿って描きます。定圧線は水平、定容線は垂直です。</p>
+      <h3 class="section-title">(2) 仕事と熱量</h3>
+      <div class="math-block">\[W_{12}=\int_1^2P\,dV=\frac{P_2V_2-P_1V_1}{1-n}=\frac{mR(T_2-T_1)}{1-n}\quad(n\ne1).\]</div>
+      <div class="math-block">\[Q_{12}=mc_v(T_2-T_1)+W_{12}=mc_v(T_2-T_1)\frac{\kappa-n}{1-n}.\]</div>
+      <h3 class="section-title">(3) 平均比熱と極限</h3>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\bar c=\frac{Q_{12}}{m(T_2-T_1)}=c_v\frac{\kappa-n}{1-n}.\]</div><p>\(n=1\) では \(W=mRT\ln(V_2/V_1),\Delta U=0\)。\(n=\kappa\) では断熱でQ=0、\(n=0\) では \(\bar c=c_p\)、\(n\to\infty\) では \(\bar c=c_v\) です。</p></div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第2問　等温膨張を含むサイクル</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>1→2可逆断熱圧縮、2→3等温膨張、3→4可逆断熱膨張、4→1定容放熱。\(\epsilon=V_1/V_2\)、\(\phi=V_3/V_2\) です。</p></div>
+      <h3 class="section-title">状態量</h3>
+      <div class="math-block">\[V_2=V_1/\epsilon,\quad T_2=T_1\epsilon^{\kappa-1},\quad V_3=\phi V_2,\quad T_3=T_2,\quad V_4=V_1,\quad T_4=T_1\phi^{\kappa-1}.\]</div>
+      <h3 class="section-title">熱量・効率・エントロピー</h3>
+      <div class="math-block">\[q_{12}=q_{34}=0,\qquad q_{23}=mRT_1\epsilon^{\kappa-1}\ln\phi,\qquad q_{41}=mc_vT_1(1-\phi^{\kappa-1}).\]</div>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\eta=1-\frac{\phi^{\kappa-1}-1}{(\kappa-1)\epsilon^{\kappa-1}\ln\phi}.\]</div></div>
+      <div class="math-block">\[\Delta S_{12}=0,\quad \Delta S_{23}=mR\ln\phi,\quad \Delta S_{34}=0,\quad \Delta S_{41}=-mR\ln\phi.\]</div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第3問　Rankineサイクルの湿り蒸気</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>状態1は \(P_1,T_1\) の過熱蒸気、1→2は等エントロピータービン、2→3は凝縮、3→4はポンプ、4→5はボイラ、5→1は過熱器。P2の飽和表を使い、液を '、蒸気を '' で表します。</p></div>
+      <h3 class="section-title">(1)(2) 出口乾き度とエンタルピー</h3>
+      <div class="math-block">\[s_2=s_1=s'_2+x_2(s''_2-s'_2)\quad\Rightarrow\quad x_2=\frac{s_1-s'_2}{s''_2-s'_2}.\]</div>
+      <div class="math-block">\[h_2=h'_2+x_2(h''_2-h'_2).\]</div>
+      <h3 class="section-title">(3)(4) 仕事と熱効率</h3>
+      <div class="math-block">\[w_t=h_1-h_2,\quad h_3=h'_2,\quad w_p=h_4-h_3.\]</div>
+      <div class="math-block">\[\eta_{th}=\frac{(h_1-h_2)-(h_4-h_3)}{h_1-h_4}=1-\frac{h_2-h_3}{h_1-h_4}.\]</div>
+      <h3 class="section-title">(5) 与条件の数値答</h3>
+      <p class="solution-step">\(x_2=0.9\)、潜熱 \(L_2=h''_2-h'_2\) がボイラ・過熱器熱量 \(q_{in}=h_1-h_4\) の半分なので \(q_{in}=2L_2\)。また \(q_{out}=h_2-h_3=0.9L_2\)。</p>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\eta_{th}=1-\frac{0.9L_2}{2L_2}=0.55.\]</div></div>
+    </section>
+  </main><aside class="exam-col-right">
+    <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 3ページを全ページ確認</li><li>第1問 3小問と全極限</li><li>第2問 状態・熱量・効率・エントロピー</li><li>第3問 乾き度・仕事・効率・数値</li></ul></div>
+    <div class="point-box"><h2 class="section-title">仮定</h2><p>第3問はタービン等エントロピー、ポンプ仕事を含む正味効率として計算しました。最後の数値条件ではポンプ項が与えられた効率式で相殺されます。</p></div>
+  </aside></div>
+  <footer class="site-footer"><a href="2005.html">← 2005年度</a>　<a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2007.html">2007年度 →</a></footer>
+</div></div></body>
+</html>

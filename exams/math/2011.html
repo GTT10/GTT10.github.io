@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2011年度の数学入試では、大問【1】で指数積分の部分積分、大問【2】で同次型微分方程式、大問【3】で3点を通る平面の方程式（行列式表現）、大問【4】でラプラス変換を用いた連立微分方程式が出題されました。積分技法・微分方程式・空間幾何・積分変換と、計算技術と理論理解の両方が求められる良問です。基本から応用まで着実に身につけていきましょう！</p>
-                <a href="../../pdfs/question/2011_H23_april/math_2011_H23_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2011_H23_april/math_2011_H23_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2011年度)
                 </a>
-                <a href="../../pdfs/answer/2011_H23_april/math_2011_H23_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2011年度)</a>
+                <a href="../../pdfs/answer/2011_H23_april/math_2011_H23_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2011年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の積分を計算せよ。
                         $$\int_{0}^{\infty} e^{-ax} \cos bx \, dx \quad (a>0)$$</p>
@@ -106,7 +110,7 @@
                         <span class="answer-highlight">答え: $\frac{a}{a^{2} + b^{2}}$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -132,13 +136,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の微分方程式の一般解を求めよ。
                         $$y^2 + (2xy + x^2) \frac{dy}{dx} = 0$$</p>
@@ -183,10 +187,13 @@
                             7. $v = \frac{y}{x}$を代入して整理すると：
                             <div class="math-block">$$\frac{xy^3}{x + 3y} = C$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $\frac{xy^{3}}{x + 3y} = C$ （$C$は任意定数）</span>
+                        <div class="solution-step">
+                            8. ただし、分離の際に$3v+1=0$の定数解を除外している。その場合は$v=-\frac13$、すなわち追加の直線解$y=-\frac{x}{3}$を得る（$y=0$は$C=0$に含まれる）。
+                        </div>
+                        <span class="answer-highlight">答え: $\frac{xy^{3}}{x + 3y} = C$、または特別解 $y=-\frac{x}{3}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -217,7 +224,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">同一直線上にない3点 $(a_1, a_2, a_3)$，$(b_1, b_2, b_3)$，$(c_1, c_2, c_3)$ を通る平面の方程式を行列式を用いて示せ。</p>
                     </div>
@@ -257,7 +264,7 @@
                         <span class="answer-highlight">答え: $\begin{vmatrix} x - a_1 & y - a_2 & z - a_3 \\ b_1 - a_1 & b_2 - a_2 & b_3 - a_3 \\ c_1 - a_1 & c_2 - a_2 & c_3 - a_3 \end{vmatrix} = 0$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -288,7 +295,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の連立方程式が $0 \leq t$ で成立している。ラプラス変換を用いて $y(t)$ を求めよ。ただし，$y(0)=0$，$z(0)=1$ とする。
                         $$\begin{cases}
@@ -350,7 +357,7 @@
                         <span class="answer-highlight">答え: $y(t) = -7te^{-2t}$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

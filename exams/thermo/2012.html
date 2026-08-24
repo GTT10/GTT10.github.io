@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,9 +40,13 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>理想気体サイクル、水蒸気サイクル、絞り現象（ジュール・トムソン効果）の3つの大問から構成されています。基礎的な熱力学サイクル解析から実用的な蒸気表活用、現実の流動現象まで総合的に扱い、工業熱力学の理論と応用を幅広く問います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">理想気体サイクル</span>
@@ -51,11 +55,11 @@
                     <span class="topic-tag">ジュール・トムソン効果</span>
                     <span class="topic-tag">絞り現象</span>
                 </div>
-                
-                <a href="../../pdfs/question/2012_H24_april/thermo_2012_H24_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2012年度)</a>
-                <a href="../../pdfs/answer/2012_H24_april/thermo_2012_H24_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2012年度)</a>
+
+                <a href="../../pdfs/question/2012_H24_april/thermo_2012_H24_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2012年度)</a>
+                <a href="../../pdfs/answer/2012_H24_april/thermo_2012_H24_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2012年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -63,30 +67,30 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: 理想気体サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">質量$m$の理想気体が、断熱圧縮（状態1→2）、定容加熱（状態2→3）、等温膨張（状態3→4）、定容冷却（状態4→1）の4つの過程からなるサイクルを行う。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) $P-V$線図と$T-S$線図を作成せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>各過程の熱力学的特性（断熱・定容・等温）を理解し、対応する曲線形状を描きます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図作成
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>P-V線図</h4>
                             <pre class="ascii-diagram">
@@ -103,21 +107,20 @@
      |  ↖(断熱圧縮: PV^k=const)
      |
             </pre>
-                            
+
                             <h4>T-S線図</h4>
                             <pre class="ascii-diagram">
 温度 T ↑
      |  3---------4(等温膨張)
-     |  |         |
-     |  |(定容)    |(定容)
-     |  |         |
-     |  2         1
-     |  |
-     | (断熱: S=const)
+     |  ╱           ╲
+     | ╱(定容加熱)   ╲(定容冷却)
+     |2              ╲
+     |│               1
+     |│(断熱: S=const)
      +------------------→ エントロピー S
             </pre>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>各過程の特徴：</strong>
                             <ul>
@@ -128,24 +131,24 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 熱量$Q_1, Q_2, Q_3$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱力学第一法則$Q = \Delta U + W$を各過程に適用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>$Q_1$（2→3: 定容加熱）：</strong>
                             <p>定容過程では$W = 0$</p>
@@ -153,67 +156,68 @@
                                 $$Q_1 = \Delta U = m c_v (T_3 - T_2)$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>$Q_2$（3→4: 等温膨張）：</strong>
                             <p>等温過程では$\Delta U = 0$</p>
                             <div class="math-block">
-                                $$Q_2 = W = mRT_3 \ln\left(\frac{V_4}{V_3}\right) = mRT_3 \ln(r)$$
+                                $$Q_2 = W = mRT_3 \ln\left(\frac{V_4}{V_3}\right) = mRT_3 \ln(\varepsilon)$$
                             </div>
-                            <p>ここで、$r = V_1/V_2 = V_4/V_3$（圧縮比）</p>
+                            <p>ここで、$\varepsilon = V_1/V_2 = V_4/V_3$（圧縮比）です。</p>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>$Q_3$（4→1: 定容冷却）：</strong>
-                            <p>定容過程、$T_4 = T_3$（等温過程より）</p>
+                            <p>問題の$Q_3$は「放出する熱量」なので正値で表します。等温過程より$T_4=T_3$です。</p>
                             <div class="math-block">
-                                $$Q_3 = m c_v (T_1 - T_4) = m c_v (T_1 - T_3)$$
+                                $$Q_3 = m c_v (T_4 - T_1) = m c_v (T_3 - T_1)$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 理論熱効率$\eta$を導出せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>熱効率$\eta = 1 - |Q_3|/(Q_1 + Q_2)$を計算し、状態量関係式を用いて整理します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>関係式の整理：</strong>
                             <ul>
-                                <li>$c_v = R/(k-1)$、$r = V_1/V_2$</li>
-                                <li>断熱過程：$T_2 = T_1 r^{k-1}$</li>
-                                <li>定容過程：$T_3 = T_2 \varepsilon = T_1 r^{k-1} \varepsilon$</li>
+                                <li>$c_v = R/(\kappa-1)$、$\varepsilon = V_1/V_2$、$\xi=p_3/p_2$</li>
+                                <li>断熱過程：$T_2 = T_1 \varepsilon^{\kappa-1}$</li>
+                                <li>定容過程：$T_3 = \xi T_2 = \xi T_1 \varepsilon^{\kappa-1}$</li>
                             </ul>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <div class="math-block">
-                                $$\eta = 1 - \frac{|T_1 - T_3|}{(T_3 - T_2) + \frac{R}{c_v}T_3 \ln(r)}$$
-                                $$= 1 - \frac{r^{k-1}\varepsilon - 1}{r^{k-1}\left[ (\varepsilon - 1) + (k-1)\varepsilon \ln(r) \right]}$$
+                                $$\eta = 1 - \frac{T_3-T_1}{(T_3-T_2) + \frac{R}{c_v}T_3\ln\varepsilon}$$
+                                $$= 1 - \frac{\xi\varepsilon^{\kappa-1}-1}
+                                {\varepsilon^{\kappa-1}\left[(\xi-1)+(\kappa-1)\xi\ln\varepsilon\right]}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
-                        <p class="problem-statement">(4) $r = 10$, $\varepsilon = 2.0$, $k = 1.4$のときの数値を求めよ。</p>
+                        <p class="problem-statement">(4) $\xi = 2.0$, $\varepsilon = 10$, $\kappa = 1.4$のときの数値を求めよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>数値計算
@@ -221,9 +225,9 @@
                         <div class="solution-step">
                             <strong>計算過程：</strong>
                             <ol>
-                                <li>$r^{k-1} = 10^{0.4} = 2.5$</li>
+                                <li>$\varepsilon^{\kappa-1} = 10^{0.4} = 2.5$</li>
                                 <li>分子: $2.5 \times 2.0 - 1 = 4.0$</li>
-                                <li>分母: $(2.0 - 1) + 0.4 \times 2.0 \times \ln(10) = 1.0 + 1.84 = 2.84$</li>
+                                <li>分母の角括弧: $(2.0 - 1) + 0.4 \times 2.0 \times \ln(10) = 1.0 + 1.84 = 2.84$</li>
                                 <li>全体: $2.5 \times 2.84 = 7.1$</li>
                             </ol>
                         </div>
@@ -232,7 +236,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -246,7 +250,7 @@
                             <li>熱効率：$\eta = W_{\text{net}}/Q_{\text{in}}$</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -258,7 +262,7 @@
                             <li>数値計算：近似値の活用</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点
@@ -273,7 +277,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -281,59 +285,59 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: 水蒸気サイクル</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">2MPa飽和液（状態1）から等温加熱で1MPa（状態2）、等エントロピー変化で10℃（状態3）、等温冷却（状態4）、等エントロピー変化で状態1復帰のサイクルを解析せよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 状態1（2MPa飽和液）の温度と比エントロピーを求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>蒸気表から2MPaの飽和状態データを読み取ります。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
                         </div>
                         <p>蒸気表より：</p>
                         <ul>
-                            <li>温度：$\boxed{212.4°\text{C}}$</li>
-                            <li>比エントロピー：$\boxed{2.447 \text{ kJ/(kg·K)}}$</li>
+                            <li>温度：$\boxed{212.37°\text{C}}$</li>
+                            <li>比エントロピー：$\boxed{2.44686 \text{ kJ/(kg·K)}}$</li>
                         </ul>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 状態2の状態を判定せよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等温（212.4℃）で1MPaまで加熱したときの状態を判定します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>判定過程
                         </div>
-                        
+
                         <div class="solution-step">
-                            <p>1MPaの飽和温度：179.9℃</p>
-                            <p>加熱温度：212.4℃ > 179.9℃</p>
+                            <p>1MPaの飽和温度：179.88℃</p>
+                            <p>加熱温度：212.37℃ > 179.88℃</p>
                             <p>→ 飽和温度より高い温度で気相</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -343,66 +347,65 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 状態3の状態と圧力を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>等エントロピー変化で10℃まで冷却したときの状態を判定します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>判定過程
                         </div>
-                        
+
                         <div class="solution-step">
-                            <p>10℃の飽和蒸気エントロピー：$s_g = 8.150$ kJ/(kg·K)</p>
-                            <p>状態2のエントロピー（1MPa, 212.4℃）：約6.000 kJ/(kg·K)</p>
-                            <p>$6.000 < 8.150$ → 湿り蒸気域</p>
+                            <p>1MPaの過熱蒸気表を210℃と220℃の間で補間すると、状態2の比エントロピーは$s_2 \approx 6.754$ kJ/(kg·K)です。</p>
+                            <p>10℃では$s_f = 0.15099 < s_3=s_2 < s_g \approx 8.902$ kJ/(kg·K)なので、状態3は湿り蒸気です。</p>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
                             <ul>
                                 <li>状態：$\boxed{\text{湿り蒸気}}$</li>
-                                <li>圧力：10℃の飽和圧力 = $\boxed{1.228 \text{ kPa}}$</li>
+                                <li>圧力：10℃の飽和圧力 = $\boxed{1.2290 \text{ kPa}}$</li>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 状態4の状態を判定せよ。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
                         </div>
-                        <p>状態3から等温冷却（10℃）で液相へ：</p>
+                        <p>状態4は10℃かつ$s_4=s_1=2.44686$ kJ/(kg·K)です。$s_f=0.15099 < s_4 < s_g\approx8.902$より：</p>
                         <div class="math-block">
-                            $$\boxed{\text{圧縮液}}$$
+                            $$\boxed{\text{湿り蒸気}}$$
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) $T-s$線図を描き、サイクル名を答えよ。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>線図とサイクル名
                         </div>
-                        
+
                         <div class="diagram-section">
                             <h4>T-s線図</h4>
                             <pre class="ascii-diagram">
@@ -413,21 +416,21 @@
      |         |    |
      |    4----3    |
      |    |         |
-     |    |(等エントロピー) 
+     |    |(等エントロピー)
      | (等温冷却)    |
      +------------------→ エントロピー s
             </pre>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
-                            <p>サイクル名：$\boxed{\text{ランキンサイクル}}$</p>
+                            <p>二つの等温過程と二つの等エントロピー過程からなるため、サイクル名は$\boxed{\text{カルノーサイクル}}$です。</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -441,7 +444,7 @@
                             <li>エントロピーによる状態判定</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>状態判定のポイント
@@ -453,7 +456,7 @@
                             <li>T-s線図での位置確認</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-key mr-2"></i>重要な関係
@@ -468,7 +471,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【3】 -->
         <div class="page-content">
@@ -476,67 +479,67 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】: 絞り現象</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">直径の大きな管内の気体が狭い通路（絞り）を通過する際の現象について解析せよ。</div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 絞り通過後の速度$w_2$を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エネルギー保存則（断熱・非粘性流れ）を適用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>エネルギー保存則：</strong>
                             <div class="math-block">
                                 $$h_1 + \frac{w_1^2}{2} = h_2 + \frac{w_2^2}{2}$$
                             </div>
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>速度$w_2$の導出：</strong>
                             <div class="math-block">
                                 $$w_2^2 = 2(h_1 - h_2) + w_1^2$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
-                            <p>現実的仮定（$w_1 \approx 0$）により：</p>
-                            <div class="math-block">
-                                $$\boxed{w_2 = \sqrt{2(h_1 - h_2)}}$$
+                        <p>問題で与えられた絞り通過前速度$w_1$を残すと：</p>
+                        <div class="math-block">
+                                $$\boxed{w_2 = \sqrt{2(h_1 - h_2)+w_1^2}}$$
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 温度変化とその現象名を答えよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>絞り現象での温度変化の特徴と物理現象名を説明します。</p>
                     </div>
-                    
+
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
@@ -547,24 +550,24 @@
                         </ul>
                         <p><strong>条件：</strong>絞り前温度が逆転温度以下の場合</p>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 温度計の指示誤差を求めよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>よどみ点温度の概念を用いて温度測定誤差を求めます。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <div class="solution-step">
                             <strong>よどみ点温度：</strong>
                             <p>流れが完全に停止したときの温度</p>
@@ -572,7 +575,7 @@
                                 $$T_0 = T + \frac{w_1^2}{2c_p}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -584,7 +587,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -598,7 +601,7 @@
                             <li>実用的な冷却方法</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-circle mr-2"></i>解析のポイント
@@ -610,7 +613,7 @@
                             <li>測定誤差の物理的意味</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-key mr-2"></i>重要な関係式

@@ -1,9 +1,105 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>流体力学 2004</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 流体力学 2004年度の問題原本と全問独立再計算による非公式解説。">
+  <title>流体力学 2004年度 非公式解答・解説</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/archive.css">
 </head>
 <body>
+  <header class="header header--static">
+    <div class="container header-content">
+      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <ul class="nav-list">
+          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
+          <li><a href="../../pages/fluid_mechanics.html" class="nav-link">流体力学一覧</a></li>
+          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
+      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/fluid_mechanics.html">流体力学</a><span aria-hidden="true">/</span><span>2004年度</span></div>
+    </nav>
+
+    <section class="archive-hero">
+      <div class="container archive-hero__inner">
+        <p class="eyebrow">2004年度（H16）・全問再計算</p>
+        <h1>流体力学 2004年度</h1>
+        <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
+        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
+      </div>
+    </section>
+
+    <section class="archive-content">
+      <div class="container archive-layout">
+        <div>
+          <h2>収録資料</h2>
+          <div class="resource-grid">
+            <a class="resource-card resource-card--question" href="../../pdfs/question/2004_H16_april/fluid_2004_H16_question.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">原本</span>
+              <strong>問題PDFを開く</strong>
+              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
+            </a>
+            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2004_unofficial/2004_fluid.pdf" target="_blank" rel="noopener">
+              <span class="resource-kicker">非公式解答案</span>
+              <strong>解答PDFを開く</strong>
+              <span>全大問を独立計算。原本と照合しながら利用してください。</span>
+            </a>
+          </div>
+
+          <section class="study-guide" aria-labelledby="solution-title">
+            <h2 id="solution-title">全問の独立再計算（非公式）</h2>
+            <p class="note">問題PDF全3ページを確認し、境界条件・基準系・力の符号を明記して再計算しています。</p>
+            <h3>大問1　間隔 2h の平行平板 (1)-(4)</h3>
+            <p><strong>仮定：</strong><span class="formula">u=u(y), v=0</span>、定常、非圧縮、粘度 <span class="formula">&mu;</span> 一定。<span class="formula">u(-h)=0, u(h)=U, p<sub>x</sub>=&part;p/&part;x</span> とする。</p>
+            <p><strong>途中式・答：</strong><span class="formula">0=-p<sub>x</sub>+&mu;u''</span> より <span class="formula">u(y)=U(1+y/h)/2+p<sub>x</sub>(y<sup>2</sup>-h<sup>2</sup>)/(2&mu;)</span>。流量 <span class="formula">Q=&int;<sub>-h</sub><sup>h</sup>u&nbsp;dy=Uh-2p<sub>x</sub>h<sup>3</sup>/(3&mu;)</span>。<span class="formula">Q=0</span> なら <span class="formula">p<sub>x</sub>=3&mu;U/(2h<sup>2</sup>)</span>、せん断応力 <span class="formula">&tau;<sub>xy</sub>=&mu;U/(2h)+p<sub>x</sub>y</span> から <span class="formula">&tau;(h)=2&mu;U/h, &tau;(-h)=-&mu;U/h</span>。</p>
+            <h3>大問2　移動板に当たる円形噴流 (1)-(4)</h3>
+            <p><strong>仮定：</strong>ノズル面積 <span class="formula">A</span>、噴流速度 <span class="formula">q</span>、板速度 <span class="formula">u</span>、<span class="formula">q&gt;u</span>。板座標系で相対速度 <span class="formula">w=q-u</span> を用い、粘性・重力・空気運動を無視する。</p>
+            <p><strong>途中式・答：</strong>(1) 固定ノズルの運動量流束は <span class="formula">&rho;Aq<sup>2</sup></span>。 (2) 板に沿う十分遠方の相対速度は <span class="formula">w=q-u</span>（実験室系では板の法線速度 <span class="formula">u</span> と板内の半径方向速度 <span class="formula">w e<sub>r</sub></span> の和）。 (3) よどみ点の最大圧力は <span class="formula">p<sub>max</sub>=p<sub>0</sub>+&rho;(q-u)<sup>2</sup>/2</span>。 (4) 相対質量流量 <span class="formula">&rho;A(q-u)</span> と法線方向運動量変化から板への合力 <span class="formula">F=&rho;A(q-u)<sup>2</sup></span>。最大局所圧力と面積平均圧力は同一視しない。</p>
+            <h3>大問3　流線に沿う一次元オイラー方程式 (1)-(8)</h3>
+            <p><strong>仮定：</strong>流線座標を <span class="formula">s</span>、断面積を <span class="formula">A</span>、速度を <span class="formula">W</span>、密度を <span class="formula">&rho;</span>、外力成分を <span class="formula">F</span> とし、断面内一様の微小流管を考える。</p>
+            <p><strong>流入出・蓄積：</strong><span class="formula">m<sub>1</sub>=&rho;<sub>1</sub>A<sub>1</sub>W<sub>1</sub>&Delta;t, M<sub>1</sub>=&rho;<sub>1</sub>A<sub>1</sub>W<sub>1</sub><sup>2</sup>&Delta;t</span>、<span class="formula">m<sub>2</sub>=&rho;<sub>2</sub>A<sub>2</sub>W<sub>2</sub>&Delta;t, M<sub>2</sub>=&rho;<sub>2</sub>A<sub>2</sub>W<sub>2</sub><sup>2</sup>&Delta;t</span>。保有量は <span class="formula">m<sub>0</sub>=&int;&rho;A&nbsp;ds, M<sub>0</sub>=&int;&rho;AW&nbsp;ds</span>、時刻 <span class="formula">&Delta;t</span> では同じ積分を <span class="formula">t+&Delta;t</span> で評価する。</p>
+            <p><strong>連続・力積：</strong>質量収支 <span class="formula">m<sub>&Delta;t</sub>-m<sub>0</sub>=m<sub>1</sub>-m<sub>2</sub></span> から <span class="formula">&part;(&rho;A)/&part;t+&part;(&rho;AW)/&part;s=0</span>。圧力力積は <span class="formula">I<sub>1</sub>=p<sub>1</sub>A<sub>1</sub>&Delta;t, I<sub>2</sub>=-p<sub>2</sub>A<sub>2</sub>&Delta;t, I<sub>p</sub>=I<sub>1</sub>+I<sub>2</sub>+I<sub>s</sub>&asymp;-A(&part;p/&part;s)&Delta;s&Delta;t</span>、外力力積は <span class="formula">I<sub>F</sub>=&int;&rho;F&nbsp;dV&nbsp;&asymp;&rho;AF&Delta;s&Delta;t</span>。</p>
+            <p><strong>最終答：</strong>運動量収支 <span class="formula">M<sub>&Delta;t</sub>=M<sub>0</sub>+M<sub>1</sub>-M<sub>2</sub>+I<sub>p</sub>+I<sub>F</sub></span> と連続の式から <span class="formula">&part;W/&part;t+W&part;W/&part;s=-(1/&rho;)&part;p/&part;s+F</span>。重力だけなら <span class="formula">F=-g&nbsp;dz/ds</span>。</p>
+          </section>
+
+          <section class="study-guide" aria-labelledby="study-guide-title">
+            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
+            <ol>
+              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
+              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
+              <li>教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。</li>
+            </ol>
+          </section>
+        </div>
+
+        <aside class="archive-note">
+          <h2>利用上の注意</h2>
+          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
+          <p>解答案は非公式の独立計算です。移動板では相対速度、平板間では符号規約を明記しています。</p>
+          <a href="../../about.html">詳しい利用案内を見る</a>
+        </aside>
+      </div>
+    </section>
+
+    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
+      <a href="2003.html">← 2003年度</a>
+      <a href="../../pages/fluid_mechanics.html">年度一覧</a>
+      <a href="2005.html">2005年度 →</a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
+      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>

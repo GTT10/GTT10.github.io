@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2008年度の数学入試では、大問【1】でラプラス変換を用いた微分方程式、大問【2】で積分の漸化式とサイクロイド面積、大問【3】で行列のランクと連立方程式、大問【4】で微分方程式と軌跡が出題されました。ラプラス変換、積分技法、行列論、微分方程式の幅広い応用力が試される総合的な問題構成です。実用的な計算力が鍵となります！</p>
-                <a href="../../pdfs/question/2008_H20_april/math_2008_H20_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2008_H20_april/math_2008_H20_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2008年度)
                 </a>
-                <a href="../../pdfs/answer/2008_unofficial/2008_math.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2008年度)</a>
+                <a href="../../pdfs/answer/2008_unofficial/2008_math.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2008年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">ラプラス変換を用いた微分方程式 $\frac{dx}{dt} + 3x = f(t)$，$x(0) = 1$ について以下を答えよ。</p>
                     </div>
@@ -118,8 +122,8 @@
                             <div class="math-block">$$(s + 3)X(s) = 1 + F(s)$$</div>
                         </div>
                         <div class="solution-step">
-                            3. $F(s) = \frac{1}{s} - \frac{2e^{-s}}{s} + \frac{e^{-2s}}{s}$を用いて：
-                            <div class="math-block">$$X(s) = \frac{1 + F(s)}{s + 3}$$</div>
+                            3. $F(s)=\mathcal{L}\{u(t-1)-u(t-2)\}$を用いて：
+                            <div class="math-block">$$F(s)=\frac{e^{-s}-e^{-2s}}{s},\qquad X(s)=\frac{1+F(s)}{s+3}$$</div>
                         </div>
                         <span class="answer-highlight">答え: $X(s) = \frac{1 + F(s)}{s + 3}$</span>
                     </div>
@@ -138,16 +142,16 @@
                             2. 第1項の逆変換：$\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} = e^{-3t}$
                         </div>
                         <div class="solution-step">
-                            3. 第2項は部分分数分解と時間シフト性質で処理
+                            3. $\frac{1}{s(s+3)}=\frac13\left(\frac1s-\frac1{s+3}\right)$と時間シフト性質を使う。
                         </div>
                         <div class="solution-step">
-                            4. 最終解は指数減衰と矩形波応答の重畳：
-                            <div class="math-block">$$x(t) = e^{-3t} + \text{(矩形波応答項)}$$</div>
+                            4. したがって逆変換は
+                            <div class="math-block">$$x(t)=e^{-3t}+\frac13u(t-1)\left(1-e^{-3(t-1)}\right)-\frac13u(t-2)\left(1-e^{-3(t-2)}\right)$$</div>
                         </div>
-                        <span class="answer-highlight">答え: 指数減衰と矩形波応答の重畳</span>
+                        <span class="answer-highlight">答え: $x(t)=e^{-3t}+\frac13u(t-1)(1-e^{-3(t-1)})-\frac13u(t-2)(1-e^{-3(t-2)})$</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -173,13 +177,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">積分と幾何学的応用について以下を答えよ。</p>
                     </div>
@@ -248,7 +252,7 @@
                         <span class="answer-highlight">答え: $3\pi a^2$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -279,9 +283,10 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
-                        <p class="problem-statement">行列の解析について以下を答えよ。</p>
+                        <p class="problem-statement">行列 $A$、ベクトル $\mathbf{x}$、零ベクトル $\mathbf{0}$、ベクトル $\mathbf{b}=(-4,\ a,\ 3,\ 1)^{\mathsf T}$（$a$ は定数）を次のように定める。以下を答えよ。</p>
+                        <div class="math-block">$$A=\begin{pmatrix}0&1&-1&1\\1&2&1&1\\2&1&5&6\\1&1&2&2\end{pmatrix},\quad \mathbf{x}=\begin{pmatrix}x\\y\\z\\w\end{pmatrix},\quad \mathbf{0}=\begin{pmatrix}0\\0\\0\\0\end{pmatrix},\quad \mathbf{b}=\begin{pmatrix}-4\\a\\3\\1\end{pmatrix}$$</div>
                     </div>
                     <div class="point-box">
                         <div class="section-title">
@@ -311,7 +316,7 @@
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(2) 同次方程式 $Ax = 0$ の解を求めよ。</p>
+                        <p class="problem-statement">(2) 同次方程式 $A\mathbf{x} = \mathbf{0}$ の解を求めよ。</p>
                     </div>
                     <div>
                         <div class="section-title">
@@ -328,7 +333,7 @@
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(3) 非同次方程式 $Ax = b$ が解を持つ条件と解を求めよ。</p>
+                        <p class="problem-statement">(3) 非同次方程式 $A\mathbf{x} = \mathbf{b}$ が解を持つ条件と解を求めよ。</p>
                     </div>
                     <div>
                         <div class="section-title">
@@ -347,7 +352,7 @@
                         <span class="answer-highlight">答え: $a = -1$のとき解が存在</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -378,7 +383,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">微分方程式と軌跡について以下を答えよ。</p>
                     </div>
@@ -410,16 +415,17 @@
                         <div class="solution-step">
                             4. 部分分数分解して積分後、元の変数に戻すと：
                             <div class="math-block">$$\frac{y}{x^2 + y^2} = C$$</div>
+                            ただし、変数分離で $u=0$ を割っているため、$y=0$ も別途解として残ります。
                         </div>
                         <div class="solution-step">
-                            5. 整理すると：
+                            5. $C\ne0$ の場合に整理すると：
                             <div class="math-block">$$x^2 + y^2 - ky = 0 \quad (k = 1/C)$$</div>
                         </div>
-                        <span class="answer-highlight">答え: $x^2 + y^2 - ky = 0$</span>
+                        <span class="answer-highlight">答え: $y=0$、または $x^2+y^2-ky=0$（$k$ は定数、後者は $C\ne0$ の場合）</span>
                     </div>
 
                     <div class="example-box">
-                        <p class="problem-statement">(2) 連立方程式 $\frac{dx}{dt} = x^2 - y^2$，$\frac{dy}{dt} = 2xy$ の軌跡を求めよ。</p>
+                        <p class="problem-statement">(2) 時刻 $t=0$ に点 $P(1,1)$ を出発し、連立方程式 $\frac{dx}{dt} = x^2 - y^2$，$\frac{dy}{dt} = 2xy$ に従って運動する点の、$t\geq0$ における軌跡を求めよ。</p>
                     </div>
                     <div>
                         <div class="section-title">
@@ -444,11 +450,12 @@
                         <div class="solution-step">
                             5. 軌跡は円：
                             <div class="math-block">$$x^2 + (y-1)^2 = 1$$</div>
+                            ただし $t\geq0$ という条件では円全体ではなく、$P(1,1)$ から $(0,0)$ に近づく円周上の一部（$(0,0)$ は有限時刻には到達しない）をたどります。
                         </div>
-                        <span class="answer-highlight">答え: 中心$(0,1)$、半径1の円</span>
+                        <span class="answer-highlight">答え: 円 $x^2+(y-1)^2=1$ のうち、$t\geq0$ に対応する軌跡</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

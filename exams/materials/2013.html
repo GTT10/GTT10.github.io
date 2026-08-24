@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2013年度の材料力学入試では、大問【1】で片持ちはりのたわみと重ね合わせの原理の応用、大問【2】で異材接合棒の熱応力問題（自由膨張と拘束による応力発生）、大問【3】で物体の落下による衝撃荷重問題（エネルギー保存による弾性解析）が出題されました。基礎理論から実用的な衝撃解析まで幅広い内容を扱った年度です。</p>
-                <a href="../../pdfs/question/2013_H25_april/materials_2013_H25_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)</a>
-                <a href="../../pdfs/answer/2013_H25_april/materials_2013_H25_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
+                <a href="../../pdfs/question/2013_H25_april/materials_2013_H25_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2013年度)</a>
+                <a href="../../pdfs/answer/2013_H25_april/materials_2013_H25_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2013年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -142,13 +146,13 @@
                             </div>
                             <p><strong>B点のたわみ：</strong></p>
                             <div class="math-block">
-                                $$\delta_{B3} = \frac{P(4al - a^2 - 3l^2)}{12EI}$$
+                                $$\delta_{B3} = \frac{P}{12EI}\left[4l^3-a(3l-a)^2\right]$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -174,7 +178,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -259,7 +263,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -404,13 +408,13 @@
                             </div>
                             <p>整理すると：</p>
                             <div class="math-block">
-                                $$\sigma_{max} = \frac{6}{a^3}\sqrt{\frac{6EImghl^3}{l^3}} = \frac{6}{a^3}\sqrt{6EImgh}$$
+                                $$\sigma_{max} = \frac{6}{a^3}\sqrt{\frac{6EImgh}{l}}$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -442,7 +446,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2024年度の流体力学入試では、大問【1】で複素ポテンシャル流れに関する理論問題、大問【2】でナビエ・ストークス方程式の導出に関する問題が出題されました。理論的な理解と数学的な導出能力が問われる内容でした。</p>
-                <a href="../../pdfs/question/2024_R6_april/fluid_2024_R6_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
-                <a href="../../pdfs/answer/2024_unofficial/fluid_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/question/2024_R6_april/fluid_2024_R6_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_unofficial/fluid_2024_R6_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -58,24 +62,24 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】複素ポテンシャル流れ</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        <p class="problem-statement">x軸およびy軸で与えられる複素平面において、粘性のない非圧縮性流れがある。流体の密度をρとし、淀み点における圧力を大気圧とする。xおよびy方向の速度をそれぞれKx+UおよびKyとするとき、この流れについて以下の問いに答えよ。ただし、KおよびUを実数の正定数とし、問(1)に限りU=0とする。なお、虚数単位をiとする。</p>
+                        <p class="problem-statement">x軸およびy軸で与えられる複素平面において、粘性のない非圧縮性流れがある。流体の密度をρとし、淀み点における圧力を大気圧とする。xおよびy方向の速度をそれぞれKx+Uおよび$-Ky$とするとき、この流れについて以下の問いに答えよ。ただし、KおよびUを実数の正定数とし、問(1)に限りU=0とする。なお、虚数単位をiとする。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
                         <p>複素ポテンシャル流れの問題では、流線、連続の方程式、渦度、複素速度ポテンシャル、淀み点、圧力分布を段階的に求めていきます。各概念の物理的意味を理解しながら解きましょう。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
-                        
+
                         <!-- 小問(1) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -92,7 +96,7 @@
                             $$xy = C \quad (C\text{は定数})$$
                         </div>
                         <span class="answer-highlight">答え: 流線は$xy = C$（Cは定数）で表される双曲線</span>
-                        
+
                         <!-- 小問(2) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -106,7 +110,7 @@
                             $$Q = (K+U)(1-(-1)) = 2(K+U)$$
                         </div>
                         <span class="answer-highlight">答え: 体積流量は$2(K+U)$</span>
-                        
+
                         <!-- 小問(3) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -120,7 +124,7 @@
                             $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = K + (-K) = 0$$
                         </div>
                         <span class="answer-highlight">答え: 連続の方程式は満たされる</span>
-                        
+
                         <!-- 小問(4) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -134,7 +138,7 @@
                             $$\omega = 0 - 0 = 0$$
                         </div>
                         <span class="answer-highlight">答え: 渦度は0（渦なしの流れ）</span>
-                        
+
                         <!-- 小問(5) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -151,7 +155,7 @@
                             $$f(z) = \frac{1}{2}Kz^2 + Uz$$
                         </div>
                         <span class="answer-highlight">答え: 複素速度ポテンシャルは$f(z) = \frac{1}{2}Kz^2 + Uz$</span>
-                        
+
                         <!-- 小問(6) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -164,7 +168,7 @@
                             $$v = -Ky = 0 \implies y = 0$$
                         </div>
                         <span class="answer-highlight">答え: 淀み点の座標は$(-U/K, 0)$</span>
-                        
+
                         <!-- 小問(7) -->
                         <div class="example-box">
                             <div class="section-title">
@@ -181,7 +185,7 @@
                         </div>
                         <span class="answer-highlight">答え: ゲージ圧は$p(x,y) = -\frac{1}{2}\rho(K^2x^2 + 2KUx + U^2 + K^2y^2)$</span>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ
@@ -216,7 +220,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -224,12 +228,12 @@
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】ナビエ・ストークス方程式の導出</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
                         <p class="problem-statement">図1に示す二次元の流体粒子ABCDのy方向のナビエ・ストークス方程式を導出する。流体粒子の一辺の長さは∆x, ∆y、密度はρで紙面に垂直な奥行き方向に一様とする。流体粒子には図中の矢印の方向に、垂直応力σ、せん断応力τがそれぞれ働いているものとし、以下の問いに答えよ。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <div class="section-title">(1) 流体粒子の単位奥行き当りの質量とこの流体粒子に働く重力の大きさを求めよ</div>
@@ -249,7 +253,7 @@
                         </div>
                         <span class="answer-highlight">答え: 質量は$\rho \Delta x \Delta y$、重力の大きさは$\rho g \Delta x \Delta y$</span>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <div class="section-title">(2) 辺ADに働くy方向の力を図中の記号を用いて示せ</div>
@@ -267,7 +271,7 @@
                         </div>
                         <span class="answer-highlight">答え: $-\tau(x - \frac{1}{2}\Delta x, y) \Delta y$</span>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <div class="section-title">(3) 辺BCに働くy方向の力を図中の記号を用いて示せ</div>
@@ -277,7 +281,7 @@
                         $$F_{BC} = \tau(x + \frac{1}{2}\Delta x, y) \Delta y$$
                     </div>
                     <span class="answer-highlight">答え: $\tau(x + \frac{1}{2}\Delta x, y) \Delta y$</span>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <div class="section-title">(4) (2)と(3)で求めたy方向の力の和を、応力の偏導関数を用いて書き換えよ</div>
@@ -290,7 +294,7 @@
                         $$\approx \frac{\partial \tau}{\partial x} \Delta x \Delta y$$
                     </div>
                     <span class="answer-highlight">答え: $\frac{\partial \tau}{\partial x} \Delta x \Delta y$</span>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <div class="section-title">(5) 辺ABとDCに働くy方向の力の和を、応力の偏導関数を用いて示せ</div>
@@ -302,7 +306,7 @@
                         $$\approx \frac{\partial \sigma}{\partial y} \Delta x \Delta y$$
                     </div>
                     <span class="answer-highlight">答え: $\frac{\partial \sigma}{\partial y} \Delta x \Delta y$</span>
-                    
+
                     <!-- 小問(6) -->
                     <div class="example-box">
                         <div class="section-title">(6) (1), (4), (5)を用いて、流体粒子のy方向の運動方程式を導出せよ</div>
@@ -315,7 +319,7 @@
                         $$\rho \frac{Dv}{Dt} = \frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} - \rho g$$
                     </div>
                     <span class="answer-highlight">答え: $\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = \frac{\partial \tau}{\partial x} + \frac{\partial \sigma}{\partial y} - \rho g$</span>
-                    
+
                     <!-- 小問(7) -->
                     <div class="example-box">
                         <div class="section-title">(7) 流れが非圧縮でナビエ・ストークス方程式を導出せよ</div>
@@ -330,7 +334,7 @@
                         $$\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}) - \rho g$$
                     </div>
                     <span class="answer-highlight">答え: $\rho (\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}) = -\frac{\partial p}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}) - \rho g$</span>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ

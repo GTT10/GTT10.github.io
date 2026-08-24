@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2018年度の材料力学入試では、大問【1】でハメあいによる応力問題（不静定構造の解析）、大問【2】で連続はりの曲げ問題（3点支持の不静定はり）、大問【3】で段付き丸棒のねじり問題（複合軸の変形解析）が出題されました。伝統的な3問構成の最終年度として、全分野をバランスよくカバーした総合的な内容でした。</p>
-                <a href="../../pdfs/question/2018_H30_april/materials_2018_H30_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
-                <a href="../../pdfs/answer/2018_H30_april/materials_2018_H30_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/question/2018_H30_april/materials_2018_H30_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2018年度)</a>
+                <a href="../../pdfs/answer/2018_H30_april/materials_2018_H30_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2018年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -66,6 +70,7 @@
                             <li>丸棒：長さl+δ、断面積A₂、ヤング率E₂</li>
                             <li>関係：A₁ = 2A₂</li>
                             <li>熱膨張係数：α₁、α₂</li>
+                            <li>長さ差δはlに比べて非常に小さい（δ≪l）</li>
                         </ul>
                     </div>
                     <div class="point-box">
@@ -84,9 +89,9 @@
                             </div>
                         </div>
                         <div class="solution-step">
-                            接合後、外力がない状態で静止しているため、作用・反作用の法則から両部品の内力は等しくなります。
+                            接合後、外力がない状態で静止しているため、引張を正とする符号付き内力は作用・反作用で逆符号になります。
                             <div class="math-block">
-                                $$Q_1 = Q_2$$
+                                $$Q_1 + Q_2 = 0$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -115,16 +120,16 @@
                         <div class="solution-step">
                             力の釣り合いと変形の適合条件を連立して応力を求めます。
                             <p><strong>応力と力の関係:</strong> σ = Q/A</p>
-                            <p><strong>フックの法則:</strong> λ = -σl/E（圧縮のため負号）</p>
+                            <p><strong>フックの法則:</strong> 符号付き応力を用いると \(\lambda_i=\sigma_i l/E_i\)（圧縮では\(\sigma_i,\lambda_i<0\)）。ここではδ≪lより、丸棒の長さもlで近似する。</p>
                             <p>関係式を応力で表現すると：</p>
                             <div class="math-block">
-                                $$l \left(\frac{\sigma_2}{E_2} - \frac{\sigma_1}{E_1}\right) = \delta$$
+                                $$l \left(\frac{\sigma_1}{E_1} - \frac{\sigma_2}{E_2}\right) = \delta$$
                             </div>
-                            <p>力の釣り合いから：σ₂ = σ₁(A₁/A₂)</p>
+                            <p>力の釣り合いから：σ₂ = −σ₁(A₁/A₂)</p>
                             <p><strong>解答:</strong></p>
                             <div class="math-block">
-                                円管の応力：$$\sigma_1 = \frac{\delta A_2 E_1 E_2}{l(A_1 E_1 - A_2 E_2)}$$
-                                丸棒の応力：$$\sigma_2 = \frac{\delta A_1 E_1 E_2}{l(A_1 E_1 - A_2 E_2)}$$
+                                円管の応力：$$\sigma_1 = \frac{\delta A_2 E_1 E_2}{l(A_1 E_1 + A_2 E_2)}$$
+                                丸棒の応力：$$\sigma_2 = -\frac{\delta A_1 E_1 E_2}{l(A_1 E_1 + A_2 E_2)}$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -157,7 +162,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -183,7 +188,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -222,7 +227,7 @@
                             </div>
                             <p>これを整理すると：</p>
                             <div class="math-block">
-                                $$R_A = \frac{R_C}{2} + \frac{3wl}{4}$$
+                                $$R_A = \frac{3wl}{4} - \frac{R_C}{2}$$
                             </div>
                         </div>
                         <div class="example-box">
@@ -238,7 +243,7 @@
                             </div>
                             <p>(1)の結果を代入すると：</p>
                             <div class="math-block">
-                                $$M(x) = \left(\frac{R_C}{2} + \frac{3wl}{4}\right)x - \frac{wx^2}{2}$$
+                                $$M(x) = \left(\frac{3wl}{4} - \frac{R_C}{2}\right)x - \frac{wx^2}{2}$$
                             </div>
                             <p><strong>CB間（l ≤ x ≤ 2l）:</strong></p>
                             <div class="math-block">
@@ -264,7 +269,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -375,7 +380,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -407,7 +412,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';

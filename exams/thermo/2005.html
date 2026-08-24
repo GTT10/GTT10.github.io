@@ -1,9 +1,63 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
-  <title>数学 2005</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2005年度の問題概要、独立再計算、非公式解説。">
+  <title>熱力学 2005年度 問題解説・独立再計算</title>
+  <link rel="stylesheet" href="../../css/thermo.css">
+  <script>MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body>
-</body>
-</html> 
+<body><div class="page-wrapper"><div class="header-decoration"></div><div class="page-content">
+  <nav class="header-nav" aria-label="ページ内ナビゲーション"><h1>熱力学 2005年度</h1><div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div></nav>
+  <p class="description">H17年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
+  <div class="accuracy-notice"><strong>検算済み・非公式</strong>問題PDF全3ページをPopplerで画像化し、旧Adobe-Japan1文字コードはCMapで復号して原文を確認しました。<a href="../../pdfs/question/2005_H17_april/thermo_2005_H17_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2005_unofficial/thermo_2005_H17_april_answer.pdf">非公式解答PDF</a>。</div>
+  <section class="problem-overview-section"><h2>問題概要と検証範囲</h2><p>第1問は真空への自由膨張、第2問は可逆断熱・定圧・定容の理想気体サイクル、第3問は二つの熱源から最大仕事を得る熱機関です。Popplerの原本画像では旧字体の日本語が欠落する箇所がありましたが、PDFの埋込文字コードをAdobe-Japan1-UCS2 CMapで照合し、図と英数字も併用しました。</p></section>
+  <div class="exam-grid"><main class="exam-col-left">
+    <section>
+      <h2 class="main-section-title">第1問　真空への自由膨張</h2>
+      <div class="example-box"><p class="problem-statement">問題概要</p><p>熱容量を無視できる剛体容器A,Bをコックで連結し、Aに気体、Bを真空として開放します。外界との熱交換はありません。</p></div>
+      <h3 class="section-title">(1) 第一法則</h3>
+      <div class="math-block">\[Q=0,\qquad W=0\quad(\text{剛体容器}),\qquad \Delta U=Q-W=0.\]</div>
+      <h3 class="section-title">(2)(3) Joule係数と理想気体</h3>
+      <p class="solution-step">与式 \(du=c_vdT+[T(\partial P/\partial T)_v-P]dv\) と \(du=0\) から</p>
+      <div class="math-block">\[-\left(\frac{\partial T}{\partial v}\right)_u=\frac{T(\partial P/\partial T)_v-P}{c_v}.\]</div>
+      <p class="solution-step">理想気体 \(P=RT/v\) では括弧内が0なので、内部エネルギー一定での温度変化係数は0です。</p>
+      <h3 class="section-title">(4) 平衡状態</h3>
+      <p class="solution-step">理想気体の内部エネルギーは温度だけの関数なので、最終平衡温度は最初のAの温度Tと同じです。A,B双方の気体がこの温度になります。開放直後の局所的な非平衡温度分布は条件から一意に決まりません。</p>
+      <div class="final-answer"><div class="section-title">最終答</div><p>全体系の \(\Delta U=0\)、理想気体では初期温度から平衡温度は変化しません。</p></div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第2問　定圧加熱を含む理想気体サイクル</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>1→2可逆断熱圧縮、2→3定圧膨張で熱量 \(Q_1\) が流入、3→1定容放熱で \(Q_2\) を放出。\(\epsilon=V_1/V_2\)、\(\kappa\) 一定で、3→1が定容なので \(V_3=V_1\) です。</p></div>
+      <h3 class="section-title">状態量</h3>
+      <div class="math-block">\[P_2=P_1\epsilon^\kappa,\qquad T_2=T_1\epsilon^{\kappa-1},\qquad P_3=P_2,\qquad T_3=T_1\epsilon^\kappa.\]</div>
+      <h3 class="section-title">熱量と熱効率</h3>
+      <div class="math-block">\[Q_1=mc_p(T_3-T_2)=mc_pT_1\epsilon^{\kappa-1}(\epsilon-1),\]</div>
+      <div class="math-block">\[Q_2=mc_v(T_3-T_1)=mc_vT_1(\epsilon^\kappa-1)\quad(\text{放熱の大きさ}).\]</div>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\eta=1-\frac{Q_2}{Q_1}=1-\frac{\epsilon^\kappa-1}{\kappa\epsilon^{\kappa-1}(\epsilon-1)}.\]</div></div>
+      <h3 class="section-title">仕事と平均有効圧</h3>
+      <div class="math-block">\[W=Q_1-Q_2=\frac{P_1V_1}{\kappa-1}\{(\kappa-1)\epsilon^\kappa-\kappa\epsilon^{\kappa-1}+1\}.\]</div>
+      <div class="math-block">\[p_{me}=P_1\frac{\epsilon\{(\kappa-1)\epsilon^\kappa-\kappa\epsilon^{\kappa-1}+1\}}{(\kappa-1)(\epsilon-1)}.\]</div>
+    </section>
+    <hr class="separator-line">
+    <section>
+      <h2 class="main-section-title">第3問　二つの熱源と最大仕事</h2>
+      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>高温熱源Aと低温熱源Bは各質量m、一定比熱c、初期温度 \(T_A>T_B\)。熱機関を運転し、外部とは断熱のまま共通温度 \(T_F\) で停止します。</p></div>
+      <h3 class="section-title">(1) 仕事</h3>
+      <div class="math-block">\[W=mc(T_A-T_F)-mc(T_F-T_B)=mc(T_A+T_B-2T_F).\]</div>
+      <h3 class="section-title">(2) 第二法則の制約</h3>
+      <div class="math-block">\[\Delta S=mc\ln\frac{T_F}{T_A}+mc\ln\frac{T_F}{T_B}\ge0\quad\Rightarrow\quad T_F^2\ge T_AT_B.\]</div>
+      <h3 class="section-title">(3) 最大仕事</h3>
+      <p class="solution-step">仕事は \(T_F\) が小さいほど大きいので、可逆限界 \(T_F=\sqrt{T_AT_B}\) で最大です。</p>
+      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[W_{max}=mc(T_A+T_B-2\sqrt{T_AT_B})=mc(\sqrt{T_A}-\sqrt{T_B})^2.\]</div></div>
+    </section>
+  </main><aside class="exam-col-right">
+    <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 3ページを全ページ確認</li><li>第1問 4小問</li><li>第2問 状態・熱量・効率・仕事・平均有効圧</li><li>第3問 3小問</li><li>旧字体PDFはCMap復号で照合</li></ul></div>
+    <div class="point-box"><h2 class="section-title">不確実性</h2><p>自由膨張の過渡的な温度分布は問題の平衡条件だけでは決まりません。最終平衡温度と全体の内部エネルギー収支のみを確定しました。</p></div>
+  </aside></div>
+  <footer class="site-footer"><a href="2004.html">← 2004年度</a>　<a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2006.html">2006年度 →</a></footer>
+</div></div></body>
+</html>

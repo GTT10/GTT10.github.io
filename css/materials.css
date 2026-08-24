@@ -5,6 +5,22 @@
     padding: 0;
 }
 
+.accuracy-notice {
+    margin: 0 0 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid #f4c76b;
+    border-left: 4px solid #d89b21;
+    border-radius: 0.6rem;
+    background: #fff9e8;
+    color: #594311;
+    line-height: 1.7;
+}
+
+.accuracy-notice strong {
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
 body {
     font-family: 'Noto Sans JP', sans-serif;
     background: #f5f8f5;

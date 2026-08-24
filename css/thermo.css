@@ -5,6 +5,22 @@
     padding: 0;
 }
 
+.accuracy-notice {
+    margin: 0 0 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid #f4c76b;
+    border-left: 4px solid #d89b21;
+    border-radius: 0.6rem;
+    background: #fff9e8;
+    color: #594311;
+    line-height: 1.7;
+}
+
+.accuracy-notice strong {
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
 body {
     font-family: 'Noto Sans JP', sans-serif;
     background: #f5f7fa;
@@ -207,9 +223,9 @@ img {
     height: auto;
     display: block;
   }
-  
 
-  
+
+
 /* ================================================= */
 /* ここから解説ページ (exam pages) 用のスタイル */
 /* ================================================= */
@@ -626,10 +642,9 @@ img {
 .exam-col-left {
     min-width: 0; /* ←重要！overflowを防ぐ！ */
   }
-  
+
   .responsive-img {
     max-width: 100%;
     height: auto;
     display: block;
   }
-  

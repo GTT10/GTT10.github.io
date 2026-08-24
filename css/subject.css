@@ -1,238 +1,29 @@
-/* 科目ページ専用スタイル */
-
-/* パンくずリスト */
-.breadcrumb {
-    background-color: #F8F9FA;
-    padding: 1rem 0;
-    margin-top: 80px;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.breadcrumb a {
-    color: #2E86AB;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumb span {
-    color: #666;
-    font-weight: 600;
-}
-
-/* 科目ヘッダー */
-.subject-header {
-    background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
-    color: white;
-    padding: 3rem 0;
-}
-
-.subject-header-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.subject-icon-large {
-    width: 120px;
-    height: 120px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.subject-icon-large img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-}
-
-/* 数学アイコンが見えない問題の修正テスト */
-.subject-icon-large img[src*="math_icon"] {
-    filter: none;
-}
-
-.subject-info {
-    flex: 1;
-}
-
-.subject-header .subject-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, #FFFFFF 0%, #FFD700 50%, #FFF8DC 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
-}
-
-.subject-header .subject-description {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #F8F9FA;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-/* 年度別過去問リスト */
-.exam-list {
-    padding: 4rem 0;
-    background-color: white;
-}
-
-.years-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.year-card {
-    background: white;
-    border: 2px solid #e9ecef;
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.year-card:hover {
-    border-color: #2E86AB;
-    box-shadow: 0 5px 20px rgba(46, 134, 171, 0.1);
-    transform: translateY(-2px);
-}
-
-.year-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #2E86AB;
-    margin-bottom: 1rem;
-    text-align: center;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #F8F9FA;
-}
-
-.exam-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.exam-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.2rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    flex: 1;
-    justify-content: center;
-    min-width: 100px;
-}
-
-.exam-link.problem {
-    background-color: #F18F01;
-    color: white;
-}
-
-.exam-link.problem:hover {
-    background-color: #e07d00;
-    transform: translateY(-1px);
-}
-
-.exam-link.solution {
-    background-color: #A23B72;
-    color: white;
-}
-
-.exam-link.solution:hover {
-    background-color: #8a2f5f;
-    transform: translateY(-1px);
-}
-
-.link-icon {
-    font-size: 1.1rem;
-}
-
-.link-text {
-    font-size: 0.9rem;
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    .subject-header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .subject-icon-large {
-        width: 100px;
-        height: 100px;
-    }
-
-    .subject-icon-large img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .subject-header .subject-title {
-        font-size: 2rem;
-        background: linear-gradient(45deg, #FFFFFF 0%, #FFD700 50%, #FFF8DC 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
-    }
-
-    .subject-header .subject-description {
-        font-size: 1rem;
-        color: #F8F9FA;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    }
-
-    .years-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .exam-links {
-        flex-direction: column;
-    }
-
-    .exam-link {
-        flex: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .subject-header {
-        padding: 2rem 0;
-    }
-
-    .subject-header .subject-title {
-        font-size: 1.5rem;
-        background: linear-gradient(45deg, #FFFFFF 0%, #FFD700 50%, #FFF8DC 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
-    }
-
-    .year-card {
-        padding: 1rem;
-    }
-
-    .year-title {
-        font-size: 1.1rem;
-    }
-}
+.breadcrumb { background: #f4f7fa; border-bottom: 1px solid var(--line); }
+.breadcrumb .container { min-height: 50px; display: flex; align-items: center; gap: .7rem; color: var(--muted); font-size: .85rem; }
+.breadcrumb a { color: var(--blue); text-decoration: none; font-weight: 700; }
+.subject-header { position: relative; overflow: hidden; color: white; background: radial-gradient(circle at 85% 10%, rgba(47,128,201,.35), transparent 35%), linear-gradient(128deg, var(--navy), var(--navy-soft)); }
+.subject-header::after { content: ""; position: absolute; inset: 0; opacity: .12; background-image: linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px); background-size: 38px 38px; }
+.subject-header-content { position: relative; z-index: 1; min-height: 290px; display: flex; align-items: center; gap: 2rem; padding-block: 3rem; }
+.subject-icon-large { display: grid; place-items: center; flex: 0 0 110px; width: 110px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.22); border-radius: 24px; background: rgba(255,255,255,.1); }
+.subject-icon-large img { width: 78px; height: 78px; object-fit: contain; }
+.subject-info { max-width: 750px; }
+.subject-kicker { margin: 0 0 .45rem; color: #9bcdf1; font-size: .75rem; font-weight: 800; letter-spacing: .13em; }
+.subject-header .subject-title { margin: 0; color: white; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; letter-spacing: -.04em; }
+.subject-header .subject-description { max-width: 670px; margin: 1rem 0 0; color: #d9e6f2; font-size: 1.04rem; }
+.exam-list { padding-block: clamp(4rem, 8vw, 7rem); }
+.list-heading .section-title { text-align: left; font-size: clamp(2rem, 4vw, 3rem); }
+.years-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.year-card { padding: 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: white; box-shadow: 0 6px 20px rgba(7,31,61,.04); }
+.year-card__heading { display: flex; align-items: center; justify-content: space-between; gap: .7rem; padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
+.year-title { margin: 0; color: var(--navy); font-size: 1.13rem; }
+.year-status { display: inline-flex; align-items: center; min-height: 25px; padding: .2rem .55rem; border-radius: 999px; font-size: .64rem; font-weight: 800; white-space: nowrap; }
+.year-status--html { color: #075d40; background: #dff6ed; }
+.year-status--answer { color: #155382; background: #e2f1fb; }
+.year-status--question { color: #7a4a00; background: #fff0cf; }
+.exam-links { display: grid; grid-template-columns: 1.35fr 1fr; gap: .55rem; margin-top: .9rem; }
+.exam-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: .55rem .65rem; border-radius: 9px; text-align: center; text-decoration: none; font-size: .78rem; font-weight: 800; }
+.exam-link.problem { color: white; background: var(--navy); }
+.exam-link.solution { color: var(--navy); background: var(--surface); border: 1px solid var(--line); }
+.exam-link:hover { filter: brightness(1.08); transform: translateY(-1px); }
+@media (max-width: 920px) { .years-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .subject-header-content { align-items: flex-start; flex-direction: column; min-height: 0; } .subject-icon-large { width: 88px; flex-basis: 88px; border-radius: 20px; } .subject-icon-large img { width: 64px; height: 64px; } .years-grid { grid-template-columns: 1fr; } }

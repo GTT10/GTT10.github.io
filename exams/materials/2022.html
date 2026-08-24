@@ -28,13 +28,13 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
                     <i class="fas fa-cube mr-3 text-blue-600"></i> <!-- 材料力学なので立方体のアイコンに変更 -->
                     2022（R4）年　材料力学
-                </h1>   
+                </h1>
                 <div class="nav-buttons">
                     <a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a>
                     <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2022年度の材料力学入試では、大問【1】で不静定問題（応力と変形）、大問【2】で一端固定他端支持はりのたわみに関する問題が出題されました。材料力学の基本的な概念から応用問題まで、幅広い知識が問われる内容でした。</p>
-                <a href="../../pdfs/question/2022_R4_april/materials_2022_R4_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
-                <a href="../../pdfs/answer/2022_R4_april/materials_2022_R4_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2022年度)</a>
+                <a href="../../pdfs/question/2022_R4_april/materials_2022_R4_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2022年度)</a>
+                <a href="../../pdfs/answer/2022_R4_april/materials_2022_R4_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2022年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -175,7 +179,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -257,7 +261,7 @@
                                 </div>
                                 <div class="accordion-content">
                                     <div class="mb-2">
-                                        
+
                                         <b>ステップ 1: 条件の適用</b>
                                         <br><b>\(v_1(x=0) = 0\) の適用</b>
                                         \(v_1(x)\) の式：
@@ -279,7 +283,7 @@
                                         $$
                                         C_3 = \frac{1}{2} R_A l^2 + M_C l \quad \text{(1)}
                                         $$
-                                        
+
                                         <br><b>\(v_2(x=l) = 0\) の適用</b>
                                         <br><b></b>\(v_2(x)\) の式に \(x=l\) を代入：</b>
                                         $$
@@ -301,7 +305,7 @@
                                         $$
                                         C_4 = -\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2 \quad \text{(2)}
                                         $$
-                                        
+
                                         <br><b>\(\frac{dv_1}{dx}(x=a) = \frac{dv_2}{dx}(x=a)\) の適用</b>
                                         <br><b></b>まず、\(v_1(x)\) の式を \(x\) で微分（\(C_2 = 0\)）：</b>
                                         $$
@@ -322,7 +326,7 @@
                                         $$
                                         C_1 = -M_C a + \frac{1}{2} R_A l^2 + M_C l = \frac{1}{2} R_A l^2 + M_C (l - a) \quad \text{(3)}
                                         $$
-                                        
+
                                         <br><b>\(v_1(x=a) = v_2(x=a)\) の適用</b>
                                         <br><b></b>\(v_1(x)\) の式（\(C_2 = 0\)）：</b>
                                         $$
@@ -376,16 +380,16 @@
                                         $$
                                         2 R_A l^3 + 3 M_C (l^2 - a^2) = 0 \quad \text{(4)}
                                         $$
-                                        
+
                                         <b>ステップ 2: 積分定数の消去</b>
                                         得られた積分定数：
                                         - \(C_2 = 0\)
                                         - \(C_3 = \frac{1}{2} R_A l^2 + M_C l\) （式 (1)）
                                         - \(C_1 = \frac{1}{2} R_A l^2 + M_C (l - a)\) （式 (3)）
                                         - \(C_4 = -\frac{1}{3} R_A l^3 - \frac{1}{2} M_C l^2\) （式 (2)）
-                                        
+
                                         これらを \(v_1(x)\) と \(v_2(x)\) の式に代入する。
-                                        
+
                                         <b>\(v_1(x)\) の式：</b>
                                         $$
                                         EI \cdot v_1(x) = -\frac{1}{6} R_A x^3 + C_1 x + C_2 = -\frac{1}{6} R_A x^3 + \left[\frac{1}{2} R_A l^2 + M_C (l - a)\right] x + 0
@@ -393,7 +397,7 @@
                                         $$
                                         = R_A \left(-\frac{1}{6} x^3 + \frac{1}{2} l^2 x\right) + M_C (l - a) x
                                         $$
-                                        
+
                                         <br><b>\(v_2(x)\) の式：</b>
                                         $$
                                         EI \cdot v_2(x) = -\frac{1}{6} R_A x^3 - \frac{1}{2} M_C x^2 + C_3 x + C_4
@@ -404,10 +408,10 @@
                                         $$
                                         = R_A \left(-\frac{1}{6} x^3 + \frac{1}{2} l^2 x - \frac{1}{3} l^3\right) + M_C \left(-\frac{1}{2} x^2 + l x - \frac{1}{2} l^2\right)
                                         $$
-                                        
+
                                         <b>ステップ 3: 解の整理</b>
                                         積分定数を消去し、解は以下の通りである。ただし、\(R_A\) と \(M_C\) は式 (4) \(2 R_A l^3 + 3 M_C (l^2 - a^2) = 0\) を満たす必要がある。
-                                        
+
                                         $$
                                         \boxed{
                                         \begin{aligned}
@@ -416,8 +420,8 @@
                                         \end{aligned}
                                         }
                                         $$
-                                        
-                                        この解は、初期条件と接続条件を満たし、積分定数が消去されている。\(R_A\) と \(M_C\) は任意ではなく、関係式 \(2 R_A l^3 + 3 M_C (l^2 - a^2) = 0\) によって制約される。    
+
+                                        この解は、初期条件と接続条件を満たし、積分定数が消去されている。\(R_A\) と \(M_C\) は任意ではなく、関係式 \(2 R_A l^3 + 3 M_C (l^2 - a^2) = 0\) によって制約される。
                                     </div>
                                 </div>
                             </div>
@@ -478,48 +482,6 @@
                             <li>不静定梁の解法手順をマスターする。</li>
                             <li>曲げモーメント図とたわみ曲線の関係を視覚的に理解する。</li>
                             <li>計算過程を丁寧に記述し、ミスを防ぐ。</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ===================== -->
-        <!-- ここから大問【3】 -->
-        <div class="page-content">
-            <div class="exam-grid">
-                <div class="exam-col-left">
-                    <div class="main-section-title">大問【3】</div>
-                    <div class="example-box">
-                        <div class="section-title">ここに2022年度大問3の問題文を記述します。</div>
-                    </div>
-                    <div class="point-box">
-                        <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
-                        <p>ここに2022年度大問3の考え方のヒントを記述します。</p>
-                    </div>
-                    <div>
-                        <div class="section-title"><i class="fas fa-list-ol mr-2"></i>途中式と解答</div>
-                        <ul class="solution-list">
-                            <li class="solution-step-list">ここに2022年度大問3の解答ステップ1を記述します。</li>
-                            <li class="solution-step-list">ここに2022年度大問3の解答ステップ2を記述します。</li>
-                        </ul>
-                        <span class="answer-highlight">答え: ここに2022年度大問3の最終解答を記述します。</span>
-                    </div>
-                </div>
-                <div class="exam-col-right">
-                    <div class="point-box">
-                        <div class="section-title">
-                            <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
-                        </div>
-                        <ul>
-                            <li>ここに2022年度大問3の全体のポイントを記述します。</li>
-                        </ul>
-                    </div>
-                    <div class="point-box">
-                        <div class="section-title">
-                            <i class="fas fa-exclamation-circle mr-2"></i>受験材料力学のチップス
-                        </div>
-                        <ul>
-                            <li>ここに2022年度大問3の受験材料力学のチップスを記述します。</li>
                         </ul>
                     </div>
                 </div>

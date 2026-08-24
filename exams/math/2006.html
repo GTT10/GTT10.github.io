@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,22 +45,26 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2006年度の数学入試では、大問【1】で広義積分の計算、大問【2】で線形微分方程式の初期値問題、大問【3】でラプラス変換を用いた振動解析、大問【4】で最小二乗法の理論が出題されました。積分計算・微分方程式・ラプラス変換・統計解析と、理論と実践のバランスが取れた内容になっています。基礎をしっかり固めて応用力を身につけていきましょう！</p>
-                <a href="../../pdfs/question/2006_H18_april/math_2006_H18_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2006_H18_april/math_2006_H18_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2006年度)
                 </a>
-                <a href="../../pdfs/answer/2006_unofficial/2006_math.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2006年度)</a>
+                <a href="../../pdfs/answer/2006_unofficial/2006_math.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2006年度)</a>
 
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の広義積分の値を求めよ。</p>
                         <div class="math-block">$$\int_{0}^{\infty} \frac{1}{x(1+x^{2})} dx$$</div>
@@ -69,32 +73,27 @@
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>考え方のヒント
                         </div>
-                        <p>この積分は$x=0$で特異点を持つ広義積分です！変数変換$x = e^u$を使うとうまく計算できます。さらに偶関数の性質を利用することで計算がシンプルになりますよ。</p>
+                        <p>この積分は$x=0$で被積分関数が$1/x$のように発散する広義積分です。まず下端を$\varepsilon&gt;0$に切ってから極限を調べます。</p>
                     </div>
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
                         </div>
                         <div class="solution-step">
-                            1. 変数変換 $x = e^u$ を行います。$dx = e^u du$、積分区間は $x: 0 \to \infty$ が $u: -\infty \to \infty$ になります。
-                            <div class="math-block">$$\int_{0}^{\infty} \frac{1}{x(1+x^{2})} dx = \int_{-\infty}^{\infty} \frac{1}{e^u(1+e^{2u})} e^u du = \int_{-\infty}^{\infty} \frac{1}{1 + e^{2u}} du$$</div>
+                            1. 下端を切った積分を計算します（$\varepsilon&gt;0$）：
+                            <div class="math-block">$$I(\varepsilon)=\int_{\varepsilon}^{\infty}\frac{dx}{x(1+x^2)}=\left[\ln x-\frac12\ln(1+x^2)\right]_{\varepsilon}^{\infty}$$</div>
                         </div>
                         <div class="solution-step">
-                            2. 被積分関数 $\frac{1}{1 + e^{2u}}$ は偶関数なので：
-                            <div class="math-block">$$= 2 \int_{0}^{\infty} \frac{1}{1 + e^{2u}} du$$</div>
+                            2. $x\to\infty$では括弧内は$0$に収束するので、
+                            <div class="math-block">$$I(\varepsilon)=-\ln\varepsilon+\frac12\ln(1+\varepsilon^2)$$</div>
                         </div>
                         <div class="solution-step">
-                            3. さらに変数変換 $v = e^{-u}$ を行います。$u = -\ln v$、$du = -\frac{dv}{v}$、積分区間は $u: 0 \to \infty$ が $v: 1 \to 0$ になります。
-                            <div class="math-block">$$= 2 \int_{1}^{0} \frac{1}{1 + v^2} \left(-\frac{dv}{v}\right) = 2 \int_{0}^{1} \frac{v}{v^2 + 1} dv$$</div>
+                            3. $\varepsilon\to0^+$とすると$-\ln\varepsilon\to+\infty$である。
                         </div>
-                        <div class="solution-step">
-                            4. $\int \frac{v}{v^2 + 1} dv$ は $\frac{1}{2}\ln(v^2 + 1)$ なので：
-                            <div class="math-block">$$= 2 \cdot \frac{1}{2} \left[ \ln(v^2 + 1) \right]_{0}^{1} = \ln(1^2 + 1) - \ln(0^2 + 1) = \ln 2 - \ln 1 = \ln 2$$</div>
-                        </div>
-                        <span class="answer-highlight">答え: $\ln 2$</span>
+                        <span class="answer-highlight">答え: 発散（$+\infty$）</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -102,9 +101,9 @@
                             <i class="fas fa-lightbulb mr-2"></i>全体のポイント
                         </div>
                         <ul>
-                            <li>特異点を避ける変数変換の選択</li>
-                            <li>偶関数の性質を活用して計算を簡略化</li>
-                            <li>対数積分の基本公式を使用</li>
+                            <li>下端の特異点を切断してから極限を調べる</li>
+                            <li>部分分数分解で原始関数を求める</li>
+                            <li>無限遠での有限な極限と下端発散を分けて確認する</li>
                         </ul>
                     </div>
                     <div class="point-box">
@@ -112,21 +111,21 @@
                             <i class="fas fa-exclamation-circle mr-2"></i>受験数学のチップス
                         </div>
                         <ul>
-                            <li>$x = e^u$ 変換は特異点処理に有効</li>
-                            <li>偶関数の積分は $\int_{-a}^{a} = 2\int_0^a$</li>
-                            <li>$\int \frac{x}{x^2+1} dx = \frac{1}{2}\ln(x^2+1) + C$</li>
+                            <li>$\int \frac{dx}{x(1+x^2)}=\ln x-\frac12\ln(1+x^2)+C$</li>
+                            <li>$\int_{\varepsilon}^{\infty}$ の後に $\varepsilon\to0^+$ を取る</li>
+                            <li>$-\ln\varepsilon\to+\infty$ を見落とさない</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">次の微分方程式を解け。</p>
                         <div class="math-block">$$y'' + y = \cos x, \quad y(0) = 0, \quad y'(0) = 0$$</div>
@@ -173,7 +172,7 @@
                         <span class="answer-highlight">答え: $y = \frac{1}{2} x \sin x$</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -204,7 +203,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 次の微分方程式をラプラス変換し、$X(s)$ を求めよ。</p>
                         <div class="math-block">$$\frac{d^{2}x(t)}{dt^{2}} + 2\xi \omega \frac{dx(t)}{dt} + \omega^{2}x(t) = 1$$</div>
@@ -258,6 +257,7 @@
                         </div>
                         <div class="solution-step">
                             1. 減衰固有角周波数を定義：$\omega_d = \omega \sqrt{1 - \xi^2}$
+                            （以下、通常の減衰比の範囲 $0\leq\xi<1$、少なくとも $|\xi|<1$ を仮定）
                         </div>
                         <div class="solution-step">
                             2. 分母を完全平方に変形：
@@ -277,7 +277,7 @@
                         <span class="answer-highlight">答え: 上記の式（初期条件応答＋ステップ応答の合成）</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -308,7 +308,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) 最小二乗法において、残差の二乗和を求めよ。</p>
                     </div>
@@ -392,12 +392,13 @@
                         </div>
                         <div class="solution-step">
                             正規方程式 $X^{\top} X B = X^{\top} Y$ を $B$ について解く：
-                            <div class="math-block">$$B = (X^{\top} X)^{-1} X^{\top} Y$$</div>
+                            <div class="math-block">$$B = (X^{\top} X)^{-1} X^{\top} Y\quad (X^{\top}X\text{ が正則な場合})$$</div>
+                            正則でない場合は逆行列を使えず、最小ノルム解などを擬似逆行列で表します。
                         </div>
-                        <span class="answer-highlight">答え: $B = (X^{\top} X)^{-1} X^{\top} Y$</span>
+                        <span class="answer-highlight">答え: $B = (X^{\top} X)^{-1} X^{\top} Y$（$X^{\top}X$ が正則な場合）</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

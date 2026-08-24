@@ -23,7 +23,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -40,19 +40,23 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>理想気体の基礎理論と実用カルノーサイクル解析の2つの大問から構成されています。理想気体では熱力学第一法則の導出から始まり、等温・等圧・等容変化の解析とエントロピー変化を扱います。カルノーサイクルでは蒸気表を用いた相判定と実用的な熱機関解析を行います。</p>
-                
+
                 <!-- 出題トピック表示 -->
                 <div class="topic-tags">
                     <span class="topic-tag">理想気体基礎</span>
                     <span class="topic-tag">カルノーサイクル</span>
                 </div>
-                
-                <a href="../../pdfs/question/2023_R5_april/thermo_2023_R5_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
-                <a href="../../pdfs/answer/2023_R5_april/thermo_2023_R5_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
+
+                <a href="../../pdfs/question/2023_R5_april/thermo_2023_R5_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2023年度)</a>
+                <a href="../../pdfs/answer/2023_R5_april/thermo_2023_R5_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2023年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -60,13 +64,13 @@
                 <!-- 左側：例題と解法 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】: 理想気体の基礎理論</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <p class="problem-statement">理想気体について、以下の問いに答えよ。ただし、状態iにおける状態量にはそれぞれ添字iを付ける。また、比内部エネルギーをu, 比エンタルピーをh, 比エントロピーをs, 圧力をp, 温度をT, 定容比熱をcv, 定圧比熱をcp, ガス定数をRとする。</p>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 熱力学第一法則から、以下の2つの式を導け。
@@ -79,7 +83,7 @@
                         </div>
                         <p>熱力学第一法則と理想気体の性質（内部エネルギーとエンタルピーが温度のみの関数）を用いて、比内部エネルギー変化 $du$ と比エンタルピー変化 $dh$ を導きます。定容比熱 $c_v$ と定圧比熱 $c_p$ の定義も使用します。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-brain mr-2"></i>考え方
@@ -116,7 +120,7 @@
                                 $$\therefore dh = c_p dT \quad \text{(一般に成立)}$$
                             </div>
                         </div>
-                        
+
                         <!-- boxed形式の最終解答 -->
                         <div class="final-answer">
                             <div class="section-title">
@@ -126,7 +130,7 @@
                                 $$\boxed{du = c_v dT, \quad dh = c_p dT}$$
                             </div>
                         </div>
-                        
+
                         <!-- ポイント・チップス -->
                         <div class="point-box">
                             <div class="section-title">
@@ -135,21 +139,21 @@
                             <p>理想気体では、分子間力が無視できるため、内部エネルギーとエンタルピーが温度のみに依存します。定容過程や定圧過程で定義された比熱が、任意の過程で使えるのがポイントです。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) (1) を用いて、以下の式を導け。
                         $$c_p - c_v = R$$
                         </p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>(1) で導いた $du = c_v dT$ と $dh = c_p dT$、および理想気体の状態方程式 $pv = RT$ を使用します。エンタルピー定義 $h = u + pv$ を微分して関係式を導出します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
@@ -163,7 +167,7 @@
                                 $$c_p = c_v + R \implies c_p - c_v = R$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -172,7 +176,7 @@
                                 $$\boxed{c_p - c_v = R}$$
                             </div>
                         </div>
-                        
+
                         <div class="point-box">
                             <div class="section-title">
                                 <i class="fas fa-star mr-2"></i>ポイント
@@ -180,21 +184,21 @@
                             <p>この関係は「マイヤーの関係式」と呼ばれ、理想気体に特有です。$R$ はガス定数（単位質量あたり）で、単位は $c_p$, $c_v$ と同じ [kJ/(kg·K)] です。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 質量 $m$ の理想気体が次の可逆変化をする場合、絶対仕事および熱量の変化を表す式を導け。<br>
                         (i) 等温変化（状態1から状態2）<br>
                         (ii) 等圧変化（状態1から状態3）</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>可逆過程での仕事は $\int p dV$（$V$ は体積）で計算します。熱量は熱力学第一法則 $\Delta U = Q - W$（閉じた系）から導出します。質量 $m$ を考慮するため、体積 $V = mv$ を使用します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
@@ -218,7 +222,7 @@
                                 $$W = mR(T_3 - T_1), \quad Q = mc_p(T_3 - T_1)$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -233,21 +237,21 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4) -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 質量 $m$ の理想気体が次の可逆変化をする場合、エントロピー $S$ の変化を表す式を導け。<br>
                         (i) 等温変化（状態1から状態2）<br>
                         (ii) 等容変化（状態1から状態4）</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>エントロピー変化 $\Delta S$ は状態量なので、可逆過程の熱移動 $\delta q_{\text{rev}}$ を使って $\Delta S = \int \frac{\delta q_{\text{rev}}}{T}$ で計算します。比エントロピー $s$ を用いて $\Delta S = m\Delta s$ とします。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>途中式と解答
@@ -266,7 +270,7 @@
                                 $$\Delta S = m\Delta s = mc_v \ln \frac{T_4}{T_1}$$
                             </div>
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -281,42 +285,42 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(5) -->
                     <div class="example-box">
                         <p class="problem-statement">(5) (4) における (i), (ii) の変化を解答用紙の $T-S$ 線図上に示せ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>$T-S$ 線図（温度-エントロピー図）に等温変化と等容変化を描きます。横軸はエントロピー $S$（質量 $m$ を含む）、縦軸は温度 $T$ です。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>図の描き方
                         </div>
                         <div class="solution-step">
                             <strong>(i) 等温変化（状態1から状態2）:</strong> 温度 $T$ が一定で、エントロピー $S$ が変化。$T-S$ 線図上で水平な直線。<br>
-                            <strong>(ii) 等容変化（状態1から状態4）:</strong> 比容積 $v$ 一定。エントロピー変化 $\Delta S = mc_v \ln \frac{T}{T_1}$ より、$T-S$ 線図上で上に凸の曲線（傾き $dT/dS = T/(mc_v)$）。
+                            <strong>(ii) 等容変化（状態1から状態4）:</strong> 比容積 $v$ 一定。$T=T_1\exp[(S-S_1)/(mc_v)]$より、$T-S$ 線図上では右上がりで下に凸（傾きが次第に増す）の曲線です。
                         </div>
-                        
+
                         <!-- ASCII図や線図を描く場合 -->
                         <div class="diagram-section">
                             <h4>T-S線図</h4>
                             <pre class="ascii-diagram">
 T ↑
-|    (等容変化: 曲線) 
+|    (等容変化: 曲線)
 |    • 状態4 (S4, T4)
 |   /
 |  /
-| / 
+| /
 |------状態1 (S1, T1)-------→ S (水平等温線: 状態1→状態2)
 | \
 |  \
-|   \ 
+|   \
 |    • 状態2 (S2, T1)  [等温変化]
 |
 +----------------------------------→ S
@@ -329,10 +333,10 @@ T ↑
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
                             </div>
-                            <p>等温変化は水平線、等容変化は上に凸の曲線として $T-S$ 線図上に描かれます。</p>
+                            <p>等温変化は水平線、等容変化は右上がりで下に凸の曲線として $T-S$ 線図上に描かれます。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 大問1全体のまとめ -->
                     <div class="point-box">
                         <div class="section-title">
@@ -356,7 +360,7 @@ T ↑
                             <li>$\Delta S = mc_v \ln \frac{T_2}{T_1}$ (等容エントロピー)</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>解法のポイント
@@ -368,7 +372,7 @@ T ↑
                             <li>状態方程式 $pv = RT$ を積極的に活用する</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-exclamation-triangle mr-2"></i>注意点・間違いやすいポイント
@@ -379,7 +383,7 @@ T ↑
                             <li>$T-S$ 線図では等温線は水平、等容線は曲線</li>
                         </ul>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-graduation-cap mr-2"></i>熱力学のチップス
@@ -393,7 +397,7 @@ T ↑
                 </div>
             </div>
         </div>
-        
+
         <!-- ===================== -->
         <!-- ここから大問【2】 -->
         <div class="page-content">
@@ -401,31 +405,31 @@ T ↑
                 <!-- 左側：設問 -->
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】: カルノーサイクル（物質A、質量1.00kg）</div>
-                    
+
                     <!-- 問題文再現 -->
                     <div class="example-box">
-                        
+
                         <div class="problem-statement">質量1.00kgの物質Aを作動流体とするカルノーサイクルについて考える。状態1において、圧力は3.0MPaであり、物質Aは飽和液である。これを等温加熱すると、状態2（圧力1.0MPa、比エントロピー6.86kJ/(kg·K)）になる。また、状態2から状態3および状態4から状態1は等エントロピー変化であり、状態3および状態4の温度は30℃である。表1と表2を用いて以下の問いに答えよ。
-                        
+
                             <div class="my-6 text-center">
-                                <img src="../../images/thermo_2023_1.png" class="responsive-img">
-                                
+                                <img src="../../images/thermo_2023_1.png" alt="2023年度 熱力学 大問1の図" class="responsive-img">
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(1) -->
                     <div class="example-box">
                         <p class="problem-statement">(1) 状態1の温度を答えよ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>状態1は圧力3.0MPaの飽和液。表1の圧力3.0MPaの行から飽和温度を読み取ります。</p>
                     </div>
-                
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
@@ -433,7 +437,7 @@ T ↑
                         <div class="solution-step">
                             表1より、圧力3.0MPaの飽和温度は234°C。
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -443,19 +447,19 @@ T ↑
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(2) -->
                     <div class="example-box">
                         <p class="problem-statement">(2) 状態2における作動流体は、圧縮液、湿り蒸気、飽和蒸気、過熱蒸気のうちどれか、理由とともに示せ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>状態2: 圧力1.0MPa、比エントロピー $s_2 = 6.86 \, \text{kJ/(kg·K)}$。表1で圧力1.0MPaの飽和蒸気エントロピー $s''$ と比較します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
@@ -463,7 +467,7 @@ T ↑
                         <div class="solution-step">
                             圧力1.0MPaでの飽和液エントロピー $s' = 2.14 \, \text{kJ/(kg·K)}$、飽和蒸気エントロピー $s'' = 6.58 \, \text{kJ/(kg·K)}$。$s_2 = 6.86 > s'' = 6.58$ → 飽和蒸気よりもエントロピーが大きい。
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -472,19 +476,19 @@ T ↑
                             <p><strong>理由:</strong> 圧力1.0MPaでの飽和蒸気の比エントロピー $s'' = 6.58 \, \text{kJ/(kg·K)}$ より状態2の比エントロピー $s_2 = 6.86 \, \text{kJ/(kg·K)}$ が大きいため、過熱蒸気領域にある。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(3) -->
                     <div class="example-box">
                         <p class="problem-statement">(3) 状態3における作動流体は、圧縮液、湿り蒸気、飽和蒸気、過熱蒸気のうちどれか、理由とともに示せ。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>方針
                         </div>
                         <p>状態3: 状態2から等エントロピー変化（$s_3 = s_2 = 6.86 \, \text{kJ/(kg·K)}$）、温度30°C。表2で温度30°Cの飽和液エントロピー $s'$ と飽和蒸気エントロピー $s''$ を比較します。</p>
                     </div>
-                    
+
                     <div>
                         <div class="section-title">
                             <i class="fas fa-list-ol mr-2"></i>解答
@@ -492,7 +496,7 @@ T ↑
                         <div class="solution-step">
                             温度30°Cでの $s' = 0.437 \, \text{kJ/(kg·K)}$、$s'' = 8.45 \, \text{kJ/(kg·K)}$。$s' < s_3 = 6.86 < s''$ → エントロピーが飽和液と飽和蒸気の間にある。
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -501,7 +505,7 @@ T ↑
                             <p><strong>理由:</strong> 温度30°Cでの飽和液の比エントロピー $s' = 0.437 \, \text{kJ/(kg·K)}$ と飽和蒸気の比エントロピー $s'' = 8.45 \, \text{kJ/(kg·K)}$ の間に状態3の比エントロピー $s_3 = 6.86 \, \text{kJ/(kg·K)}$ があるため。</p>
                         </div>
                     </div>
-                    
+
                     <!-- 小問(4)-(6) 省略版 -->
                     <div class="example-box">
                         <p class="problem-statement">(4) 状態3の圧力を答えよ。</p>
@@ -515,7 +519,7 @@ T ↑
                         </div>
                         <p>湿り蒸気では圧力は飽和圧力に等しい。表2より、温度30°Cの飽和圧力は4.2 kPa。</p>
                     </div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(5) 状態3の乾き度を答えよ。</p>
                     </div>
@@ -528,7 +532,7 @@ T ↑
                             $6.86 = 0.437 + x(8.45 - 0.437) = 0.437 + x \times 8.013$<br>
                             $x = \frac{6.86 - 0.437}{8.013} = \frac{6.423}{8.013} \approx 0.802$
                         </div>
-                        
+
                         <div class="final-answer">
                             <div class="section-title">
                                 <i class="fas fa-check-circle mr-2"></i>解答
@@ -538,7 +542,7 @@ T ↑
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(6) カルノーサイクル（状態1,2,3,4）を解答用紙の $T-s$ 線図（温度-比エントロピー線図）上に示せ。</p>
                     </div>
@@ -560,14 +564,14 @@ T ↑
                         </pre>
                     </div>
                     <div class="my-6 text-center">
-                        <img src="../../images/thermo_2023_3.png" class="responsive-img"> </div>
+                        <img src="../../images/thermo_2023_3.png" alt="2023年度 熱力学 大問3の図" class="responsive-img"> </div>
                     <div class="final-answer">
                         <div class="section-title">
                             <i class="fas fa-check-circle mr-2"></i>解答
                         </div>
                         <p>カルノーサイクルは長方形を描きます：1→2（等温膨張）、2→3（等エントロピー膨張）、3→4（等温圧縮）、4→1（等エントロピー圧縮）。</p>
                     </div>
-                    
+
                     <div class="point-box">
                         <div class="section-title">
                             <i class="fas fa-lightbulb mr-2"></i>まとめ

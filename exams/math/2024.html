@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content">
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,21 +45,25 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2024年度の数学入試では、大問【1】で微分と接線、大問【2】で微分方程式、大問【3】で行列と固有値、大問【4】でフーリエ変換が出題されました。基礎的な計算力から応用的な思考力まで、バランスよく問われる内容でした。解き方のポイントを丁寧に説明しながら、一緒に考えていきましょう！</p>
-                <a href="../../pdfs/question/2024_R6_april/math_2024_R6_question.pdf" class="pdf-link" target="_blank">
+                <a href="../../pdfs/question/2024_R6_april/math_2024_R6_question.pdf" class="pdf-link" target="_blank" rel="noopener">
                     <i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2024年度)
                 </a>
-                <a href="../../pdfs/answer/2024_unofficial/math_2024_R6_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
+                <a href="../../pdfs/answer/2024_unofficial/math_2024_R6_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2024年度)</a>
             </div>
-            
+
             <hr class="separator-line">
 
             <!-- 大問【1】 -->
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【1】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) \( y = \log x \) の \( x = e \) における接線の方程式を求めよ。</p>
                     </div>
@@ -131,7 +135,7 @@
                         <span class="answer-highlight">答え: \(k = \frac{1}{2e}\)</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：ポイント・チップス -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -157,13 +161,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【2】</div>
-                    
+
                     <div class="example-box">
                         <p class="problem-statement">(1) \( y'' + 4y = 0 \) の一般解を求めよ。</p>
                     </div>
@@ -243,7 +247,7 @@
                         <span class="answer-highlight">答え: \(y = C_1 \cos 2x + C_2 \sin 2x + x - \frac{x}{4} \cos 2x\)</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -274,7 +278,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【3】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">行列 \(A = \begin{pmatrix} \cos x & \sin x \\ -\sin x & \cos x \end{pmatrix}\) について、以下の問いに答えよ。</div>
                     </div>
@@ -282,7 +286,7 @@
                         <div class="section-title"><i class="fas fa-lightbulb mr-2"></i>考え方のヒント</div>
                         <p>この行列は回転行列の形をしていますね！三角関数の性質 \(\sin^2 \theta + \cos^2 \theta = 1\) をうまく使って、直交性や固有値、べき乗の性質を調べていきましょう。</p>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(1) \( A \) が直交行列であることを証明せよ。</div>
                     </div>
@@ -303,7 +307,7 @@
                         </div>
                         <span class="answer-highlight">よって \( A^T A = I \) なので、\( A \) は直交行列である。</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(2) \( A \) の実数の固有値を求めよ。</div>
                     </div>
@@ -337,7 +341,7 @@
                         </div>
                         <span class="answer-highlight">答え: \(\lambda = 1\)（\(x=0\) のとき）、\(\lambda = -1\)（\(x=\pi\) のとき）</span>
                     </div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">(3) \( x = \frac{\pi}{2} \) のとき \( \sum_{k=1}^{n} A^k \) を求めよ。</div>
                     </div>
@@ -370,7 +374,7 @@
                         <span class="answer-highlight">答え: 上記の場合分けによる結果</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -401,7 +405,7 @@
             <div class="exam-grid">
                 <div class="exam-col-left">
                     <div class="main-section-title">大問【4】</div>
-                    
+
                     <div class="example-box">
                         <div class="section-title">関数 \(f(x) = \begin{cases} 2 - |x| & (|x| \leq 2) \\ 0 & (|x| > 2) \end{cases}\) のフーリエ変換 \(F(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x)e^{-i\omega x}dx\) を求めよ。</div>
                     </div>
@@ -448,7 +452,7 @@
                         <span class="answer-highlight">答え: \(F(\omega) = \begin{cases} \frac{4}{\sqrt{2\pi}} & (\omega = 0) \\ \frac{4 \sin^2 \omega}{\sqrt{2\pi} \, \omega^2} & (\omega \neq 0) \end{cases}\)</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">

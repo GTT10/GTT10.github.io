@@ -28,7 +28,7 @@
 <body>
     <div class="page-wrapper">
         <div class="header-decoration"></div>
-        
+
         <header class="page-content"> <!-- ヘッダー部分をpage-contentで囲む -->
             <div class="header-nav">
                 <h1 class="exam-title">
@@ -45,12 +45,16 @@
         <div class="page-content">
             <!-- 問題概要とPDFダウンロード -->
             <div class="problem-overview-section">
+                <aside class="accuracy-notice" role="note">
+                    <strong>非公式の解説です。</strong>
+                    数式・数値・図表は、問題原本と信頼できる資料で必ず確認してください。
+                </aside>
                 <h2>問題概要</h2>
                 <p>2012年度の材料力学入試では、大問【1】ではりのたわみと重ね合わせの原理の体系的応用、大問【2】で自重による棒の応力分布問題（垂直応力の計算と段付棒の最適設計）、大問【3】でL字レバーにおける曲げとねじりの複合問題（主応力解析と設計）が出題されました。基礎理論から実用設計まで総合的にカバーした年度です。</p>
-                <a href="../../pdfs/question/2012_H24_april/materials_2012_H24_question.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2012年度)</a>
-                <a href="../../pdfs/answer/2012_H24_april/materials_2012_H24_answer.pdf" class="pdf-link" target="_blank"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2012年度)</a>
+                <a href="../../pdfs/question/2012_H24_april/materials_2012_H24_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDFをダウンロード (2012年度)</a>
+                <a href="../../pdfs/answer/2012_H24_april/materials_2012_H24_answer.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDFをダウンロード (2012年度)</a>
             </div>
-            
+
             <!-- PDFダウンロードと大問1の間の区切り線と隙間 -->
             <hr class="separator-line">
 
@@ -91,8 +95,9 @@
                             </div>
                             <p><strong>モーメントの釣り合い（B点まわり）：</strong></p>
                             <div class="math-block">
-                                $$M_{B1} = P \cdot l$$
+                                $$M_{B1} = -P \cdot l$$
                             </div>
+                            （図の曲げモーメントの正方向に従う。大きさは Pl。）
                         </div>
                         <div class="example-box">
                             <div class="section-title">
@@ -151,13 +156,13 @@
                         <div class="solution-step">
                             重ね合わせの原理を用いて両端固定はりの解を求めます。
                             <p><strong>重ね合わせ条件：</strong></p>
-                            A点で：たわみ = δ、たわみ角 = 0
+                            A点で：たわみ = δ、たわみ角 = 0。以下では下向きの δ を正、R_A を図1(c)の P と同じ向き、M_A を図1(b)の M と同じ正方向にとる。
                             <p>力RAとモーメントMAによる変形と(2)(4)の結果を重ね合わせ：</p>
                             <div class="math-block">
-                                変位条件：$$\frac{R_A l^3}{3EI} + \frac{M_A l^2}{2EI} = \delta$$
+                                変位条件：$$\frac{R_A l^3}{3EI} - \frac{M_A l^2}{2EI} = \delta$$
                             </div>
                             <div class="math-block">
-                                回転条件：$$\frac{R_A l^2}{2EI} + \frac{M_A l}{EI} = 0$$
+                                回転条件：$$-\frac{R_A l^2}{2EI} + \frac{M_A l}{EI} = 0$$
                             </div>
                             <p>この連立方程式を解くと：</p>
                             <p><strong>解答：</strong></p>
@@ -169,7 +174,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <!-- 右側：サイドバー -->
                 <div class="exam-col-right">
                     <div class="point-box">
@@ -195,7 +200,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 大問【2】 -->
         <div class="page-content">
             <div class="exam-grid">
@@ -285,23 +290,26 @@
                         <div class="solution-step">
                             破壊しない段付棒の最大長さを求めます。
                             <p><strong>最危険断面の特定：</strong></p>
-                            棒1の最上端が最も危険（断面積小で荷重大）
-                            <p><strong>棒1最上端の応力：</strong></p>
-                            全荷重 = 棒1重量 + 棒2重量 = γA₁l₁ + γA₂l₂
+                            図2(c)では棒1（断面積 $A_1$）が下側、棒2（断面積 $A_2$）が上側で、重り $W$ は取り外されている。棒1の上端（接合部）と棒2の上端をそれぞれ確認する。
+                            <p><strong>各危険断面の応力：</strong></p>
+                            棒1の接合部では下側の棒1自身の重量だけを支えるので、$\sigma_{1,\mathrm{top}}=\gamma l_1$。棒2の上端では棒1と棒2の全重量を断面積 $A_2$ で支えるので、
                             <div class="math-block">
-                                $$\sigma_{1,top} = \frac{\gamma A_1 l_1 + \gamma A_2 l_2}{A_1} = \gamma l_1 + \gamma \frac{A_2}{A_1} l_2$$
+                                $$\sigma_{2,\mathrm{top}} = \frac{\gamma A_1 l_1+\gamma A_2 l_2}{A_2}=\gamma(k l_1+l_2),\qquad A_1=kA_2$$
                             </div>
                             <p><strong>最適化条件：</strong></p>
-                            σ₁,top ≤ σB の制約下でl = l₁ + l₂を最大化
-                            <p>A₂ > A₁より、l₁ = 0（細い棒を除去）で最大：</p>
+                            σ₁,top ≤ σB と σ₂,top ≤ σB の両方を満たす範囲で l = l₁ + l₂ を最大化する。ここで A₁ = kA₂（0 &lt; k &lt; 1）なので、制約は
                             <div class="math-block">
-                                $$l_{max} = \frac{\sigma_B}{\gamma}$$
+                                $$\gamma l_1 \leq \sigma_B, \qquad \gamma(k l_1+l_2) \leq \sigma_B$$
+                            </div>
+                            となる。最大化では両方の制約を飽和させ、l₁ = σB/γ、l₂ = (1−k)σB/γ とする：
+                            <div class="math-block">
+                                $$l_{max} = l_1+l_2 = \frac{(2-k)\sigma_B}{\gamma}$$
                             </div>
                         </div>
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -362,8 +370,9 @@
                             <p><strong>片持ちはりとしての解析：</strong></p>
                             断面CからB点までの距離がaの場合：
                             <div class="math-block">
-                                $$M_c = P \cdot a$$
+                                $$M_c = -P a$$
                             </div>
+                            （図の符号規約での値。大きさは Pa。）
                         </div>
                         <div class="example-box">
                             <div class="section-title">
@@ -413,7 +422,7 @@
                             </div>
                             <p>(3)の結果を代入：</p>
                             <div class="math-block">
-                                $$\sigma_1 = \frac{16P(h-b)}{2\pi d^3} + \sqrt{\left(\frac{16P(h-b)}{2\pi d^3}\right)^2 + \left(\frac{16Pw}{\pi d^3}\right)^2}$$
+                                $$\sigma_1 = \frac{16P(h-b)}{\pi d^3} + \sqrt{\left(\frac{16P(h-b)}{\pi d^3}\right)^2 + \left(\frac{16Pw}{\pi d^3}\right)^2}$$
                             </div>
                             <p><strong>解答：</strong></p>
                             <div class="math-block">
@@ -443,7 +452,7 @@
                         <span class="answer-highlight">答え: 上記の各計算結果による</span>
                     </div>
                 </div>
-                
+
                 <div class="exam-col-right">
                     <div class="point-box">
                         <div class="section-title">
@@ -475,7 +484,7 @@
         function toggleAccordion(element) {
             const content = element.nextElementSibling;
             const icon = element.querySelector('.accordion-icon');
-            
+
             if (content.style.display === 'block') {
                 content.style.display = 'none';
                 icon.style.transform = 'rotate(0deg)';
