@@ -25,8 +25,15 @@
 .resource-card--unavailable { background: var(--surface); border-style: dashed; }
 .resource-card:not(.resource-card--unavailable):hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .study-guide { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.study-guide h3 { margin: 2.4rem 0 .75rem; color: var(--navy); font-size: 1.2rem; line-height: 1.45; }
+.study-guide h3:first-of-type { margin-top: 1.5rem; }
+.study-guide p { color: #39485a; }
 .study-guide ol { margin: 0; padding-left: 1.4rem; }
 .study-guide li { margin-bottom: .8rem; padding-left: .4rem; color: #39485a; }
+.study-guide .note { padding: 1rem 1.15rem; border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; background: #eef6fc; }
+.math-block { margin: 1rem 0; padding: .9rem 1rem; overflow-x: auto; border: 1px solid #d8e5f0; border-radius: 10px; background: #f7fafc; color: var(--navy); }
+.final-answer { margin: 1rem 0 1.5rem; padding: 1rem 1.15rem; overflow-x: auto; border: 1px solid #b9ddcf; border-left: 5px solid #1f9d6f; border-radius: 10px; background: #effaf6; color: #143f31; }
+.final-answer mjx-container, .math-block mjx-container { min-width: max-content; }
 .archive-note { padding: 1.4rem; border: 1px solid #f0d59e; border-radius: 14px; background: var(--amber-soft); }
 .archive-note h2 { font-size: 1.08rem; }
 .archive-note p { margin: 0 0 .9rem; color: #5f4d31; font-size: .85rem; }

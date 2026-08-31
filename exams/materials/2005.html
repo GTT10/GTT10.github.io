@@ -3,49 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 材料力学 2005年度の問題原本と全問独立再計算による非公式解説。">
-  <title>材料力学 2005年度 非公式解答・解説</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
-  <style>
-    .solution-content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 3rem; }
-    .solution-section { margin: 1.5rem 0; padding: 1.25rem; background: #fff; border: 1px solid #d8e3e8; border-radius: 10px; box-shadow: 0 4px 14px rgba(18,62,87,.06); }
-    .solution-section h3 { margin-top: 0; color: #123e57; border-bottom: 2px solid #d8e3e8; padding-bottom: .55rem; }
-    .solution-block { margin: .8rem 0; padding: .7rem .85rem; border-left: 4px solid #b7d1dc; }
-    .solution-block h4 { margin: 0 0 .35rem; font-size: .9rem; color: #345; }
-    .solution-block p { margin: 0; line-height: 1.8; white-space: normal; }
-    .solution-block--answer { background: #f1f7fa; border-left-color: #247a9b; }
-    .solution-block--assumption { color: #555; background: #fafafa; }
-    .solution-block--audit { color: #555; font-size: .92rem; background: #fffdf2; border-left-color: #caa94b; }
-    .source-note { max-width: 1000px; margin: 0 auto; padding: 0 1rem 1rem; color: #555; }
-    .source-note a { margin-right: 1rem; }
-  </style>
+  <meta name="description" content="岡山大学大学院入試 材料力学 2005年度の問題と解説。">
+  <title>材料力学 2005年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/materials.css">
+  <script>
+    window.MathJax = {
+      loader: { load: ['input/asciimath'] },
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      asciimath: { delimiters: [['`', '`']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static"><div class="container header-content">
-    <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-    <nav class="nav" aria-label="主要ナビゲーション"><ul class="nav-list">
-      <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-      <li><a href="../../pages/material_mechanics.html" class="nav-link">材料力学一覧</a></li>
-      <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-    </ul></nav>
-  </div></header>
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト"><div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/material_mechanics.html">材料力学</a><span aria-hidden="true">/</span><span>2005年度</span></div></nav>
-    <section class="archive-hero"><div class="container archive-hero__inner">
-      <p class="eyebrow">2005年度（H17）・全問再計算</p><h1>材料力学 2005年度</h1>
-      <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
-      <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答PDF・詳細解説あり</span><span>原本を優先してご確認ください</span></div>
-    </div></section>
-    <section class="archive-content"><div class="container archive-layout"><div>
-      <h2>原本と解答PDF</h2><div class="resource-grid">
-        <a class="resource-card resource-card--question" href="../../pdfs/question/2005_H17_april/materials_2005_H17_question.pdf" target="_blank" rel="noopener"><span class="resource-kicker">原本</span><strong>問題PDFを開く</strong><span>全ページを確認した原本です。</span></a>
-        <a class="resource-card resource-card--answer" href="../../pdfs/answer/2005_unofficial/2005_materials.pdf" target="_blank" rel="noopener"><span class="resource-kicker">非公式解答案</span><strong>解答PDFを開く</strong><span>このページと同じ導出を収録しています。</span></a>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content"><div class="header-nav">
+      <h1 class="exam-title"><i class="fas fa-cube mr-3 text-blue-600"></i>2005（H17）年　材料力学</h1>
+      <div class="nav-buttons"><a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a><a href="../../index.html#subjects" class="about-link">トップページに戻る</a></div>
+    </div></header>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>3題の問題条件、仮定、導出、最終結果を順に確認できます。</p>
+        <a href="../../pdfs/question/2005_H17_april/materials_2005_H17_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="../../pdfs/answer/2005_unofficial/2005_materials.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left"><section class="exam-question" aria-labelledby="q2005-1"><h2 class="main-section-title" id="q2005-1">大問 1　両端固定棒の熱応力と3区間の軸力</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">直径 d の丸棒 AB を両壁に固定する。材料は E, alpha。</p></div><div class="answer-highlight"><span class="answer-label">最終結果</span>(1) 温度上昇 t で両端間距離が変わらないため、`0=alpha*t+sigma/E`。したがって `sigma=-E*alpha*t`（圧縮）。</div><div class="solution-step"><strong>導出：</strong>(2) 長さ 3l、断面積 `A=pi*d^2/4`、左から AC, CD, DB の3区間。C には左向き P、D には右向き P。引張軸力を正とする。節点の釣合いから `N2=N1+P`、`N3=N1`。両端固定の適合条件は (`N1+N2+N3)*l/(A*E)=0`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(2) `N1=N3=-P/3`、`N2=2P/3`。従って `sigma_1=sigma_3=-P/(3A)=-4P/(3*pi*d^2)`、`sigma_2=2P/(3A)=8P/(3*pi*d^2)`。</div></section><section class="exam-question" aria-labelledby="q2005-2"><h2 class="main-section-title" id="q2005-2">大問 2　中央区間に等分布荷重を受ける両端固定ばり</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">長さ 3l の両端固定ばり AB。中央区間 CD（A から l から 2l）だけに w。対称性から `R_A=R_B=w*l/2`。</p></div><div class="point-box"><div class="section-title">仮定・符号</div><p>A から右向きに x、下側引張りの内部曲げモーメントを正とする。固定端の内部値を M_A と書く。</p></div><div class="solution-step"><strong>導出：</strong>`0&lt;=x&lt;=l` では `M=M_A+(w*l/2)*x`。`l&lt;=x&lt;=2l` では `M=M_A+(w*l/2)*x-w*(x-l)^2/2`。両端固定なので `y(0)=0, y&#x27;(0)=0`、中央 `x=3l/2` で対称性 `y&#x27;(3l/2)=0`。`EI*y&#x27;&#x27;=M` を積分すると `M_A=-13*w*l^2/36`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>`M(x)=M_A+(w*l/2)*x`（`0&lt;=x&lt;=l`）、`M(x)=M_A+(w*l/2)*x-w*(x-l)^2/2`（`l&lt;=x&lt;=2l`）。右半分は対称。`M(C)=M(D)=5*w*l^2/36`、M(中央)=`19*w*l^2/72`、端部内部値は -`13*w*l^2/36`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>SFD は A から C まで +`w*l/2`、CD 上で傾き -w、D で -`w*l/2`、D から B まで -`w*l/2`。BMD は上の2式と対称性で描ける。</div></section><section class="exam-question" aria-labelledby="q2005-3"><h2 class="main-section-title" id="q2005-3">大問 3　3次元応力の釣合いと面応力</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">点 A(x,y,z) の応力成分 sigma_x, sigma_y, sigma_z, tau_xy, tau_yz, tau_zx。物体力は無視。微小要素、法線方向 (l,m,n) の面、面の法線成分を求める。</p></div><div class="solution-step"><strong>導出：</strong>微小直方体の各面の力を釣り合わせ、反対面の応力を一次展開する。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(1) `d(sigma_x)/dx+d(tau_xy)/dy+d(tau_zx)/dz=0`、`d(tau_xy)/dx+d(sigma_y)/dy+d(tau_yz)/dz=0`、`d(tau_zx)/dx+d(tau_yz)/dy+d(sigma_z)/dz=0`。</div><div class="solution-step"><strong>導出：</strong>(2) 応力テンソル `S=[[sigma_x,tau_xy,tau_zx],[tau_xy,sigma_y,tau_yz],[tau_zx,tau_yz,sigma_z]]`。単位法線 `n=(l,m,n)` に対し `p=S*n`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(2) `p_x=sigma_x*l+tau_xy*m+tau_zx*n`、`p_y=tau_xy*l+sigma_y*m+tau_yz*n`、`p_z=tau_zx*l+tau_yz*m+sigma_z*n`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(3) `sigma_n=n^T*p=l*p_x+m*p_y+n*p_z`。すなわち `sigma_n=n^T*S*n`。</div></section></main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc"><div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div><ol><li><a href="#q2005-1">大問 1　両端固定棒の熱応力と3区間の軸力</a></li><li><a href="#q2005-2">大問 2　中央区間に等分布荷重を受ける両端固定ばり</a></li><li><a href="#q2005-3">大問 3　3次元応力の釣合いと面応力</a></li></ol></div>
+          <div class="point-box"><div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div><p><a href="../../pdfs/question/2005_H17_april/materials_2005_H17_question.pdf" target="_blank" rel="noopener">問題PDF</a></p><p><a href="../../pdfs/answer/2005_unofficial/2005_materials.pdf" target="_blank" rel="noopener">解答PDF</a></p></div>
+        </aside>
       </div>
-      <section class="study-guide"><h2>利用上の注意</h2><p>本ページと解答PDFは学習用の非公式資料です。記号、符号、単位、図の読み方は必ず問題原本と照合してください。</p><p>以下では各小問の問題条件、仮定、途中式、最終結果を順に示します。</p></section>
-    </div><aside class="archive-note"><h2>検算状態</h2><p>問題PDFの全関連ページをPopplerで画像化して確認し、独立計算を行いました。</p><p>原本と解答PDFの疑義・解釈は監査記録に明記しています。</p><a href="../../about.html">詳しい利用案内を見る</a></aside></div></section>
-    <section class="solution-content" aria-labelledby="solution-title"><h2 id="solution-title">年度別詳細解説</h2><section class="solution-section" aria-labelledby="q2005-1"><h3 id="q2005-1">大問 1　両端固定棒の熱応力と3区間の軸力</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>直径 d の丸棒 AB を両壁に固定する。材料は E, alpha。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) 温度上昇 t で両端間距離が変わらないため、0=alpha*t+sigma/E。したがって sigma=-E*alpha*t（圧縮）。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(2) 長さ 3l、断面積 A=pi*d^2/4、左から AC, CD, DB の3区間。C には左向き P、D には右向き P。引張軸力を正とする。節点の釣合いから N2=N1+P、N3=N1。両端固定の適合条件は (N1+N2+N3)*l/(A*E)=0。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) N1=N3=-P/3、N2=2P/3。従って sigma_1=sigma_3=-P/(3A)=-4P/(3*pi*d^2)、sigma_2=2P/(3A)=8P/(3*pi*d^2)。</p></div></section><section class="solution-section" aria-labelledby="q2005-2"><h3 id="q2005-2">大問 2　中央区間に等分布荷重を受ける両端固定ばり</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>長さ 3l の両端固定ばり AB。中央区間 CD（A から l から 2l）だけに w。対称性から R_A=R_B=w*l/2。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>A から右向きに x、下側引張りの内部曲げモーメントを正とする。固定端の内部値を M_A と書く。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>0&lt;=x&lt;=l では M=M_A+(w*l/2)*x。l&lt;=x&lt;=2l では M=M_A+(w*l/2)*x-w*(x-l)^2/2。両端固定なので y(0)=0, y&#x27;(0)=0、中央 x=3l/2 で対称性 y&#x27;(3l/2)=0。EI*y&#x27;&#x27;=M を積分すると M_A=-13*w*l^2/36。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>M(x)=M_A+(w*l/2)*x（0&lt;=x&lt;=l）、M(x)=M_A+(w*l/2)*x-w*(x-l)^2/2（l&lt;=x&lt;=2l）。右半分は対称。M(C)=M(D)=5*w*l^2/36、M(中央)=19*w*l^2/72、端部内部値は -13*w*l^2/36。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>SFD は A から C まで +w*l/2、CD 上で傾き -w、D で -w*l/2、D から B まで -w*l/2。BMD は上の2式と対称性で描ける。</p></div></section><section class="solution-section" aria-labelledby="q2005-3"><h3 id="q2005-3">大問 3　3次元応力の釣合いと面応力</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>点 A(x,y,z) の応力成分 sigma_x, sigma_y, sigma_z, tau_xy, tau_yz, tau_zx。物体力は無視。微小要素、法線方向 (l,m,n) の面、面の法線成分を求める。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>微小直方体の各面の力を釣り合わせ、反対面の応力を一次展開する。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) d(sigma_x)/dx+d(tau_xy)/dy+d(tau_zx)/dz=0、d(tau_xy)/dx+d(sigma_y)/dy+d(tau_yz)/dz=0、d(tau_zx)/dx+d(tau_yz)/dy+d(sigma_z)/dz=0。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(2) 応力テンソル S=[[sigma_x,tau_xy,tau_zx],[tau_xy,sigma_y,tau_yz],[tau_zx,tau_yz,sigma_z]]。単位法線 n=(l,m,n) に対し p=S*n。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) p_x=sigma_x*l+tau_xy*m+tau_zx*n、p_y=tau_xy*l+sigma_y*m+tau_yz*n、p_z=tau_zx*l+tau_yz*m+sigma_z*n。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(3) sigma_n=n^T*p=l*p_x+m*p_y+n*p_z。すなわち sigma_n=n^T*S*n。</p></div></section></section>
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション"><a href="2004.html">← 2004年度</a><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2006.html">2006年度 →</a></nav>
-  </main>
-  <footer class="footer"><div class="container"><p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p><p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p></div></footer>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション"><a href="2004.html">← 2004年度</a><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2006.html">2006年度 →</a></nav>
+    </div>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body></html>

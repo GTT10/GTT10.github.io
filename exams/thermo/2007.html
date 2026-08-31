@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 熱力学 2007年度の問題概要、独立再計算、非公式解説。">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2007年度の問題概要、独立再計算による解説。">
   <title>熱力学 2007年度 問題解説・独立再計算</title>
   <link rel="stylesheet" href="../../css/thermo.css">
   <script>MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };</script>
@@ -11,19 +11,23 @@
 </head>
 <body><div class="page-wrapper"><div class="header-decoration"></div><div class="page-content">
   <nav class="header-nav" aria-label="ページ内ナビゲーション"><h1>熱力学 2007年度</h1><div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div></nav>
-  <p class="description">H19年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
-  <div class="accuracy-notice"><strong>検算済み・非公式</strong>問題PDF全2ページをPopplerで画像化し、旧Adobe-Japan1文字コードはCMapで復号して原文を確認しました。第1問の経路解釈と第2問の物性指定には原本由来の不確実性があります。<a href="../../pdfs/question/2007_H19_april/thermo_2007_H19_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2007_unofficial/thermo_2007_H19_april_answer.pdf">非公式解答PDF</a>。</div>
+  <p class="description">H19年度。問題原本の全3大問・全小問を確認した解説です。</p>
+  <div class="point-box source-check"><strong>原本照合</strong>問題PDF全2ページを画像と抽出テキストで確認しました。第1問の仕事経路、第2問の物性指定、第3問の組成混合データには原本由来の不足または不整合があります。<a href="../../pdfs/question/2007_H19_april/thermo_2007_H19_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2007_unofficial/thermo_2007_H19_april_answer.pdf">解答PDF</a>。</div>
   <section class="problem-overview-section"><h2>問題概要と検証範囲</h2><p>第1問はピストンによる排気、第2問は \(c_v=\alpha T\) と印刷されたセミ理想気体のOtto型サイクル、第3問は二つの気体の定圧混合です。全小問を独立に計算し、条件不足や解釈依存部分を推測で埋めませんでした。</p></section>
   <div class="exam-grid"><main class="exam-col-left">
     <section>
       <h2 class="main-section-title">第1問　ピストンを用いた排気</h2>
-      <div class="example-box"><p class="problem-statement">問題概要・採用した経路</p><p>初期状態は容積 \(V_1\)、圧力 \(P_1=2P_0\)、温度 \(T_1\)。仮想ピストンで混合を防ぎ、外部圧力 \(P_0\) に抗する境界仕事として、気体を最終圧力 \(P_0\) まで排気します。熱損失の大きさは \(Q_L=P_0V_1/[2(\kappa-1)]\) です。</p></div>
-      <h3 class="section-title">途中式</h3>
+      <div class="example-box"><p class="problem-statement">問題概要・不足条件</p><p>初期状態は容積 \(V_1\)、圧力 \(P_1=2P_0\)、温度 \(T_1\)。仮想ピストンを設け、まず \(P_0\) まで「ゆっくり膨張」、その後 \(P_0\) 一定で排気します。熱損失の総量 \(Q_L=P_0V_1/[2(\kappa-1)]\) は与えられますが、第1段階の外力または \(P(V)\) 経路と、熱損失を二段階へどう配分するかは指定されていません。</p></div>
+      <h3 class="section-title">与条件だけで書ける式</h3>
       <div class="math-block">\[m=\frac{P_1V_1}{RT_1}=\frac{2P_0V_1}{RT_1},\qquad P_0V_2=mRT_2.\]</div>
-      <div class="math-block">\[mc_v(T_2-T_1)=-Q_L-P_0(V_2-V_1).\]</div>
-      <p class="solution-step">\(Q_L=mc_vT_1/4\)、\(P_0V_1=mRT_1/2\) を代入し、\(mc_pT_2=mc_vT_1+P_0V_1-Q_L\) を得ます。</p>
-      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\frac{T_2}{T_1}=\frac{2\kappa+1}{4\kappa}.\]</div></div>
-      <div class="point-box"><h2 class="section-title">解釈上の注意</h2><p>これは原本の仮想ピストン経路を、全体の境界仕事 \(P_0(V_2-V_1)\) として読んだ答えです。第1段階を別個の可逆断熱過程と仮定する読み方は印刷条件だけから確定せず、別答になり得るため採用していません。</p></div>
+      <div class="math-block">\[mc_v(T_2-T_1)=-Q_L-W,\qquad W=\int_1^2 p_{\mathrm{ext}}\,dV.\]</div>
+      <div class="final-answer"><div class="section-title">主結論</div><p>境界仕事 \(W\) が経路依存なのに、その経路が与えられていないため、排気温度 \(T_2\) は一意に定まりません。「ゆっくり」だけでは \(p_{\mathrm{ext}}(V)\) は決まりません。</p></div>
+      <h3 class="section-title">二つの条件付き例</h3>
+      <p class="solution-step"><strong>A. 全過程を外圧 \(P_0\) に抗する境界仕事と置く場合：</strong> \(W=P_0(V_2-V_1)\) と追加すれば</p>
+      <div class="math-block">\[\left.\frac{T_2}{T_1}\right|_A=\frac{2\kappa+1}{4\kappa}.\]</div>
+      <p class="solution-step"><strong>B. 第1段階を可逆断熱、熱損失を第2段階に生じると置く場合：</strong> 中間温度を \(T_a\) とすると</p>
+      <div class="math-block">\[\frac{T_a}{T_1}=2^{-(\kappa-1)/\kappa},\qquad \left.\frac{T_2}{T_1}\right|_B=2^{-(\kappa-1)/\kappa}-\frac{1}{4\kappa}.\]</div>
+      <div class="point-box"><h2 class="section-title">解釈上の注意</h2><p>AとBは同じ印刷与条件から異なる温度を与えます。どちらかを原問の唯一の答えとは断定できず、数値式を使う場合は仕事経路と熱損失の配分を明記する必要があります。</p></div>
     </section>
     <hr class="separator-line">
     <section>
@@ -42,18 +46,19 @@
     <hr class="separator-line">
     <section>
       <h2 class="main-section-title">第3問　二つの気体の定圧混合</h2>
-      <div class="example-box"><p class="problem-statement">問題概要・仮定</p><p>気体A,Bを外部と断熱のまま定圧混合します。質量、定圧比熱、初期温度を \((m_1,c_{p1},T_1)\)、\((m_2,c_{p2},T_2)\)、\(T_1>T_2\) とします。</p></div>
-      <h3 class="section-title">混合温度と各エントロピー</h3>
+      <div class="example-box"><p class="problem-statement">問題概要・不足条件</p><p>気体A,Bを外部と断熱のまま定圧混合します。質量、定圧比熱、初期温度を \((m_1,c_{p1},T_1)\)、\((m_2,c_{p2},T_2)\)、\(T_1>T_2\) とします。混合温度はエンタルピー収支で求まりますが、異種気体の全エントロピー変化には各気体の分子量（気体定数）と初期・最終分圧が必要です。</p></div>
+      <h3 class="section-title">混合温度</h3>
       <div class="math-block">\[T_m=\frac{m_1c_{p1}T_1+m_2c_{p2}T_2}{m_1c_{p1}+m_2c_{p2}},\]</div>
-      <div class="math-block">\[\Delta S_A=m_1c_{p1}\ln\frac{T_m}{T_1},\qquad \Delta S_B=m_2c_{p2}\ln\frac{T_m}{T_2}.\]</div>
+      <h3 class="section-title">理想気体としての一般式</h3>
+      <div class="math-block">\[\Delta S_i=m_i\left[c_{pi}\ln\frac{T_m}{T_i}-R_i\ln\frac{p_{i,m}}{p_{i,0}}\right],\qquad R_i=\frac{R_u}{M_i}.\]</div>
+      <p class="solution-step">初期に各純気体が同じ圧力 \(P\)、混合後も全圧 \(P\) と仮定すれば、\(p_{i,0}=P\)、\(p_{i,m}=y_iP\)、\(y_i=(m_i/M_i)/\sum_j(m_j/M_j)\) です。従って分子量 \(M_i\) なしには組成混合項を評価できません。</p>
       <h3 class="section-title">数値条件</h3>
       <p class="solution-step">\(c_{p1}=c_{p2}=c_p\)、\(m_1=m_2=m\)、\(T_1=2T_2\) なら</p>
-      <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[T_m=\frac{T_1+T_2}{2}=\frac{3T_2}{2}=\frac{3T_1}{4},\qquad \Delta S_{total}=mc_p\ln\frac{9}{8}>0.\]</div></div>
-      <p class="solution-step">異なる気体の組成混合エントロピーを追加するには分子量・分圧・混合体積などの条件が必要なので、問題の与条件だけでは含めません。</p>
+      <div class="final-answer"><div class="section-title">一意に求まる量／求まらない量</div><div class="math-block">\[T_m=\frac{T_1+T_2}{2}=\frac{3T_2}{2}=\frac{3T_1}{4},\qquad \Delta S_{\mathrm{sensible}}=mc_p\ln\frac{9}{8}>0.\]</div><p>ここで \(mc_p\ln(9/8)\) は温度均一化による顕熱成分だけです。異種気体なら全体にはさらに \(-m_1R_1\ln y_1-m_2R_2\ln y_2\) が加わります。分子量・分圧がない原問から、\(\Delta S_A\)、\(\Delta S_B\)、\(\Delta S_{total}\) の完全な数値または単一式は決まりません。同一気体を隔壁越しに接触させる問題だと追加仮定した場合だけ、組成混合項はありません。</p></div>
     </section>
   </main><aside class="exam-col-right">
-    <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 2ページを全ページ確認</li><li>第1問 1設問と経路条件</li><li>第2問 全小問・物性整合性</li><li>第3問 温度・エントロピー</li><li>旧字体PDFはCMap復号で照合</li></ul></div>
-    <div class="point-box"><h2 class="section-title">残る不確実性</h2><p>第1問の経路解釈、第2問の「εとκだけ」という指定、第3問の組成混合エントロピーは原本条件に依存します。本文とPDFに明記しました。</p></div>
+    <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 2ページを全ページ確認</li><li>第1問 条件不足と二つの経路例</li><li>第2問 全小問・物性整合性</li><li>第3問 顕熱項と組成混合項の分離</li><li>旧字体PDFは抽出結果と画像で照合</li></ul></div>
+    <div class="point-box"><h2 class="section-title">原問から確定しない量</h2><p>第1問の排気温度、第2問の「εと単一κだけ」で表す効率、第3問の完全な混合エントロピーは、印刷された与条件だけでは一意に定まりません。本文では条件付き結果と区別しています。</p></div>
   </aside></div>
   <footer class="site-footer"><a href="2006.html">← 2006年度</a>　<a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2008.html">2008年度 →</a></footer>
 </div></div></body>

@@ -3,49 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 材料力学 2003年度の問題原本と全問独立再計算による非公式解説。">
-  <title>材料力学 2003年度 非公式解答・解説</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
-  <style>
-    .solution-content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 3rem; }
-    .solution-section { margin: 1.5rem 0; padding: 1.25rem; background: #fff; border: 1px solid #d8e3e8; border-radius: 10px; box-shadow: 0 4px 14px rgba(18,62,87,.06); }
-    .solution-section h3 { margin-top: 0; color: #123e57; border-bottom: 2px solid #d8e3e8; padding-bottom: .55rem; }
-    .solution-block { margin: .8rem 0; padding: .7rem .85rem; border-left: 4px solid #b7d1dc; }
-    .solution-block h4 { margin: 0 0 .35rem; font-size: .9rem; color: #345; }
-    .solution-block p { margin: 0; line-height: 1.8; white-space: normal; }
-    .solution-block--answer { background: #f1f7fa; border-left-color: #247a9b; }
-    .solution-block--assumption { color: #555; background: #fafafa; }
-    .solution-block--audit { color: #555; font-size: .92rem; background: #fffdf2; border-left-color: #caa94b; }
-    .source-note { max-width: 1000px; margin: 0 auto; padding: 0 1rem 1rem; color: #555; }
-    .source-note a { margin-right: 1rem; }
-  </style>
+  <meta name="description" content="岡山大学大学院入試 材料力学 2003年度の問題と解説。">
+  <title>材料力学 2003年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/materials.css">
+  <script>
+    window.MathJax = {
+      loader: { load: ['input/asciimath'] },
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      asciimath: { delimiters: [['`', '`']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static"><div class="container header-content">
-    <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-    <nav class="nav" aria-label="主要ナビゲーション"><ul class="nav-list">
-      <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-      <li><a href="../../pages/material_mechanics.html" class="nav-link">材料力学一覧</a></li>
-      <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-    </ul></nav>
-  </div></header>
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト"><div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/material_mechanics.html">材料力学</a><span aria-hidden="true">/</span><span>2003年度</span></div></nav>
-    <section class="archive-hero"><div class="container archive-hero__inner">
-      <p class="eyebrow">2003年度（H15）・全問再計算</p><h1>材料力学 2003年度</h1>
-      <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
-      <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答PDF・詳細解説あり</span><span>原本を優先してご確認ください</span></div>
-    </div></section>
-    <section class="archive-content"><div class="container archive-layout"><div>
-      <h2>原本と解答PDF</h2><div class="resource-grid">
-        <a class="resource-card resource-card--question" href="../../pdfs/question/2003_H15_april/materials_2003_H15_question.pdf" target="_blank" rel="noopener"><span class="resource-kicker">原本</span><strong>問題PDFを開く</strong><span>全ページを確認した原本です。</span></a>
-        <a class="resource-card resource-card--answer" href="../../pdfs/answer/2003_unofficial/2003_materials.pdf" target="_blank" rel="noopener"><span class="resource-kicker">非公式解答案</span><strong>解答PDFを開く</strong><span>このページと同じ導出を収録しています。</span></a>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content"><div class="header-nav">
+      <h1 class="exam-title"><i class="fas fa-cube mr-3 text-blue-600"></i>2003（H15）年　材料力学</h1>
+      <div class="nav-buttons"><a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a><a href="../../index.html#subjects" class="about-link">トップページに戻る</a></div>
+    </div></header>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>3題の問題条件、仮定、導出、最終結果を順に確認できます。</p>
+        <a href="../../pdfs/question/2003_H15_april/materials_2003_H15_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="../../pdfs/answer/2003_unofficial/2003_materials.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left"><section class="exam-question" aria-labelledby="q2003-1"><h2 class="main-section-title" id="q2003-1">大問 1　3本の斜材と中央材で支えられた節点</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">同じ長さ l、断面積 A、縦弾性係数 E、線膨張係数 alpha の棒 A, B, C。上端は同一水平面の剛体に固定され、下端 O でピン結合される。中央棒 B は鉛直、外側の棒 A, C は鉛直から theta。自重は無視する。</p></div><div class="point-box"><div class="section-title">仮定・符号</div><p>下向きを節点変位 delta の正、棒の引張力を正とする。`c = cos(theta)` と置く。</p></div><div class="solution-step"><strong>導出：</strong>(1) 節点 O の下向き荷重 P。適合条件より、中央棒の伸びは delta、外側棒の伸びは `delta*c`。したがって `N_B = EA*delta/l`、`N_A = N_C = EA*delta*c/l`。鉛直方向の釣合いは `N_B + 2*c*N_A = P`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(1) `delta = P*l/[EA*(1+2*c^2)]`。応力は `sigma_B = P/[A*(1+2*c^2)]`、`sigma_A = sigma_C = P*c/[A*(1+2*c^2)]`。いずれも引張。</div><div class="solution-step"><strong>導出：</strong>(2) 荷重なしで全体を t だけ昇温。`e = alpha*t` と置く。適合条件は `delta/l = e + N_B/(EA)`、`c*delta/l = e + N_A/(EA)`。釣合いは `N_B + 2*c*N_A = 0`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(2) `delta = e*l*(1+2*c)/(1+2*c^2)`。`sigma_B = E*e*2*c*(1-c)/(1+2*c^2)`、`sigma_A = sigma_C = -E*e*(1-c)/(1+2*c^2)`。`0&lt;c&lt;1` なら中央棒は引張、外側棒は圧縮。</div></section><section class="exam-question" aria-labelledby="q2003-2"><h2 class="main-section-title" id="q2003-2">大問 2　3点支持連続ばりと2つの集中荷重</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">長さ 2l、等間隔の支持 A, B, C をもつ連続ばりに、AB と BC の各中央へ下向き荷重 P。縦弾性係数 E、断面二次モーメント I。</p></div><div class="point-box"><div class="section-title">仮定・符号</div><p>左端から右向きに x を測り、曲げモーメントは下側引張りを正とする。対称性から `R_A = R_C`。</p></div><div class="solution-step"><strong>導出：</strong>たわみの適合条件 `y(A)=y(B)=y(C)=0` と対称条件 `y&#x27;(B)=0` を、各区間で `EI*y&#x27;&#x27;=M(x)` に代入する。AB の M(x) は `0&lt;=x&lt;=l/2` で `R_A*x`、`l/2&lt;=x&lt;=l` で `R_A*x-P*(x-l/2)`。右半分は対称で、`l&lt;=x&lt;=3l/2` では `R_A*x+R_B*(x-l)-P*(x-l/2)`、`3l/2&lt;=x&lt;=2l` ではさらに -`P*(x-3l/2)` を加える。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>反力は `R_A=R_C=5P/16`、`R_B=11P/8`。曲げモーメントは A で 0、各荷重点で +`5P*l/32`、B で `M_B=-3P*l/16`、C で 0。せん断力は A から左荷重点まで +`5P/16`、そこから B まで -`11P/16`、B から右荷重点まで +`11P/16`、右荷重点から C まで -`5P/16`。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>B 点の曲げ応力を正方形断面一辺 a で評価すると、`I=a^4/12`、`Z=I/(a/2)=a^3/6`。最大値の大きさは `|sigma_B|max=|M_B|/Z=9P*l/(8a^3)`。</div></section><section class="exam-question" aria-labelledby="q2003-3"><h2 class="main-section-title" id="q2003-3">大問 3　応力と連続体の釣合い</h2><div class="example-box"><div class="section-title">問題条件</div><p class="problem-statement">連続体力学における力と応力の定義、英語名称、および直交座標 O-xyz に対する3次元の応力の釣合い方程式を問う。</p></div><div class="answer-highlight"><span class="answer-label">最終結果</span>(1) 力は物体の運動状態を変える相互作用で、単位は N。応力は面に作用する力を面積で割った局所量で、法線成分を normal stress、接線成分を shear stress と呼ぶ。力は剛体・質点の全体量、応力は連続体内部の面ごとの分布量である。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(2) 力 = force、応力 = stress。法線応力 = normal stress、せん断応力 = shear stress。</div><div class="solution-step"><strong>導出：</strong>微小要素 `dx*dy*dz` の各面に作用する応力を、反対面の値をテイラー展開して足し合わせる。物体力を無視すると各方向の一次項がゼロになる。</div><div class="answer-highlight"><span class="answer-label">最終結果</span>(3) x 方向: `d(sigma_x)/dx + d(tau_xy)/dy + d(tau_zx)/dz = 0`。y 方向: `d(tau_xy)/dx + d(sigma_y)/dy + d(tau_yz)/dz = 0`。z 方向: `d(tau_zx)/dx + d(tau_yz)/dy + d(sigma_z)/dz = 0`。</div></section></main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc"><div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div><ol><li><a href="#q2003-1">大問 1　3本の斜材と中央材で支えられた節点</a></li><li><a href="#q2003-2">大問 2　3点支持連続ばりと2つの集中荷重</a></li><li><a href="#q2003-3">大問 3　応力と連続体の釣合い</a></li></ol></div>
+          <div class="point-box"><div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div><p><a href="../../pdfs/question/2003_H15_april/materials_2003_H15_question.pdf" target="_blank" rel="noopener">問題PDF</a></p><p><a href="../../pdfs/answer/2003_unofficial/2003_materials.pdf" target="_blank" rel="noopener">解答PDF</a></p></div>
+        </aside>
       </div>
-      <section class="study-guide"><h2>利用上の注意</h2><p>本ページと解答PDFは学習用の非公式資料です。記号、符号、単位、図の読み方は必ず問題原本と照合してください。</p><p>以下では各小問の問題条件、仮定、途中式、最終結果を順に示します。</p></section>
-    </div><aside class="archive-note"><h2>検算状態</h2><p>問題PDFの全関連ページをPopplerで画像化して確認し、独立計算を行いました。</p><p>原本と解答PDFの疑義・解釈は監査記録に明記しています。</p><a href="../../about.html">詳しい利用案内を見る</a></aside></div></section>
-    <section class="solution-content" aria-labelledby="solution-title"><h2 id="solution-title">年度別詳細解説</h2><section class="solution-section" aria-labelledby="q2003-1"><h3 id="q2003-1">大問 1　3本の斜材と中央材で支えられた節点</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>同じ長さ l、断面積 A、縦弾性係数 E、線膨張係数 alpha の棒 A, B, C。上端は同一水平面の剛体に固定され、下端 O でピン結合される。中央棒 B は鉛直、外側の棒 A, C は鉛直から theta。自重は無視する。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>下向きを節点変位 delta の正、棒の引張力を正とする。c = cos(theta) と置く。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(1) 節点 O の下向き荷重 P。適合条件より、中央棒の伸びは delta、外側棒の伸びは delta*c。したがって N_B = EA*delta/l、N_A = N_C = EA*delta*c/l。鉛直方向の釣合いは N_B + 2*c*N_A = P。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) delta = P*l/[EA*(1+2*c^2)]。応力は sigma_B = P/[A*(1+2*c^2)]、sigma_A = sigma_C = P*c/[A*(1+2*c^2)]。いずれも引張。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>(2) 荷重なしで全体を t だけ昇温。e = alpha*t と置く。適合条件は delta/l = e + N_B/(EA)、c*delta/l = e + N_A/(EA)。釣合いは N_B + 2*c*N_A = 0。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) delta = e*l*(1+2*c)/(1+2*c^2)。sigma_B = E*e*2*c*(1-c)/(1+2*c^2)、sigma_A = sigma_C = -E*e*(1-c)/(1+2*c^2)。0&lt;c&lt;1 なら中央棒は引張、外側棒は圧縮。</p></div></section><section class="solution-section" aria-labelledby="q2003-2"><h3 id="q2003-2">大問 2　3点支持連続ばりと2つの集中荷重</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>長さ 2l、等間隔の支持 A, B, C をもつ連続ばりに、AB と BC の各中央へ下向き荷重 P。縦弾性係数 E、断面二次モーメント I。</p></div><div class="solution-block solution-block--assumption"><h4>仮定・符号</h4><p>左端から右向きに x を測り、曲げモーメントは下側引張りを正とする。対称性から R_A = R_C。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>たわみの適合条件 y(A)=y(B)=y(C)=0 と対称条件 y&#x27;(B)=0 を、各区間で EI*y&#x27;&#x27;=M(x) に代入する。AB の M(x) は 0&lt;=x&lt;=l/2 で R_A*x、l/2&lt;=x&lt;=l で R_A*x-P*(x-l/2)。右半分は対称で、l&lt;=x&lt;=3l/2 では R_A*x+R_B*(x-l)-P*(x-l/2)、3l/2&lt;=x&lt;=2l ではさらに -P*(x-3l/2) を加える。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>反力は R_A=R_C=5P/16、R_B=11P/8。曲げモーメントは A で 0、各荷重点で +5P*l/32、B で M_B=-3P*l/16、C で 0。せん断力は A から左荷重点まで +5P/16、そこから B まで -11P/16、B から右荷重点まで +11P/16、右荷重点から C まで -5P/16。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>B 点の曲げ応力を正方形断面一辺 a で評価すると、I=a^4/12、Z=I/(a/2)=a^3/6。最大値の大きさは |sigma_B|max=|M_B|/Z=9P*l/(8a^3)。</p></div></section><section class="solution-section" aria-labelledby="q2003-3"><h3 id="q2003-3">大問 3　応力と連続体の釣合い</h3><div class="solution-block solution-block--problem"><h4>問題の読み替え</h4><p>連続体力学における力と応力の定義、英語名称、および直交座標 O-xyz に対する3次元の応力の釣合い方程式を問う。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(1) 力は物体の運動状態を変える相互作用で、単位は N。応力は面に作用する力を面積で割った局所量で、法線成分を normal stress、接線成分を shear stress と呼ぶ。力は剛体・質点の全体量、応力は連続体内部の面ごとの分布量である。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(2) 力 = force、応力 = stress。法線応力 = normal stress、せん断応力 = shear stress。</p></div><div class="solution-block solution-block--step"><h4>導出</h4><p>微小要素 dx*dy*dz の各面に作用する応力を、反対面の値をテイラー展開して足し合わせる。物体力を無視すると各方向の一次項がゼロになる。</p></div><div class="solution-block solution-block--answer"><h4>最終結果</h4><p>(3) x 方向: d(sigma_x)/dx + d(tau_xy)/dy + d(tau_zx)/dz = 0。y 方向: d(tau_xy)/dx + d(sigma_y)/dy + d(tau_yz)/dz = 0。z 方向: d(tau_zx)/dx + d(tau_yz)/dy + d(sigma_z)/dz = 0。</p></div></section></section>
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション"><span></span><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2004.html">2004年度 →</a></nav>
-  </main>
-  <footer class="footer"><div class="container"><p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p><p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p></div></footer>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション"><span></span><a href="../../pages/material_mechanics.html">年度一覧</a><a href="2004.html">2004年度 →</a></nav>
+    </div>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body></html>

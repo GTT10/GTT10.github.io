@@ -5,9 +5,11 @@ that the derivation text in the generated PDFs can be audited against the corres
 HTML pages and the audit report.
 """
 
+import argparse
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from reportlab import rl_config
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
@@ -21,12 +23,14 @@ from reportlab.platypus import (
     Spacer,
 )
 
+from pdf_support import resolve_japanese_font
 
+
+rl_config.invariant = 1
 ROOT = Path(__file__).resolve().parents[1]
-FONT_PATH = Path(r"C:\Windows\Fonts\yumin.ttf")
-if not FONT_PATH.exists():
-    raise FileNotFoundError(f"Japanese font not found: {FONT_PATH}")
-pdfmetrics.registerFont(TTFont("YuMincho", str(FONT_PATH)))
+FONT_PATH = resolve_japanese_font()
+FONT_NAME = "GTT10JapaneseThermo"
+pdfmetrics.registerFont(TTFont(FONT_NAME, str(FONT_PATH)))
 
 
 def para(text: str, style: ParagraphStyle) -> Paragraph:
@@ -36,23 +40,23 @@ def para(text: str, style: ParagraphStyle) -> Paragraph:
 
 styles = getSampleStyleSheet()
 TITLE = ParagraphStyle(
-    "TitleJP", parent=styles["Title"], fontName="YuMincho", fontSize=17,
+    "TitleJP", parent=styles["Title"], fontName=FONT_NAME, fontSize=17,
     leading=23, alignment=TA_CENTER, spaceAfter=5 * mm,
 )
 SUBTITLE = ParagraphStyle(
-    "SubtitleJP", parent=styles["Normal"], fontName="YuMincho", fontSize=9,
+    "SubtitleJP", parent=styles["Normal"], fontName=FONT_NAME, fontSize=9,
     leading=13, alignment=TA_CENTER, textColor="#444444", spaceAfter=4 * mm,
 )
 H1 = ParagraphStyle(
-    "H1JP", parent=styles["Heading1"], fontName="YuMincho", fontSize=13,
+    "H1JP", parent=styles["Heading1"], fontName=FONT_NAME, fontSize=13,
     leading=17, spaceBefore=5 * mm, spaceAfter=2 * mm, textColor="#17365d",
 )
 H2 = ParagraphStyle(
-    "H2JP", parent=styles["Heading2"], fontName="YuMincho", fontSize=10.5,
+    "H2JP", parent=styles["Heading2"], fontName=FONT_NAME, fontSize=10.5,
     leading=15, spaceBefore=3 * mm, spaceAfter=1.5 * mm, textColor="#244062",
 )
 BODY = ParagraphStyle(
-    "BodyJP", parent=styles["BodyText"], fontName="YuMincho", fontSize=9.2,
+    "BodyJP", parent=styles["BodyText"], fontName=FONT_NAME, fontSize=9.2,
     leading=14, alignment=TA_LEFT, wordWrap="CJK", spaceAfter=1.8 * mm,
 )
 NOTE = ParagraphStyle(
@@ -68,7 +72,7 @@ FORMULA = ParagraphStyle(
 
 def footer(canvas, doc):
     canvas.saveState()
-    canvas.setFont("YuMincho", 7.5)
+    canvas.setFont(FONT_NAME, 7.5)
     canvas.setFillColorRGB(0.35, 0.35, 0.35)
     canvas.drawString(18 * mm, 10 * mm, "非公式解説 - 問題原本からの独立再計算")
     canvas.drawRightString(192 * mm, 10 * mm, f"{doc.page}")
@@ -122,7 +126,9 @@ COMMON = {
                     ("h2", "(2) 成績係数"),
                     ("formula", "第一法則より W_in = Q2 - Q1。可逆性より Q2/TH = Q1/TL。したがって COP_R = Q1/W_in = TL/(TH - TL)。"),
                     ("h2", "(3)(4) 断熱が不可逆の場合"),
-                    ("body", "不可逆断熱では熱交換がなくてもエントロピー生成があるため、断熱区間はT-S図で右向きにずれます。具体的な曲線は摩擦などの散逸モデルがないと一意に決まりません。エントロピー収支は Q2/TH - Q1/TL = S_gen >= 0 であり、可逆時よりCOPは低下します。Q1とQ2は各等温線区間の下の面積として示します。"),
+                    ("body", "不可逆断熱では熱交換がなくても、進行方向にΔS12=Sgen,12>0、ΔS34=Sgen,34>0という端点条件だけが得られます。T-S図では各終点が始点より右に来ますが、摩擦・絞り・有限圧力差などの散逸機構と準静的な状態経路が指定されていないため、途中の曲線は一意に描けません。非平衡過程なら途中状態をP-V線やT-S線として表すこと自体にも追加仮定が必要です。"),
+                    ("formula", "Q2/TH - Q1/TL = Sgen,12 + Sgen,34 > 0、COP_R=Q1/(Q2-Q1) < TL/(TH-TL)。"),
+                    ("note", "COPはCarnot上限より小さくなります。等温区間が内部可逆という追加仮定の下でだけ、Q1=TL ΔS41、Q2=-TH ΔS23をT-S図の面積として示せます。散逸モデルなしに特定の不可逆断熱曲線を描く答えは一意ではありません。"),
                 ],
             },
             {
@@ -269,10 +275,14 @@ COMMON = {
             {
                 "title": "第1問 - ピストンを用いた排気",
                 "blocks": [
-                    ("body", "初期状態はV1、P1=2P0、T1です。問題文の仮想ピストンの経路を、外部圧力P0に抗して最終状態まで動かす一つの閉じた系の境界仕事として解釈します。漏れ・摩擦・位置エネルギー・運動エネルギーは無視し、熱損失の大きさはQL=P0V1/[2(κ-1)]です。"),
-                    ("formula", "初期質量 m=2P0V1/(RT1)。最終圧力P0なのでP0V2=mRT2。第一法則 mcv(T2-T1)=-QL-P0(V2-V1)。"),
-                    ("formula", "QL=mcvT1/4、P0V1=mRT1/2を代入すると mcpT2=mc_vT1+P0V1-QL、したがって T2/T1=(2κ+1)/(4κ)。"),
-                    ("note", "注意: 問題文の仮想ピストン経路を上記のように読んだ結果です。第1段階を別個の可逆断熱過程と仮定する解釈は印刷条件だけからは確定せず、別の答えになり得るため採用していません。"),
+                    ("body", "初期状態はV1、P1=2P0、T1です。仮想ピストンを設け、まずP0まで『ゆっくり膨張』、その後P0一定で排気します。熱損失の総量QL=P0V1/[2(κ-1)]は与えられますが、第1段階の外力またはP(V)経路と、熱損失を二段階へどう配分するかは指定されていません。"),
+                    ("formula", "m=2P0V1/(RT1)、P0V2=mRT2。第一法則は mcv(T2-T1)=-QL-W、W=∫p_ext dV。"),
+                    ("body", "主結論: 境界仕事Wが経路依存なのに、その経路が与えられていないため、排気温度T2は一意に定まりません。『ゆっくり』だけではp_ext(V)は決まりません。"),
+                    ("h2", "条件付き例A - 全過程を外圧P0に抗する仕事と置く"),
+                    ("formula", "W=P0(V2-V1)と追加すれば、T2/T1=(2κ+1)/(4κ)。"),
+                    ("h2", "条件付き例B - 第1段階を可逆断熱、熱損失を第2段階と置く"),
+                    ("formula", "中間温度をTaとすると Ta/T1=2^[-(κ-1)/κ]、T2/T1=2^[-(κ-1)/κ]-1/(4κ)。"),
+                    ("note", "AとBは同じ印刷与条件から異なる温度を与えます。どちらかを原問の唯一の答えとは断定できず、数値式を使う場合は仕事経路と熱損失の配分を明記する必要があります。"),
                 ],
             },
             {
@@ -288,10 +298,12 @@ COMMON = {
             {
                 "title": "第3問 - 二つの気体の定圧混合",
                 "blocks": [
-                    ("body", "気体A,Bを断熱的に定圧混合します。各質量、定圧比熱、初期温度をm1,cp1,T1およびm2,cp2,T2、T1>T2とします。外部への熱交換はなく、組成混合による別のエントロピー項は問題データにないため含めません。"),
-                    ("formula", "Tm=(m1cp1T1+m2cp2T2)/(m1cp1+m2cp2)。ΔSA=m1cp1 ln(Tm/T1)、ΔSB=m2cp2 ln(Tm/T2)。"),
-                    ("formula", "cp1=cp2=cp、m1=m2=m、T1=2T2ならTm=3T2/2=3T1/4、ΔS_total=mcp ln(9/8)>0。"),
-                    ("note", "異なる気体の混合エントロピーを含めるには分子量・分圧・混合体積など追加条件が必要です。"),
+                    ("body", "気体A,Bを断熱的に定圧混合します。各質量、定圧比熱、初期温度をm1,cp1,T1およびm2,cp2,T2、T1>T2とします。混合温度はエンタルピー収支で求まりますが、異種気体の全エントロピー変化には各気体の分子量（気体定数）と初期・最終分圧が必要です。"),
+                    ("formula", "Tm=(m1cp1T1+m2cp2T2)/(m1cp1+m2cp2)。"),
+                    ("formula", "理想気体なら ΔSi=mi[cpi ln(Tm/Ti)-Ri ln(pi,m/pi,0)]、Ri=Ru/Mi。"),
+                    ("body", "初期に各純気体が同じ圧力P、混合後も全圧Pと仮定すれば、pi,0=P、pi,m=yiP、yi=(mi/Mi)/Σ(mj/Mj)です。従って分子量Miなしには組成混合項を評価できません。"),
+                    ("formula", "cp1=cp2=cp、m1=m2=m、T1=2T2なら Tm=3T2/2=3T1/4。一意に求まる温度均一化の顕熱成分は ΔS_sensible=mcp ln(9/8)>0。"),
+                    ("note", "異種気体なら全体にはさらに -m1R1 ln y1-m2R2 ln y2 が加わります。分子量・分圧がない原問からΔSA、ΔSB、ΔS_totalの完全な値は決まりません。同一気体を隔壁越しに接触させる問題だと追加仮定した場合だけ、組成混合項はありません。"),
                 ],
             },
         ],
@@ -334,8 +346,15 @@ COMMON = {
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "years", nargs="*", choices=sorted(COMMON),
+        help="years to generate (default: 2003 through 2008)",
+    )
+    args = parser.parse_args()
+    years = args.years or list(COMMON)
     outputs = []
-    for year in ("2003", "2004", "2005", "2006", "2007", "2008"):
+    for year in years:
         item = COMMON[year]
         outputs.append(build_pdf(year, item["era"], item["source"], item["sections"]))
     for path in outputs:

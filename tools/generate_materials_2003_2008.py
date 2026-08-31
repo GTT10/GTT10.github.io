@@ -8,23 +8,32 @@ report records the independent checks and the assumptions used here.
 
 from __future__ import annotations
 
+import argparse
 import html
 import os
+import re
+import sys
 from pathlib import Path
 
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.lib.units import mm
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import KeepTogether, Paragraph, SimpleDocTemplate, Spacer
+HTML_ONLY_REQUESTED = "--html-only" in sys.argv
+if not HTML_ONLY_REQUESTED:
+    from reportlab import rl_config
+    from reportlab.lib import colors
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+    from reportlab.lib.units import mm
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.platypus import KeepTogether, Paragraph, SimpleDocTemplate, Spacer
 
+    from pdf_support import resolve_japanese_font
+
+    rl_config.invariant = 1
 
 ROOT = Path(__file__).resolve().parents[1]
-FONT_PATH = Path(r"C:\Windows\Fonts\yumin.ttf")
-FONT_NAME = "YuMinchoMaterials"
+FONT_PATH = resolve_japanese_font() if not HTML_ONLY_REQUESTED else None
+FONT_NAME = "GTT10JapaneseMaterials"
 
 
 def block(kind: str, text: str) -> dict[str, str]:
@@ -218,7 +227,7 @@ DATA: dict[int, dict[str, object]] = {
 
 
 def register_font() -> None:
-    if not FONT_PATH.exists():
+    if FONT_PATH is None or not FONT_PATH.exists():
         raise FileNotFoundError(f"Japanese font not found: {FONT_PATH}")
     pdfmetrics.registerFont(TTFont(FONT_NAME, str(FONT_PATH)))
 
@@ -278,10 +287,43 @@ def write_pdf(year: int, info: dict[str, object]) -> Path:
     return out
 
 
+MATH_RUN = re.compile(
+    r"(?<![A-Za-z0-9_])"
+    r"([|A-Za-z0-9_][|A-Za-z0-9_()'.,\[\]{}+\-*/^=<> ]*[=/*^<>][|A-Za-z0-9_()'.,\[\]{}+\-*/^=<> ]*)"
+    r"(?![A-Za-z0-9_])"
+)
+
+
+def material_html_text(value: str) -> str:
+    """Escape prose and mark equation-shaped ASCII runs for MathJax."""
+    parts: list[str] = []
+    cursor = 0
+    for match in MATH_RUN.finditer(value):
+        parts.append(html.escape(value[cursor:match.start()]))
+        formula = match.group(1).strip()
+        leading = match.group(1)[: len(match.group(1)) - len(match.group(1).lstrip())]
+        trailing = match.group(1)[len(match.group(1).rstrip()):]
+        enumeration = re.match(r"(\d+\)\s+)(.+)", formula)
+        prefix = ""
+        if enumeration:
+            prefix, formula = enumeration.groups()
+        parts.append(html.escape(leading + prefix) + f"`{html.escape(formula)}`" + html.escape(trailing))
+        cursor = match.end()
+    parts.append(html.escape(value[cursor:]))
+    return "".join(parts).replace("\n", "<br>")
+
+
 def html_block(item: dict[str, str]) -> str:
-    labels = {"problem": "問題の読み替え", "assumption": "仮定・符号", "step": "導出", "answer": "最終結果", "audit": "原本照合メモ"}
-    text = html.escape(item["text"]).replace("\n", "<br>")
-    return f'<div class="solution-block solution-block--{item["kind"]}"><h4>{labels[item["kind"]]}</h4><p>{text}</p></div>'
+    labels = {"problem": "問題条件", "assumption": "仮定・符号", "step": "導出", "answer": "最終結果", "audit": "条件確認"}
+    text = material_html_text(item["text"])
+    kind = item["kind"]
+    if kind == "problem":
+        return f'<div class="example-box"><div class="section-title">{labels[kind]}</div><p class="problem-statement">{text}</p></div>'
+    if kind in {"assumption", "audit"}:
+        return f'<div class="point-box"><div class="section-title">{labels[kind]}</div><p>{text}</p></div>'
+    if kind == "answer":
+        return f'<div class="answer-highlight"><span class="answer-label">{labels[kind]}</span>{text}</div>'
+    return f'<div class="solution-step"><strong>{labels[kind]}：</strong>{text}</div>'
 
 
 def write_html(year: int, info: dict[str, object]) -> Path:
@@ -291,69 +333,73 @@ def write_html(year: int, info: dict[str, object]) -> Path:
     prev_link = f'<a href="{year-1}.html">← {year-1}年度</a>' if year > 2003 else "<span></span>"
     next_link = f'<a href="{year+1}.html">{year+1}年度 →</a>' if year < 2024 else "<span></span>"
     sections = []
+    toc = []
     for sec in info["sections"]:
-        sections.append(f'<section class="solution-section" aria-labelledby="q{year}-{sec["number"]}"><h3 id="q{year}-{sec["number"]}">大問 {sec["number"]}　{html.escape(sec["title"])}</h3>{"".join(html_block(item) for item in sec["blocks"])}</section>')
+        anchor = f'q{year}-{sec["number"]}'
+        title = f'大問 {sec["number"]}　{html.escape(sec["title"])}'
+        toc.append(f'<li><a href="#{anchor}">{title}</a></li>')
+        sections.append(f'<section class="exam-question" aria-labelledby="{anchor}"><h2 class="main-section-title" id="{anchor}">{title}</h2>{"".join(html_block(item) for item in sec["blocks"])}</section>')
     page = f'''<!DOCTYPE html>
 <html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 材料力学 {year}年度の問題原本と全問独立再計算による非公式解説。">
-  <title>材料力学 {year}年度 非公式解答・解説</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
-  <style>
-    .solution-content {{ max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 3rem; }}
-    .solution-section {{ margin: 1.5rem 0; padding: 1.25rem; background: #fff; border: 1px solid #d8e3e8; border-radius: 10px; box-shadow: 0 4px 14px rgba(18,62,87,.06); }}
-    .solution-section h3 {{ margin-top: 0; color: #123e57; border-bottom: 2px solid #d8e3e8; padding-bottom: .55rem; }}
-    .solution-block {{ margin: .8rem 0; padding: .7rem .85rem; border-left: 4px solid #b7d1dc; }}
-    .solution-block h4 {{ margin: 0 0 .35rem; font-size: .9rem; color: #345; }}
-    .solution-block p {{ margin: 0; line-height: 1.8; white-space: normal; }}
-    .solution-block--answer {{ background: #f1f7fa; border-left-color: #247a9b; }}
-    .solution-block--assumption {{ color: #555; background: #fafafa; }}
-    .solution-block--audit {{ color: #555; font-size: .92rem; background: #fffdf2; border-left-color: #caa94b; }}
-    .source-note {{ max-width: 1000px; margin: 0 auto; padding: 0 1rem 1rem; color: #555; }}
-    .source-note a {{ margin-right: 1rem; }}
-  </style>
+  <meta name="description" content="岡山大学大学院入試 材料力学 {year}年度の問題と解説。">
+  <title>材料力学 {year}年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/materials.css">
+  <script>
+    window.MathJax = {{
+      loader: {{ load: ['input/asciimath'] }},
+      tex: {{ inlineMath: [['$', '$'], ['\\\\(', '\\\\)']], displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']] }},
+      asciimath: {{ delimiters: [['`', '`']] }},
+      options: {{ skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }}
+    }};
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static"><div class="container header-content">
-    <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-    <nav class="nav" aria-label="主要ナビゲーション"><ul class="nav-list">
-      <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-      <li><a href="../../pages/material_mechanics.html" class="nav-link">材料力学一覧</a></li>
-      <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-    </ul></nav>
-  </div></header>
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト"><div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/material_mechanics.html">材料力学</a><span aria-hidden="true">/</span><span>{year}年度</span></div></nav>
-    <section class="archive-hero"><div class="container archive-hero__inner">
-      <p class="eyebrow">{year}年度（{info["era"]}）・全問再計算</p><h1>材料力学 {year}年度</h1>
-      <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
-      <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答PDF・詳細解説あり</span><span>原本を優先してご確認ください</span></div>
-    </div></section>
-    <section class="archive-content"><div class="container archive-layout"><div>
-      <h2>原本と解答PDF</h2><div class="resource-grid">
-        <a class="resource-card resource-card--question" href="{qhref}" target="_blank" rel="noopener"><span class="resource-kicker">原本</span><strong>問題PDFを開く</strong><span>全ページを確認した原本です。</span></a>
-        <a class="resource-card resource-card--answer" href="{ahref}" target="_blank" rel="noopener"><span class="resource-kicker">非公式解答案</span><strong>解答PDFを開く</strong><span>このページと同じ導出を収録しています。</span></a>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content"><div class="header-nav">
+      <h1 class="exam-title"><i class="fas fa-cube mr-3 text-blue-600"></i>{year}（{info["era"]}）年　材料力学</h1>
+      <div class="nav-buttons"><a href="../../pages/material_mechanics.html" class="about-link">材料力学一覧に戻る</a><a href="../../index.html#subjects" class="about-link">トップページに戻る</a></div>
+    </div></header>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>{len(info["sections"])}題の問題条件、仮定、導出、最終結果を順に確認できます。</p>
+        <a href="{qhref}" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="{ahref}" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left">{"".join(sections)}</main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc"><div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div><ol>{"".join(toc)}</ol></div>
+          <div class="point-box"><div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div><p><a href="{qhref}" target="_blank" rel="noopener">問題PDF</a></p><p><a href="{ahref}" target="_blank" rel="noopener">解答PDF</a></p></div>
+        </aside>
       </div>
-      <section class="study-guide"><h2>利用上の注意</h2><p>本ページと解答PDFは学習用の非公式資料です。記号、符号、単位、図の読み方は必ず問題原本と照合してください。</p><p>以下では各小問の問題条件、仮定、途中式、最終結果を順に示します。</p></section>
-    </div><aside class="archive-note"><h2>検算状態</h2><p>問題PDFの全関連ページをPopplerで画像化して確認し、独立計算を行いました。</p><p>原本と解答PDFの疑義・解釈は監査記録に明記しています。</p><a href="../../about.html">詳しい利用案内を見る</a></aside></div></section>
-    <section class="solution-content" aria-labelledby="solution-title"><h2 id="solution-title">年度別詳細解説</h2>{"".join(sections)}</section>
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション">{prev_link}<a href="../../pages/material_mechanics.html">年度一覧</a>{next_link}</nav>
-  </main>
-  <footer class="footer"><div class="container"><p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p><p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p></div></footer>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション">{prev_link}<a href="../../pages/material_mechanics.html">年度一覧</a>{next_link}</nav>
+    </div>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body></html>\n'''
     out.write_text(page, encoding="utf-8", newline="\n")
     return out
 
 
 def main() -> None:
-    register_font()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--html-only", action="store_true", help="regenerate only the web pages")
+    args = parser.parse_args()
+    if not args.html_only:
+        register_font()
     for year, info in DATA.items():
-        pdf = write_pdf(year, info)
+        pdf = None if args.html_only else write_pdf(year, info)
         html_page = write_html(year, info)
-        print(f"{year}: {pdf} ; {html_page}")
+        print(f"{year}: {html_page}" if pdf is None else f"{year}: {pdf} ; {html_page}")
 
 
 if __name__ == "__main__":

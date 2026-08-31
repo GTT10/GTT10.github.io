@@ -62,7 +62,7 @@ BODY_2003 = r"""
 
 \section*{大問3　糸を巻いた軽い円筒}
 \textbf{問題の要約}: 紙製の軽い円筒中央に糸を約20回巻き、糸端を持って円筒を水平に静かに落とす。運動を図示し、理由を説明する。\
-\textbf{仮定}: 糸は円筒から滑らず、円筒の軸は水平を保つ。糸の端は上方で固定され、円筒は糸をほどきながら落下する。\
+\textbf{不足条件を補う仮定}: 手に持った糸端は空間に固定して動かさず、糸は円筒から滑らず、たるまない。円筒の軸は水平を保ち、糸の質量・伸びと空気抵抗は無視する。円筒は糸をほどきながら落下する。\
 \textbf{独立計算}: 巻き半径を $r$、質量を $M$、軸まわり慣性モーメントを $I$、下向き加速度を $a$、角加速度を $\alpha$ とする。滑りなし条件は $a=r\alpha$。力とモーメントの釣合いは
 \[
  Mg-T=Ma,\qquad Tr=I\alpha=I\frac{a}{r}.
@@ -103,66 +103,64 @@ BODY_2003 = r"""
 
 \section*{大問5　球の抵抗と終端速度}
 \textbf{問題の要約}: 同じ半径で質量だけ異なる球を自由落下させ、終端速度の表 $m[\mathrm g]=(1,2,3,4)$、$v[\mathrm{cm/s}]=(0,1,2,3)$ を得た。抵抗は速度のべき乗に比例する。質量1 gと2 gを細い糸で連結したときの終端速度を求める。\
-\textbf{仮定と注意}: 同じ半径なら浮力 $B$ は共通である。表の $m=1\,\mathrm g$ で $v=0$ は、浮力を無視する仮定とは両立しない。したがって表を物理的に整合させるには $B=1\,\mathrm{gf}$ と読む（この点は原本設問の曖昧さとして監査に記録した）。抵抗を $R=kv^n$ と置く。\
+\textbf{条件監査}: 同じ半径なら浮力 $B$ は共通である。表の $m=1\,\mathrm g$ で $v=0$ のとき抵抗はゼロなので、浮力を無視すると重力と釣り合わず矛盾する。したがって表全体が物理的に整合するのは $B=1\,\mathrm{gf}$ と読む場合である。抵抗を $R=kv^n$ と置く。\
 \textbf{(1) 独立計算}: 終端条件 $mg-B=kv^n$ に表を代入すると、$m-1$ は $v$ に比例する。よって $n=1$、単位を g--cm/s で書けば $R=(m-1)g$ かつ $k=g/(1\,\mathrm{cm/s})$。\
 \textbf{(2) 独立計算}: 連結球では外力の有効重量は $(1+2-2)\,\mathrm{gf}=1\,\mathrm{gf}$、抵抗は同じ速度で $2kv$。したがって
 \[
  2kv=1\,\mathrm{gf},\qquad v=0.5\,\mathrm{cm/s}.
 \]
-\textbf{最終答}: 抵抗は $v$ に一次比例し、連結時の終端速度は $0.5\,\mathrm{cm/s}$（浮力を無視する別解釈では表の $v=0$ が説明できず、数値解は定まらない）。
+\textbf{条件付きの最終答}: 抵抗は $v$ に一次比例し、$B=1\,\mathrm{gf}$ のとき連結球の終端速度は $0.5\,\mathrm{cm/s}$。浮力を無視する読みでは表そのものが成立せず、数値解は定まらない。
 
-\section*{大問6　流線検査空間の運動量収支とEuler方程式}
-\textbf{問題の要約}: 流線を中心軸とする流管について、流線方向座標を $s$、断面1から下流へ微小距離 $\Delta s$ の断面を2とする。断面積を $A$、流速を $W$、密度を $\rho$、圧力を $p$、単位質量当たりの外力の流線方向成分を $F$ とし、断面1--2間を固定検査空間として質量と運動量の出入りを求める。\
-\textbf{符号}: $s$ の正方向を下流、断面1からの流入を正、断面2からの流出を正として、運動量は $s$ 成分を記す。\
-\textbf{(1) 断面1から流入する質量・運動量}: 一様断面近似より
+\section*{大問6　二次元微小検査領域の運動量収支}
+\textbf{問題の要約}: 密度 $\rho$ が一定の二次元非定常・非圧縮流れ $\boldsymbol{u}=(u,v)$ を考える。左下を $(x,y)$ とする $\Delta x\times\Delta y$、紙面垂直方向単位長さの固定検査領域について、各面を通過する $x$ 方向運動量、圧力、保有運動量から $x$ 方向運動方程式を導き、無次元数を示す。\
+\textbf{符号と近似}: $u,v$ の正方向をそれぞれ $+x,+y$ とし、面上の値は左面・下面の値から一次のTaylor展開で表す。体積力と粘性力は原問の収支には現れないものとして省く。\
+\textbf{(1) 左右面を通る $x$ 方向運動量}: 時間 $\Delta t$ の左面からの流入と右面からの流出は
 \[
- m_1=\rho_1A_1W_1\Delta t,\qquad M_1=\rho_1A_1W_1^2\Delta t.
+ M_{x,\mathrm{in}}^{(x)}=\rho u^2\Delta y\Delta t,\qquad
+ M_{x,\mathrm{out}}^{(x)}=\rho\left[u^2+\frac{\partial(u^2)}{\partial x}\Delta x\right]\Delta y\Delta t.
 \]
-\textbf{(2) 断面2から流出する質量・運動量}:
+\textbf{(2) 下上面を通る $x$ 方向運動量}: 同様に
 \[
- m_2=\rho_2A_2W_2\Delta t,\qquad M_2=\rho_2A_2W_2^2\Delta t.
+ M_{x,\mathrm{in}}^{(y)}=\rho uv\Delta x\Delta t,\qquad
+ M_{x,\mathrm{out}}^{(y)}=\rho\left[uv+\frac{\partial(uv)}{\partial y}\Delta y\right]\Delta x\Delta t.
 \]
-\textbf{(3) 時刻 $t=0$ に検査空間が保有する量}:
+速度が負なら、これらの符号が実際の流入・流出方向を自動的に表す。\
+\textbf{(3) 圧力による $x$ 方向力}: 左右面に働く力は
 \[
- m_0=\int_{s_1}^{s_2}\rho(s,0)A(s)\dd s,\qquad
- M_0=\int_{s_1}^{s_2}\rho(s,0)A(s)W(s,0)\dd s.
+ F_{p,L}=p\Delta y,\qquad
+ F_{p,R}=-\left[p+\frac{\partial p}{\partial x}\Delta x\right]\Delta y,
 \]
-\textbf{(4) 時刻 $t=\Delta t$ に保有する量}:
+従って合力は $F_{p,x}=-(\partial p/\partial x)\Delta x\Delta y$。\
+\textbf{(4) 検査領域が保有する $x$ 方向運動量}:
 \[
- m_{\Delta t}=\int_{s_1}^{s_2}\rho(s,\Delta t)A(s)\dd s,\qquad
- M_{\Delta t}=\int_{s_1}^{s_2}\rho(s,\Delta t)A(s)W(s,\Delta t)\dd s.
+ M_x(t)=\rho u\Delta x\Delta y,\qquad
+ M_x(t+\Delta t)=\rho\left[u+\frac{\partial u}{\partial t}\Delta t\right]\Delta x\Delta y.
 \]
-\textbf{(5) 連続の式}: 質量収支 $m_{\Delta t}-m_0=m_1-m_2$ を $\Delta t\to0$, $\Delta s\to0$ として
+\textbf{(5) 運動量収支}: 保有量の増分＝流入－流出＋圧力の力積として、$\Delta x,\Delta y,\Delta t\to0$ の極限を取ると
 \[
- \boxed{\frac{\partial(\rho A)}{\partial t}+\frac{\partial(\rho AW)}{\partial s}=0}.
+ \rho\left[\frac{\partial u}{\partial t}
+ +\frac{\partial(u^2)}{\partial x}
+ +\frac{\partial(uv)}{\partial y}\right]
+ =-\frac{\partial p}{\partial x}.
 \]
-定常なら $\rho_1A_1W_1=\rho_2A_2W_2$ である。\
-\textbf{(6) 圧力による流線方向の力積}: 断面1、断面2、流管側壁の力積はそれぞれ
+非圧縮の連続の式 $\partial u/\partial x+\partial v/\partial y=0$ を使えば
 \[
- I_1=p_1A_1\Delta t,\qquad I_2=-p_2A_2\Delta t,\qquad
- I_s=-\Delta t\int_{S_w}p\,n_s\dd S,
+ \boxed{\frac{\partial u}{\partial t}
+ +u\frac{\partial u}{\partial x}
+ +v\frac{\partial u}{\partial y}
+ =-\frac1\rho\frac{\partial p}{\partial x}}.
 \]
-ここで $n_s$ は検査空間外向き法線の $s$ 成分である。従って $I_p=I_1+I_2+I_s$、微小流管では
+\textbf{(6) 無次元数}: $x=Lx^*$、$t=T_ct^*$、$(u,v)=U(u^*,v^*)$、$p=p_0+\Delta p\,p^*$ と置けば
 \[
- I_p=-A\frac{\partial p}{\partial s}\Delta s\,\Delta t.
+ \St\frac{\partial u^*}{\partial t^*}
+ +u^*\frac{\partial u^*}{\partial x^*}
+ +v^*\frac{\partial u^*}{\partial y^*}
+ =-\Eu\frac{\partial p^*}{\partial x^*},
+\quad
+ \boxed{\St=\frac{L}{UT_c}=\frac{fL}{U}},\qquad
+ \boxed{\Eu=\frac{\Delta p}{\rho U^2}}.
 \]
-\textbf{(7) 外力による力積}:
-\[
- I_F=\Delta t\int_{CV}\rho F\dd V\simeq\rho AF\Delta s\,\Delta t.
-\]
-\textbf{(8) 運動量収支とEuler方程式}:
-\[
- M_{\Delta t}-M_0=M_1-M_2+I_p+I_F.
-\]
-極限を取り、保存形と連続の式を組み合わせると
-\[
- \frac{\partial(\rho AW)}{\partial t}+\frac{\partial(\rho AW^2)}{\partial s}
- =-A\frac{\partial p}{\partial s}+\rho AF,
-\qquad
- \boxed{\frac{\partial W}{\partial t}+W\frac{\partial W}{\partial s}
- =-\frac1\rho\frac{\partial p}{\partial s}+F}.
-\]
-重力だけなら $F=-g\,\dd z/\dd s$ である。
+Strouhal数は非定常慣性と対流慣性の比で、円柱後流の渦放出周波数の整理に使う。Euler数は圧力力と慣性力の比で、管路や流体機械の圧力差の相似整理に使う。
 """
 
 

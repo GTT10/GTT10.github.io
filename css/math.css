@@ -5,28 +5,39 @@
     padding: 0;
 }
 
-.accuracy-notice {
-    margin: 0 0 1rem;
-    padding: 0.85rem 1rem;
-    border: 1px solid #f4c76b;
-    border-left: 4px solid #d89b21;
-    border-radius: 0.6rem;
-    background: #fff9e8;
-    color: #594311;
-    line-height: 1.7;
-}
-
-.accuracy-notice strong {
-    display: block;
-    margin-bottom: 0.15rem;
-}
-
 body {
     font-family: 'Noto Sans JP', sans-serif;
     background: #f5f7fa;
     color: #333;
     padding: 20px;
     line-height: 1.6;
+}
+
+/* 年度解説の共通構造 */
+.exam-question { margin-bottom: 2.5rem; }
+.exam-question + .exam-question { padding-top: 2rem; border-top: 1px solid #e0e6f8; }
+.exam-question .problem-statement { font-size: 1.05rem; font-weight: 600; }
+.exam-question .answer-highlight { padding: .8rem 1rem; background: #fff7f7; border-left: 4px solid #dc2626; border-radius: .4rem; font-size: 1.05rem; line-height: 1.8; }
+.answer-label { display: block; margin-bottom: .25rem; font-size: .78rem; letter-spacing: .06em; }
+.exam-toc { position: sticky; top: 1rem; }
+.exam-toc ol { padding-left: 1.25rem; }
+.exam-toc li, .point-box p { margin: 0.55rem 0; }
+.exam-toc a, .point-box a { color: #1e40af; }
+.exam-year-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e0e6f8;
+}
+.exam-year-nav > :last-child { text-align: right; }
+mjx-container[display="true"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.35rem 0;
 }
 
 h1 {

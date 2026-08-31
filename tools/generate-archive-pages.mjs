@@ -71,14 +71,14 @@ function archivePage(subject, year, questionPath, answerPath) {
   const next = year < 2024 ? year + 1 : null;
   const answerBlock = answerPath
     ? `<a class="resource-card resource-card--answer" href="../../${answerPath}" target="_blank" rel="noopener">
-          <span class="resource-kicker">非公式解答案</span>
+          <span class="resource-kicker">解答</span>
           <strong>解答PDFを開く</strong>
-          <span>内容をうのみにせず、式と単位を確認しながら利用してください。</span>
+          <span>解答と導出を収録</span>
         </a>`
-    : `<div class="resource-card resource-card--unavailable" aria-label="解答・解説は未収録です">
+    : `<div class="resource-card resource-card--unavailable" aria-label="解答は未収録です">
           <span class="resource-kicker">未収録</span>
-          <strong>解答・解説は準備中です</strong>
-          <span>現時点では原本問題PDFのみ閲覧できます。</span>
+          <strong>解答PDFなし</strong>
+          <span>問題PDFのみ収録</span>
         </div>`;
 
   return `<!DOCTYPE html>
@@ -86,7 +86,7 @@ function archivePage(subject, year, questionPath, answerPath) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 ${config.name} ${year}年度の過去問資料ページ。問題PDF${answerPath ? 'と非公式解答案' : ''}を収録しています。">
+  <meta name="description" content="岡山大学大学院入試 ${config.name} ${year}年度の問題・解答PDF。">
   <title>${config.name} ${year}年度 過去問・資料 - 岡山大学大学院入試アーカイブ</title>
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -115,7 +115,7 @@ function archivePage(subject, year, questionPath, answerPath) {
         <p class="eyebrow">${label}・過去問資料</p>
         <h1>${config.name} ${year}年度</h1>
         <p>${config.description}</p>
-        <div class="status-line"><span class="status-badge ${answerPath ? 'status-badge--available' : 'status-badge--limited'}">${answerPath ? '問題・非公式解答案あり' : '問題PDFのみ'}</span><span>原本を優先してご確認ください</span></div>
+        <div class="status-line"><span class="status-badge ${answerPath ? 'status-badge--available' : 'status-badge--limited'}">${answerPath ? '問題・解答PDF' : '問題PDFのみ'}</span></div>
       </div>
     </section>
 
@@ -127,7 +127,7 @@ function archivePage(subject, year, questionPath, answerPath) {
             <a class="resource-card resource-card--question" href="../../${questionPath}" target="_blank" rel="noopener">
               <span class="resource-kicker">原本</span>
               <strong>問題PDFを開く</strong>
-              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
+              <span>試験問題</span>
             </a>
             ${answerBlock}
           </div>
@@ -137,16 +137,15 @@ function archivePage(subject, year, questionPath, answerPath) {
             <ol>
               <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
               <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
-              <li>${answerPath ? '非公式解答案と照合し、途中式や別解も自分で検算する。' : '教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。'}</li>
+              <li>${answerPath ? '解答PDFと照合し、途中式や別解まで確認する。' : '教科書や講義資料を使って解法を確認する。'}</li>
             </ol>
           </section>
         </div>
 
         <aside class="archive-note">
-          <h2>利用上の注意</h2>
-          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
-          <p>${answerPath ? '解答案は未検証の箇所を含む可能性があります。数式、数値、図表は原本と照合してください。' : 'この年度の解答・解説は未収録です。内容を推測して掲載していません。'}</p>
-          <a href="../../about.html">詳しい利用案内を見る</a>
+          <h2>収録内容</h2>
+          <p>${answerPath ? 'この年度は問題PDFと解答PDFを収録しています。' : 'この年度は問題PDFのみ収録しています。'}</p>
+          <a href="../../pages/${config.page}">${config.name}の年度一覧へ</a>
         </aside>
       </div>
     </section>
@@ -160,8 +159,7 @@ function archivePage(subject, year, questionPath, answerPath) {
 
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
-      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+      <p class="footer-text">岡山大学大学院入試アーカイブ</p>
     </div>
   </footer>
 </body>
@@ -178,8 +176,8 @@ function subjectPage(subject) {
     const questionPath = findPdf('question', subject, year);
     const answerPath = findPdf('answer', subject, year);
     const status = archive
-      ? (answerPath ? '問題・解答案' : '問題のみ')
-      : 'HTML解説あり';
+      ? (answerPath ? 'PDF資料' : '問題PDF')
+      : '解説';
     const statusClass = archive
       ? (answerPath ? 'year-status--answer' : 'year-status--question')
       : 'year-status--html';
@@ -190,7 +188,7 @@ function subjectPage(subject) {
           <span class="year-status ${statusClass}">${status}</span>
         </div>
         <div class="exam-links">
-          <a href="../exams/${subject}/${year}.html" class="exam-link problem">${archive ? '年度資料を見る' : 'HTML解説を見る'}</a>
+          <a href="../exams/${subject}/${year}.html" class="exam-link problem">${archive ? '資料を見る' : '解説を読む'}</a>
           <a href="../${questionPath}" class="exam-link solution" target="_blank" rel="noopener">問題PDF</a>
         </div>
       </article>`;
@@ -239,7 +237,7 @@ function subjectPage(subject) {
       <div class="container">
         <div class="list-heading">
           <div><p class="eyebrow">22年分を収録</p><h2 class="section-title" id="year-list-title">年度を選ぶ</h2></div>
-          <p>「HTML解説あり」はブラウザで解説を読めます。「年度資料」は問題PDFと収録済み資料を案内します。</p>
+          <p>解きたい年度を選び、問題と解説へ進みます。</p>
         </div>
         <div class="years-grid">${cards}
         </div>
@@ -249,8 +247,8 @@ function subjectPage(subject) {
 
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
-      <p class="footer-subtext"><a href="../about.html">利用案内と免責事項</a></p>
+      <p class="footer-text">岡山大学大学院入試アーカイブ</p>
+      <p class="footer-subtext"><a href="../about.html">このサイトについて</a></p>
     </div>
   </footer>
 </body>
@@ -262,9 +260,8 @@ let generatedCount = 0;
 for (const subject of Object.keys(subjects)) {
   for (const year of years) {
     const examPath = path.join(root, 'exams', subject, `${year}.html`);
-    const size = fs.statSync(examPath).size;
-    const knownIncomplete = subject === 'math' && year === 2003;
-    if (size >= 1000 && !knownIncomplete) continue;
+    const current = fs.readFileSync(examPath, 'utf8');
+    if (!current.includes('data-page-status="archive"')) continue;
     const questionPath = findPdf('question', subject, year);
     if (!questionPath) throw new Error(`Question PDF not found: ${subject} ${year}`);
     const answerPath = findPdf('answer', subject, year);

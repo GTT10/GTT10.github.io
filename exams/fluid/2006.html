@@ -3,104 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 流体力学 2006年度の問題原本と全問独立再計算による非公式解説。">
-  <title>流体力学 2006年度 非公式解答・解説</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
+  <meta name="description" content="岡山大学大学院入試 流体力学 2006年度の問題と解説。">
+  <title>流体力学 2006年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/fluid.css">
+  <script>
+    window.MathJax = {
+      loader: { load: ['input/asciimath'] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      asciimath: { delimiters: [['`', '`']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static">
-    <div class="container header-content">
-      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-      <nav class="nav" aria-label="主要ナビゲーション">
-        <ul class="nav-list">
-          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-          <li><a href="../../pages/fluid_mechanics.html" class="nav-link">流体力学一覧</a></li>
-          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
-      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/fluid_mechanics.html">流体力学</a><span aria-hidden="true">/</span><span>2006年度</span></div>
-    </nav>
-
-    <section class="archive-hero">
-      <div class="container archive-hero__inner">
-        <p class="eyebrow">2006年度（H18）・全問再計算</p>
-        <h1>流体力学 2006年度</h1>
-        <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
-        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
-      </div>
-    </section>
-
-    <section class="archive-content">
-      <div class="container archive-layout">
-        <div>
-          <h2>収録資料</h2>
-          <div class="resource-grid">
-            <a class="resource-card resource-card--question" href="../../pdfs/question/2006_H18_april/fluid_2006_H18_question.pdf" target="_blank" rel="noopener">
-              <span class="resource-kicker">原本</span>
-              <strong>問題PDFを開く</strong>
-              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
-            </a>
-            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2006_unofficial/2006_fluid.pdf" target="_blank" rel="noopener">
-              <span class="resource-kicker">非公式解答案</span>
-              <strong>解答PDFを開く</strong>
-              <span>全大問を独立計算。原本と照合しながら利用してください。</span>
-            </a>
-          </div>
-
-          <section class="study-guide" aria-labelledby="solution-title">
-            <h2 id="solution-title">全問の独立再計算（非公式）</h2>
-            <p class="note">問題PDF全3ページを確認。図1・図2の座標、速度成分、境界層の尺度を原本から読み取りました。</p>
-            <h3>大問1　質量保存則 (1)-(3)</h3>
-            <p><strong>仮定：</strong>長方形 <span class="formula">x<sub>1</sub>&le;x&le;x<sub>2</sub>, y<sub>1</sub>&le;y&le;y<sub>2</sub></span>、面外単位長さ。右面・上面は流出、左面・下面は流入。</p>
-            <p><strong>途中式・答：</strong>蓄積率は「流入−流出」なので <span class="formula">&part;&int;&int;&rho;dxdy/&part;t=-&int;(&rho;u)<sub>x<sub>2</sub></sub>dy+&int;(&rho;u)<sub>x<sub>1</sub></sub>dy-&int;(&rho;v)<sub>y<sub>2</sub></sub>dx+&int;(&rho;v)<sub>y<sub>1</sub></sub>dx</span>。任意領域で <span class="formula">&part;&rho;/&part;t+&part;(&rho;u)/&part;x+&part;(&rho;v)/&part;y=0</span>、ラグランジュ形は <span class="formula">D&rho;/Dt+&rho;(&part;u/&part;x+&part;v/&part;y)=0</span>（一定密度なら発散ゼロ）。</p>
-            <h3>大問2　傾いた一様流と二重極 (1)-(3)</h3>
-            <p><strong>仮定：</strong><span class="formula">W=&phi;+i&Psi;</span>、<span class="formula">dW/dz=u-iv</span>、<span class="formula">z=re<sup>i&theta;</sup></span>。<span class="formula">W=Uze<sup>-i&alpha;</sup>+(A/z)e<sup>i&alpha;</sup></span>。</p>
-            <p><strong>途中式・答：</strong>(1) <span class="formula">dW/dz=Ue<sup>-i&alpha;</sup>-Ae<sup>i&alpha;</sup>/z<sup>2</sup></span>。<span class="formula">a=&radic;(A/U)</span> とすればよどみ点は <span class="formula">z=&plusmn;ae<sup>i&alpha;</sup></span>、座標は <span class="formula">(&plusmn;a cos&alpha;,&plusmn;a sin&alpha;)</span>。 (2) <span class="formula">&Psi;=(Ur-A/r)sin(&theta;-&alpha;)=(U-A/r<sup>2</sup>)(y cos&alpha;-x sin&alpha;)</span>。<span class="formula">&Psi;=0</span> は円 <span class="formula">r=a</span> と中心を通る角度 <span class="formula">&alpha;</span> の直線。 (3) 一様流と二重極の重ね合わせで、円は非貫入境界となる円柱まわりの非粘性ポテンシャル流。</p>
-            <h3>大問3　固体回転（強制渦）</h3>
-            <p><strong>問題・仮定：</strong><span class="formula">u<sub>r</sub>=0, u<sub>z</sub>=0, u<sub>&theta;</sub>=Cr</span>、<span class="formula">C&gt;0</span> の軸対称流れ。</p>
-            <p><strong>途中式・最終答：</strong><span class="formula">&omega;<sub>z</sub>=(1/r)&part;(ru<sub>&theta;</sub>)/&part;r=(1/r)&part;(Cr<sup>2</sup>)/&part;r=2C</span>、他成分はゼロ。角速度 <span class="formula">C</span> の剛体回転なので強制渦（solid-body vortex）。</p>
-            <h3>大問4　平板境界層のオーダー評価 (1)-(2)</h3>
-            <p><strong>仮定：</strong>代表長さ <span class="formula">L</span>、境界層厚さ <span class="formula">&delta;</span>、<span class="formula">u=O(U), v=O(V), Re=UL/&nu;&gg;1</span>。標準的な平板境界層の尺度を使う。</p>
-            <p><strong>途中式・答：</strong>連続の式 <span class="formula">&part;u/&part;x+&part;v/&part;y=0</span> から <span class="formula">U/L&sim;V/&delta;</span>、従って <span class="formula">V/U=O(&delta;/L)</span>。運動方程式の対流項 <span class="formula">O(U<sup>2</sup>/L)</span> と粘性項 <span class="formula">O(&nu;U/&delta;<sup>2</sup>)</span> を釣り合わせ、<span class="formula">&delta;<sup>2</sup>/L<sup>2</sup>&sim;1/Re</span>。最終答は <span class="formula">&delta;=O(L/&radic;Re)</span>、従って <span class="formula">V/U=O(Re<sup>-1/2</sup>)</span>。</p>
-          </section>
-
-          <section class="study-guide" aria-labelledby="study-guide-title">
-            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
-            <ol>
-              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
-              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
-              <li>教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。</li>
-            </ol>
-          </section>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content">
+      <div class="header-nav">
+        <h1 class="exam-title"><i class="fas fa-water mr-3 text-blue-600"></i>2006（H18）年　流体力学</h1>
+        <div class="nav-buttons">
+          <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>
+          <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
         </div>
+      </div>
+    </header>
 
-        <aside class="archive-note">
-          <h2>利用上の注意</h2>
-          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
-          <p>解答案は非公式の独立計算です。複素ポテンシャルの符号規約と境界層のオーダー仮定をPDFにも明記しています。</p>
-          <a href="../../about.html">詳しい利用案内を見る</a>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>4題の条件、導出、最終結果を順に確認できます。</p>
+        <a href="../../pdfs/question/2006_H18_april/fluid_2006_H18_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="../../pdfs/answer/2006_unofficial/2006_fluid.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left">
+          <section class="exam-question" aria-labelledby="question-1">
+              <h2 class="main-section-title" id="question-1">大問1　質量保存則 (1)-(3)</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>長方形 `x_(1)&lt;=x&lt;=x_(2), y_(1)&lt;=y&lt;=y_(2)`、面外単位長さ。右面・上面は流出、左面・下面は流入。</p></div>
+<div class="answer-highlight"><strong>途中式・答：</strong>蓄積率は「流入−流出」なので `partial int int rho dxdy/ partial t=-int ( rho u)_(x_(2))dy+int ( rho u)_(x_(1))dy-int ( rho v)_(y_(2))dx+int ( rho v)_(y_(1))dx`。任意領域で `partial rho / partial t+ partial ( rho u)/ partial x+ partial ( rho v)/ partial y=0`、ラグランジュ形は `D rho /Dt+ rho ( partial u/ partial x+ partial v/ partial y)=0`（一定密度なら発散ゼロ）。</div>
+            </section><section class="exam-question" aria-labelledby="question-2">
+              <h2 class="main-section-title" id="question-2">大問2　傾いた一様流と二重極 (1)-(3)</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>`W= phi +i Psi`、`dW/dz=u-iv`、`z=re^(i theta )`。`W=Uze^(-i alpha )+(A/z)e^(i alpha )`。</p></div>
+<div class="answer-highlight"><strong>途中式・答：</strong>(1) `dW/dz=Ue^(-i alpha )-Ae^(i alpha )/z^(2)`。`a= sqrt (A/U)` とすればよどみ点は `z=+-ae^(i alpha )`、座標は `(+-a cos alpha ,+-a sin alpha )`。 (2) `Psi =(Ur-A/r)sin( theta - alpha )=(U-A/r^(2))(y cos alpha -x sin alpha )`。`Psi =0` は円 `r=a` と中心を通る角度 `alpha` の直線。 (3) 一様流と二重極の重ね合わせで、円は非貫入境界となる円柱まわりの非粘性ポテンシャル流。</div>
+            </section><section class="exam-question" aria-labelledby="question-3">
+              <h2 class="main-section-title" id="question-3">大問3　固体回転（強制渦）</h2>
+              <div class="example-box"><p class="problem-statement"><strong>問題・仮定：</strong>`u_(r)=0, u_(z)=0, u_( theta )=Cr`、`C&gt;0` の軸対称流れ。</p></div>
+<div class="answer-highlight"><strong>途中式・最終答：</strong>`omega _(z)=(1/r) partial (ru_( theta ))/ partial r=(1/r) partial (Cr^(2))/ partial r=2C`、他成分はゼロ。角速度 `C` の剛体回転なので強制渦（solid-body vortex）。</div>
+            </section><section class="exam-question" aria-labelledby="question-4">
+              <h2 class="main-section-title" id="question-4">大問4　平板境界層のオーダー評価 (1)-(2)</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>代表長さ `L`、境界層厚さ `delta`、`u=O(U), v=O(V), Re=UL/ nu &gt;&gt;1`。標準的な平板境界層の尺度を使う。</p></div>
+<div class="answer-highlight"><strong>途中式・答：</strong>連続の式 `partial u/ partial x+ partial v/ partial y=0` から `U/L∼V/delta`、従って `V/U=O(delta/L)`。運動方程式の対流項 `O(U^(2)/L)` と粘性項 `O( nu U/delta^(2))` を釣り合わせ、`delta^(2)/L^(2)∼1/Re`。最終答は `delta=O(L/ sqrt Re)`、従って `V/U=O(Re^(-1/2))`。</div>
+            </section>
+        </main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc">
+            <div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div>
+            <ol><li><a href="#question-1">大問1　質量保存則 (1)-(3)</a></li><li><a href="#question-2">大問2　傾いた一様流と二重極 (1)-(3)</a></li><li><a href="#question-3">大問3　固体回転（強制渦）</a></li><li><a href="#question-4">大問4　平板境界層のオーダー評価 (1)-(2)</a></li></ol>
+          </div>
+          <div class="point-box">
+            <div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div>
+            <p><a href="../../pdfs/question/2006_H18_april/fluid_2006_H18_question.pdf" target="_blank" rel="noopener">問題PDF</a></p>
+            <p><a href="../../pdfs/answer/2006_unofficial/2006_fluid.pdf" target="_blank" rel="noopener">解答PDF</a></p>
+          </div>
         </aside>
       </div>
-    </section>
 
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
-      <a href="2005.html">← 2005年度</a>
-      <a href="../../pages/fluid_mechanics.html">年度一覧</a>
-      <a href="2007.html">2007年度 →</a>
-    </nav>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
-      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション">
+        <a href="2005.html">← 2005年度</a><a href="../../pages/fluid_mechanics.html">年度一覧</a><a href="2007.html">2007年度 →</a>
+      </nav>
     </div>
-  </footer>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body>
 </html>

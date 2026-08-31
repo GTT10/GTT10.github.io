@@ -3,104 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 流体力学 2007年度の問題原本と全問独立再計算による非公式解説。">
-  <title>流体力学 2007年度 非公式解答・解説</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
+  <meta name="description" content="岡山大学大学院入試 流体力学 2007年度の問題と解説。">
+  <title>流体力学 2007年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/fluid.css">
+  <script>
+    window.MathJax = {
+      loader: { load: ['input/asciimath'] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      asciimath: { delimiters: [['`', '`']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static">
-    <div class="container header-content">
-      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-      <nav class="nav" aria-label="主要ナビゲーション">
-        <ul class="nav-list">
-          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-          <li><a href="../../pages/fluid_mechanics.html" class="nav-link">流体力学一覧</a></li>
-          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
-      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/fluid_mechanics.html">流体力学</a><span aria-hidden="true">/</span><span>2007年度</span></div>
-    </nav>
-
-    <section class="archive-hero">
-      <div class="container archive-hero__inner">
-        <p class="eyebrow">2007年度（H19）・全問再計算</p>
-        <h1>流体力学 2007年度</h1>
-        <p>問題原本の全ページを確認し、全大問・全小問を独立に導出した非公式解説です。</p>
-        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
-      </div>
-    </section>
-
-    <section class="archive-content">
-      <div class="container archive-layout">
-        <div>
-          <h2>収録資料</h2>
-          <div class="resource-grid">
-            <a class="resource-card resource-card--question" href="../../pdfs/question/2007_H19_april/fluid_2007_H19_question.pdf" target="_blank" rel="noopener">
-              <span class="resource-kicker">原本</span>
-              <strong>問題PDFを開く</strong>
-              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
-            </a>
-            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2007_unofficial/2007_fluid.pdf" target="_blank" rel="noopener">
-              <span class="resource-kicker">非公式解答案</span>
-              <strong>解答PDFを開く</strong>
-              <span>全大問を独立計算。原本と照合しながら利用してください。</span>
-            </a>
-          </div>
-
-          <section class="study-guide" aria-labelledby="solution-title">
-            <h2 id="solution-title">全問の独立再計算（非公式）</h2>
-            <p class="note">問題PDF全2ページを確認。複素対数の枝と自由渦の原点特異性も注記しています。</p>
-            <h3>大問1　開放箱の側孔からの流出 (1)-(3)</h3>
-            <p><strong>仮定：</strong>非粘性・定常・同一流線。自由表面 A の速度は無視し、A・B とも大気圧 <span class="formula">p<sub>a</sub></span>、高低差は <span class="formula">h</span>。</p>
-            <p><strong>途中式・答：</strong>圧力水頭・速度水頭・位置水頭を用いて <span class="formula">p/(&rho;g)+V<sup>2</sup>/(2g)+z=const.</span>。A-B 間で <span class="formula">p<sub>A</sub>=p<sub>B</sub>=p<sub>a</sub>, V<sub>A</sub>&asymp;0</span> とすると <span class="formula">v<sup>2</sup>/2=gh</span>、最終答 <span class="formula">v=&radic;(2gh)</span>。実流では流出係数が付くが原本の理想仮定では <span class="formula">C<sub>d</sub>=1</span>。</p>
-            <h3>大問2　複素速度ポテンシャル (1)-(2)</h3>
-            <p><strong>規約：</strong><span class="formula">W=&phi;+i&psi;</span>、<span class="formula">dW/dz=u-iv</span>、<span class="formula">z=re<sup>i&theta;</sup></span>、対数の枝を局所固定。</p>
-            <p><strong>途中式・答：</strong>(1) <span class="formula">W=a log z</span> で <span class="formula">a</span> 実数なら <span class="formula">u<sub>r</sub>=a/r, u<sub>&theta;</sub>=0</span> の点源（<span class="formula">a&gt;0</span>）または吸込み（<span class="formula">a&lt;0</span>）。<span class="formula">a=ib</span> なら <span class="formula">u<sub>r</sub>=0, u<sub>&theta;</sub>=-b/r</span> の自由渦、循環 <span class="formula">&Gamma;=-2&pi;b</span>。 (2) <span class="formula">W=Uz+m log z</span> は <span class="formula">dW/dz=U+m/z=0</span> からよどみ点 <span class="formula">z=-m/U</span>。<span class="formula">&theta;=&pi;</span> の枝なら通過流線の値は <span class="formula">&psi;=m&pi;</span>（枝 <span class="formula">-&pi;</span> なら <span class="formula">-m&pi;</span> と表示）。</p>
-            <h3>大問3　自由渦の渦度・循環・圧力 (1)-(4)</h3>
-            <p><strong>仮定：</strong><span class="formula">u<sub>&theta;</sub>=&Omega;a<sup>2</sup>/r</span>、<span class="formula">u<sub>r</sub>=u<sub>z</sub>=0</span>、無限遠圧力 <span class="formula">p<sub>a</sub></span>。</p>
-            <p><strong>途中式・答：</strong><span class="formula">ru<sub>&theta;</sub>=&Omega;a<sup>2</sup></span> 一定なので自由渦。<span class="formula">r&gt;0</span> では <span class="formula">&omega;<sub>z</sub>=(1/r)&part;(ru<sub>&theta;</sub>)/&part;r=0</span>（原点には集中特異性）。循環は <span class="formula">&Gamma;=2&pi;r(&Omega;a<sup>2</sup>/r)=2&pi;&Omega;a<sup>2</sup></span>。半径方向釣合い <span class="formula">dp/dr=&rho;&Omega;<sup>2</sup>a<sup>4</sup>/r<sup>3</sup></span> を積分して <span class="formula">p(r)=p<sub>a</sub>-&rho;&Omega;<sup>2</sup>a<sup>4</sup>/(2r<sup>2</sup>)</span>。</p>
-            <h3>大問4　極座標での連続の式</h3>
-            <p><strong>仮定：</strong>微小扇形 <span class="formula">dr&times;r d&theta;</span>、面外単位長さ、密度 <span class="formula">&rho;(r,&theta;,t)</span>、速度成分 <span class="formula">(v<sub>r</sub>,v<sub>&theta;</sub>)</span>。</p>
-            <p><strong>途中式・最終答：</strong>蓄積は <span class="formula">(&part;&rho;/&part;t)r dr d&theta;</span>、半径面の正味流出は <span class="formula">&part;(r&rho;v<sub>r</sub>)/&part;r dr d&theta;</span>、角度面は <span class="formula">&part;(&rho;v<sub>&theta;</sub>)/&part;&theta; dr d&theta;</span>。よって <span class="formula">&part;&rho;/&part;t+(1/r)&part;(r&rho;v<sub>r</sub>)/&part;r+(1/r)&part;(&rho;v<sub>&theta;</sub>)/&part;&theta;=0</span>。</p>
-          </section>
-
-          <section class="study-guide" aria-labelledby="study-guide-title">
-            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
-            <ol>
-              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
-              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
-              <li>教科書や講義資料を使って解法を検算し、自分用の解説をまとめる。</li>
-            </ol>
-          </section>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content">
+      <div class="header-nav">
+        <h1 class="exam-title"><i class="fas fa-water mr-3 text-blue-600"></i>2007（H19）年　流体力学</h1>
+        <div class="nav-buttons">
+          <a href="../../pages/fluid_mechanics.html" class="about-link">流体力学一覧に戻る</a>
+          <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
         </div>
+      </div>
+    </header>
 
-        <aside class="archive-note">
-          <h2>利用上の注意</h2>
-          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
-          <p>解答案は非公式の独立計算です。対数の枝による流れ関数の表示差と自由渦の原点特異性を明記しています。</p>
-          <a href="../../about.html">詳しい利用案内を見る</a>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>4題の条件、導出、最終結果を順に確認できます。</p>
+        <a href="../../pdfs/question/2007_H19_april/fluid_2007_H19_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="../../pdfs/answer/2007_unofficial/2007_fluid.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left">
+          <section class="exam-question" aria-labelledby="question-1">
+              <h2 class="main-section-title" id="question-1">大問1　開放箱の側孔からの流出 (1)-(3)</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>非粘性・定常・同一流線。自由表面 A の速度は無視し、A・B とも大気圧 `p_(a)`、高低差は `h`。</p></div>
+<div class="answer-highlight"><strong>途中式・答：</strong>圧力水頭・速度水頭・位置水頭を用いて `p/( rho g)+V^(2)/(2g)+z=const.`。A-B 間で `p_(A)=p_(B)=p_(a), V_(A)~~0` とすると `v^(2)/2=gh`、最終答 `v= sqrt (2gh)`。実流では流出係数が付くが原本の理想仮定では `C_(d)=1`。</div>
+            </section><section class="exam-question" aria-labelledby="question-2">
+              <h2 class="main-section-title" id="question-2">大問2　複素速度ポテンシャル (1)-(2)</h2>
+              <div class="solution-step"><strong>規約：</strong>`W= phi +i psi`、`dW/dz=u-iv`、`z=re^(i theta )`、対数の枝を局所固定。</div>
+<div class="answer-highlight"><strong>途中式・答：</strong>(1) `W=a log z` で `a` 実数なら `u_(r)=a/r, u_( theta )=0` の点源（`a&gt;0`）または吸込み（`a&lt;0`）。`a=ib` なら `u_(r)=0, u_( theta )=-b/r` の自由渦、循環 `Gamma =-2 pi b`。 (2) `W=Uz+m log z` は `dW/dz=U+m/z=0` からよどみ点 `z=-m/U`。`theta = pi` の枝なら通過流線の値は `psi =m pi`（枝 `- pi` なら `-m pi` と表示）。</div>
+            </section><section class="exam-question" aria-labelledby="question-3">
+              <h2 class="main-section-title" id="question-3">大問3　自由渦の渦度・循環・圧力 (1)-(4)</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>`u_( theta )= Omega a^(2)/r`、`u_(r)=u_(z)=0`、無限遠圧力 `p_(a)`。</p></div>
+<div class="answer-highlight"><strong>途中式・答：</strong>`ru_( theta )= Omega a^(2)` 一定なので自由渦。`r&gt;0` では `omega _(z)=(1/r) partial (ru_( theta ))/ partial r=0`（原点には集中特異性）。循環は `Gamma =2 pi r( Omega a^(2)/r)=2 pi Omega a^(2)`。半径方向釣合い `dp/dr= rho Omega ^(2)a^(4)/r^(3)` を積分して `p(r)=p_(a)- rho Omega ^(2)a^(4)/(2r^(2))`。</div>
+            </section><section class="exam-question" aria-labelledby="question-4">
+              <h2 class="main-section-title" id="question-4">大問4　極座標での連続の式</h2>
+              <div class="example-box"><p class="problem-statement"><strong>仮定：</strong>微小扇形 `dr xx r d theta`、面外単位長さ、密度 `rho (r, theta ,t)`、速度成分 `(v_(r),v_( theta ))`。</p></div>
+<div class="answer-highlight"><strong>途中式・最終答：</strong>蓄積は `( partial rho / partial t)r dr d theta`、半径面の正味流出は `partial (r rho v_(r))/ partial r dr d theta`、角度面は `partial ( rho v_( theta ))/ partial theta dr d theta`。よって `partial rho / partial t+(1/r) partial (r rho v_(r))/ partial r+(1/r) partial ( rho v_( theta ))/ partial theta =0`。</div>
+            </section>
+        </main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc">
+            <div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div>
+            <ol><li><a href="#question-1">大問1　開放箱の側孔からの流出 (1)-(3)</a></li><li><a href="#question-2">大問2　複素速度ポテンシャル (1)-(2)</a></li><li><a href="#question-3">大問3　自由渦の渦度・循環・圧力 (1)-(4)</a></li><li><a href="#question-4">大問4　極座標での連続の式</a></li></ol>
+          </div>
+          <div class="point-box">
+            <div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div>
+            <p><a href="../../pdfs/question/2007_H19_april/fluid_2007_H19_question.pdf" target="_blank" rel="noopener">問題PDF</a></p>
+            <p><a href="../../pdfs/answer/2007_unofficial/2007_fluid.pdf" target="_blank" rel="noopener">解答PDF</a></p>
+          </div>
         </aside>
       </div>
-    </section>
 
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
-      <a href="2006.html">← 2006年度</a>
-      <a href="../../pages/fluid_mechanics.html">年度一覧</a>
-      <a href="2008.html">2008年度 →</a>
-    </nav>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
-      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション">
+        <a href="2006.html">← 2006年度</a><a href="../../pages/fluid_mechanics.html">年度一覧</a><a href="2008.html">2008年度 →</a>
+      </nav>
     </div>
-  </footer>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body>
 </html>

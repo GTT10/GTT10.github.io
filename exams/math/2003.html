@@ -1,98 +1,109 @@
 <!DOCTYPE html>
-<html lang="ja" data-page-status="archive">
+<html lang="ja" data-page-status="available">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 数学 2003年度の過去問資料ページ。問題PDFと非公式解答案を収録しています。">
-  <title>数学 2003年度 過去問・資料 - 岡山大学大学院入試アーカイブ</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/archive.css">
+  <meta name="description" content="岡山大学大学院入試 数学 2003年度の問題と解説。">
+  <title>数学 2003年度 解説 - 岡山大学大学院入試アーカイブ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/math.css">
+  <script>
+    window.MathJax = {
+      loader: { load: ['input/asciimath'] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      asciimath: { delimiters: [['`', '`']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="header header--static">
-    <div class="container header-content">
-      <a class="logo logo-link" href="../../index.html">岡山大学大学院入試アーカイブ</a>
-      <nav class="nav" aria-label="主要ナビゲーション">
-        <ul class="nav-list">
-          <li><a href="../../index.html" class="nav-link">ホーム</a></li>
-          <li><a href="../../pages/math.html" class="nav-link">数学一覧</a></li>
-          <li><a href="../../about.html" class="nav-link">サイトについて</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <nav class="breadcrumb breadcrumb--static" aria-label="パンくずリスト">
-      <div class="container"><a href="../../index.html">ホーム</a><span aria-hidden="true">/</span><a href="../../pages/math.html">数学</a><span aria-hidden="true">/</span><span>2003年度</span></div>
-    </nav>
-
-    <section class="archive-hero">
-      <div class="container archive-hero__inner">
-        <p class="eyebrow">2003年度（H15）・過去問資料</p>
-        <h1>数学 2003年度</h1>
-        <p>微分積分、線形代数、微分方程式、ベクトル解析などを年度別に確認できます。</p>
-        <div class="status-line"><span class="status-badge status-badge--available">問題・非公式解答案あり</span><span>原本を優先してご確認ください</span></div>
-      </div>
-    </section>
-
-    <section class="archive-content">
-      <div class="container archive-layout">
-        <div>
-          <h2>収録資料</h2>
-          <div class="resource-grid">
-            <a class="resource-card resource-card--question" href="../../pdfs/question/2003_H15_april/math_2003_H15_question.pdf" target="_blank" rel="noopener">
-              <span class="resource-kicker">原本</span>
-              <strong>問題PDFを開く</strong>
-              <span>別タブで表示します。印刷や保存はPDF画面から行えます。</span>
-            </a>
-            <a class="resource-card resource-card--answer" href="../../pdfs/answer/2003_unofficial/2003_math.pdf" target="_blank" rel="noopener">
-          <span class="resource-kicker">非公式解答案</span>
-          <strong>解答PDFを開く</strong>
-          <span>内容をうのみにせず、式と単位を確認しながら利用してください。</span>
-        </a>
-          </div>
-
-          <section class="study-guide" aria-labelledby="audit-note-title">
-            <h2 id="audit-note-title">学術再検算で確認した訂正</h2>
-            <ul>
-              <li><strong>大問2(3):</strong> 原問題の「20年後に100万倍」に従い、α=0なら <code>k=ln(10^6)/20≈0.691</code> です。解答PDFの読み替えは原問題と一致しません。</li>
-              <li><strong>大問3(1):</strong> 設問の演算子はベクトル・ラプラシアン <code>∇²A</code> と <code>∇(∇·A)</code> です。解答PDF途中の <code>∇×A</code> は演算子の誤記です。</li>
-              <li><strong>大問4(1):</strong> 三角波の周期Laplace変換は <code>(1-e^(-as))/[a s²(1+e^(-as))]</code> です。解答PDFの式は <code>s→0+</code> の平均値条件にも一致しません。</li>
-            </ul>
-          </section>
-
-          <section class="study-guide" aria-labelledby="study-guide-title">
-            <h2 id="study-guide-title">この年度に取り組むときの確認手順</h2>
-            <ol>
-              <li>問題PDFを開き、試験時間を決めて最初に自力で解く。</li>
-              <li>記号、仮定、単位、符号規約を答案の冒頭で明確にする。</li>
-              <li>非公式解答案と照合し、途中式や別解も自分で検算する。</li>
-            </ol>
-          </section>
+  <div class="page-wrapper">
+    <div class="header-decoration"></div>
+    <header class="page-content">
+      <div class="header-nav">
+        <h1 class="exam-title"><i class="fas fa-infinity mr-3 text-blue-600"></i>2003（H15）年　数学</h1>
+        <div class="nav-buttons">
+          <a href="../../pages/math.html" class="about-link">数学一覧に戻る</a>
+          <a href="../../index.html#subjects" class="about-link">トップページに戻る</a>
         </div>
+      </div>
+    </header>
 
-        <aside class="archive-note">
-          <h2>利用上の注意</h2>
-          <p>このサイトは非公式の学習用アーカイブです。大学公式の掲載物ではありません。</p>
-          <p>解答案は未検証の箇所を含む可能性があります。数式、数値、図表は原本と照合してください。</p>
-          <a href="../../about.html">詳しい利用案内を見る</a>
+    <div class="page-content">
+      <section class="problem-overview-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">問題概要</h2>
+        <p>4題の条件、導出、最終結果を順に確認できます。</p>
+        <a href="../../pdfs/question/2003_H15_april/math_2003_H15_question.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 問題PDF</a>
+        <a href="../../pdfs/answer/2003_unofficial/2003_math.pdf" class="pdf-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 解答PDF</a>
+      </section>
+
+      <hr class="separator-line">
+      <div class="exam-grid exam-grid--overview">
+        <main class="exam-col-left">
+          <section class="exam-question" aria-labelledby="question-1">
+              <h2 class="main-section-title" id="question-1">大問1　\(\sin x/x\) のTaylor展開</h2>
+              <div class="solution-step">正弦のMaclaurin展開を \(x\) で割ります。\(x=0\) は極限値1で連続に拡張します。</div>
+<div class="math-block">\[\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+O(x^9),\]</div>
+<div class="answer-highlight">\[\boxed{\frac{\sin x}{x}=1-\frac{x^2}{6}+\frac{x^4}{120}-\frac{x^6}{5040}+O(x^8)}.\]</div>
+            </section><section class="exam-question" aria-labelledby="question-2">
+              <h2 class="main-section-title" id="question-2">大問2　シマスズキの個体数モデル</h2>
+              <div class="solution-step"><strong>(1)</strong> 年間増殖数が \(kp(t)\)、個体数に依らない年間死滅数が \(\alpha\) なので</div>
+<div class="math-block">\[\boxed{\frac{dp}{dt}=kp-\alpha},\qquad p(t_0)=p_0.\]</div>
+<div class="solution-step"><strong>(2)</strong> \(k\ne0\) では積分因子を使って</div>
+<div class="math-block">\[\boxed{p(t)=\frac{\alpha}{k}+\left(p_0-\frac{\alpha}{k}\right)e^{k(t-t_0)}}.\]</div>
+<div class="solution-step">なお \(k=0\) の場合は \(p(t)=p_0-\alpha(t-t_0)\) です。</div>
+<div class="solution-step"><strong>(3)</strong> 原問は「20年後に100万倍」です。\(\alpha=0\) とすると</div>
+<div class="math-block">\[10^6=e^{20k}\quad\Rightarrow\quad k=\frac{6\ln 10}{20}=0.3\ln10.\]</div>
+<div class="answer-highlight">\[\boxed{k\simeq0.69\ \mathrm{year}^{-1}}\qquad\text{（有効数字2桁）}.\]</div>
+            </section><section class="exam-question" aria-labelledby="question-3">
+              <h2 class="main-section-title" id="question-3">大問3　ベクトル関数の微分演算</h2>
+              <div class="solution-step">\(\mathbf A=A_x\mathbf i+A_y\mathbf j+A_z\mathbf k\) とします。</div>
+<div class="solution-step"><strong>(1)</strong> ベクトル・ラプラシアンと発散の勾配は</div>
+<div class="math-block">\[\nabla^2\mathbf A=(\nabla^2A_x)\mathbf i+(\nabla^2A_y)\mathbf j+(\nabla^2A_z)\mathbf k,\]</div>
+<div class="math-block">\[\nabla(\nabla\!\cdot\!\mathbf A)=
+              \begin{pmatrix}\partial_x\\\partial_y\\\partial_z\end{pmatrix}
+              \left(\partial_xA_x+\partial_yA_y+\partial_zA_z\right).\]</div>
+<div class="solution-step"><strong>(2)</strong> 成分が2回連続微分可能なら、恒等式</div>
+<div class="math-block">\[\nabla\times(\nabla\times\mathbf A)=\nabla(\nabla\cdot\mathbf A)-\nabla^2\mathbf A\]</div>
+<div class="solution-step">が成り立ちます。従って \(\nabla\times\mathbf A=\mathbf0\) なら</div>
+<div class="answer-highlight">\[\boxed{\nabla^2\mathbf A=\nabla(\nabla\cdot\mathbf A)}.\]</div>
+            </section><section class="exam-question" aria-labelledby="question-4">
+              <h2 class="main-section-title" id="question-4">大問4　周期三角波のLaplace変換</h2>
+              <div class="solution-step"><strong>(1)</strong> 周期 \(2a\) の1周期積分は</div>
+<div class="math-block">\[I=\int_0^a\frac{t}{a}e^{-st}\,dt+\int_a^{2a}\frac{2a-t}{a}e^{-st}\,dt
+              =\frac{(1-e^{-as})^2}{as^2}.\]</div>
+<div class="solution-step">周期公式の周期を \(2a\) として \(G(s)=I/(1-e^{-2as})\) なので</div>
+<div class="answer-highlight">\[\boxed{G(s)=\frac{1-e^{-as}}{as^2(1+e^{-as})}=\frac{\tanh(as/2)}{as^2}},\qquad \Re s&gt;0.\]</div>
+<div class="solution-step"><strong>(2)</strong> 周期 \(a\) の区分的連続関数 \(f(t+a)=f(t)\) について、積分区間を周期ごとに分けると</div>
+<div class="math-block">\[\int_0^\infty f(t)e^{-st}\,dt
+              =\sum_{n=0}^\infty e^{-ans}\int_0^a f(\tau)e^{-s\tau}\,d\tau
+              =\frac{\int_0^a f(\tau)e^{-s\tau}\,d\tau}{1-e^{-as}},\]</div>
+<div class="solution-step">となり、原問の公式が得られます（\(\Re s&gt;0\)）。</div>
+            </section>
+        </main>
+        <aside class="exam-col-right" aria-label="ページ内案内">
+          <div class="point-box exam-toc">
+            <div class="section-title"><i class="fas fa-list mr-2"></i>大問へ移動</div>
+            <ol><li><a href="#question-1">大問1　\(\sin x/x\) のTaylor展開</a></li><li><a href="#question-2">大問2　シマスズキの個体数モデル</a></li><li><a href="#question-3">大問3　ベクトル関数の微分演算</a></li><li><a href="#question-4">大問4　周期三角波のLaplace変換</a></li></ol>
+          </div>
+          <div class="point-box">
+            <div class="section-title"><i class="fas fa-file-pdf mr-2"></i>資料</div>
+            <p><a href="../../pdfs/question/2003_H15_april/math_2003_H15_question.pdf" target="_blank" rel="noopener">問題PDF</a></p>
+            <p><a href="../../pdfs/answer/2003_unofficial/2003_math.pdf" target="_blank" rel="noopener">解答PDF</a></p>
+          </div>
         </aside>
       </div>
-    </section>
 
-    <nav class="year-pagination container" aria-label="年度間ナビゲーション">
-      <span></span>
-      <a href="../../pages/math.html">年度一覧</a>
-      <a href="2004.html">2004年度 →</a>
-    </nav>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">非公式・学習目的の岡山大学大学院入試アーカイブ</p>
-      <p class="footer-subtext">問題・解答案の正確性は必ず原本および信頼できる資料で確認してください。</p>
+      <nav class="exam-year-nav" aria-label="年度間ナビゲーション">
+        <span></span><a href="../../pages/math.html">年度一覧</a><a href="2004.html">2004年度 →</a>
+      </nav>
     </div>
-  </footer>
+    <footer class="site-footer">岡山大学大学院入試アーカイブ</footer>
+  </div>
 </body>
 </html>

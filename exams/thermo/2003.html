@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岡山大学大学院入試 熱力学 2003年度の問題概要、独立再計算、非公式解説。">
+  <meta name="description" content="岡山大学大学院入試 熱力学 2003年度の問題概要、独立再計算による解説。">
   <title>熱力学 2003年度 問題解説・独立再計算</title>
   <link rel="stylesheet" href="../../css/thermo.css">
   <script>
@@ -19,8 +19,8 @@
         <h1>熱力学 2003年度</h1>
         <div class="nav-buttons"><a class="about-link" href="../../pages/thermodynamics.html">熱力学一覧</a><a class="about-link" href="../../index.html">ホーム</a></div>
       </nav>
-      <p class="description">H15年度。問題原本の全3大問・全小問を確認した非公式解説です。</p>
-      <div class="accuracy-notice"><strong>検算済み・非公式</strong>以下は問題PDFを読み、状態番号・仮定・符号をそろえて独立に再計算したものです。公式解答ではありません。<a href="../../pdfs/question/2003_H15_april/thermo_2003_H15_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2003_unofficial/thermo_2003_H15_april_answer.pdf">非公式解答PDF</a>も確認できます。</div>
+      <p class="description">H15年度。問題原本の全3大問・全小問を確認した解説です。</p>
+      <div class="point-box source-check"><strong>原本照合</strong>以下は問題PDFを読み、状態番号・仮定・符号をそろえて独立に再計算したものです。<a href="../../pdfs/question/2003_H15_april/thermo_2003_H15_question.pdf">問題PDF</a>と<a href="../../pdfs/answer/2003_unofficial/thermo_2003_H15_april_answer.pdf">解答PDF</a>も確認できます。</div>
 
       <section class="problem-overview-section">
         <h2>問題概要と検証範囲</h2>
@@ -39,9 +39,8 @@
             <div class="math-block">\[W_{in}=Q_2-Q_1,\qquad \frac{Q_2}{T_H}=\frac{Q_1}{T_L}.\]</div>
             <div class="final-answer"><div class="section-title">最終答</div><div class="math-block">\[\mathrm{COP}_R=\frac{Q_1}{W_{in}}=\frac{T_L}{T_H-T_L}.\]</div></div>
             <h3 class="section-title">(3)(4) 断熱が不可逆の場合</h3>
-            <p class="solution-step">熱交換がない断熱区間でもエントロピー生成 \(S_{gen}>0\) があるため、T-S図では各断熱線が右へずれます。散逸モデルが指定されていないので曲線形状は一意に描けません。</p>
-            <div class="math-block">\[\frac{Q_2}{T_H}-\frac{Q_1}{T_L}=S_{gen}\ge 0,\qquad Q=\int T\,dS.\]</div>
-            <p class="solution-step">したがって可逆時より冷凍機のCOPは低下します。T-S図の \(Q_1,Q_2\) は各等温線区間の下の面積で表します。</p>
+            <p class="solution-step">熱交換がない断熱区間でも、進行方向には \(\Delta S_{12}=S_{gen,12}>0\)、\(\Delta S_{34}=S_{gen,34}>0\) という端点条件だけが得られます。従ってT-S図では各終点が始点より右に来ますが、摩擦・絞り・有限圧力差などの散逸機構と準静的な状態経路が指定されていないため、途中の曲線は一意に描けません。非平衡過程なら途中状態をP-V線やT-S線として表すこと自体にも追加仮定が必要です。</p>
+            <div class="final-answer"><div class="section-title">一意に言える範囲</div><div class="math-block">\[\frac{Q_2}{T_H}-\frac{Q_1}{T_L}=S_{gen,12}+S_{gen,34}>0,\qquad \mathrm{COP}_R=\frac{Q_1}{Q_2-Q_1}<\frac{T_L}{T_H-T_L}.\]</div><p>等温区間が内部可逆という追加仮定の下でだけ、\(Q_1=T_L\Delta S_{41}\)、\(Q_2=-T_H\Delta S_{23}\) をT-S図の面積として示せます。散逸モデルなしに特定の不可逆断熱曲線を描く答えは一意ではありません。</p></div>
           </section>
 
           <hr class="separator-line">
@@ -80,7 +79,7 @@
         </main>
         <aside class="exam-col-right">
           <div class="point-box"><h2 class="section-title">確認済み</h2><ul><li>問題PDF 3ページを全ページ確認</li><li>第1問 4小問</li><li>第2問 4小問</li><li>第3問 図・熱量・抽気率・効率</li><li>状態番号と符号を独立再計算</li></ul></div>
-          <div class="point-box"><h2 class="section-title">不確実性</h2><p>第3問の給水加熱器は図の直接接触型として収支を書きました。ポンプ仕事の扱いは、設問の「タービン仕事」か「正味仕事」かで定義が変わるため明示しています。</p></div>
+          <div class="point-box"><h2 class="section-title">条件に依存する箇所</h2><p>第1問の不可逆断熱曲線は散逸モデルなしには一意でありません。第3問の給水加熱器は図の直接接触型として収支を書き、ポンプ仕事は「タービン仕事」か「正味仕事」かで分けています。</p></div>
         </aside>
       </div>
       <footer class="site-footer"><a href="../../pages/thermodynamics.html">年度一覧</a>　<a href="2004.html">2004年度 →</a></footer>
